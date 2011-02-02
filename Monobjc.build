@@ -47,7 +47,7 @@
   <!-- ===============================================================================
   Build the bridge libraries
   ================================================================================ -->
-  <target name="build-libraries" depends="prepare">
+  <target name="build-libraries" depends="prepare,build-native">
     <nant buildfile="${libraries.dir}/Modules.build"/>
   </target>
 
