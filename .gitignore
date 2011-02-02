@@ -12,7 +12,5 @@ _ReSharper*
 *.suo
 *.user
 *.userprefs
-libmonobjc.dylib
-monobjc.h
 runtime
 TestResult.xml
