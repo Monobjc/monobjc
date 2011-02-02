@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Monobjc</RootNamespace>
+    <AssemblyName>Monobjc</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes.cs" />
+    <Compile Include="Class.cs" />
+    <Compile Include="Id.Methods.cs" />
+    <Compile Include="Exception.cs" />
+    <Compile Include="Generators\BlockGenerator.cs" />
+    <Compile Include="Generators\BlockGenerator.Utils.cs" />
+    <Compile Include="Generators\CategoryGenerator.cs" />
+    <Compile Include="Generators\CategoryGenerator.Generation.cs" />
+    <Compile Include="Generators\ClassGenerator.cs" />
+    <Compile Include="Generators\ClassGenerator.Generation.cs" />
+    <Compile Include="Generators\CodeGenerator.cs" />
+    <Compile Include="Generators\CodeGenerator.Generation.cs" />
+    <Compile Include="Generators\CodeGenerator.Types.cs" />
+    <Compile Include="Generators\DynamicAssembly.cs" />
+    <Compile Include="Generators\EmitTools.cs" />
+    <Compile Include="Generators\Tuples.cs" />
+    <Compile Include="Generators\WrapperGenerator.cs" />
+    <Compile Include="Generators\WrapperGenerator.Generation.cs" />
+    <Compile Include="Generators\WrapperGenerator.Utils.cs" />
+    <Compile Include="Id.cs" />
+    <Compile Include="Id.Extensions.cs" />
+    <Compile Include="Id.Messaging.cs" />
+    <Compile Include="IdMarshaler.cs" />
+    <Compile Include="IManagedWrapper.cs" />
+    <Compile Include="IManagedWrapper.Messaging.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="ObjectiveCEncoding.cs" />
+    <Compile Include="ObjectiveCRuntime.Exceptions.cs" />
+    <Compile Include="ObjectiveCRuntime.Instances.cs" />
+    <Compile Include="ObjectiveCRuntime.Messaging.cs" />
+    <Compile Include="ObjectiveCRuntime.Utils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectiveCRuntime.cs" />
+    <Compile Include="Runtime\Messaging.cs" />
+    <Compile Include="Block.cs" />
+    <Compile Include="Runtime\Platform.cs" />
+    <Compile Include="MacOSVersion.cs" />
+    <Compile Include="Runtime\Bridge.cs" />
+    <Compile Include="Runtime\Bridge.Utils.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="SelectorExtensions.cs" />
+    <Compile Include="Utils\ArrayHelper.cs" />
+    <Compile Include="Utils\GenericMethodBinder.cs" />
+    <Compile Include="Utils\ImplicitMethodBinder.cs" />
+    <Compile Include="Utils\TypeHelper.cs" />
+    <Compile Include="ObjectiveCRuntime.Extensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

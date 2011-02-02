@@ -1,0 +1,68 @@
+// 
+// This file is part of Monobjc, a .NET/Objective-C bridge
+// Copyright (C) 2007-2011 - Laurent Etiemble
+// 
+// Monobjc is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published
+// by the Free Software Foundation, either version 3 of the License, or
+// any later version.
+// 
+// Monobjc is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with Monobjc. If not, see <http://www.gnu.org/licenses/>.
+// 
+#import <Cocoa/Cocoa.h>
+
+#include <AvailabilityMacros.h>
+#include <TargetConditionals.h>
+
+#include <objc/objc.h>
+#include <objc/objc-runtime.h>
+
+#include <mono/jit/jit.h>
+#include <mono/metadata/assembly.h>
+#include <mono/metadata/attrdefs.h>
+#include <mono/metadata/debug-helpers.h>
+#include <mono/metadata/exception.h>
+
+#include <glib.h>
+
+// Define the symbol if it does not exists
+#if !defined(MAC_OS_X_VERSION_10_5)
+#define MAC_OS_X_VERSION_10_5 1050
+#endif
+
+// Define the symbol if it does not exists
+#if !defined(MAC_OS_X_VERSION_10_6)
+#define MAC_OS_X_VERSION_10_6 1060
+#endif
+
+// Define the symbol if it does not exists
+#if !defined(NS_BLOCKS_AVAILABLE)
+#define NS_BLOCKS_AVAILABLE 0
+#endif
+
+#if !NSINTEGER_DEFINED
+typedef int NSInteger;
+typedef unsigned int NSUInteger;
+
+#define NSIntegerMax    LONG_MAX
+#define NSIntegerMin    LONG_MIN
+#define NSUIntegerMax   ULONG_MAX
+
+#define NSINTEGER_DEFINED 1
+#endif
+
+#if !CGFLOAT_DEFINED
+typedef float CGFloat;
+
+#define CGFLOAT_MIN FLT_MIN
+#define CGFLOAT_MAX FLT_MAX
+#define CGFLOAT_IS_DOUBLE 0
+
+#define CGFLOAT_DEFINED 1
+#endif

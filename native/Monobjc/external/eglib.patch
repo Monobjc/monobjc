@@ -1,0 +1,176 @@
+diff -burN eglib.orig/config.h eglib/config.h
+--- eglib.orig/config.h	1970-01-01 01:00:00.000000000 +0100
++++ eglib/config.h	2010-09-26 16:18:48.000000000 +0200
+@@ -0,0 +1,106 @@
++/* config.h.  Generated from config.h.in by configure.  */
++/* config.h.in.  Generated from configure.ac by autoheader.  */
++
++/* Define to 1 if you have the <dlfcn.h> header file. */
++#define HAVE_DLFCN_H 1
++
++/* Define to 1 if you have the <getopt.h> header file. */
++#define HAVE_GETOPT_H 1
++
++/* Define to 1 if you have the `getpwent_r' function. */
++/* #undef HAVE_GETPWENT_R */
++
++/* Define to 1 if you have the <iconv.h> header file. */
++#define HAVE_ICONV_H 1
++
++/* Define to 1 if you have the <inttypes.h> header file. */
++#define HAVE_INTTYPES_H 1
++
++/* Define to 1 if you have the <langinfo.h> header file. */
++#define HAVE_LANGINFO_H 1
++
++/* Define to 1 if you have the <memory.h> header file. */
++#define HAVE_MEMORY_H 1
++
++/* Define to 1 if you have the <pwd.h> header file. */
++#define HAVE_PWD_H 1
++
++/* Define to 1 if you have the `rewinddir' function. */
++#define HAVE_REWINDDIR 1
++
++/* Define to 1 if you have the <stdint.h> header file. */
++#define HAVE_STDINT_H 1
++
++/* Define to 1 if you have the <stdlib.h> header file. */
++#define HAVE_STDLIB_H 1
++
++/* Define to 1 if you have the <strings.h> header file. */
++#define HAVE_STRINGS_H 1
++
++/* Define to 1 if you have the <string.h> header file. */
++#define HAVE_STRING_H 1
++
++/* Define to 1 if you have the `strlcpy' function. */
++#define HAVE_STRLCPY 1
++
++/* Define to 1 if you have the `strndup' function. */
++/* #undef HAVE_STRNDUP */
++
++/* Define to 1 if you have the `strtok_r' function. */
++#define HAVE_STRTOK_R 1
++
++/* Define to 1 if you have the <sys/stat.h> header file. */
++#define HAVE_SYS_STAT_H 1
++
++/* Define to 1 if you have the <sys/time.h> header file. */
++#define HAVE_SYS_TIME_H 1
++
++/* Define to 1 if you have the <sys/types.h> header file. */
++#define HAVE_SYS_TYPES_H 1
++
++/* Define to 1 if you have the <sys/wait.h> header file. */
++#define HAVE_SYS_WAIT_H 1
++
++/* Define to 1 if you have the <unistd.h> header file. */
++#define HAVE_UNISTD_H 1
++
++/* Define to the sub-directory in which libtool stores uninstalled libraries.
++   */
++#define LT_OBJDIR ".libs/"
++
++/* Name of package */
++#define PACKAGE "eglib"
++
++/* Define to the address where bug reports for this package should be sent. */
++#define PACKAGE_BUGREPORT ""
++
++/* Define to the full name of this package. */
++#define PACKAGE_NAME ""
++
++/* Define to the full name and version of this package. */
++#define PACKAGE_STRING ""
++
++/* Define to the one symbol short name of this package. */
++#define PACKAGE_TARNAME ""
++
++/* Define to the version of this package. */
++#define PACKAGE_VERSION ""
++
++/* The size of `int', as computed by sizeof. */
++#define SIZEOF_INT 4
++
++#if defined(__i386__) || defined (__ppc__)
++/* The size of `void *', as computed by sizeof. */
++#define SIZEOF_VOID_P 4
++#elif defined(__x86_64__) || defined(__ppc64__)
++/* The size of `void *', as computed by sizeof. */
++#define SIZEOF_VOID_P 8
++#else
++#error Unsupported architecture
++#endif
++
++/* Define to 1 if you have the ANSI C header files. */
++#define STDC_HEADERS 1
++
++/* Version number of package */
++#define VERSION "0.3"
+diff -burN eglib.orig/src/eglib-config.h eglib/src/eglib-config.h
+--- eglib.orig/src/eglib-config.h	1970-01-01 01:00:00.000000000 +0100
++++ eglib/src/eglib-config.h	2010-09-26 16:18:48.000000000 +0200
+@@ -0,0 +1,62 @@
++#ifndef __EGLIB_CONFIG_H
++#define __EGLIB_CONFIG_H
++
++/*
++ * System-dependent settings
++ */
++#define G_GNUC_PRETTY_FUNCTION  
++#define G_GNUC_UNUSED            __attribute__((__unused__))
++
++#if defined(__i386__) || defined(__x86_64__)
++#define G_BYTE_ORDER             G_LITTLE_ENDIAN
++#elif defined(__ppc__) || defined(__ppc64__)
++#define G_BYTE_ORDER             G_BIG_ENDIAN
++#else
++#error Unsupported architecture
++#endif
++
++#define G_GNUC_NORETURN          __attribute__((__noreturn__))
++#define G_SEARCHPATH_SEPARATOR_S ":"
++#define G_SEARCHPATH_SEPARATOR   ':'
++#define G_DIR_SEPARATOR          '/'
++#define G_DIR_SEPARATOR_S        "/"
++
++#if defined(__i386__)
++#define G_BREAKPOINT()           G_STMT_START { __asm__ ("int $03"); } G_STMT_END
++#else
++#define G_BREAKPOINT()           G_STMT_START { raise (SIGTRAP); } G_STMT_END
++#endif
++
++#define G_OS_UNIX
++
++#if defined(__i386__) || defined (__ppc__)
++#define GPOINTER_TO_INT(ptr)   ((gint) (ptr))
++#define GPOINTER_TO_UINT(ptr)  ((guint) (ptr))
++#define GINT_TO_POINTER(v)     ((gpointer) (v))
++#define GUINT_TO_POINTER(v)    ((gpointer) (v))
++
++typedef unsigned int gsize;
++typedef signed   int gssize;
++
++#define G_GSIZE_FORMAT   "u"
++#define G_GUINT64_FORMAT "llu"
++#elif defined(__x86_64__) || defined(__ppc64__)
++#define GPOINTER_TO_INT(ptr)   ((gint)(long) (ptr))
++#define GPOINTER_TO_UINT(ptr)  ((guint)(long) (ptr))
++#define GINT_TO_POINTER(v)     ((gpointer)(glong) (v))
++#define GUINT_TO_POINTER(v)    ((gpointer)(gulong) (v))
++
++typedef unsigned long gsize;
++typedef signed   long gssize;
++
++#define G_GSIZE_FORMAT   "lu"
++#define G_GUINT64_FORMAT "lu"
++#else
++#error Unsupported architecture
++#endif
++
++#if 0 == 1
++#define G_HAVE_ISO_VARARGS
++#endif
++
++#endif

@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<project name="Monobjc" default="build" basedir=".">
+  <description>Monobjc Build File</description>
+
+  <!-- Define properties -->
+  <property name="external.dir" value="${path::get-full-path('./external')}"/>
+  <property name="libraries.dir" value="${path::get-full-path('./libraries')}"/>
+  <property name="native.dir" value="${path::get-full-path('./native')}"/>
+  <property name="tests.dir" value="${path::get-full-path('./tests')}"/>
+  <property name="tools.dir" value="${path::get-full-path('./tools')}"/>
+  <property name="build.dir" value="${path::get-full-path('./build')}"/>
+  <property name="dist.dir" value="${path::get-full-path('./dist')}"/>
+  <property name="binaries.dir" value="${dist.dir}"/>
+
+  <property name="keyfile" value="Monobjc.snk"/>
+
+  <property name="define" value=""/>
+  <property name="debug" value="false"/>
+  <property name="testing" value="false"/>
+
+  <property name="min.version" value="10.5"/>
+  <property name="max.version" value="10.6"/>
+
+  <property name="strip.sources" value="${file::exists('strip.sh')}"/>
+
+  <!-- ===============================================================================
+  Build all the bridge
+  ================================================================================ -->
+  <target name="build" depends="build-libraries">
+  </target>
+
+  <!-- ===============================================================================
+  Build the native binaries
+  ================================================================================ -->
+  <target name="build-native" depends="prepare">
+    <!-- Build the custom runtimes -->
+    <nant buildfile="${native.dir}/Modules.build" if="${platform::is-unix()}"/>
+  </target>
+
+  <!-- ===============================================================================
+  Build the tools libraries
+  ================================================================================ -->
+  <target name="build-tools" depends="prepare,build-native">
+    <nant buildfile="${tools.dir}/Monobjc.Tools.build" inheritall="true"/>
+  </target>
+
+  <!-- ===============================================================================
+  Build the bridge libraries
+  ================================================================================ -->
+  <target name="build-libraries" depends="prepare">
+    <nant buildfile="${libraries.dir}/Modules.build"/>
+  </target>
+
+  <!-- ===============================================================================
+  Build the unit tests
+  ================================================================================ -->
+  <target name="build-tests" depends="build-libraries">
+    <nant buildfile="${tests.dir}/Modules.build"/>
+  </target>
+
+  <!-- ===============================================================================
+  Run the unit tests
+  ================================================================================ -->
+  <target name="run-tests" depends="build-tests">
+    <nant buildfile="${tests.dir}/Modules.build" target="run"/>
+  </target>
+
+  <!-- Prepare the directories -->
+  <target name="prepare">
+    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${dist.dir}"/>
+
+    <!-- Compute the revision -->
+    <property name="revision" value="${timespan::get-days(datetime::now() - datetime::parse('2007-07-01'))}"/>
+  </target>
+
+  <!-- Clean the directories -->
+  <target name="clean">
+    <delete dir="${build.dir}" failonerror="false" />
+    <delete dir="${dist.dir}" failonerror="false" />
+
+    <!-- Clean submodules -->
+    <nant buildfile="${tools.dir}/Monobjc.Tools.build" target="clean"/>
+  </target>
+
+</project>

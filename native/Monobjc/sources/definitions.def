@@ -1,0 +1,43 @@
+// 
+// This file is part of Monobjc, a .NET/Objective-C bridge
+// Copyright (C) 2007-2011 - Laurent Etiemble
+// 
+// Monobjc is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published
+// by the Free Software Foundation, either version 3 of the License, or
+// any later version.
+// 
+// Monobjc is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with Monobjc. If not, see <http://www.gnu.org/licenses/>.
+// 
+DEFINITION(MonoAssembly *,      Monobjc_assembly)
+
+DEFINITION(MonoImage *,         Monobjc_image)
+
+DEFINITION(MonoClass *,         Monobjc_Block_class)
+DEFINITION(MonoClass *,         Monobjc_Class_class)
+DEFINITION(MonoClass *,         Monobjc_Id_class)
+DEFINITION(MonoClass *,         Monobjc_IManagedWrapper_interface)
+DEFINITION(MonoClass *,         Monobjc_ObjectiveCRuntime_class)
+DEFINITION(MonoClass *,         Monobjc_TypeHelper_class)
+
+DEFINITION(MonoType *,          Monobjc_Block_type)
+DEFINITION(MonoType *,          Monobjc_Class_type)
+DEFINITION(MonoType *,          Monobjc_Id_type)
+DEFINITION(MonoType *,          System_Void_type)
+
+DEFINITION(MonoMethod *,        Monobjc_Block_get_NativePointer_method)
+DEFINITION(MonoMethod *,        Monobjc_Class_ctor_method)
+DEFINITION(MonoMethod *,        Monobjc_Class_GetAttributeName_method)
+DEFINITION(MonoMethod *,        Monobjc_Id_ctor_method)
+DEFINITION(MonoMethod *,        Monobjc_ObjectiveCRuntime_GenerateWrapper_method)
+DEFINITION(MonoMethod *,        Monobjc_ObjectiveCRuntime_UnWrap_method)
+DEFINITION(MonoMethod *,        Monobjc_ObjectiveCRuntime_Wrap_method)
+DEFINITION(MonoMethod *,        Monobjc_TypeHelper_GetUnderlyingTypeHandle_method)
+
+DEFINITION(MonoClassField *,    Monobjc_Id_pointer_field);

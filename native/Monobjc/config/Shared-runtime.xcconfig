@@ -1,0 +1,5 @@
+#include "Shared-monobjc"
+INSTALL_PATH = /usr/local/bin
+PRODUCT_NAME = runtime
+ALWAYS_SEARCH_USER_PATHS = NO
+HEADER_SEARCH_PATHS = include external/eglib/src external/libffi-15

@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<project name="Monobjc Module Builder" default="build" basedir="..">
+  <description>Monobjc Module Builder</description>
+
+  <!-- ===============================================================================
+  Extract and generate classes from Apple documentation
+  ================================================================================ -->
+  <target name="generate">
+    <property name="marker.file" value="${libraries.dir}/.generator"/>
+
+    <!-- Builds the generator -->
+    <exec workingdir="${tools.dir}"
+          program="xbuild"
+          failonerror="true"
+          commandline="/property:Configuration=Release Monobjc.Generator/Monobjc.Generator.csproj" unless="${file::exists(marker.file)}">
+    </exec>
+
+    <!-- Execute the generator -->
+    <exec workingdir="${tools.dir}/Monobjc.Generator/bin/Release"
+          program="${tools.dir}/Monobjc.Generator/bin/Release/MonobjcGenerator.exe"
+          failonerror="true"
+          commandline="-t=download,extract,generate,copy -d=${libraries.dir}" unless="${file::exists(marker.file)}">
+    </exec>
+
+    <touch file="${marker.file}"/>
+  </target>
+
+  <!-- ===============================================================================
+  Build all the sets of libraries
+  ================================================================================ -->
+  <target name="build" depends="generate">
+    <if test="${version::get-minor(version::parse(min.version)) &lt;= 5}" >
+      <property name="version" value="10.5"/>
+      <property name="define" value="MACOSX_10_5" unless="${testing}"/>
+      <property name="define" value="TESTING;MACOSX_10_5" if="${testing}"/>
+      <call target="build-libraries-intern" if="${version::get-minor(version::parse(max.version)) >= 5}"/>
+    </if>
+
+    <if test="${version::get-minor(version::parse(min.version)) &lt;= 6}" >
+      <property name="version" value="10.6"/>
+      <property name="define" value="MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT" unless="${testing}"/>
+      <property name="define" value="TESTING;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT" if="${testing}"/>
+      <call target="build-libraries-intern" if="${version::get-minor(version::parse(max.version)) >= 6}"/>
+    </if>
+  </target>
+
+  <!-- ===============================================================================
+  Build a set of libraries
+  ================================================================================ -->
+  <target name="build-libraries-intern">
+    <echo message="------------------------"/>
+    <echo message="Library Set for ${version}"/>
+    <echo message="------------------------"/>
+
+    <!-- Output dir is used to build the assemblies -->
+    <property name="output.dir" value="${dist.dir}/${version}"/>
+    <mkdir dir="${output.dir}"/>
+
+    <!-- Create the assembly info -->
+    <property name="version.info" value="${build.dir}/GeneratedAssemblyInfo.${version}.${revision}.0.cs"/>
+    <asminfo output="${version.info}" language="CSharp" unless="${file::exists(version.info)}">
+      <imports>
+        <import namespace="System" />
+        <import namespace="System.Reflection" />
+        <import namespace="System.Runtime.InteropServices" />
+      </imports>
+      <attributes>
+        <attribute type="AssemblyVersionAttribute" value="${version}.${revision}.0" />
+        <attribute type="AssemblyFileVersionAttribute" value="${version}.${revision}.0" />
+        <attribute type="AssemblyConfigurationAttribute" value="Release Configuration" unless="${testing}"/>
+        <attribute type="AssemblyConfigurationAttribute" value="Testing Configuration" if="${testing}"/>
+        <attribute type="AssemblyKeyFileAttribute" value="${keyfile}" unless="${testing}" />
+      </attributes>
+    </asminfo>
+
+    <!-- Library Monobjc -->
+    <property name="lib.name" value="Monobjc"/>
+    <property name="base.dir" value="${libraries.dir}"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/**/*.cs"/>
+    </fileset>
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+    </assemblyfileset>
+    <call target="build-library-intern"/>
+
+    <!-- Library Monobjc.Foundation -->
+    <!--<property name="lib.name" value="Monobjc.Foundation"/>
+    <property name="base.dir" value="${libraries.dir}"/>
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+      <include name="Monobjc.dll"/>
+    </assemblyfileset>
+    <call target="build-library-intern"/>-->
+
+    <!-- Library Monobjc.AppKit -->
+    <!--<property name="lib.name" value="Monobjc.AppKit"/>
+    <property name="base.dir" value="${libraries.dir}"/>
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+      <include name="Monobjc.dll"/>
+      <include name="Monobjc.Foundation.dll"/>
+    </assemblyfileset>
+    <call target="build-library-intern"/>-->
+
+    <!-- Library Monobjc.AddressBook -->
+    <!--<property name="lib.name" value="Monobjc.AddressBook"/>
+    <property name="base.dir" value="${libraries.dir}"/>
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+      <include name="Monobjc.dll"/>
+      <include name="Monobjc.Foundation.dll"/>
+      <include name="Monobjc.AppKit.dll"/>
+    </assemblyfileset>
+    <call target="build-library-intern"/>-->
+  </target>
+
+  <!-- ===============================================================================
+  Build a library
+  ================================================================================ -->
+  <target name="build-library-intern">
+    <echo message="Library ${lib.name}"/>
+
+    <!-- Compile the library -->
+    <csc target="library"
+       output="${output.dir}/${lib.name}.dll"
+       doc="${output.dir}/${lib.name}.xml"
+       debug="${debug}"
+       define="${define}">
+      <nowarn >
+        <warning number="1584"/>
+      </nowarn>
+      <sources refid="src.references"/>
+      <resources prefix="${lib.name}.Properties">
+        <include name="${base.dir}/${lib.name}/**/*.resx"/>
+      </resources>
+      <references refid="lib.references"/>
+    </csc>
+  </target>
+
+</project>

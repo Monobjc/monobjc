@@ -1,0 +1,2 @@
+INSTALL_PATH = /usr/local/lib
+PRODUCT_NAME = eglib

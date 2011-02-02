@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<project name="Monobjc Module Builder" default="build" basedir="..">
+  <description>Monobjc Module Builder</description>
+
+  <!-- ===============================================================================
+  Build the tests libraries
+  ================================================================================ -->
+  <target name="build">
+    <fail message="Please use -D:testing=true in order to build the unit tests" unless="${testing}"/>
+
+    <if test="${version::get-minor(version::parse(min.version)) &lt;= 5}" >
+      <property name="version" value="10.5"/>
+      <property name="define" value="TESTING;MACOSX_10_5"/>
+      <call target="build-tests-intern" if="${version::get-minor(version::parse(max.version)) >= 5}"/>
+    </if>
+
+    <if test="${version::get-minor(version::parse(min.version)) &lt;= 6}" >
+      <property name="version" value="10.6"/>
+      <property name="define" value="TESTING;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT"/>
+      <call target="build-tests-intern" if="${version::get-minor(version::parse(max.version)) >= 6}"/>
+    </if>
+
+  </target>
+
+  <!-- ===============================================================================
+  Run the tests libraries
+  ================================================================================ -->
+  <target name="run">
+    <fail message="Please use -D:testing=true in order to run the unit tests" unless="${testing}"/>
+
+    <if test="${version::get-minor(version::parse(min.version)) &lt;= 5}" >
+      <property name="version" value="10.5"/>
+      <call target="run-tests-intern" if="${version::get-minor(version::parse(max.version)) >= 5}"/>
+    </if>
+
+    <if test="${version::get-minor(version::parse(min.version)) &lt;= 6}" >
+      <property name="version" value="10.6"/>
+      <call target="run-tests-intern" if="${version::get-minor(version::parse(max.version)) >= 6}"/>
+    </if>
+
+  </target>
+
+  <!-- Build set of unit tests -->
+  <target name="build-tests-intern">
+
+    <echo message="------------------------"/>
+    <echo message="Unit Tests for ${version}"/>
+    <echo message="------------------------"/>
+
+    <!-- Output dir is used to build the assemblies -->
+    <property name="output.dir" value="${dist.dir}/${version}"/>
+    <mkdir dir="${output.dir}"/>
+
+    <!-- Copy the NUnit DLLs -->
+    <copy todir="${output.dir}">
+      <fileset basedir="${external.dir}">
+        <include name="nunit.framework.dll"/>
+      </fileset>
+    </copy>
+
+    <!-- Copy the native libraries -->
+    <copy todir="${output.dir}">
+      <fileset basedir="${dist.dir}">
+        <include name="*.dylib"/>
+      </fileset>
+    </copy>
+
+    <!-- Create the assembly info -->
+    <asminfo output="${build.dir}/GeneratedAssemblyInfo.${version}.${revision}.0.cs" language="CSharp">
+      <imports>
+        <import namespace="System" />
+        <import namespace="System.Reflection" />
+        <import namespace="System.Runtime.InteropServices" />
+      </imports>
+      <attributes>
+        <attribute type="AssemblyVersionAttribute" value="${version}.${revision}.0" />
+        <attribute type="AssemblyFileVersionAttribute" value="${version}.${revision}.0" />
+        <attribute type="AssemblyConfigurationAttribute" value="Testing Configuration"/>
+      </attributes>
+    </asminfo>
+
+    <!-- Test Monobjc -->
+    <property name="test.name" value="Monobjc.Tests"/>
+    <property name="base.dir" value="${tests.dir}"/>
+    <assemblyfileset id="test.references">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+      <include name="${external.dir}/nunit.framework.dll"/>
+      <include name="${output.dir}/Monobjc.dll"/>
+    </assemblyfileset>
+    <call target="build-test-intern"/>
+
+  </target>
+
+  <!-- Build unit tests -->
+  <target name="build-test-intern">
+
+    <echo message="Test ${test.name}"/>
+
+    <!-- Compile the test -->
+    <csc	target="library"
+    		output="${output.dir}/${test.name}.dll"
+        debug="${debug}"
+    		define="${define}">
+      <sources>
+        <include name="${build.dir}/GeneratedAssemblyInfo.${version}.${revision}.0.cs"/>
+        <include name="${base.dir}/${test.name}/**/*.cs"/>
+      </sources>
+      <resources prefix="${test.name}.Properties">
+        <include name="${base.dir}/${test.name}/**/*.resx"/>
+      </resources>
+      <references refid="test.references"/>
+    </csc>
+
+  </target>
+
+  <!-- Run the tests libraries -->
+  <target name="run-tests-intern">
+    <!-- Output dir is used to run the tests -->
+    <property name="output.dir" value="${dist.dir}/${version}"/>
+
+    <!-- Copy NUnit wrapper -->
+    <copy file="${tests.dir}/nunit-${version}"  todir="${output.dir}"/>
+    
+    <!-- Run NUnit -->
+    <exec program="${output.dir}/nunit-${version}" failonerror="false">
+      <arg value="-labels"/>
+      <arg value="-xml=${output.dir}/Monobjc.Tests-Results.xml"/>
+      <arg value="${output.dir}/Monobjc.Tests.dll"/>
+    </exec>
+    
+  </target>
+
+</project>

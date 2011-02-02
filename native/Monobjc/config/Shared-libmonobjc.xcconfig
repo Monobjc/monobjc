@@ -1,0 +1,8 @@
+#include "Shared-monobjc"
+INSTALL_PATH = @executable_path
+EXECUTABLE_PREFIX = lib
+PRODUCT_NAME = monobjc
+DYLIB_COMPATIBILITY_VERSION = 1
+DYLIB_CURRENT_VERSION = 1
+ALWAYS_SEARCH_USER_PATHS = NO
+HEADER_SEARCH_PATHS = external/eglib/src external/libffi-15

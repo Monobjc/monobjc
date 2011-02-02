@@ -1,0 +1,103 @@
+// 
+// This file is part of Monobjc, a .NET/Objective-C bridge
+// Copyright (C) 2007-2011 - Laurent Etiemble
+// 
+// Monobjc is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published
+// by the Free Software Foundation, either version 3 of the License, or
+// any later version.
+// 
+// Monobjc is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with Monobjc. If not, see <http://www.gnu.org/licenses/>.
+// 
+/*
+
+These definitions will be transformed in different way according to the ICALL macro.
+The macro should be used as:
+
+ICALL(<SIGNATURE>,                      <RETURN TYPE>,  <FUNCTION>,                                                 <PARAMETERS>)
+
+*/
+
+#pragma mark ----- Internal Calls for Monobjc.Block -----
+
+#define ICALLTYPE   "Monobjc.Block"
+ICALL("CreateBlock",                    void *,         icall_Monobjc_Block_CreateBlock,                            (void *function))
+ICALL("DestroyBlock",                   void,           icall_Monobjc_Block_DestroyBlock,                           (void *block))
+#undef ICALLTYPE
+
+#pragma mark ----- Internal Calls for Monobjc.Class -----
+
+#define ICALLTYPE   "Monobjc.Class"
+ICALL("Get(intptr)",                    MonoObject *,   icall_Monobjc_Class_Get_intptr,                             (void *ptr))
+ICALL("Get(string)",                    MonoObject *,   icall_Monobjc_Class_Get_string,                             (MonoString *class_name))
+ICALL("GetName",                        MonoString *,   icall_Monobjc_Class_GetName,                                (void *ptr))
+ICALL("GetSuperClass",                  MonoObject *,   icall_Monobjc_Class_GetSuperClass,                          (void *ptr))
+ICALL("IsMapped",                       boolean_t,      icall_Monobjc_Class_IsMapped,                               (MonoString *class_name))
+#undef ICALLTYPE
+
+#pragma mark ----- Internal Calls for Monobjc.Id -----
+
+#define ICALLTYPE   "Monobjc.Id"
+ICALL("GetInstanceVariableInternal",    MonoObject *,   icall_Monobjc_Id_GetInstanceVariable,                       (MonoType *type, void *ptr, MonoString *name))
+ICALL("SetInstanceVariableInternal",    void,           icall_Monobjc_Id_SetInstanceVariable,                       (MonoType *type, void *ptr, MonoString *name, MonoObject *value))
+ICALL("MapInstance",                    void,           icall_Monobjc_Id_MapInstance,                               (void *ptr, MonoObject *wrapper))
+#undef ICALLTYPE
+
+#pragma mark ----- Internal Calls for Monobjc.Logger -----
+
+#define ICALLTYPE   "Monobjc.Logger"
+ICALL("IsDebugEnabled",                 boolean_t,      icall_Monobjc_Logger_IsDebugEnabled,                        (void))
+ICALL("IsInfoEnabled",                  boolean_t,      icall_Monobjc_Logger_IsInfoEnabled,                         (void))
+ICALL("IsWarningEnabled",               boolean_t,      icall_Monobjc_Logger_IsWarningEnabled,                      (void))
+ICALL("IsErrorEnabled",                 boolean_t,      icall_Monobjc_Logger_IsErrorEnabled,                        (void))
+ICALL("LogDebugMessage",                void,           icall_Monobjc_Logger_LogDebugMessage,                       (MonoString *source, MonoString *message))
+ICALL("LogInfoMessage",                 void,           icall_Monobjc_Logger_LogInfoMessage,                        (MonoString *source, MonoString *message))
+ICALL("LogWarningMessage",              void,           icall_Monobjc_Logger_LogWarningMessage,                     (MonoString *source, MonoString *message))
+ICALL("LogErrorMessage",                void,           icall_Monobjc_Logger_LogErrorMessage,                       (MonoString *source, MonoString *message))
+#undef ICALLTYPE
+
+#pragma mark ----- Internal Calls for Monobjc.ObjectiveCEncoding -----
+
+#define ICALLTYPE   "Monobjc.ObjectiveCEncoding"
+ICALL("GetTypeEncodingInternal",        MonoString *,   icall_Monobjc_ObjectiveCEncoding_GetTypeEncoding,           (MonoType *type))
+ICALL("GetTypeSizeInternal",            int32_t,        icall_Monobjc_ObjectiveCEncoding_GetTypeSize,               (MonoType *type))
+#undef ICALLTYPE
+
+#pragma mark ----- Internal Calls for Monobjc.ObjectiveCRuntime -----
+
+#define ICALLTYPE   "Monobjc.ObjectiveCRuntime"
+ICALL("BootstrapInternal",              void,           icall_Monobjc_ObjectiveCRuntime_Bootstrap,                  (void))
+ICALL("CleanUpInternal",                void,           icall_Monobjc_ObjectiveCRuntime_CleanUp,                    (void))
+ICALL("GetInstanceInternal",            MonoObject *,   icall_Monobjc_ObjectiveCRuntime_GetInstance,                (MonoType *type, void *ptr, boolean_t fail_safe))
+#undef ICALLTYPE
+
+#pragma mark ----- Internal Calls for Monobjc.Runtime.Bridge -----
+
+#define ICALLTYPE   "Monobjc.Runtime.Bridge"
+ICALL("AddMethod",                      void,           icall_Monobjc_Runtime_Bridge_AddMethod,                     (void *target, boolean_t meta, MonoMethod *method, MonoString *method_name, MonoString *method_encoding))
+ICALL("AddMethods",                     void,           icall_Monobjc_Runtime_Bridge_AddMethods,                    (void *target, boolean_t meta, MonoArray *method_names, MonoArray *method_implementations, MonoArray *method_encodings))
+ICALL("CreateClass",                    MonoObject *,   icall_Monobjc_Runtime_Bridge_CreateClass,                   (MonoString *class_name, MonoString *super_class_name, MonoArray *ivar_names, MonoArray *ivar_types))
+ICALL("InterceptDeallocFor",            void,           icall_Monobjc_Runtime_Bridge_InterceptDeallocFor,           (MonoObject *obj))
+#undef ICALLTYPE
+
+#pragma mark ----- Internal Calls for Monobjc.Runtime.Messaging -----
+
+#define ICALLTYPE   "Monobjc.Runtime.Messaging"
+ICALL("Call",                           MonoObject *,   icall_Monobjc_Runtime_Messaging_Call,                       (MonoType *return_type, void *receiver, MonoString *name, MonoArray *parameters))
+ICALL("CallSuper",                      MonoObject *,   icall_Monobjc_Runtime_Messaging_CallSuper,                  (MonoType *return_type, void *receiver, void *cls, MonoString *name, MonoArray *parameters))
+#undef ICALLTYPE
+
+#pragma mark ----- Internal Calls for Monobjc.Runtime.Platform -----
+
+#define ICALLTYPE   "Monobjc.Runtime.Platform"
+ICALL("GetProcessor",                   MonoString *,   icall_Monobjc_Runtime_Platform_GetProcessor,                (void))
+ICALL("GetOSVersion",                   OSVersion,      icall_Monobjc_Runtime_Platform_GetOSVersion,                (void))
+ICALL("Is64Bits",                       boolean_t,      icall_Monobjc_Runtime_Platform_Is64Bits,                    (void))
+ICALL("IsBigEndian",                    boolean_t,      icall_Monobjc_Runtime_Platform_IsBigEndian,                 (void))
+#undef ICALLTYPE

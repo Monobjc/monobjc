@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<project name="Monobjc Module Builder" default="build" basedir="..">
+  <description>Monobjc Module Builder</description>
+
+  <!-- ===============================================================================
+  Build the native libraries
+  ================================================================================ -->
+  <target name="build">
+    <property name="minor.number" value="${int::parse(revision) / 100}"/>
+    <property name="build.number" value="${int::parse(revision) % 100}"/>
+
+    <!-- Define some common properties -->
+    <property name="arguments.common"  value="-project Monobjc.xcodeproj -target runtime -configuration Release"/>
+
+    <if test="${version::get-minor(version::parse(min.version)) &lt;= 5}" >
+      <property name="version" value="10.5"/>
+      <property name="arguments.archs"   value="-sdk /Developer/SDKs/MacOSX10.5.sdk ARCHS='i386 ppc' ONLY_ACTIVE_ARCH=false GCC_VERSION=4.2"/>
+      <property name="arguments.version" value="DYLIB_COMPATIBILITY_VERSION=105.0.0 DYLIB_CURRENT_VERSION=105.${minor.number}.${build.number}"/>
+      <call target="build-loader-intern" if="${version::get-minor(version::parse(max.version)) >= 5}"/>
+    </if>
+
+    <if test="${version::get-minor(version::parse(min.version)) &lt;= 6}" >
+      <property name="version" value="10.6"/>
+      <property name="arguments.archs"   value="-sdk /Developer/SDKs/MacOSX10.6.sdk ARCHS='i386' ONLY_ACTIVE_ARCH=false GCC_VERSION=4.2"/>
+      <property name="arguments.version" value="DYLIB_COMPATIBILITY_VERSION=106.0.0 DYLIB_CURRENT_VERSION=106.${minor.number}.${build.number}"/>
+      <call target="build-loader-intern" if="${version::get-minor(version::parse(max.version)) >= 6}"/>
+    </if>
+	
+	<copy file="${native.dir}/monobjc" todir="${dist.dir}"/>
+  </target>
+
+  <!-- Invoke the XCode builder -->
+  <target name="build-loader-intern">
+    <echo message="------------------------"/>
+    <echo message="Native Loader for ${version}"/>
+    <echo message="------------------------"/>
+
+    <property name="arguments.dirs" value="CONFIGURATION_BUILD_DIR='${dist.dir}/${version}' CONFIGURATION_TEMP_DIR='${build.dir}/${version}'"/>
+
+    <exec workingdir="${native.dir}/Monobjc"
+          program="xcodebuild"
+          failonerror="true"
+          commandline="${arguments.common} ${arguments.archs} ${arguments.dirs} ${arguments.version}" >
+    </exec>
+  </target>
+
+</project>

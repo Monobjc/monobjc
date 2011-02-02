@@ -1,0 +1,7 @@
+#include "Shared-libeglib"
+DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
+COPY_PHASE_STRIP = YES
+GCC_ENABLE_FIX_AND_CONTINUE = NO
+
+
+ZERO_LINK = NO
