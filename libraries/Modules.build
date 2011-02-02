@@ -19,7 +19,7 @@
     <exec workingdir="${tools.dir}/Monobjc.Generator/bin/Release"
           program="${tools.dir}/Monobjc.Generator/bin/Release/MonobjcGenerator.exe"
           failonerror="true"
-          commandline="-t=download,extract,generate,copy -d=${libraries.dir}" unless="${file::exists(marker.file)}">
+          commandline="-t=retrieve,extract,generate,copy -d=${libraries.dir}" unless="${file::exists(marker.file)}">
     </exec>
 
     <touch file="${marker.file}"/>
