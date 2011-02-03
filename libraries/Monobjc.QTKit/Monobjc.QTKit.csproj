@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FF524E87-810C-4173-857A-943C0288EC8C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Monobjc.QTKit</RootNamespace>
+    <AssemblyName>Monobjc.QTKit</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QTKit_C\NSCoder_QTKitAdditions.cs" />
+    <Compile Include="QTKit_C\NSValue_QTKitAdditions.cs" />
+    <Compile Include="QTKit_C\QTCaptureAudioPreviewOutput.Class.cs" />
+    <Compile Include="QTKit_C\QTCaptureAudioPreviewOutput.cs" />
+    <Compile Include="QTKit_C\QTCaptureConnection.Class.cs" />
+    <Compile Include="QTKit_C\QTCaptureConnection.Constants.cs" />
+    <Compile Include="QTKit_C\QTCaptureConnection.cs" />
+    <Compile Include="QTKit_C\QTCaptureDecompressedAudioOutput.Class.cs" />
+    <Compile Include="QTKit_C\QTCaptureDecompressedAudioOutput.cs" />
+    <Compile Include="QTKit_C\QTCaptureDecompressedVideoOutput.Class.cs" />
+    <Compile Include="QTKit_C\QTCaptureDecompressedVideoOutput.cs" />
+    <Compile Include="QTKit_C\QTCaptureDevice.Class.cs" />
+    <Compile Include="QTKit_C\QTCaptureDevice.Constants.cs" />
+    <Compile Include="QTKit_C\QTCaptureDevice.Constructors.cs" />
+    <Compile Include="QTKit_C\QTCaptureDevice.cs" />
+    <Compile Include="QTKit_C\QTCaptureDevice.Protocols.cs" />
+    <Compile Include="QTKit_C\QTCaptureDeviceInput.Class.cs" />
+    <Compile Include="QTKit_C\QTCaptureDeviceInput.Constructors.cs" />
+    <Compile Include="QTKit_C\QTCaptureDeviceInput.cs" />
+    <Compile Include="QTKit_C\QTCaptureFileOutput.Class.cs" />
+    <Compile Include="QTKit_C\QTCaptureFileOutput.Constants.cs" />
+    <Compile Include="QTKit_C\QTCaptureFileOutput.cs" />
+    <Compile Include="QTKit_C\QTCaptureInput.Class.cs" />
+    <Compile Include="QTKit_C\QTCaptureInput.cs" />
+    <Compile Include="QTKit_C\QTCaptureLayer.Class.cs" />
+    <Compile Include="QTKit_C\QTCaptureLayer.Constructors.cs" />
+    <Compile Include="QTKit_C\QTCaptureLayer.cs" />
+    <Compile Include="QTKit_C\QTCaptureLayer.Protocols.cs" />
+    <Compile Include="QTKit_C\QTCaptureMovieFileOutput.Class.cs" />
+    <Compile Include="QTKit_C\QTCaptureMovieFileOutput.cs" />
+    <Compile Include="QTKit_C\QTCaptureOutput.Class.cs" />
+    <Compile Include="QTKit_C\QTCaptureOutput.cs" />
+    <Compile Include="QTKit_C\QTCaptureSession.Class.cs" />
+    <Compile Include="QTKit_C\QTCaptureSession.Constants.cs" />
+    <Compile Include="QTKit_C\QTCaptureSession.cs" />
+    <Compile Include="QTKit_C\QTCaptureVideoPreviewOutput.Class.cs" />
+    <Compile Include="QTKit_C\QTCaptureVideoPreviewOutput.cs" />
+    <Compile Include="QTKit_C\QTCaptureView.Class.cs" />
+    <Compile Include="QTKit_C\QTCaptureView.Constructors.cs" />
+    <Compile Include="QTKit_C\QTCaptureView.cs" />
+    <Compile Include="QTKit_C\QTCaptureView.Protocols.cs" />
+    <Compile Include="QTKit_C\QTCompressionOptions.Class.cs" />
+    <Compile Include="QTKit_C\QTCompressionOptions.Constants.cs" />
+    <Compile Include="QTKit_C\QTCompressionOptions.cs" />
+    <Compile Include="QTKit_C\QTDataReference.Class.cs" />
+    <Compile Include="QTKit_C\QTDataReference.Constants.cs" />
+    <Compile Include="QTKit_C\QTDataReference.Constructors.cs" />
+    <Compile Include="QTKit_C\QTDataReference.cs" />
+    <Compile Include="QTKit_C\QTDataReference.Protocols.cs" />
+    <Compile Include="QTKit_C\QTFormatDescription.Class.cs" />
+    <Compile Include="QTKit_C\QTFormatDescription.Constants.cs" />
+    <Compile Include="QTKit_C\QTFormatDescription.cs" />
+    <Compile Include="QTKit_C\QTMedia.Class.cs" />
+    <Compile Include="QTKit_C\QTMedia.Constants.cs" />
+    <Compile Include="QTKit_C\QTMedia.Constructors.cs" />
+    <Compile Include="QTKit_C\QTMedia.cs" />
+    <Compile Include="QTKit_C\QTMovie.Class.cs" />
+    <Compile Include="QTKit_C\QTMovie.Constants.cs" />
+    <Compile Include="QTKit_C\QTMovie.Constructors.cs" />
+    <Compile Include="QTKit_C\QTMovie.cs" />
+    <Compile Include="QTKit_C\QTMovie.Protocols.cs" />
+    <Compile Include="QTKit_C\QTMovieLayer.Class.cs" />
+    <Compile Include="QTKit_C\QTMovieLayer.Constructors.cs" />
+    <Compile Include="QTKit_C\QTMovieLayer.cs" />
+    <Compile Include="QTKit_C\QTMovieLayer.Protocols.cs" />
+    <Compile Include="QTKit_C\QTMovieView.Class.cs" />
+    <Compile Include="QTKit_C\QTMovieView.Constants.cs" />
+    <Compile Include="QTKit_C\QTMovieView.Constructors.cs" />
+    <Compile Include="QTKit_C\QTMovieView.cs" />
+    <Compile Include="QTKit_C\QTMovieView.Deprecated.cs" />
+    <Compile Include="QTKit_C\QTMovieView.Protocols.cs" />
+    <Compile Include="QTKit_C\QTSampleBuffer.Class.cs" />
+    <Compile Include="QTKit_C\QTSampleBuffer.Constants.cs" />
+    <Compile Include="QTKit_C\QTSampleBuffer.cs" />
+    <Compile Include="QTKit_C\QTTrack.Class.cs" />
+    <Compile Include="QTKit_C\QTTrack.Constants.cs" />
+    <Compile Include="QTKit_C\QTTrack.Constructors.cs" />
+    <Compile Include="QTKit_C\QTTrack.cs" />
+    <Compile Include="QTKit_E\QTSampleBufferAudioBufferListOptions.cs" />
+    <Compile Include="QTKit_S\AudioBuffer.cs" />
+    <Compile Include="QTKit_S\AudioBufferList.cs" />
+    <Compile Include="QTKit_S\QTTime.cs" />
+    <Compile Include="QTKit_S\QTTime64.cs" />
+    <Compile Include="QTKit_S\QTTimeRange.cs" />
+    <Compile Include="QTKit_S\QTTimeRange64.cs" />
+    <Compile Include="QTKit_S\SMPTETime.cs" />
+    <Compile Include="QTKit_S\TimeRecord.cs" />
+    <Compile Include="QTKit_S\TimeRecord64.cs" />
+    <Compile Include="QTKit_T\QTKitFramework.Constants.cs" />
+    <Compile Include="QTKit_T\QTKitFramework.DataTypes.cs" />
+    <Compile Include="QTKit_T\QTKitFramework.Functions.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
+      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
+      <Name>Monobjc.AppKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
+      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
+      <Name>Monobjc.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc\Monobjc.csproj">
+      <Project>{4DD0F95F-370D-4890-A4CC-CE77D1399817}</Project>
+      <Name>Monobjc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

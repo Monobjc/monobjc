@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C9491B50-85B9-48B1-8DAD-7316948CC907}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Monobjc.AddressBook</RootNamespace>
+    <AssemblyName>Monobjc.AddressBook</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddressBook_C\ABAddressBook.Class.cs" />
+    <Compile Include="AddressBook_C\ABAddressBook.Constants.cs" />
+    <Compile Include="AddressBook_C\ABAddressBook.cs" />
+    <Compile Include="AddressBook_C\ABGroup.Class.cs" />
+    <Compile Include="AddressBook_C\ABGroup.Constructors.cs" />
+    <Compile Include="AddressBook_C\ABGroup.cs" />
+    <Compile Include="AddressBook_C\ABMultiValue.Class.cs" />
+    <Compile Include="AddressBook_C\ABMultiValue.cs" />
+    <Compile Include="AddressBook_C\ABMultiValue.Protocols.cs" />
+    <Compile Include="AddressBook_C\ABMutableMultiValue.Class.cs" />
+    <Compile Include="AddressBook_C\ABMutableMultiValue.cs" />
+    <Compile Include="AddressBook_C\ABMutableMultiValue.Protocols.cs" />
+    <Compile Include="AddressBook_C\ABPeoplePickerView.Class.cs" />
+    <Compile Include="AddressBook_C\ABPeoplePickerView.Constants.cs" />
+    <Compile Include="AddressBook_C\ABPeoplePickerView.Constructors.cs" />
+    <Compile Include="AddressBook_C\ABPeoplePickerView.cs" />
+    <Compile Include="AddressBook_C\ABPeoplePickerView.Protocols.cs" />
+    <Compile Include="AddressBook_C\ABPerson.Class.cs" />
+    <Compile Include="AddressBook_C\ABPerson.Constructors.cs" />
+    <Compile Include="AddressBook_C\ABPerson.cs" />
+    <Compile Include="AddressBook_C\ABRecord.Class.cs" />
+    <Compile Include="AddressBook_C\ABRecord.Constructors.cs" />
+    <Compile Include="AddressBook_C\ABRecord.cs" />
+    <Compile Include="AddressBook_C\ABSearchElement.Class.cs" />
+    <Compile Include="AddressBook_C\ABSearchElement.Constants.cs" />
+    <Compile Include="AddressBook_C\ABSearchElement.cs" />
+    <Compile Include="AddressBook_P\ABActionDelegate.Protocol.cs" />
+    <Compile Include="AddressBook_P\ABImageClient.Protocol.cs" />
+    <Compile Include="AddressBook_T\AddressBookFramework.Constants.cs" />
+    <Compile Include="AddressBook_T\AddressBookFramework.Functions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Monobjc\Monobjc.csproj">
+      <Project>{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}</Project>
+      <Name>Monobjc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
+      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
+      <Name>Monobjc.AppKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
+      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
+      <Name>Monobjc.Foundation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

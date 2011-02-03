@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AB2977BC-4CA9-480E-964D-C6EFB74F0EB1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Monobjc.InputMethodKit</RootNamespace>
+    <AssemblyName>Monobjc.InputMethodKit</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="InputMethodKit_C\IMKCandidates.Class.cs" />
+    <Compile Include="InputMethodKit_C\IMKCandidates.Constants.cs" />
+    <Compile Include="InputMethodKit_C\IMKCandidates.Constructors.cs" />
+    <Compile Include="InputMethodKit_C\IMKCandidates.cs" />
+    <Compile Include="InputMethodKit_C\IMKInputController.Class.cs" />
+    <Compile Include="InputMethodKit_C\IMKInputController.Constructors.cs" />
+    <Compile Include="InputMethodKit_C\IMKInputController.cs" />
+    <Compile Include="InputMethodKit_C\IMKInputController.Protocols.cs" />
+    <Compile Include="InputMethodKit_C\IMKServer.Class.cs" />
+    <Compile Include="InputMethodKit_C\IMKServer.Constants.cs" />
+    <Compile Include="InputMethodKit_C\IMKServer.Constructors.cs" />
+    <Compile Include="InputMethodKit_C\IMKServer.cs" />
+    <Compile Include="InputMethodKit_P\IMKMouseHandling.Protocol.cs" />
+    <Compile Include="InputMethodKit_P\IMKServerInput.Constants.cs" />
+    <Compile Include="InputMethodKit_P\IMKServerInput.Protocol.cs" />
+    <Compile Include="InputMethodKit_P\IMKStateSetting.Protocol.cs" />
+    <Compile Include="InputMethodKit_P\IMKTextInput.Constants.cs" />
+    <Compile Include="InputMethodKit_P\IMKTextInput.Protocol.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
+      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
+      <Name>Monobjc.AppKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
+      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
+      <Name>Monobjc.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc\Monobjc.csproj">
+      <Project>{4DD0F95F-370D-4890-A4CC-CE77D1399817}</Project>
+      <Name>Monobjc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

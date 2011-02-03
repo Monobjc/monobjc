@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DA344DE8-2FA3-4F0B-A898-3360BF4D4A38}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Monobjc.Security</RootNamespace>
+    <AssemblyName>Monobjc.Security</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurityInterface_C\SFAuthorizationView.Class.cs" />
+    <Compile Include="SecurityInterface_C\SFAuthorizationView.Constructors.cs" />
+    <Compile Include="SecurityInterface_C\SFAuthorizationView.cs" />
+    <Compile Include="SecurityInterface_C\SFAuthorizationView.Protocols.cs" />
+    <Compile Include="SecurityInterface_C\SFCertificatePanel.Class.cs" />
+    <Compile Include="SecurityInterface_C\SFCertificatePanel.Constructors.cs" />
+    <Compile Include="SecurityInterface_C\SFCertificatePanel.cs" />
+    <Compile Include="SecurityInterface_C\SFCertificatePanel.Protocols.cs" />
+    <Compile Include="SecurityInterface_C\SFCertificateTrustPanel.Class.cs" />
+    <Compile Include="SecurityInterface_C\SFCertificateTrustPanel.Constructors.cs" />
+    <Compile Include="SecurityInterface_C\SFCertificateTrustPanel.cs" />
+    <Compile Include="SecurityInterface_C\SFCertificateTrustPanel.Protocols.cs" />
+    <Compile Include="SecurityInterface_C\SFCertificateView.Class.cs" />
+    <Compile Include="SecurityInterface_C\SFCertificateView.Constructors.cs" />
+    <Compile Include="SecurityInterface_C\SFCertificateView.cs" />
+    <Compile Include="SecurityInterface_C\SFCertificateView.Protocols.cs" />
+    <Compile Include="SecurityInterface_C\SFChooseIdentityPanel.Class.cs" />
+    <Compile Include="SecurityInterface_C\SFChooseIdentityPanel.Constructors.cs" />
+    <Compile Include="SecurityInterface_C\SFChooseIdentityPanel.cs" />
+    <Compile Include="SecurityInterface_C\SFChooseIdentityPanel.Protocols.cs" />
+    <Compile Include="SecurityInterface_C\SFKeychainSavePanel.Class.cs" />
+    <Compile Include="SecurityInterface_C\SFKeychainSavePanel.Constructors.cs" />
+    <Compile Include="SecurityInterface_C\SFKeychainSavePanel.cs" />
+    <Compile Include="SecurityInterface_C\SFKeychainSavePanel.Protocols.cs" />
+    <Compile Include="SecurityInterface_C\SFKeychainSettingsPanel.Class.cs" />
+    <Compile Include="SecurityInterface_C\SFKeychainSettingsPanel.Constructors.cs" />
+    <Compile Include="SecurityInterface_C\SFKeychainSettingsPanel.cs" />
+    <Compile Include="SecurityInterface_C\SFKeychainSettingsPanel.Protocols.cs" />
+    <Compile Include="SecurityInterface_Extensions\SFCertificatePanel.Interop.cs" />
+    <Compile Include="SecurityInterface_Extensions\SFCertificateTrustPanel.Interop.cs" />
+    <Compile Include="SecurityInterface_Extensions\SFChooseIdentityPanel.Interop.cs" />
+    <Compile Include="SecurityInterface_Extensions\SFKeychainSettingsPanel.Interop.cs" />
+    <Compile Include="SecurityInterface_T\SecurityInterfaceFramework.Constants.cs" />
+    <Compile Include="SecurityInterface_T\SecurityInterfaceFramework.DataTypes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
+      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
+      <Name>Monobjc.AppKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
+      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
+      <Name>Monobjc.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.SecurityFoundation\Monobjc.SecurityFoundation.csproj">
+      <Project>{B49863BB-D088-4AAC-8D2F-D8726F27A930}</Project>
+      <Name>Monobjc.SecurityFoundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc\Monobjc.csproj">
+      <Project>{4DD0F95F-370D-4890-A4CC-CE77D1399817}</Project>
+      <Name>Monobjc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

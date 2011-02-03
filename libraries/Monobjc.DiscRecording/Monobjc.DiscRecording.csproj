@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{27AC818E-E237-4E0D-BAB7-7EA578F6AD32}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Monobjc.DiscRecording</RootNamespace>
+    <AssemblyName>Monobjc.DiscRecording</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DiscRecording_C\DRBurn.Class.cs" />
+    <Compile Include="DiscRecording_C\DRBurn.Constructors.cs" />
+    <Compile Include="DiscRecording_C\DRBurn.cs" />
+    <Compile Include="DiscRecording_C\DRBurn_Header.Constants.cs" />
+    <Compile Include="DiscRecording_C\DRBurn_Header.cs" />
+    <Compile Include="DiscRecording_C\DRBurn_ImageContentCreation.cs" />
+    <Compile Include="DiscRecording_C\DRBurn_PropertyConvenienceMethods.cs" />
+    <Compile Include="DiscRecording_C\DRCDTextBlock.Class.cs" />
+    <Compile Include="DiscRecording_C\DRCDTextBlock.Constructors.cs" />
+    <Compile Include="DiscRecording_C\DRCDTextBlock.cs" />
+    <Compile Include="DiscRecording_C\DRCDTextBlock_PropertyConvenienceMethods.cs" />
+    <Compile Include="DiscRecording_C\DRCDText_Header.Constants.cs" />
+    <Compile Include="DiscRecording_C\DRCDText_Header.cs" />
+    <Compile Include="DiscRecording_C\DRDevice.Class.cs" />
+    <Compile Include="DiscRecording_C\DRDevice.cs" />
+    <Compile Include="DiscRecording_C\DRDevice_Header.Constants.cs" />
+    <Compile Include="DiscRecording_C\DRDevice_Header.cs" />
+    <Compile Include="DiscRecording_C\DRDevice_InfoConvenience.cs" />
+    <Compile Include="DiscRecording_C\DRDevice_StatusConvenience.cs" />
+    <Compile Include="DiscRecording_C\DRErase.Class.cs" />
+    <Compile Include="DiscRecording_C\DRErase.Constructors.cs" />
+    <Compile Include="DiscRecording_C\DRErase.cs" />
+    <Compile Include="DiscRecording_C\DRErase_Header.Constants.cs" />
+    <Compile Include="DiscRecording_C\DRErase_Header.cs" />
+    <Compile Include="DiscRecording_C\DRErase_PropertyConvenienceMethods.cs" />
+    <Compile Include="DiscRecording_C\DRFile.Class.cs" />
+    <Compile Include="DiscRecording_C\DRFile.Constructors.cs" />
+    <Compile Include="DiscRecording_C\DRFile.cs" />
+    <Compile Include="DiscRecording_C\DRFile_Header.Constants.cs" />
+    <Compile Include="DiscRecording_C\DRFile_Header.cs" />
+    <Compile Include="DiscRecording_C\DRFile_VirtualFiles.cs" />
+    <Compile Include="DiscRecording_C\DRFile_VirtualLinks.cs" />
+    <Compile Include="DiscRecording_C\DRFolder.Class.cs" />
+    <Compile Include="DiscRecording_C\DRFolder.Constructors.cs" />
+    <Compile Include="DiscRecording_C\DRFolder.cs" />
+    <Compile Include="DiscRecording_C\DRFolder_Header.cs" />
+    <Compile Include="DiscRecording_C\DRFolder_VirtualFolders.cs" />
+    <Compile Include="DiscRecording_C\DRFSObject.Class.cs" />
+    <Compile Include="DiscRecording_C\DRFSObject.cs" />
+    <Compile Include="DiscRecording_C\DRFSObject_Header.Constants.cs" />
+    <Compile Include="DiscRecording_C\DRFSObject_Header.cs" />
+    <Compile Include="DiscRecording_C\DRMSF.Class.cs" />
+    <Compile Include="DiscRecording_C\DRMSF.Constructors.cs" />
+    <Compile Include="DiscRecording_C\DRMSF.cs" />
+    <Compile Include="DiscRecording_C\DRMSFFormatter.Class.cs" />
+    <Compile Include="DiscRecording_C\DRMSFFormatter.Constructors.cs" />
+    <Compile Include="DiscRecording_C\DRMSFFormatter.cs" />
+    <Compile Include="DiscRecording_C\DRMSFFormatter_Header.cs" />
+    <Compile Include="DiscRecording_C\DRMSF_Header.cs" />
+    <Compile Include="DiscRecording_C\DRNotificationCenter.Class.cs" />
+    <Compile Include="DiscRecording_C\DRNotificationCenter.cs" />
+    <Compile Include="DiscRecording_C\DRTrack.Class.cs" />
+    <Compile Include="DiscRecording_C\DRTrack.Constructors.cs" />
+    <Compile Include="DiscRecording_C\DRTrack.cs" />
+    <Compile Include="DiscRecording_C\DRTrack_AudioContentCreation.cs" />
+    <Compile Include="DiscRecording_C\DRTrack_DataContentCreation.cs" />
+    <Compile Include="DiscRecording_C\DRTrack_Header.Constants.cs" />
+    <Compile Include="DiscRecording_C\DRTrack_Header.cs" />
+    <Compile Include="DiscRecording_C\DRTrack_PropertyConvenience.cs" />
+    <Compile Include="DiscRecording_P\DRFileDataProduction.Protocol.cs" />
+    <Compile Include="DiscRecording_P\DRTrackDataProduction.Protocol.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DiscRecording_Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
+      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
+      <Name>Monobjc.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc\Monobjc.csproj">
+      <Project>{4DD0F95F-370D-4890-A4CC-CE77D1399817}</Project>
+      <Name>Monobjc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

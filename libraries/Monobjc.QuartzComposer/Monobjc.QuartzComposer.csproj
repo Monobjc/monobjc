@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7227F9E4-CBA7-4A71-959D-B7DE7C5060C6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Monobjc.QuartzComposer</RootNamespace>
+    <AssemblyName>Monobjc.QuartzComposer</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuartzComposer_C\QCComposition.Class.cs" />
+    <Compile Include="QuartzComposer_C\QCComposition.Constants.cs" />
+    <Compile Include="QuartzComposer_C\QCComposition.cs" />
+    <Compile Include="QuartzComposer_C\QCComposition.Protocols.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionLayer.Class.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionLayer.Constructors.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionLayer.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionLayer.Protocols.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionParameterView.Class.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionParameterView.Constructors.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionParameterView.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionParameterView.Protocols.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionPickerPanel.Class.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionPickerPanel.Constants.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionPickerPanel.Constructors.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionPickerPanel.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionPickerPanel.Protocols.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionPickerView.Class.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionPickerView.Constants.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionPickerView.Constructors.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionPickerView.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionPickerView.Protocols.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionRepository.Class.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionRepository.Constants.cs" />
+    <Compile Include="QuartzComposer_C\QCCompositionRepository.cs" />
+    <Compile Include="QuartzComposer_C\QCPlugIn.Class.cs" />
+    <Compile Include="QuartzComposer_C\QCPlugIn.Constants.cs" />
+    <Compile Include="QuartzComposer_C\QCPlugIn.cs" />
+    <Compile Include="QuartzComposer_C\QCPlugInViewController.Class.cs" />
+    <Compile Include="QuartzComposer_C\QCPlugInViewController.Constructors.cs" />
+    <Compile Include="QuartzComposer_C\QCPlugInViewController.cs" />
+    <Compile Include="QuartzComposer_C\QCPlugInViewController.Protocols.cs" />
+    <Compile Include="QuartzComposer_C\QCRenderer.Class.cs" />
+    <Compile Include="QuartzComposer_C\QCRenderer.Constants.cs" />
+    <Compile Include="QuartzComposer_C\QCRenderer.Constructors.cs" />
+    <Compile Include="QuartzComposer_C\QCRenderer.cs" />
+    <Compile Include="QuartzComposer_C\QCRenderer.Protocols.cs" />
+    <Compile Include="QuartzComposer_C\QCView.Class.cs" />
+    <Compile Include="QuartzComposer_C\QCView.Constants.cs" />
+    <Compile Include="QuartzComposer_C\QCView.Constructors.cs" />
+    <Compile Include="QuartzComposer_C\QCView.cs" />
+    <Compile Include="QuartzComposer_C\QCView.Protocols.cs" />
+    <Compile Include="QuartzComposer_P\QCCompositionParameterView.Delegate.cs" />
+    <Compile Include="QuartzComposer_P\QCCompositionParameterViewDelegate.Protocol.cs" />
+    <Compile Include="QuartzComposer_P\QCCompositionPickerView.Delegate.cs" />
+    <Compile Include="QuartzComposer_P\QCCompositionPickerViewDelegate.Protocol.cs" />
+    <Compile Include="QuartzComposer_P\QCCompositionRenderer.Protocol.cs" />
+    <Compile Include="QuartzComposer_P\QCPlugInContext.Protocol.cs" />
+    <Compile Include="QuartzComposer_P\QCPlugInInputImageSource.Protocol.cs" />
+    <Compile Include="QuartzComposer_P\QCPlugInOutputImageProvider.Protocol.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
+      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
+      <Name>Monobjc.AppKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
+      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
+      <Name>Monobjc.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc\Monobjc.csproj">
+      <Project>{4DD0F95F-370D-4890-A4CC-CE77D1399817}</Project>
+      <Name>Monobjc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
