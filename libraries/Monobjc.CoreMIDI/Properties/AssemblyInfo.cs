@@ -27,8 +27,8 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Monobjc Bridge - AppKit Library")]
-[assembly: AssemblyDescription("Monobjc Bridge AppKit Library")]
+[assembly: AssemblyTitle("Monobjc Bridge - CoreMIDI Library")]
+[assembly: AssemblyDescription("Monobjc Bridge CoreMIDI Library")]
 [assembly: AssemblyCompany("Monobjc Project")]
 [assembly: AssemblyProduct("Monobjc Bridge Project")]
 [assembly: AssemblyCopyright("Copyright (c) Monobjc Project 2007-2011 - Licensed under MIT License")]
@@ -36,8 +36,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en-US")]
 [assembly: ComVisible(false)]
-[assembly: Guid("3630f1c3-168d-6b79-6a30-604c16b484ef")]
+[assembly: Guid("9f2ebc66-ec76-288c-2939-80b4891a48af")]
 
 #if TESTING
-[assembly: InternalsVisibleTo("Monobjc.AppKit.Tests")]
+[assembly: InternalsVisibleTo("Monobjc.CoreMIDI.Tests")]
 #endif

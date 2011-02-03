@@ -2,6 +2,7 @@ bin/
 build/
 dist/
 obj/
+stripped.libraries/
 _ReSharper*
 .generator
 *.Cache
@@ -12,5 +13,6 @@ _ReSharper*
 *.suo
 *.user
 *.userprefs
+Monobjc-*.tar.gz
 runtime
 TestResult.xml

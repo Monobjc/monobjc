@@ -2,12 +2,12 @@
 <project name="Monobjc Module Builder" default="build" basedir="..">
   <description>Monobjc Module Builder</description>
 
+  <property name="marker.file" value="${libraries.dir}/.generator"/>
+
   <!-- ===============================================================================
   Extract and generate classes from Apple documentation
   ================================================================================ -->
   <target name="generate">
-    <property name="marker.file" value="${libraries.dir}/.generator"/>
-
     <!-- Builds the generator -->
     <exec workingdir="${tools.dir}"
           program="xbuild"
@@ -53,6 +53,7 @@
     <echo message="------------------------"/>
 
     <!-- Output dir is used to build the assemblies -->
+    <property name="base.dir" value="${libraries.dir}"/>
     <property name="output.dir" value="${dist.dir}/${version}"/>
     <mkdir dir="${output.dir}"/>
 
@@ -75,7 +76,6 @@
 
     <!-- Library Monobjc -->
     <property name="lib.name" value="Monobjc"/>
-    <property name="base.dir" value="${libraries.dir}"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/**/*.cs"/>
@@ -87,29 +87,139 @@
     <call target="build-library-intern"/>
 
     <!-- Library Monobjc.Foundation -->
-    <!--<property name="lib.name" value="Monobjc.Foundation"/>
-    <property name="base.dir" value="${libraries.dir}"/>
+    <property name="lib.name" value="Monobjc.Foundation"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/ApplicationServices_E/*.cs"/>
+      <include name="${base.dir}/${lib.name}/ApplicationServices_Extensions/*.cs"/>
+      <include name="${base.dir}/${lib.name}/ApplicationServices_S/*.cs"/>
+      <include name="${base.dir}/${lib.name}/CoreFoundation_T/CFType.cs"/>
+      <include name="${base.dir}/${lib.name}/Foundation_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Foundation_Collections/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Foundation_Extensions/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Foundation_P/*.cs"/>
+      <exclude name="${base.dir}/${lib.name}/Foundation_P/*.Deprecated.Protocol.cs"/>
+      <include name="${base.dir}/${lib.name}/Foundation_S/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Foundation_T/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+    </fileset>
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
       <include name="System.Core.dll"/>
       <include name="Monobjc.dll"/>
     </assemblyfileset>
-    <call target="build-library-intern"/>-->
+    <call target="build-library-intern"/>
 
-    <!-- Library Monobjc.AppKit -->
-    <!--<property name="lib.name" value="Monobjc.AppKit"/>
-    <property name="base.dir" value="${libraries.dir}"/>
+    <!-- Library Monobjc.CoreLocation -->
+    <property name="lib.name" value="Monobjc.CoreLocation"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+      <include name="${base.dir}/${lib.name}/CoreLocation_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/CoreLocation_P/*.cs"/>
+      <include name="${base.dir}/${lib.name}/CoreLocation_S/*.cs"/>
+      <include name="${base.dir}/${lib.name}/CoreLocation_T/*.cs"/>
+    </fileset>
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
       <include name="System.Core.dll"/>
       <include name="Monobjc.dll"/>
       <include name="Monobjc.Foundation.dll"/>
     </assemblyfileset>
-    <call target="build-library-intern"/>-->
-
+    <call target="build-library-intern"/>
+	
+    <!-- Library Monobjc.DiscRecording -->
+    <property name="lib.name" value="Monobjc.DiscRecording"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+      <include name="${base.dir}/${lib.name}/DiscRecording_C/DR*.cs"/>
+      <exclude name="${base.dir}/${lib.name}/DiscRecording_C/DRContent*.cs"/>
+      <exclude name="${base.dir}/${lib.name}/DiscRecording_C/DRCore*.cs"/>
+      <exclude name="${base.dir}/${lib.name}/DiscRecording_C/DRStatus*.cs"/>
+      <include name="${base.dir}/${lib.name}/DiscRecording_E/*.cs"/>
+      <include name="${base.dir}/${lib.name}/DiscRecording_Extensions/*.cs"/>
+      <include name="${base.dir}/${lib.name}/DiscRecording_P/*.cs"/>
+    </fileset>
+    <call target="build-library-intern"/>
+	
+    <!-- Library Monobjc.SecurityFoundation -->
+    <property name="lib.name" value="Monobjc.SecurityFoundation"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+      <include name="${base.dir}/${lib.name}/SecurityFoundation_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/SecurityFoundation_S/*.cs"/>
+      <include name="${base.dir}/${lib.name}/SecurityFoundation_T/Security*.cs"/>
+      <exclude name="${base.dir}/${lib.name}/SecurityFoundation_T/KeyChainServices.cs"/>
+    </fileset>
+    <call target="build-library-intern"/>
+	
+    <!-- Library Monobjc.CoreWLAN -->
+    <property name="lib.name" value="Monobjc.CoreWLAN"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/CoreWLAN_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/CoreWLAN_T/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+    </fileset>
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+      <include name="Monobjc.dll"/>
+      <include name="Monobjc.Foundation.dll"/>
+      <include name="Monobjc.SecurityFoundation.dll"/>
+    </assemblyfileset>
+    <call target="build-library-intern"/>
+	
+    <!-- Library Monobjc.AppKit -->
+    <property name="lib.name" value="Monobjc.AppKit"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/AppKit_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/AppKit_E/*.cs"/>
+      <include name="${base.dir}/${lib.name}/AppKit_Extensions/*.cs"/>
+      <include name="${base.dir}/${lib.name}/AppKit_P/*.cs"/>
+      <exclude name="${base.dir}/${lib.name}/AppKit_P/*.Deprecated.Protocol.cs"/>
+      <include name="${base.dir}/${lib.name}/AppKit_T/*.cs"/>
+      <include name="${base.dir}/${lib.name}/ApplicationServices_Functions/*.cs"/>
+      <include name="${base.dir}/Monobjc.Foundation/ApplicationServices_T/*.cs"/>
+      <exclude name="${base.dir}/Monobjc.Foundation/ApplicationServices_T/CT*.cs"/>
+      <exclude name="${base.dir}/Monobjc.Foundation/ApplicationServices_T/*.Deprecated.cs"/>
+      <include name="${base.dir}/${lib.name}/CoreData_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/CoreData_T/*.cs"/>
+      <include name="${base.dir}/${lib.name}/MobileCoreServices_T/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+      <include name="${base.dir}/${lib.name}/QuartzCore_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/QuartzCore_Functions/*.cs"/>
+      <include name="${base.dir}/${lib.name}/QuartzCore_P/*.cs"/>
+      <include name="${base.dir}/${lib.name}/QuartzCore_S/*.cs"/>
+      <exclude name="${base.dir}/${lib.name}/QuartzCore_T/*.cs"/>
+    </fileset>
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+      <include name="Monobjc.dll"/>
+      <include name="Monobjc.Foundation.dll"/>
+    </assemblyfileset>
+    <call target="build-library-intern"/>
+	
     <!-- Library Monobjc.AddressBook -->
-    <!--<property name="lib.name" value="Monobjc.AddressBook"/>
-    <property name="base.dir" value="${libraries.dir}"/>
+    <property name="lib.name" value="Monobjc.AddressBook"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/AddressBook_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/AddressBook_P/*.cs"/>
+      <include name="${base.dir}/${lib.name}/AddressBook_T/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+    </fileset>
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
       <include name="System.Core.dll"/>
@@ -117,7 +227,155 @@
       <include name="Monobjc.Foundation.dll"/>
       <include name="Monobjc.AppKit.dll"/>
     </assemblyfileset>
-    <call target="build-library-intern"/>-->
+    <call target="build-library-intern"/>
+	
+    <!-- Library Monobjc.Growl -->
+    <property name="lib.name" value="Monobjc.Growl"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Growl_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Growl_P/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+    </fileset>
+    <call target="build-library-intern"/>
+	
+    <!-- Library Monobjc.ImageKit -->
+    <property name="lib.name" value="Monobjc.ImageKit"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/ImageKit_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/ImageKit_P/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+    </fileset>
+    <call target="build-library-intern"/>
+	
+    <!-- Library Monobjc.InputMethodKit -->
+    <property name="lib.name" value="Monobjc.InputMethodKit"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/InputMethodKit_C/IMK*.cs"/>
+      <exclude name="${base.dir}/${lib.name}/InputMethodKit_C/IMKServer.Protocols.cs"/>
+      <include name="${base.dir}/${lib.name}/InputMethodKit_P/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+    </fileset>
+    <call target="build-library-intern"/>
+	
+    <!-- Library Monobjc.PDFKit -->
+    <property name="lib.name" value="Monobjc.PDFKit"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/PDFKit_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/PDFKit_E/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+    </fileset>
+    <call target="build-library-intern"/>
+	
+    <!-- Library Monobjc.QTKit -->
+    <property name="lib.name" value="Monobjc.QTKit"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+      <include name="${base.dir}/${lib.name}/QTKit_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/QTKit_E/*.cs"/>
+      <include name="${base.dir}/${lib.name}/QTKit_S/*.cs"/>
+      <include name="${base.dir}/${lib.name}/QTKit_T/*.cs"/>
+    </fileset>
+    <call target="build-library-intern"/>
+	
+    <!-- Library Monobjc.QuartzComposer -->
+    <property name="lib.name" value="Monobjc.QuartzComposer"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+      <include name="${base.dir}/${lib.name}/QuartzComposer_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/QuartzComposer_P/*.cs"/>
+    </fileset>
+    <call target="build-library-intern"/>
+	
+    <!-- Library Monobjc.QuickLook -->
+    <property name="lib.name" value="Monobjc.QuickLook"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+      <include name="${base.dir}/${lib.name}/QuickLook_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/QuickLook_P/*.cs"/>
+    </fileset>
+    <call target="build-library-intern"/>
+	
+    <!-- Library Monobjc.Sparkle -->
+    <property name="lib.name" value="Monobjc.Sparkle"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Sparkle_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Sparkle_P/*.cs"/>
+    </fileset>
+    <call target="build-library-intern"/>
+	
+    <!-- Library Monobjc.WebKit -->
+    <property name="lib.name" value="Monobjc.WebKit"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+      <include name="${base.dir}/${lib.name}/WebKit_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/WebKit_P/*.cs"/>
+      <exclude name="${base.dir}/${lib.name}/WebKit_P/*Deprecated*.cs"/>
+      <exclude name="${base.dir}/${lib.name}/WebKit_P/WebJavaPlugIn*.cs"/>
+      <include name="${base.dir}/${lib.name}/WebKit_T/*.cs"/>
+    </fileset>
+    <call target="build-library-intern"/>
+	
+    <!-- Library Monobjc.DiscRecordingUI -->
+    <property name="lib.name" value="Monobjc.DiscRecordingUI"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/DiscRecordingUI_C/*.cs"/>
+      <exclude name="${base.dir}/${lib.name}/DiscRecordingUI_C/*Session*.cs"/>
+      <include name="${base.dir}/${lib.name}/DiscRecordingUI_P/*.cs"/>
+      <include name="${base.dir}/${lib.name}/DiscRecordingUI_T/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+    </fileset>
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+      <include name="Monobjc.dll"/>
+      <include name="Monobjc.Foundation.dll"/>
+      <include name="Monobjc.DiscRecording.dll"/>
+      <include name="Monobjc.AppKit.dll"/>
+    </assemblyfileset>
+    <call target="build-library-intern"/>
+	
+    <!-- Library Monobjc.SecurityInterface -->
+    <property name="lib.name" value="Monobjc.SecurityInterface"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+      <include name="${base.dir}/${lib.name}/SecurityInterface_C/*.cs"/>
+      <exclude name="${base.dir}/${lib.name}/SecurityInterface_C/SFAuthorizationPluginView*.cs"/>
+      <include name="${base.dir}/${lib.name}/SecurityInterface_Extensions/*.cs"/>
+      <include name="${base.dir}/${lib.name}/SecurityInterface_T/*.cs"/>
+    </fileset>
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+      <include name="Monobjc.dll"/>
+      <include name="Monobjc.Foundation.dll"/>
+      <include name="Monobjc.SecurityFoundation.dll"/>
+      <include name="Monobjc.AppKit.dll"/>
+    </assemblyfileset>
+    <call target="build-library-intern"/>
+	
   </target>
 
   <!-- ===============================================================================
@@ -133,7 +391,7 @@
        debug="${debug}"
        define="${define}">
       <nowarn >
-        <warning number="1584"/>
+        <warning number="1574,1584,1591"/>
       </nowarn>
       <sources refid="src.references"/>
       <resources prefix="${lib.name}.Properties">
@@ -141,6 +399,11 @@
       </resources>
       <references refid="lib.references"/>
     </csc>
+  </target>
+
+  <!-- Clean the directories -->
+  <target name="clean">
+    <delete file="${marker.file}"/>
   </target>
 
 </project>
