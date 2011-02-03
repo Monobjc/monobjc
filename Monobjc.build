@@ -92,7 +92,7 @@
   <target name="distribute" description="Package an archive with the sources and the binaries" depends="build-tools,build-libraries">
     <!-- Remove copyrighted documentation from source files -->
     <exec program="strip.sh" if="${strip.sources}"/>
-    <property name="libraries.stripped.dir" value="stripped/libraries"/>
+    <property name="libraries.stripped.dir" value="stripped.libraries"/>
     <property name="tar.prefix" value="Monobjc-3.0.${revision}"/>
 
     <!-- Archive content -->
@@ -102,14 +102,15 @@
         <include name="MIT.rtf"/>
         <include name="LGPL.rtf"/>
         <include name="Monobjc.build"/>
+        <include name="Monobjc.sh"/>
         <include name="Monobjc.sln"/>
         <include name="Monobjc.snk"/>
         <include name="${dist.dir}/Monobjc.Tools.dll"/>
         <include name="${dist.dir}/Monobjc.NAnt.dll"/>
-        <include name="${dist.dir}/10.5/Monobjc*.dll"/>
-        <include name="${dist.dir}/10.5/Monobjc*.xml"/>
-        <include name="${dist.dir}/10.6/Monobjc*.dll"/>
-        <include name="${dist.dir}/10.6/Monobjc*.xml"/>
+        <include name="${dist.dir}/10.*/Monobjc*.dll"/>
+        <include name="${dist.dir}/10.*/Monobjc*.xml"/>
+        <include name="${dist.dir}/10.*/runtime"/>
+        <include name="${dist.dir}/10.*/*.dylib"/>
         <include name="${external.dir}/nunit.framework.dll"/>
       </fileset>
       <fileset basedir="." prefix="${tar.prefix}">
