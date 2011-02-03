@@ -42,6 +42,11 @@ for version in $VERSIONS; do
 	chmod a+rx "$LIB_DIR"/libmonobjc.dylib
 	chmod a+rx "$LIB_DIR"/runtime
 
+	# Copy the documentation
+    for file in `ls dist/$version/Monobjc*.xml`; do
+        cp $file "$LIB_DIR"
+	done
+    
 	# Register the Monobjc assemblies in the GAC
 	for file in `ls dist/$version/Monobjc*.dll`; do
 		gacutil -i "$file" -package monobjc-$version
