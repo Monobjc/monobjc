@@ -120,7 +120,7 @@
         <exclude name="${libraries.dir}/Monobjc/**/*.pidb"/>
         <exclude name="${libraries.dir}/Monobjc/**/*.user"/>
       </fileset>
-      <fileset basedir="${libraries.dir}" prefix="${tar.prefix}/${libraries.dir}">
+      <fileset basedir="${libraries.dir}" prefix="${tar.prefix}/libraries">
         <include name="**" unless="${strip.sources}"/>
         <exclude name="Monobjc/**"/>
         <exclude name="**/bin/**" unless="${strip.sources}"/>
@@ -128,7 +128,7 @@
         <exclude name="**/*.pidb" unless="${strip.sources}"/>
         <exclude name="**/*.user" unless="${strip.sources}"/>
       </fileset>
-      <fileset basedir="${libraries.stripped.dir}" prefix="${tar.prefix}/${libraries.dir}">
+      <fileset basedir="${libraries.stripped.dir}" prefix="${tar.prefix}/libraries">
         <include name="**" if="${strip.sources}"/>
         <exclude name="Monobjc/**"/>
         <exclude name="**/bin/**" if="${strip.sources}"/>

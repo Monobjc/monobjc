@@ -402,7 +402,7 @@ namespace Monobjc
                 return default(T);
             }
             Type type = typeof (T);
-            if (type.IsAssignableFrom(typeof(Id)))
+            if (typeof(Id).IsAssignableFrom(type))
             {
                 // Read the address of the object
                 IntPtr value = Marshal.ReadIntPtr(pointer);
