@@ -129,7 +129,7 @@
       <include name="Monobjc.Foundation.dll"/>
     </assemblyfileset>
     <call target="build-library-intern"/>
-	
+
     <!-- Library Monobjc.DiscRecording -->
     <property name="lib.name" value="Monobjc.DiscRecording"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -145,7 +145,7 @@
       <include name="${base.dir}/${lib.name}/DiscRecording_P/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
-	
+
     <!-- Library Monobjc.SecurityFoundation -->
     <property name="lib.name" value="Monobjc.SecurityFoundation"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -158,7 +158,7 @@
       <exclude name="${base.dir}/${lib.name}/SecurityFoundation_T/KeyChainServices.cs"/>
     </fileset>
     <call target="build-library-intern"/>
-	
+
     <!-- Library Monobjc.CoreWLAN -->
     <property name="lib.name" value="Monobjc.CoreWLAN"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -176,7 +176,7 @@
       <include name="Monobjc.SecurityFoundation.dll"/>
     </assemblyfileset>
     <call target="build-library-intern"/>
-	
+
     <!-- Library Monobjc.AppKit -->
     <property name="lib.name" value="Monobjc.AppKit"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -209,7 +209,7 @@
       <include name="Monobjc.Foundation.dll"/>
     </assemblyfileset>
     <call target="build-library-intern"/>
-	
+
     <!-- Library Monobjc.AddressBook -->
     <property name="lib.name" value="Monobjc.AddressBook"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -228,7 +228,7 @@
       <include name="Monobjc.AppKit.dll"/>
     </assemblyfileset>
     <call target="build-library-intern"/>
-	
+
     <!-- Library Monobjc.Growl -->
     <property name="lib.name" value="Monobjc.Growl"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -239,7 +239,7 @@
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
-	
+
     <!-- Library Monobjc.ImageKit -->
     <property name="lib.name" value="Monobjc.ImageKit"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -250,7 +250,7 @@
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
-	
+
     <!-- Library Monobjc.InputMethodKit -->
     <property name="lib.name" value="Monobjc.InputMethodKit"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -262,7 +262,7 @@
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
-	
+
     <!-- Library Monobjc.PDFKit -->
     <property name="lib.name" value="Monobjc.PDFKit"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -273,7 +273,7 @@
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
-	
+
     <!-- Library Monobjc.QTKit -->
     <property name="lib.name" value="Monobjc.QTKit"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -286,7 +286,7 @@
       <include name="${base.dir}/${lib.name}/QTKit_T/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
-	
+
     <!-- Library Monobjc.QuartzComposer -->
     <property name="lib.name" value="Monobjc.QuartzComposer"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -297,7 +297,7 @@
       <include name="${base.dir}/${lib.name}/QuartzComposer_P/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
-	
+
     <!-- Library Monobjc.QuickLook -->
     <property name="lib.name" value="Monobjc.QuickLook"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -308,7 +308,7 @@
       <include name="${base.dir}/${lib.name}/QuickLook_P/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
-	
+
     <!-- Library Monobjc.Sparkle -->
     <property name="lib.name" value="Monobjc.Sparkle"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -319,7 +319,7 @@
       <include name="${base.dir}/${lib.name}/Sparkle_P/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
-	
+
     <!-- Library Monobjc.WebKit -->
     <property name="lib.name" value="Monobjc.WebKit"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -333,7 +333,7 @@
       <include name="${base.dir}/${lib.name}/WebKit_T/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
-	
+
     <!-- Library Monobjc.DiscRecordingUI -->
     <property name="lib.name" value="Monobjc.DiscRecordingUI"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -354,7 +354,7 @@
       <include name="Monobjc.AppKit.dll"/>
     </assemblyfileset>
     <call target="build-library-intern"/>
-	
+
     <!-- Library Monobjc.SecurityInterface -->
     <property name="lib.name" value="Monobjc.SecurityInterface"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -375,7 +375,7 @@
       <include name="Monobjc.AppKit.dll"/>
     </assemblyfileset>
     <call target="build-library-intern"/>
-	
+
   </target>
 
   <!-- ===============================================================================

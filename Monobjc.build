@@ -41,7 +41,7 @@
   Build the tools libraries
   ================================================================================ -->
   <target name="build-tools" depends="prepare,build-native">
-    <nant buildfile="${tools.dir}/Monobjc.Tools.build" inheritall="true"/>
+    <nant buildfile="${tools.dir}/Monobjc-Tools.build" inheritall="true"/>
   </target>
 
   <!-- ===============================================================================
@@ -63,27 +63,6 @@
   ================================================================================ -->
   <target name="run-tests" depends="build-tests">
     <nant buildfile="${tests.dir}/Modules.build" target="run"/>
-  </target>
-
-  <!-- Prepare the directories -->
-  <target name="prepare">
-    <mkdir dir="${build.dir}"/>
-    <mkdir dir="${dist.dir}"/>
-
-    <!-- Compute the revision -->
-    <property name="revision" value="${timespan::get-days(datetime::now() - datetime::parse('2007-07-01'))}"/>
-  </target>
-
-  <!-- Clean the directories -->
-  <target name="clean">
-    <delete dir="${build.dir}" failonerror="false" />
-    <delete dir="${dist.dir}" failonerror="false" />
-	
-    <!-- Clean modules -->
-    <nant buildfile="${libraries.dir}/Modules.build" target="clean"/>
-
-    <!-- Clean sub-projects -->
-    <nant buildfile="${tools.dir}/Monobjc.Tools.build" target="clean"/>
   </target>
 
   <!-- ===============================================================================
@@ -137,6 +116,27 @@
         <exclude name="**/*.user" if="${strip.sources}"/>
       </fileset>
     </tar>
+  </target>
+
+  <!-- Prepare the directories -->
+  <target name="prepare">
+    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${dist.dir}"/>
+
+    <!-- Compute the revision -->
+    <property name="revision" value="${timespan::get-days(datetime::now() - datetime::parse('2007-07-01'))}"/>
+  </target>
+
+  <!-- Clean the directories -->
+  <target name="clean">
+    <delete dir="${build.dir}" failonerror="false" />
+    <delete dir="${dist.dir}" failonerror="false" />
+
+    <!-- Clean modules -->
+    <nant buildfile="${libraries.dir}/Modules.build" target="clean"/>
+
+    <!-- Clean sub-projects -->
+    <nant buildfile="${tools.dir}/Monobjc-Tools.build" target="clean"/>
   </target>
 
 </project>
