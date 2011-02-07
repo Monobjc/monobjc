@@ -120,12 +120,13 @@
     <property name="output.dir" value="${dist.dir}/${version}"/>
 
     <!-- Copy NUnit wrapper -->
-    <copy file="${tests.dir}/nunit-${version}"  todir="${output.dir}"/>
+    <copy file="${tests.dir}/nunit-${version}" todir="${output.dir}"/>
+    <mkdir dir="${dist.dir}/Tests"/>
     
     <!-- Run NUnit -->
     <exec program="${output.dir}/nunit-${version}" failonerror="false">
       <arg value="-labels"/>
-      <arg value="-xml=${output.dir}/Monobjc.Tests-Results.xml"/>
+      <arg value="-xml=${dist.dir}/Tests/Monobjc.Tests-${version}.xml"/>
       <arg value="${output.dir}/Monobjc.Tests.dll"/>
     </exec>
     
