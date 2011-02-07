@@ -25,11 +25,23 @@ using System.Runtime.InteropServices;
 
 namespace Monobjc.SecurityFoundation
 {
+	/// <summary>
+	/// Represents an attribute.
+	/// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct SecKeychainAttributeInfo
     {
-        UInt32 count;
-        IntPtr tag;
-        IntPtr format;
+		/// <summary>
+		/// The number of tag-format pairs in the respective arrays.
+		/// </summary>
+        public UInt32 count;
+		/// <summary>
+		/// A pointer to the first attribute tag in the array.
+		/// </summary>
+        public IntPtr tag;
+		/// <summary>
+		/// A pointer to the first CSSM_DB_ATTRIBUTE_FORMAT in the array.
+		/// </summary>
+        public IntPtr format;
     }
 }

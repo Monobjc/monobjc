@@ -25,12 +25,27 @@ using System.Runtime.InteropServices;
 
 namespace Monobjc.SecurityFoundation
 {
+	/// <summary>
+	/// Contains information about a keychain event. 
+	/// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct SecKeychainCallbackInfo
     {
-        UInt32 version;
-        IntPtr item;
-        IntPtr keychain;
-        int pid;
+		/// <summary>
+		/// The version of this structure.
+		/// </summary>
+        public UInt32 version;
+		/// <summary>
+		/// A reference to the keychain item associated with this event, if any. Note that some events do not involve a particular keychain item.
+		/// </summary>
+        public IntPtr item;
+		/// <summary>
+		/// A reference to the keychain in which the event occurred.
+		/// </summary>
+        public IntPtr keychain;
+		/// <summary>
+		/// The id of the process that generated this event.
+		/// </summary>
+        public int pid;
     }
 }

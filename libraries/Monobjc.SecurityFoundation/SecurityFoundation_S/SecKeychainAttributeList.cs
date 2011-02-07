@@ -25,10 +25,19 @@ using System.Runtime.InteropServices;
 
 namespace Monobjc.SecurityFoundation
 {
+	/// <summary>
+	/// Represents a list of keychain attributes.
+	/// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct SecKeychainAttributeList
     {
-        UInt32 count;
-        IntPtr attr;
+		/// <summary>
+		/// An unsigned 32-bit integer that represents the number of keychain attributes in the array.
+		/// </summary>
+        public UInt32 count;
+		/// <summary>
+		/// A pointer to the first keychain attribute in the array.
+		/// </summary>
+        public IntPtr attr;
     }
 }

@@ -28,8 +28,8 @@ namespace Monobjc.QTKit
     [StructLayout(LayoutKind.Sequential)]
     public struct TimeRecord64
     {
-        long value;
-        long scale;
-        IntPtr @base;
+        public long value;
+        public long scale;
+        public IntPtr @base;
     }
 }

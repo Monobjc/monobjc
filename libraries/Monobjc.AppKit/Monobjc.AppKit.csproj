@@ -1271,6 +1271,7 @@
     <Compile Include="QuartzCore_S\CVTimeStamp.cs" />
     <Compile Include="AppKit_Extensions\SheetDidEndReturnCodeContextInfoEventHandler.cs" />
     <Compile Include="AppKit_Extensions\TargetActionEventHandler.cs" />
+    <Compile Include="QuartzCore_Extensions\CALayer.Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">
