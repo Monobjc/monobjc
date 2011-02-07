@@ -83,8 +83,10 @@ done
 # because the Mono CSDK don't create it
 ln -s "$MONO_DIR/bin/pkg-config" "/usr/bin/pkg-config"
 
-# Copy runtime wrapper and soft-link it
-LAUNCHER_FILE="./dist/monobjc"
-cp "$LAUNCHER_FILE" "$MONO_DIR/bin/monobjc"
+# Copy the runtime wrappers and soft-link them
+cp "./dist/monobjc" "$MONO_DIR/bin/monobjc"
+cp "./dist/monobjc-nunit" "$MONO_DIR/bin/monobjc-nunit"
 chmod a+rx "$MONO_DIR/bin/monobjc"
+chmod a+rx "$MONO_DIR/bin/monobjc-nunit"
 ln -s "$MONO_DIR/bin/monobjc" "/usr/bin/monobjc"
+ln -s "$MONO_DIR/bin/monobjc-nunit" "/usr/bin/monobjc-nunit"
