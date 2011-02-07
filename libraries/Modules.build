@@ -197,6 +197,7 @@
       <include name="${base.dir}/${lib.name}/MobileCoreServices_T/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
       <include name="${base.dir}/${lib.name}/QuartzCore_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/QuartzCore_Extensions/*.cs"/>
       <include name="${base.dir}/${lib.name}/QuartzCore_Functions/*.cs"/>
       <include name="${base.dir}/${lib.name}/QuartzCore_P/*.cs"/>
       <include name="${base.dir}/${lib.name}/QuartzCore_S/*.cs"/>

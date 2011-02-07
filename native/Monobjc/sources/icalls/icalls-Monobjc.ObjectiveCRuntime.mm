@@ -72,6 +72,8 @@ void icall_Monobjc_ObjectiveCRuntime_CleanUp(void) {
  * @remark  TODO: Insert Graph
  */
 MonoObject *icall_Monobjc_ObjectiveCRuntime_GetInstance(MonoType *type, void *ptr, boolean_t fail_safe) {
+    void *args[1];
+    
     // If the pointer is null, return NULL
     if (!ptr) {
         return NULL;
@@ -96,7 +98,6 @@ MonoObject *icall_Monobjc_ObjectiveCRuntime_GetInstance(MonoType *type, void *pt
         LOG_INFO(MONOBJC_DOMAIN_INSTANCES, "Requested %s but found %s for %p", mono_class_get_name(requested_class), mono_class_get_name(wrapper_class), ptr);
         
         // Retrieve the classname associated to the type
-        void *args[1];
         args[0] = mono_type_get_object(mono_domain_get(), type);
         
         MonoString *attribute_name = (MonoString *) mono_runtime_invoke(monobjc_get_Monobjc_Class_GetAttributeName_method(), NULL, args, NULL);
@@ -127,7 +128,6 @@ MonoObject *icall_Monobjc_ObjectiveCRuntime_GetInstance(MonoType *type, void *pt
         if (monobjc_type_is_interface(type)) {
             wrapper_type = (MonoType *) g_hash_table_lookup(__WRAPPERS_HASHTABLE, type);
             if (!wrapper_type) {
-                void *args[1];
                 args[0] = mono_type_get_object(mono_domain_get(), type);
                 
                 // As result is boxed, 
@@ -149,7 +149,6 @@ MonoObject *icall_Monobjc_ObjectiveCRuntime_GetInstance(MonoType *type, void *pt
             g_hash_table_insert(__CONSTRUCTORS_HASHTABLE, klass, constructor);
         }
         
-        void *args[1];
         args[0] = &ptr;
         
         // We create a new wrapper for this instance

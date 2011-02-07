@@ -6,10 +6,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{
 		libraries\Modules.build = libraries\Modules.build
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc", "libraries\Monobjc\Monobjc.csproj", "{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.Foundation", "libraries\Monobjc.Foundation\Monobjc.Foundation.csproj", "{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.AppKit", "libraries\Monobjc.AppKit\Monobjc.AppKit.csproj", "{66872377-EFC8-4AAC-BC0E-2084E967F8B1}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C9CA3586-F7BD-4D17-B6E2-70D0E5CCB09B}"
 	ProjectSection(SolutionItems) = preProject
 		tests\Modules.build = tests\Modules.build
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.Tests", "tests\Monobjc.Tests\Monobjc.Tests.csproj", "{2EB6BD6B-2243-4208-8425-CE189866ADF2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A0EA00FF-5BDF-47D2-BE84-269D1787C069}"
 	ProjectSection(SolutionItems) = preProject
@@ -22,34 +30,40 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Native", "Native", "{A35D8D
 		native\Modules.build = native\Modules.build
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc", "libraries\Monobjc\Monobjc.csproj", "{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.Tests", "tests\Monobjc.Tests\Monobjc.Tests.csproj", "{2EB6BD6B-2243-4208-8425-CE189866ADF2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2EB6BD6B-2243-4208-8425-CE189866ADF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2EB6BD6B-2243-4208-8425-CE189866ADF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EB6BD6B-2243-4208-8425-CE189866ADF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EB6BD6B-2243-4208-8425-CE189866ADF2}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
+		{66872377-EFC8-4AAC-BC0E-2084E967F8B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66872377-EFC8-4AAC-BC0E-2084E967F8B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66872377-EFC8-4AAC-BC0E-2084E967F8B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66872377-EFC8-4AAC-BC0E-2084E967F8B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1} = {84E05B26-2C67-4D75-A6F1-449EB4DDE85F}
+		{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4} = {84E05B26-2C67-4D75-A6F1-449EB4DDE85F}
+		{66872377-EFC8-4AAC-BC0E-2084E967F8B1} = {84E05B26-2C67-4D75-A6F1-449EB4DDE85F}
 		{2EB6BD6B-2243-4208-8425-CE189866ADF2} = {C9CA3586-F7BD-4D17-B6E2-70D0E5CCB09B}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = src\tools\GenerateFromDocumentation\GenerateFromDocumentation.csproj
+		StartupItem = libraries\Monobjc\Monobjc.csproj
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(MercurialSourceControlSolutionProperties) = preSolution
 		SolutionIsControlled = True

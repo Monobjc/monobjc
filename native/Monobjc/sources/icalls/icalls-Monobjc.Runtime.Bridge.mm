@@ -272,9 +272,9 @@ MonoObject *icall_Monobjc_Runtime_Bridge_CreateClass(MonoString *class_name, Mon
  * @param   obj     The wrapper of the class to intercept.
  */
 void icall_Monobjc_Runtime_Bridge_InterceptDeallocFor(MonoObject *obj) {
-    void *target;
-    mono_field_get_value(obj, monobjc_get_Monobjc_Id_pointer_field(), &target);
-    
+    MonoObject *result = mono_runtime_invoke(monobjc_get_Monobjc_Id_get_NativePointer_method(), obj, NULL, NULL);
+    void *target = *(void **) mono_object_unbox(result);
+
     Class cls = (Class) target;
     LOG_DEBUG(MONOBJC_DOMAIN_GENERAL, "Called icall_Monobjc_Runtime_Bridge_InterceptDeallocFor %s", class_getName(cls));
     

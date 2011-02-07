@@ -118,7 +118,39 @@ namespace Monobjc.Utils
         /// </exception>
         public override MethodBase SelectMethod(BindingFlags bindingAttr, MethodBase[] match, Type[] types, ParameterModifier[] modifiers)
         {
-            return match.FirstOrDefault(methodBase => (types.Length == methodBase.GetParameters().Length) && (!this.returnGeneric ^ methodBase.IsGenericMethod));
+            foreach (MethodBase methodBase in match)
+            {
+                MethodInfo mi = methodBase as MethodInfo;
+                if (mi == null)
+                {
+                    continue;
+                }
+				if (this.returnGeneric != methodBase.IsGenericMethod)
+				{
+					continue;
+				}
+				Type[] parameterTypes = mi.GetParameters().Select(p => p.ParameterType).ToArray();
+				if (parameterTypes.Length != types.Length)
+				{
+                    continue;
+				}
+				bool ok = true;
+				for(int i = 0; i < parameterTypes.Length; i++)
+				{
+					if (parameterTypes[i] != types[i])
+					{
+						ok = false;
+						break;
+					}
+				}
+				if (ok)
+                {
+                    return methodBase;
+                }
+            }
+            return null;
+			
+            //return match.FirstOrDefault(methodBase => (types.Length == methodBase.GetParameters().Length) && (!this.returnGeneric ^ methodBase.IsGenericMethod));
         }
 
         /// <summary>

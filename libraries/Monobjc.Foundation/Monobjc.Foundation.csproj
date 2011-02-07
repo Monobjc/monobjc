@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -22,7 +22,6 @@
     <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -44,7 +43,6 @@
     <Compile Include="Foundation_C\NSPort.Constants.cs" />
     <Compile Include="Foundation_C\NSThread.Constants.cs" />
     <Compile Include="Foundation_C\NSURLCredentialStorage.Constants.cs" />
-    <Compile Include="Foundation_Extensions\Debugger.cs" />
     <Compile Include="Foundation_Collections\NSMutableIndexSet.ICollection.cs" />
     <Compile Include="Foundation_Collections\NSIndexSet.ICollection.cs" />
     <Compile Include="Foundation_Collections\NSArray.IList.cs" />
@@ -820,6 +818,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Debugger.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

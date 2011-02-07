@@ -71,8 +71,9 @@ static MonoObject *__marshal_from_native_for_Monobjc_Block(MonobjcTypeDescriptor
 static void __marshal_to_native_for_Monobjc_Block(MonobjcTypeDescriptor *descriptor, MonoObject *obj, void *ptr, boolean_t native) {
     //LOG_DEBUG(MONOBJC_DOMAIN_MARSHALLING, "__marshal_to_native_for_Monobjc_Block()");
     
-    // Get the field value directly
-    void *value = mono_runtime_invoke(monobjc_get_Monobjc_Block_get_NativePointer_method(), obj, NULL, NULL);
+    // Get the pointer value
+    MonoObject *result = mono_runtime_invoke(monobjc_get_Monobjc_Block_get_NativePointer_method(), obj, NULL, NULL);
+    void *value = *(void **) mono_object_unbox(result);
     *(void **)ptr = value;
 }
 

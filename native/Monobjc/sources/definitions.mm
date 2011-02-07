@@ -51,10 +51,10 @@ void monobjc_create_definitions() {
     data->Monobjc_TypeHelper_class          = monobjc_define_class(data->Monobjc_image, MONOBJC_UTILS, "TypeHelper");
         
     // Types
-    data->Monobjc_Block_type        = mono_class_get_type(data->Monobjc_Block_class);
-    data->Monobjc_Class_type        = mono_class_get_type(data->Monobjc_Class_class);
-    data->Monobjc_Id_type           = mono_class_get_type(data->Monobjc_Id_class);
-    data->System_Void_type          = mono_class_get_type(mono_get_void_class());
+    data->Monobjc_Block_type    = mono_class_get_type(data->Monobjc_Block_class);
+    data->Monobjc_Class_type    = mono_class_get_type(data->Monobjc_Class_class);
+    data->Monobjc_Id_type       = mono_class_get_type(data->Monobjc_Id_class);
+    data->System_Void_type      = mono_class_get_type(mono_get_void_class());
     
     // Constructors
     data->Monobjc_Class_ctor_method = monobjc_define_method_by_desc(data->Monobjc_Class_class, "Class::.ctor(intptr)");
@@ -65,13 +65,11 @@ void monobjc_create_definitions() {
     data->Monobjc_Block_get_NativePointer_method            = monobjc_define_method(data->Monobjc_Block_class, "get_NativePointer", 0);
 #endif
     data->Monobjc_Class_GetAttributeName_method             = monobjc_define_method(data->Monobjc_Class_class, "GetAttributeName", 1);
+    data->Monobjc_Id_get_NativePointer_method               = monobjc_define_method(data->Monobjc_Id_class, "get_NativePointer", 0);
     data->Monobjc_ObjectiveCRuntime_GenerateWrapper_method  = monobjc_define_method(data->Monobjc_ObjectiveCRuntime_class, "GenerateWrapper", 1);
     data->Monobjc_ObjectiveCRuntime_UnWrap_method           = monobjc_define_method(data->Monobjc_ObjectiveCRuntime_class, "UnWrap", 1);
     data->Monobjc_ObjectiveCRuntime_UnWrap_method           = monobjc_define_method(data->Monobjc_ObjectiveCRuntime_class, "Wrap", 1);
     data->Monobjc_TypeHelper_GetUnderlyingTypeHandle_method = monobjc_define_method(data->Monobjc_TypeHelper_class, "GetUnderlyingTypeHandle", 2);
-    
-    // Fields
-    data->Monobjc_Id_pointer_field = monobjc_define_field(data->Monobjc_Id_class, "pointer");
 }
 
 void monobjc_destroy_definitions() {

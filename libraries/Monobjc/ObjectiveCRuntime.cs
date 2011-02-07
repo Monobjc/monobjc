@@ -408,7 +408,7 @@ namespace Monobjc
                 IntPtr value = Marshal.ReadIntPtr(pointer);
                 return (T)GetInstanceInternal(type.TypeHandle.Value, value, false);
             }
-            if (type == typeof(int))
+            if (type == typeof(int) || type == typeof(uint))
             {
                 // Read the value
                 int value = Marshal.ReadInt32(pointer);

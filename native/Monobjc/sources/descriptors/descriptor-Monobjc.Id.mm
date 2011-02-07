@@ -77,9 +77,9 @@ static void __marshal_to_native_for_Monobjc_Id(MonobjcTypeDescriptor *descriptor
     //LOG_DEBUG(MONOBJC_DOMAIN_MARSHALLING, "__marshal_to_native_for_Monobjc_Id(%p)", obj);
     
     if (obj) {
-        // Get the field value directly
-        void *value;
-        mono_field_get_value(obj, monobjc_get_Monobjc_Id_pointer_field(), &value);
+        // Get the pointer value
+        MonoObject *result = mono_runtime_invoke(monobjc_get_Monobjc_Id_get_NativePointer_method(), obj, NULL, NULL);
+        void *value = *(void **) mono_object_unbox(result);
         *(void **)ptr = value;
     } else {
         // For NULL value, set value to NULL

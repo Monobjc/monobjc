@@ -39,17 +39,22 @@ namespace Monobjc.Foundation
 	{
 	}
 
+	[DebuggerDisplay("{ToString()}"), DebuggerTypeProxy(typeof(Monobjc_Foundation_NSStringDebugView))]
+	partial class NSString
+	{
+	}
+
 	internal sealed class Monobjc_Foundation_CollectionDebugView
 	{
-		private readonly ICollection<Id> collection;
+		private readonly ICollection<Id> instance;
 
-		public Monobjc_Foundation_CollectionDebugView (ICollection<Id> collection)
+		public Monobjc_Foundation_CollectionDebugView (ICollection<Id> instance)
 		{
-			if (collection == null) 
+			if (instance == null) 
 			{
-				throw new ArgumentNullException ("collection");
+				throw new ArgumentNullException ("instance");
 			}
-			this.collection = collection;
+			this.instance = instance;
 		}
 
 		[DebuggerBrowsable(DebuggerBrowsableState.RootHidden)]
@@ -57,8 +62,8 @@ namespace Monobjc.Foundation
 		{
 			get 
 			{
-				Id[] array = new Id[this.collection.Count];
-				this.collection.CopyTo (array, 0);
+				Id[] array = new Id[this.instance.Count];
+				this.instance.CopyTo (array, 0);
 				return array;
 			}
 		}
@@ -66,15 +71,15 @@ namespace Monobjc.Foundation
 
 	internal sealed class Monobjc_Foundation_DictionaryDebugView
 	{
-		private readonly IDictionary<Id, Id> dictionary;
+		private readonly IDictionary<Id, Id> instance;
 
-		public Monobjc_Foundation_DictionaryDebugView (IDictionary<Id, Id> dictionary)
+		public Monobjc_Foundation_DictionaryDebugView (IDictionary<Id, Id> instance)
 		{
-			if (dictionary == null) 
+			if (instance == null) 
 			{
-				throw new ArgumentNullException ("dictionary");
+				throw new ArgumentNullException ("instance");
 			}
-			this.dictionary = dictionary;
+			this.instance = instance;
 		}
 		
 		[DebuggerBrowsable(DebuggerBrowsableState.RootHidden)]
@@ -82,10 +87,39 @@ namespace Monobjc.Foundation
 		{
 			get 
 			{
-				KeyValuePair<Id, Id>[] array = new KeyValuePair<Id, Id>[this.dictionary.Count];
-				this.dictionary.CopyTo (array, 0);
+				KeyValuePair<Id, Id>[] array = new KeyValuePair<Id, Id>[this.instance.Count];
+				this.instance.CopyTo (array, 0);
 				return array;
 			}
+		}
+	}
+
+	internal sealed class Monobjc_Foundation_NSStringDebugView
+	{
+		private readonly NSString instance;
+
+		public Monobjc_Foundation_NSStringDebugView(NSString instance)
+		{
+			if (instance == null) 
+			{
+				throw new ArgumentNullException ("instance");
+			}
+			this.instance = instance;
+		}
+		
+		public NSStringEncoding FastestEncoding
+		{
+			get { return this.instance.FastestEncoding; }
+		}
+		
+		public ulong Length
+		{
+			get { return this.instance.Length; }
+		}
+		
+		public NSStringEncoding SmallestEncoding
+		{
+			get { return this.instance.SmallestEncoding; }
 		}
 	}
 }

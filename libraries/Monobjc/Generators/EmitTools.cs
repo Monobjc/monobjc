@@ -134,10 +134,10 @@ namespace Monobjc.Generators
         public static readonly MethodInfo OBJECTIVECRUNTIME_GETINSTANCE = typeof (ObjectiveCRuntime).GetMethod("GetInstance", new[] {typeof (IntPtr)});
 
         public static readonly MethodInfo OBJECTIVECRUNTIME_SENDMESSAGE_VOID_ARGS = typeof (ObjectiveCRuntime).GetMethod("SendMessage", BindingFlags.Public | BindingFlags.Static, new GenericMethodBinder(false),
-                                                                                                                         new[] {typeof (Id), typeof (String), typeof (Object[])}, null);
+                                                                                                                         new[] {typeof (IManagedWrapper), typeof (String), typeof (Object[])}, null);
 
         public static readonly MethodInfo OBJECTIVECRUNTIME_SENDMESSAGE_ARGS_GENERIC = typeof (ObjectiveCRuntime).GetMethod("SendMessage", BindingFlags.Public | BindingFlags.Static, new GenericMethodBinder(true),
-                                                                                                                            new[] {typeof (Id), typeof (String), typeof (Object[])}, null);
+                                                                                                                            new[] {typeof (IManagedWrapper), typeof (String), typeof (Object[])}, null);
 
         public static readonly MethodInfo TYPE_GETTYPEFROMHANDLE = typeof (Type).GetMethod("GetTypeFromHandle", new[] {typeof (RuntimeTypeHandle)});
     }

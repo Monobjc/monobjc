@@ -100,5 +100,16 @@ namespace Monobjc.Foundation
         {
             return new NSInteger((int)value);
         }
+		
+        /// <summary>
+        /// Returns the a string representation of this instance.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="T:System.String"></see> containing a representation of this instance.
+        /// </returns>
+		public override string ToString()
+		{
+			return this.value.ToString();
+		}
     }
 }

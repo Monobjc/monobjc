@@ -35,9 +35,8 @@ DEFINITION(MonoMethod *,        Monobjc_Block_get_NativePointer_method)
 DEFINITION(MonoMethod *,        Monobjc_Class_ctor_method)
 DEFINITION(MonoMethod *,        Monobjc_Class_GetAttributeName_method)
 DEFINITION(MonoMethod *,        Monobjc_Id_ctor_method)
+DEFINITION(MonoMethod *,        Monobjc_Id_get_NativePointer_method)
 DEFINITION(MonoMethod *,        Monobjc_ObjectiveCRuntime_GenerateWrapper_method)
 DEFINITION(MonoMethod *,        Monobjc_ObjectiveCRuntime_UnWrap_method)
 DEFINITION(MonoMethod *,        Monobjc_ObjectiveCRuntime_Wrap_method)
 DEFINITION(MonoMethod *,        Monobjc_TypeHelper_GetUnderlyingTypeHandle_method)
-
-DEFINITION(MonoClassField *,    Monobjc_Id_pointer_field);

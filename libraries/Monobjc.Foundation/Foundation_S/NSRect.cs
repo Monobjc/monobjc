@@ -78,7 +78,7 @@ namespace Monobjc.Foundation
         /// </returns>
         public override String ToString()
         {
-            return String.Format(CultureInfo.CurrentCulture, "NSRect({0}, {1})", this.origin, this.size);
+            return String.Format(CultureInfo.CurrentCulture, "NSRect({0} - {1})", this.origin, this.size);
         }
 
         /// <summary>

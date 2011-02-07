@@ -69,7 +69,7 @@ namespace Monobjc.Generators
             int size = infos.Count;
 
             // Create a local variable to hold the array
-            LocalBuilder array = generator.DeclareLocal((new Object[0]).GetType());
+            LocalBuilder array = generator.DeclareLocal(typeof(Object[]));
 
             // Load array size on the stack
             switch (size)
@@ -108,7 +108,13 @@ namespace Monobjc.Generators
 
             // Create the array
             generator.Emit(OpCodes.Newarr, typeof (Object));
-
+			
+			// Don't bother putting the array on the stack if there is no argument
+			if (size == 0)
+			{
+				return;
+			}
+			
             generator.Emit(OpCodes.Stloc, array);
 
             for (int i = 0; i < size; i++)

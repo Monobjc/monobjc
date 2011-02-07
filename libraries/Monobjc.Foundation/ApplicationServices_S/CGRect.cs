@@ -78,7 +78,7 @@ namespace Monobjc.ApplicationServices
         /// </returns>
         public override String ToString()
         {
-            return String.Format(CultureInfo.CurrentCulture, "CGRect({0}, {1})", this.origin, this.size);
+            return String.Format(CultureInfo.CurrentCulture, "CGRect({0} - {1})", this.origin, this.size);
         }
 
         /// <summary>
