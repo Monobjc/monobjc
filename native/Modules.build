@@ -26,7 +26,8 @@
       <call target="build-loader-intern" if="${version::get-minor(version::parse(max.version)) >= 6}"/>
     </if>
 	
-	<copy file="${native.dir}/monobjc" todir="${dist.dir}"/>
+    <copy file="${native.dir}/monobjc" todir="${dist.dir}"/>
+    <copy file="${native.dir}/monobjc-nunit" todir="${dist.dir}"/>
   </target>
 
   <!-- Invoke the XCode builder -->
