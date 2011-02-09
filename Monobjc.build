@@ -84,6 +84,8 @@
         <include name="Monobjc.sh"/>
         <include name="Monobjc.sln"/>
         <include name="Monobjc.snk"/>
+        <include name="${dist.dir}/monobjc"/>
+        <include name="${dist.dir}/monobjc-nunit"/>
         <include name="${dist.dir}/Monobjc.Tools.dll"/>
         <include name="${dist.dir}/Monobjc.NAnt.dll"/>
         <include name="${dist.dir}/10.*/Monobjc*.dll"/>
@@ -93,27 +95,26 @@
         <include name="${external.dir}/nunit.framework.dll"/>
       </fileset>
       <fileset basedir="." prefix="${tar.prefix}">
-        <include name="${libraries.dir}/Monobjc/**"/>
-        <exclude name="${libraries.dir}/Monobjc/**/bin/**"/>
-        <exclude name="${libraries.dir}/Monobjc/**/obj/**"/>
-        <exclude name="${libraries.dir}/Monobjc/**/*.pidb"/>
-        <exclude name="${libraries.dir}/Monobjc/**/*.user"/>
+        <include name="${libraries.dir}/Monobjc/**/*.cs"/>
+        <include name="${libraries.dir}/Monobjc/**/*.csproj"/>
+        <include name="${libraries.dir}/Monobjc/**/*.resx"/>
       </fileset>
       <fileset basedir="${libraries.dir}" prefix="${tar.prefix}/libraries">
-        <include name="**" unless="${strip.sources}"/>
+        <include name="**/*.cs" unless="${strip.sources}"/>
+        <include name="**/*.csproj" unless="${strip.sources}"/>
+        <include name="**/*.resx" unless="${strip.sources}"/>
         <exclude name="Monobjc/**"/>
-        <exclude name="**/bin/**" unless="${strip.sources}"/>
-        <exclude name="**/obj/**" unless="${strip.sources}"/>
-        <exclude name="**/*.pidb" unless="${strip.sources}"/>
-        <exclude name="**/*.user" unless="${strip.sources}"/>
       </fileset>
       <fileset basedir="${libraries.stripped.dir}" prefix="${tar.prefix}/libraries">
-        <include name="**" if="${strip.sources}"/>
+        <include name="**/*.cs" if="${strip.sources}"/>
+        <include name="**/*.csproj" if="${strip.sources}"/>
+        <include name="**/*.resx" if="${strip.sources}"/>
         <exclude name="Monobjc/**"/>
-        <exclude name="**/bin/**" if="${strip.sources}"/>
-        <exclude name="**/obj/**" if="${strip.sources}"/>
-        <exclude name="**/*.pidb" if="${strip.sources}"/>
-        <exclude name="**/*.user" if="${strip.sources}"/>
+      </fileset>
+      <fileset basedir="." prefix="${tar.prefix}">
+        <include name="${tests.dir}/**/*.cs"/>
+        <include name="${tests.dir}/**/*.csproj"/>
+        <include name="${tests.dir}/**/*.resx"/>
       </fileset>
     </tar>
   </target>

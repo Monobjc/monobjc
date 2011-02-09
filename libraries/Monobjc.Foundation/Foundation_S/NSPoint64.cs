@@ -1,4 +1,4 @@
-﻿//
+//
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2011 - Laurent Etiemble
 //
@@ -42,7 +42,7 @@ namespace Monobjc.Foundation
         public double y;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NSPoint64"/> struct.
+        /// Initializes a new instance of the <see cref="Monobjc.Foundation.NSPoint64"/> struct.
         /// </summary>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
@@ -53,7 +53,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="Monobjc.Cocoa.NSPoint64"/> to <see cref="Monobjc.Cocoa.NSPoint"/>.
+        /// Performs an implicit conversion from <see cref="Monobjc.Foundation.NSPoint64"/> to <see cref="Monobjc.Foundation.NSPoint"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>
@@ -63,7 +63,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="Monobjc.Cocoa.NSPoint"/> to <see cref="Monobjc.Cocoa.NSPoint64"/>.
+        /// Performs an implicit conversion from <see cref="Monobjc.Foundation.NSPoint"/> to <see cref="Monobjc.Foundation.NSPoint64"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>

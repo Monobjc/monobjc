@@ -68,7 +68,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="System.String"/> to <see cref="Monobjc.Cocoa.NSString"/>.
+        /// Performs an implicit conversion from <see cref="System.String"/> to <see cref="Monobjc.Foundation.NSString"/>.
         /// <para>The returned NSString is auto-released.</para>
         /// </summary>
         /// <param name="value">The value.</param>
@@ -85,7 +85,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="System.String"/> to <see cref="Monobjc.Cocoa.NSString"/>.
+        /// Performs an implicit conversion from <see cref="System.String"/> to <see cref="Monobjc.Foundation.NSString"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>

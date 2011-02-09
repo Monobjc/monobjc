@@ -27,7 +27,7 @@ namespace Monobjc.Foundation
     partial class NSNumber
     {
         /// <summary>
-        /// Performs an implicit conversion from <see cref="System.Boolean"/> to <see cref="Monobjc.Cocoa.NSNumber"/>.
+        /// Performs an implicit conversion from <see cref="System.Boolean"/> to <see cref="Monobjc.Foundation.NSNumber"/>.
         /// </summary>
         /// <param name="value">if set to <c>true</c> [value].</param>
         /// <returns>The result of the conversion.</returns>
@@ -37,7 +37,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="System.Char"/> to <see cref="Monobjc.Cocoa.NSNumber"/>.
+        /// Performs an implicit conversion from <see cref="System.Char"/> to <see cref="Monobjc.Foundation.NSNumber"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>
@@ -47,7 +47,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="System.Double"/> to <see cref="Monobjc.Cocoa.NSNumber"/>.
+        /// Performs an implicit conversion from <see cref="System.Double"/> to <see cref="Monobjc.Foundation.NSNumber"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>
@@ -57,7 +57,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="System.Single"/> to <see cref="Monobjc.Cocoa.NSNumber"/>.
+        /// Performs an implicit conversion from <see cref="System.Single"/> to <see cref="Monobjc.Foundation.NSNumber"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>
@@ -67,7 +67,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="System.Int32"/> to <see cref="Monobjc.Cocoa.NSNumber"/>.
+        /// Performs an implicit conversion from <see cref="System.Int32"/> to <see cref="Monobjc.Foundation.NSNumber"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>
@@ -77,7 +77,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="System.Int64"/> to <see cref="Monobjc.Cocoa.NSNumber"/>.
+        /// Performs an implicit conversion from <see cref="System.Int64"/> to <see cref="Monobjc.Foundation.NSNumber"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>
@@ -87,7 +87,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="System.Int16"/> to <see cref="Monobjc.Cocoa.NSNumber"/>.
+        /// Performs an implicit conversion from <see cref="System.Int16"/> to <see cref="Monobjc.Foundation.NSNumber"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>
@@ -97,7 +97,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="System.UInt32"/> to <see cref="Monobjc.Cocoa.NSNumber"/>.
+        /// Performs an implicit conversion from <see cref="System.UInt32"/> to <see cref="Monobjc.Foundation.NSNumber"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>
@@ -107,7 +107,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="System.UInt64"/> to <see cref="Monobjc.Cocoa.NSNumber"/>.
+        /// Performs an implicit conversion from <see cref="System.UInt64"/> to <see cref="Monobjc.Foundation.NSNumber"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>
@@ -117,7 +117,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="System.UInt16"/> to <see cref="Monobjc.Cocoa.NSNumber"/>.
+        /// Performs an implicit conversion from <see cref="System.UInt16"/> to <see cref=".NSNumber"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>

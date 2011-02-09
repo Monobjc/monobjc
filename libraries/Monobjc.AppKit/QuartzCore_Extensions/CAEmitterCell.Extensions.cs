@@ -33,21 +33,13 @@ using System.Runtime.InteropServices;
 namespace Monobjc.QuartzCore
 {
 #if MACOSX_10_5
-    public partial class CALayer
+    public partial class CAEmitterCell
     {
-#if MACOSX_10_5
-        /// <summary>
-        /// <para>The identity transform: [1 0 0 0; 0 1 0 0; 0 0 1 0; 0 0 0 1].</para>
-        /// <para>Available in Mac OS X v10.5 and later.</para>
-        /// </summary>
-        public static readonly CATransform3D CATransform3DIdentity = CATransform3D.Identity;
-#endif
-
-#if MACOSX_10_5
+#if MACOSX_10_6
         /// <summary>
         /// <para>An object that provides the contents of the layer. Animatable.</para>
         /// <para>Original signature is '@property(retain) id contents'</para>
-        /// <para>Available in Mac OS X v10.5 and later.</para>
+        /// <para>Available in Mac OS X v10.6 and later.</para>
         /// </summary>
         public virtual IntPtr ContentsPointer
         {

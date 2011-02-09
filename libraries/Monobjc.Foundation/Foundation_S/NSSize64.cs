@@ -1,4 +1,4 @@
-﻿//
+//
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2011 - Laurent Etiemble
 //
@@ -42,7 +42,7 @@ namespace Monobjc.Foundation
         public double height;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NSSize64"/> struct.
+        /// Initializes a new instance of the <see cref="Monobjc.Foundation.NSSize64"/> struct.
         /// </summary>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
@@ -53,7 +53,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="Monobjc.Cocoa.NSSize64"/> to <see cref="Monobjc.Cocoa.NSSize"/>.
+        /// Performs an implicit conversion from <see cref="Monobjc.Foundation.NSSize64"/> to <see cref="Monobjc.Foundation.NSSize"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>
@@ -63,7 +63,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="Monobjc.Cocoa.NSSize"/> to <see cref="Monobjc.Cocoa.NSSize64"/>.
+        /// Performs an implicit conversion from <see cref="Monobjc.Foundation.NSSize"/> to <see cref="Monobjc.Foundation.NSSize64"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>

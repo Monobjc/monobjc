@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -60,12 +60,14 @@
     <Compile Include="DiscRecordingUI_C\DRSetupPanel.cs" />
     <Compile Include="DiscRecordingUI_C\DRSetupPanel_Header.Constants.cs" />
     <Compile Include="DiscRecordingUI_C\DRSetupPanel_Header.cs" />
+    <Compile Include="DiscRecordingUI_Extensions\DRBurnProgressPanel.Extensions.cs" />
     <Compile Include="DiscRecordingUI_P\DRBurnProgressPanel.Delegate.cs" />
     <Compile Include="DiscRecordingUI_P\DRBurnProgressPanelDelegate.Protocol.cs" />
     <Compile Include="DiscRecordingUI_P\DREraseProgressPanel.Delegate.cs" />
     <Compile Include="DiscRecordingUI_P\DREraseProgressPanelDelegate.Protocol.cs" />
     <Compile Include="DiscRecordingUI_P\DRSetupPanel.Delegate.cs" />
     <Compile Include="DiscRecordingUI_P\DRSetupPanelDelegate.Protocol.cs" />
+    <Compile Include="DiscRecordingUI_T\DiscRecordingUIFramework.Constants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿//
+//
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2011 - Laurent Etiemble
 //
@@ -42,7 +42,7 @@ namespace Monobjc.ApplicationServices
         public double height;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CGSize64"/> struct.
+        /// Initializes a new instance of the <see cref="Monobjc.ApplicationServices.CGSize64"/> struct.
         /// </summary>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
@@ -53,7 +53,7 @@ namespace Monobjc.ApplicationServices
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="CGSize64"/> to <see cref="CGSize"/>.
+        /// Performs an implicit conversion from <see cref="Monobjc.ApplicationServices.CGSize64"/> to <see cref="Monobjc.ApplicationServices.CGSize"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>
@@ -63,7 +63,7 @@ namespace Monobjc.ApplicationServices
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="Monobjc.Cocoa.CGSize"/> to <see cref="Monobjc.Cocoa.CGSize64"/>.
+        /// Performs an implicit conversion from <see cref="Monobjc.ApplicationServices.CGSize"/> to <see cref="Monobjc.ApplicationServices.CGSize64"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>

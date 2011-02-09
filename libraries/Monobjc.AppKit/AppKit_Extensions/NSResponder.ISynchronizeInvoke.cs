@@ -1,4 +1,4 @@
-﻿//
+//
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2011 - Laurent Etiemble
 //
@@ -26,7 +26,7 @@ using System.Threading;
 using Monobjc.Foundation;
 using Monobjc.AppKit.Properties;
 
-namespace Monobjc.Cocoa
+namespace Monobjc.AppKit
 {
     /// <summary>
     /// Represents a delegate that can execute any method in managed code that is declared void and takes no parameters. 

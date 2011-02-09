@@ -39,11 +39,6 @@ namespace Monobjc.Foundation
 	{
 	}
 
-	[DebuggerDisplay("{ToString()}"), DebuggerTypeProxy(typeof(Monobjc_Foundation_NSStringDebugView))]
-	partial class NSString
-	{
-	}
-
 	internal sealed class Monobjc_Foundation_CollectionDebugView
 	{
 		private readonly ICollection<Id> instance;
@@ -91,35 +86,6 @@ namespace Monobjc.Foundation
 				this.instance.CopyTo (array, 0);
 				return array;
 			}
-		}
-	}
-
-	internal sealed class Monobjc_Foundation_NSStringDebugView
-	{
-		private readonly NSString instance;
-
-		public Monobjc_Foundation_NSStringDebugView(NSString instance)
-		{
-			if (instance == null) 
-			{
-				throw new ArgumentNullException ("instance");
-			}
-			this.instance = instance;
-		}
-		
-		public NSStringEncoding FastestEncoding
-		{
-			get { return this.instance.FastestEncoding; }
-		}
-		
-		public ulong Length
-		{
-			get { return this.instance.Length; }
-		}
-		
-		public NSStringEncoding SmallestEncoding
-		{
-			get { return this.instance.SmallestEncoding; }
 		}
 	}
 }

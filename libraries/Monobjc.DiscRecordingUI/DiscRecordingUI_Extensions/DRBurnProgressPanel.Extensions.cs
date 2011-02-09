@@ -24,37 +24,24 @@
 using Monobjc;
 using Monobjc.Foundation;
 using Monobjc.AppKit;
-using Monobjc.ApplicationServices;
+using Monobjc.DiscRecording;
 using System;
 using System.CodeDom.Compiler;
 using System.Globalization;
 using System.Runtime.InteropServices;
 
-namespace Monobjc.QuartzCore
+namespace Monobjc.DiscRecordingUI
 {
-#if MACOSX_10_5
-    public partial class CALayer
+    public partial class DRBurnProgressPanel
     {
-#if MACOSX_10_5
         /// <summary>
-        /// <para>The identity transform: [1 0 0 0; 0 1 0 0; 0 0 1 0; 0 0 0 1].</para>
-        /// <para>Available in Mac OS X v10.5 and later.</para>
+        /// <para>Returns the description string displayed in the panel.</para>
+        /// <para>Original signature is '- (NSString*) description'</para>
         /// </summary>
-        public static readonly CATransform3D CATransform3DIdentity = CATransform3D.Identity;
-#endif
-
-#if MACOSX_10_5
-        /// <summary>
-        /// <para>An object that provides the contents of the layer. Animatable.</para>
-        /// <para>Original signature is '@property(retain) id contents'</para>
-        /// <para>Available in Mac OS X v10.5 and later.</para>
-        /// </summary>
-        public virtual IntPtr ContentsPointer
+        public new NSString Description
         {
-            get { return ObjectiveCRuntime.SendMessage<IntPtr>(this, "contents"); }
-            set { ObjectiveCRuntime.SendMessage(this, "setContents:", value); }
+            get { return ObjectiveCRuntime.SendMessage<NSString>(this, "description"); }
+            set { ObjectiveCRuntime.SendMessage(this, "setDescription:", value); }
         }
-#endif
     }
-#endif
 }

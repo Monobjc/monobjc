@@ -1,4 +1,4 @@
-﻿//
+//
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2011 - Laurent Etiemble
 //
@@ -42,7 +42,7 @@ namespace Monobjc.Foundation
         public ulong length;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NSRange64"/> struct.
+        /// Initializes a new instance of the <see cref="Monobjc.Foundation.NSRange64"/> struct.
         /// </summary>
         /// <param name="location">The location.</param>
         /// <param name="length">The length.</param>
@@ -53,7 +53,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="Monobjc.Cocoa.NSRange64"/> to <see cref="Monobjc.Cocoa.NSRange"/>.
+        /// Performs an implicit conversion from <see cref="Monobjc.Foundation.NSRange64"/> to <see cref="Monobjc.Foundation.NSRange"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>
@@ -63,7 +63,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="Monobjc.Cocoa.NSRange"/> to <see cref="Monobjc.Cocoa.NSRange64"/>.
+        /// Performs an implicit conversion from <see cref="Monobjc.Foundation.NSRange"/> to <see cref="Monobjc.Foundation.NSRange64"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>

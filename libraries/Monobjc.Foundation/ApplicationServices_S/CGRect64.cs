@@ -1,4 +1,4 @@
-﻿//
+//
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2011 - Laurent Etiemble
 //
@@ -42,7 +42,7 @@ namespace Monobjc.ApplicationServices
         public CGSize64 size;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CGRect64"/> struct.
+        /// Initializes a new instance of the <see cref="Monobjc.ApplicationServices.CGRect64"/> struct.
         /// </summary>
         /// <param name="origin">The origin.</param>
         /// <param name="size">The size.</param>
@@ -53,7 +53,7 @@ namespace Monobjc.ApplicationServices
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CGRect64"/> struct.
+        /// Initializes a new instance of the <see cref="Monobjc.ApplicationServices.CGRect64"/> struct.
         /// </summary>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
@@ -68,7 +68,7 @@ namespace Monobjc.ApplicationServices
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="CGRect64"/> to <see cref="CGRect"/>.
+        /// Performs an implicit conversion from <see cref="Monobjc.ApplicationServices.CGRect64"/> to <see cref="Monobjc.ApplicationServices.CGRect"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>
@@ -78,7 +78,7 @@ namespace Monobjc.ApplicationServices
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="Monobjc.Cocoa.CGRect"/> to <see cref="Monobjc.Cocoa.CGRect64"/>.
+        /// Performs an implicit conversion from <see cref="Monobjc.ApplicationServices.CGRect"/> to <see cref="Monobjc.ApplicationServices.CGRect64"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>
