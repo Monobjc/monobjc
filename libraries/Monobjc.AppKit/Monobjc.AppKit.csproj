@@ -1272,6 +1272,8 @@
     <Compile Include="AppKit_Extensions\SheetDidEndReturnCodeContextInfoEventHandler.cs" />
     <Compile Include="AppKit_Extensions\TargetActionEventHandler.cs" />
     <Compile Include="QuartzCore_Extensions\CALayer.Extensions.cs" />
+    <Compile Include="AppKit_Extensions\NSCollectionViewItem.Extensions.cs" />
+    <Compile Include="AppKit_Extensions\NSSearchFieldCell.Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">
