@@ -29,8 +29,8 @@ namespace Monobjc.Foundation
     public partial class NSThread
     {
         /// <summary>
-        /// Delegate that will be run when passed to <see cref="NSThread.DetachNewThreadSelectorToTargetWithObject(NSThreadRunner,Id)"/>.
-        /// <para>The associated method MUST create an <see cref="NSAutoreleasePool"/> if needed.</para>
+        /// Delegate that will be run.
+        /// <para>The associated method MUST create an <see cref="NSAutoreleasePool"/> if needed to avoid leaks.</para>
         /// </summary>
         public delegate void NSThreadRunner(Id argument);
 
@@ -70,7 +70,6 @@ namespace Monobjc.Foundation
         /// <param name="aRunner">The delegate that will be executed on the new thread.</param>
         /// <param name="anArgument">The single argument passed to the target. May be nil.</param>
         /// <returns>YES if the application is multithreaded, NO otherwise.</returns>
-        /// <remarks>Original signature is '+ (void)detachNewThreadSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anArgument'</remarks>
         public static void DetachNewThreadSelectorToTargetWithObject(NSThreadRunner aRunner, Id anArgument)
         {
             NSThreadLauncher launcher = new NSThreadLauncher(aRunner);
