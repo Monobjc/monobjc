@@ -47,20 +47,20 @@ namespace Monobjc.AppKit
 		/// <para>Identifies where recent search strings should appear in the “recents” menu group.</para>
         /// <para>Available in Mac OS X v10.3 and later.</para>
 		/// </summary>
-		public const int NSSearchFieldRecentsTitleMenuItemTag = 1001;
+		public const int NSSearchFieldRecentsMenuItemTag = 1001;
 
 		/// <summary>
 		/// <para>Identifies the menu item for clearing the current set of recent string searches in the menu.</para>
 		/// <para>This item is hidden if there are no recent strings.</para>
         /// <para>Available in Mac OS X v10.3 and later.</para>
 		/// </summary>
-		public const int NSSearchFieldRecentsTitleMenuItemTag = 1002;
+		public const int NSSearchFieldClearRecentsMenuItemTag = 1002;
 
 		/// <summary>
 		/// <para>Identifies the menu item that describes a lack of recent search strings (for example, “No recent searches”).</para>
 		/// <para>This item is hidden if there have been recent searches.</para>
         /// <para>Available in Mac OS X v10.3 and later.</para>
 		/// </summary>
-		public const int NSSearchFieldRecentsTitleMenuItemTag = 1003;
+		public const int NSSearchFieldNoRecentsMenuItemTag = 1003;
 	}
 }
