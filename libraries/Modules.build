@@ -240,17 +240,6 @@
     </fileset>
     <call target="build-library-intern"/>
 
-    <!-- Library Monobjc.ImageKit -->
-    <property name="lib.name" value="Monobjc.ImageKit"/>
-    <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
-      <include name="${base.dir}/${lib.name}/*.cs"/>
-      <include name="${base.dir}/${lib.name}/ImageKit_C/*.cs"/>
-      <include name="${base.dir}/${lib.name}/ImageKit_P/*.cs"/>
-      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
-    </fileset>
-    <call target="build-library-intern"/>
-
     <!-- Library Monobjc.InputMethodKit -->
     <property name="lib.name" value="Monobjc.InputMethodKit"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -287,25 +276,15 @@
     </fileset>
     <call target="build-library-intern"/>
 
-    <!-- Library Monobjc.QuartzComposer -->
-    <property name="lib.name" value="Monobjc.QuartzComposer"/>
+    <!-- Library Monobjc.Quartz -->
+    <property name="lib.name" value="Monobjc.Quartz"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
-      <include name="${base.dir}/${lib.name}/QuartzComposer_C/*.cs"/>
-      <include name="${base.dir}/${lib.name}/QuartzComposer_P/*.cs"/>
-    </fileset>
-    <call target="build-library-intern"/>
-
-    <!-- Library Monobjc.QuickLook -->
-    <property name="lib.name" value="Monobjc.QuickLook"/>
-    <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
-      <include name="${base.dir}/${lib.name}/*.cs"/>
-      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
-      <include name="${base.dir}/${lib.name}/QuickLook_C/*.cs"/>
-      <include name="${base.dir}/${lib.name}/QuickLook_P/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Quartz_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Quartz_E/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Quartz_P/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
 

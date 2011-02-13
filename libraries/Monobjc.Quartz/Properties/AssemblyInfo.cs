@@ -27,8 +27,8 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Monobjc Bridge - PDFKit Library")]
-[assembly: AssemblyDescription("Monobjc Bridge PDFKit Library")]
+[assembly: AssemblyTitle("Monobjc Bridge - Quartz Library")]
+[assembly: AssemblyDescription("Monobjc Bridge Quartz Library")]
 [assembly: AssemblyCompany("Monobjc Project")]
 [assembly: AssemblyProduct("Monobjc Bridge Project")]
 [assembly: AssemblyCopyright("Copyright (c) Monobjc Project 2007-2011 - Licensed under MIT License")]
@@ -36,8 +36,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en-US")]
 [assembly: ComVisible(false)]
-[assembly: Guid("275eb024-ad9b-bf32-6b33-6ea225252991")]
+[assembly: Guid("8599f052-b263-d333-feb1-7a3ea9fa5004")]
 
 #if TESTING
-[assembly: InternalsVisibleTo("Monobjc.PDFKit.Tests")]
+[assembly: InternalsVisibleTo("Monobjc.Quartz.Tests")]
 #endif
