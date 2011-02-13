@@ -819,6 +819,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Debugger.cs" />
+    <Compile Include="Foundation_Extensions\FoundationFramework.Interop.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
