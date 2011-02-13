@@ -86,7 +86,17 @@ namespace Monobjc.Foundation
         {
             return new NSUInteger(Convert.ToUInt32(value));
         }
-
+		
+        /// <summary>
+        /// Performs an implicit conversion from <see cref="Monobjc.Foundation.NSInteger"/> to <see cref="Monobjc.Foundation.NSUInteger"/>.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns>The result of the conversion.</returns>
+		public static implicit operator NSUInteger(NSInteger value)
+		{
+			return new NSUInteger((uint) value.value);
+		}
+		
         /// <summary>
         /// Performs an explicit conversion from <see cref="Monobjc.Foundation.NSUInteger"/> to <see cref="System.Int32"/>.
         /// </summary>
