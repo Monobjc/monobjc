@@ -135,6 +135,7 @@ function uninstall {
 case "$COMMAND" in
 
     install)
+        uninstall
         install
         ;;
     
