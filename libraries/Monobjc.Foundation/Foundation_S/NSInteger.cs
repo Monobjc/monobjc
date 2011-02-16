@@ -96,7 +96,7 @@ namespace Monobjc.Foundation
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>
-        public static explicit operator uint(NSInteger value)
+        public static implicit operator uint(NSInteger value)
         {
             return (uint) value.value;
         }
@@ -106,7 +106,7 @@ namespace Monobjc.Foundation
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>
-        public static explicit operator NSInteger(uint value)
+        public static implicit operator NSInteger(uint value)
         {
             return new NSInteger((int)value);
         }
