@@ -195,7 +195,7 @@
       <exclude name="${base.dir}/Monobjc.Foundation/ApplicationServices_T/*.Deprecated.cs"/>
       <include name="${base.dir}/${lib.name}/CoreData_C/*.cs"/>
       <include name="${base.dir}/${lib.name}/CoreData_T/*.cs"/>
-      <include name="${base.dir}/${lib.name}/MobileCoreServices_T/*.cs"/>
+      <include name="${base.dir}/${lib.name}/CoreServices_T/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
       <include name="${base.dir}/${lib.name}/QuartzCore_C/*.cs"/>
       <include name="${base.dir}/${lib.name}/QuartzCore_Extensions/*.cs"/>

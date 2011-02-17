@@ -36,9 +36,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGAffineTransform.cs">
-      <Link>ApplicationServices_T\CGAffineTransform.cs</Link>
-    </Compile>
     <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGBitmapContext.cs">
       <Link>ApplicationServices_T\CGBitmapContext.cs</Link>
     </Compile>
@@ -1108,7 +1105,6 @@
     <Compile Include="CoreData_C\NSRelationshipDescription.cs" />
     <Compile Include="CoreData_C\NSRelationshipDescription.Protocols.cs" />
     <Compile Include="CoreData_T\CoreDataFramework.Constants.cs" />
-    <Compile Include="MobileCoreServices_T\UTType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1275,6 +1271,11 @@
     <Compile Include="AppKit_Extensions\NSCollectionViewItem.Extensions.cs" />
     <Compile Include="AppKit_Extensions\NSSearchFieldCell.Extensions.cs" />
     <Compile Include="AppKit_Extensions\NSOpenGLPixelFormat.Extensions.cs" />
+    <Compile Include="CoreServices_T\UTType.cs" />
+    <Compile Include="AppKit_Extensions\NSOpenGLContext.Extensions.cs" />
+    <Compile Include="ApplicationServices_S\CGAffineTransform.cs" />
+    <Compile Include="ApplicationServices_S\CGAffineTransform.Functions.cs" />
+    <Compile Include="QuartzCore_Extensions\CAEmitterCell.Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">
