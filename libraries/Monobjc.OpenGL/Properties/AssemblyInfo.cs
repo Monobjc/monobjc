@@ -1,4 +1,4 @@
-﻿//
+//
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2011 - Laurent Etiemble
 //
@@ -20,39 +20,24 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using System;
 
-namespace Monobjc.Foundation
-{
-    partial class NSMutableString
-    {
-        /// <summary>
-        /// Implements the operator +.
-        /// </summary>
-        /// <param name="string">The string.</param>
-        /// <param name="otherString">The other string.</param>
-        /// <returns>The result of the operator.</returns>
-        public static NSMutableString operator +(NSMutableString @string, NSString otherString)
-        {
-            @string.AppendString(otherString);
-            return @string;
-        }
-		
-        /// <summary>
-        /// Performs an implicit conversion from <see cref="System.String"/> to <see cref="Monobjc.Foundation.NSMutableString"/>.
-        /// <para>The returned NSString is auto-released.</para>
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator NSMutableString(String value)
-        {
-            if (value != null)
-            {
-                NSMutableString str = new NSMutableString(value);
-                str.Autorelease();
-                return str;
-            }
-            return null;
-        }
-    }
-}
+using System;
+using System.Reflection;
+using System.Resources;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+
+[assembly: AssemblyTitle("Monobjc Bridge - OpenGL Library")]
+[assembly: AssemblyDescription("Monobjc Bridge OpenGL Library")]
+[assembly: AssemblyCompany("Monobjc Project")]
+[assembly: AssemblyProduct("Monobjc Bridge Project")]
+[assembly: AssemblyCopyright("Copyright (c) Monobjc Project 2007-2011 - Licensed under MIT License")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+[assembly: NeutralResourcesLanguage("en-US")]
+[assembly: ComVisible(false)]
+[assembly: Guid("abf01933-0086-a11f-bc7d-eec005edd1a6")]
+
+#if TESTING
+[assembly: InternalsVisibleTo("Monobjc.OpenGL.Tests")]
+#endif
