@@ -13,6 +13,9 @@ _ReSharper*
 *.suo
 *.user
 *.userprefs
+Monobjc-*/
+Monobjc-*.pkg
 Monobjc-*.tar.gz
+Monobjc-*.txt
 runtime
 TestResult.xml

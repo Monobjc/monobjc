@@ -6,6 +6,8 @@
   <property name="external.dir" value="${path::get-full-path('./external')}"/>
   <property name="libraries.dir" value="${path::get-full-path('./libraries')}"/>
   <property name="native.dir" value="${path::get-full-path('./native')}"/>
+  <property name="package.dir" value="${path::get-full-path('./package')}"/>
+  <property name="samples.dir" value="${path::get-full-path('./samples')}"/>
   <property name="tests.dir" value="${path::get-full-path('./tests')}"/>
   <property name="tools.dir" value="${path::get-full-path('./tools')}"/>
   <property name="build.dir" value="${path::get-full-path('./build')}"/>
@@ -66,17 +68,96 @@
   </target>
 
   <!-- ===============================================================================
-  Package an archive with the sources and the binaries
+  Build an archive with the sources and the binaries
   ================================================================================ -->
-  <target name="distribute" description="Package an archive with the sources and the binaries" depends="build-tools,build-libraries">
-    <!-- Remove copyrighted documentation from source files -->
-    <exec program="strip.sh" if="${strip.sources}"/>
-    <property name="libraries.stripped.dir" value="stripped.libraries"/>
-    <property name="tar.prefix" value="Monobjc-3.0.${revision}"/>
+  <target name="tarball" description="Builds an archive with the sources and the binaries" depends="archive">
+    <property name="archive.prefix" value="Monobjc-3.0.${revision}.0"/>
 
     <!-- Archive content -->
-    <tar compression="GZip" destfile="${tar.prefix}.tar.gz">
-      <fileset basedir="." prefix="${tar.prefix}">
+    <tar compression="GZip" destfile="${archive.prefix}.tar.gz">
+      <fileset basedir="${archive.prefix}" prefix="${archive.prefix}">
+      	<include name="**/*"/>
+      </fileset>
+    </tar>
+  </target>
+
+  <!-- ===============================================================================
+  Build an installable package from the archive
+  ================================================================================ -->
+  <target name="package" description="Build an installable package from the archive" depends="archive">
+    <property name="archive.prefix" value="Monobjc-3.0.${revision}.0"/>
+    
+    <!-- Prepare the content -->
+    <copy todir="${package.dir}/content">
+    	<fileset basedir="${archive.prefix}">
+    	  <include name="**/*"/>
+    	</fileset>
+    </copy>
+	
+	<!-- Prepare the scripts -->
+	<echo file="${package.dir}/content/Install.sh"><![CDATA[#!/bin/bash
+cd "$2"
+chmod a+x ./Monobjc.sh
+./Monobjc.sh install
+]]></echo>
+	<exec program="chmod">
+		<arg value="a+x"/>
+		<arg value="${package.dir}/content/Monobjc.sh"/>
+		<arg value="${package.dir}/content/Install.sh"/>
+	</exec>
+
+	<!-- Copy the package settings -->
+	<copy todir="${package.dir}/${archive.prefix}.pmdoc">
+		<fileset basedir="${package.dir}/Monobjc.pmdoc">
+			<include name="**/*"/>
+		</fileset>
+		<filterchain>
+			<replacestring from="version>1.0" to="version>3.0.${revision}" />
+		</filterchain>
+	</copy>
+	
+	<!-- Build the package -->
+	<exec program="/Developer/usr/bin/packagemaker">
+		<arg value="--verbose"/>
+		<arg value="--doc"/>
+		<arg value="${package.dir}/${archive.prefix}.pmdoc"/>
+		<arg value="-o"/>
+		<arg value="${archive.prefix}.pkg"/>
+	</exec>
+ 
+  </target>
+
+  <!-- Prepare the directories -->
+  <target name="prepare">
+    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${dist.dir}"/>
+
+    <!-- Compute the revision -->
+    <property name="revision" value="${timespan::get-days(datetime::now() - datetime::parse('2007-07-01'))}"/>
+  </target>
+
+  <!-- Clean the directories -->
+  <target name="clean">
+    <delete dir="${build.dir}" failonerror="false" />
+    <delete dir="${dist.dir}" failonerror="false" />
+    <delete dir="${package.dir}" failonerror="false" />
+
+    <!-- Clean modules -->
+    <nant buildfile="${libraries.dir}/Modules.build" target="clean"/>
+
+    <!-- Clean sub-projects -->
+    <nant buildfile="${tools.dir}/Monobjc-Tools.build" target="clean"/>
+  </target>
+
+  <!-- Archive the files -->
+  <target name="archive" description="Archive the files" depends="build-tools,build-libraries">
+    <property name="archive.prefix" value="Monobjc-3.0.${revision}.0"/>
+    <exec program="strip.sh" if="${strip.sources}"/>
+    <property name="libraries.stripped.dir" value="stripped.libraries"/>
+    
+    <mkdir dir="${archive.prefix}"/>
+    <copy todir="${archive.prefix}">
+      <fileset basedir=".">
         <include name="GPL.rtf"/>
         <include name="MIT.rtf"/>
         <include name="LGPL.rtf"/>
@@ -94,50 +175,48 @@
         <include name="${dist.dir}/10.*/*.dylib"/>
         <include name="${external.dir}/nunit.framework.dll"/>
       </fileset>
-      <fileset basedir="." prefix="${tar.prefix}">
+    </copy>
+    <copy todir="${archive.prefix}">
+      <fileset basedir=".">
         <include name="${libraries.dir}/Monobjc/**/*.cs"/>
         <include name="${libraries.dir}/Monobjc/**/*.csproj"/>
         <include name="${libraries.dir}/Monobjc/**/*.resx"/>
       </fileset>
-      <fileset basedir="${libraries.dir}" prefix="${tar.prefix}/libraries">
+    </copy>
+    <copy todir="${archive.prefix}">
+      <fileset basedir=".">
+        <include name="${tests.dir}/**/*.cs"/>
+        <include name="${tests.dir}/**/*.csproj"/>
+        <include name="${tests.dir}/**/*.resx"/>
+      </fileset>
+    </copy>
+    <copy todir="${archive.prefix}">
+      <fileset basedir=".">
+        <include name="${samples.dir}/**/*"/>
+        <exclude name="${samples.dir}/.git/**"/>
+        <exclude name="${samples.dir}/**/*.user"/>
+        <exclude name="${samples.dir}/**/*.pidb"/>
+        <exclude name="${samples.dir}/**/bin/"/>
+        <exclude name="${samples.dir}/**/obj/"/>
+      </fileset>
+    </copy>
+    <copy todir="${archive.prefix}/libraries">
+      <fileset basedir="${libraries.dir}">
         <include name="**/*.cs" unless="${strip.sources}"/>
         <include name="**/*.csproj" unless="${strip.sources}"/>
         <include name="**/*.resx" unless="${strip.sources}"/>
         <exclude name="Monobjc/**"/>
       </fileset>
-      <fileset basedir="${libraries.stripped.dir}" prefix="${tar.prefix}/libraries">
+    </copy>
+    <copy todir="${archive.prefix}/libraries">
+      <fileset basedir="${libraries.stripped.dir}">
         <include name="**/*.cs" if="${strip.sources}"/>
         <include name="**/*.csproj" if="${strip.sources}"/>
         <include name="**/*.resx" if="${strip.sources}"/>
         <exclude name="Monobjc/**"/>
       </fileset>
-      <fileset basedir="." prefix="${tar.prefix}">
-        <include name="${tests.dir}/**/*.cs"/>
-        <include name="${tests.dir}/**/*.csproj"/>
-        <include name="${tests.dir}/**/*.resx"/>
-      </fileset>
-    </tar>
-  </target>
-
-  <!-- Prepare the directories -->
-  <target name="prepare">
-    <mkdir dir="${build.dir}"/>
-    <mkdir dir="${dist.dir}"/>
-
-    <!-- Compute the revision -->
-    <property name="revision" value="${timespan::get-days(datetime::now() - datetime::parse('2007-07-01'))}"/>
-  </target>
-
-  <!-- Clean the directories -->
-  <target name="clean">
-    <delete dir="${build.dir}" failonerror="false" />
-    <delete dir="${dist.dir}" failonerror="false" />
-
-    <!-- Clean modules -->
-    <nant buildfile="${libraries.dir}/Modules.build" target="clean"/>
-
-    <!-- Clean sub-projects -->
-    <nant buildfile="${tools.dir}/Monobjc-Tools.build" target="clean"/>
+    </copy>
+    
   </target>
 
 </project>
