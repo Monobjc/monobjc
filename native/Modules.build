@@ -2,6 +2,9 @@
 <project name="Monobjc Module Builder" default="build" basedir="..">
   <description>Monobjc Module Builder</description>
 
+  <property name="arch-10.5" value="i386 ppc" unless="${property::exists('arch-10.5')}"/>
+  <property name="arch-10.6" value="i386" unless="${property::exists('arch-10.6')}"/>
+  
   <!-- ===============================================================================
   Build the native libraries
   ================================================================================ -->
@@ -14,14 +17,14 @@
 
     <if test="${version::get-minor(version::parse(min.version)) &lt;= 5}" >
       <property name="version" value="10.5"/>
-      <property name="arguments.archs"   value="-sdk /Developer/SDKs/MacOSX10.5.sdk ARCHS='i386 ppc' ONLY_ACTIVE_ARCH=false GCC_VERSION=4.2"/>
+      <property name="arguments.archs"   value="-sdk /Developer/SDKs/MacOSX10.5.sdk ARCHS='${arch-10.5}' ONLY_ACTIVE_ARCH=false GCC_VERSION=4.2"/>
       <property name="arguments.version" value="DYLIB_COMPATIBILITY_VERSION=105.0.0 DYLIB_CURRENT_VERSION=105.${minor.number}.${build.number}"/>
       <call target="build-loader-intern" if="${version::get-minor(version::parse(max.version)) >= 5}"/>
     </if>
 
     <if test="${version::get-minor(version::parse(min.version)) &lt;= 6}" >
       <property name="version" value="10.6"/>
-      <property name="arguments.archs"   value="-sdk /Developer/SDKs/MacOSX10.6.sdk ARCHS='i386' ONLY_ACTIVE_ARCH=false GCC_VERSION=4.2"/>
+      <property name="arguments.archs"   value="-sdk /Developer/SDKs/MacOSX10.6.sdk ARCHS='${arch-10.6}' ONLY_ACTIVE_ARCH=false GCC_VERSION=4.2"/>
       <property name="arguments.version" value="DYLIB_COMPATIBILITY_VERSION=106.0.0 DYLIB_CURRENT_VERSION=106.${minor.number}.${build.number}"/>
       <call target="build-loader-intern" if="${version::get-minor(version::parse(max.version)) >= 6}"/>
     </if>

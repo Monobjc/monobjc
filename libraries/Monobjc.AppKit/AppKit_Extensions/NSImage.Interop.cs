@@ -88,7 +88,7 @@ namespace Monobjc.AppKit
                     if (stream != null)
                     {
                         image = ImageFromStream(stream);
-                        image.Name = imageName;
+                        image.SetName(imageName);
                         stream.Close();
                     }
                 }

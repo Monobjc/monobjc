@@ -2,8 +2,6 @@
 <project name="Monobjc Module Builder" default="build" basedir="..">
   <description>Monobjc Module Builder</description>
 
-  <property name="marker.file" value="${libraries.dir}/.generator"/>
-
   <!-- ===============================================================================
   Extract and generate classes from Apple documentation
   ================================================================================ -->
@@ -70,7 +68,7 @@
         <attribute type="AssemblyFileVersionAttribute" value="${version}.${revision}.0" />
         <attribute type="AssemblyConfigurationAttribute" value="Release Configuration" unless="${testing}"/>
         <attribute type="AssemblyConfigurationAttribute" value="Testing Configuration" if="${testing}"/>
-        <attribute type="AssemblyKeyFileAttribute" value="${keyfile}" unless="${testing}" />
+        <attribute type="AssemblyKeyFileAttribute" value="${key.file}" unless="${testing}" />
       </attributes>
     </asminfo>
 

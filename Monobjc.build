@@ -14,7 +14,8 @@
   <property name="dist.dir" value="${path::get-full-path('./dist')}"/>
   <property name="binaries.dir" value="${dist.dir}"/>
 
-  <property name="keyfile" value="Monobjc.snk"/>
+  <property name="key.file" value="Monobjc.snk"/>
+  <property name="marker.file" value="${libraries.dir}/.generator"/>
 
   <property name="define" value=""/>
   <property name="debug" value="false"/>
@@ -140,7 +141,7 @@ chmod a+x ./Monobjc.sh
   <target name="clean">
     <delete dir="${build.dir}" failonerror="false" />
     <delete dir="${dist.dir}" failonerror="false" />
-    <delete dir="${package.dir}" failonerror="false" />
+    <delete dir="${package.dir}/content" failonerror="false" />
 
     <!-- Clean modules -->
     <nant buildfile="${libraries.dir}/Modules.build" target="clean"/>
@@ -174,6 +175,7 @@ chmod a+x ./Monobjc.sh
         <include name="${dist.dir}/10.*/runtime"/>
         <include name="${dist.dir}/10.*/*.dylib"/>
         <include name="${external.dir}/nunit.framework.dll"/>
+        <include name="${marker.file}"/>
       </fileset>
     </copy>
     <copy todir="${archive.prefix}">
