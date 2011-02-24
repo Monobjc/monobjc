@@ -20,8 +20,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using System;
-
 namespace Monobjc.Generators
 {
     /// <summary>
@@ -33,7 +31,7 @@ namespace Monobjc.Generators
         ///   Initializes a new instance of the <see cref = "CodeGenerator" /> class.
         /// </summary>
         /// <param name = "assembly">The assembly.</param>
-        /// <param name="is64Bits"></param>
+        /// <param name = "is64Bits"></param>
         protected CodeGenerator(DynamicAssembly assembly, bool is64Bits)
         {
             this.Assembly = assembly;
@@ -41,12 +39,12 @@ namespace Monobjc.Generators
         }
 
         /// <summary>
-        /// Dynamic assembly that will hold the dynamic .NET code emitted.
+        ///   Dynamic assembly that will hold the dynamic .NET code emitted.
         /// </summary>
         protected DynamicAssembly Assembly { get; private set; }
 
         /// <summary>
-        /// Whether the current platform is 64 bits or not.
+        ///   Whether the current platform is 64 bits or not.
         /// </summary>
         protected bool Is64Bits { get; private set; }
     }

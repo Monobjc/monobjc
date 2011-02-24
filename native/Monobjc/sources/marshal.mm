@@ -111,18 +111,23 @@ MonobjcTypeDescriptor *__copy_descriptor(MonobjcTypeDescriptor *descriptor) {
         copy->foreign_type->type = FFI_TYPE_STRUCT;
         
         // Iterate to get the field count
-        ffi_type **current = copy->foreign_type->elements;
-        while (current) {
+        // when the last element is null
+        ffi_type **current = foreign_type->elements;
+        uint32_t field_count = 0;
+        while (*current) {
             current++;
+            field_count++;
         }
-        uint32_t field_count = (current - copy->foreign_type->elements) / sizeof(ffi_type *);
         
         // Copy the structure's elements
-        copy->foreign_type->elements = g_new(ffi_type *, field_count + 1);
-        memcmp(foreign_type->elements, copy->foreign_type->elements, (field_count + 1) * sizeof(ffi_type *));
+        copy->foreign_type->elements = g_new0(ffi_type *, field_count + 1);
+        memcpy(copy->foreign_type->elements, foreign_type->elements, field_count * sizeof(ffi_type *));
     } else {
         copy->foreign_type = foreign_type;
     }
+    
+    copy->convert_from_managed = descriptor->convert_from_managed;
+    copy->convert_to_managed = descriptor->convert_to_managed;
     
     return copy;
 }
@@ -203,7 +208,7 @@ MonobjcTypeDescriptor *monobjc_get_descriptor(MonoType *type, char *encoding, bo
             args[0] = mono_type_get_object(mono_domain_get(), type);
             args[1] = &is64bits;
             
-            // The encoding for an enum is the one for its base type
+            // The encoding for an enum is the one for its real type
             MonoObject *obj = mono_runtime_invoke(monobjc_get_Monobjc_TypeHelper_GetUnderlyingTypeHandle_method(), NULL, args, NULL);
             MonoType *underlyingType = *(MonoType **) mono_object_unbox(obj);
             
@@ -213,17 +218,27 @@ MonobjcTypeDescriptor *monobjc_get_descriptor(MonoType *type, char *encoding, bo
             // Copy the descriptor
             descriptor = __copy_descriptor(underlying_descriptor);
             
+            // Retrieve the converter methods
+			args[0] = mono_type_get_object(mono_domain_get(), type);
+			args[1] = mono_type_get_object(mono_domain_get(), underlyingType);
+			obj = mono_runtime_invoke(monobjc_get_Monobjc_TypeHelper_GetConverterHandle_method(), NULL, args, NULL);
+			descriptor->convert_from_managed = *(MonoMethod **) mono_object_unbox(obj);
+			args[0] = mono_type_get_object(mono_domain_get(), underlyingType);
+			args[1] = mono_type_get_object(mono_domain_get(), type);
+			obj = mono_runtime_invoke(monobjc_get_Monobjc_TypeHelper_GetConverterHandle_method(), NULL, args, NULL);
+			descriptor->convert_to_managed = *(MonoMethod **) mono_object_unbox(obj);
+            
             // Store the descriptor
             __map_descriptor(type, descriptor);
         }
         // Case: Structures
         else if (mono_type_get_type(type) == MONO_TYPE_VALUETYPE) {
-            void *args[1];
+            void *args[2];
             bool is64bits = IS64BITS;
             args[0] = mono_type_get_object(mono_domain_get(), type);
             args[1] = &is64bits;
             
-            // The encoding for an enum is the one for its base type
+            // The encoding for a struct is the one for its real type
             MonoObject *obj = mono_runtime_invoke(monobjc_get_Monobjc_TypeHelper_GetUnderlyingTypeHandle_method(), NULL, args, NULL);
             MonoType *underlyingType = *(MonoType **) mono_object_unbox(obj);
             
@@ -294,20 +309,27 @@ MonobjcTypeDescriptor *monobjc_get_descriptor(MonoType *type, char *encoding, bo
                 
                 // Create the descriptor
                 char *structure_encoding = g_string_free(buffer, FALSE);
-                descriptor = monobjc_create_descriptor_for_System_Struct(type, structure_encoding, structure_size, foreign_type);
+                descriptor = monobjc_create_descriptor_for_System_Struct(underlyingType, structure_encoding, structure_size, foreign_type);
                 g_free(structure_encoding);
                 
                 // Store the descriptor
                 __map_descriptor(type, descriptor);
             }
+			
+            // Retrieve the converter methods
+			args[0] = mono_type_get_object(mono_domain_get(), type);
+			args[1] = mono_type_get_object(mono_domain_get(), underlyingType);
+			obj = mono_runtime_invoke(monobjc_get_Monobjc_TypeHelper_GetConverterHandle_method(), NULL, args, NULL);
+			descriptor->convert_from_managed = *(MonoMethod **) mono_object_unbox(obj);
+			args[0] = mono_type_get_object(mono_domain_get(), underlyingType);
+			args[1] = mono_type_get_object(mono_domain_get(), type);
+			obj = mono_runtime_invoke(monobjc_get_Monobjc_TypeHelper_GetConverterHandle_method(), NULL, args, NULL);
+			descriptor->convert_to_managed = *(MonoMethod **) mono_object_unbox(obj);
         }
         // Case: Monobjc.Id subclasses and Monobjc.IManagedWrapper implementations
         else if (mono_class_is_assignable_from(monobjc_get_Monobjc_IManagedWrapper_interface(), klass) ||
 				 mono_class_is_subclass_of(klass, monobjc_get_Monobjc_IManagedWrapper_interface(), TRUE)) {
             // For every subclasses or implementation, the descriptor is the same
-            // WARN: We access directly the "pointer" field in Id subclasses.
-            //       This means that IManagedWrapper implementations should subclass Id.
-            //       Otherwise, there will be blood...
             descriptor = monobjc_create_descriptor_for_Monobjc_Id(type);
             
             // Store the descriptor
@@ -316,7 +338,7 @@ MonobjcTypeDescriptor *monobjc_get_descriptor(MonoType *type, char *encoding, bo
 #if NS_BLOCKS_AVAILABLE
         // Case: Block subclasses
         else if (mono_class_is_subclass_of(klass, monobjc_get_Monobjc_Block_class(), FALSE)) {
-            // For every subclasses, the descriptor is almost the same
+            // For every subclasses, the descriptor is the same
             descriptor = monobjc_create_descriptor_for_Monobjc_Block();
             
             // Store the descriptor

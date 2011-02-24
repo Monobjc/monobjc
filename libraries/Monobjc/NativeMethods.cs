@@ -45,10 +45,10 @@ namespace Monobjc
         public static extern IntPtr LoadFramework(String framework);
 
         /// <summary>
-        /// Gets the symbol located in the framework.
+        ///   Gets the symbol located in the framework.
         /// </summary>
-        /// <param name="framework">Name of the framework.</param>
-        /// <param name="symbol">The symbol.</param>
+        /// <param name = "framework">Name of the framework.</param>
+        /// <param name = "symbol">The symbol.</param>
         /// <returns>A pointer to the symbol or <c>null</c> if the symbol is not found.</returns>
         [DllImport("__Internal", EntryPoint = "monobjc_get_symbol")]
         public static extern IntPtr GetFrameworkSymbol(String framework, String symbol);

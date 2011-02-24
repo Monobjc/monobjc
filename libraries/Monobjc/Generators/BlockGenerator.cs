@@ -47,8 +47,8 @@ namespace Monobjc.Generators
         ///   Initializes a new instance of the <see cref = "BlockGenerator" /> class.
         /// </summary>
         /// <param name = "assembly">The assembly.</param>
-        /// <param name="is64Bits"></param>
-        public BlockGenerator(DynamicAssembly assembly, bool is64Bits) : base(assembly, is64Bits) { }
+        /// <param name = "is64Bits"></param>
+        public BlockGenerator(DynamicAssembly assembly, bool is64Bits) : base(assembly, is64Bits) {}
 
         /// <summary>
         ///   Defines a block proxy to bridge the given type of delegate.
@@ -121,7 +121,7 @@ namespace Monobjc.Generators
             // We skip the first and second parameters
             // - parameter (1) is implicit 'this'
             // - parameter (2) is the block layout that we don't use
-            for(int i = 0; i < parameterTypes.Length; i++)
+            for (int i = 0; i < parameterTypes.Length; i++)
             {
                 Type parameterType = parameterTypes[i];
                 switch (i)

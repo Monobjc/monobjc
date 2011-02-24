@@ -28,10 +28,10 @@ namespace Monobjc
     public partial class ObjectiveCRuntime
     {
         /// <summary>
-        /// Casts an instance to the given type.
+        ///   Casts an instance to the given type.
         /// </summary>
-        /// <typeparam name="T">The parametric type.</typeparam>
-        /// <param name="instance">The instance.</param>
+        /// <typeparam name = "T">The parametric type.</typeparam>
+        /// <param name = "instance">The instance.</param>
         /// <returns>A cast instance.</returns>
         public static T CastTo<T>(Id instance) where T : class, IManagedWrapper
         {
@@ -39,10 +39,10 @@ namespace Monobjc
         }
 
         /// <summary>
-        /// Casts an instance to the given type.
+        ///   Casts an instance to the given type.
         /// </summary>
-        /// <typeparam name="T">The parametric type.</typeparam>
-        /// <param name="instance">The instance.</param>
+        /// <typeparam name = "T">The parametric type.</typeparam>
+        /// <param name = "instance">The instance.</param>
         /// <returns>A cast instance, or null if the cast is invalid.</returns>
         public static T CastAs<T>(Id instance) where T : class, IManagedWrapper
         {
@@ -50,10 +50,10 @@ namespace Monobjc
         }
 
         /// <summary>
-        /// Gets the instance of the given type.
+        ///   Gets the instance of the given type.
         /// </summary>
-        /// <typeparam name="T">The parametric type.</typeparam>
-        /// <param name="value">The value.</param>
+        /// <typeparam name = "T">The parametric type.</typeparam>
+        /// <param name = "value">The value.</param>
         /// <returns>An instance of the type.</returns>
         public static T GetInstance<T>(IntPtr value) where T : class, IManagedWrapper
         {
@@ -61,11 +61,11 @@ namespace Monobjc
         }
 
         /// <summary>
-        /// Gets the instance of the given type.
+        ///   Gets the instance of the given type.
         /// </summary>
-        /// <typeparam name="T">The parametric type.</typeparam>
-        /// <param name="value">The value.</param>
-        /// <param name="canFail">if set to <c>true</c> the retrieval can fail.</param>
+        /// <typeparam name = "T">The parametric type.</typeparam>
+        /// <param name = "value">The value.</param>
+        /// <param name = "canFail">if set to <c>true</c> the retrieval can fail.</param>
         /// <returns>An instance of the type, or null if the type is invalid.</returns>
         public static T GetInstance<T>(IntPtr value, bool canFail) where T : class, IManagedWrapper
         {
@@ -74,9 +74,9 @@ namespace Monobjc
         }
 
         /// <summary>
-        /// Generates the wrapper for the given interface.
+        ///   Generates the wrapper for the given interface.
         /// </summary>
-        /// <param name="type">The type.</param>
+        /// <param name = "type">The type.</param>
         /// <returns></returns>
         internal static IntPtr GenerateWrapper(Type type)
         {

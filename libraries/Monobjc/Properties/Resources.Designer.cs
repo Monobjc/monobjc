@@ -205,7 +205,16 @@ namespace Monobjc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ObjectiveCFieldAttribute[Name = &apos;{0}&apos;].
+        ///   Looks up a localized string similar to ObjectiveCFramework[IsSystem = &apos;{0}&apos;].
+        /// </summary>
+        internal static string ObjectiveCFrameworkString {
+            get {
+                return ResourceManager.GetString("ObjectiveCFrameworkString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ObjectiveCIVar[Name = &apos;{0}&apos;].
         /// </summary>
         internal static string ObjectiveCIVarString {
             get {
@@ -214,7 +223,7 @@ namespace Monobjc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ObjectiveCMessageAttribute[Selector = &apos;{0}&apos;].
+        ///   Looks up a localized string similar to ObjectiveCMessage[Selector = &apos;{0}&apos;].
         /// </summary>
         internal static string ObjectiveCMessageString {
             get {
@@ -223,7 +232,7 @@ namespace Monobjc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ObjectiveCProtocolAttribute[Name = &apos;{0}&apos;].
+        ///   Looks up a localized string similar to ObjectiveCProtocol[Name = &apos;{0}&apos;].
         /// </summary>
         internal static string ObjectiveCProtocolString {
             get {
@@ -232,7 +241,7 @@ namespace Monobjc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ObjectiveCUnderlyingAttribute[Value = &apos;{0}&apos;, Is64Bits = &apos;{1}&apos;].
+        ///   Looks up a localized string similar to ObjectiveCUnderlyingType[Value = &apos;{0}&apos;, Is64Bits = &apos;{1}&apos;].
         /// </summary>
         internal static string ObjectiveCUnderlyingTypeString {
             get {

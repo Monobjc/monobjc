@@ -112,47 +112,47 @@ namespace Monobjc
         }
 
         /// <summary>
-        /// 	<para>Gets the signature for the given method.</para>
-        /// 	<para>Here are some examples of result for methods:
-        /// <list type="table">
-        /// 			<listheader>
-        /// 				<term>Method</term>
-        /// 				<description>Corresponding signature (on IA32 architecture)</description>
-        /// 			</listheader>
-        /// 			<item>
-        /// 				<term>public void DoThis()</term>
-        /// 				<description>v8@0:4</description>
-        /// 			</item>
-        /// 			<item>
-        /// 				<term>public void DoThis(int value)</term>
-        /// 				<description>v12@0:4i8</description>
-        /// 			</item>
-        /// 			<item>
-        /// 				<term>public void DoThis(NSString str, int val)</term>
-        /// 				<description>v16@0:4@8i12</description>
-        /// 			</item>
-        /// 		</list>
-        /// 	</para>
+        ///   <para>Gets the signature for the given method.</para>
+        ///   <para>Here are some examples of result for methods:
+        ///     <list type = "table">
+        ///       <listheader>
+        ///         <term>Method</term>
+        ///         <description>Corresponding signature (on IA32 architecture)</description>
+        ///       </listheader>
+        ///       <item>
+        ///         <term>public void DoThis()</term>
+        ///         <description>v8@0:4</description>
+        ///       </item>
+        ///       <item>
+        ///         <term>public void DoThis(int value)</term>
+        ///         <description>v12@0:4i8</description>
+        ///       </item>
+        ///       <item>
+        ///         <term>public void DoThis(NSString str, int val)</term>
+        ///         <description>v16@0:4@8i12</description>
+        ///       </item>
+        ///     </list>
+        ///   </para>
         /// </summary>
-        /// <param name="methodInfo">The method.</param>
+        /// <param name = "methodInfo">The method.</param>
         /// <returns>
-        /// A signature compliant with Objective-C messaging.
+        ///   A signature compliant with Objective-C messaging.
         /// </returns>
-        /// <exception cref="ArgumentNullException">If the method is null.</exception>
+        /// <exception cref = "ArgumentNullException">If the method is null.</exception>
         public static String GetSignature(MethodInfo methodInfo)
         {
             return GetSignature(methodInfo, 0);
         }
 
         /// <summary>
-        /// 	<para>Gets the signature for the given method.</para>
+        ///   <para>Gets the signature for the given method.</para>
         /// </summary>
-        /// <param name="methodInfo">The method.</param>
-        /// <param name="parametersToSkip">The numbers of parameters to skip.</param>
+        /// <param name = "methodInfo">The method.</param>
+        /// <param name = "parametersToSkip">The numbers of parameters to skip.</param>
         /// <returns>
-        /// A signature compliant with Objective-C messaging.
+        ///   A signature compliant with Objective-C messaging.
         /// </returns>
-        /// <exception cref="ArgumentNullException">If the method is null.</exception>
+        /// <exception cref = "ArgumentNullException">If the method is null.</exception>
         internal static String GetSignature(MethodInfo methodInfo, int parametersToSkip)
         {
             if (methodInfo == null)

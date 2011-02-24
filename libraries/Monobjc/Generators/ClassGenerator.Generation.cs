@@ -42,17 +42,11 @@ namespace Monobjc.Generators
             Type[] nativeParameterTypes = TypeHelper.GetNativeParameterTypes(methodInfo, this.Is64Bits);
 
 
-
-
-
             // Create the array of parameters for the delegate's invoke method
             nativeParameterTypes = ArrayHelper.Prepend(nativeParameterTypes, typeof (IntPtr), typeof (IntPtr));
 
             // Assign some names to parameters (for easy debugging)
             String[] parameterNames = TypeHelper.GetParameterNames(methodInfo);
-
-
-
 
 
             String[] nativeParameterNames = new String[nativeParameterTypes.Length];
@@ -80,10 +74,6 @@ namespace Monobjc.Generators
             Type[] parameterTypes = TypeHelper.GetParameterTypes(methodTuple.MethodInfo);
 
 
-
-
-
-
             Type nativeReturnType = TypeHelper.GetNativeType(returnType, this.Is64Bits);
             Type[] nativeParameterTypes = TypeHelper.GetNativeParameterTypes(parameterTypes, this.Is64Bits);
 
@@ -105,7 +95,6 @@ namespace Monobjc.Generators
             String[] parameterNames = TypeHelper.GetParameterNames(methodTuple.MethodInfo);
 
 
-
             for (int i = 0; i < parameterNames.Length; i++)
             {
                 if (!String.IsNullOrEmpty(parameterNames[i]))
@@ -122,11 +111,11 @@ namespace Monobjc.Generators
             // - Instance Method
             if (methodTuple.MethodInfo.IsStatic)
             {
-                EmitProxyMethodBodyForStaticMethod(generator, methodTuple, returnType, nativeReturnType, parameterTypes, nativeParameterTypes);
+                this.EmitProxyMethodBodyForStaticMethod(generator, methodTuple, returnType, nativeReturnType, parameterTypes, nativeParameterTypes);
             }
             else
             {
-                EmitProxyMethodBodyForInstanceMethod(generator, methodTuple, returnType, nativeReturnType, parameterTypes, nativeParameterTypes);
+                this.EmitProxyMethodBodyForInstanceMethod(generator, methodTuple, returnType, nativeReturnType, parameterTypes, nativeParameterTypes);
             }
 
             // Return
@@ -149,7 +138,7 @@ namespace Monobjc.Generators
             {
                 if (TypeHelper.NeedWrapping(returnType))
                 {
-                    result = generator.DeclareLocal(typeof(IntPtr));
+                    result = generator.DeclareLocal(typeof (IntPtr));
                 }
                 else if (!nativeReturnType.Equals(returnType))
                 {
@@ -162,7 +151,7 @@ namespace Monobjc.Generators
             }
 
             // For by-ref parameters passed as reference (without [out] attribute), we first set the value of local variables
-            EmitNativeToManagedMarshallingForByRefParameters(generator, nativeParameterTypes, byRefLocalVariables);
+            this.EmitNativeToManagedMarshallingForByRefParameters(generator, nativeParameterTypes, byRefLocalVariables);
 
             // Loads the parameters on the stack.
             // - For regular parameter, values are directly loaded on the stack
@@ -187,12 +176,12 @@ namespace Monobjc.Generators
 
                     // Test to see if instance is null
                     generator.Emit(OpCodes.Ldloc, managedInstance);
-                    
+
                     if (returnType.IsInterface)
                     {
                         generator.Emit(OpCodes.Brtrue, notNullValueLabel);
                     }
-                    else 
+                    else
                     {
                         generator.Emit(OpCodes.Ldnull);
                         generator.Emit(OpCodes.Call, EmitInfos.ID_OP_EQUALITY);
@@ -223,7 +212,7 @@ namespace Monobjc.Generators
             }
 
             // Marshal by-ref local variables to their corresponding parameters
-            EmitManagedToNativeMarshallingForByRefParameters(generator, nativeParameterTypes, byRefLocalVariables);
+            this.EmitManagedToNativeMarshallingForByRefParameters(generator, nativeParameterTypes, byRefLocalVariables);
 
             if (isNotVoid && hasByRef)
             {
@@ -253,7 +242,7 @@ namespace Monobjc.Generators
             {
                 if (TypeHelper.NeedWrapping(returnType))
                 {
-                    result = generator.DeclareLocal(typeof(IntPtr));
+                    result = generator.DeclareLocal(typeof (IntPtr));
                 }
                 else if (!nativeReturnType.Equals(returnType))
                 {
@@ -277,7 +266,7 @@ namespace Monobjc.Generators
             }
 
             // For by-ref parameters passed as reference (without [out] attribute), we first set the value of local variables
-            EmitNativeToManagedMarshallingForByRefParameters(generator, nativeParameterTypes, byRefLocalVariables);
+            this.EmitNativeToManagedMarshallingForByRefParameters(generator, nativeParameterTypes, byRefLocalVariables);
 
             // Loads the parameters on the stack.
             // - For regular parameter, values are directly loaded on the stack
@@ -306,12 +295,12 @@ namespace Monobjc.Generators
 
                     // Test to see if instance is null
                     generator.Emit(OpCodes.Ldloc, managedInstance);
-                    
+
                     if (returnType.IsInterface)
                     {
                         generator.Emit(OpCodes.Brtrue, notNullValueLabel);
                     }
-                    else 
+                    else
                     {
                         generator.Emit(OpCodes.Ldnull);
                         generator.Emit(OpCodes.Call, EmitInfos.ID_OP_EQUALITY);
@@ -342,7 +331,7 @@ namespace Monobjc.Generators
             }
 
             // Marshal by-ref local variables to their corresponding parameters
-            EmitManagedToNativeMarshallingForByRefParameters(generator, nativeParameterTypes, byRefLocalVariables);
+            this.EmitManagedToNativeMarshallingForByRefParameters(generator, nativeParameterTypes, byRefLocalVariables);
 
             if (isNotVoid && hasByRef)
             {

@@ -42,8 +42,8 @@ namespace Monobjc.Generators
         ///   Initializes a new instance of the <see cref = "WrapperGenerator" /> class.
         /// </summary>
         /// <param name = "assembly">The assembly.</param>
-        /// <param name="is64Bits"></param>
-        public WrapperGenerator(DynamicAssembly assembly, bool is64Bits) : base(assembly, is64Bits) { }
+        /// <param name = "is64Bits"></param>
+        public WrapperGenerator(DynamicAssembly assembly, bool is64Bits) : base(assembly, is64Bits) {}
 
         /// <summary>
         ///   TODO: Doc

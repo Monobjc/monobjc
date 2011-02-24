@@ -388,11 +388,11 @@ namespace Monobjc
 
 
         /// <summary>
-        /// Gets the symbol.
+        ///   Gets the symbol.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="framework">The framework.</param>
-        /// <param name="symbol">The symbol.</param>
+        /// <typeparam name = "T"></typeparam>
+        /// <param name = "framework">The framework.</param>
+        /// <param name = "symbol">The symbol.</param>
         /// <returns></returns>
         public static T GetExtern<T>(String framework, String symbol)
         {
@@ -402,27 +402,27 @@ namespace Monobjc
                 return default(T);
             }
             Type type = typeof (T);
-            if (typeof(Id).IsAssignableFrom(type))
+            if (typeof (Id).IsAssignableFrom(type))
             {
                 // Read the address of the object
                 IntPtr value = Marshal.ReadIntPtr(pointer);
-                return (T)GetInstanceInternal(type.TypeHandle.Value, value, false);
+                return (T) GetInstanceInternal(type.TypeHandle.Value, value, false);
             }
-            if (type == typeof(int) || type == typeof(uint))
+            if (type == typeof (int) || type == typeof (uint))
             {
                 // Read the value
                 int value = Marshal.ReadInt32(pointer);
-                return (T)(Object)value;
+                return (T) (Object) value;
             }
-            if (type == typeof(float))
+            if (type == typeof (float))
             {
                 // Perform a direct marhalling
-                return (T)Marshal.PtrToStructure(pointer, typeof(float));
+                return (T) Marshal.PtrToStructure(pointer, typeof (float));
             }
-            if (type == typeof(double))
+            if (type == typeof (double))
             {
                 // Perform a direct marhalling
-                return (T)Marshal.PtrToStructure(pointer, typeof(double));
+                return (T) Marshal.PtrToStructure(pointer, typeof (double));
             }
             throw new NotSupportedException(String.Format(CultureInfo.CurrentCulture, "Externals for type {0} are not supported", type));
         }

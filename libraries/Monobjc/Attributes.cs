@@ -39,6 +39,41 @@ namespace Monobjc
     public sealed class IBOutletAttribute : Attribute {}
 
     /// <summary>
+    ///   Marks an assembly as a Mac OS X framework.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Assembly)]
+    public sealed class ObjectiveCFrameworkAttribute : Attribute
+    {
+        /// <summary>
+        ///   Initializes a new instance of the <see cref = "ObjectiveCFrameworkAttribute" /> class.
+        /// </summary>
+        /// <param name = "system">The value is <code>true</code> if the framework is a system one; <code>false</code> otherwise.</param>
+        public ObjectiveCFrameworkAttribute(bool system)
+        {
+            this.IsSystem = system;
+        }
+
+        /// <summary>
+        ///   Returns if the framework is a system one.
+        /// </summary>
+        /// <value><code>True</code> if the framework is a system one; <code>false</code> otherwise</value>
+        public bool IsSystem { get; private set; }
+
+        /// <summary>
+        ///   Returns a <see cref = "String" /> that represents this instance.
+        /// </summary>
+        /// <returns>
+        ///   A <see cref = "String" /> that represents this instance.
+        /// </returns>
+        public override String ToString()
+        {
+            return String.Format(CultureInfo.CurrentCulture,
+                                 Resources.ObjectiveCFrameworkString,
+                                 this.IsSystem);
+        }
+    }
+
+    /// <summary>
     ///   <para>Used to define the underlying native type for a managed type.</para>
     ///   <para>This is needed in order to map types that can be dependent on the platform's bitness.</para>
     /// </summary>
@@ -67,10 +102,10 @@ namespace Monobjc
         public bool Is64Bits { get; set; }
 
         /// <summary>
-        /// Returns a <see cref="String"/> that represents this instance.
+        ///   Returns a <see cref = "String" /> that represents this instance.
         /// </summary>
         /// <returns>
-        /// A <see cref="String"/> that represents this instance.
+        ///   A <see cref = "String" /> that represents this instance.
         /// </returns>
         public override String ToString()
         {

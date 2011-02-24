@@ -23,6 +23,10 @@
 
   <property name="min.version" value="10.5"/>
   <property name="max.version" value="10.6"/>
+  
+  <property name="arch.profile" value="universal-32" unless="${property::exists('arch.profile')}"/>
+  <property name="arch-10.5" value="i386 ppc" unless="${property::exists('arch-10.5')}"/>
+  <property name="arch-10.6" value="i386" unless="${property::exists('arch-10.6')}"/>
 
   <property name="strip.sources" value="${file::exists('strip.sh')}"/>
 
@@ -135,6 +139,16 @@ chmod a+x ./Monobjc.sh
 
     <!-- Compute the revision -->
     <property name="revision" value="${timespan::get-days(datetime::now() - datetime::parse('2007-07-01'))}"/>
+    
+    <!-- Compute the native architectures -->
+    <if test="${arch.profile=='universal-32'}">
+		<property name="arch-10.5" value="i386 ppc"/>
+		<property name="arch-10.6" value="i386"/>
+    </if>
+    <if test="${arch.profile=='universal-32-64'}">
+		<property name="arch-10.5" value="i386 ppc x86_64"/>
+		<property name="arch-10.6" value="i386 x86_64"/>
+    </if>
   </target>
 
   <!-- Clean the directories -->

@@ -115,7 +115,7 @@ namespace Monobjc.Generators
 
                 Type localType = parameter.LocalBuilder.LocalType;
 
-				EmitLoadArgument(generator, i + 2);
+                EmitLoadArgument(generator, i + 2);
                 this.EmitNativeToManagedMarshallingCast(generator, localType);
                 generator.Emit(OpCodes.Stloc, parameter.LocalBuilder);
             }
@@ -172,28 +172,28 @@ namespace Monobjc.Generators
                 generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_READINTPTR);
             }
             else if (localType.IsEnum)
-			{
-				Type baseType = Enum.GetUnderlyingType(localType);
+            {
+                Type baseType = Enum.GetUnderlyingType(localType);
                 Type underlyingType = TypeHelper.GetUnderlyingType(localType, this.Is64Bits);
-				this.EmitNativeToManagedMarshallingCast(generator, underlyingType);
-				
-				if (baseType != underlyingType)
-				{
-					if (baseType == typeof(int) && underlyingType == typeof(long))
-					{
-						generator.Emit(OpCodes.Conv_I4);
-					}
-					else if (baseType == typeof(uint) && underlyingType == typeof(ulong))
-					{
-						generator.Emit(OpCodes.Conv_U4);
-					}
-					else
-					{
-						throw new ObjectiveCCodeGenerationException(String.Format(CultureInfo.CurrentCulture, Resources.CannotGenerateCodeByRefParameterNotSupported, localType.FullName));
-					}
-				}
-			}
-			else if (localType.IsValueType)
+                this.EmitNativeToManagedMarshallingCast(generator, underlyingType);
+
+                if (baseType != underlyingType)
+                {
+                    if (baseType == typeof (int) && underlyingType == typeof (long))
+                    {
+                        generator.Emit(OpCodes.Conv_I4);
+                    }
+                    else if (baseType == typeof (uint) && underlyingType == typeof (ulong))
+                    {
+                        generator.Emit(OpCodes.Conv_U4);
+                    }
+                    else
+                    {
+                        throw new ObjectiveCCodeGenerationException(String.Format(CultureInfo.CurrentCulture, Resources.CannotGenerateCodeByRefParameterNotSupported, localType.FullName));
+                    }
+                }
+            }
+            else if (localType.IsValueType)
             {
                 Type underlyingType = TypeHelper.GetUnderlyingType(localType, this.Is64Bits);
                 if (localType != underlyingType)
@@ -203,7 +203,7 @@ namespace Monobjc.Generators
                     generator.Emit(OpCodes.Call, EmitInfos.TYPE_GETTYPEFROMHANDLE);
                     generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_PTRTOSTRUCTURE);
                     generator.Emit(OpCodes.Unbox_Any, underlyingType);
-					EmitHelper.CastValueType(generator, underlyingType, localType);
+                    EmitHelper.CastValueType(generator, underlyingType, localType);
                 }
                 else
                 {
@@ -238,7 +238,7 @@ namespace Monobjc.Generators
                 }
                 else
                 {
-					EmitLoadArgument(generator, i + 2);
+                    EmitLoadArgument(generator, i + 2);
 
                     // For wrapped type (interface or Id subclass)
                     if (TypeHelper.NeedWrapping(parameterType))
@@ -273,14 +273,14 @@ namespace Monobjc.Generators
 
         private void EmitManagedToNativeMarshallingCast(ILGenerator generator, LocalBuilder local, Type localType, int i)
         {
-			if (TypeHelper.NeedWrapping(localType))
+            if (TypeHelper.NeedWrapping(localType))
             {
                 Label nullValueLabel = generator.DefineLabel();
                 Label continueLabel = generator.DefineLabel();
 
                 // Load the target argument on the stack
                 // Test for null on the by-ref local
-				EmitLoadArgument(generator, i + 2);
+                EmitLoadArgument(generator, i + 2);
                 generator.Emit(OpCodes.Ldloc, local);
                 generator.Emit(OpCodes.Ldnull);
                 generator.Emit(OpCodes.Beq_S, nullValueLabel);
@@ -305,7 +305,7 @@ namespace Monobjc.Generators
 
                 // Load the target argument on the stack
                 // Test for bool equality on the by-ref local
-				EmitLoadArgument(generator, i + 2);
+                EmitLoadArgument(generator, i + 2);
                 generator.Emit(OpCodes.Ldloc, local);
                 generator.Emit(OpCodes.Brfalse, falseValueLabel);
 
@@ -320,99 +320,99 @@ namespace Monobjc.Generators
                 generator.MarkLabel(continueLabel);
                 generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_WRITEINT32);
             }
-            else if (localType == typeof (byte)) 
-			{
-				EmitLoadArgument(generator, i + 2);
+            else if (localType == typeof (byte))
+            {
+                EmitLoadArgument(generator, i + 2);
                 generator.Emit(OpCodes.Ldloc, local);
                 generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_WRITEBYTE);
-			}
+            }
             else if (localType == typeof (char))
-			{
-				EmitLoadArgument(generator, i + 2);
+            {
+                EmitLoadArgument(generator, i + 2);
                 generator.Emit(OpCodes.Ldloc, local);
                 generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_WRITECHAR);
-			}
+            }
             else if (localType == typeof (short))
-			{
-				EmitLoadArgument(generator, i + 2);
+            {
+                EmitLoadArgument(generator, i + 2);
                 generator.Emit(OpCodes.Ldloc, local);
                 generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_WRITEINT16);
-			}
+            }
             else if (localType == typeof (ushort))
-			{
-				EmitLoadArgument(generator, i + 2);
+            {
+                EmitLoadArgument(generator, i + 2);
                 generator.Emit(OpCodes.Ldloc, local);
                 generator.Emit(OpCodes.Conv_I2, local);
                 generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_WRITEINT16);
-			}
+            }
             else if (localType == typeof (int) || localType == typeof (uint))
-			{
-				EmitLoadArgument(generator, i + 2);
+            {
+                EmitLoadArgument(generator, i + 2);
                 generator.Emit(OpCodes.Ldloc, local);
                 generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_WRITEINT32);
-			}
+            }
             else if (localType == typeof (long) || localType == typeof (ulong))
-			{
-				EmitLoadArgument(generator, i + 2);
+            {
+                EmitLoadArgument(generator, i + 2);
                 generator.Emit(OpCodes.Ldloc, local);
                 generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_WRITEINT64);
-			}
+            }
             else if (localType == typeof (IntPtr) || localType == typeof (UIntPtr))
-			{
-				EmitLoadArgument(generator, i + 2);
+            {
+                EmitLoadArgument(generator, i + 2);
                 generator.Emit(OpCodes.Ldloc, local);
                 generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_WRITEINTPTR);
-			}
+            }
             else if (localType.IsEnum)
-			{
-				Type baseType = Enum.GetUnderlyingType(localType);
+            {
+                Type baseType = Enum.GetUnderlyingType(localType);
                 Type underlyingType = TypeHelper.GetUnderlyingType(localType, this.Is64Bits);
-				
-				if (baseType != underlyingType)
-				{
-					if (baseType == typeof(int) && underlyingType == typeof(long))
-					{
-						EmitLoadArgument(generator, i + 2);
-						generator.Emit(OpCodes.Ldloc, local);
-						generator.Emit(OpCodes.Conv_I8);
-						generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_WRITEINT64);
-					}
-					else if (baseType == typeof(uint) && underlyingType == typeof(ulong))
-					{
-						EmitLoadArgument(generator, i + 2);
-						generator.Emit(OpCodes.Ldloc, local);
-						generator.Emit(OpCodes.Conv_U8);
-						generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_WRITEINT64);
-					}
-					else
-					{
-						throw new ObjectiveCCodeGenerationException(String.Format(CultureInfo.CurrentCulture, Resources.CannotGenerateCodeByRefParameterNotSupported, localType.FullName));
-					}
-				}
-				else
-				{
-					EmitManagedToNativeMarshallingCast(generator, local, baseType, i);
-				}
-			}
-			else if (localType.IsValueType)
+
+                if (baseType != underlyingType)
+                {
+                    if (baseType == typeof (int) && underlyingType == typeof (long))
+                    {
+                        EmitLoadArgument(generator, i + 2);
+                        generator.Emit(OpCodes.Ldloc, local);
+                        generator.Emit(OpCodes.Conv_I8);
+                        generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_WRITEINT64);
+                    }
+                    else if (baseType == typeof (uint) && underlyingType == typeof (ulong))
+                    {
+                        EmitLoadArgument(generator, i + 2);
+                        generator.Emit(OpCodes.Ldloc, local);
+                        generator.Emit(OpCodes.Conv_U8);
+                        generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_WRITEINT64);
+                    }
+                    else
+                    {
+                        throw new ObjectiveCCodeGenerationException(String.Format(CultureInfo.CurrentCulture, Resources.CannotGenerateCodeByRefParameterNotSupported, localType.FullName));
+                    }
+                }
+                else
+                {
+                    this.EmitManagedToNativeMarshallingCast(generator, local, baseType, i);
+                }
+            }
+            else if (localType.IsValueType)
             {
                 Type underlyingType = TypeHelper.GetUnderlyingType(localType, this.Is64Bits);
                 if (localType != underlyingType)
-				{
+                {
                     // Store the final result into the target argument
                     generator.Emit(OpCodes.Ldloc, local);
-					EmitHelper.CastValueType(generator, localType, underlyingType);
+                    EmitHelper.CastValueType(generator, localType, underlyingType);
                     generator.Emit(OpCodes.Box, underlyingType);
-					EmitLoadArgument(generator, i + 2);
+                    EmitLoadArgument(generator, i + 2);
                     generator.Emit(OpCodes.Ldc_I4_0);
                     generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_STRUCTURETOPTR);
-				}
+                }
                 else
                 {
                     // Store the final result into the target argument
                     generator.Emit(OpCodes.Ldloc, local);
                     generator.Emit(OpCodes.Box, localType);
-					EmitLoadArgument(generator, i + 2);
+                    EmitLoadArgument(generator, i + 2);
                     generator.Emit(OpCodes.Ldc_I4_0);
                     generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_STRUCTURETOPTR);
                 }
@@ -423,28 +423,28 @@ namespace Monobjc.Generators
             }
         }
 
-		protected static void EmitLoadArgument(ILGenerator generator, int index)
-		{
-			switch (index)
-			{
-				case 0:
-					generator.Emit(OpCodes.Ldarg_0);
-					break;
-				case 1:
-					generator.Emit(OpCodes.Ldarg_1);
-					break;
-				case 2:
-					generator.Emit(OpCodes.Ldarg_2);
-					break;
-				case 3:
-					generator.Emit(OpCodes.Ldarg_3);
-					break;
-				default:
-					generator.Emit(OpCodes.Ldarg_S, index);
-					break;
-			}
-		}
-		
+        protected static void EmitLoadArgument(ILGenerator generator, int index)
+        {
+            switch (index)
+            {
+                case 0:
+                    generator.Emit(OpCodes.Ldarg_0);
+                    break;
+                case 1:
+                    generator.Emit(OpCodes.Ldarg_1);
+                    break;
+                case 2:
+                    generator.Emit(OpCodes.Ldarg_2);
+                    break;
+                case 3:
+                    generator.Emit(OpCodes.Ldarg_3);
+                    break;
+                default:
+                    generator.Emit(OpCodes.Ldarg_S, index);
+                    break;
+            }
+        }
+
         /// <summary>
         ///   Gets the return type of the method base.
         /// </summary>

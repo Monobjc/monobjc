@@ -40,3 +40,4 @@ DEFINITION(MonoMethod *,        Monobjc_ObjectiveCRuntime_GenerateWrapper_method
 DEFINITION(MonoMethod *,        Monobjc_ObjectiveCRuntime_UnWrap_method)
 DEFINITION(MonoMethod *,        Monobjc_ObjectiveCRuntime_Wrap_method)
 DEFINITION(MonoMethod *,        Monobjc_TypeHelper_GetUnderlyingTypeHandle_method)
+DEFINITION(MonoMethod *,        Monobjc_TypeHelper_GetConverterHandle_method)

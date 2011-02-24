@@ -28,14 +28,14 @@ namespace Monobjc
     public static class IdExtensions
     {
         /// <summary>
-        /// 	<para>Performs a safe autorelease operation on the given instance.</para>
-        /// 	<para>The equivalent code is:</para>
-        /// 	<code>
-        /// if (instance != null) instance.Release(); return instance;
-        /// </code>
+        ///   <para>Performs a safe autorelease operation on the given instance.</para>
+        ///   <para>The equivalent code is:</para>
+        ///   <code>
+        ///     if (instance != null) instance.Release(); return instance;
+        ///   </code>
         /// </summary>
-        /// <typeparam name="T">The type of the instance</typeparam>
-        /// <param name="instance">The instance.</param>
+        /// <typeparam name = "T">The type of the instance</typeparam>
+        /// <param name = "instance">The instance.</param>
         /// <returns>The instance autoreleased or null if instance was null</returns>
         public static T SafeAutorelease<T>(this T instance) where T : Id
         {
@@ -47,13 +47,13 @@ namespace Monobjc
         }
 
         /// <summary>
-        /// 	<para>Performs a safe release operation on the given instance.</para>
-        /// 	<para>The equivalent code is:</para>
-        /// 	<code>
-        /// if (instance != null) instance.Release();
-        /// </code>
+        ///   <para>Performs a safe release operation on the given instance.</para>
+        ///   <para>The equivalent code is:</para>
+        ///   <code>
+        ///     if (instance != null) instance.Release();
+        ///   </code>
         /// </summary>
-        /// <param name="instance">The instance.</param>
+        /// <param name = "instance">The instance.</param>
         public static void SafeRelease(this Id instance)
         {
             if (instance != null)
@@ -63,14 +63,14 @@ namespace Monobjc
         }
 
         /// <summary>
-        /// 	<para>Performs a safe retain operation on the given instance.</para>
-        /// 	<para>The equivalent code is:</para>
-        /// 	<code>
-        /// if (instance != null) instance.Retain(); return instance;
-        /// </code>
+        ///   <para>Performs a safe retain operation on the given instance.</para>
+        ///   <para>The equivalent code is:</para>
+        ///   <code>
+        ///     if (instance != null) instance.Retain(); return instance;
+        ///   </code>
         /// </summary>
-        /// <typeparam name="T">The type of the instance</typeparam>
-        /// <param name="instance">The instance.</param>
+        /// <typeparam name = "T">The type of the instance</typeparam>
+        /// <param name = "instance">The instance.</param>
         /// <returns>The instance retained or null if instance was null</returns>
         public static T SafeRetain<T>(this T instance) where T : Id
         {

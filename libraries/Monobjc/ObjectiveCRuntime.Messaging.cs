@@ -21,7 +21,6 @@
 // THE SOFTWARE.
 // 
 using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using Monobjc.Properties;
 using Monobjc.Runtime;
@@ -50,8 +49,7 @@ namespace Monobjc
             return (T) Messaging.Call(typeof (T).TypeHandle.Value, receiver.NativePointer, selector, parameters);
         }
 
-        
-        
+
         public static void SendMessageSuper(IntPtr receiver, Class cls, String selector, params Object[] parameters)
         {
             Messaging.CallSuper(typeof (void).TypeHandle.Value, receiver, cls.pointer, selector, parameters);
@@ -71,8 +69,7 @@ namespace Monobjc
         {
             return (T) Messaging.CallSuper(typeof (T).TypeHandle.Value, receiver.NativePointer, cls.pointer, selector, parameters);
         }
-        
-        
+
 
         public static void SendMessageVarArgs(IntPtr receiver, String selector, params Object[] parameters)
         {
@@ -85,7 +82,7 @@ namespace Monobjc
             parameters = MergeParametersVarArgs(selector, parameters);
             SendMessage(receiver, selector, parameters);
         }
-        
+
         public static TReturnType SendMessageVarArgs<TReturnType>(IntPtr receiver, String selector, params Object[] parameters)
         {
             parameters = MergeParametersVarArgs(selector, parameters);
@@ -98,8 +95,7 @@ namespace Monobjc
             return SendMessage<TReturnType>(receiver, selector, parameters);
         }
 
-        
-        
+
         public static void SendMessageSuperVarArgs(IntPtr receiver, Class cls, String selector, params Object[] parameters)
         {
             parameters = MergeParametersVarArgs(selector, parameters);
@@ -111,7 +107,7 @@ namespace Monobjc
             parameters = MergeParametersVarArgs(selector, parameters);
             SendMessageSuper(receiver, cls, selector, parameters);
         }
-        
+
         public static TReturnType SendMessageSuperVarArgs<TReturnType>(IntPtr receiver, Class cls, String selector, params Object[] parameters)
         {
             parameters = MergeParametersVarArgs(selector, parameters);
@@ -123,8 +119,7 @@ namespace Monobjc
             parameters = MergeParametersVarArgs(selector, parameters);
             return SendMessageSuper<TReturnType>(receiver, cls, selector, parameters);
         }
-        
-        
+
 
         private static Object[] MergeParametersVarArgs(String selector, Object[] parameters)
         {

@@ -287,9 +287,10 @@ MonoObject *monobjc_call_invoke(MonobjcNativeCall *call, void *target, SEL selec
     
     MonoObject *result = NULL;
     uint32_t nargs = call->cif->nargs;
+    MonobjcTypeDescriptor *returnDescriptor = call->return_descriptor;
     
     // Allocate space for return value
-    void *rvalue = call->return_descriptor->alloc_native_storage(call->return_descriptor, FALSE);
+    void *rvalue = returnDescriptor->alloc_native_storage(returnDescriptor, FALSE);
     
     // Allocate space for parameters
     void **avalue = g_new(void *, nargs);
@@ -301,8 +302,19 @@ MonoObject *monobjc_call_invoke(MonobjcNativeCall *call, void *target, SEL selec
     // Marshal the parameters
     for(uint32_t i = 2; i < nargs; i++) {
         MonoObject *obj = mono_array_get(parameters, MonoObject *, i - 2);
-        avalue[i] = call->parameter_descriptors[i]->alloc_native_storage(call->parameter_descriptors[i], FALSE);
-        call->parameter_descriptors[i]->marshal_to_native(call->parameter_descriptors[i], obj, avalue[i], FALSE);
+        MonobjcTypeDescriptor *descriptor = call->parameter_descriptors[i];
+        
+        // Convert the managed type if needed
+        if (descriptor->convert_from_managed) {
+            void *args[1];
+            args[0] = mono_object_unbox(obj);
+            
+            obj = mono_runtime_invoke(descriptor->convert_from_managed, NULL, args, NULL);
+        }
+        
+        // Marshal the value to native
+        avalue[i] = descriptor->alloc_native_storage(descriptor, FALSE);
+        descriptor->marshal_to_native(descriptor, obj, avalue[i], FALSE);
     }
     
     MonoException *exc = NULL;
@@ -310,9 +322,18 @@ MonoObject *monobjc_call_invoke(MonobjcNativeCall *call, void *target, SEL selec
     @try {
         // Do the actual call
         ffi_call(call->cif, is_super ? call->message_super : call->message, rvalue, avalue);
-        
-        // Marshal back the result
-        result = call->return_descriptor->marshal_from_native(call->return_descriptor, rvalue, FALSE);
+
+        // Process the result value
+        if (returnDescriptor->convert_to_managed) {
+            void *args[1];
+            args[0] = rvalue;
+            
+            // Convert the value type and marshal back the result
+            result = mono_runtime_invoke(returnDescriptor->convert_to_managed, NULL, args, NULL);
+        } else {
+            // Marshal back the result
+            result = call->return_descriptor->marshal_from_native(call->return_descriptor, rvalue, FALSE);
+        }
     }
     @catch (NSException *ex) {
         LOG_DEBUG(MONOBJC_DOMAIN_MESSAGING, "Native exception catched: %s", [[ex description] UTF8String]);
@@ -323,14 +344,15 @@ MonoObject *monobjc_call_invoke(MonobjcNativeCall *call, void *target, SEL selec
     @finally {
         // Clean parameters
         for(uint32_t i = 2; i < nargs; i++) {
-            call->parameter_descriptors[i]->free_native_storage(avalue[i]);
+            MonobjcTypeDescriptor *descriptor = call->parameter_descriptors[i];
+            descriptor->free_native_storage(avalue[i]);
         }
         
         // Clean space for parameters
         g_free(avalue);
         
         // Clean space for result value
-        call->return_descriptor->free_native_storage(rvalue);
+        returnDescriptor->free_native_storage(rvalue);
     }
     
     // If there is an exception, raise it now

@@ -1,9 +1,6 @@
 <?xml version="1.0"?>
 <project name="Monobjc Module Builder" default="build" basedir="..">
   <description>Monobjc Module Builder</description>
-
-  <property name="arch-10.5" value="i386 ppc" unless="${property::exists('arch-10.5')}"/>
-  <property name="arch-10.6" value="i386" unless="${property::exists('arch-10.6')}"/>
   
   <!-- ===============================================================================
   Build the native libraries

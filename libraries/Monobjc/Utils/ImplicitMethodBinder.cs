@@ -27,7 +27,7 @@ using System.Reflection;
 namespace Monobjc.Utils
 {
     /// <summary>
-    /// Binder to select the appropriate method for implicit conversion.
+    ///   Binder to select the appropriate method for implicit conversion.
     /// </summary>
     internal class ImplicitMethodBinder : Binder
     {
@@ -35,10 +35,10 @@ namespace Monobjc.Utils
         private readonly Type targetType;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImplicitMethodBinder"/> class.
+        ///   Initializes a new instance of the <see cref = "ImplicitMethodBinder" /> class.
         /// </summary>
-        /// <param name="sourceType">Type of the source.</param>
-        /// <param name="targetType">Type of the destination.</param>
+        /// <param name = "sourceType">Type of the source.</param>
+        /// <param name = "targetType">Type of the destination.</param>
         public ImplicitMethodBinder(Type sourceType, Type targetType)
         {
             this.sourceType = sourceType;

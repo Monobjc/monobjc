@@ -124,5 +124,8 @@ namespace Monobjc.ApplicationServices
         {
             return this.x.GetHashCode() + 29*this.y.GetHashCode();
         }
+
+        public static readonly Converter<CGPoint, CGPoint64> CGPOINT_2_CGPoint64 = (value => (CGPoint64)value);
+        public static readonly Converter<CGPoint64, CGPoint> CGPOINT64_2_CGPoint = (value => (CGPoint)value);
     }
 }

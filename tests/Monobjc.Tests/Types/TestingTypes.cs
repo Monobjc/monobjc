@@ -27,34 +27,34 @@ namespace Monobjc.Types
 {
     [ObjectiveCProtocol("NSObject")]
     public interface ITSObject : IManagedWrapper
-	{
+    {
         [ObjectiveCMessage("isMemberOfClass:")]
         bool IsMemberOfClass(Class aClass);
-		
+        
         [ObjectiveCMessage("performSelector:")]
         Id PerformSelector(IntPtr aSelector);
-		
+        
         [ObjectiveCMessage("respondsToSelector:")]
         bool RespondsToSelector(IntPtr aSelector);
-		
+        
         TSUInteger Hash
         {
             [ObjectiveCMessage("hash")]
             get;
         }
-		
+        
         bool IsProxy
         {
             [ObjectiveCMessage("isProxy")]
             get;
         }
-		
+        
         Class Superclass
         {
             [ObjectiveCMessage("superclass")]
             get;
         }
-	}
+    }
 
     [ObjectiveCClass("NSObject", InterceptDealloc = true)]
     public class TSObject : Id

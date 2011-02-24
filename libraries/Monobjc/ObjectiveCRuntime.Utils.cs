@@ -20,7 +20,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using System;
 using System.Runtime.CompilerServices;
 using Monobjc.Runtime;
 
@@ -38,7 +37,7 @@ namespace Monobjc
         }
 
         /// <summary>
-        /// Gets the bitness of the processor.
+        ///   Gets the bitness of the processor.
         /// </summary>
         /// <returns></returns>
         [MethodImpl(MethodImplOptions.NoInlining)]

@@ -115,22 +115,22 @@ namespace Monobjc.Generators
 #endif
         public static readonly ConstructorInfo ID_CONSTRUCTOR_INTPTR = typeof (Id).GetConstructor(new[] {typeof (IntPtr)});
         public static readonly MethodInfo ID_GETNATIVEPOINTER = typeof (Id).GetProperty("NativePointer").GetGetMethod();
-        public static readonly MethodInfo ID_OP_EQUALITY = typeof (Id).GetMethod("op_Equality", new[] { typeof(Id), typeof(Id) });
+        public static readonly MethodInfo ID_OP_EQUALITY = typeof (Id).GetMethod("op_Equality", new[] {typeof (Id), typeof (Id)});
         public static readonly MethodInfo IMANAGEDWRAPPER_GETNATIVEPOINTER = typeof (IManagedWrapper).GetProperty("NativePointer").GetGetMethod();
         public static readonly FieldInfo INTPTR_ZERO = typeof (IntPtr).GetField("Zero");
-        public static readonly MethodInfo MARSHAL_READBYTE = typeof(Marshal).GetMethod("ReadByte", new[] { typeof(IntPtr) });
-        public static readonly MethodInfo MARSHAL_READINT16 = typeof(Marshal).GetMethod("ReadInt16", new[] { typeof(IntPtr) });
-        public static readonly MethodInfo MARSHAL_READINT32 = typeof(Marshal).GetMethod("ReadInt32", new[] { typeof(IntPtr) });
-        public static readonly MethodInfo MARSHAL_READINT64 = typeof(Marshal).GetMethod("ReadInt64", new[] { typeof(IntPtr) });
-        public static readonly MethodInfo MARSHAL_READINTPTR = typeof(Marshal).GetMethod("ReadIntPtr", new[] { typeof(IntPtr) });
-        public static readonly MethodInfo MARSHAL_PTRTOSTRUCTURE = typeof(Marshal).GetMethod("PtrToStructure", new[] { typeof(IntPtr), typeof(Type) });
+        public static readonly MethodInfo MARSHAL_READBYTE = typeof (Marshal).GetMethod("ReadByte", new[] {typeof (IntPtr)});
+        public static readonly MethodInfo MARSHAL_READINT16 = typeof (Marshal).GetMethod("ReadInt16", new[] {typeof (IntPtr)});
+        public static readonly MethodInfo MARSHAL_READINT32 = typeof (Marshal).GetMethod("ReadInt32", new[] {typeof (IntPtr)});
+        public static readonly MethodInfo MARSHAL_READINT64 = typeof (Marshal).GetMethod("ReadInt64", new[] {typeof (IntPtr)});
+        public static readonly MethodInfo MARSHAL_READINTPTR = typeof (Marshal).GetMethod("ReadIntPtr", new[] {typeof (IntPtr)});
+        public static readonly MethodInfo MARSHAL_PTRTOSTRUCTURE = typeof (Marshal).GetMethod("PtrToStructure", new[] {typeof (IntPtr), typeof (Type)});
         public static readonly MethodInfo MARSHAL_STRUCTURETOPTR = typeof (Marshal).GetMethod("StructureToPtr", new[] {typeof (Object), typeof (IntPtr), typeof (bool)});
-        public static readonly MethodInfo MARSHAL_WRITEBYTE = typeof(Marshal).GetMethod("WriteByte", new[] { typeof(IntPtr), typeof(byte) });
-        public static readonly MethodInfo MARSHAL_WRITECHAR = typeof(Marshal).GetMethod("WriteInt16", new[] { typeof(IntPtr), typeof(char) });
-        public static readonly MethodInfo MARSHAL_WRITEINT16 = typeof(Marshal).GetMethod("WriteInt16", new[] { typeof(IntPtr), typeof(Int16) });
-        public static readonly MethodInfo MARSHAL_WRITEINT32 = typeof(Marshal).GetMethod("WriteInt32", new[] { typeof(IntPtr), typeof(Int32) });
-        public static readonly MethodInfo MARSHAL_WRITEINT64 = typeof(Marshal).GetMethod("WriteInt64", new[] { typeof(IntPtr), typeof(Int64) });
-        public static readonly MethodInfo MARSHAL_WRITEINTPTR = typeof(Marshal).GetMethod("WriteIntPtr", new[] { typeof(IntPtr), typeof(IntPtr) });
+        public static readonly MethodInfo MARSHAL_WRITEBYTE = typeof (Marshal).GetMethod("WriteByte", new[] {typeof (IntPtr), typeof (byte)});
+        public static readonly MethodInfo MARSHAL_WRITECHAR = typeof (Marshal).GetMethod("WriteInt16", new[] {typeof (IntPtr), typeof (char)});
+        public static readonly MethodInfo MARSHAL_WRITEINT16 = typeof (Marshal).GetMethod("WriteInt16", new[] {typeof (IntPtr), typeof (Int16)});
+        public static readonly MethodInfo MARSHAL_WRITEINT32 = typeof (Marshal).GetMethod("WriteInt32", new[] {typeof (IntPtr), typeof (Int32)});
+        public static readonly MethodInfo MARSHAL_WRITEINT64 = typeof (Marshal).GetMethod("WriteInt64", new[] {typeof (IntPtr), typeof (Int64)});
+        public static readonly MethodInfo MARSHAL_WRITEINTPTR = typeof (Marshal).GetMethod("WriteIntPtr", new[] {typeof (IntPtr), typeof (IntPtr)});
         public static readonly MethodInfo OBJECTIVECRUNTIME_GETINSTANCE = typeof (ObjectiveCRuntime).GetMethod("GetInstance", new[] {typeof (IntPtr)});
 
         public static readonly MethodInfo OBJECTIVECRUNTIME_SENDMESSAGE_VOID_ARGS = typeof (ObjectiveCRuntime).GetMethod("SendMessage", BindingFlags.Public | BindingFlags.Static, new GenericMethodBinder(false),
@@ -289,11 +289,11 @@ namespace Monobjc.Generators
                 Type baseType = Enum.GetUnderlyingType(sourceType);
                 if (!baseType.Equals(targetType))
                 {
-                    if (targetType == typeof(long) && baseType == typeof(int))
+                    if (targetType == typeof (long) && baseType == typeof (int))
                     {
                         generator.Emit(OpCodes.Conv_I8);
                     }
-                    else if (targetType == typeof(ulong) && baseType == typeof(uint))
+                    else if (targetType == typeof (ulong) && baseType == typeof (uint))
                     {
                         generator.Emit(OpCodes.Conv_U8);
                     }
@@ -308,11 +308,11 @@ namespace Monobjc.Generators
                 Type baseType = Enum.GetUnderlyingType(targetType);
                 if (!baseType.Equals(sourceType))
                 {
-                    if (sourceType == typeof(long) && baseType == typeof(int))
+                    if (sourceType == typeof (long) && baseType == typeof (int))
                     {
                         generator.Emit(OpCodes.Conv_I4);
                     }
-                    else if (sourceType == typeof(ulong) && baseType == typeof(uint))
+                    else if (sourceType == typeof (ulong) && baseType == typeof (uint))
                     {
                         generator.Emit(OpCodes.Conv_U4);
                     }
@@ -325,8 +325,8 @@ namespace Monobjc.Generators
             else
             {
                 Binder binder = new ImplicitMethodBinder(sourceType, targetType);
-                MethodInfo converter = sourceType.GetMethod("op_Implicit", BindingFlags.Public | BindingFlags.Static, binder, new[] { sourceType }, null) ??
-                                       targetType.GetMethod("op_Implicit", BindingFlags.Public | BindingFlags.Static, binder, new[] { sourceType }, null);
+                MethodInfo converter = sourceType.GetMethod("op_Implicit", BindingFlags.Public | BindingFlags.Static, binder, new[] {sourceType}, null) ??
+                                       targetType.GetMethod("op_Implicit", BindingFlags.Public | BindingFlags.Static, binder, new[] {sourceType}, null);
                 if (converter != null)
                 {
                     generator.Emit(OpCodes.Call, converter);

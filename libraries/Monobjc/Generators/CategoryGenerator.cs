@@ -34,7 +34,7 @@ namespace Monobjc.Generators
     {
         private const String NAME_PATTERN = "Monobjc.Dynamic.Categories.{0}";
 
-        public CategoryGenerator(DynamicAssembly assembly, bool is64Bits) : base(assembly, is64Bits) { }
+        public CategoryGenerator(DynamicAssembly assembly, bool is64Bits) : base(assembly, is64Bits) {}
 
         /// <summary>
         ///   TODO: Doc
@@ -58,8 +58,8 @@ namespace Monobjc.Generators
             // Create call proxy for methods
             foreach (MethodTuple methodTuple in extensionMethods)
             {
-                methodTuple.ProxyDelegate = DefineDelegate(typeBuilder, methodTuple.MethodInfo, out methodTuple.ProxyDelegateConstructor);
-                methodTuple.ProxyMethodInfo = DefineProxyMethod(typeBuilder, methodTuple);
+                methodTuple.ProxyDelegate = this.DefineDelegate(typeBuilder, methodTuple.MethodInfo, out methodTuple.ProxyDelegateConstructor);
+                methodTuple.ProxyMethodInfo = this.DefineProxyMethod(typeBuilder, methodTuple);
                 methodTuple.ProxyDelegateFieldInfo = DefineProxyDelegateFieldInfo(typeBuilder, methodTuple);
             }
 

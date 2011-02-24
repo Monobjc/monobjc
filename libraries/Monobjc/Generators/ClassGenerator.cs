@@ -39,8 +39,8 @@ namespace Monobjc.Generators
         ///   Initializes a new instance of the <see cref = "ClassGenerator" /> class.
         /// </summary>
         /// <param name = "assembly">The assembly.</param>
-        /// <param name="is64Bits"></param>
-        public ClassGenerator(DynamicAssembly assembly, bool is64Bits) : base(assembly, is64Bits) { }
+        /// <param name = "is64Bits"></param>
+        public ClassGenerator(DynamicAssembly assembly, bool is64Bits) : base(assembly, is64Bits) {}
 
         /// <summary>
         ///   TODO: Doc
@@ -64,16 +64,16 @@ namespace Monobjc.Generators
             // Create call proxy for instance methods
             foreach (MethodTuple methodTuple in instanceMethods)
             {
-                methodTuple.ProxyDelegate = DefineDelegate(typeBuilder, methodTuple.MethodInfo, out methodTuple.ProxyDelegateConstructor);
-                methodTuple.ProxyMethodInfo = DefineProxyMethod(typeBuilder, methodTuple);
+                methodTuple.ProxyDelegate = this.DefineDelegate(typeBuilder, methodTuple.MethodInfo, out methodTuple.ProxyDelegateConstructor);
+                methodTuple.ProxyMethodInfo = this.DefineProxyMethod(typeBuilder, methodTuple);
                 methodTuple.ProxyDelegateFieldInfo = DefineProxyDelegateFieldInfo(typeBuilder, methodTuple);
             }
 
             // Create call proxy for class methods
             foreach (MethodTuple methodTuple in classMethods)
             {
-                methodTuple.ProxyDelegate = DefineDelegate(typeBuilder, methodTuple.MethodInfo, out methodTuple.ProxyDelegateConstructor);
-                methodTuple.ProxyMethodInfo = DefineProxyMethod(typeBuilder, methodTuple);
+                methodTuple.ProxyDelegate = this.DefineDelegate(typeBuilder, methodTuple.MethodInfo, out methodTuple.ProxyDelegateConstructor);
+                methodTuple.ProxyMethodInfo = this.DefineProxyMethod(typeBuilder, methodTuple);
                 methodTuple.ProxyDelegateFieldInfo = DefineProxyDelegateFieldInfo(typeBuilder, methodTuple);
             }
 

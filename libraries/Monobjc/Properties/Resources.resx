@@ -157,13 +157,13 @@
     <value>ObjectiveCClass[Name = '{0}', InterceptDealloc = '{1}']</value>
   </data>
   <data name="ObjectiveCIVarString" xml:space="preserve">
-    <value>ObjectiveCFieldAttribute[Name = '{0}']</value>
+    <value>ObjectiveCIVar[Name = '{0}']</value>
   </data>
   <data name="ObjectiveCMessageString" xml:space="preserve">
-    <value>ObjectiveCMessageAttribute[Selector = '{0}']</value>
+    <value>ObjectiveCMessage[Selector = '{0}']</value>
   </data>
   <data name="ObjectiveCProtocolString" xml:space="preserve">
-    <value>ObjectiveCProtocolAttribute[Name = '{0}']</value>
+    <value>ObjectiveCProtocol[Name = '{0}']</value>
   </data>
   <data name="BlockIsNotDelegateSubclass" xml:space="preserve">
     <value>Block is not a Delegate subclass</value>
@@ -190,6 +190,9 @@
     <value>At least one parameter must be passed.</value>
   </data>
   <data name="ObjectiveCUnderlyingTypeString" xml:space="preserve">
-    <value>ObjectiveCUnderlyingAttribute[Value = '{0}', Is64Bits = '{1}']</value>
+    <value>ObjectiveCUnderlyingType[Value = '{0}', Is64Bits = '{1}']</value>
+  </data>
+  <data name="ObjectiveCFrameworkString" xml:space="preserve">
+    <value>ObjectiveCFramework[IsSystem = '{0}']</value>
   </data>
 </root>

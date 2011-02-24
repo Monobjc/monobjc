@@ -99,6 +99,11 @@ typedef struct MonobjcTypeDescriptor {
 
     /** @brief  The FFI type. */
     ffi_type *foreign_type;
+    
+    /** @brief  A conversion method from the managed type to the real type. Only applicable to value_type. */
+    MonoMethod *convert_from_managed;    
+    /** @brief  A conversion method from the real type to the managed type. Only applicable to value_type. */
+    MonoMethod *convert_to_managed;
 };
 
 #pragma mark ----- Descriptor functions -----
