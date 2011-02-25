@@ -220,7 +220,7 @@
 		4D47D4F4126CC1A100F51F1C /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = ..;
+			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
 				87293EE31153C356007AFD45 /* monobjc.h in CopyFiles */,

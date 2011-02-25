@@ -187,6 +187,7 @@ chmod a+x ./Monobjc.sh
         <include name="${dist.dir}/10.*/Monobjc*.dll"/>
         <include name="${dist.dir}/10.*/Monobjc*.xml"/>
         <include name="${dist.dir}/10.*/runtime"/>
+        <include name="${dist.dir}/10.*/*.h"/>
         <include name="${dist.dir}/10.*/*.dylib"/>
         <include name="${external.dir}/nunit.framework.dll"/>
         <include name="${marker.file}"/>

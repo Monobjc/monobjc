@@ -44,6 +44,7 @@ function install {
         mkdir -p "$LIB_DIR"
 	
         # Copy native libraries
+        cp ./dist/$version/monobjc.h "$LIB_DIR"
         cp ./dist/$version/libmonobjc.dylib "$LIB_DIR"
         cp ./dist/$version/runtime "$LIB_DIR"
         chmod a+rx "$LIB_DIR"/libmonobjc.dylib
