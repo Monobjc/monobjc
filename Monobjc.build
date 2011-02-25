@@ -157,9 +157,6 @@ chmod a+x ./Monobjc.sh
     <delete dir="${dist.dir}" failonerror="false" />
     <delete dir="${package.dir}/content" failonerror="false" />
 
-    <!-- Clean modules -->
-    <nant buildfile="${libraries.dir}/Modules.build" target="clean"/>
-
     <!-- Clean sub-projects -->
     <nant buildfile="${tools.dir}/Monobjc-Tools.build" target="clean"/>
   </target>

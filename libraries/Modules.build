@@ -381,9 +381,4 @@
     </csc>
   </target>
 
-  <!-- Clean the directories -->
-  <target name="clean">
-    <delete file="${marker.file}"/>
-  </target>
-
 </project>
