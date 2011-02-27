@@ -1273,8 +1273,6 @@
     <Compile Include="AppKit_Extensions\NSOpenGLPixelFormat.Extensions.cs" />
     <Compile Include="CoreServices_T\UTType.cs" />
     <Compile Include="AppKit_Extensions\NSOpenGLContext.Extensions.cs" />
-    <Compile Include="ApplicationServices_S\CGAffineTransform.cs" />
-    <Compile Include="ApplicationServices_S\CGAffineTransform.Functions.cs" />
     <Compile Include="QuartzCore_Extensions\CAEmitterCell.Extensions.cs" />
   </ItemGroup>
   <ItemGroup>

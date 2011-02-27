@@ -796,7 +796,6 @@
     <Compile Include="ApplicationServices_S\CGSize.cs" />
     <Compile Include="ApplicationServices_S\CGSize64.cs" />
     <Compile Include="Foundation_S\IdComparator.cs" />
-    <Compile Include="Foundation_S\NSAffineTransformStruct.cs" />
     <Compile Include="Foundation_S\NSDecimal.cs" />
     <Compile Include="Foundation_S\NSFastEnumerationState.cs" />
     <Compile Include="Foundation_S\NSInteger.cs" />
@@ -820,6 +819,9 @@
     </Compile>
     <Compile Include="Debugger.cs" />
     <Compile Include="Foundation_Extensions\FoundationFramework.Interop.cs" />
+    <Compile Include="ApplicationServices_S\CGAffineTransform.cs" />
+    <Compile Include="ApplicationServices_S\CGAffineTransform.Functions.cs" />
+    <Compile Include="ApplicationServices_S\CGAffineTransform64.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
