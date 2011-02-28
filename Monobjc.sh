@@ -81,8 +81,7 @@ Name: Monobjc
 Description: Monobjc Bridge $version
 Version: $version
 
-Requires: 
-Libs: $LIB_REFERENCES
+$LIB_REFERENCES
 EOF
 
     done
@@ -99,6 +98,8 @@ EOF
     ln -s "$MONO_DIR/bin/monobjc" "/usr/bin/monobjc"
     ln -s "$MONO_DIR/bin/monobjc-nunit" "/usr/bin/monobjc-nunit"
 
+    # Copy the NAnt tasks
+    cp "./dist/Monobjc.NAnt.dll" "$MONO_DIR/share/NAnt/bin/extensions/common/2.0/"
 }
 
 #
@@ -130,6 +131,9 @@ function uninstall {
     rm -f "/usr/bin/monobjc-nunit"
     rm -f "$MONO_DIR/bin/monobjc"
     rm -f "$MONO_DIR/bin/monobjc-nunit"
+    
+    # Remove the NAnt tasks
+    rm -f "$MONO_DIR/share/NAnt/bin/extensions/common/2.0/Monobjc.NAnt.dll"
 }
 
 # Main entry point
