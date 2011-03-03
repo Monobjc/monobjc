@@ -68,7 +68,6 @@
         <attribute type="AssemblyFileVersionAttribute" value="${version}.${revision}.0" />
         <attribute type="AssemblyConfigurationAttribute" value="Release Configuration" unless="${testing}"/>
         <attribute type="AssemblyConfigurationAttribute" value="Testing Configuration" if="${testing}"/>
-        <attribute type="AssemblyKeyFileAttribute" value="${key.file}" unless="${testing}" />
       </attributes>
     </asminfo>
 
@@ -364,12 +363,13 @@
   <target name="build-library-intern">
     <echo message="Library ${lib.name}"/>
 
-    <!-- Compile the library -->
+    <!-- Compile the library with signing -->
     <csc target="library"
-       output="${output.dir}/${lib.name}.dll"
-       doc="${output.dir}/${lib.name}.xml"
-       debug="${debug}"
-       define="${define}">
+         output="${output.dir}/${lib.name}.dll"
+	     keyfile="${key.file}"
+         doc="${output.dir}/${lib.name}.xml"
+         debug="${debug}"
+         define="${define}" unless="${testing}">
       <nowarn >
         <warning number="1574,1584,1591"/>
       </nowarn>
@@ -379,6 +379,40 @@
       </resources>
       <references refid="lib.references"/>
     </csc>
+	
+    <!-- Compile the library -->
+    <csc target="library"
+         output="${output.dir}/${lib.name}.dll"
+         doc="${output.dir}/${lib.name}.xml"
+         debug="${debug}"
+         define="${define}" if="${testing}">
+      <nowarn >
+        <warning number="1574,1584,1591"/>
+      </nowarn>
+      <sources refid="src.references"/>
+      <resources prefix="${lib.name}.Properties">
+        <include name="${base.dir}/${lib.name}/**/*.resx"/>
+      </resources>
+      <references refid="lib.references"/>
+    </csc>
+	
+	<!-- Generate the policy -->
+	<echo file="${output.dir}/${lib.name}.policy" unless="${testing}"><![CDATA[<configuration>
+   <runtime>
+      <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+       <dependentAssembly>
+         <assemblyIdentity name="${lib.name}" publicKeyToken="d5a8d181860c16be" />
+         <bindingRedirect oldVersion="${version}.0.0-${version}.65535.65535" newVersion="${version}.${revision}.0"/>
+       </dependentAssembly>
+      </assemblyBinding>
+   </runtime>
+</configuration>]]></echo>
+    <exec workingdir="${output.dir}"
+          program="al"
+          failonerror="true"
+          commandline="/link:${lib.name}.policy /out:policy.${version}.${lib.name}.dll /keyFile:../../${key.file}" >
+    </exec>
+	
   </target>
 
 </project>

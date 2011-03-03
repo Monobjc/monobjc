@@ -182,7 +182,9 @@ chmod a+x ./Monobjc.sh
         <include name="${dist.dir}/Monobjc.Tools.dll"/>
         <include name="${dist.dir}/Monobjc.NAnt.dll"/>
         <include name="${dist.dir}/10.*/Monobjc*.dll"/>
+        <include name="${dist.dir}/10.*/Monobjc*.policy"/>
         <include name="${dist.dir}/10.*/Monobjc*.xml"/>
+        <include name="${dist.dir}/10.*/policy*.dll"/>
         <include name="${dist.dir}/10.*/runtime"/>
         <include name="${dist.dir}/10.*/*.h"/>
         <include name="${dist.dir}/10.*/*.dylib"/>
