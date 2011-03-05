@@ -402,7 +402,7 @@
       <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
        <dependentAssembly>
          <assemblyIdentity name="${lib.name}" publicKeyToken="d5a8d181860c16be" />
-         <bindingRedirect oldVersion="${version}.0.0-${version}.65535.65535" newVersion="${version}.${revision}.0"/>
+         <bindingRedirect oldVersion="${version}.0.0-${version}.${revision}.0" newVersion="${version}.${revision}.0"/>
        </dependentAssembly>
       </assemblyBinding>
    </runtime>
