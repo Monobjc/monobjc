@@ -410,7 +410,8 @@
     <exec workingdir="${output.dir}"
           program="al"
           failonerror="true"
-          commandline="/link:${lib.name}.policy /out:policy.${version}.${lib.name}.dll /keyFile:../../${key.file}" >
+          commandline="/link:${lib.name}.policy /out:policy.${version}.${lib.name}.dll /keyFile:../../${key.file}"
+          unless="${testing}">
     </exec>
 	
   </target>
