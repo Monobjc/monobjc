@@ -6,18 +6,46 @@
   Extract and generate classes from Apple documentation
   ================================================================================ -->
   <target name="generate">
+    <!-- Builds the doxygenator -->
+    <exec workingdir="${tools.dir}"
+          program="xbuild"
+          failonerror="true"
+          commandline="/property:Configuration=Release Monobjc.Doxygenator/Monobjc.Doxygenator.csproj"
+          unless="${file::exists(marker.file)}">
+    </exec>
+
     <!-- Builds the generator -->
     <exec workingdir="${tools.dir}"
           program="xbuild"
           failonerror="true"
-          commandline="/property:Configuration=Release Monobjc.Generator/Monobjc.Generator.csproj" unless="${file::exists(marker.file)}">
+          commandline="/property:Configuration=Release Monobjc.Generator/Monobjc.Generator.csproj"
+          unless="${file::exists(marker.file)}">
     </exec>
+
+    <!-- Execute the doxygenator -->
+    <exec workingdir="${tools.dir}/Monobjc.Doxygenator/bin/Release"
+          program="${tools.dir}/Monobjc.Doxygenator/bin/Release/doxygen.sh"
+          failonerror="true"
+          unless="${file::exists(marker.file)}">
+    </exec>
+
+	<!-- Copy extracted frameworks -->
+	<copy todir="${tools.dir}/Monobjc.Generator/bin/Release/Xhtml"
+	      unless="${file::exists(marker.file)}">
+		<fileset basedir="${tools.dir}/Monobjc.Doxygenator/bin/Release">
+			<include name="CorePlot/**"/>
+			<include name="Growl/**"/>
+			<include name="SM2DGraphView/**"/>
+			<include name="Sparkle/**"/>
+		</fileset>
+	</copy>
 
     <!-- Execute the generator -->
     <exec workingdir="${tools.dir}/Monobjc.Generator/bin/Release"
           program="${tools.dir}/Monobjc.Generator/bin/Release/MonobjcGenerator.exe"
           failonerror="true"
-          commandline="-t=retrieve,extract,generate,copy -d=${libraries.dir}" unless="${file::exists(marker.file)}">
+          commandline="-t=retrieve,extract,generate,copy -d=${libraries.dir}"
+          unless="${file::exists(marker.file)}">
     </exec>
 
     <touch file="${marker.file}"/>

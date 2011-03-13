@@ -13,6 +13,8 @@ CoreFoundation_T
 CoreLocation_C
 CoreLocation_P
 CoreLocation_T
+CorePlot_C
+CorePlot_P
 CoreServices_T
 CoreWLAN_C
 CoreWLAN_T
@@ -44,6 +46,8 @@ SecurityFoundation_C
 SecurityFoundation_T
 SecurityInterface_C
 SecurityInterface_T
+SM2DGraphView_C
+SM2DGraphView_P
 Sparkle_C
 Sparkle_P
 WebKit_C
