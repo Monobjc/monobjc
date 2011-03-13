@@ -24,7 +24,7 @@
 #ifndef __MARSHAL_H__
 #define __MARSHAL_H__
 
-#include "ffi.h"
+#include <ffi/ffi.h>
 
 // Forward declaration.
 typedef struct MonobjcTypeDescriptor;

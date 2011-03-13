@@ -55,6 +55,9 @@ namespace Monobjc.Runtime
             Class cls = Class.Get(className);
             if (cls != null)
             {
+				// Associate the type to the class
+				cls.WrapperType = type.TypeHandle.Value;
+				
                 // Check to see if the class must be intercepted
                 if (NeedInterception(type))
                 {

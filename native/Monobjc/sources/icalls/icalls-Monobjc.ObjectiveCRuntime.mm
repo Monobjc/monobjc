@@ -123,7 +123,7 @@ MonoObject *icall_Monobjc_ObjectiveCRuntime_GetInstance(MonoType *type, void *pt
         LOG_DEBUG(MONOBJC_DOMAIN_INSTANCES, "icall_Monobjc_ObjectiveCRuntime_GetInstanceInternal - Creating new instance for %p", ptr);
         
         MonoType *wrapper_type = type;        
-        
+
         // If the requested type is an interface, we search for its wrapping type.
         if (monobjc_type_is_interface(type)) {
             wrapper_type = (MonoType *) g_hash_table_lookup(__WRAPPERS_HASHTABLE, type);
@@ -136,6 +136,42 @@ MonoObject *icall_Monobjc_ObjectiveCRuntime_GetInstance(MonoType *type, void *pt
                 
                 g_hash_table_insert(__WRAPPERS_HASHTABLE, type, wrapper_type);
             }
+        } else {
+#if 0
+            // Get the class of the target
+            Class cls = object_getClass((id)ptr);
+            
+            // Ignore the search for class object
+            if (!class_isMetaClass(cls) && ![(id)ptr isProxy]) {
+                // Search for a compatible wrapper class
+                MonoObject *obj = monobjc_cache_lookup_instance(cls);
+                if (!obj) {
+                    // Climb up the hierarchy to found a wrapper class
+                    while(cls && !obj) {
+                        cls = class_getSuperclass(cls);
+                        obj = monobjc_cache_lookup_instance(cls);
+                    }
+                    
+                    // Drop a message to warn the user about the situation
+                    if (!cls) {
+                        LOG_ERROR(MONOBJC_DOMAIN_INSTANCES, "Cannot find a compatible class for %s while wrapping %p", class_getName(object_getClass((id)ptr)), ptr);
+                    }
+                    
+                    // Fill class hierarchy to map unknown class with known wrapper
+                    cls = object_getClass((id)ptr);
+                    while(cls && !monobjc_cache_lookup_instance(cls)) {
+                        monobjc_cache_map_instance(cls, obj);
+                        cls = class_getSuperclass(cls);
+                    }
+                }
+                
+                // Extract the wrapper type from the class instance
+                if (obj) {
+                    MonoObject *result = mono_runtime_invoke(monobjc_get_Monobjc_Class_get_WrapperType_method(), obj, NULL, NULL);
+                    wrapper_type = *(MonoType **) mono_object_unbox(result);
+                }
+            }
+#endif
         }
 
         // We retrieve the class from the type

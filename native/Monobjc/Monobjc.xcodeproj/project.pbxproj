@@ -53,10 +53,10 @@
 		4D05CA95119305E700125045 /* gmodule.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D05CA541193055000125045 /* gmodule.h */; };
 		4D05CA96119305EA00125045 /* sort.frag.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D05CA661193055000125045 /* sort.frag.h */; };
 		4D05CA97119305EA00125045 /* unicode-data.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D05CA671193055000125045 /* unicode-data.h */; };
-		4D22DAB611673D6C007AF714 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D22DAB511673D6C007AF714 /* Mono.framework */; };
-		4D22DB8B11673DA9007AF714 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D22DAB511673D6C007AF714 /* Mono.framework */; };
-		4D22DC161167CA3B007AF714 /* libforeign.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDC14581135D22100A62E29 /* libforeign.a */; };
-		4D22DC171167CA3E007AF714 /* libforeign.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDC14581135D22100A62E29 /* libforeign.a */; };
+		4D3D2C0C132B6E170050D86B /* libffi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D2C0B132B6E170050D86B /* libffi.dylib */; };
+		4D3D2C0D132B6E390050D86B /* libffi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D2C0B132B6E170050D86B /* libffi.dylib */; };
+		4D3D2F3A132B7D930050D86B /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D2F39132B7D930050D86B /* Mono.framework */; };
+		4D3D3229132B7DA20050D86B /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D2F39132B7D930050D86B /* Mono.framework */; };
 		4D4471BB115CC267002B810F /* threading.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D4471BA115CC267002B810F /* threading.mm */; };
 		4D4471BC115CC267002B810F /* threading.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D4471BA115CC267002B810F /* threading.mm */; };
 		4D447266115CF1AF002B810F /* lifecycle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D447265115CF1AF002B810F /* lifecycle.mm */; };
@@ -125,7 +125,6 @@
 		4DED6B351154D57F00AF687B /* marshal.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DED6B331154D57F00AF687B /* marshal.mm */; };
 		4DED6B7A1154E62800AF687B /* messaging.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DED6B791154E62800AF687B /* messaging.mm */; };
 		4DED6B7B1154E62800AF687B /* messaging.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DED6B791154E62800AF687B /* messaging.mm */; };
-		4DF8B23A1171D0190081C1DD /* libforeign.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDC14581135D22100A62E29 /* libforeign.a */; };
 		4DF8B23B1171D0230081C1DD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDE79B210E8CC8700AC2646 /* Cocoa.framework */; };
 		4DF8B23E1171D0310081C1DD /* test.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8B2371171CFE70081C1DD /* test.mm */; };
 		4DFDB0F1115BB40B00F345DA /* domain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DFDB0F0115BB40B00F345DA /* domain.mm */; };
@@ -137,23 +136,6 @@
 		4DFE570B119401E800EA3AEA /* libeglib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D05CA2E119304BD00125045 /* libeglib.a */; };
 		4DFE57201194028B00EA3AEA /* eglib-remap.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DFE571F1194028B00EA3AEA /* eglib-remap.h */; };
 		4DFE5759119405FD00EA3AEA /* libeglib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D05CA2E119304BD00125045 /* libeglib.a */; };
-		87293DEA1153BF71007AFD45 /* ffi.c in Sources */ = {isa = PBXBuildFile; fileRef = 87293D5E1153BF71007AFD45 /* ffi.c */; };
-		87293DEB1153BF71007AFD45 /* ffi.h in Headers */ = {isa = PBXBuildFile; fileRef = 87293D601153BF71007AFD45 /* ffi.h */; };
-		87293DEC1153BF71007AFD45 /* ffi_common.h in Headers */ = {isa = PBXBuildFile; fileRef = 87293D611153BF71007AFD45 /* ffi_common.h */; };
-		87293DED1153BF71007AFD45 /* fficonfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 87293D621153BF71007AFD45 /* fficonfig.h */; };
-		87293DEE1153BF71007AFD45 /* ffitarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 87293D631153BF71007AFD45 /* ffitarget.h */; };
-		87293DEF1153BF71007AFD45 /* ppc-ffitarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 87293D641153BF71007AFD45 /* ppc-ffitarget.h */; };
-		87293DF01153BF71007AFD45 /* x86-ffitarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 87293D651153BF71007AFD45 /* x86-ffitarget.h */; };
-		87293DF11153BF71007AFD45 /* ppc-darwin.h in Headers */ = {isa = PBXBuildFile; fileRef = 87293D711153BF71007AFD45 /* ppc-darwin.h */; };
-		87293DF21153BF71007AFD45 /* ppc-darwin.S in Sources */ = {isa = PBXBuildFile; fileRef = 87293D721153BF71007AFD45 /* ppc-darwin.S */; };
-		87293DF31153BF71007AFD45 /* ppc-darwin_closure.S in Sources */ = {isa = PBXBuildFile; fileRef = 87293D731153BF71007AFD45 /* ppc-darwin_closure.S */; };
-		87293DF41153BF71007AFD45 /* ppc-ffi_darwin.c in Sources */ = {isa = PBXBuildFile; fileRef = 87293D741153BF71007AFD45 /* ppc-ffi_darwin.c */; };
-		87293DF51153BF71007AFD45 /* ppc64-darwin_closure.S in Sources */ = {isa = PBXBuildFile; fileRef = 87293D751153BF71007AFD45 /* ppc64-darwin_closure.S */; };
-		87293E5A1153BF71007AFD45 /* types.c in Sources */ = {isa = PBXBuildFile; fileRef = 87293DE41153BF71007AFD45 /* types.c */; };
-		87293E5B1153BF71007AFD45 /* darwin64.S in Sources */ = {isa = PBXBuildFile; fileRef = 87293DE61153BF71007AFD45 /* darwin64.S */; };
-		87293E5C1153BF71007AFD45 /* x86-darwin.S in Sources */ = {isa = PBXBuildFile; fileRef = 87293DE71153BF71007AFD45 /* x86-darwin.S */; };
-		87293E5D1153BF71007AFD45 /* x86-ffi64.c in Sources */ = {isa = PBXBuildFile; fileRef = 87293DE81153BF71007AFD45 /* x86-ffi64.c */; };
-		87293E5E1153BF71007AFD45 /* x86-ffi_darwin.c in Sources */ = {isa = PBXBuildFile; fileRef = 87293DE91153BF71007AFD45 /* x86-ffi_darwin.c */; };
 		87293EC71153C1A5007AFD45 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDE79B210E8CC8700AC2646 /* Cocoa.framework */; };
 		87293ED71153C24C007AFD45 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 87293ED61153C24C007AFD45 /* main.mm */; };
 		87293EE31153C356007AFD45 /* monobjc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 87293EE21153C356007AFD45 /* monobjc.h */; };
@@ -165,20 +147,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4D22DC081167C979007AF714 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4DDC14571135D22100A62E29;
-			remoteInfo = libforeign;
-		};
-		4D22DC0A1167C98E007AF714 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4DDC14571135D22100A62E29;
-			remoteInfo = libforeign;
-		};
 		4D22DC0C1167C992007AF714 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
@@ -192,13 +160,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 87293EBF1153C114007AFD45;
 			remoteInfo = libmonobjc;
-		};
-		4DF8B2381171D0160081C1DD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4DDC14571135D22100A62E29;
-			remoteInfo = libforeign;
 		};
 		4DFE5709119401E200EA3AEA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -262,9 +223,10 @@
 		4D05CA661193055000125045 /* sort.frag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sort.frag.h; path = external/eglib/src/sort.frag.h; sourceTree = "<group>"; };
 		4D05CA671193055000125045 /* unicode-data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "unicode-data.h"; path = "external/eglib/src/unicode-data.h"; sourceTree = "<group>"; };
 		4D05CA681193055000125045 /* vasprintf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vasprintf.c; path = external/eglib/src/vasprintf.c; sourceTree = "<group>"; };
-		4D22DAB511673D6C007AF714 /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = Library/Frameworks/Mono.framework; sourceTree = SDKROOT; };
 		4D22DBAF116742DE007AF714 /* fix_references.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = fix_references.sh; sourceTree = "<group>"; };
+		4D3D2C0B132B6E170050D86B /* libffi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libffi.dylib; path = usr/lib/libffi.dylib; sourceTree = SDKROOT; };
 		4D3D2F0210A737D800F9FDDE /* libobjc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.dylib; path = usr/lib/libobjc.dylib; sourceTree = SDKROOT; };
+		4D3D2F39132B7D930050D86B /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = Library/Frameworks/Mono.framework; sourceTree = SDKROOT; };
 		4D447185115BE065002B810F /* lifecycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lifecycle.h; path = sources/lifecycle.h; sourceTree = "<group>"; };
 		4D447186115BE0A2002B810F /* threading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = threading.h; path = sources/threading.h; sourceTree = "<group>"; };
 		4D4471BA115CC267002B810F /* threading.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = threading.mm; path = sources/threading.mm; sourceTree = "<group>"; };
@@ -310,7 +272,6 @@
 		4DB8446612F42BFE001C5A72 /* Shared-runtime.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Shared-runtime.xcconfig"; path = "config/Shared-runtime.xcconfig"; sourceTree = "<group>"; };
 		4DB8447512F42C82001C5A72 /* Debug-libeglib.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Debug-libeglib.xcconfig"; path = "config/Debug-libeglib.xcconfig"; sourceTree = "<group>"; };
 		4DB844C512F43103001C5A72 /* Shared-monobjc.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Shared-monobjc.xcconfig"; path = "config/Shared-monobjc.xcconfig"; sourceTree = "<group>"; };
-		4DDC14581135D22100A62E29 /* libforeign.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libforeign.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDE79B210E8CC8700AC2646 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4DED6A8C1154C8C500AF687B /* icalls-Monobjc.Class.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "icalls-Monobjc.Class.mm"; path = "sources/icalls/icalls-Monobjc.Class.mm"; sourceTree = "<group>"; };
 		4DED6A8D1154C8C500AF687B /* icalls-Monobjc.Id.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "icalls-Monobjc.Id.mm"; path = "sources/icalls/icalls-Monobjc.Id.mm"; sourceTree = "<group>"; };
@@ -337,26 +298,6 @@
 		4DFE56E31193FCC300EA3AEA /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config.h; path = external/eglib/config.h; sourceTree = "<group>"; };
 		4DFE56EC1193FD7D00EA3AEA /* eglib-config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "eglib-config.h"; path = "external/eglib/src/eglib-config.h"; sourceTree = "<group>"; };
 		4DFE571F1194028B00EA3AEA /* eglib-remap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "eglib-remap.h"; path = "external/eglib/src/eglib-remap.h"; sourceTree = "<group>"; };
-		87293D5E1153BF71007AFD45 /* ffi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffi.c; sourceTree = "<group>"; };
-		87293D601153BF71007AFD45 /* ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi.h; sourceTree = "<group>"; };
-		87293D611153BF71007AFD45 /* ffi_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_common.h; sourceTree = "<group>"; };
-		87293D621153BF71007AFD45 /* fficonfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig.h; sourceTree = "<group>"; };
-		87293D631153BF71007AFD45 /* ffitarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget.h; sourceTree = "<group>"; };
-		87293D641153BF71007AFD45 /* ppc-ffitarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ppc-ffitarget.h"; path = "../include/ppc-ffitarget.h"; sourceTree = "<group>"; };
-		87293D651153BF71007AFD45 /* x86-ffitarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "x86-ffitarget.h"; path = "../include/x86-ffitarget.h"; sourceTree = "<group>"; };
-		87293D6A1153BF71007AFD45 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		87293D711153BF71007AFD45 /* ppc-darwin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ppc-darwin.h"; sourceTree = "<group>"; };
-		87293D721153BF71007AFD45 /* ppc-darwin.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = "ppc-darwin.S"; sourceTree = "<group>"; };
-		87293D731153BF71007AFD45 /* ppc-darwin_closure.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = "ppc-darwin_closure.S"; sourceTree = "<group>"; };
-		87293D741153BF71007AFD45 /* ppc-ffi_darwin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "ppc-ffi_darwin.c"; sourceTree = "<group>"; };
-		87293D751153BF71007AFD45 /* ppc64-darwin_closure.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = "ppc64-darwin_closure.S"; sourceTree = "<group>"; };
-		87293D761153BF71007AFD45 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
-		87293D771153BF71007AFD45 /* README.MacOSX */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.MacOSX; sourceTree = "<group>"; };
-		87293DE41153BF71007AFD45 /* types.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = types.c; sourceTree = "<group>"; };
-		87293DE61153BF71007AFD45 /* darwin64.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = darwin64.S; sourceTree = "<group>"; };
-		87293DE71153BF71007AFD45 /* x86-darwin.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = "x86-darwin.S"; sourceTree = "<group>"; };
-		87293DE81153BF71007AFD45 /* x86-ffi64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "x86-ffi64.c"; sourceTree = "<group>"; };
-		87293DE91153BF71007AFD45 /* x86-ffi_darwin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "x86-ffi_darwin.c"; sourceTree = "<group>"; };
 		87293E8D1153C0A2007AFD45 /* support-mono.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "support-mono.mm"; path = "sources/support-mono.mm"; sourceTree = "<group>"; };
 		87293E981153C0A2007AFD45 /* monobjc_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = monobjc_Prefix.pch; path = sources/monobjc_Prefix.pch; sourceTree = "<group>"; };
 		87293E9D1153C0A2007AFD45 /* support-objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "support-objc.h"; path = "sources/support-objc.h"; sourceTree = "<group>"; };
@@ -378,18 +319,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4DDC14561135D22100A62E29 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4DF8B22E1171CFBF0081C1DD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DF8B23A1171D0190081C1DD /* libforeign.a in Frameworks */,
 				4DF8B23B1171D0230081C1DD /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,9 +332,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DFE570B119401E800EA3AEA /* libeglib.a in Frameworks */,
-				4D22DC161167CA3B007AF714 /* libforeign.a in Frameworks */,
+				4D3D2C0C132B6E170050D86B /* libffi.dylib in Frameworks */,
 				87293EC71153C1A5007AFD45 /* Cocoa.framework in Frameworks */,
-				4D22DAB611673D6C007AF714 /* Mono.framework in Frameworks */,
+				4D3D3229132B7DA20050D86B /* Mono.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,9 +343,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DFE5759119405FD00EA3AEA /* libeglib.a in Frameworks */,
-				4D22DC171167CA3E007AF714 /* libforeign.a in Frameworks */,
+				4D3D2C0D132B6E390050D86B /* libffi.dylib in Frameworks */,
 				8794A38011525E9A00FE6172 /* Cocoa.framework in Frameworks */,
-				4D22DB8B11673DA9007AF714 /* Mono.framework in Frameworks */,
+				4D3D2F3A132B7D930050D86B /* Mono.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +372,6 @@
 			isa = PBXGroup;
 			children = (
 				4D05CA2E119304BD00125045 /* libeglib.a */,
-				4DDC14581135D22100A62E29 /* libforeign.a */,
 				87293EC01153C114007AFD45 /* libmonobjc.dylib */,
 				8794A33811525CF400FE6172 /* runtime */,
 				4DF8B2301171CFBF0081C1DD /* tester */,
@@ -500,8 +432,9 @@
 			isa = PBXGroup;
 			children = (
 				4D3D2F0210A737D800F9FDDE /* libobjc.dylib */,
+				4D3D2C0B132B6E170050D86B /* libffi.dylib */,
 				4DDE79B210E8CC8700AC2646 /* Cocoa.framework */,
-				4D22DAB511673D6C007AF714 /* Mono.framework */,
+				4D3D2F39132B7D930050D86B /* Mono.framework */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -608,62 +541,9 @@
 		87293D591153BF56007AFD45 /* external */ = {
 			isa = PBXGroup;
 			children = (
-				87293D5D1153BF71007AFD45 /* libffi-15 */,
 				4D05CA29119304A600125045 /* eglib */,
 			);
 			name = external;
-			sourceTree = "<group>";
-		};
-		87293D5D1153BF71007AFD45 /* libffi-15 */ = {
-			isa = PBXGroup;
-			children = (
-				87293D5E1153BF71007AFD45 /* ffi.c */,
-				87293DE41153BF71007AFD45 /* types.c */,
-				87293D5F1153BF71007AFD45 /* include */,
-				87293D701153BF71007AFD45 /* powerpc */,
-				87293DE51153BF71007AFD45 /* x86 */,
-				87293D6A1153BF71007AFD45 /* LICENSE */,
-				87293D761153BF71007AFD45 /* README */,
-				87293D771153BF71007AFD45 /* README.MacOSX */,
-			);
-			name = "libffi-15";
-			path = "external/libffi-15";
-			sourceTree = "<group>";
-		};
-		87293D5F1153BF71007AFD45 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				87293D601153BF71007AFD45 /* ffi.h */,
-				87293D611153BF71007AFD45 /* ffi_common.h */,
-				87293D621153BF71007AFD45 /* fficonfig.h */,
-				87293D631153BF71007AFD45 /* ffitarget.h */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		87293D701153BF71007AFD45 /* powerpc */ = {
-			isa = PBXGroup;
-			children = (
-				87293D641153BF71007AFD45 /* ppc-ffitarget.h */,
-				87293D711153BF71007AFD45 /* ppc-darwin.h */,
-				87293D721153BF71007AFD45 /* ppc-darwin.S */,
-				87293D731153BF71007AFD45 /* ppc-darwin_closure.S */,
-				87293D741153BF71007AFD45 /* ppc-ffi_darwin.c */,
-				87293D751153BF71007AFD45 /* ppc64-darwin_closure.S */,
-			);
-			path = powerpc;
-			sourceTree = "<group>";
-		};
-		87293DE51153BF71007AFD45 /* x86 */ = {
-			isa = PBXGroup;
-			children = (
-				87293D651153BF71007AFD45 /* x86-ffitarget.h */,
-				87293DE61153BF71007AFD45 /* darwin64.S */,
-				87293DE71153BF71007AFD45 /* x86-darwin.S */,
-				87293DE81153BF71007AFD45 /* x86-ffi64.c */,
-				87293DE91153BF71007AFD45 /* x86-ffi_darwin.c */,
-			);
-			path = x86;
 			sourceTree = "<group>";
 		};
 		87293E861153C04F007AFD45 /* include */ = {
@@ -742,20 +622,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4DDC14541135D22100A62E29 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				87293DEB1153BF71007AFD45 /* ffi.h in Headers */,
-				87293DEC1153BF71007AFD45 /* ffi_common.h in Headers */,
-				87293DED1153BF71007AFD45 /* fficonfig.h in Headers */,
-				87293DEE1153BF71007AFD45 /* ffitarget.h in Headers */,
-				87293DEF1153BF71007AFD45 /* ppc-ffitarget.h in Headers */,
-				87293DF01153BF71007AFD45 /* x86-ffitarget.h in Headers */,
-				87293DF11153BF71007AFD45 /* ppc-darwin.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		87293EBC1153C114007AFD45 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -784,24 +650,6 @@
 			productReference = 4D05CA2E119304BD00125045 /* libeglib.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		4DDC14571135D22100A62E29 /* libforeign */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4DDC14671135D26C00A62E29 /* Build configuration list for PBXNativeTarget "libforeign" */;
-			buildPhases = (
-				4DDC17A3113A760000A62E29 /* ShellScript */,
-				4DDC14541135D22100A62E29 /* Headers */,
-				4DDC14551135D22100A62E29 /* Sources */,
-				4DDC14561135D22100A62E29 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = libforeign;
-			productName = libffi;
-			productReference = 4DDC14581135D22100A62E29 /* libforeign.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 		4DF8B22F1171CFBF0081C1DD /* tester */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4DF8B2361171CFCB0081C1DD /* Build configuration list for PBXNativeTarget "tester" */;
@@ -812,7 +660,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				4DF8B2391171D0160081C1DD /* PBXTargetDependency */,
 			);
 			name = tester;
 			productName = tester;
@@ -834,7 +681,6 @@
 			);
 			dependencies = (
 				4DFE570A119401E200EA3AEA /* PBXTargetDependency */,
-				4D22DC091167C979007AF714 /* PBXTargetDependency */,
 			);
 			name = libmonobjc;
 			productName = monobjc;
@@ -853,7 +699,6 @@
 			);
 			dependencies = (
 				4DFE5758119405FA00EA3AEA /* PBXTargetDependency */,
-				4D22DC0B1167C98E007AF714 /* PBXTargetDependency */,
 				4D22DC0D1167C992007AF714 /* PBXTargetDependency */,
 			);
 			name = runtime;
@@ -885,7 +730,6 @@
 			projectRoot = "";
 			targets = (
 				4D05CA2D119304BD00125045 /* libeglib */,
-				4DDC14571135D22100A62E29 /* libforeign */,
 				87293EBF1153C114007AFD45 /* libmonobjc */,
 				8794A33711525CF400FE6172 /* runtime */,
 				4DF8B22F1171CFBF0081C1DD /* tester */,
@@ -947,19 +791,6 @@
 			shellPath = /bin/bash;
 			shellScript = "$DOXYGEN_HOME/doxygen\n";
 		};
-		4DDC17A3113A760000A62E29 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "# Uncompress libffi and patch it for PPC\nif [ ! -d ./external/libffi-15 ]; then\n\tcd ./external\n\ttar -zxvf libffi-15.tar.gz\n\tpatch -p0 <libffi-15.patch\nfi\n";
-		};
 		4DED6C7811555D1500AF687B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1007,23 +838,6 @@
 				4D05CA8B1193055000125045 /* gunicode.c in Sources */,
 				4D05CA8C1193055000125045 /* gutf8.c in Sources */,
 				4D05CA901193055000125045 /* vasprintf.c in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4DDC14551135D22100A62E29 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				87293DEA1153BF71007AFD45 /* ffi.c in Sources */,
-				87293DF21153BF71007AFD45 /* ppc-darwin.S in Sources */,
-				87293DF31153BF71007AFD45 /* ppc-darwin_closure.S in Sources */,
-				87293DF41153BF71007AFD45 /* ppc-ffi_darwin.c in Sources */,
-				87293DF51153BF71007AFD45 /* ppc64-darwin_closure.S in Sources */,
-				87293E5A1153BF71007AFD45 /* types.c in Sources */,
-				87293E5B1153BF71007AFD45 /* darwin64.S in Sources */,
-				87293E5C1153BF71007AFD45 /* x86-darwin.S in Sources */,
-				87293E5D1153BF71007AFD45 /* x86-ffi64.c in Sources */,
-				87293E5E1153BF71007AFD45 /* x86-ffi_darwin.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1129,16 +943,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4D22DC091167C979007AF714 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4DDC14571135D22100A62E29 /* libforeign */;
-			targetProxy = 4D22DC081167C979007AF714 /* PBXContainerItemProxy */;
-		};
-		4D22DC0B1167C98E007AF714 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4DDC14571135D22100A62E29 /* libforeign */;
-			targetProxy = 4D22DC0A1167C98E007AF714 /* PBXContainerItemProxy */;
-		};
 		4D22DC0D1167C992007AF714 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 87293EBF1153C114007AFD45 /* libmonobjc */;
@@ -1148,11 +952,6 @@
 			isa = PBXTargetDependency;
 			target = 87293EBF1153C114007AFD45 /* libmonobjc */;
 			targetProxy = 4DA521A9115A00BC007C19C3 /* PBXContainerItemProxy */;
-		};
-		4DF8B2391171D0160081C1DD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4DDC14571135D22100A62E29 /* libforeign */;
-			targetProxy = 4DF8B2381171D0160081C1DD /* PBXContainerItemProxy */;
 		};
 		4DFE570A119401E200EA3AEA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1212,36 +1011,6 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PRODUCT_NAME = documentation;
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
-		4DDC14591135D22100A62E29 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				INSTALL_PATH = /usr/local/lib;
-				PREBINDING = NO;
-				PRODUCT_NAME = foreign;
-			};
-			name = Debug;
-		};
-		4DDC145A1135D22100A62E29 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_MODEL_TUNING = G5;
-				INSTALL_PATH = /usr/local/lib;
-				PREBINDING = NO;
-				PRODUCT_NAME = foreign;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1330,15 +1099,6 @@
 			buildConfigurations = (
 				4DA521A7115A00AF007C19C3 /* Debug */,
 				4DA521A8115A00AF007C19C3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4DDC14671135D26C00A62E29 /* Build configuration list for PBXNativeTarget "libforeign" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4DDC14591135D22100A62E29 /* Debug */,
-				4DDC145A1135D22100A62E29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

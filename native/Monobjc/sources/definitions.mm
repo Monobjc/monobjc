@@ -65,6 +65,7 @@ void monobjc_create_definitions() {
     data->Monobjc_Block_get_NativePointer_method            = monobjc_define_method(data->Monobjc_Block_class, "get_NativePointer", 0);
 #endif
     data->Monobjc_Class_GetAttributeName_method             = monobjc_define_method(data->Monobjc_Class_class, "GetAttributeName", 1);
+    data->Monobjc_Class_get_WrapperType_method              = monobjc_define_method(data->Monobjc_Class_class, "get_WrapperType", 0);
     data->Monobjc_Id_get_NativePointer_method               = monobjc_define_method(data->Monobjc_Id_class, "get_NativePointer", 0);
     data->Monobjc_ObjectiveCRuntime_GenerateWrapper_method  = monobjc_define_method(data->Monobjc_ObjectiveCRuntime_class, "GenerateWrapper", 1);
     data->Monobjc_ObjectiveCRuntime_UnWrap_method           = monobjc_define_method(data->Monobjc_ObjectiveCRuntime_class, "UnWrap", 1);

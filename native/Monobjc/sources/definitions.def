@@ -33,6 +33,7 @@ DEFINITION(MonoType *,          System_Void_type)
 
 DEFINITION(MonoMethod *,        Monobjc_Block_get_NativePointer_method)
 DEFINITION(MonoMethod *,        Monobjc_Class_ctor_method)
+DEFINITION(MonoMethod *,        Monobjc_Class_get_WrapperType_method)
 DEFINITION(MonoMethod *,        Monobjc_Class_GetAttributeName_method)
 DEFINITION(MonoMethod *,        Monobjc_Id_ctor_method)
 DEFINITION(MonoMethod *,        Monobjc_Id_get_NativePointer_method)

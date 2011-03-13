@@ -24,7 +24,7 @@
 #ifndef __FFI_SUPPORT_H__
 #define __FFI_SUPPORT_H__
 
-#include "ffi.h"
+#include <ffi/ffi.h>
 
 #pragma mark ----- Function Pointers -----
 
