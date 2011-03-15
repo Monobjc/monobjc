@@ -408,10 +408,16 @@ namespace Monobjc
                 IntPtr value = Marshal.ReadIntPtr(pointer);
                 return (T) GetInstanceInternal(type.TypeHandle.Value, value, false);
             }
-            if (type == typeof (int) || type == typeof (uint))
+            if (type == typeof (int))
             {
                 // Read the value
                 int value = Marshal.ReadInt32(pointer);
+                return (T) (Object) value;
+            }
+            if (type == typeof (uint))
+            {
+                // Read the value
+                uint value = (uint) Marshal.ReadInt32(pointer);
                 return (T) (Object) value;
             }
             if (type == typeof (float))
@@ -423,6 +429,11 @@ namespace Monobjc
             {
                 // Perform a direct marhalling
                 return (T) Marshal.PtrToStructure(pointer, typeof (double));
+            }
+            if (type.IsValueType)
+            {
+                // Perform an indirect marhalling
+                return (T) Marshal.PtrToStructure(pointer, type);
             }
             throw new NotSupportedException(String.Format(CultureInfo.CurrentCulture, "Externals for type {0} are not supported", type));
         }
