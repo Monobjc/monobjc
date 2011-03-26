@@ -25,7 +25,7 @@ using System;
 namespace Monobjc.Foundation
 {
     /// <summary>
-    /// Structure that wraps a floating-point value and is mapped to the NSInteger native type.
+    /// Structure that wraps an signed integer value and is mapped to the NSInteger native type.
     /// </summary>
     [ObjectiveCUnderlyingType(typeof(int), Is64Bits = false)]
     [ObjectiveCUnderlyingType(typeof(long), Is64Bits = true)]

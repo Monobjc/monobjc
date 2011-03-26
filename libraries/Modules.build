@@ -263,9 +263,10 @@
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/CorePlot_C/*.cs"/>
       <include name="${base.dir}/${lib.name}/CorePlot_P/*.cs"/>
+      <include name="${base.dir}/${lib.name}/CorePlot_S/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
     </fileset>
-    <!--<call target="build-library-intern" if="${directory::exists('/Library/Frameworks/CorePlot.framework')}"/>-->
+    <call target="build-library-intern" if="${directory::exists('/Library/Frameworks/CorePlot.framework')}"/>
 
     <!-- Library Monobjc.Growl -->
     <property name="lib.name" value="Monobjc.Growl"/>

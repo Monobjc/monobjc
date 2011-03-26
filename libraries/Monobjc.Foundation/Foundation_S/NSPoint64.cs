@@ -51,7 +51,7 @@ namespace Monobjc.Foundation
             this.x = x;
             this.y = y;
         }
-
+        
         /// <summary>
         /// Performs an implicit conversion from <see cref="Monobjc.Foundation.NSPoint64"/> to <see cref="Monobjc.Foundation.NSPoint"/>.
         /// </summary>

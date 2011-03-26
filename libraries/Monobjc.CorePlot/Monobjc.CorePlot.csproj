@@ -82,7 +82,6 @@
     <Compile Include="CorePlot_C\CPColor.Constructors.cs" />
     <Compile Include="CorePlot_C\CPColor.cs" />
     <Compile Include="CorePlot_C\CPColorSpace.Class.cs" />
-    <Compile Include="CorePlot_C\CPColorSpace.Constructors.cs" />
     <Compile Include="CorePlot_C\CPColorSpace.cs" />
     <Compile Include="CorePlot_C\CPColorSpace_Definitions.cs" />
     <Compile Include="CorePlot_C\CPColor_CPPlatformSpecificColorExtensions.cs" />
@@ -109,7 +108,6 @@
     <Compile Include="CorePlot_C\CPFill_AbstractMethods.cs" />
     <Compile Include="CorePlot_C\CPFill_Definitions.cs" />
     <Compile Include="CorePlot_C\CPGradient.Class.cs" />
-    <Compile Include="CorePlot_C\CPGradient.Constants.cs" />
     <Compile Include="CorePlot_C\CPGradient.cs" />
     <Compile Include="CorePlot_C\CPGradient_Definitions.Constants.cs" />
     <Compile Include="CorePlot_C\CPGradient_Definitions.cs" />
@@ -120,12 +118,15 @@
     <Compile Include="CorePlot_C\CPGraph_AbstractFactoryMethods.cs" />
     <Compile Include="CorePlot_C\CPGraph_Definitions.Constants.cs" />
     <Compile Include="CorePlot_C\CPGraph_Definitions.cs" />
+    <Compile Include="CorePlot_C\CPGridLineGroup.Class.cs" />
+    <Compile Include="CorePlot_C\CPGridLineGroup.Constructors.cs" />
+    <Compile Include="CorePlot_C\CPGridLineGroup.cs" />
+    <Compile Include="CorePlot_C\CPGridLineGroup_Definitions.cs" />
     <Compile Include="CorePlot_C\CPGridLines.Class.cs" />
     <Compile Include="CorePlot_C\CPGridLines.Constructors.cs" />
     <Compile Include="CorePlot_C\CPGridLines.cs" />
     <Compile Include="CorePlot_C\CPGridLines_Definitions.cs" />
     <Compile Include="CorePlot_C\CPImage.Class.cs" />
-    <Compile Include="CorePlot_C\CPImage.Constructors.cs" />
     <Compile Include="CorePlot_C\CPImage.cs" />
     <Compile Include="CorePlot_C\CPImage_Definitions.cs" />
     <Compile Include="CorePlot_C\CPLayer.Class.cs" />
@@ -197,7 +198,6 @@
     <Compile Include="CorePlot_C\CPPlot.Constructors.cs" />
     <Compile Include="CorePlot_C\CPPlot.cs" />
     <Compile Include="CorePlot_C\CPPlotArea.Class.cs" />
-    <Compile Include="CorePlot_C\CPPlotArea.Constants.cs" />
     <Compile Include="CorePlot_C\CPPlotArea.Constructors.cs" />
     <Compile Include="CorePlot_C\CPPlotArea.cs" />
     <Compile Include="CorePlot_C\CPPlotAreaFrame.Class.cs" />
@@ -320,6 +320,9 @@
     <Compile Include="CorePlot_P\CPResponder.Protocol.cs" />
     <Compile Include="CorePlot_P\CPScatterPlotDataSource.Protocol.cs" />
     <Compile Include="CorePlot_P\CPScatterPlotDelegate.Protocol.cs" />
+    <Compile Include="CorePlot_S\CPConstraints.cs" />
+    <Compile Include="CorePlot_S\CPNumericDataType64.cs" />
+    <Compile Include="CorePlot_S\CPNumericDataType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
