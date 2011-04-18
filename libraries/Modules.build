@@ -316,6 +316,18 @@
     </fileset>
     <call target="build-library-intern"/>
 
+    <!-- Library Monobjc.Quartz -->
+    <property name="lib.name" value="Monobjc.ScriptingBridge"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+      <include name="${base.dir}/${lib.name}/ScriptingBridge_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/ScriptingBridge_E/*.cs"/>
+      <include name="${base.dir}/${lib.name}/ScriptingBridge_P/*.cs"/>
+    </fileset>
+    <call target="build-library-intern"/>
+
     <!-- Library Monobjc.SM2DGraphView -->
     <property name="lib.name" value="Monobjc.SM2DGraphView"/>
     <fileset id="src.references" basedir="${output.dir}">

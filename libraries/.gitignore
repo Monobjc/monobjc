@@ -42,6 +42,8 @@ QuartzCore_T
 Quartz_C
 Quartz_E
 Quartz_P
+ScriptingBridge_C
+ScriptingBridge_P
 SecurityFoundation_C
 SecurityFoundation_T
 SecurityInterface_C

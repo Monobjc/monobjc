@@ -71,6 +71,7 @@
     <Compile Include="SecurityInterface_Extensions\SFKeychainSettingsPanel.Interop.cs" />
     <Compile Include="SecurityInterface_T\SecurityInterfaceFramework.Constants.cs" />
     <Compile Include="SecurityInterface_T\SecurityInterfaceFramework.DataTypes.cs" />
+    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">

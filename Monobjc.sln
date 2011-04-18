@@ -59,6 +59,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.CorePlot", "librari
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.SM2DGraphView", "libraries\Monobjc.SM2DGraphView\Monobjc.SM2DGraphView.csproj", "{F713D970-7752-49B0-A1A9-7D831085D95B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.ScriptingBridge", "libraries\Monobjc.ScriptingBridge\Monobjc.ScriptingBridge.csproj", "{7A0D66ED-BE85-4976-828F-B88CD0AB00FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,10 @@ Global
 		{F713D970-7752-49B0-A1A9-7D831085D95B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F713D970-7752-49B0-A1A9-7D831085D95B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F713D970-7752-49B0-A1A9-7D831085D95B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A0D66ED-BE85-4976-828F-B88CD0AB00FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A0D66ED-BE85-4976-828F-B88CD0AB00FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A0D66ED-BE85-4976-828F-B88CD0AB00FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A0D66ED-BE85-4976-828F-B88CD0AB00FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -164,6 +170,7 @@ Global
 		{7227F9E4-CBA7-4A71-959D-B7DE7C5060C6} = {84E05B26-2C67-4D75-A6F1-449EB4DDE85F}
 		{03857C3D-12C4-4524-8DF0-3FBCB56C579E} = {84E05B26-2C67-4D75-A6F1-449EB4DDE85F}
 		{F713D970-7752-49B0-A1A9-7D831085D95B} = {84E05B26-2C67-4D75-A6F1-449EB4DDE85F}
+		{7A0D66ED-BE85-4976-828F-B88CD0AB00FA} = {84E05B26-2C67-4D75-A6F1-449EB4DDE85F}
 		{2EB6BD6B-2243-4208-8425-CE189866ADF2} = {C9CA3586-F7BD-4D17-B6E2-70D0E5CCB09B}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution

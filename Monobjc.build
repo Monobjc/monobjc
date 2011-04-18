@@ -178,9 +178,11 @@ chmod a+x ./Monobjc.sh
         <include name="Monobjc.sln"/>
         <include name="Monobjc.snk"/>
         <include name="${dist.dir}/monobjc"/>
+        <include name="${dist.dir}/monobjc-sdp"/>
         <include name="${dist.dir}/monobjc-nunit"/>
-        <include name="${dist.dir}/Monobjc.Tools.dll"/>
+        <include name="${dist.dir}/Monobjc.Sdp.exe"/>
         <include name="${dist.dir}/Monobjc.NAnt.dll"/>
+        <include name="${dist.dir}/Monobjc.Tools.dll"/>
         <include name="${dist.dir}/10.*/Monobjc*.dll"/>
         <include name="${dist.dir}/10.*/Monobjc*.policy"/>
         <include name="${dist.dir}/10.*/Monobjc*.xml"/>

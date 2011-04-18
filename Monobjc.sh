@@ -97,16 +97,22 @@ EOF
     # because the Mono CSDK doesn't create it
     ln -s "$MONO_DIR/bin/pkg-config" "/usr/bin/pkg-config"
 
-    # Copy the runtime wrappers and soft-link them
-    cp "./dist/monobjc" "$MONO_DIR/bin/monobjc"
-    cp "./dist/monobjc-nunit" "$MONO_DIR/bin/monobjc-nunit"
-    chmod a+rx "$MONO_DIR/bin/monobjc"
-    chmod a+rx "$MONO_DIR/bin/monobjc-nunit"
-    ln -s "$MONO_DIR/bin/monobjc" "/usr/bin/monobjc"
-    ln -s "$MONO_DIR/bin/monobjc-nunit" "/usr/bin/monobjc-nunit"
+    # Copy the helper tools
+    cp "./dist/Monobjc.Sdp.exe" "$MONO_DIR/lib/mono/2.0/Monobjc.Sdp.exe"
 
     # Copy the NAnt tasks
     cp "./dist/Monobjc.NAnt.dll" "$MONO_DIR/share/NAnt/bin/extensions/common/2.0/"
+
+    # Copy the runtime wrappers and soft-link them
+    cp "./dist/monobjc" "$MONO_DIR/bin/monobjc"
+    cp "./dist/monobjc-sdp" "$MONO_DIR/bin/monobjc-sdp"
+    cp "./dist/monobjc-nunit" "$MONO_DIR/bin/monobjc-nunit"
+    chmod a+rx "$MONO_DIR/bin/monobjc"
+    chmod a+rx "$MONO_DIR/bin/monobjc-sdp"
+    chmod a+rx "$MONO_DIR/bin/monobjc-nunit"
+    ln -s "$MONO_DIR/bin/monobjc" "/usr/bin/monobjc"
+    ln -s "$MONO_DIR/bin/monobjc-sdp" "/usr/bin/monobjc-sdp"
+    ln -s "$MONO_DIR/bin/monobjc-nunit" "/usr/bin/monobjc-nunit"
 }
 
 #

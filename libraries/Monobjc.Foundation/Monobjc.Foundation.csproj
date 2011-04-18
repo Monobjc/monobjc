@@ -822,6 +822,7 @@
     <Compile Include="ApplicationServices_S\CGAffineTransform.cs" />
     <Compile Include="ApplicationServices_S\CGAffineTransform.Functions.cs" />
     <Compile Include="ApplicationServices_S\CGAffineTransform64.cs" />
+    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

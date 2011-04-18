@@ -52,6 +52,7 @@
     <Compile Include="SecurityFoundation_S\SecKeychainCallbackInfo.cs" />
     <Compile Include="SecurityFoundation_S\SecKeychainSettings.cs" />
     <Compile Include="SecurityFoundation_T\SecurityFoundationFramework.Functions.cs" />
+    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">

@@ -5,14 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{FE5AC771-83D4-4C9F-87D0-A15B66BA9B09}</ProjectGuid>
+    <ProjectGuid>{7A0D66ED-BE85-4976-828F-B88CD0AB00FA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Monobjc.CoreWLAN</RootNamespace>
-    <AssemblyName>Monobjc.CoreWLAN</AssemblyName>
+    <RootNamespace>Monobjc.ScriptingBridge</RootNamespace>
+    <AssemblyName>Monobjc.ScriptingBridge</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -27,7 +26,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -36,30 +35,29 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CoreWLAN_C\CW8021XProfile.Class.cs" />
-    <Compile Include="CoreWLAN_C\CW8021XProfile.Constructors.cs" />
-    <Compile Include="CoreWLAN_C\CW8021XProfile.cs" />
-    <Compile Include="CoreWLAN_C\CW8021XProfile.Protocols.cs" />
-    <Compile Include="CoreWLAN_C\CWConfiguration.Class.cs" />
-    <Compile Include="CoreWLAN_C\CWConfiguration.Constructors.cs" />
-    <Compile Include="CoreWLAN_C\CWConfiguration.cs" />
-    <Compile Include="CoreWLAN_C\CWConfiguration.Protocols.cs" />
-    <Compile Include="CoreWLAN_C\CWInterface.Class.cs" />
-    <Compile Include="CoreWLAN_C\CWInterface.Constructors.cs" />
-    <Compile Include="CoreWLAN_C\CWInterface.cs" />
-    <Compile Include="CoreWLAN_C\CWNetwork.Class.cs" />
-    <Compile Include="CoreWLAN_C\CWNetwork.Constructors.cs" />
-    <Compile Include="CoreWLAN_C\CWNetwork.cs" />
-    <Compile Include="CoreWLAN_C\CWNetwork.Protocols.cs" />
-    <Compile Include="CoreWLAN_C\CWWirelessProfile.Class.cs" />
-    <Compile Include="CoreWLAN_C\CWWirelessProfile.Constructors.cs" />
-    <Compile Include="CoreWLAN_C\CWWirelessProfile.cs" />
-    <Compile Include="CoreWLAN_C\CWWirelessProfile.Protocols.cs" />
-    <Compile Include="CoreWLAN_T\CoreWLANFramework.Constants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
+    <Compile Include="ScriptingBridge_C\SBApplication.Class.cs" />
+    <Compile Include="ScriptingBridge_C\SBApplication.Constructors.cs" />
+    <Compile Include="ScriptingBridge_C\SBApplication.cs" />
+    <Compile Include="ScriptingBridge_C\SBApplication.Protocols.cs" />
+    <Compile Include="ScriptingBridge_C\SBElementArray.Class.cs" />
+    <Compile Include="ScriptingBridge_C\SBElementArray.Constructors.cs" />
+    <Compile Include="ScriptingBridge_C\SBElementArray.cs" />
+    <Compile Include="ScriptingBridge_C\SBElementArray.Protocols.cs" />
+    <Compile Include="ScriptingBridge_C\SBObject.Class.cs" />
+    <Compile Include="ScriptingBridge_C\SBObject.Constructors.cs" />
+    <Compile Include="ScriptingBridge_C\SBObject.cs" />
+    <Compile Include="ScriptingBridge_C\SBObject.Protocols.cs" />
+    <Compile Include="ScriptingBridge_P\SBApplicationDelegate.Protocol.cs" />
+    <Compile Include="ScriptingBridge_E\LSLaunchFlags.cs" />
+    <Compile Include="ScriptingBridge_E\AESendMode.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
+      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
+      <Name>Monobjc.AppKit</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
       <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
       <Name>Monobjc.Foundation</Name>
@@ -68,10 +66,9 @@
       <Project>{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}</Project>
       <Name>Monobjc</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Monobjc.SecurityFoundation\Monobjc.SecurityFoundation.csproj">
-      <Project>{B49863BB-D088-4AAC-8D2F-D8726F27A930}</Project>
-      <Name>Monobjc.SecurityFoundation</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ScriptingBridge_E\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
