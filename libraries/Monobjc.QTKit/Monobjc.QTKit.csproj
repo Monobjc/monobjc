@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -115,7 +115,20 @@
     <Compile Include="QTKit_C\QTTrack.Constants.cs" />
     <Compile Include="QTKit_C\QTTrack.Constructors.cs" />
     <Compile Include="QTKit_C\QTTrack.cs" />
+    <Compile Include="QTKit_E\QTMovieOperationPhase.cs" />
     <Compile Include="QTKit_E\QTSampleBufferAudioBufferListOptions.cs" />
+    <Compile Include="QTKit_P\QTCaptureDecompressedAudioOutput.Delegate.cs" />
+    <Compile Include="QTKit_P\QTCaptureDecompressedAudioOutputDelegate.Protocol.cs" />
+    <Compile Include="QTKit_P\QTCaptureDecompressedVideoOutput.Delegate.cs" />
+    <Compile Include="QTKit_P\QTCaptureDecompressedVideoOutputDelegate.Protocol.cs" />
+    <Compile Include="QTKit_P\QTCaptureFileOutput.Delegate.cs" />
+    <Compile Include="QTKit_P\QTCaptureFileOutputDelegate.Protocol.cs" />
+    <Compile Include="QTKit_P\QTCaptureVideoPreviewOutput.Delegate.cs" />
+    <Compile Include="QTKit_P\QTCaptureVideoPreviewOutputDelegate.Protocol.cs" />
+    <Compile Include="QTKit_P\QTCaptureView.Delegate.cs" />
+    <Compile Include="QTKit_P\QTCaptureViewDelegate.Protocol.cs" />
+    <Compile Include="QTKit_P\QTMovie.Delegate.cs" />
+    <Compile Include="QTKit_P\QTMovieDelegate.Protocol.cs" />
     <Compile Include="QTKit_S\AudioBuffer.cs" />
     <Compile Include="QTKit_S\AudioBufferList.cs" />
     <Compile Include="QTKit_S\QTTime.cs" />

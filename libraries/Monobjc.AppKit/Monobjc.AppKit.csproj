@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -908,6 +908,8 @@
     <Compile Include="AppKit_P\NSChangeSpelling.Protocol.cs" />
     <Compile Include="AppKit_P\NSCollectionView.Delegate.cs" />
     <Compile Include="AppKit_P\NSCollectionViewDelegate.Protocol.cs" />
+    <Compile Include="AppKit_P\NSColorPanel.Delegate.cs" />
+    <Compile Include="AppKit_P\NSColorPanelDelegate.Protocol.cs" />
     <Compile Include="AppKit_P\NSColorPickingCustom.Protocol.cs" />
     <Compile Include="AppKit_P\NSColorPickingDefault.Protocol.cs" />
     <Compile Include="AppKit_P\NSComboBox.Delegate.cs" />
@@ -928,6 +930,8 @@
     <Compile Include="AppKit_P\NSDrawerDelegate.Protocol.cs" />
     <Compile Include="AppKit_P\NSEditor.Protocol.cs" />
     <Compile Include="AppKit_P\NSEditorRegistration.Protocol.cs" />
+    <Compile Include="AppKit_P\NSFontManager.Delegate.cs" />
+    <Compile Include="AppKit_P\NSFontManagerDelegate.Protocol.cs" />
     <Compile Include="AppKit_P\NSFontPanelValidation.Constants.cs" />
     <Compile Include="AppKit_P\NSFontPanelValidation.Protocol.cs" />
     <Compile Include="AppKit_P\NSGlyphStorage.Constants.cs" />
@@ -947,6 +951,8 @@
     <Compile Include="AppKit_P\NSOutlineView.Delegate.cs" />
     <Compile Include="AppKit_P\NSOutlineViewDataSource.Protocol.cs" />
     <Compile Include="AppKit_P\NSOutlineViewDelegate.Protocol.cs" />
+    <Compile Include="AppKit_P\NSPanel.Delegate.cs" />
+    <Compile Include="AppKit_P\NSPanelDelegate.Protocol.cs" />
     <Compile Include="AppKit_P\NSPasteboardItemDataProvider.Protocol.cs" />
     <Compile Include="AppKit_P\NSPasteboardReading.Constants.cs" />
     <Compile Include="AppKit_P\NSPasteboardReading.Protocol.cs" />
@@ -962,6 +968,8 @@
     <Compile Include="AppKit_P\NSPrintPanelAccessorizing.Protocol.cs" />
     <Compile Include="AppKit_P\NSRuleEditor.Delegate.cs" />
     <Compile Include="AppKit_P\NSRuleEditorDelegate.Protocol.cs" />
+    <Compile Include="AppKit_P\NSRulerView.Delegate.cs" />
+    <Compile Include="AppKit_P\NSRulerViewDelegate.Protocol.cs" />
     <Compile Include="AppKit_P\NSServicesRequests.Protocol.cs" />
     <Compile Include="AppKit_P\NSSound.Delegate.cs" />
     <Compile Include="AppKit_P\NSSoundDelegate.Protocol.cs" />
@@ -1256,6 +1264,10 @@
     <Compile Include="QuartzCore_C\NSValue_CoreAnimationAdditions.cs" />
     <Compile Include="QuartzCore_Functions\CATransform3D.Functions.cs" />
     <Compile Include="QuartzCore_P\CAAction.Protocol.cs" />
+    <Compile Include="QuartzCore_P\CAAnimation.Delegate.cs" />
+    <Compile Include="QuartzCore_P\CAAnimationDelegate.Protocol.cs" />
+    <Compile Include="QuartzCore_P\CALayer.Delegate.cs" />
+    <Compile Include="QuartzCore_P\CALayerDelegate.Protocol.cs" />
     <Compile Include="QuartzCore_P\CALayoutManager.Protocol.cs" />
     <Compile Include="QuartzCore_P\CAMediaTiming.Constants.cs" />
     <Compile Include="QuartzCore_P\CAMediaTiming.Protocol.cs" />

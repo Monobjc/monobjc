@@ -33,6 +33,7 @@ InputMethodKit_P
 OpenGL_T
 QTKit_C
 QTKit_E
+QTKit_P
 QTKit_T
 QuartzComposer_C
 QuartzComposer_P
@@ -47,6 +48,7 @@ ScriptingBridge_P
 SecurityFoundation_C
 SecurityFoundation_T
 SecurityInterface_C
+SecurityInterface_P
 SecurityInterface_T
 SM2DGraphView_C
 SM2DGraphView_P

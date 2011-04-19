@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -726,6 +726,8 @@
     <Compile Include="Foundation_P\NSDiscardableContent.Protocol.cs" />
     <Compile Include="Foundation_P\NSErrorRecoveryAttempting.Protocol.cs" />
     <Compile Include="Foundation_P\NSFastEnumeration.Protocol.cs" />
+    <Compile Include="Foundation_P\NSFileManager.Delegate.cs" />
+    <Compile Include="Foundation_P\NSFileManagerDelegate.Protocol.cs" />
     <Compile Include="Foundation_P\NSKeyedArchiver.Delegate.cs" />
     <Compile Include="Foundation_P\NSKeyedArchiverDelegate.Protocol.cs" />
     <Compile Include="Foundation_P\NSKeyedUnarchiver.Delegate.cs" />
@@ -758,6 +760,10 @@
     <Compile Include="Foundation_P\NSStream.Delegate.cs" />
     <Compile Include="Foundation_P\NSStreamDelegate.Protocol.cs" />
     <Compile Include="Foundation_P\NSURLAuthenticationChallengeSender.Protocol.cs" />
+    <Compile Include="Foundation_P\NSURLConnection.Delegate.cs" />
+    <Compile Include="Foundation_P\NSURLConnectionDelegate.Protocol.cs" />
+    <Compile Include="Foundation_P\NSURLDownload.Delegate.cs" />
+    <Compile Include="Foundation_P\NSURLDownloadDelegate.Protocol.cs" />
     <Compile Include="Foundation_P\NSURLHandleClient.Protocol.cs" />
     <Compile Include="Foundation_P\NSURLProtocolClient.Protocol.cs" />
     <Compile Include="Foundation_P\NSXMLParser.Delegate.cs" />

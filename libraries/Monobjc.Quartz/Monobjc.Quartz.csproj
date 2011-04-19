@@ -282,9 +282,15 @@
     <Compile Include="Quartz_P\IKImageBrowserItem.Constants.cs" />
     <Compile Include="Quartz_P\IKImageBrowserItem.Protocol.cs" />
     <Compile Include="Quartz_P\IKImageEditPanelDataSource.Protocol.cs" />
+    <Compile Include="Quartz_P\IKSaveOptions.Delegate.cs" />
+    <Compile Include="Quartz_P\IKSaveOptionsDelegate.Protocol.cs" />
     <Compile Include="Quartz_P\IKScannerDeviceView.Delegate.cs" />
     <Compile Include="Quartz_P\IKScannerDeviceViewDelegate.Protocol.cs" />
     <Compile Include="Quartz_P\IKSlideshowDataSource.Protocol.cs" />
+    <Compile Include="Quartz_P\PDFDocument.Delegate.cs" />
+    <Compile Include="Quartz_P\PDFDocumentDelegate.Protocol.cs" />
+    <Compile Include="Quartz_P\PDFView.Delegate.cs" />
+    <Compile Include="Quartz_P\PDFViewDelegate.Protocol.cs" />
     <Compile Include="Quartz_P\QCCompositionParameterView.Delegate.cs" />
     <Compile Include="Quartz_P\QCCompositionParameterViewDelegate.Protocol.cs" />
     <Compile Include="Quartz_P\QCCompositionPickerView.Delegate.cs" />
