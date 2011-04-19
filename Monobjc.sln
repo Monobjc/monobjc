@@ -61,6 +61,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.SM2DGraphView", "li
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.ScriptingBridge", "libraries\Monobjc.ScriptingBridge\Monobjc.ScriptingBridge.csproj", "{7A0D66ED-BE85-4976-828F-B88CD0AB00FA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{98F78E3F-8433-4062-9B99-1E45B6F67A06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.Generator", "tools\Monobjc.Generator\Monobjc.Generator.csproj", "{4E5AB71D-38C8-4F8F-BCCF-ABA04FD016EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +151,10 @@ Global
 		{7A0D66ED-BE85-4976-828F-B88CD0AB00FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A0D66ED-BE85-4976-828F-B88CD0AB00FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A0D66ED-BE85-4976-828F-B88CD0AB00FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E5AB71D-38C8-4F8F-BCCF-ABA04FD016EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E5AB71D-38C8-4F8F-BCCF-ABA04FD016EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E5AB71D-38C8-4F8F-BCCF-ABA04FD016EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E5AB71D-38C8-4F8F-BCCF-ABA04FD016EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -172,6 +180,7 @@ Global
 		{F713D970-7752-49B0-A1A9-7D831085D95B} = {84E05B26-2C67-4D75-A6F1-449EB4DDE85F}
 		{7A0D66ED-BE85-4976-828F-B88CD0AB00FA} = {84E05B26-2C67-4D75-A6F1-449EB4DDE85F}
 		{2EB6BD6B-2243-4208-8425-CE189866ADF2} = {C9CA3586-F7BD-4D17-B6E2-70D0E5CCB09B}
+		{4E5AB71D-38C8-4F8F-BCCF-ABA04FD016EB} = {98F78E3F-8433-4062-9B99-1E45B6F67A06}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = libraries\Monobjc\Monobjc.csproj
