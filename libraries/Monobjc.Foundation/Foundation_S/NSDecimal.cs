@@ -31,34 +31,12 @@ namespace Monobjc.Foundation
     public struct NSDecimal
     {
         /// <summary>
-        /// The exponent.
+        /// <para>A 32 bit field that contains: the exponent (8 bits), the length (4 bits), whether this instance is negative (1 bit), whether this instance is compact (1 bit) and 18 bits reserved for future use.
         /// </summary>
-        public int _exponent;
-
-        /// <summary>
-        /// The length
-        /// </summary>
-        public uint _length;
-
-        /// <summary>
-        /// Whether this instance is negative
-        /// </summary>
-        public uint _isNegative;
-
-        /// <summary>
-        /// Whether this instance is compact
-        /// </summary>
-        public uint _isCompact;
-
-        /// <summary>
-        /// Reserved for future use.
-        /// </summary>
-        public uint _reserved;
-
+		int fields;
         /// <summary>
         /// The mantissa
         /// </summary>
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
-        public ushort[] _mantissa;
+		short mantissa1, mantissa2, mantissa3, mantissa4, mantissa5, mantissa6, mantissa7, mantissa8;
     }
 }

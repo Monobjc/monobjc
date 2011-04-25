@@ -48,6 +48,7 @@
     <echo message="------------------------"/>
 
     <!-- Output dir is used to build the assemblies -->
+    <property name="base.dir" value="${tests.dir}"/>
     <property name="output.dir" value="${dist.dir}/${version}"/>
     <mkdir dir="${output.dir}"/>
 
@@ -58,15 +59,9 @@
       </fileset>
     </copy>
 
-    <!-- Copy the native libraries -->
-    <copy todir="${output.dir}">
-      <fileset basedir="${dist.dir}">
-        <include name="*.dylib"/>
-      </fileset>
-    </copy>
-
     <!-- Create the assembly info -->
-    <asminfo output="${build.dir}/GeneratedAssemblyInfo.${version}.${revision}.0.cs" language="CSharp">
+    <property name="version.info" value="${build.dir}/GeneratedAssemblyInfo.${version}.${revision}.0.cs"/>
+    <asminfo output="${version.info}" language="CSharp" unless="${file::exists(version.info)}">
       <imports>
         <import namespace="System" />
         <import namespace="System.Reflection" />
@@ -81,12 +76,66 @@
 
     <!-- Test Monobjc -->
     <property name="test.name" value="Monobjc.Tests"/>
-    <property name="base.dir" value="${tests.dir}"/>
-    <assemblyfileset id="test.references">
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${test.name}/**/*.cs"/>
+      <include name="${base.dir}/${test.name}/**/*.cs"/>
+    </fileset>
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
       <include name="System.Core.dll"/>
       <include name="${external.dir}/nunit.framework.dll"/>
       <include name="${output.dir}/Monobjc.dll"/>
+    </assemblyfileset>
+    <call target="build-test-intern"/>
+
+    <!-- Test Monobjc.Foundation -->
+    <property name="test.name" value="Monobjc.Foundation.Tests"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${test.name}/**/*.cs"/>
+    </fileset>
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+      <include name="${external.dir}/nunit.framework.dll"/>
+      <include name="${output.dir}/Monobjc.dll"/>
+      <include name="${output.dir}/Monobjc.Foundation.dll"/>
+    </assemblyfileset>
+    <call target="build-test-intern"/>
+
+    <!-- Test Monobjc.AppKit -->
+    <property name="test.name" value="Monobjc.AppKit.Tests"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${test.name}/**/*.cs"/>
+      <include name="${base.dir}/Monobjc.Foundation.Tests/Common/*.cs"/>
+    </fileset>
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+      <include name="${external.dir}/nunit.framework.dll"/>
+      <include name="${output.dir}/Monobjc.dll"/>
+      <include name="${output.dir}/Monobjc.Foundation.dll"/>
+      <include name="${output.dir}/Monobjc.AppKit.dll"/>
+    </assemblyfileset>
+    <call target="build-test-intern"/>
+
+    <!-- Test Monobjc.CorePlot -->
+    <property name="test.name" value="Monobjc.CorePlot.Tests"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${test.name}/**/*.cs"/>
+      <include name="${base.dir}/Monobjc.Foundation.Tests/Common/*.cs"/>
+    </fileset>
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+      <include name="${external.dir}/nunit.framework.dll"/>
+      <include name="${output.dir}/Monobjc.dll"/>
+      <include name="${output.dir}/Monobjc.Foundation.dll"/>
+      <include name="${output.dir}/Monobjc.AppKit.dll"/>
+      <include name="${output.dir}/Monobjc.CorePlot.dll"/>
     </assemblyfileset>
     <call target="build-test-intern"/>
 
@@ -98,18 +147,15 @@
     <echo message="Test ${test.name}"/>
 
     <!-- Compile the test -->
-    <csc	target="library"
-    		output="${output.dir}/${test.name}.dll"
-        debug="${debug}"
-    		define="${define}">
-      <sources>
-        <include name="${build.dir}/GeneratedAssemblyInfo.${version}.${revision}.0.cs"/>
-        <include name="${base.dir}/${test.name}/**/*.cs"/>
-      </sources>
+    <csc target="library"
+         output="${output.dir}/${test.name}.dll"
+         debug="${debug}"
+         define="${define}">
+      <sources refid="src.references"/>
       <resources prefix="${test.name}.Properties">
         <include name="${base.dir}/${test.name}/**/*.resx"/>
       </resources>
-      <references refid="test.references"/>
+      <references refid="lib.references"/>
     </csc>
 
   </target>
@@ -122,14 +168,36 @@
     <!-- Copy NUnit wrapper -->
     <copy file="${tests.dir}/nunit-${version}" todir="${output.dir}"/>
     <mkdir dir="${dist.dir}/Tests"/>
-    
+
     <!-- Run NUnit -->
+    <property name="test.name" value="Monobjc.Tests"/>
     <exec program="${output.dir}/nunit-${version}" failonerror="false">
       <arg value="-labels"/>
-      <arg value="-xml=${dist.dir}/Tests/Monobjc.Tests-${version}.xml"/>
-      <arg value="${output.dir}/Monobjc.Tests.dll"/>
+      <arg value="-xml=${dist.dir}/Tests/${test.name}-${version}.xml"/>
+      <arg value="${output.dir}/${test.name}.dll"/>
     </exec>
-    
+
+    <property name="test.name" value="Monobjc.Foundation.Tests"/>
+    <exec program="${output.dir}/nunit-${version}" failonerror="false">
+      <arg value="-labels"/>
+      <arg value="-xml=${dist.dir}/Tests/${test.name}-${version}.xml"/>
+      <arg value="${output.dir}/${test.name}.dll"/>
+    </exec>
+
+    <property name="test.name" value="Monobjc.AppKit.Tests"/>
+    <exec program="${output.dir}/nunit-${version}" failonerror="false">
+      <arg value="-labels"/>
+      <arg value="-xml=${dist.dir}/Tests/${test.name}-${version}.xml"/>
+      <arg value="${output.dir}/${test.name}.dll"/>
+    </exec>
+
+    <property name="test.name" value="Monobjc.CorePlot.Tests"/>
+    <exec program="${output.dir}/nunit-${version}" failonerror="false">
+      <arg value="-labels"/>
+      <arg value="-xml=${dist.dir}/Tests/${test.name}-${version}.xml"/>
+      <arg value="${output.dir}/${test.name}.dll"/>
+    </exec>
+
   </target>
 
 </project>

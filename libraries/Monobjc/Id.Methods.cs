@@ -42,9 +42,10 @@ namespace Monobjc
         /// <summary>
         ///   Allocates a new native instance.
         /// </summary>
-        [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic")]
-        [Obsolete("Not meaningful. Remove safely.")]
-        public void Alloc() {}
+        public virtual Id Alloc()
+        {
+            return ObjectiveCRuntime.SendMessage<Id>(this, "alloc");
+        }
 
         /// <summary>
         ///   <para>Adds the receiver to the current autorelease pool.</para>

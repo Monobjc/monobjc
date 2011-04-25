@@ -1,3 +1,4 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{84E05B26-2C67-4D75-A6F1-449EB4DDE85F}"
@@ -37,12 +38,22 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.WebKit", "libraries
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.Quartz", "libraries\Monobjc.Quartz\Monobjc.Quartz.csproj", "{7227F9E4-CBA7-4A71-959D-B7DE7C5060C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.CorePlot", "libraries\Monobjc.CorePlot\Monobjc.CorePlot.csproj", "{03857C3D-12C4-4524-8DF0-3FBCB56C579E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.SM2DGraphView", "libraries\Monobjc.SM2DGraphView\Monobjc.SM2DGraphView.csproj", "{F713D970-7752-49B0-A1A9-7D831085D95B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.ScriptingBridge", "libraries\Monobjc.ScriptingBridge\Monobjc.ScriptingBridge.csproj", "{7A0D66ED-BE85-4976-828F-B88CD0AB00FA}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C9CA3586-F7BD-4D17-B6E2-70D0E5CCB09B}"
 	ProjectSection(SolutionItems) = preProject
 		tests\Modules.build = tests\Modules.build
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.Tests", "tests\Monobjc.Tests\Monobjc.Tests.csproj", "{2EB6BD6B-2243-4208-8425-CE189866ADF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.Foundation.Tests", "tests\Monobjc.Foundation.Tests\Monobjc.Foundation.Tests.csproj", "{17360D57-6ABF-4436-8901-69803920C754}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.AppKit.Tests", "tests\Monobjc.AppKit.Tests\Monobjc.AppKit.Tests.csproj", "{7D8FACFC-443D-4D7A-9E06-DE2D3E8A34C1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A0EA00FF-5BDF-47D2-BE84-269D1787C069}"
 	ProjectSection(SolutionItems) = preProject
@@ -55,15 +66,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Native", "Native", "{A35D8D
 		native\Modules.build = native\Modules.build
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.CorePlot", "libraries\Monobjc.CorePlot\Monobjc.CorePlot.csproj", "{03857C3D-12C4-4524-8DF0-3FBCB56C579E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.SM2DGraphView", "libraries\Monobjc.SM2DGraphView\Monobjc.SM2DGraphView.csproj", "{F713D970-7752-49B0-A1A9-7D831085D95B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.ScriptingBridge", "libraries\Monobjc.ScriptingBridge\Monobjc.ScriptingBridge.csproj", "{7A0D66ED-BE85-4976-828F-B88CD0AB00FA}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{98F78E3F-8433-4062-9B99-1E45B6F67A06}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.Generator", "tools\Monobjc.Generator\Monobjc.Generator.csproj", "{4E5AB71D-38C8-4F8F-BCCF-ABA04FD016EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.CorePlot.Tests", "tests\Monobjc.CorePlot.Tests\Monobjc.CorePlot.Tests.csproj", "{8CDAD5A0-94C5-46C4-ADEC-19693B4B8619}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,10 +142,6 @@ Global
 		{7227F9E4-CBA7-4A71-959D-B7DE7C5060C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7227F9E4-CBA7-4A71-959D-B7DE7C5060C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7227F9E4-CBA7-4A71-959D-B7DE7C5060C6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2EB6BD6B-2243-4208-8425-CE189866ADF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2EB6BD6B-2243-4208-8425-CE189866ADF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2EB6BD6B-2243-4208-8425-CE189866ADF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2EB6BD6B-2243-4208-8425-CE189866ADF2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{03857C3D-12C4-4524-8DF0-3FBCB56C579E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{03857C3D-12C4-4524-8DF0-3FBCB56C579E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03857C3D-12C4-4524-8DF0-3FBCB56C579E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -151,10 +154,24 @@ Global
 		{7A0D66ED-BE85-4976-828F-B88CD0AB00FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A0D66ED-BE85-4976-828F-B88CD0AB00FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A0D66ED-BE85-4976-828F-B88CD0AB00FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EB6BD6B-2243-4208-8425-CE189866ADF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EB6BD6B-2243-4208-8425-CE189866ADF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EB6BD6B-2243-4208-8425-CE189866ADF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EB6BD6B-2243-4208-8425-CE189866ADF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17360D57-6ABF-4436-8901-69803920C754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17360D57-6ABF-4436-8901-69803920C754}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17360D57-6ABF-4436-8901-69803920C754}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17360D57-6ABF-4436-8901-69803920C754}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D8FACFC-443D-4D7A-9E06-DE2D3E8A34C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D8FACFC-443D-4D7A-9E06-DE2D3E8A34C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E5AB71D-38C8-4F8F-BCCF-ABA04FD016EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4E5AB71D-38C8-4F8F-BCCF-ABA04FD016EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E5AB71D-38C8-4F8F-BCCF-ABA04FD016EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E5AB71D-38C8-4F8F-BCCF-ABA04FD016EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CDAD5A0-94C5-46C4-ADEC-19693B4B8619}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CDAD5A0-94C5-46C4-ADEC-19693B4B8619}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CDAD5A0-94C5-46C4-ADEC-19693B4B8619}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CDAD5A0-94C5-46C4-ADEC-19693B4B8619}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -180,6 +197,9 @@ Global
 		{F713D970-7752-49B0-A1A9-7D831085D95B} = {84E05B26-2C67-4D75-A6F1-449EB4DDE85F}
 		{7A0D66ED-BE85-4976-828F-B88CD0AB00FA} = {84E05B26-2C67-4D75-A6F1-449EB4DDE85F}
 		{2EB6BD6B-2243-4208-8425-CE189866ADF2} = {C9CA3586-F7BD-4D17-B6E2-70D0E5CCB09B}
+		{17360D57-6ABF-4436-8901-69803920C754} = {C9CA3586-F7BD-4D17-B6E2-70D0E5CCB09B}
+		{7D8FACFC-443D-4D7A-9E06-DE2D3E8A34C1} = {C9CA3586-F7BD-4D17-B6E2-70D0E5CCB09B}
+		{8CDAD5A0-94C5-46C4-ADEC-19693B4B8619} = {C9CA3586-F7BD-4D17-B6E2-70D0E5CCB09B}
 		{4E5AB71D-38C8-4F8F-BCCF-ABA04FD016EB} = {98F78E3F-8433-4062-9B99-1E45B6F67A06}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
