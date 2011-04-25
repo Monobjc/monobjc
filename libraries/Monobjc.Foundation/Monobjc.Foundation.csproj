@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationServices_E\CGRectEdge.cs" />
+    <Compile Include="ApplicationServices_S\CGFloat.Conversion.cs" />
     <Compile Include="CoreFoundation_T\CFType.cs" />
     <Compile Include="Foundation_C\NSClassDescription.Constants.cs" />
     <Compile Include="Foundation_C\NSDate.Constants.cs" />
@@ -768,6 +769,9 @@
     <Compile Include="Foundation_P\NSURLProtocolClient.Protocol.cs" />
     <Compile Include="Foundation_P\NSXMLParser.Delegate.cs" />
     <Compile Include="Foundation_P\NSXMLParserDelegate.Protocol.cs" />
+    <Compile Include="Foundation_S\NSDecimal.Conversion.cs" />
+    <Compile Include="Foundation_S\NSUInteger.Conversion.cs" />
+    <Compile Include="Foundation_S\NSInteger.Conversion.cs" />
     <Compile Include="Foundation_S\NSPoint.Functions.cs" />
     <Compile Include="Foundation_S\NSRange.Functions.cs" />
     <Compile Include="Foundation_S\NSRect.Functions.cs" />

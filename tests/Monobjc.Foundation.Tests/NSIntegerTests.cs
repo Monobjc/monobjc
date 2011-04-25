@@ -15,6 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Monobjc.  If not, see <http://www.gnu.org/licenses/>.
 //
+using Monobjc.ApplicationServices;
 using NUnit.Framework;
 
 namespace Monobjc.Foundation
@@ -23,6 +24,51 @@ namespace Monobjc.Foundation
     [Category("NSInteger")]
     public class NSIntegerTests : WrapperTests
     {
+        [Test]
+        public void TestCasting()
+        {
+            NSInteger value = 56;
 
+            sbyte sb;
+            short s;
+            int i;
+            long l;
+            byte b;
+            ushort us;
+            uint ui;
+            ulong ul;
+            float f;
+            double d;
+            NSInteger nint;
+            NSUInteger nuint;
+            CGFloat cgfloat;
+
+            sb = value;
+            Assert.AreEqual((sbyte)value, sb, "Value must be equal");
+            s = value;
+            Assert.AreEqual((short)value, s, "Value must be equal");
+            i = value;
+            Assert.AreEqual((int)value, i, "Value must be equal");
+            l = value;
+            Assert.AreEqual((long)value, l, "Value must be equal");
+            b = value;
+            Assert.AreEqual((byte)value, b, "Value must be equal");
+            us = value;
+            Assert.AreEqual((ushort)value, s, "Value must be equal");
+            ui = value;
+            Assert.AreEqual((uint)value, ui, "Value must be equal");
+            ul = value;
+            Assert.AreEqual((ulong)value, ul, "Value must be equal");
+            f = value;
+            Assert.AreEqual((float)value, f, "Value must be equal");
+            d = value;
+            Assert.AreEqual((double)value, d, "Value must be equal");
+            nint = value;
+            Assert.AreEqual((NSInteger)value, nint, "Value must be equal");
+            nuint = value;
+            Assert.AreEqual((NSUInteger)value, nuint, "Value must be equal");
+            cgfloat = value;
+            Assert.AreEqual((CGFloat)value, cgfloat, "Value must be equal");
+        }
     }
 }

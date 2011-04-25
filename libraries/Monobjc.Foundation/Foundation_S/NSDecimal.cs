@@ -28,7 +28,7 @@ namespace Monobjc.Foundation
     /// Used to describe a decimal number.
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    public struct NSDecimal
+    public partial struct NSDecimal
     {
         /// <summary>
         /// <para>A 32 bit field that contains: the exponent (8 bits), the length (4 bits), whether this instance is negative (1 bit), whether this instance is compact (1 bit) and 18 bits reserved for future use.

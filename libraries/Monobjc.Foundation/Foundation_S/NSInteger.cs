@@ -29,7 +29,7 @@ namespace Monobjc.Foundation
     /// </summary>
     [ObjectiveCUnderlyingType(typeof(int), Is64Bits = false)]
     [ObjectiveCUnderlyingType(typeof(long), Is64Bits = true)]
-    public struct NSInteger
+    public partial struct NSInteger
     {
         /// <summary>
         /// The wrapped value.
@@ -41,76 +41,6 @@ namespace Monobjc.Foundation
             this.value = value;
         }
 
-        /// <summary>
-        /// Performs an implicit conversion from <see cref="NSInteger"/> to <see cref="System.Int32"/>.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator int(NSInteger value)
-        {
-            return value.value;
-        }
-
-        /// <summary>
-        /// Performs an implicit conversion from <see cref="System.Int32"/> to <see cref="NSInteger"/>.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator NSInteger(int value)
-        {
-            return new NSInteger(value);
-        }
-
-        /// <summary>
-        /// Performs an implicit conversion from <see cref="NSInteger"/> to <see cref="System.Int64"/>.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator long(NSInteger value)
-        {
-            return value.value;
-        }
-
-        /// <summary>
-        /// Performs an implicit conversion from <see cref="System.Int64"/> to <see cref="NSInteger"/>.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator NSInteger(long value)
-        {
-            return new NSInteger(Convert.ToInt32(value));
-        }
-
-        /// <summary>
-        /// Performs an implicit conversion from <see cref="Monobjc.Foundation.NSUInteger"/> to <see cref="Monobjc.Foundation.NSInteger"/>.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The result of the conversion.</returns>
-		public static implicit operator NSInteger(NSUInteger value)
-		{
-			return new NSInteger((int) value.value);
-		}
-		
-        /// <summary>
-        /// Performs an explicit conversion from <see cref="Monobjc.Foundation.NSInteger"/> to <see cref="System.UInt32"/>.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator uint(NSInteger value)
-        {
-            return (uint) value.value;
-        }
-
-        /// <summary>
-        /// Performs an explicit conversion from <see cref="System.UInt32"/> to <see cref="Monobjc.Foundation.NSInteger"/>.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator NSInteger(uint value)
-        {
-            return new NSInteger((int)value);
-        }
-		
         /// <summary>
         /// Returns the a string representation of this instance.
         /// </summary>

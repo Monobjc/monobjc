@@ -30,7 +30,7 @@ namespace Monobjc.CorePlot
 
         protected override string AssemblyName
         {
-            get { return "Monobjc.AppKit"; }
+            get { return "Monobjc.CorePlot"; }
         }
 
         protected override void EnsureAssemblyIsReferenced()

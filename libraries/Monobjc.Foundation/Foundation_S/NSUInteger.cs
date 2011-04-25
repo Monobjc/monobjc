@@ -29,7 +29,7 @@ namespace Monobjc.Foundation
     /// </summary>
     [ObjectiveCUnderlyingType(typeof(uint), Is64Bits = false)]
     [ObjectiveCUnderlyingType(typeof(ulong), Is64Bits = true)]
-    public struct NSUInteger
+    public partial struct NSUInteger
     {
         /// <summary>
         /// <para>Defines a value that indicates that an item requested couldn’t be found or doesn’t exist.</para>
@@ -45,76 +45,6 @@ namespace Monobjc.Foundation
         public NSUInteger(uint value)
         {
             this.value = value;
-        }
-
-        /// <summary>
-        /// Performs an implicit conversion from <see cref="NSUInteger"/> to <see cref="System.UInt32"/>.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator uint(NSUInteger value)
-        {
-            return value.value;
-        }
-
-        /// <summary>
-        /// Performs an implicit conversion from <see cref="System.UInt32"/> to <see cref="NSUInteger"/>.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator NSUInteger(uint value)
-        {
-            return new NSUInteger(value);
-        }
-
-        /// <summary>
-        /// Performs an implicit conversion from <see cref="NSUInteger"/> to <see cref="System.UInt64"/>.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator ulong(NSUInteger value)
-        {
-            return value.value;
-        }
-
-        /// <summary>
-        /// Performs an implicit conversion from <see cref="System.UInt64"/> to <see cref="NSUInteger"/>.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator NSUInteger(ulong value)
-        {
-            return new NSUInteger(Convert.ToUInt32(value));
-        }
-		
-        /// <summary>
-        /// Performs an implicit conversion from <see cref="Monobjc.Foundation.NSInteger"/> to <see cref="Monobjc.Foundation.NSUInteger"/>.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The result of the conversion.</returns>
-		public static implicit operator NSUInteger(NSInteger value)
-		{
-			return new NSUInteger((uint) value.value);
-		}
-		
-        /// <summary>
-        /// Performs an explicit conversion from <see cref="Monobjc.Foundation.NSUInteger"/> to <see cref="System.Int32"/>.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator int(NSUInteger value)
-        {
-            return (int)value.value;
-        }
-
-        /// <summary>
-        /// Performs an explicit conversion from <see cref="System.Int32"/> to <see cref="Monobjc.Foundation.NSUInteger"/>.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator NSUInteger(int value)
-        {
-            return new NSUInteger((uint)value);
         }
 		
         /// <summary>

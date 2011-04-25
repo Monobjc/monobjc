@@ -27,7 +27,7 @@ namespace Monobjc.ApplicationServices
     /// </summary>
     [ObjectiveCUnderlyingType(typeof(float), Is64Bits = false)]
     [ObjectiveCUnderlyingType(typeof(double), Is64Bits = true)]
-    public struct CGFloat
+    public partial struct CGFloat
     {
         /// <summary>
         /// The wrapped value.
@@ -43,46 +43,6 @@ namespace Monobjc.ApplicationServices
             this.value = value;
         }
 
-        /// <summary>
-        /// Performs an implicit conversion from <see cref="CGFloat"/> to <see cref="System.Single"/>.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator float(CGFloat value)
-        {
-            return value.value;
-        }
-
-        /// <summary>
-        /// Performs an implicit conversion from <see cref="System.Single"/> to <see cref="CGFloat"/>.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator CGFloat(float value)
-        {
-            return new CGFloat(value);
-        }
-
-        /// <summary>
-        /// Performs an implicit conversion from <see cref="CGFloat"/> to <see cref="System.Double"/>.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator double(CGFloat value)
-        {
-            return value.value;
-        }
-
-        /// <summary>
-        /// Performs an implicit conversion from <see cref="System.Double"/> to <see cref="CGFloat"/>.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator CGFloat(double value)
-        {
-            return new CGFloat((float)value);
-        }
-        
         /// <summary>
         /// Returns the a string representation of this instance.
         /// </summary>
