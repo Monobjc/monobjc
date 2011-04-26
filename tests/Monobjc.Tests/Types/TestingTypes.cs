@@ -411,6 +411,13 @@ namespace Monobjc.Types
     }
 
     [StructLayout(LayoutKind.Sequential)]
+	public struct TSDecimal
+	{
+        public int fields;
+        public ushort mantissa1, mantissa2, mantissa3, mantissa4, mantissa5, mantissa6, mantissa7, mantissa8;
+    }
+	
+    [StructLayout(LayoutKind.Sequential)]
     public struct TSBig
     {
         public TSRect rect1;

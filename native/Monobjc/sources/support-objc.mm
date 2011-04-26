@@ -124,6 +124,15 @@ char *monobjc_flatten_type(const char *encoding) {
             }
                 
             case '[':   /* Arrays */
+            {
+                // For now, we skip the array type.
+                // This means that we trust the caller to do the right thing.
+                while (encoding[index] && encoding[index] != '}') {
+                    index++;
+                }
+                goto bail;
+            }
+
             case '(':   /* Unions */
             {
                 LOG_ERROR(MONOBJC_DOMAIN_MESSAGING, "Encoding not supported: '%s'", encoding);

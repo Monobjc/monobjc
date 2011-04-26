@@ -58,6 +58,8 @@ namespace Monobjc
             Assert.AreEqual("@", ObjectiveCEncoding.GetTypeEncoding(typeof (Id)), "Encoding is wrong for id");
             Assert.AreEqual("#", ObjectiveCEncoding.GetTypeEncoding(typeof (Class)), "Encoding is wrong for ObjCClass");
 
+            Assert.AreEqual("{TSDecimal=iSSSSSSSS}", ObjectiveCEncoding.GetTypeEncoding(typeof(TSDecimal)), "Encoding is wrong for TSDecimal");
+			
             // Variable types
             if (ObjectiveCRuntime.Is64Bits)
             {
@@ -88,7 +90,7 @@ namespace Monobjc
                 Assert.AreEqual("I", ObjectiveCEncoding.GetTypeEncoding(typeof(TSUIntegerEnumeration)), "Encoding is wrong for TSUIntegerEnumeration");
             }
 
-            // Array (Not Supported Yet)
+            // Arrays (Not Supported Yet)
 
             // Union (Not Supported Yet)
 
@@ -137,6 +139,8 @@ namespace Monobjc
             Assert.AreEqual(IntPtr.Size, ObjectiveCEncoding.GetTypeSize(typeof (Id)), "Size is wrong for id");
             Assert.AreEqual(IntPtr.Size, ObjectiveCEncoding.GetTypeSize(typeof (Class)), "Size is wrong for ObjCClass");
 
+            Assert.AreEqual(20, ObjectiveCEncoding.GetTypeSize(typeof(TSDecimal)), "Size is wrong for TSDecimal");
+			
             // Variable types
             if (ObjectiveCRuntime.Is64Bits)
             {
@@ -165,7 +169,7 @@ namespace Monobjc
                 Assert.AreEqual(4, ObjectiveCEncoding.GetTypeSize(typeof (TSIntegerEnumeration)), "Size is wrong for TSIntegerEnumeration");
             }
 
-            // Array (Not Supported Yet)
+            // Arrays (Not Supported Yet)
 
             // Union (Not Supported Yet)
 

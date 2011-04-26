@@ -238,7 +238,7 @@ MonobjcTypeDescriptor *monobjc_get_descriptor(MonoType *type, char *encoding, bo
             args[0] = mono_type_get_object(mono_domain_get(), type);
             args[1] = &is64bits;
             
-            // The encoding for a struct is the one for its real type
+            // The encoding for a struct is the one for its real type (as ti may depend on the bitness of the platform)
             MonoObject *obj = mono_runtime_invoke(monobjc_get_Monobjc_TypeHelper_GetUnderlyingTypeHandle_method(), NULL, args, NULL);
             MonoType *underlyingType = *(MonoType **) mono_object_unbox(obj);
             
@@ -295,7 +295,8 @@ MonobjcTypeDescriptor *monobjc_get_descriptor(MonoType *type, char *encoding, bo
                         g_string_append(buffer, field_descriptor->encoding);
                         
                         // Append the size
-                        structure_size += MAX(field_descriptor->size, sizeof(int32_t));
+                        //structure_size += MAX(field_descriptor->size, sizeof(int32_t));
+                        structure_size += field_descriptor->size;
                         
                         // Append the foreing type
                         *current_element = field_descriptor->foreign_type;

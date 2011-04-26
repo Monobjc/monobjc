@@ -33,10 +33,10 @@ namespace Monobjc.Foundation
         /// <summary>
         /// <para>A 32 bit field that contains: the exponent (8 bits), the length (4 bits), whether this instance is negative (1 bit), whether this instance is compact (1 bit) and 18 bits reserved for future use.
         /// </summary>
-		int fields;
+		public int fields;
         /// <summary>
         /// The mantissa
         /// </summary>
-		short mantissa1, mantissa2, mantissa3, mantissa4, mantissa5, mantissa6, mantissa7, mantissa8;
+		public short mantissa1, mantissa2, mantissa3, mantissa4, mantissa5, mantissa6, mantissa7, mantissa8;
     }
 }

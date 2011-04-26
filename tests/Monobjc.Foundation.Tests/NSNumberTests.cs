@@ -63,51 +63,51 @@ namespace Monobjc.Foundation
             Assert.AreEqual(-123456, number.IntValue, "Number has wrong value");
         }
 
-        //[Test]
-        //public void TestInstanceCreation()
-        //{
-        //    NSNumber number;
+        [Test]
+        public void TestInstanceCreation()
+        {
+            NSNumber number;
 
-        //    number = new NSNumber(true);
-        //    Check(number);
-        //    Assert.AreEqual(1, number.IntValue, "Number has wrong value");
-        //    number.Autorelease();
+            number = new NSNumber(true);
+            Check(number);
+            Assert.AreEqual(1, number.IntValue, "Number has wrong value");
+            number.Autorelease();
 
-        //    number = new NSNumber(false);
-        //    Check(number);
-        //    Assert.AreEqual(0, number.IntValue, "Number has wrong value");
-        //    number.Autorelease();
+            number = new NSNumber(false);
+            Check(number);
+            Assert.AreEqual(0, number.IntValue, "Number has wrong value");
+            number.Autorelease();
 
-        //    number = new NSNumber(123.456d);
-        //    Check(number);
-        //    Assert.AreEqual(123.456d, number.DoubleValue, "Number has wrong value");
-        //    number.Autorelease();
+            number = new NSNumber(123.456d);
+            Check(number);
+            Assert.AreEqual(123.456d, number.DoubleValue, "Number has wrong value");
+            number.Autorelease();
 
-        //    number = new NSNumber(-12345678901234567890d);
-        //    Check(number);
-        //    Assert.AreEqual(-12345678901234567890d, number.DoubleValue, "Number has wrong value");
-        //    number.Autorelease();
+            number = new NSNumber(-12345678901234567890d);
+            Check(number);
+            Assert.AreEqual(-12345678901234567890d, number.DoubleValue, "Number has wrong value");
+            number.Autorelease();
 
-        //    number = new NSNumber(123.456f);
-        //    Check(number);
-        //    Assert.AreEqual(123.456f, number.FloatValue, "Number has wrong value");
-        //    number.Autorelease();
+            number = new NSNumber(123.456f);
+            Check(number);
+            Assert.AreEqual(123.456f, number.FloatValue, "Number has wrong value");
+            number.Autorelease();
 
-        //    number = new NSNumber(-12345678901234567890f);
-        //    Check(number);
-        //    Assert.AreEqual(-12345678901234567890f, number.FloatValue, "Number has wrong value");
-        //    number.Autorelease();
+            number = new NSNumber(-12345678901234567890f);
+            Check(number);
+            Assert.AreEqual(-12345678901234567890f, number.FloatValue, "Number has wrong value");
+            number.Autorelease();
 
-        //    number = new NSNumber(123);
-        //    Check(number);
-        //    Assert.AreEqual(123, number.IntValue, "Number has wrong value");
-        //    number.Autorelease();
+            number = new NSNumber(123);
+            Check(number);
+            Assert.AreEqual(123, number.IntValue, "Number has wrong value");
+            number.Autorelease();
 
-        //    number = new NSNumber(-123456);
-        //    Check(number);
-        //    Assert.AreEqual(-123456, number.IntValue, "Number has wrong value");
-        //    number.Autorelease();
-        //}
+            number = new NSNumber(-123456);
+            Check(number);
+            Assert.AreEqual(-123456, number.IntValue, "Number has wrong value");
+            number.Autorelease();
+        }
 
         [Test]
         public void TestOperations()

@@ -29,11 +29,9 @@ namespace Monobjc.Foundation
         {
             CGFloat value = 123.456f;
 
-            sbyte sb;
             short s;
             int i;
             long l;
-            byte b;
             ushort us;
             uint ui;
             ulong ul;
@@ -43,16 +41,12 @@ namespace Monobjc.Foundation
             NSUInteger nuint;
             CGFloat cgfloat;
 
-            sb = value;
-            Assert.AreEqual((sbyte)value, sb, "Value must be equal");
             s = value;
             Assert.AreEqual((short)value, s, "Value must be equal");
             i = value;
             Assert.AreEqual((int)value, i, "Value must be equal");
             l = value;
             Assert.AreEqual((long)value, l, "Value must be equal");
-            b = value;
-            Assert.AreEqual((byte)value, b, "Value must be equal");
             us = value;
             Assert.AreEqual((ushort)value, s, "Value must be equal");
             ui = value;
