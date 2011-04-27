@@ -33,6 +33,7 @@
     <copy todir="${tools.dir}/Monobjc.Generator/bin/Release/Xhtml"
           unless="${file::exists(marker.file)}">
       <fileset basedir="${tools.dir}/Monobjc.Doxygenator/bin/Release">
+        <include name="WebKit.DOM/**"/>
         <include name="CorePlot/**"/>
         <include name="Growl/**"/>
         <include name="SM2DGraphView/**"/>
