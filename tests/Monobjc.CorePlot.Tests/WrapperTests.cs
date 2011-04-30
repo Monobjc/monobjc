@@ -24,7 +24,7 @@ namespace Monobjc.CorePlot
     {
         protected override IEnumerable<string> Frameworks
         {
-            get { return new[] { "Foundation", "AppKit" }; }
+            get { return new[] { "Foundation", "AppKit", "CorePlot" }; }
         }
     }
 }

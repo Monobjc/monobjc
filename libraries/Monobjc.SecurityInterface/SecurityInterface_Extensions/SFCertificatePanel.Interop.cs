@@ -34,8 +34,7 @@ namespace Monobjc.SecurityInterface
         /// <para>Available in Mac OS X v10.3 and later.</para>
         /// </summary>
         /// <param name="docWindow">The parent window to which the sheet is attached.</param>
-        /// <param name="@delegate">The delegate object in which the method specified in the didEndSelector parameter is implemented.</param>
-        /// <param name="didEndSelector">A method selector for a delegate method called when the sheet has been dismissed. Implementation of this delegate method is optional.</param>
+        /// <param name="modalDelegate">The delegate object in which the method specified in the didEndSelector parameter is implemented.</param>
         /// <param name="contextInfo">A pointer to data that is passed to the delegate method. You can use this data pointer for any purpose you wish.</param>
         /// <param name="certificates">The certificates to display. Pass an NSArray containing one or more objects of type SecCertificateRef in this parameter. The first certificate in the array must be the leaf certificate. The other certificates (if any) can be included in any order.</param>
         /// <param name="showGroup">Specifies whether additional certificates (other than the leaf certificate) are displayed.</param>

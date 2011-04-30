@@ -109,8 +109,7 @@ namespace Monobjc.Foundation
 
         public static float FloatValue(NSDecimal value)
         {
-            return NSDecimalNumber.DecimalNumberWithDecimal(value).FloatValue;
-        }
+            return NSDecimalNumber.DecimalNumberWithDecimal(value).FloatValue;        }
 
         public static NSDecimal FromFloat(float value)
         {

@@ -60,7 +60,6 @@
     <Compile Include="DiscRecordingUI_C\DRSetupPanel.cs" />
     <Compile Include="DiscRecordingUI_C\DRSetupPanel_Header.Constants.cs" />
     <Compile Include="DiscRecordingUI_C\DRSetupPanel_Header.cs" />
-    <Compile Include="DiscRecordingUI_Extensions\DRBurnProgressPanel.Extensions.cs" />
     <Compile Include="DiscRecordingUI_P\DRBurnProgressPanel.Delegate.cs" />
     <Compile Include="DiscRecordingUI_P\DRBurnProgressPanelDelegate.Protocol.cs" />
     <Compile Include="DiscRecordingUI_P\DREraseProgressPanel.Delegate.cs" />

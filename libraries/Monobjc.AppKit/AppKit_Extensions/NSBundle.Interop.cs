@@ -1,4 +1,4 @@
-﻿//
+//
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2011 - Laurent Etiemble
 //
@@ -33,6 +33,7 @@ namespace Monobjc.AppKit
         /// <summary>
         /// 	<para>Unarchives the contents of the nib found in resources and links them to a specific owner object.</para>
         /// </summary>
+        /// <param name="bundle">The bundle.</param>
         /// <param name="type">The type whose assmelby contains the nib resource.</param>
         /// <param name="resourceName">The name of the nib file, which need not include the .nib extension. The file name should not include path information. The object in the owner parameter determines the location in which to look for the nib file.</param>
         /// <param name="owner">The object to assign as the nib FIle's Owner. If the class of this object has an associated bundle, that bundle is searched for the specified nib file; otherwise, this method looks in the main bundle.</param>
