@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -309,6 +309,11 @@
     <Compile Include="CorePlot_C\NSNumberExtensions_Definitions.cs" />
     <Compile Include="CorePlot_C\NSNumber_CPExtensions.cs" />
     <Compile Include="CorePlot_C\NSString_CPTextStyleExtensions.cs" />
+    <Compile Include="CorePlot_Extensions\CPBarPlot.cs" />
+    <Compile Include="CorePlot_Extensions\CPPieChart.cs" />
+    <Compile Include="CorePlot_Extensions\CPRangePlot.cs" />
+    <Compile Include="CorePlot_Extensions\CPScatterPlot.cs" />
+    <Compile Include="CorePlot_Extensions\CPTradingRangePlot.cs" />
     <Compile Include="CorePlot_P\CPAxisDelegate.Protocol.cs" />
     <Compile Include="CorePlot_P\CPBarPlotDataSource.Protocol.cs" />
     <Compile Include="CorePlot_P\CPBarPlotDelegate.Protocol.cs" />

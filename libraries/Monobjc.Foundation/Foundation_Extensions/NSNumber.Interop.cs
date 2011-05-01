@@ -117,7 +117,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="System.UInt16"/> to <see cref="System.NSNumber"/>.
+        /// Performs an implicit conversion from <see cref="System.UInt16"/> to <see cref="Monobjc.Foundation.NSNumber"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>The result of the conversion.</returns>

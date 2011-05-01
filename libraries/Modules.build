@@ -263,6 +263,7 @@
       <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/CorePlot_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/CorePlot_Extensions/*.cs"/>
       <include name="${base.dir}/${lib.name}/CorePlot_P/*.cs"/>
       <include name="${base.dir}/${lib.name}/CorePlot_S/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
