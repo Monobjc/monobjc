@@ -30,11 +30,25 @@ using System;
 using System.CodeDom.Compiler;
 using System.Globalization;
 using System.Runtime.InteropServices;
+using System.Linq;
 
 namespace Monobjc.AppKit
 {
     public partial class NSOpenGLContext
     {
+        /// <summary>
+        /// <para>Sets the value of the specified parameter.</para>
+        /// <para>Original signature is '- (void)setValues:(const GLint *)vals forParameter:(NSOpenGLContextParameter)param'</para>
+        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// </summary>
+        /// <param name="vals">The new value (or values) for the parameter.</param>
+        /// <param name="param">The parameter you want to modify. For a list of parameters, see NSOpenGLContextParameter.</param>
+        public virtual void SetValuesForParameter(Object[] vals, NSOpenGLContextParameter param)
+        {
+			int[] values = vals.Cast<int>().ToArray();
+			this.SetValuesForParameter(values, param);
+        }
+		
         /// <summary>
         /// <para>Sets the value of the specified parameter.</para>
         /// <para>Original signature is '- (void)setValues:(const GLint *)vals forParameter:(NSOpenGLContextParameter)param'</para>

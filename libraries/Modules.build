@@ -228,7 +228,7 @@
       <include name="${base.dir}/${lib.name}/QuartzCore_Functions/*.cs"/>
       <include name="${base.dir}/${lib.name}/QuartzCore_P/*.cs"/>
       <include name="${base.dir}/${lib.name}/QuartzCore_S/*.cs"/>
-      <exclude name="${base.dir}/${lib.name}/QuartzCore_T/*.cs"/>
+      <include name="${base.dir}/${lib.name}/QuartzCore_T/*.cs"/>
     </fileset>
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>

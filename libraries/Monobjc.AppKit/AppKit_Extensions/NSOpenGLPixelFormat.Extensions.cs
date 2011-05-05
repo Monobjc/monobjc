@@ -29,6 +29,7 @@ using Monobjc.ApplicationServices;
 using System;
 using System.CodeDom.Compiler;
 using System.Globalization;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace Monobjc.AppKit
@@ -40,20 +41,19 @@ namespace Monobjc.AppKit
         /// <para>Original signature is '- (id)initWithAttributes:(const NSOpenGLPixelFormatAttribute *)attribs'</para>
         /// <para>Available in Mac OS X v10.0 and later.</para>
         /// </summary>
-        public NSOpenGLPixelFormat(NSOpenGLPixelFormatAttribute[] attribs) : this(ObjectiveCRuntime.SendMessage<IntPtr>(NSOpenGLPixelFormatClass, "alloc"))
+        public NSOpenGLPixelFormat(NSOpenGLPixelFormatAttribute[] attribs) : this(attribs.Cast<uint>().ToArray())
         {
-			// TODO: Remove when array are supported in bridge
-			int size = Marshal.SizeOf(typeof(uint));
-			IntPtr native = Marshal.AllocHGlobal(attribs.Length * size);
-			for(int i = 0; i < attribs.Length; i++)
-			{
-				IntPtr insert = new IntPtr(native.ToInt64() + i * size);
-				Marshal.WriteInt32(insert, (int) attribs[i]);
-			}
-            this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr>(this, "initWithAttributes:", native);
-			Marshal.FreeHGlobal(native);
         }
-
+		
+        /// <summary>
+        /// <para>Returns an NSOpenGLPixelFormat object initialized with specified pixel format attributes.</para>
+        /// <para>Original signature is '- (id)initWithAttributes:(const NSOpenGLPixelFormatAttribute *)attribs'</para>
+        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// </summary>
+        public NSOpenGLPixelFormat(Object[] attribs) : this(attribs.Cast<uint>().ToArray())
+        {
+        }
+		
         /// <summary>
         /// <para>Returns an NSOpenGLPixelFormat object initialized with specified pixel format attributes.</para>
         /// <para>Original signature is '- (id)initWithAttributes:(const NSOpenGLPixelFormatAttribute *)attribs'</para>
@@ -74,4 +74,3 @@ namespace Monobjc.AppKit
         }
 	}
 }
-
