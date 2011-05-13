@@ -171,6 +171,19 @@
     </fileset>
     <call target="build-library-intern"/>
 
+    <!-- Library Monobjc.OpenGL -->
+    <property name="lib.name" value="Monobjc.OpenGL"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+      <include name="${base.dir}/${lib.name}/OpenGL_E/*.cs"/>
+      <include name="${base.dir}/${lib.name}/OpenGL_Extensions/*.cs"/>
+      <include name="${base.dir}/${lib.name}/OpenGL_Parsed/*.cs"/>
+      <include name="${base.dir}/${lib.name}/OpenGL_T/*.cs"/>
+    </fileset>
+    <call target="build-library-intern"/>
+
     <!-- Library Monobjc.SecurityFoundation -->
     <property name="lib.name" value="Monobjc.SecurityFoundation"/>
     <fileset id="src.references" basedir="${output.dir}">
