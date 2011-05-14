@@ -38,7 +38,7 @@ namespace Monobjc.Foundation.Common
             {
                 this.EnsureAssemblyIsReferenced();
                 Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.GetName().Name == this.AssemblyName);
-                Assert.NotNull(assembly, "Assembly must be found");
+                Assert.NotNull(assembly, "Assembly " + this.AssemblyName + " must be found");
                 return assembly;
             }
         }

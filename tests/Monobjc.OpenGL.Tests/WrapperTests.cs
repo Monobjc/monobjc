@@ -1,4 +1,4 @@
-﻿//
+//
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2011 - Laurent Etiemble
 //
@@ -15,17 +15,16 @@
 // You should have received a copy of the GNU General Public License
 // along with Monobjc.  If not, see <http://www.gnu.org/licenses/>.
 //
-using System.Reflection;
-using System.Resources;
-using System.Runtime.InteropServices;
+using System.Collections.Generic;
+using Monobjc.Foundation.Common;
 
-[assembly: AssemblyTitle("Monobjc Bridge - Unit Test Library")]
-[assembly: AssemblyDescription("Monobjc Bridge Unit Test Library")]
-[assembly: AssemblyCompany("Monobjc Project")]
-[assembly: AssemblyProduct("Monobjc Bridge Project")]
-[assembly: AssemblyCopyright("Copyright (c) Monobjc Project 2007-2011 - Licensed under Lesser General Public License")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-[assembly: NeutralResourcesLanguage("en-US")]
-[assembly: ComVisible(false)]
-[assembly: Guid("2b31475c-8329-4fe5-8671-d8bb24bc7516")]
+namespace Monobjc.OpenGL
+{
+    public class WrapperTests: AbstractWrapperTests
+    {
+        protected override IEnumerable<string> Frameworks
+        {
+            get { return new[] { "Foundation", "AppKit", "OpenGL" }; }
+        }
+    }
+}

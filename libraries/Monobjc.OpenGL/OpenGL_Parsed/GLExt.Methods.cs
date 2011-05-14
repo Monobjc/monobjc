@@ -3427,7 +3427,7 @@ namespace Monobjc.OpenGL
         /// <summary>
         /// <para>Original signature is 'extern GLvoid *glMapBufferARB(GLenum target, GLenum access);'</para>
         /// </summary>
-        [DllImport(OPENGL, EntryPoint = "*glMapBufferARB")]
+        [DllImport(OPENGL, EntryPoint = "glMapBufferARB")]
         public static extern IntPtr glMapBufferARB(GLenum target, GLenum access);
 
         /// <summary>

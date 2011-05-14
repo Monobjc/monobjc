@@ -28,4 +28,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en-US")]
 [assembly: ComVisible(false)]
-[assembly: Guid("2b31475c-8329-4fe5-8671-d8bb24bc7516")]
+[assembly: Guid("29516E79-93ED-4636-8599-5D78CF751ED0")]
