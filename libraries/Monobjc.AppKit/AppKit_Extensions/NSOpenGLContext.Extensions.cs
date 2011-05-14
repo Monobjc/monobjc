@@ -21,53 +21,46 @@
 // THE SOFTWARE.
 // 
 
-using Monobjc;
-using Monobjc.Foundation;
-using Monobjc.CoreData;
-using Monobjc.QuartzCore;
-using Monobjc.ApplicationServices;
 using System;
-using System.CodeDom.Compiler;
-using System.Globalization;
-using System.Runtime.InteropServices;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace Monobjc.AppKit
 {
     public partial class NSOpenGLContext
     {
         /// <summary>
-        /// <para>Sets the value of the specified parameter.</para>
-        /// <para>Original signature is '- (void)setValues:(const GLint *)vals forParameter:(NSOpenGLContextParameter)param'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        ///   <para>Sets the value of the specified parameter.</para>
+        ///   <para>Original signature is '- (void)setValues:(const GLint *)vals forParameter:(NSOpenGLContextParameter)param'</para>
+        ///   <para>Available in Mac OS X v10.0 and later.</para>
         /// </summary>
-        /// <param name="vals">The new value (or values) for the parameter.</param>
-        /// <param name="param">The parameter you want to modify. For a list of parameters, see NSOpenGLContextParameter.</param>
+        /// <param name = "vals">The new value (or values) for the parameter.</param>
+        /// <param name = "param">The parameter you want to modify. For a list of parameters, see NSOpenGLContextParameter.</param>
         public virtual void SetValuesForParameter(Object[] vals, NSOpenGLContextParameter param)
         {
-			int[] values = vals.Cast<int>().ToArray();
-			this.SetValuesForParameter(values, param);
+            int[] values = vals.Select(Convert.ToInt32).ToArray();
+            this.SetValuesForParameter(values, param);
         }
-		
+
         /// <summary>
-        /// <para>Sets the value of the specified parameter.</para>
-        /// <para>Original signature is '- (void)setValues:(const GLint *)vals forParameter:(NSOpenGLContextParameter)param'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        ///   <para>Sets the value of the specified parameter.</para>
+        ///   <para>Original signature is '- (void)setValues:(const GLint *)vals forParameter:(NSOpenGLContextParameter)param'</para>
+        ///   <para>Available in Mac OS X v10.0 and later.</para>
         /// </summary>
-        /// <param name="vals">The new value (or values) for the parameter.</param>
-        /// <param name="param">The parameter you want to modify. For a list of parameters, see NSOpenGLContextParameter.</param>
+        /// <param name = "vals">The new value (or values) for the parameter.</param>
+        /// <param name = "param">The parameter you want to modify. For a list of parameters, see NSOpenGLContextParameter.</param>
         public virtual void SetValuesForParameter(int[] vals, NSOpenGLContextParameter param)
         {
-			// TODO: Remove when array are supported in bridge
-			int size = Marshal.SizeOf(typeof(uint));
-			IntPtr native = Marshal.AllocHGlobal(vals.Length * size);
-			for(int i = 0; i < vals.Length; i++)
-			{
-				IntPtr insert = new IntPtr(native.ToInt64() + i * size);
-				Marshal.WriteInt32(insert, (int) vals[i]);
-			}
+            // TODO: Remove when array are supported in bridge
+            int size = Marshal.SizeOf(typeof (uint));
+            IntPtr native = Marshal.AllocHGlobal(vals.Length*size);
+            for (int i = 0; i < vals.Length; i++)
+            {
+                IntPtr insert = new IntPtr(native.ToInt64() + i*size);
+                Marshal.WriteInt32(insert, vals[i]);
+            }
             ObjectiveCRuntime.SendMessage(this, "setValues:forParameter:", native, param);
-			Marshal.FreeHGlobal(native);
+            Marshal.FreeHGlobal(native);
         }
     }
 }

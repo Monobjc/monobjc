@@ -41,7 +41,7 @@ namespace Monobjc.AppKit
         /// <para>Original signature is '- (id)initWithAttributes:(const NSOpenGLPixelFormatAttribute *)attribs'</para>
         /// <para>Available in Mac OS X v10.0 and later.</para>
         /// </summary>
-        public NSOpenGLPixelFormat(NSOpenGLPixelFormatAttribute[] attribs) : this(attribs.Cast<uint>().ToArray())
+        public NSOpenGLPixelFormat(NSOpenGLPixelFormatAttribute[] attribs) : this(attribs.Select(attribute => Convert.ToUInt32(attribute)).ToArray())
         {
         }
 		
@@ -50,7 +50,7 @@ namespace Monobjc.AppKit
         /// <para>Original signature is '- (id)initWithAttributes:(const NSOpenGLPixelFormatAttribute *)attribs'</para>
         /// <para>Available in Mac OS X v10.0 and later.</para>
         /// </summary>
-        public NSOpenGLPixelFormat(Object[] attribs) : this(attribs.Cast<uint>().ToArray())
+        public NSOpenGLPixelFormat(Object[] attribs) : this(attribs.Select(Convert.ToUInt32).ToArray())
         {
         }
 		

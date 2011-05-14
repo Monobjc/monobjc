@@ -6,6 +6,7 @@ stripped.libraries/
 _ReSharper*
 .generator
 *.Cache
+*.docstates
 *.pbxuser
 *.perspectivev3
 *.pidb
