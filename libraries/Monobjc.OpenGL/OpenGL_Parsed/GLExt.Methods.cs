@@ -252,3409 +252,4326 @@ namespace Monobjc.OpenGL
     public partial class GL
     {
 #if GL_ARB_multitexture
-        /// <summary>
-        /// <para>Original signature is 'extern void glActiveTextureARB (GLenum);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glActiveTextureARB")]
-        public static extern void glActiveTextureARB(GLenum p0);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glClientActiveTextureARB (GLenum);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glClientActiveTextureARB")]
-        public static extern void glClientActiveTextureARB(GLenum p0);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord1dARB (GLenum, GLdouble);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord1dARB")]
-        public static extern void glMultiTexCoord1dARB(GLenum p0, GLdouble p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord1dvARB (GLenum, const GLdouble *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord1dvARB")]
-        public static extern void glMultiTexCoord1dvARB(GLenum p0, IntPtr p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord1dvARB (GLenum, const GLdouble *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord1dvARB(GLenum p0, GLdouble[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glMultiTexCoord1dvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord1dvARB (GLenum, const GLdouble *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord1dvARB(GLenum p0, ref GLdouble p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
-            Marshal.StructureToPtr(p1, __local2, false);
-            glMultiTexCoord1dvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord1fARB (GLenum, GLfloat);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord1fARB")]
-        public static extern void glMultiTexCoord1fARB(GLenum p0, GLfloat p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord1fvARB (GLenum, const GLfloat *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord1fvARB")]
-        public static extern void glMultiTexCoord1fvARB(GLenum p0, IntPtr p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord1fvARB (GLenum, const GLfloat *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord1fvARB(GLenum p0, GLfloat[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glMultiTexCoord1fvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord1fvARB (GLenum, const GLfloat *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord1fvARB(GLenum p0, ref GLfloat p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(p1, __local2, false);
-            glMultiTexCoord1fvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord1iARB (GLenum, GLint);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord1iARB")]
-        public static extern void glMultiTexCoord1iARB(GLenum p0, GLint p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord1ivARB (GLenum, const GLint *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord1ivARB")]
-        public static extern void glMultiTexCoord1ivARB(GLenum p0, IntPtr p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord1ivARB (GLenum, const GLint *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord1ivARB(GLenum p0, GLint[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glMultiTexCoord1ivARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord1ivARB (GLenum, const GLint *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord1ivARB(GLenum p0, ref GLint p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local2, p1);
-            glMultiTexCoord1ivARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord1sARB (GLenum, GLshort);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord1sARB")]
-        public static extern void glMultiTexCoord1sARB(GLenum p0, GLshort p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord1svARB (GLenum, const GLshort *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord1svARB")]
-        public static extern void glMultiTexCoord1svARB(GLenum p0, IntPtr p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord1svARB (GLenum, const GLshort *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord1svARB(GLenum p0, GLshort[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glMultiTexCoord1svARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord1svARB (GLenum, const GLshort *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord1svARB(GLenum p0, ref GLshort p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
-            Marshal.WriteInt16(__local2, p1);
-            glMultiTexCoord1svARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord2dARB (GLenum, GLdouble, GLdouble);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord2dARB")]
-        public static extern void glMultiTexCoord2dARB(GLenum p0, GLdouble p1, GLdouble p2);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord2dvARB (GLenum, const GLdouble *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord2dvARB")]
-        public static extern void glMultiTexCoord2dvARB(GLenum p0, IntPtr p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord2dvARB (GLenum, const GLdouble *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord2dvARB(GLenum p0, GLdouble[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glMultiTexCoord2dvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord2dvARB (GLenum, const GLdouble *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord2dvARB(GLenum p0, ref GLdouble p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
-            Marshal.StructureToPtr(p1, __local2, false);
-            glMultiTexCoord2dvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord2fARB (GLenum, GLfloat, GLfloat);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord2fARB")]
-        public static extern void glMultiTexCoord2fARB(GLenum p0, GLfloat p1, GLfloat p2);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord2fvARB (GLenum, const GLfloat *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord2fvARB")]
-        public static extern void glMultiTexCoord2fvARB(GLenum p0, IntPtr p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord2fvARB (GLenum, const GLfloat *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord2fvARB(GLenum p0, GLfloat[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glMultiTexCoord2fvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord2fvARB (GLenum, const GLfloat *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord2fvARB(GLenum p0, ref GLfloat p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(p1, __local2, false);
-            glMultiTexCoord2fvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord2iARB (GLenum, GLint, GLint);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord2iARB")]
-        public static extern void glMultiTexCoord2iARB(GLenum p0, GLint p1, GLint p2);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord2ivARB (GLenum, const GLint *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord2ivARB")]
-        public static extern void glMultiTexCoord2ivARB(GLenum p0, IntPtr p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord2ivARB (GLenum, const GLint *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord2ivARB(GLenum p0, GLint[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glMultiTexCoord2ivARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord2ivARB (GLenum, const GLint *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord2ivARB(GLenum p0, ref GLint p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local2, p1);
-            glMultiTexCoord2ivARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord2sARB (GLenum, GLshort, GLshort);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord2sARB")]
-        public static extern void glMultiTexCoord2sARB(GLenum p0, GLshort p1, GLshort p2);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord2svARB (GLenum, const GLshort *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord2svARB")]
-        public static extern void glMultiTexCoord2svARB(GLenum p0, IntPtr p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord2svARB (GLenum, const GLshort *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord2svARB(GLenum p0, GLshort[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glMultiTexCoord2svARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord2svARB (GLenum, const GLshort *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord2svARB(GLenum p0, ref GLshort p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
-            Marshal.WriteInt16(__local2, p1);
-            glMultiTexCoord2svARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord3dARB (GLenum, GLdouble, GLdouble, GLdouble);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord3dARB")]
-        public static extern void glMultiTexCoord3dARB(GLenum p0, GLdouble p1, GLdouble p2, GLdouble p3);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord3dvARB (GLenum, const GLdouble *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord3dvARB")]
-        public static extern void glMultiTexCoord3dvARB(GLenum p0, IntPtr p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord3dvARB (GLenum, const GLdouble *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord3dvARB(GLenum p0, GLdouble[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glMultiTexCoord3dvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord3dvARB (GLenum, const GLdouble *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord3dvARB(GLenum p0, ref GLdouble p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
-            Marshal.StructureToPtr(p1, __local2, false);
-            glMultiTexCoord3dvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord3fARB (GLenum, GLfloat, GLfloat, GLfloat);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord3fARB")]
-        public static extern void glMultiTexCoord3fARB(GLenum p0, GLfloat p1, GLfloat p2, GLfloat p3);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord3fvARB (GLenum, const GLfloat *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord3fvARB")]
-        public static extern void glMultiTexCoord3fvARB(GLenum p0, IntPtr p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord3fvARB (GLenum, const GLfloat *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord3fvARB(GLenum p0, GLfloat[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glMultiTexCoord3fvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord3fvARB (GLenum, const GLfloat *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord3fvARB(GLenum p0, ref GLfloat p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(p1, __local2, false);
-            glMultiTexCoord3fvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord3iARB (GLenum, GLint, GLint, GLint);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord3iARB")]
-        public static extern void glMultiTexCoord3iARB(GLenum p0, GLint p1, GLint p2, GLint p3);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord3ivARB (GLenum, const GLint *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord3ivARB")]
-        public static extern void glMultiTexCoord3ivARB(GLenum p0, IntPtr p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord3ivARB (GLenum, const GLint *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord3ivARB(GLenum p0, GLint[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glMultiTexCoord3ivARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord3ivARB (GLenum, const GLint *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord3ivARB(GLenum p0, ref GLint p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local2, p1);
-            glMultiTexCoord3ivARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord3sARB (GLenum, GLshort, GLshort, GLshort);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord3sARB")]
-        public static extern void glMultiTexCoord3sARB(GLenum p0, GLshort p1, GLshort p2, GLshort p3);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord3svARB (GLenum, const GLshort *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord3svARB")]
-        public static extern void glMultiTexCoord3svARB(GLenum p0, IntPtr p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord3svARB (GLenum, const GLshort *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord3svARB(GLenum p0, GLshort[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glMultiTexCoord3svARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord3svARB (GLenum, const GLshort *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord3svARB(GLenum p0, ref GLshort p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
-            Marshal.WriteInt16(__local2, p1);
-            glMultiTexCoord3svARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord4dARB (GLenum, GLdouble, GLdouble, GLdouble, GLdouble);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord4dARB")]
-        public static extern void glMultiTexCoord4dARB(GLenum p0, GLdouble p1, GLdouble p2, GLdouble p3, GLdouble p4);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord4dvARB (GLenum, const GLdouble *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord4dvARB")]
-        public static extern void glMultiTexCoord4dvARB(GLenum p0, IntPtr p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord4dvARB (GLenum, const GLdouble *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord4dvARB(GLenum p0, GLdouble[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glMultiTexCoord4dvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord4dvARB (GLenum, const GLdouble *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord4dvARB(GLenum p0, ref GLdouble p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
-            Marshal.StructureToPtr(p1, __local2, false);
-            glMultiTexCoord4dvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord4fARB (GLenum, GLfloat, GLfloat, GLfloat, GLfloat);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord4fARB")]
-        public static extern void glMultiTexCoord4fARB(GLenum p0, GLfloat p1, GLfloat p2, GLfloat p3, GLfloat p4);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord4fvARB (GLenum, const GLfloat *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord4fvARB")]
-        public static extern void glMultiTexCoord4fvARB(GLenum p0, IntPtr p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord4fvARB (GLenum, const GLfloat *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord4fvARB(GLenum p0, GLfloat[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glMultiTexCoord4fvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord4fvARB (GLenum, const GLfloat *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord4fvARB(GLenum p0, ref GLfloat p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(p1, __local2, false);
-            glMultiTexCoord4fvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord4iARB (GLenum, GLint, GLint, GLint, GLint);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord4iARB")]
-        public static extern void glMultiTexCoord4iARB(GLenum p0, GLint p1, GLint p2, GLint p3, GLint p4);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord4ivARB (GLenum, const GLint *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord4ivARB")]
-        public static extern void glMultiTexCoord4ivARB(GLenum p0, IntPtr p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord4ivARB (GLenum, const GLint *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord4ivARB(GLenum p0, GLint[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glMultiTexCoord4ivARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord4ivARB (GLenum, const GLint *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord4ivARB(GLenum p0, ref GLint p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local2, p1);
-            glMultiTexCoord4ivARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord4sARB (GLenum, GLshort, GLshort, GLshort, GLshort);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord4sARB")]
-        public static extern void glMultiTexCoord4sARB(GLenum p0, GLshort p1, GLshort p2, GLshort p3, GLshort p4);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord4svARB (GLenum, const GLshort *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiTexCoord4svARB")]
-        public static extern void glMultiTexCoord4svARB(GLenum p0, IntPtr p1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord4svARB (GLenum, const GLshort *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord4svARB(GLenum p0, GLshort[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glMultiTexCoord4svARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiTexCoord4svARB (GLenum, const GLshort *);'</para>
-        /// </summary>
-        public static void glMultiTexCoord4svARB(GLenum p0, ref GLshort p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
-            Marshal.WriteInt16(__local2, p1);
-            glMultiTexCoord4svARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glActiveTextureARB (GLenum);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glActiveTextureARB")]
+public static extern void glActiveTextureARB(GLenum p0);
+
+/// <summary>
+/// <para>Original signature is 'extern void glClientActiveTextureARB (GLenum);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glClientActiveTextureARB")]
+public static extern void glClientActiveTextureARB(GLenum p0);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord1dARB (GLenum, GLdouble);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord1dARB")]
+public static extern void glMultiTexCoord1dARB(GLenum p0, GLdouble p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord1dvARB (GLenum, const GLdouble *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord1dvARB")]
+public static extern void glMultiTexCoord1dvARB(GLenum p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord1dvARB (GLenum, const GLdouble *);'</para>
+/// </summary>
+public static  void glMultiTexCoord1dvARB(GLenum p0, GLdouble[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glMultiTexCoord1dvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord1dvARB (GLenum, const GLdouble *);'</para>
+/// </summary>
+public static  void glMultiTexCoord1dvARB(GLenum p0, ref GLdouble p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+Marshal.StructureToPtr(p1, __local2, false);
+glMultiTexCoord1dvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord1fARB (GLenum, GLfloat);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord1fARB")]
+public static extern void glMultiTexCoord1fARB(GLenum p0, GLfloat p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord1fvARB (GLenum, const GLfloat *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord1fvARB")]
+public static extern void glMultiTexCoord1fvARB(GLenum p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord1fvARB (GLenum, const GLfloat *);'</para>
+/// </summary>
+public static  void glMultiTexCoord1fvARB(GLenum p0, GLfloat[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glMultiTexCoord1fvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord1fvARB (GLenum, const GLfloat *);'</para>
+/// </summary>
+public static  void glMultiTexCoord1fvARB(GLenum p0, ref GLfloat p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(p1, __local2, false);
+glMultiTexCoord1fvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord1iARB (GLenum, GLint);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord1iARB")]
+public static extern void glMultiTexCoord1iARB(GLenum p0, GLint p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord1ivARB (GLenum, const GLint *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord1ivARB")]
+public static extern void glMultiTexCoord1ivARB(GLenum p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord1ivARB (GLenum, const GLint *);'</para>
+/// </summary>
+public static  void glMultiTexCoord1ivARB(GLenum p0, GLint[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glMultiTexCoord1ivARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord1ivARB (GLenum, const GLint *);'</para>
+/// </summary>
+public static  void glMultiTexCoord1ivARB(GLenum p0, ref GLint p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local2, p1);
+glMultiTexCoord1ivARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord1sARB (GLenum, GLshort);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord1sARB")]
+public static extern void glMultiTexCoord1sARB(GLenum p0, GLshort p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord1svARB (GLenum, const GLshort *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord1svARB")]
+public static extern void glMultiTexCoord1svARB(GLenum p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord1svARB (GLenum, const GLshort *);'</para>
+/// </summary>
+public static  void glMultiTexCoord1svARB(GLenum p0, GLshort[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glMultiTexCoord1svARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord1svARB (GLenum, const GLshort *);'</para>
+/// </summary>
+public static  void glMultiTexCoord1svARB(GLenum p0, ref GLshort p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+Marshal.WriteInt16(__local2, p1);
+glMultiTexCoord1svARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord2dARB (GLenum, GLdouble, GLdouble);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord2dARB")]
+public static extern void glMultiTexCoord2dARB(GLenum p0, GLdouble p1, GLdouble p2);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord2dvARB (GLenum, const GLdouble *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord2dvARB")]
+public static extern void glMultiTexCoord2dvARB(GLenum p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord2dvARB (GLenum, const GLdouble *);'</para>
+/// </summary>
+public static  void glMultiTexCoord2dvARB(GLenum p0, GLdouble[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glMultiTexCoord2dvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord2dvARB (GLenum, const GLdouble *);'</para>
+/// </summary>
+public static  void glMultiTexCoord2dvARB(GLenum p0, ref GLdouble p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+Marshal.StructureToPtr(p1, __local2, false);
+glMultiTexCoord2dvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord2fARB (GLenum, GLfloat, GLfloat);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord2fARB")]
+public static extern void glMultiTexCoord2fARB(GLenum p0, GLfloat p1, GLfloat p2);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord2fvARB (GLenum, const GLfloat *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord2fvARB")]
+public static extern void glMultiTexCoord2fvARB(GLenum p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord2fvARB (GLenum, const GLfloat *);'</para>
+/// </summary>
+public static  void glMultiTexCoord2fvARB(GLenum p0, GLfloat[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glMultiTexCoord2fvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord2fvARB (GLenum, const GLfloat *);'</para>
+/// </summary>
+public static  void glMultiTexCoord2fvARB(GLenum p0, ref GLfloat p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(p1, __local2, false);
+glMultiTexCoord2fvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord2iARB (GLenum, GLint, GLint);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord2iARB")]
+public static extern void glMultiTexCoord2iARB(GLenum p0, GLint p1, GLint p2);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord2ivARB (GLenum, const GLint *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord2ivARB")]
+public static extern void glMultiTexCoord2ivARB(GLenum p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord2ivARB (GLenum, const GLint *);'</para>
+/// </summary>
+public static  void glMultiTexCoord2ivARB(GLenum p0, GLint[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glMultiTexCoord2ivARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord2ivARB (GLenum, const GLint *);'</para>
+/// </summary>
+public static  void glMultiTexCoord2ivARB(GLenum p0, ref GLint p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local2, p1);
+glMultiTexCoord2ivARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord2sARB (GLenum, GLshort, GLshort);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord2sARB")]
+public static extern void glMultiTexCoord2sARB(GLenum p0, GLshort p1, GLshort p2);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord2svARB (GLenum, const GLshort *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord2svARB")]
+public static extern void glMultiTexCoord2svARB(GLenum p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord2svARB (GLenum, const GLshort *);'</para>
+/// </summary>
+public static  void glMultiTexCoord2svARB(GLenum p0, GLshort[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glMultiTexCoord2svARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord2svARB (GLenum, const GLshort *);'</para>
+/// </summary>
+public static  void glMultiTexCoord2svARB(GLenum p0, ref GLshort p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+Marshal.WriteInt16(__local2, p1);
+glMultiTexCoord2svARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord3dARB (GLenum, GLdouble, GLdouble, GLdouble);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord3dARB")]
+public static extern void glMultiTexCoord3dARB(GLenum p0, GLdouble p1, GLdouble p2, GLdouble p3);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord3dvARB (GLenum, const GLdouble *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord3dvARB")]
+public static extern void glMultiTexCoord3dvARB(GLenum p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord3dvARB (GLenum, const GLdouble *);'</para>
+/// </summary>
+public static  void glMultiTexCoord3dvARB(GLenum p0, GLdouble[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glMultiTexCoord3dvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord3dvARB (GLenum, const GLdouble *);'</para>
+/// </summary>
+public static  void glMultiTexCoord3dvARB(GLenum p0, ref GLdouble p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+Marshal.StructureToPtr(p1, __local2, false);
+glMultiTexCoord3dvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord3fARB (GLenum, GLfloat, GLfloat, GLfloat);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord3fARB")]
+public static extern void glMultiTexCoord3fARB(GLenum p0, GLfloat p1, GLfloat p2, GLfloat p3);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord3fvARB (GLenum, const GLfloat *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord3fvARB")]
+public static extern void glMultiTexCoord3fvARB(GLenum p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord3fvARB (GLenum, const GLfloat *);'</para>
+/// </summary>
+public static  void glMultiTexCoord3fvARB(GLenum p0, GLfloat[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glMultiTexCoord3fvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord3fvARB (GLenum, const GLfloat *);'</para>
+/// </summary>
+public static  void glMultiTexCoord3fvARB(GLenum p0, ref GLfloat p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(p1, __local2, false);
+glMultiTexCoord3fvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord3iARB (GLenum, GLint, GLint, GLint);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord3iARB")]
+public static extern void glMultiTexCoord3iARB(GLenum p0, GLint p1, GLint p2, GLint p3);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord3ivARB (GLenum, const GLint *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord3ivARB")]
+public static extern void glMultiTexCoord3ivARB(GLenum p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord3ivARB (GLenum, const GLint *);'</para>
+/// </summary>
+public static  void glMultiTexCoord3ivARB(GLenum p0, GLint[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glMultiTexCoord3ivARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord3ivARB (GLenum, const GLint *);'</para>
+/// </summary>
+public static  void glMultiTexCoord3ivARB(GLenum p0, ref GLint p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local2, p1);
+glMultiTexCoord3ivARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord3sARB (GLenum, GLshort, GLshort, GLshort);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord3sARB")]
+public static extern void glMultiTexCoord3sARB(GLenum p0, GLshort p1, GLshort p2, GLshort p3);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord3svARB (GLenum, const GLshort *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord3svARB")]
+public static extern void glMultiTexCoord3svARB(GLenum p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord3svARB (GLenum, const GLshort *);'</para>
+/// </summary>
+public static  void glMultiTexCoord3svARB(GLenum p0, GLshort[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glMultiTexCoord3svARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord3svARB (GLenum, const GLshort *);'</para>
+/// </summary>
+public static  void glMultiTexCoord3svARB(GLenum p0, ref GLshort p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+Marshal.WriteInt16(__local2, p1);
+glMultiTexCoord3svARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord4dARB (GLenum, GLdouble, GLdouble, GLdouble, GLdouble);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord4dARB")]
+public static extern void glMultiTexCoord4dARB(GLenum p0, GLdouble p1, GLdouble p2, GLdouble p3, GLdouble p4);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord4dvARB (GLenum, const GLdouble *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord4dvARB")]
+public static extern void glMultiTexCoord4dvARB(GLenum p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord4dvARB (GLenum, const GLdouble *);'</para>
+/// </summary>
+public static  void glMultiTexCoord4dvARB(GLenum p0, GLdouble[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glMultiTexCoord4dvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord4dvARB (GLenum, const GLdouble *);'</para>
+/// </summary>
+public static  void glMultiTexCoord4dvARB(GLenum p0, ref GLdouble p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+Marshal.StructureToPtr(p1, __local2, false);
+glMultiTexCoord4dvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord4fARB (GLenum, GLfloat, GLfloat, GLfloat, GLfloat);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord4fARB")]
+public static extern void glMultiTexCoord4fARB(GLenum p0, GLfloat p1, GLfloat p2, GLfloat p3, GLfloat p4);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord4fvARB (GLenum, const GLfloat *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord4fvARB")]
+public static extern void glMultiTexCoord4fvARB(GLenum p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord4fvARB (GLenum, const GLfloat *);'</para>
+/// </summary>
+public static  void glMultiTexCoord4fvARB(GLenum p0, GLfloat[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glMultiTexCoord4fvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord4fvARB (GLenum, const GLfloat *);'</para>
+/// </summary>
+public static  void glMultiTexCoord4fvARB(GLenum p0, ref GLfloat p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(p1, __local2, false);
+glMultiTexCoord4fvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord4iARB (GLenum, GLint, GLint, GLint, GLint);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord4iARB")]
+public static extern void glMultiTexCoord4iARB(GLenum p0, GLint p1, GLint p2, GLint p3, GLint p4);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord4ivARB (GLenum, const GLint *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord4ivARB")]
+public static extern void glMultiTexCoord4ivARB(GLenum p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord4ivARB (GLenum, const GLint *);'</para>
+/// </summary>
+public static  void glMultiTexCoord4ivARB(GLenum p0, GLint[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glMultiTexCoord4ivARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord4ivARB (GLenum, const GLint *);'</para>
+/// </summary>
+public static  void glMultiTexCoord4ivARB(GLenum p0, ref GLint p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local2, p1);
+glMultiTexCoord4ivARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord4sARB (GLenum, GLshort, GLshort, GLshort, GLshort);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord4sARB")]
+public static extern void glMultiTexCoord4sARB(GLenum p0, GLshort p1, GLshort p2, GLshort p3, GLshort p4);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord4svARB (GLenum, const GLshort *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiTexCoord4svARB")]
+public static extern void glMultiTexCoord4svARB(GLenum p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord4svARB (GLenum, const GLshort *);'</para>
+/// </summary>
+public static  void glMultiTexCoord4svARB(GLenum p0, GLshort[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glMultiTexCoord4svARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glMultiTexCoord4svARB (GLenum, const GLshort *);'</para>
+/// </summary>
+public static  void glMultiTexCoord4svARB(GLenum p0, ref GLshort p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+Marshal.WriteInt16(__local2, p1);
+glMultiTexCoord4svARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
 #endif
 
 #if GL_ARB_transpose_matrix
-        /// <summary>
-        /// <para>Original signature is 'extern void glLoadTransposeMatrixfARB (const GLfloat *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glLoadTransposeMatrixfARB")]
-        public static extern void glLoadTransposeMatrixfARB(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glLoadTransposeMatrixfARB (const GLfloat *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glLoadTransposeMatrixfARB")]
+public static extern void glLoadTransposeMatrixfARB(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glLoadTransposeMatrixfARB (const GLfloat *);'</para>
-        /// </summary>
-        public static void glLoadTransposeMatrixfARB(GLfloat[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p0.Length);
-            Marshal.Copy(p0, 0, __local1, p0.Length);
-            glLoadTransposeMatrixfARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glLoadTransposeMatrixfARB (const GLfloat *);'</para>
+/// </summary>
+public static  void glLoadTransposeMatrixfARB(GLfloat[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p0.Length);
+Marshal.Copy(p0, 0, __local1, p0.Length);
+glLoadTransposeMatrixfARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glLoadTransposeMatrixfARB (const GLfloat *);'</para>
-        /// </summary>
-        public static void glLoadTransposeMatrixfARB(ref GLfloat p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(p0, __local1, false);
-            glLoadTransposeMatrixfARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glLoadTransposeMatrixfARB (const GLfloat *);'</para>
+/// </summary>
+public static  void glLoadTransposeMatrixfARB(ref GLfloat p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(p0, __local1, false);
+glLoadTransposeMatrixfARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glLoadTransposeMatrixdARB (const GLdouble *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glLoadTransposeMatrixdARB")]
-        public static extern void glLoadTransposeMatrixdARB(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glLoadTransposeMatrixdARB (const GLdouble *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glLoadTransposeMatrixdARB")]
+public static extern void glLoadTransposeMatrixdARB(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glLoadTransposeMatrixdARB (const GLdouble *);'</para>
-        /// </summary>
-        public static void glLoadTransposeMatrixdARB(GLdouble[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p0.Length);
-            Marshal.Copy(p0, 0, __local1, p0.Length);
-            glLoadTransposeMatrixdARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glLoadTransposeMatrixdARB (const GLdouble *);'</para>
+/// </summary>
+public static  void glLoadTransposeMatrixdARB(GLdouble[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p0.Length);
+Marshal.Copy(p0, 0, __local1, p0.Length);
+glLoadTransposeMatrixdARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glLoadTransposeMatrixdARB (const GLdouble *);'</para>
-        /// </summary>
-        public static void glLoadTransposeMatrixdARB(ref GLdouble p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
-            Marshal.StructureToPtr(p0, __local1, false);
-            glLoadTransposeMatrixdARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glLoadTransposeMatrixdARB (const GLdouble *);'</para>
+/// </summary>
+public static  void glLoadTransposeMatrixdARB(ref GLdouble p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+Marshal.StructureToPtr(p0, __local1, false);
+glLoadTransposeMatrixdARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultTransposeMatrixfARB (const GLfloat *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultTransposeMatrixfARB")]
-        public static extern void glMultTransposeMatrixfARB(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glMultTransposeMatrixfARB (const GLfloat *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultTransposeMatrixfARB")]
+public static extern void glMultTransposeMatrixfARB(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultTransposeMatrixfARB (const GLfloat *);'</para>
-        /// </summary>
-        public static void glMultTransposeMatrixfARB(GLfloat[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p0.Length);
-            Marshal.Copy(p0, 0, __local1, p0.Length);
-            glMultTransposeMatrixfARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultTransposeMatrixfARB (const GLfloat *);'</para>
+/// </summary>
+public static  void glMultTransposeMatrixfARB(GLfloat[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p0.Length);
+Marshal.Copy(p0, 0, __local1, p0.Length);
+glMultTransposeMatrixfARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultTransposeMatrixfARB (const GLfloat *);'</para>
-        /// </summary>
-        public static void glMultTransposeMatrixfARB(ref GLfloat p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(p0, __local1, false);
-            glMultTransposeMatrixfARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultTransposeMatrixfARB (const GLfloat *);'</para>
+/// </summary>
+public static  void glMultTransposeMatrixfARB(ref GLfloat p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(p0, __local1, false);
+glMultTransposeMatrixfARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultTransposeMatrixdARB (const GLdouble *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultTransposeMatrixdARB")]
-        public static extern void glMultTransposeMatrixdARB(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glMultTransposeMatrixdARB (const GLdouble *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultTransposeMatrixdARB")]
+public static extern void glMultTransposeMatrixdARB(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultTransposeMatrixdARB (const GLdouble *);'</para>
-        /// </summary>
-        public static void glMultTransposeMatrixdARB(GLdouble[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p0.Length);
-            Marshal.Copy(p0, 0, __local1, p0.Length);
-            glMultTransposeMatrixdARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultTransposeMatrixdARB (const GLdouble *);'</para>
+/// </summary>
+public static  void glMultTransposeMatrixdARB(GLdouble[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p0.Length);
+Marshal.Copy(p0, 0, __local1, p0.Length);
+glMultTransposeMatrixdARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultTransposeMatrixdARB (const GLdouble *);'</para>
-        /// </summary>
-        public static void glMultTransposeMatrixdARB(ref GLdouble p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
-            Marshal.StructureToPtr(p0, __local1, false);
-            glMultTransposeMatrixdARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultTransposeMatrixdARB (const GLdouble *);'</para>
+/// </summary>
+public static  void glMultTransposeMatrixdARB(ref GLdouble p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+Marshal.StructureToPtr(p0, __local1, false);
+glMultTransposeMatrixdARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
 #endif
 
 #if GL_ARB_multisample
-        /// <summary>
-        /// <para>Original signature is 'extern void glSampleCoverageARB (GLclampf, GLboolean);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSampleCoverageARB")]
-        public static extern void glSampleCoverageARB(GLclampf p0, GLboolean p1);
+/// <summary>
+/// <para>Original signature is 'extern void glSampleCoverageARB (GLclampf, GLboolean);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSampleCoverageARB")]
+public static extern void glSampleCoverageARB(GLclampf p0, GLboolean p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSamplePassARB (GLenum);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSamplePassARB")]
-        public static extern void glSamplePassARB(GLenum p0);
+/// <summary>
+/// <para>Original signature is 'extern void glSamplePassARB (GLenum);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSamplePassARB")]
+public static extern void glSamplePassARB(GLenum p0);
 
 #endif
 
 #if GL_ARB_texture_compression
-        /// <summary>
-        /// <para>Original signature is 'extern void glCompressedTexImage3DARB (GLenum, GLint, GLenum, GLsizei, GLsizei, GLsizei, GLint, GLsizei, const GLvoid *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glCompressedTexImage3DARB")]
-        public static extern void glCompressedTexImage3DARB(GLenum p0, GLint p1, GLenum p2, GLsizei p3, GLsizei p4, GLsizei p5, GLint p6, GLsizei p7, IntPtr p8);
+/// <summary>
+/// <para>Original signature is 'extern void glCompressedTexImage3DARB (GLenum, GLint, GLenum, GLsizei, GLsizei, GLsizei, GLint, GLsizei, const GLvoid *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glCompressedTexImage3DARB")]
+public static extern void glCompressedTexImage3DARB(GLenum p0, GLint p1, GLenum p2, GLsizei p3, GLsizei p4, GLsizei p5, GLint p6, GLsizei p7, IntPtr p8);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glCompressedTexImage2DARB (GLenum, GLint, GLenum, GLsizei, GLsizei, GLint, GLsizei, const GLvoid *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glCompressedTexImage2DARB")]
-        public static extern void glCompressedTexImage2DARB(GLenum p0, GLint p1, GLenum p2, GLsizei p3, GLsizei p4, GLint p5, GLsizei p6, IntPtr p7);
+/// <summary>
+/// <para>Original signature is 'extern void glCompressedTexImage2DARB (GLenum, GLint, GLenum, GLsizei, GLsizei, GLint, GLsizei, const GLvoid *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glCompressedTexImage2DARB")]
+public static extern void glCompressedTexImage2DARB(GLenum p0, GLint p1, GLenum p2, GLsizei p3, GLsizei p4, GLint p5, GLsizei p6, IntPtr p7);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glCompressedTexImage1DARB (GLenum, GLint, GLenum, GLsizei, GLint, GLsizei, const GLvoid *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glCompressedTexImage1DARB")]
-        public static extern void glCompressedTexImage1DARB(GLenum p0, GLint p1, GLenum p2, GLsizei p3, GLint p4, GLsizei p5, IntPtr p6);
+/// <summary>
+/// <para>Original signature is 'extern void glCompressedTexImage1DARB (GLenum, GLint, GLenum, GLsizei, GLint, GLsizei, const GLvoid *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glCompressedTexImage1DARB")]
+public static extern void glCompressedTexImage1DARB(GLenum p0, GLint p1, GLenum p2, GLsizei p3, GLint p4, GLsizei p5, IntPtr p6);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glCompressedTexSubImage3DARB (GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLsizei, const GLvoid *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glCompressedTexSubImage3DARB")]
-        public static extern void glCompressedTexSubImage3DARB(GLenum p0, GLint p1, GLint p2, GLint p3, GLint p4, GLsizei p5, GLsizei p6, GLsizei p7, GLenum p8, GLsizei p9, IntPtr p10);
+/// <summary>
+/// <para>Original signature is 'extern void glCompressedTexSubImage3DARB (GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLsizei, const GLvoid *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glCompressedTexSubImage3DARB")]
+public static extern void glCompressedTexSubImage3DARB(GLenum p0, GLint p1, GLint p2, GLint p3, GLint p4, GLsizei p5, GLsizei p6, GLsizei p7, GLenum p8, GLsizei p9, IntPtr p10);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glCompressedTexSubImage2DARB (GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLsizei, const GLvoid *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glCompressedTexSubImage2DARB")]
-        public static extern void glCompressedTexSubImage2DARB(GLenum p0, GLint p1, GLint p2, GLint p3, GLsizei p4, GLsizei p5, GLenum p6, GLsizei p7, IntPtr p8);
+/// <summary>
+/// <para>Original signature is 'extern void glCompressedTexSubImage2DARB (GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLsizei, const GLvoid *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glCompressedTexSubImage2DARB")]
+public static extern void glCompressedTexSubImage2DARB(GLenum p0, GLint p1, GLint p2, GLint p3, GLsizei p4, GLsizei p5, GLenum p6, GLsizei p7, IntPtr p8);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glCompressedTexSubImage1DARB (GLenum, GLint, GLint, GLsizei, GLenum, GLsizei, const GLvoid *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glCompressedTexSubImage1DARB")]
-        public static extern void glCompressedTexSubImage1DARB(GLenum p0, GLint p1, GLint p2, GLsizei p3, GLenum p4, GLsizei p5, IntPtr p6);
+/// <summary>
+/// <para>Original signature is 'extern void glCompressedTexSubImage1DARB (GLenum, GLint, GLint, GLsizei, GLenum, GLsizei, const GLvoid *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glCompressedTexSubImage1DARB")]
+public static extern void glCompressedTexSubImage1DARB(GLenum p0, GLint p1, GLint p2, GLsizei p3, GLenum p4, GLsizei p5, IntPtr p6);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetCompressedTexImageARB (GLenum, GLint, GLvoid *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetCompressedTexImageARB")]
-        public static extern void glGetCompressedTexImageARB(GLenum p0, GLint p1, IntPtr p2);
+/// <summary>
+/// <para>Original signature is 'extern void glGetCompressedTexImageARB (GLenum, GLint, GLvoid *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetCompressedTexImageARB")]
+public static extern void glGetCompressedTexImageARB(GLenum p0, GLint p1, IntPtr p2);
 
 #endif
 
 #if GL_ARB_vertex_blend
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightbvARB(GLint, const GLbyte *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWeightbvARB")]
-        public static extern void glWeightbvARB(GLint p0, IntPtr p1);
+/// <summary>
+/// <para>Original signature is 'extern void glWeightbvARB(GLint, const GLbyte *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWeightbvARB")]
+public static extern void glWeightbvARB(GLint p0, IntPtr p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightbvARB(GLint, const GLbyte *);'</para>
-        /// </summary>
-        public static void glWeightbvARB(GLint p0, GLbyte[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)) * p1.Length);
-            GLubyte[] __array2 = Array.ConvertAll(p1, item => (GLubyte)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glWeightbvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWeightbvARB(GLint, const GLbyte *);'</para>
+/// </summary>
+public static  void glWeightbvARB(GLint p0, GLbyte[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)) * p1.Length);
+GLubyte[] __array2 = Array.ConvertAll(p1, item => (GLubyte) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glWeightbvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightbvARB(GLint, const GLbyte *);'</para>
-        /// </summary>
-        public static void glWeightbvARB(GLint p0, ref GLbyte p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)));
-            Marshal.WriteByte(__local2, (GLubyte)p1);
-            glWeightbvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWeightbvARB(GLint, const GLbyte *);'</para>
+/// </summary>
+public static  void glWeightbvARB(GLint p0, ref GLbyte p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)));
+Marshal.WriteByte(__local2, (GLubyte) p1);
+glWeightbvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightsvARB(GLint, const GLshort *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWeightsvARB")]
-        public static extern void glWeightsvARB(GLint p0, IntPtr p1);
+/// <summary>
+/// <para>Original signature is 'extern void glWeightsvARB(GLint, const GLshort *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWeightsvARB")]
+public static extern void glWeightsvARB(GLint p0, IntPtr p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightsvARB(GLint, const GLshort *);'</para>
-        /// </summary>
-        public static void glWeightsvARB(GLint p0, GLshort[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glWeightsvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWeightsvARB(GLint, const GLshort *);'</para>
+/// </summary>
+public static  void glWeightsvARB(GLint p0, GLshort[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glWeightsvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightsvARB(GLint, const GLshort *);'</para>
-        /// </summary>
-        public static void glWeightsvARB(GLint p0, ref GLshort p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
-            Marshal.WriteInt16(__local2, p1);
-            glWeightsvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWeightsvARB(GLint, const GLshort *);'</para>
+/// </summary>
+public static  void glWeightsvARB(GLint p0, ref GLshort p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+Marshal.WriteInt16(__local2, p1);
+glWeightsvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightivARB(GLint, const GLint *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWeightivARB")]
-        public static extern void glWeightivARB(GLint p0, IntPtr p1);
+/// <summary>
+/// <para>Original signature is 'extern void glWeightivARB(GLint, const GLint *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWeightivARB")]
+public static extern void glWeightivARB(GLint p0, IntPtr p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightivARB(GLint, const GLint *);'</para>
-        /// </summary>
-        public static void glWeightivARB(GLint p0, GLint[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glWeightivARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWeightivARB(GLint, const GLint *);'</para>
+/// </summary>
+public static  void glWeightivARB(GLint p0, GLint[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glWeightivARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightivARB(GLint, const GLint *);'</para>
-        /// </summary>
-        public static void glWeightivARB(GLint p0, ref GLint p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local2, p1);
-            glWeightivARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWeightivARB(GLint, const GLint *);'</para>
+/// </summary>
+public static  void glWeightivARB(GLint p0, ref GLint p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local2, p1);
+glWeightivARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightfvARB(GLint, const GLfloat *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWeightfvARB")]
-        public static extern void glWeightfvARB(GLint p0, IntPtr p1);
+/// <summary>
+/// <para>Original signature is 'extern void glWeightfvARB(GLint, const GLfloat *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWeightfvARB")]
+public static extern void glWeightfvARB(GLint p0, IntPtr p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightfvARB(GLint, const GLfloat *);'</para>
-        /// </summary>
-        public static void glWeightfvARB(GLint p0, GLfloat[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glWeightfvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWeightfvARB(GLint, const GLfloat *);'</para>
+/// </summary>
+public static  void glWeightfvARB(GLint p0, GLfloat[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glWeightfvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightfvARB(GLint, const GLfloat *);'</para>
-        /// </summary>
-        public static void glWeightfvARB(GLint p0, ref GLfloat p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(p1, __local2, false);
-            glWeightfvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWeightfvARB(GLint, const GLfloat *);'</para>
+/// </summary>
+public static  void glWeightfvARB(GLint p0, ref GLfloat p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(p1, __local2, false);
+glWeightfvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightdvARB(GLint, const GLdouble *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWeightdvARB")]
-        public static extern void glWeightdvARB(GLint p0, IntPtr p1);
+/// <summary>
+/// <para>Original signature is 'extern void glWeightdvARB(GLint, const GLdouble *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWeightdvARB")]
+public static extern void glWeightdvARB(GLint p0, IntPtr p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightdvARB(GLint, const GLdouble *);'</para>
-        /// </summary>
-        public static void glWeightdvARB(GLint p0, GLdouble[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glWeightdvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWeightdvARB(GLint, const GLdouble *);'</para>
+/// </summary>
+public static  void glWeightdvARB(GLint p0, GLdouble[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glWeightdvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightdvARB(GLint, const GLdouble *);'</para>
-        /// </summary>
-        public static void glWeightdvARB(GLint p0, ref GLdouble p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
-            Marshal.StructureToPtr(p1, __local2, false);
-            glWeightdvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWeightdvARB(GLint, const GLdouble *);'</para>
+/// </summary>
+public static  void glWeightdvARB(GLint p0, ref GLdouble p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+Marshal.StructureToPtr(p1, __local2, false);
+glWeightdvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightubvARB(GLint, const GLubyte *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWeightubvARB")]
-        public static extern void glWeightubvARB(GLint p0, IntPtr p1);
+/// <summary>
+/// <para>Original signature is 'extern void glWeightubvARB(GLint, const GLubyte *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWeightubvARB")]
+public static extern void glWeightubvARB(GLint p0, IntPtr p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightubvARB(GLint, const GLubyte *);'</para>
-        /// </summary>
-        public static void glWeightubvARB(GLint p0, GLubyte[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glWeightubvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWeightubvARB(GLint, const GLubyte *);'</para>
+/// </summary>
+public static  void glWeightubvARB(GLint p0, GLubyte[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glWeightubvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightubvARB(GLint, const GLubyte *);'</para>
-        /// </summary>
-        public static void glWeightubvARB(GLint p0, ref GLubyte p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)));
-            Marshal.WriteByte(__local2, p1);
-            glWeightubvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWeightubvARB(GLint, const GLubyte *);'</para>
+/// </summary>
+public static  void glWeightubvARB(GLint p0, ref GLubyte p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)));
+Marshal.WriteByte(__local2, p1);
+glWeightubvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightusvARB(GLint, const GLushort *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWeightusvARB")]
-        public static extern void glWeightusvARB(GLint p0, IntPtr p1);
+/// <summary>
+/// <para>Original signature is 'extern void glWeightusvARB(GLint, const GLushort *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWeightusvARB")]
+public static extern void glWeightusvARB(GLint p0, IntPtr p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightusvARB(GLint, const GLushort *);'</para>
-        /// </summary>
-        public static void glWeightusvARB(GLint p0, GLushort[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)) * p1.Length);
-            GLshort[] __array2 = Array.ConvertAll(p1, item => (GLshort)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glWeightusvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWeightusvARB(GLint, const GLushort *);'</para>
+/// </summary>
+public static  void glWeightusvARB(GLint p0, GLushort[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)) * p1.Length);
+GLshort[] __array2 = Array.ConvertAll(p1, item => (GLshort) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glWeightusvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightusvARB(GLint, const GLushort *);'</para>
-        /// </summary>
-        public static void glWeightusvARB(GLint p0, ref GLushort p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)));
-            Marshal.WriteInt16(__local2, (GLshort)p1);
-            glWeightusvARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWeightusvARB(GLint, const GLushort *);'</para>
+/// </summary>
+public static  void glWeightusvARB(GLint p0, ref GLushort p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)));
+Marshal.WriteInt16(__local2, (GLshort) p1);
+glWeightusvARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightuivARB(GLint, const GLuint *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWeightuivARB")]
-        public static extern void glWeightuivARB(GLint p0, IntPtr p1);
+/// <summary>
+/// <para>Original signature is 'extern void glWeightuivARB(GLint, const GLuint *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWeightuivARB")]
+public static extern void glWeightuivARB(GLint p0, IntPtr p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightuivARB(GLint, const GLuint *);'</para>
-        /// </summary>
-        public static void glWeightuivARB(GLint p0, GLuint[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * p1.Length);
-            GLint[] __array2 = Array.ConvertAll(p1, item => (GLint)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glWeightuivARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWeightuivARB(GLint, const GLuint *);'</para>
+/// </summary>
+public static  void glWeightuivARB(GLint p0, GLuint[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * p1.Length);
+GLint[] __array2 = Array.ConvertAll(p1, item => (GLint) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glWeightuivARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightuivARB(GLint, const GLuint *);'</para>
-        /// </summary>
-        public static void glWeightuivARB(GLint p0, ref GLuint p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local2, (GLint)p1);
-            glWeightuivARB(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWeightuivARB(GLint, const GLuint *);'</para>
+/// </summary>
+public static  void glWeightuivARB(GLint p0, ref GLuint p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local2, (GLint) p1);
+glWeightuivARB(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWeightPointerARB(GLint, GLenum, GLsizei, const GLvoid *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWeightPointerARB")]
-        public static extern void glWeightPointerARB(GLint p0, GLenum p1, GLsizei p2, IntPtr p3);
+/// <summary>
+/// <para>Original signature is 'extern void glWeightPointerARB(GLint, GLenum, GLsizei, const GLvoid *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWeightPointerARB")]
+public static extern void glWeightPointerARB(GLint p0, GLenum p1, GLsizei p2, IntPtr p3);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexBlendARB(GLint);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexBlendARB")]
-        public static extern void glVertexBlendARB(GLint p0);
+/// <summary>
+/// <para>Original signature is 'extern void glVertexBlendARB(GLint);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexBlendARB")]
+public static extern void glVertexBlendARB(GLint p0);
 
 #endif
 
 #if GL_ARB_window_pos
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos2dARB (GLdouble, GLdouble);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWindowPos2dARB")]
-        public static extern void glWindowPos2dARB(GLdouble p0, GLdouble p1);
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos2dARB (GLdouble, GLdouble);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWindowPos2dARB")]
+public static extern void glWindowPos2dARB(GLdouble p0, GLdouble p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos2dvARB (const GLdouble *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWindowPos2dvARB")]
-        public static extern void glWindowPos2dvARB(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos2dvARB (const GLdouble *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWindowPos2dvARB")]
+public static extern void glWindowPos2dvARB(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos2dvARB (const GLdouble *);'</para>
-        /// </summary>
-        public static void glWindowPos2dvARB(GLdouble[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p0.Length);
-            Marshal.Copy(p0, 0, __local1, p0.Length);
-            glWindowPos2dvARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos2dvARB (const GLdouble *);'</para>
+/// </summary>
+public static  void glWindowPos2dvARB(GLdouble[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p0.Length);
+Marshal.Copy(p0, 0, __local1, p0.Length);
+glWindowPos2dvARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos2dvARB (const GLdouble *);'</para>
-        /// </summary>
-        public static void glWindowPos2dvARB(ref GLdouble p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
-            Marshal.StructureToPtr(p0, __local1, false);
-            glWindowPos2dvARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos2dvARB (const GLdouble *);'</para>
+/// </summary>
+public static  void glWindowPos2dvARB(ref GLdouble p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+Marshal.StructureToPtr(p0, __local1, false);
+glWindowPos2dvARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos2fARB (GLfloat, GLfloat);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWindowPos2fARB")]
-        public static extern void glWindowPos2fARB(GLfloat p0, GLfloat p1);
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos2fARB (GLfloat, GLfloat);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWindowPos2fARB")]
+public static extern void glWindowPos2fARB(GLfloat p0, GLfloat p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos2fvARB (const GLfloat *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWindowPos2fvARB")]
-        public static extern void glWindowPos2fvARB(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos2fvARB (const GLfloat *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWindowPos2fvARB")]
+public static extern void glWindowPos2fvARB(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos2fvARB (const GLfloat *);'</para>
-        /// </summary>
-        public static void glWindowPos2fvARB(GLfloat[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p0.Length);
-            Marshal.Copy(p0, 0, __local1, p0.Length);
-            glWindowPos2fvARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos2fvARB (const GLfloat *);'</para>
+/// </summary>
+public static  void glWindowPos2fvARB(GLfloat[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p0.Length);
+Marshal.Copy(p0, 0, __local1, p0.Length);
+glWindowPos2fvARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos2fvARB (const GLfloat *);'</para>
-        /// </summary>
-        public static void glWindowPos2fvARB(ref GLfloat p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(p0, __local1, false);
-            glWindowPos2fvARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos2fvARB (const GLfloat *);'</para>
+/// </summary>
+public static  void glWindowPos2fvARB(ref GLfloat p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(p0, __local1, false);
+glWindowPos2fvARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos2iARB (GLint, GLint);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWindowPos2iARB")]
-        public static extern void glWindowPos2iARB(GLint p0, GLint p1);
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos2iARB (GLint, GLint);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWindowPos2iARB")]
+public static extern void glWindowPos2iARB(GLint p0, GLint p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos2ivARB (const GLint *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWindowPos2ivARB")]
-        public static extern void glWindowPos2ivARB(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos2ivARB (const GLint *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWindowPos2ivARB")]
+public static extern void glWindowPos2ivARB(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos2ivARB (const GLint *);'</para>
-        /// </summary>
-        public static void glWindowPos2ivARB(GLint[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p0.Length);
-            Marshal.Copy(p0, 0, __local1, p0.Length);
-            glWindowPos2ivARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos2ivARB (const GLint *);'</para>
+/// </summary>
+public static  void glWindowPos2ivARB(GLint[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p0.Length);
+Marshal.Copy(p0, 0, __local1, p0.Length);
+glWindowPos2ivARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos2ivARB (const GLint *);'</para>
-        /// </summary>
-        public static void glWindowPos2ivARB(ref GLint p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local1, p0);
-            glWindowPos2ivARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos2ivARB (const GLint *);'</para>
+/// </summary>
+public static  void glWindowPos2ivARB(ref GLint p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local1, p0);
+glWindowPos2ivARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos2sARB (GLshort, GLshort);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWindowPos2sARB")]
-        public static extern void glWindowPos2sARB(GLshort p0, GLshort p1);
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos2sARB (GLshort, GLshort);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWindowPos2sARB")]
+public static extern void glWindowPos2sARB(GLshort p0, GLshort p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos2svARB (const GLshort *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWindowPos2svARB")]
-        public static extern void glWindowPos2svARB(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos2svARB (const GLshort *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWindowPos2svARB")]
+public static extern void glWindowPos2svARB(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos2svARB (const GLshort *);'</para>
-        /// </summary>
-        public static void glWindowPos2svARB(GLshort[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * p0.Length);
-            Marshal.Copy(p0, 0, __local1, p0.Length);
-            glWindowPos2svARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos2svARB (const GLshort *);'</para>
+/// </summary>
+public static  void glWindowPos2svARB(GLshort[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * p0.Length);
+Marshal.Copy(p0, 0, __local1, p0.Length);
+glWindowPos2svARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos2svARB (const GLshort *);'</para>
-        /// </summary>
-        public static void glWindowPos2svARB(ref GLshort p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
-            Marshal.WriteInt16(__local1, p0);
-            glWindowPos2svARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos2svARB (const GLshort *);'</para>
+/// </summary>
+public static  void glWindowPos2svARB(ref GLshort p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+Marshal.WriteInt16(__local1, p0);
+glWindowPos2svARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos3dARB (GLdouble, GLdouble, GLdouble);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWindowPos3dARB")]
-        public static extern void glWindowPos3dARB(GLdouble p0, GLdouble p1, GLdouble p2);
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos3dARB (GLdouble, GLdouble, GLdouble);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWindowPos3dARB")]
+public static extern void glWindowPos3dARB(GLdouble p0, GLdouble p1, GLdouble p2);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos3dvARB (const GLdouble *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWindowPos3dvARB")]
-        public static extern void glWindowPos3dvARB(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos3dvARB (const GLdouble *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWindowPos3dvARB")]
+public static extern void glWindowPos3dvARB(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos3dvARB (const GLdouble *);'</para>
-        /// </summary>
-        public static void glWindowPos3dvARB(GLdouble[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p0.Length);
-            Marshal.Copy(p0, 0, __local1, p0.Length);
-            glWindowPos3dvARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos3dvARB (const GLdouble *);'</para>
+/// </summary>
+public static  void glWindowPos3dvARB(GLdouble[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p0.Length);
+Marshal.Copy(p0, 0, __local1, p0.Length);
+glWindowPos3dvARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos3dvARB (const GLdouble *);'</para>
-        /// </summary>
-        public static void glWindowPos3dvARB(ref GLdouble p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
-            Marshal.StructureToPtr(p0, __local1, false);
-            glWindowPos3dvARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos3dvARB (const GLdouble *);'</para>
+/// </summary>
+public static  void glWindowPos3dvARB(ref GLdouble p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+Marshal.StructureToPtr(p0, __local1, false);
+glWindowPos3dvARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos3fARB (GLfloat, GLfloat, GLfloat);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWindowPos3fARB")]
-        public static extern void glWindowPos3fARB(GLfloat p0, GLfloat p1, GLfloat p2);
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos3fARB (GLfloat, GLfloat, GLfloat);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWindowPos3fARB")]
+public static extern void glWindowPos3fARB(GLfloat p0, GLfloat p1, GLfloat p2);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos3fvARB (const GLfloat *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWindowPos3fvARB")]
-        public static extern void glWindowPos3fvARB(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos3fvARB (const GLfloat *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWindowPos3fvARB")]
+public static extern void glWindowPos3fvARB(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos3fvARB (const GLfloat *);'</para>
-        /// </summary>
-        public static void glWindowPos3fvARB(GLfloat[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p0.Length);
-            Marshal.Copy(p0, 0, __local1, p0.Length);
-            glWindowPos3fvARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos3fvARB (const GLfloat *);'</para>
+/// </summary>
+public static  void glWindowPos3fvARB(GLfloat[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p0.Length);
+Marshal.Copy(p0, 0, __local1, p0.Length);
+glWindowPos3fvARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos3fvARB (const GLfloat *);'</para>
-        /// </summary>
-        public static void glWindowPos3fvARB(ref GLfloat p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(p0, __local1, false);
-            glWindowPos3fvARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos3fvARB (const GLfloat *);'</para>
+/// </summary>
+public static  void glWindowPos3fvARB(ref GLfloat p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(p0, __local1, false);
+glWindowPos3fvARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos3iARB (GLint, GLint, GLint);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWindowPos3iARB")]
-        public static extern void glWindowPos3iARB(GLint p0, GLint p1, GLint p2);
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos3iARB (GLint, GLint, GLint);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWindowPos3iARB")]
+public static extern void glWindowPos3iARB(GLint p0, GLint p1, GLint p2);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos3ivARB (const GLint *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWindowPos3ivARB")]
-        public static extern void glWindowPos3ivARB(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos3ivARB (const GLint *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWindowPos3ivARB")]
+public static extern void glWindowPos3ivARB(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos3ivARB (const GLint *);'</para>
-        /// </summary>
-        public static void glWindowPos3ivARB(GLint[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p0.Length);
-            Marshal.Copy(p0, 0, __local1, p0.Length);
-            glWindowPos3ivARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos3ivARB (const GLint *);'</para>
+/// </summary>
+public static  void glWindowPos3ivARB(GLint[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p0.Length);
+Marshal.Copy(p0, 0, __local1, p0.Length);
+glWindowPos3ivARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos3ivARB (const GLint *);'</para>
-        /// </summary>
-        public static void glWindowPos3ivARB(ref GLint p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local1, p0);
-            glWindowPos3ivARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos3ivARB (const GLint *);'</para>
+/// </summary>
+public static  void glWindowPos3ivARB(ref GLint p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local1, p0);
+glWindowPos3ivARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos3sARB (GLshort, GLshort, GLshort);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWindowPos3sARB")]
-        public static extern void glWindowPos3sARB(GLshort p0, GLshort p1, GLshort p2);
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos3sARB (GLshort, GLshort, GLshort);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWindowPos3sARB")]
+public static extern void glWindowPos3sARB(GLshort p0, GLshort p1, GLshort p2);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos3svARB (const GLshort *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glWindowPos3svARB")]
-        public static extern void glWindowPos3svARB(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos3svARB (const GLshort *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glWindowPos3svARB")]
+public static extern void glWindowPos3svARB(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos3svARB (const GLshort *);'</para>
-        /// </summary>
-        public static void glWindowPos3svARB(GLshort[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * p0.Length);
-            Marshal.Copy(p0, 0, __local1, p0.Length);
-            glWindowPos3svARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos3svARB (const GLshort *);'</para>
+/// </summary>
+public static  void glWindowPos3svARB(GLshort[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * p0.Length);
+Marshal.Copy(p0, 0, __local1, p0.Length);
+glWindowPos3svARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glWindowPos3svARB (const GLshort *);'</para>
-        /// </summary>
-        public static void glWindowPos3svARB(ref GLshort p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
-            Marshal.WriteInt16(__local1, p0);
-            glWindowPos3svARB(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glWindowPos3svARB (const GLshort *);'</para>
+/// </summary>
+public static  void glWindowPos3svARB(ref GLshort p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+Marshal.WriteInt16(__local1, p0);
+glWindowPos3svARB(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
 #endif
 
 #if GL_ARB_occlusion_query
-        /// <summary>
-        /// <para>Original signature is 'extern void glGenQueriesARB(GLsizei n, GLuint *ids);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGenQueriesARB")]
-        public static extern void glGenQueriesARB(GLsizei n, IntPtr ids);
+/// <summary>
+/// <para>Original signature is 'extern void glGenQueriesARB(GLsizei n, GLuint *ids);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGenQueriesARB")]
+public static extern void glGenQueriesARB(GLsizei n, IntPtr ids);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteQueriesARB(GLsizei n, const GLuint *ids);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDeleteQueriesARB")]
-        public static extern void glDeleteQueriesARB(GLsizei n, IntPtr ids);
+/// <summary>
+/// <para>Original signature is 'extern void glGenQueriesARB(GLsizei n, GLuint *ids);'</para>
+/// </summary>
+public static  void glGenQueriesARB(GLsizei n, out GLuint ids)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glGenQueriesARB(n, __local2);
+ids = (GLuint) Marshal.ReadInt32(__local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteQueriesARB(GLsizei n, const GLuint *ids);'</para>
-        /// </summary>
-        public static void glDeleteQueriesARB(GLsizei n, GLuint[] ids)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * ids.Length);
-            GLint[] __array2 = Array.ConvertAll(ids, item => (GLint)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glDeleteQueriesARB(n, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteQueriesARB(GLsizei n, const GLuint *ids);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDeleteQueriesARB")]
+public static extern void glDeleteQueriesARB(GLsizei n, IntPtr ids);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteQueriesARB(GLsizei n, const GLuint *ids);'</para>
-        /// </summary>
-        public static void glDeleteQueriesARB(GLsizei n, ref GLuint ids)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local2, (GLint)ids);
-            glDeleteQueriesARB(n, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteQueriesARB(GLsizei n, const GLuint *ids);'</para>
+/// </summary>
+public static  void glDeleteQueriesARB(GLsizei n, GLuint[] ids)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * ids.Length);
+GLint[] __array2 = Array.ConvertAll(ids, item => (GLint) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glDeleteQueriesARB(n, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLboolean glIsQueryARB(GLuint id);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glIsQueryARB")]
-        public static extern GLboolean glIsQueryARB(GLuint id);
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteQueriesARB(GLsizei n, const GLuint *ids);'</para>
+/// </summary>
+public static  void glDeleteQueriesARB(GLsizei n, ref GLuint ids)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local2, (GLint) ids);
+glDeleteQueriesARB(n, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glBeginQueryARB(GLenum target, GLuint id);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBeginQueryARB")]
-        public static extern void glBeginQueryARB(GLenum target, GLuint id);
+/// <summary>
+/// <para>Original signature is 'extern GLboolean glIsQueryARB(GLuint id);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glIsQueryARB")]
+public static extern GLboolean glIsQueryARB(GLuint id);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glEndQueryARB(GLenum target);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glEndQueryARB")]
-        public static extern void glEndQueryARB(GLenum target);
+/// <summary>
+/// <para>Original signature is 'extern void glBeginQueryARB(GLenum target, GLuint id);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBeginQueryARB")]
+public static extern void glBeginQueryARB(GLenum target, GLuint id);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetQueryivARB(GLenum target, GLenum pname, GLint *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetQueryivARB")]
-        public static extern void glGetQueryivARB(GLenum target, GLenum pname, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glEndQueryARB(GLenum target);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glEndQueryARB")]
+public static extern void glEndQueryARB(GLenum target);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetQueryObjectivARB(GLuint id, GLenum pname, GLint *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetQueryObjectivARB")]
-        public static extern void glGetQueryObjectivARB(GLuint id, GLenum pname, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glGetQueryivARB(GLenum target, GLenum pname, GLint *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetQueryivARB")]
+public static extern void glGetQueryivARB(GLenum target, GLenum pname, IntPtr @params);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetQueryObjectuivARB(GLuint id, GLenum pname, GLuint *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetQueryObjectuivARB")]
-        public static extern void glGetQueryObjectuivARB(GLuint id, GLenum pname, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glGetQueryivARB(GLenum target, GLenum pname, GLint *params);'</para>
+/// </summary>
+public static  void glGetQueryivARB(GLenum target, GLenum pname, out GLint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetQueryivARB(target, pname, __local3);
+@params = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetQueryObjectivARB(GLuint id, GLenum pname, GLint *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetQueryObjectivARB")]
+public static extern void glGetQueryObjectivARB(GLuint id, GLenum pname, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetQueryObjectivARB(GLuint id, GLenum pname, GLint *params);'</para>
+/// </summary>
+public static  void glGetQueryObjectivARB(GLuint id, GLenum pname, out GLint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetQueryObjectivARB(id, pname, __local3);
+@params = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetQueryObjectuivARB(GLuint id, GLenum pname, GLuint *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetQueryObjectuivARB")]
+public static extern void glGetQueryObjectuivARB(GLuint id, GLenum pname, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetQueryObjectuivARB(GLuint id, GLenum pname, GLuint *params);'</para>
+/// </summary>
+public static  void glGetQueryObjectuivARB(GLuint id, GLenum pname, out GLuint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glGetQueryObjectuivARB(id, pname, __local3);
+@params = (GLuint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
 #endif
 
 #if GL_ARB_point_parameters
-        /// <summary>
-        /// <para>Original signature is 'extern void glPointParameterfARB(GLenum pname, GLfloat param);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glPointParameterfARB")]
-        public static extern void glPointParameterfARB(GLenum pname, GLfloat param);
+/// <summary>
+/// <para>Original signature is 'extern void glPointParameterfARB(GLenum pname, GLfloat param);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glPointParameterfARB")]
+public static extern void glPointParameterfARB(GLenum pname, GLfloat param);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glPointParameterfvARB(GLenum pname, const GLfloat *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glPointParameterfvARB")]
-        public static extern void glPointParameterfvARB(GLenum pname, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glPointParameterfvARB(GLenum pname, const GLfloat *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glPointParameterfvARB")]
+public static extern void glPointParameterfvARB(GLenum pname, IntPtr @params);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glPointParameterfvARB(GLenum pname, const GLfloat *params);'</para>
-        /// </summary>
-        public static void glPointParameterfvARB(GLenum pname, GLfloat[] @params)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * @params.Length);
-            Marshal.Copy(@params, 0, __local2, @params.Length);
-            glPointParameterfvARB(pname, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glPointParameterfvARB(GLenum pname, const GLfloat *params);'</para>
+/// </summary>
+public static  void glPointParameterfvARB(GLenum pname, GLfloat[] @params)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * @params.Length);
+Marshal.Copy(@params, 0, __local2, @params.Length);
+glPointParameterfvARB(pname, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glPointParameterfvARB(GLenum pname, const GLfloat *params);'</para>
-        /// </summary>
-        public static void glPointParameterfvARB(GLenum pname, ref GLfloat @params)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(@params, __local2, false);
-            glPointParameterfvARB(pname, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glPointParameterfvARB(GLenum pname, const GLfloat *params);'</para>
+/// </summary>
+public static  void glPointParameterfvARB(GLenum pname, ref GLfloat @params)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(@params, __local2, false);
+glPointParameterfvARB(pname, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
 #endif
 
 #if GL_ARB_vertex_program
-        /// <summary>
-        /// <para>Original signature is 'extern void glBindProgramARB(GLenum target, GLuint program);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBindProgramARB")]
-        public static extern void glBindProgramARB(GLenum target, GLuint program);
+/// <summary>
+/// <para>Original signature is 'extern void glBindProgramARB(GLenum target, GLuint program);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBindProgramARB")]
+public static extern void glBindProgramARB(GLenum target, GLuint program);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteProgramsARB(GLsizei n, const GLuint *programs);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDeleteProgramsARB")]
-        public static extern void glDeleteProgramsARB(GLsizei n, IntPtr programs);
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteProgramsARB(GLsizei n, const GLuint *programs);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDeleteProgramsARB")]
+public static extern void glDeleteProgramsARB(GLsizei n, IntPtr programs);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteProgramsARB(GLsizei n, const GLuint *programs);'</para>
-        /// </summary>
-        public static void glDeleteProgramsARB(GLsizei n, GLuint[] programs)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * programs.Length);
-            GLint[] __array2 = Array.ConvertAll(programs, item => (GLint)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glDeleteProgramsARB(n, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteProgramsARB(GLsizei n, const GLuint *programs);'</para>
+/// </summary>
+public static  void glDeleteProgramsARB(GLsizei n, GLuint[] programs)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * programs.Length);
+GLint[] __array2 = Array.ConvertAll(programs, item => (GLint) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glDeleteProgramsARB(n, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteProgramsARB(GLsizei n, const GLuint *programs);'</para>
-        /// </summary>
-        public static void glDeleteProgramsARB(GLsizei n, ref GLuint programs)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local2, (GLint)programs);
-            glDeleteProgramsARB(n, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteProgramsARB(GLsizei n, const GLuint *programs);'</para>
+/// </summary>
+public static  void glDeleteProgramsARB(GLsizei n, ref GLuint programs)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local2, (GLint) programs);
+glDeleteProgramsARB(n, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGenProgramsARB(GLsizei n, GLuint *programs);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGenProgramsARB")]
-        public static extern void glGenProgramsARB(GLsizei n, IntPtr programs);
+/// <summary>
+/// <para>Original signature is 'extern void glGenProgramsARB(GLsizei n, GLuint *programs);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGenProgramsARB")]
+public static extern void glGenProgramsARB(GLsizei n, IntPtr programs);
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLboolean glIsProgramARB(GLuint program);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glIsProgramARB")]
-        public static extern GLboolean glIsProgramARB(GLuint program);
+/// <summary>
+/// <para>Original signature is 'extern void glGenProgramsARB(GLsizei n, GLuint *programs);'</para>
+/// </summary>
+public static  void glGenProgramsARB(GLsizei n, out GLuint programs)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glGenProgramsARB(n, __local2);
+programs = (GLuint) Marshal.ReadInt32(__local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramEnvParameter4dARB(GLenum target, GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glProgramEnvParameter4dARB")]
-        public static extern void glProgramEnvParameter4dARB(GLenum target, GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramEnvParameter4dvARB(GLenum target, GLuint index, const GLdouble *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glProgramEnvParameter4dvARB")]
-        public static extern void glProgramEnvParameter4dvARB(GLenum target, GLuint index, IntPtr @params);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramEnvParameter4dvARB(GLenum target, GLuint index, const GLdouble *params);'</para>
-        /// </summary>
-        public static void glProgramEnvParameter4dvARB(GLenum target, GLuint index, GLdouble[] @params)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * @params.Length);
-            Marshal.Copy(@params, 0, __local3, @params.Length);
-            glProgramEnvParameter4dvARB(target, index, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramEnvParameter4dvARB(GLenum target, GLuint index, const GLdouble *params);'</para>
-        /// </summary>
-        public static void glProgramEnvParameter4dvARB(GLenum target, GLuint index, ref GLdouble @params)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
-            Marshal.StructureToPtr(@params, __local3, false);
-            glProgramEnvParameter4dvARB(target, index, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramEnvParameter4fARB(GLenum target, GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glProgramEnvParameter4fARB")]
-        public static extern void glProgramEnvParameter4fARB(GLenum target, GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramEnvParameter4fvARB(GLenum target, GLuint index, const GLfloat *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glProgramEnvParameter4fvARB")]
-        public static extern void glProgramEnvParameter4fvARB(GLenum target, GLuint index, IntPtr @params);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramEnvParameter4fvARB(GLenum target, GLuint index, const GLfloat *params);'</para>
-        /// </summary>
-        public static void glProgramEnvParameter4fvARB(GLenum target, GLuint index, GLfloat[] @params)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * @params.Length);
-            Marshal.Copy(@params, 0, __local3, @params.Length);
-            glProgramEnvParameter4fvARB(target, index, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramEnvParameter4fvARB(GLenum target, GLuint index, const GLfloat *params);'</para>
-        /// </summary>
-        public static void glProgramEnvParameter4fvARB(GLenum target, GLuint index, ref GLfloat @params)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(@params, __local3, false);
-            glProgramEnvParameter4fvARB(target, index, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramLocalParameter4dARB(GLenum target, GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glProgramLocalParameter4dARB")]
-        public static extern void glProgramLocalParameter4dARB(GLenum target, GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramLocalParameter4dvARB(GLenum target, GLuint index, const GLdouble *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glProgramLocalParameter4dvARB")]
-        public static extern void glProgramLocalParameter4dvARB(GLenum target, GLuint index, IntPtr @params);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramLocalParameter4dvARB(GLenum target, GLuint index, const GLdouble *params);'</para>
-        /// </summary>
-        public static void glProgramLocalParameter4dvARB(GLenum target, GLuint index, GLdouble[] @params)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * @params.Length);
-            Marshal.Copy(@params, 0, __local3, @params.Length);
-            glProgramLocalParameter4dvARB(target, index, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramLocalParameter4dvARB(GLenum target, GLuint index, const GLdouble *params);'</para>
-        /// </summary>
-        public static void glProgramLocalParameter4dvARB(GLenum target, GLuint index, ref GLdouble @params)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
-            Marshal.StructureToPtr(@params, __local3, false);
-            glProgramLocalParameter4dvARB(target, index, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramLocalParameter4fARB(GLenum target, GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glProgramLocalParameter4fARB")]
-        public static extern void glProgramLocalParameter4fARB(GLenum target, GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramLocalParameter4fvARB(GLenum target, GLuint index, const GLfloat *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glProgramLocalParameter4fvARB")]
-        public static extern void glProgramLocalParameter4fvARB(GLenum target, GLuint index, IntPtr @params);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramLocalParameter4fvARB(GLenum target, GLuint index, const GLfloat *params);'</para>
-        /// </summary>
-        public static void glProgramLocalParameter4fvARB(GLenum target, GLuint index, GLfloat[] @params)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * @params.Length);
-            Marshal.Copy(@params, 0, __local3, @params.Length);
-            glProgramLocalParameter4fvARB(target, index, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramLocalParameter4fvARB(GLenum target, GLuint index, const GLfloat *params);'</para>
-        /// </summary>
-        public static void glProgramLocalParameter4fvARB(GLenum target, GLuint index, ref GLfloat @params)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(@params, __local3, false);
-            glProgramLocalParameter4fvARB(target, index, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern GLboolean glIsProgramARB(GLuint program);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glIsProgramARB")]
+public static extern GLboolean glIsProgramARB(GLuint program);
 
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetProgramEnvParameterdvARB(GLenum target, GLuint index, GLdouble *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetProgramEnvParameterdvARB")]
-        public static extern void glGetProgramEnvParameterdvARB(GLenum target, GLuint index, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glProgramEnvParameter4dARB(GLenum target, GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glProgramEnvParameter4dARB")]
+public static extern void glProgramEnvParameter4dARB(GLenum target, GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetProgramEnvParameterfvARB(GLenum target, GLuint index, GLfloat *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetProgramEnvParameterfvARB")]
-        public static extern void glGetProgramEnvParameterfvARB(GLenum target, GLuint index, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glProgramEnvParameter4dvARB(GLenum target, GLuint index, const GLdouble *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glProgramEnvParameter4dvARB")]
+public static extern void glProgramEnvParameter4dvARB(GLenum target, GLuint index, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glProgramEnvParameter4dvARB(GLenum target, GLuint index, const GLdouble *params);'</para>
+/// </summary>
+public static  void glProgramEnvParameter4dvARB(GLenum target, GLuint index, GLdouble[] @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * @params.Length);
+Marshal.Copy(@params, 0, __local3, @params.Length);
+glProgramEnvParameter4dvARB(target, index, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glProgramEnvParameter4dvARB(GLenum target, GLuint index, const GLdouble *params);'</para>
+/// </summary>
+public static  void glProgramEnvParameter4dvARB(GLenum target, GLuint index, ref GLdouble @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+Marshal.StructureToPtr(@params, __local3, false);
+glProgramEnvParameter4dvARB(target, index, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glProgramEnvParameter4fARB(GLenum target, GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glProgramEnvParameter4fARB")]
+public static extern void glProgramEnvParameter4fARB(GLenum target, GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
+
+/// <summary>
+/// <para>Original signature is 'extern void glProgramEnvParameter4fvARB(GLenum target, GLuint index, const GLfloat *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glProgramEnvParameter4fvARB")]
+public static extern void glProgramEnvParameter4fvARB(GLenum target, GLuint index, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glProgramEnvParameter4fvARB(GLenum target, GLuint index, const GLfloat *params);'</para>
+/// </summary>
+public static  void glProgramEnvParameter4fvARB(GLenum target, GLuint index, GLfloat[] @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * @params.Length);
+Marshal.Copy(@params, 0, __local3, @params.Length);
+glProgramEnvParameter4fvARB(target, index, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glProgramEnvParameter4fvARB(GLenum target, GLuint index, const GLfloat *params);'</para>
+/// </summary>
+public static  void glProgramEnvParameter4fvARB(GLenum target, GLuint index, ref GLfloat @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(@params, __local3, false);
+glProgramEnvParameter4fvARB(target, index, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glProgramLocalParameter4dARB(GLenum target, GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glProgramLocalParameter4dARB")]
+public static extern void glProgramLocalParameter4dARB(GLenum target, GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);
+
+/// <summary>
+/// <para>Original signature is 'extern void glProgramLocalParameter4dvARB(GLenum target, GLuint index, const GLdouble *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glProgramLocalParameter4dvARB")]
+public static extern void glProgramLocalParameter4dvARB(GLenum target, GLuint index, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glProgramLocalParameter4dvARB(GLenum target, GLuint index, const GLdouble *params);'</para>
+/// </summary>
+public static  void glProgramLocalParameter4dvARB(GLenum target, GLuint index, GLdouble[] @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * @params.Length);
+Marshal.Copy(@params, 0, __local3, @params.Length);
+glProgramLocalParameter4dvARB(target, index, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glProgramLocalParameter4dvARB(GLenum target, GLuint index, const GLdouble *params);'</para>
+/// </summary>
+public static  void glProgramLocalParameter4dvARB(GLenum target, GLuint index, ref GLdouble @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+Marshal.StructureToPtr(@params, __local3, false);
+glProgramLocalParameter4dvARB(target, index, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glProgramLocalParameter4fARB(GLenum target, GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glProgramLocalParameter4fARB")]
+public static extern void glProgramLocalParameter4fARB(GLenum target, GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
+
+/// <summary>
+/// <para>Original signature is 'extern void glProgramLocalParameter4fvARB(GLenum target, GLuint index, const GLfloat *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glProgramLocalParameter4fvARB")]
+public static extern void glProgramLocalParameter4fvARB(GLenum target, GLuint index, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glProgramLocalParameter4fvARB(GLenum target, GLuint index, const GLfloat *params);'</para>
+/// </summary>
+public static  void glProgramLocalParameter4fvARB(GLenum target, GLuint index, GLfloat[] @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * @params.Length);
+Marshal.Copy(@params, 0, __local3, @params.Length);
+glProgramLocalParameter4fvARB(target, index, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glProgramLocalParameter4fvARB(GLenum target, GLuint index, const GLfloat *params);'</para>
+/// </summary>
+public static  void glProgramLocalParameter4fvARB(GLenum target, GLuint index, ref GLfloat @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(@params, __local3, false);
+glProgramLocalParameter4fvARB(target, index, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetProgramEnvParameterdvARB(GLenum target, GLuint index, GLdouble *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetProgramEnvParameterdvARB")]
+public static extern void glGetProgramEnvParameterdvARB(GLenum target, GLuint index, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetProgramEnvParameterdvARB(GLenum target, GLuint index, GLdouble *params);'</para>
+/// </summary>
+public static  void glGetProgramEnvParameterdvARB(GLenum target, GLuint index, out GLdouble @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+glGetProgramEnvParameterdvARB(target, index, __local3);
+@params = (GLdouble) Marshal.PtrToStructure(__local3, typeof(GLdouble));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetProgramEnvParameterfvARB(GLenum target, GLuint index, GLfloat *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetProgramEnvParameterfvARB")]
+public static extern void glGetProgramEnvParameterfvARB(GLenum target, GLuint index, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetProgramEnvParameterfvARB(GLenum target, GLuint index, GLfloat *params);'</para>
+/// </summary>
+public static  void glGetProgramEnvParameterfvARB(GLenum target, GLuint index, out GLfloat @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetProgramEnvParameterfvARB(target, index, __local3);
+@params = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
 
 #if GL_EXT_gpu_program_parameters
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramEnvParameters4fvEXT(GLenum target, GLuint index, GLsizei count, const GLfloat *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glProgramEnvParameters4fvEXT")]
-        public static extern void glProgramEnvParameters4fvEXT(GLenum target, GLuint index, GLsizei count, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glProgramEnvParameters4fvEXT(GLenum target, GLuint index, GLsizei count, const GLfloat *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glProgramEnvParameters4fvEXT")]
+public static extern void glProgramEnvParameters4fvEXT(GLenum target, GLuint index, GLsizei count, IntPtr @params);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramEnvParameters4fvEXT(GLenum target, GLuint index, GLsizei count, const GLfloat *params);'</para>
-        /// </summary>
-        public static void glProgramEnvParameters4fvEXT(GLenum target, GLuint index, GLsizei count, GLfloat[] @params)
-        {
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * @params.Length);
-            Marshal.Copy(@params, 0, __local4, @params.Length);
-            glProgramEnvParameters4fvEXT(target, index, count, __local4);
-            Marshal.FreeHGlobal(__local4);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glProgramEnvParameters4fvEXT(GLenum target, GLuint index, GLsizei count, const GLfloat *params);'</para>
+/// </summary>
+public static  void glProgramEnvParameters4fvEXT(GLenum target, GLuint index, GLsizei count, GLfloat[] @params)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * @params.Length);
+Marshal.Copy(@params, 0, __local4, @params.Length);
+glProgramEnvParameters4fvEXT(target, index, count, __local4);
+Marshal.FreeHGlobal(__local4);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramEnvParameters4fvEXT(GLenum target, GLuint index, GLsizei count, const GLfloat *params);'</para>
-        /// </summary>
-        public static void glProgramEnvParameters4fvEXT(GLenum target, GLuint index, GLsizei count, ref GLfloat @params)
-        {
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(@params, __local4, false);
-            glProgramEnvParameters4fvEXT(target, index, count, __local4);
-            Marshal.FreeHGlobal(__local4);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glProgramEnvParameters4fvEXT(GLenum target, GLuint index, GLsizei count, const GLfloat *params);'</para>
+/// </summary>
+public static  void glProgramEnvParameters4fvEXT(GLenum target, GLuint index, GLsizei count, ref GLfloat @params)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(@params, __local4, false);
+glProgramEnvParameters4fvEXT(target, index, count, __local4);
+Marshal.FreeHGlobal(__local4);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramLocalParameters4fvEXT(GLenum target, GLuint index, GLsizei count, const GLfloat *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glProgramLocalParameters4fvEXT")]
-        public static extern void glProgramLocalParameters4fvEXT(GLenum target, GLuint index, GLsizei count, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glProgramLocalParameters4fvEXT(GLenum target, GLuint index, GLsizei count, const GLfloat *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glProgramLocalParameters4fvEXT")]
+public static extern void glProgramLocalParameters4fvEXT(GLenum target, GLuint index, GLsizei count, IntPtr @params);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramLocalParameters4fvEXT(GLenum target, GLuint index, GLsizei count, const GLfloat *params);'</para>
-        /// </summary>
-        public static void glProgramLocalParameters4fvEXT(GLenum target, GLuint index, GLsizei count, GLfloat[] @params)
-        {
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * @params.Length);
-            Marshal.Copy(@params, 0, __local4, @params.Length);
-            glProgramLocalParameters4fvEXT(target, index, count, __local4);
-            Marshal.FreeHGlobal(__local4);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glProgramLocalParameters4fvEXT(GLenum target, GLuint index, GLsizei count, const GLfloat *params);'</para>
+/// </summary>
+public static  void glProgramLocalParameters4fvEXT(GLenum target, GLuint index, GLsizei count, GLfloat[] @params)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * @params.Length);
+Marshal.Copy(@params, 0, __local4, @params.Length);
+glProgramLocalParameters4fvEXT(target, index, count, __local4);
+Marshal.FreeHGlobal(__local4);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramLocalParameters4fvEXT(GLenum target, GLuint index, GLsizei count, const GLfloat *params);'</para>
-        /// </summary>
-        public static void glProgramLocalParameters4fvEXT(GLenum target, GLuint index, GLsizei count, ref GLfloat @params)
-        {
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(@params, __local4, false);
-            glProgramLocalParameters4fvEXT(target, index, count, __local4);
-            Marshal.FreeHGlobal(__local4);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glProgramLocalParameters4fvEXT(GLenum target, GLuint index, GLsizei count, const GLfloat *params);'</para>
+/// </summary>
+public static  void glProgramLocalParameters4fvEXT(GLenum target, GLuint index, GLsizei count, ref GLfloat @params)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(@params, __local4, false);
+glProgramLocalParameters4fvEXT(target, index, count, __local4);
+Marshal.FreeHGlobal(__local4);
+}
 
 #endif
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetProgramLocalParameterdvARB(GLenum target, GLuint index, GLdouble *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetProgramLocalParameterdvARB")]
-        public static extern void glGetProgramLocalParameterdvARB(GLenum target, GLuint index, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glGetProgramLocalParameterdvARB(GLenum target, GLuint index, GLdouble *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetProgramLocalParameterdvARB")]
+public static extern void glGetProgramLocalParameterdvARB(GLenum target, GLuint index, IntPtr @params);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetProgramLocalParameterfvARB(GLenum target, GLuint index, GLfloat *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetProgramLocalParameterfvARB")]
-        public static extern void glGetProgramLocalParameterfvARB(GLenum target, GLuint index, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glGetProgramLocalParameterdvARB(GLenum target, GLuint index, GLdouble *params);'</para>
+/// </summary>
+public static  void glGetProgramLocalParameterdvARB(GLenum target, GLuint index, out GLdouble @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+glGetProgramLocalParameterdvARB(target, index, __local3);
+@params = (GLdouble) Marshal.PtrToStructure(__local3, typeof(GLdouble));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetProgramLocalParameterfvARB(GLenum target, GLuint index, GLfloat *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetProgramLocalParameterfvARB")]
+public static extern void glGetProgramLocalParameterfvARB(GLenum target, GLuint index, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetProgramLocalParameterfvARB(GLenum target, GLuint index, GLfloat *params);'</para>
+/// </summary>
+public static  void glGetProgramLocalParameterfvARB(GLenum target, GLuint index, out GLfloat @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetProgramLocalParameterfvARB(target, index, __local3);
+@params = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
 
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramStringARB(GLenum target, GLenum format, GLsizei len, const GLvoid *string);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glProgramStringARB")]
-        public static extern void glProgramStringARB(GLenum target, GLenum format, GLsizei len, IntPtr @string);
+/// <summary>
+/// <para>Original signature is 'extern void glProgramStringARB(GLenum target, GLenum format, GLsizei len, const GLvoid *string);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glProgramStringARB")]
+public static extern void glProgramStringARB(GLenum target, GLenum format, GLsizei len, IntPtr @string);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetProgramStringARB(GLenum target, GLenum pname, GLvoid *string);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetProgramStringARB")]
-        public static extern void glGetProgramStringARB(GLenum target, GLenum pname, IntPtr @string);
+/// <summary>
+/// <para>Original signature is 'extern void glGetProgramStringARB(GLenum target, GLenum pname, GLvoid *string);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetProgramStringARB")]
+public static extern void glGetProgramStringARB(GLenum target, GLenum pname, IntPtr @string);
 
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetProgramivARB(GLenum target, GLenum pname, GLint *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetProgramivARB")]
-        public static extern void glGetProgramivARB(GLenum target, GLenum pname, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glGetProgramivARB(GLenum target, GLenum pname, GLint *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetProgramivARB")]
+public static extern void glGetProgramivARB(GLenum target, GLenum pname, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetProgramivARB(GLenum target, GLenum pname, GLint *params);'</para>
+/// </summary>
+public static  void glGetProgramivARB(GLenum target, GLenum pname, out GLint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetProgramivARB(target, pname, __local3);
+@params = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
 #endif
 
 
 #if GL_ARB_vertex_shader || GL_ARB_vertex_program
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib1dARB(GLuint index, GLdouble x);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib1dARB")]
-        public static extern void glVertexAttrib1dARB(GLuint index, GLdouble x);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib1dvARB(GLuint index, const GLdouble *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib1dvARB")]
-        public static extern void glVertexAttrib1dvARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib1dvARB(GLuint index, const GLdouble *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib1dvARB(GLuint index, GLdouble[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttrib1dvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib1dvARB(GLuint index, const GLdouble *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib1dvARB(GLuint index, ref GLdouble v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
-            Marshal.StructureToPtr(v, __local2, false);
-            glVertexAttrib1dvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib1fARB(GLuint index, GLfloat x);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib1fARB")]
-        public static extern void glVertexAttrib1fARB(GLuint index, GLfloat x);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib1fvARB(GLuint index, const GLfloat *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib1fvARB")]
-        public static extern void glVertexAttrib1fvARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib1fvARB(GLuint index, const GLfloat *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib1fvARB(GLuint index, GLfloat[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttrib1fvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib1fvARB(GLuint index, const GLfloat *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib1fvARB(GLuint index, ref GLfloat v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(v, __local2, false);
-            glVertexAttrib1fvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib1sARB(GLuint index, GLshort x);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib1sARB")]
-        public static extern void glVertexAttrib1sARB(GLuint index, GLshort x);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib1svARB(GLuint index, const GLshort *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib1svARB")]
-        public static extern void glVertexAttrib1svARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib1svARB(GLuint index, const GLshort *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib1svARB(GLuint index, GLshort[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttrib1svARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib1svARB(GLuint index, const GLshort *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib1svARB(GLuint index, ref GLshort v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
-            Marshal.WriteInt16(__local2, v);
-            glVertexAttrib1svARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib2dARB(GLuint index, GLdouble x, GLdouble y);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib2dARB")]
-        public static extern void glVertexAttrib2dARB(GLuint index, GLdouble x, GLdouble y);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib2dvARB(GLuint index, const GLdouble *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib2dvARB")]
-        public static extern void glVertexAttrib2dvARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib2dvARB(GLuint index, const GLdouble *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib2dvARB(GLuint index, GLdouble[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttrib2dvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib2dvARB(GLuint index, const GLdouble *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib2dvARB(GLuint index, ref GLdouble v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
-            Marshal.StructureToPtr(v, __local2, false);
-            glVertexAttrib2dvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib2fARB(GLuint index, GLfloat x, GLfloat y);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib2fARB")]
-        public static extern void glVertexAttrib2fARB(GLuint index, GLfloat x, GLfloat y);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib2fvARB(GLuint index, const GLfloat *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib2fvARB")]
-        public static extern void glVertexAttrib2fvARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib2fvARB(GLuint index, const GLfloat *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib2fvARB(GLuint index, GLfloat[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttrib2fvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib2fvARB(GLuint index, const GLfloat *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib2fvARB(GLuint index, ref GLfloat v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(v, __local2, false);
-            glVertexAttrib2fvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib2sARB(GLuint index, GLshort x, GLshort y);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib2sARB")]
-        public static extern void glVertexAttrib2sARB(GLuint index, GLshort x, GLshort y);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib2svARB(GLuint index, const GLshort *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib2svARB")]
-        public static extern void glVertexAttrib2svARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib2svARB(GLuint index, const GLshort *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib2svARB(GLuint index, GLshort[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttrib2svARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib2svARB(GLuint index, const GLshort *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib2svARB(GLuint index, ref GLshort v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
-            Marshal.WriteInt16(__local2, v);
-            glVertexAttrib2svARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib3dARB(GLuint index, GLdouble x, GLdouble y, GLdouble z);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib3dARB")]
-        public static extern void glVertexAttrib3dARB(GLuint index, GLdouble x, GLdouble y, GLdouble z);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib3dvARB(GLuint index, const GLdouble *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib3dvARB")]
-        public static extern void glVertexAttrib3dvARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib3dvARB(GLuint index, const GLdouble *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib3dvARB(GLuint index, GLdouble[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttrib3dvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib3dvARB(GLuint index, const GLdouble *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib3dvARB(GLuint index, ref GLdouble v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
-            Marshal.StructureToPtr(v, __local2, false);
-            glVertexAttrib3dvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib3fARB(GLuint index, GLfloat x, GLfloat y, GLfloat z);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib3fARB")]
-        public static extern void glVertexAttrib3fARB(GLuint index, GLfloat x, GLfloat y, GLfloat z);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib3fvARB(GLuint index, const GLfloat *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib3fvARB")]
-        public static extern void glVertexAttrib3fvARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib3fvARB(GLuint index, const GLfloat *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib3fvARB(GLuint index, GLfloat[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttrib3fvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib3fvARB(GLuint index, const GLfloat *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib3fvARB(GLuint index, ref GLfloat v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(v, __local2, false);
-            glVertexAttrib3fvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib3sARB(GLuint index, GLshort x, GLshort y, GLshort z);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib3sARB")]
-        public static extern void glVertexAttrib3sARB(GLuint index, GLshort x, GLshort y, GLshort z);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib3svARB(GLuint index, const GLshort *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib3svARB")]
-        public static extern void glVertexAttrib3svARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib3svARB(GLuint index, const GLshort *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib3svARB(GLuint index, GLshort[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttrib3svARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib3svARB(GLuint index, const GLshort *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib3svARB(GLuint index, ref GLshort v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
-            Marshal.WriteInt16(__local2, v);
-            glVertexAttrib3svARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4NbvARB(GLuint index, const GLbyte *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib4NbvARB")]
-        public static extern void glVertexAttrib4NbvARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4NbvARB(GLuint index, const GLbyte *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4NbvARB(GLuint index, GLbyte[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)) * v.Length);
-            GLubyte[] __array2 = Array.ConvertAll(v, item => (GLubyte)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glVertexAttrib4NbvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4NbvARB(GLuint index, const GLbyte *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4NbvARB(GLuint index, ref GLbyte v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)));
-            Marshal.WriteByte(__local2, (GLubyte)v);
-            glVertexAttrib4NbvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4NivARB(GLuint index, const GLint *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib4NivARB")]
-        public static extern void glVertexAttrib4NivARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4NivARB(GLuint index, const GLint *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4NivARB(GLuint index, GLint[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttrib4NivARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4NivARB(GLuint index, const GLint *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4NivARB(GLuint index, ref GLint v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local2, v);
-            glVertexAttrib4NivARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4NsvARB(GLuint index, const GLshort *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib4NsvARB")]
-        public static extern void glVertexAttrib4NsvARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4NsvARB(GLuint index, const GLshort *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4NsvARB(GLuint index, GLshort[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttrib4NsvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4NsvARB(GLuint index, const GLshort *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4NsvARB(GLuint index, ref GLshort v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
-            Marshal.WriteInt16(__local2, v);
-            glVertexAttrib4NsvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4NubARB(GLuint index, GLubyte x, GLubyte y, GLubyte z, GLubyte w);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib4NubARB")]
-        public static extern void glVertexAttrib4NubARB(GLuint index, GLubyte x, GLubyte y, GLubyte z, GLubyte w);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4NubvARB(GLuint index, const GLubyte *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib4NubvARB")]
-        public static extern void glVertexAttrib4NubvARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4NubvARB(GLuint index, const GLubyte *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4NubvARB(GLuint index, GLubyte[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttrib4NubvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4NubvARB(GLuint index, const GLubyte *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4NubvARB(GLuint index, ref GLubyte v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)));
-            Marshal.WriteByte(__local2, v);
-            glVertexAttrib4NubvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4NuivARB(GLuint index, const GLuint *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib4NuivARB")]
-        public static extern void glVertexAttrib4NuivARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4NuivARB(GLuint index, const GLuint *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4NuivARB(GLuint index, GLuint[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * v.Length);
-            GLint[] __array2 = Array.ConvertAll(v, item => (GLint)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glVertexAttrib4NuivARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4NuivARB(GLuint index, const GLuint *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4NuivARB(GLuint index, ref GLuint v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local2, (GLint)v);
-            glVertexAttrib4NuivARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4NusvARB(GLuint index, const GLushort *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib4NusvARB")]
-        public static extern void glVertexAttrib4NusvARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4NusvARB(GLuint index, const GLushort *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4NusvARB(GLuint index, GLushort[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)) * v.Length);
-            GLshort[] __array2 = Array.ConvertAll(v, item => (GLshort)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glVertexAttrib4NusvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4NusvARB(GLuint index, const GLushort *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4NusvARB(GLuint index, ref GLushort v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)));
-            Marshal.WriteInt16(__local2, (GLshort)v);
-            glVertexAttrib4NusvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4bvARB(GLuint index, const GLbyte *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib4bvARB")]
-        public static extern void glVertexAttrib4bvARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4bvARB(GLuint index, const GLbyte *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4bvARB(GLuint index, GLbyte[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)) * v.Length);
-            GLubyte[] __array2 = Array.ConvertAll(v, item => (GLubyte)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glVertexAttrib4bvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4bvARB(GLuint index, const GLbyte *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4bvARB(GLuint index, ref GLbyte v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)));
-            Marshal.WriteByte(__local2, (GLubyte)v);
-            glVertexAttrib4bvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4dARB(GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib4dARB")]
-        public static extern void glVertexAttrib4dARB(GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4dvARB(GLuint index, const GLdouble *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib4dvARB")]
-        public static extern void glVertexAttrib4dvARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4dvARB(GLuint index, const GLdouble *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4dvARB(GLuint index, GLdouble[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttrib4dvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4dvARB(GLuint index, const GLdouble *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4dvARB(GLuint index, ref GLdouble v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
-            Marshal.StructureToPtr(v, __local2, false);
-            glVertexAttrib4dvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4fARB(GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib4fARB")]
-        public static extern void glVertexAttrib4fARB(GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4fvARB(GLuint index, const GLfloat *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib4fvARB")]
-        public static extern void glVertexAttrib4fvARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4fvARB(GLuint index, const GLfloat *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4fvARB(GLuint index, GLfloat[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttrib4fvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4fvARB(GLuint index, const GLfloat *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4fvARB(GLuint index, ref GLfloat v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(v, __local2, false);
-            glVertexAttrib4fvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4ivARB(GLuint index, const GLint *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib4ivARB")]
-        public static extern void glVertexAttrib4ivARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4ivARB(GLuint index, const GLint *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4ivARB(GLuint index, GLint[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttrib4ivARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4ivARB(GLuint index, const GLint *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4ivARB(GLuint index, ref GLint v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local2, v);
-            glVertexAttrib4ivARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4sARB(GLuint index, GLshort x, GLshort y, GLshort z, GLshort w);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib4sARB")]
-        public static extern void glVertexAttrib4sARB(GLuint index, GLshort x, GLshort y, GLshort z, GLshort w);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4svARB(GLuint index, const GLshort *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib4svARB")]
-        public static extern void glVertexAttrib4svARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4svARB(GLuint index, const GLshort *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4svARB(GLuint index, GLshort[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttrib4svARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4svARB(GLuint index, const GLshort *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4svARB(GLuint index, ref GLshort v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
-            Marshal.WriteInt16(__local2, v);
-            glVertexAttrib4svARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4ubvARB(GLuint index, const GLubyte *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib4ubvARB")]
-        public static extern void glVertexAttrib4ubvARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4ubvARB(GLuint index, const GLubyte *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4ubvARB(GLuint index, GLubyte[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttrib4ubvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4ubvARB(GLuint index, const GLubyte *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4ubvARB(GLuint index, ref GLubyte v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)));
-            Marshal.WriteByte(__local2, v);
-            glVertexAttrib4ubvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4uivARB(GLuint index, const GLuint *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib4uivARB")]
-        public static extern void glVertexAttrib4uivARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4uivARB(GLuint index, const GLuint *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4uivARB(GLuint index, GLuint[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * v.Length);
-            GLint[] __array2 = Array.ConvertAll(v, item => (GLint)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glVertexAttrib4uivARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4uivARB(GLuint index, const GLuint *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4uivARB(GLuint index, ref GLuint v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local2, (GLint)v);
-            glVertexAttrib4uivARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4usvARB(GLuint index, const GLushort *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttrib4usvARB")]
-        public static extern void glVertexAttrib4usvARB(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4usvARB(GLuint index, const GLushort *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4usvARB(GLuint index, GLushort[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)) * v.Length);
-            GLshort[] __array2 = Array.ConvertAll(v, item => (GLshort)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glVertexAttrib4usvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttrib4usvARB(GLuint index, const GLushort *v);'</para>
-        /// </summary>
-        public static void glVertexAttrib4usvARB(GLuint index, ref GLushort v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)));
-            Marshal.WriteInt16(__local2, (GLshort)v);
-            glVertexAttrib4usvARB(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribPointerARB(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid *pointer);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribPointerARB")]
-        public static extern void glVertexAttribPointerARB(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, IntPtr pointer);
-
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glDisableVertexAttribArrayARB(GLuint index);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDisableVertexAttribArrayARB")]
-        public static extern void glDisableVertexAttribArrayARB(GLuint index);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glEnableVertexAttribArrayARB(GLuint index);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glEnableVertexAttribArrayARB")]
-        public static extern void glEnableVertexAttribArrayARB(GLuint index);
-
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetVertexAttribPointervARB(GLuint index, GLenum pname, GLvoid **pointer);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetVertexAttribPointervARB")]
-        public static extern void glGetVertexAttribPointervARB(GLuint index, GLenum pname, IntPtr pointer);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetVertexAttribdvARB(GLuint index, GLenum pname, GLdouble *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetVertexAttribdvARB")]
-        public static extern void glGetVertexAttribdvARB(GLuint index, GLenum pname, IntPtr @params);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetVertexAttribfvARB(GLuint index, GLenum pname, GLfloat *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetVertexAttribfvARB")]
-        public static extern void glGetVertexAttribfvARB(GLuint index, GLenum pname, IntPtr @params);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetVertexAttribivARB(GLuint index, GLenum pname, GLint *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetVertexAttribivARB")]
-        public static extern void glGetVertexAttribivARB(GLuint index, GLenum pname, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib1dARB(GLuint index, GLdouble x);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib1dARB")]
+public static extern void glVertexAttrib1dARB(GLuint index, GLdouble x);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib1dvARB(GLuint index, const GLdouble *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib1dvARB")]
+public static extern void glVertexAttrib1dvARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib1dvARB(GLuint index, const GLdouble *v);'</para>
+/// </summary>
+public static  void glVertexAttrib1dvARB(GLuint index, GLdouble[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttrib1dvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib1dvARB(GLuint index, const GLdouble *v);'</para>
+/// </summary>
+public static  void glVertexAttrib1dvARB(GLuint index, ref GLdouble v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+Marshal.StructureToPtr(v, __local2, false);
+glVertexAttrib1dvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib1fARB(GLuint index, GLfloat x);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib1fARB")]
+public static extern void glVertexAttrib1fARB(GLuint index, GLfloat x);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib1fvARB(GLuint index, const GLfloat *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib1fvARB")]
+public static extern void glVertexAttrib1fvARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib1fvARB(GLuint index, const GLfloat *v);'</para>
+/// </summary>
+public static  void glVertexAttrib1fvARB(GLuint index, GLfloat[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttrib1fvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib1fvARB(GLuint index, const GLfloat *v);'</para>
+/// </summary>
+public static  void glVertexAttrib1fvARB(GLuint index, ref GLfloat v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(v, __local2, false);
+glVertexAttrib1fvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib1sARB(GLuint index, GLshort x);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib1sARB")]
+public static extern void glVertexAttrib1sARB(GLuint index, GLshort x);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib1svARB(GLuint index, const GLshort *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib1svARB")]
+public static extern void glVertexAttrib1svARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib1svARB(GLuint index, const GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttrib1svARB(GLuint index, GLshort[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttrib1svARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib1svARB(GLuint index, const GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttrib1svARB(GLuint index, ref GLshort v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+Marshal.WriteInt16(__local2, v);
+glVertexAttrib1svARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib2dARB(GLuint index, GLdouble x, GLdouble y);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib2dARB")]
+public static extern void glVertexAttrib2dARB(GLuint index, GLdouble x, GLdouble y);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib2dvARB(GLuint index, const GLdouble *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib2dvARB")]
+public static extern void glVertexAttrib2dvARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib2dvARB(GLuint index, const GLdouble *v);'</para>
+/// </summary>
+public static  void glVertexAttrib2dvARB(GLuint index, GLdouble[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttrib2dvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib2dvARB(GLuint index, const GLdouble *v);'</para>
+/// </summary>
+public static  void glVertexAttrib2dvARB(GLuint index, ref GLdouble v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+Marshal.StructureToPtr(v, __local2, false);
+glVertexAttrib2dvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib2fARB(GLuint index, GLfloat x, GLfloat y);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib2fARB")]
+public static extern void glVertexAttrib2fARB(GLuint index, GLfloat x, GLfloat y);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib2fvARB(GLuint index, const GLfloat *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib2fvARB")]
+public static extern void glVertexAttrib2fvARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib2fvARB(GLuint index, const GLfloat *v);'</para>
+/// </summary>
+public static  void glVertexAttrib2fvARB(GLuint index, GLfloat[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttrib2fvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib2fvARB(GLuint index, const GLfloat *v);'</para>
+/// </summary>
+public static  void glVertexAttrib2fvARB(GLuint index, ref GLfloat v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(v, __local2, false);
+glVertexAttrib2fvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib2sARB(GLuint index, GLshort x, GLshort y);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib2sARB")]
+public static extern void glVertexAttrib2sARB(GLuint index, GLshort x, GLshort y);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib2svARB(GLuint index, const GLshort *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib2svARB")]
+public static extern void glVertexAttrib2svARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib2svARB(GLuint index, const GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttrib2svARB(GLuint index, GLshort[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttrib2svARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib2svARB(GLuint index, const GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttrib2svARB(GLuint index, ref GLshort v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+Marshal.WriteInt16(__local2, v);
+glVertexAttrib2svARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib3dARB(GLuint index, GLdouble x, GLdouble y, GLdouble z);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib3dARB")]
+public static extern void glVertexAttrib3dARB(GLuint index, GLdouble x, GLdouble y, GLdouble z);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib3dvARB(GLuint index, const GLdouble *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib3dvARB")]
+public static extern void glVertexAttrib3dvARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib3dvARB(GLuint index, const GLdouble *v);'</para>
+/// </summary>
+public static  void glVertexAttrib3dvARB(GLuint index, GLdouble[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttrib3dvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib3dvARB(GLuint index, const GLdouble *v);'</para>
+/// </summary>
+public static  void glVertexAttrib3dvARB(GLuint index, ref GLdouble v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+Marshal.StructureToPtr(v, __local2, false);
+glVertexAttrib3dvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib3fARB(GLuint index, GLfloat x, GLfloat y, GLfloat z);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib3fARB")]
+public static extern void glVertexAttrib3fARB(GLuint index, GLfloat x, GLfloat y, GLfloat z);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib3fvARB(GLuint index, const GLfloat *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib3fvARB")]
+public static extern void glVertexAttrib3fvARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib3fvARB(GLuint index, const GLfloat *v);'</para>
+/// </summary>
+public static  void glVertexAttrib3fvARB(GLuint index, GLfloat[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttrib3fvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib3fvARB(GLuint index, const GLfloat *v);'</para>
+/// </summary>
+public static  void glVertexAttrib3fvARB(GLuint index, ref GLfloat v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(v, __local2, false);
+glVertexAttrib3fvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib3sARB(GLuint index, GLshort x, GLshort y, GLshort z);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib3sARB")]
+public static extern void glVertexAttrib3sARB(GLuint index, GLshort x, GLshort y, GLshort z);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib3svARB(GLuint index, const GLshort *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib3svARB")]
+public static extern void glVertexAttrib3svARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib3svARB(GLuint index, const GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttrib3svARB(GLuint index, GLshort[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttrib3svARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib3svARB(GLuint index, const GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttrib3svARB(GLuint index, ref GLshort v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+Marshal.WriteInt16(__local2, v);
+glVertexAttrib3svARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4NbvARB(GLuint index, const GLbyte *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib4NbvARB")]
+public static extern void glVertexAttrib4NbvARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4NbvARB(GLuint index, const GLbyte *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4NbvARB(GLuint index, GLbyte[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)) * v.Length);
+GLubyte[] __array2 = Array.ConvertAll(v, item => (GLubyte) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glVertexAttrib4NbvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4NbvARB(GLuint index, const GLbyte *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4NbvARB(GLuint index, ref GLbyte v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)));
+Marshal.WriteByte(__local2, (GLubyte) v);
+glVertexAttrib4NbvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4NivARB(GLuint index, const GLint *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib4NivARB")]
+public static extern void glVertexAttrib4NivARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4NivARB(GLuint index, const GLint *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4NivARB(GLuint index, GLint[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttrib4NivARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4NivARB(GLuint index, const GLint *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4NivARB(GLuint index, ref GLint v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local2, v);
+glVertexAttrib4NivARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4NsvARB(GLuint index, const GLshort *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib4NsvARB")]
+public static extern void glVertexAttrib4NsvARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4NsvARB(GLuint index, const GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4NsvARB(GLuint index, GLshort[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttrib4NsvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4NsvARB(GLuint index, const GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4NsvARB(GLuint index, ref GLshort v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+Marshal.WriteInt16(__local2, v);
+glVertexAttrib4NsvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4NubARB(GLuint index, GLubyte x, GLubyte y, GLubyte z, GLubyte w);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib4NubARB")]
+public static extern void glVertexAttrib4NubARB(GLuint index, GLubyte x, GLubyte y, GLubyte z, GLubyte w);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4NubvARB(GLuint index, const GLubyte *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib4NubvARB")]
+public static extern void glVertexAttrib4NubvARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4NubvARB(GLuint index, const GLubyte *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4NubvARB(GLuint index, GLubyte[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttrib4NubvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4NubvARB(GLuint index, const GLubyte *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4NubvARB(GLuint index, ref GLubyte v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)));
+Marshal.WriteByte(__local2, v);
+glVertexAttrib4NubvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4NuivARB(GLuint index, const GLuint *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib4NuivARB")]
+public static extern void glVertexAttrib4NuivARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4NuivARB(GLuint index, const GLuint *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4NuivARB(GLuint index, GLuint[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * v.Length);
+GLint[] __array2 = Array.ConvertAll(v, item => (GLint) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glVertexAttrib4NuivARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4NuivARB(GLuint index, const GLuint *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4NuivARB(GLuint index, ref GLuint v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local2, (GLint) v);
+glVertexAttrib4NuivARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4NusvARB(GLuint index, const GLushort *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib4NusvARB")]
+public static extern void glVertexAttrib4NusvARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4NusvARB(GLuint index, const GLushort *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4NusvARB(GLuint index, GLushort[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)) * v.Length);
+GLshort[] __array2 = Array.ConvertAll(v, item => (GLshort) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glVertexAttrib4NusvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4NusvARB(GLuint index, const GLushort *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4NusvARB(GLuint index, ref GLushort v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)));
+Marshal.WriteInt16(__local2, (GLshort) v);
+glVertexAttrib4NusvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4bvARB(GLuint index, const GLbyte *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib4bvARB")]
+public static extern void glVertexAttrib4bvARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4bvARB(GLuint index, const GLbyte *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4bvARB(GLuint index, GLbyte[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)) * v.Length);
+GLubyte[] __array2 = Array.ConvertAll(v, item => (GLubyte) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glVertexAttrib4bvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4bvARB(GLuint index, const GLbyte *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4bvARB(GLuint index, ref GLbyte v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)));
+Marshal.WriteByte(__local2, (GLubyte) v);
+glVertexAttrib4bvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4dARB(GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib4dARB")]
+public static extern void glVertexAttrib4dARB(GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4dvARB(GLuint index, const GLdouble *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib4dvARB")]
+public static extern void glVertexAttrib4dvARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4dvARB(GLuint index, const GLdouble *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4dvARB(GLuint index, GLdouble[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttrib4dvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4dvARB(GLuint index, const GLdouble *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4dvARB(GLuint index, ref GLdouble v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+Marshal.StructureToPtr(v, __local2, false);
+glVertexAttrib4dvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4fARB(GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib4fARB")]
+public static extern void glVertexAttrib4fARB(GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4fvARB(GLuint index, const GLfloat *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib4fvARB")]
+public static extern void glVertexAttrib4fvARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4fvARB(GLuint index, const GLfloat *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4fvARB(GLuint index, GLfloat[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttrib4fvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4fvARB(GLuint index, const GLfloat *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4fvARB(GLuint index, ref GLfloat v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(v, __local2, false);
+glVertexAttrib4fvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4ivARB(GLuint index, const GLint *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib4ivARB")]
+public static extern void glVertexAttrib4ivARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4ivARB(GLuint index, const GLint *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4ivARB(GLuint index, GLint[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttrib4ivARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4ivARB(GLuint index, const GLint *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4ivARB(GLuint index, ref GLint v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local2, v);
+glVertexAttrib4ivARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4sARB(GLuint index, GLshort x, GLshort y, GLshort z, GLshort w);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib4sARB")]
+public static extern void glVertexAttrib4sARB(GLuint index, GLshort x, GLshort y, GLshort z, GLshort w);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4svARB(GLuint index, const GLshort *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib4svARB")]
+public static extern void glVertexAttrib4svARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4svARB(GLuint index, const GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4svARB(GLuint index, GLshort[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttrib4svARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4svARB(GLuint index, const GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4svARB(GLuint index, ref GLshort v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+Marshal.WriteInt16(__local2, v);
+glVertexAttrib4svARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4ubvARB(GLuint index, const GLubyte *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib4ubvARB")]
+public static extern void glVertexAttrib4ubvARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4ubvARB(GLuint index, const GLubyte *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4ubvARB(GLuint index, GLubyte[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttrib4ubvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4ubvARB(GLuint index, const GLubyte *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4ubvARB(GLuint index, ref GLubyte v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)));
+Marshal.WriteByte(__local2, v);
+glVertexAttrib4ubvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4uivARB(GLuint index, const GLuint *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib4uivARB")]
+public static extern void glVertexAttrib4uivARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4uivARB(GLuint index, const GLuint *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4uivARB(GLuint index, GLuint[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * v.Length);
+GLint[] __array2 = Array.ConvertAll(v, item => (GLint) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glVertexAttrib4uivARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4uivARB(GLuint index, const GLuint *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4uivARB(GLuint index, ref GLuint v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local2, (GLint) v);
+glVertexAttrib4uivARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4usvARB(GLuint index, const GLushort *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttrib4usvARB")]
+public static extern void glVertexAttrib4usvARB(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4usvARB(GLuint index, const GLushort *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4usvARB(GLuint index, GLushort[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)) * v.Length);
+GLshort[] __array2 = Array.ConvertAll(v, item => (GLshort) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glVertexAttrib4usvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4usvARB(GLuint index, const GLushort *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4usvARB(GLuint index, ref GLushort v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)));
+Marshal.WriteInt16(__local2, (GLshort) v);
+glVertexAttrib4usvARB(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribPointerARB(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid *pointer);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribPointerARB")]
+public static extern void glVertexAttribPointerARB(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, IntPtr pointer);
+
+
+/// <summary>
+/// <para>Original signature is 'extern void glDisableVertexAttribArrayARB(GLuint index);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDisableVertexAttribArrayARB")]
+public static extern void glDisableVertexAttribArrayARB(GLuint index);
+
+/// <summary>
+/// <para>Original signature is 'extern void glEnableVertexAttribArrayARB(GLuint index);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glEnableVertexAttribArrayARB")]
+public static extern void glEnableVertexAttribArrayARB(GLuint index);
+
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetVertexAttribPointervARB(GLuint index, GLenum pname, GLvoid **pointer);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetVertexAttribPointervARB")]
+public static extern void glGetVertexAttribPointervARB(GLuint index, GLenum pname, IntPtr pointer);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetVertexAttribdvARB(GLuint index, GLenum pname, GLdouble *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetVertexAttribdvARB")]
+public static extern void glGetVertexAttribdvARB(GLuint index, GLenum pname, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetVertexAttribdvARB(GLuint index, GLenum pname, GLdouble *params);'</para>
+/// </summary>
+public static  void glGetVertexAttribdvARB(GLuint index, GLenum pname, out GLdouble @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+glGetVertexAttribdvARB(index, pname, __local3);
+@params = (GLdouble) Marshal.PtrToStructure(__local3, typeof(GLdouble));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetVertexAttribfvARB(GLuint index, GLenum pname, GLfloat *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetVertexAttribfvARB")]
+public static extern void glGetVertexAttribfvARB(GLuint index, GLenum pname, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetVertexAttribfvARB(GLuint index, GLenum pname, GLfloat *params);'</para>
+/// </summary>
+public static  void glGetVertexAttribfvARB(GLuint index, GLenum pname, out GLfloat @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetVertexAttribfvARB(index, pname, __local3);
+@params = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetVertexAttribivARB(GLuint index, GLenum pname, GLint *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetVertexAttribivARB")]
+public static extern void glGetVertexAttribivARB(GLuint index, GLenum pname, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetVertexAttribivARB(GLuint index, GLenum pname, GLint *params);'</para>
+/// </summary>
+public static  void glGetVertexAttribivARB(GLuint index, GLenum pname, out GLint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetVertexAttribivARB(index, pname, __local3);
+@params = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
 
 #endif
 
 #if GL_ARB_shader_objects
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteObjectARB(GLhandleARB obj);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDeleteObjectARB")]
-        public static extern void glDeleteObjectARB(GLhandleARB obj);
-
-        /// <summary>
-        /// <para>Original signature is 'extern GLhandleARB glGetHandleARB(GLenum pname);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetHandleARB")]
-        public static extern GLhandleARB glGetHandleARB(GLenum pname);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glDetachObjectARB(GLhandleARB containerObj, GLhandleARB attachedObj);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDetachObjectARB")]
-        public static extern void glDetachObjectARB(GLhandleARB containerObj, GLhandleARB attachedObj);
-
-        /// <summary>
-        /// <para>Original signature is 'extern GLhandleARB glCreateShaderObjectARB(GLenum shaderType);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glCreateShaderObjectARB")]
-        public static extern GLhandleARB glCreateShaderObjectARB(GLenum shaderType);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, const GLcharARB **string, const GLint *length);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glShaderSourceARB")]
-        public static extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, IntPtr @string, IntPtr length);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, const GLcharARB **string, const GLint *length);'</para>
-        /// </summary>
-        public static void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, IntPtr @string, GLint[] length)
-        {
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * length.Length);
-            Marshal.Copy(length, 0, __local4, length.Length);
-            glShaderSourceARB(shaderObj, count, @string, __local4);
-            Marshal.FreeHGlobal(__local4);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, const GLcharARB **string, const GLint *length);'</para>
-        /// </summary>
-        public static void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, IntPtr @string, ref GLint length)
-        {
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local4, length);
-            glShaderSourceARB(shaderObj, count, @string, __local4);
-            Marshal.FreeHGlobal(__local4);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, const GLcharARB **string, const GLint *length);'</para>
-        /// </summary>
-        public static void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, GLcharARB[] @string, IntPtr length)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)) * @string.Length);
-            GLubyte[] __array3 = Array.ConvertAll(@string, item => (GLubyte)item);
-            Marshal.Copy(__array3, 0, __local3, __array3.Length);
-            glShaderSourceARB(shaderObj, count, __local3, length);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, const GLcharARB **string, const GLint *length);'</para>
-        /// </summary>
-        public static void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, GLcharARB[] @string, GLint[] length)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)) * @string.Length);
-            GLubyte[] __array3 = Array.ConvertAll(@string, item => (GLubyte)item);
-            Marshal.Copy(__array3, 0, __local3, __array3.Length);
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * length.Length);
-            Marshal.Copy(length, 0, __local4, length.Length);
-            glShaderSourceARB(shaderObj, count, __local3, __local4);
-            Marshal.FreeHGlobal(__local3);
-            Marshal.FreeHGlobal(__local4);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, const GLcharARB **string, const GLint *length);'</para>
-        /// </summary>
-        public static void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, GLcharARB[] @string, ref GLint length)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)) * @string.Length);
-            GLubyte[] __array3 = Array.ConvertAll(@string, item => (GLubyte)item);
-            Marshal.Copy(__array3, 0, __local3, __array3.Length);
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local4, length);
-            glShaderSourceARB(shaderObj, count, __local3, __local4);
-            Marshal.FreeHGlobal(__local3);
-            Marshal.FreeHGlobal(__local4);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, const GLcharARB **string, const GLint *length);'</para>
-        /// </summary>
-        public static void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, ref GLcharARB @string, IntPtr length)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
-            Marshal.WriteByte(__local3, (GLubyte)@string);
-            glShaderSourceARB(shaderObj, count, __local3, length);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, const GLcharARB **string, const GLint *length);'</para>
-        /// </summary>
-        public static void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, ref GLcharARB @string, GLint[] length)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
-            Marshal.WriteByte(__local3, (GLubyte)@string);
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * length.Length);
-            Marshal.Copy(length, 0, __local4, length.Length);
-            glShaderSourceARB(shaderObj, count, __local3, __local4);
-            Marshal.FreeHGlobal(__local3);
-            Marshal.FreeHGlobal(__local4);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, const GLcharARB **string, const GLint *length);'</para>
-        /// </summary>
-        public static void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, ref GLcharARB @string, ref GLint length)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
-            Marshal.WriteByte(__local3, (GLubyte)@string);
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local4, length);
-            glShaderSourceARB(shaderObj, count, __local3, __local4);
-            Marshal.FreeHGlobal(__local3);
-            Marshal.FreeHGlobal(__local4);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glCompileShaderARB(GLhandleARB shaderObj);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glCompileShaderARB")]
-        public static extern void glCompileShaderARB(GLhandleARB shaderObj);
-
-        /// <summary>
-        /// <para>Original signature is 'extern GLhandleARB glCreateProgramObjectARB(void);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glCreateProgramObjectARB")]
-        public static extern GLhandleARB glCreateProgramObjectARB();
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glAttachObjectARB(GLhandleARB containerObj, GLhandleARB obj);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glAttachObjectARB")]
-        public static extern void glAttachObjectARB(GLhandleARB containerObj, GLhandleARB obj);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glLinkProgramARB(GLhandleARB programObj);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glLinkProgramARB")]
-        public static extern void glLinkProgramARB(GLhandleARB programObj);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUseProgramObjectARB(GLhandleARB programObj);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUseProgramObjectARB")]
-        public static extern void glUseProgramObjectARB(GLhandleARB programObj);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glValidateProgramARB(GLhandleARB programObj);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glValidateProgramARB")]
-        public static extern void glValidateProgramARB(GLhandleARB programObj);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform1fARB(GLint location, GLfloat v0);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform1fARB")]
-        public static extern void glUniform1fARB(GLint location, GLfloat v0);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform2fARB(GLint location, GLfloat v0, GLfloat v1);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform2fARB")]
-        public static extern void glUniform2fARB(GLint location, GLfloat v0, GLfloat v1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform3fARB(GLint location, GLfloat v0, GLfloat v1, GLfloat v2);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform3fARB")]
-        public static extern void glUniform3fARB(GLint location, GLfloat v0, GLfloat v1, GLfloat v2);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform4fARB(GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform4fARB")]
-        public static extern void glUniform4fARB(GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform1iARB(GLint location, GLint v0);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform1iARB")]
-        public static extern void glUniform1iARB(GLint location, GLint v0);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform2iARB(GLint location, GLint v0, GLint v1);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform2iARB")]
-        public static extern void glUniform2iARB(GLint location, GLint v0, GLint v1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform3iARB(GLint location, GLint v0, GLint v1, GLint v2);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform3iARB")]
-        public static extern void glUniform3iARB(GLint location, GLint v0, GLint v1, GLint v2);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform4iARB(GLint location, GLint v0, GLint v1, GLint v2, GLint v3);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform4iARB")]
-        public static extern void glUniform4iARB(GLint location, GLint v0, GLint v1, GLint v2, GLint v3);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform1fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform1fvARB")]
-        public static extern void glUniform1fvARB(GLint location, GLsizei count, IntPtr value);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform1fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
-        /// </summary>
-        public static void glUniform1fvARB(GLint location, GLsizei count, GLfloat[] value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * value.Length);
-            Marshal.Copy(value, 0, __local3, value.Length);
-            glUniform1fvARB(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform1fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
-        /// </summary>
-        public static void glUniform1fvARB(GLint location, GLsizei count, ref GLfloat value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(value, __local3, false);
-            glUniform1fvARB(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform2fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform2fvARB")]
-        public static extern void glUniform2fvARB(GLint location, GLsizei count, IntPtr value);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform2fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
-        /// </summary>
-        public static void glUniform2fvARB(GLint location, GLsizei count, GLfloat[] value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * value.Length);
-            Marshal.Copy(value, 0, __local3, value.Length);
-            glUniform2fvARB(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform2fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
-        /// </summary>
-        public static void glUniform2fvARB(GLint location, GLsizei count, ref GLfloat value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(value, __local3, false);
-            glUniform2fvARB(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform3fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform3fvARB")]
-        public static extern void glUniform3fvARB(GLint location, GLsizei count, IntPtr value);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform3fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
-        /// </summary>
-        public static void glUniform3fvARB(GLint location, GLsizei count, GLfloat[] value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * value.Length);
-            Marshal.Copy(value, 0, __local3, value.Length);
-            glUniform3fvARB(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform3fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
-        /// </summary>
-        public static void glUniform3fvARB(GLint location, GLsizei count, ref GLfloat value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(value, __local3, false);
-            glUniform3fvARB(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform4fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform4fvARB")]
-        public static extern void glUniform4fvARB(GLint location, GLsizei count, IntPtr value);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform4fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
-        /// </summary>
-        public static void glUniform4fvARB(GLint location, GLsizei count, GLfloat[] value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * value.Length);
-            Marshal.Copy(value, 0, __local3, value.Length);
-            glUniform4fvARB(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform4fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
-        /// </summary>
-        public static void glUniform4fvARB(GLint location, GLsizei count, ref GLfloat value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(value, __local3, false);
-            glUniform4fvARB(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform1ivARB(GLint location, GLsizei count, const GLint *value);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform1ivARB")]
-        public static extern void glUniform1ivARB(GLint location, GLsizei count, IntPtr value);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform1ivARB(GLint location, GLsizei count, const GLint *value);'</para>
-        /// </summary>
-        public static void glUniform1ivARB(GLint location, GLsizei count, GLint[] value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * value.Length);
-            Marshal.Copy(value, 0, __local3, value.Length);
-            glUniform1ivARB(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform1ivARB(GLint location, GLsizei count, const GLint *value);'</para>
-        /// </summary>
-        public static void glUniform1ivARB(GLint location, GLsizei count, ref GLint value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local3, value);
-            glUniform1ivARB(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform2ivARB(GLint location, GLsizei count, const GLint *value);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform2ivARB")]
-        public static extern void glUniform2ivARB(GLint location, GLsizei count, IntPtr value);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform2ivARB(GLint location, GLsizei count, const GLint *value);'</para>
-        /// </summary>
-        public static void glUniform2ivARB(GLint location, GLsizei count, GLint[] value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * value.Length);
-            Marshal.Copy(value, 0, __local3, value.Length);
-            glUniform2ivARB(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform2ivARB(GLint location, GLsizei count, const GLint *value);'</para>
-        /// </summary>
-        public static void glUniform2ivARB(GLint location, GLsizei count, ref GLint value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local3, value);
-            glUniform2ivARB(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform3ivARB(GLint location, GLsizei count, const GLint *value);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform3ivARB")]
-        public static extern void glUniform3ivARB(GLint location, GLsizei count, IntPtr value);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform3ivARB(GLint location, GLsizei count, const GLint *value);'</para>
-        /// </summary>
-        public static void glUniform3ivARB(GLint location, GLsizei count, GLint[] value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * value.Length);
-            Marshal.Copy(value, 0, __local3, value.Length);
-            glUniform3ivARB(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform3ivARB(GLint location, GLsizei count, const GLint *value);'</para>
-        /// </summary>
-        public static void glUniform3ivARB(GLint location, GLsizei count, ref GLint value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local3, value);
-            glUniform3ivARB(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform4ivARB(GLint location, GLsizei count, const GLint *value);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform4ivARB")]
-        public static extern void glUniform4ivARB(GLint location, GLsizei count, IntPtr value);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform4ivARB(GLint location, GLsizei count, const GLint *value);'</para>
-        /// </summary>
-        public static void glUniform4ivARB(GLint location, GLsizei count, GLint[] value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * value.Length);
-            Marshal.Copy(value, 0, __local3, value.Length);
-            glUniform4ivARB(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform4ivARB(GLint location, GLsizei count, const GLint *value);'</para>
-        /// </summary>
-        public static void glUniform4ivARB(GLint location, GLsizei count, ref GLint value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local3, value);
-            glUniform4ivARB(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniformMatrix2fvARB(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniformMatrix2fvARB")]
-        public static extern void glUniformMatrix2fvARB(GLint location, GLsizei count, GLboolean transpose, IntPtr value);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniformMatrix2fvARB(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);'</para>
-        /// </summary>
-        public static void glUniformMatrix2fvARB(GLint location, GLsizei count, GLboolean transpose, GLfloat[] value)
-        {
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * value.Length);
-            Marshal.Copy(value, 0, __local4, value.Length);
-            glUniformMatrix2fvARB(location, count, transpose, __local4);
-            Marshal.FreeHGlobal(__local4);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniformMatrix2fvARB(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);'</para>
-        /// </summary>
-        public static void glUniformMatrix2fvARB(GLint location, GLsizei count, GLboolean transpose, ref GLfloat value)
-        {
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(value, __local4, false);
-            glUniformMatrix2fvARB(location, count, transpose, __local4);
-            Marshal.FreeHGlobal(__local4);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniformMatrix3fvARB(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniformMatrix3fvARB")]
-        public static extern void glUniformMatrix3fvARB(GLint location, GLsizei count, GLboolean transpose, IntPtr value);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniformMatrix3fvARB(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);'</para>
-        /// </summary>
-        public static void glUniformMatrix3fvARB(GLint location, GLsizei count, GLboolean transpose, GLfloat[] value)
-        {
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * value.Length);
-            Marshal.Copy(value, 0, __local4, value.Length);
-            glUniformMatrix3fvARB(location, count, transpose, __local4);
-            Marshal.FreeHGlobal(__local4);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniformMatrix3fvARB(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);'</para>
-        /// </summary>
-        public static void glUniformMatrix3fvARB(GLint location, GLsizei count, GLboolean transpose, ref GLfloat value)
-        {
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(value, __local4, false);
-            glUniformMatrix3fvARB(location, count, transpose, __local4);
-            Marshal.FreeHGlobal(__local4);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniformMatrix4fvARB(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniformMatrix4fvARB")]
-        public static extern void glUniformMatrix4fvARB(GLint location, GLsizei count, GLboolean transpose, IntPtr value);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniformMatrix4fvARB(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);'</para>
-        /// </summary>
-        public static void glUniformMatrix4fvARB(GLint location, GLsizei count, GLboolean transpose, GLfloat[] value)
-        {
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * value.Length);
-            Marshal.Copy(value, 0, __local4, value.Length);
-            glUniformMatrix4fvARB(location, count, transpose, __local4);
-            Marshal.FreeHGlobal(__local4);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniformMatrix4fvARB(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);'</para>
-        /// </summary>
-        public static void glUniformMatrix4fvARB(GLint location, GLsizei count, GLboolean transpose, ref GLfloat value)
-        {
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(value, __local4, false);
-            glUniformMatrix4fvARB(location, count, transpose, __local4);
-            Marshal.FreeHGlobal(__local4);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetObjectParameterfvARB(GLhandleARB obj, GLenum pname, GLfloat *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetObjectParameterfvARB")]
-        public static extern void glGetObjectParameterfvARB(GLhandleARB obj, GLenum pname, IntPtr @params);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetObjectParameterivARB(GLhandleARB obj, GLenum pname, GLint *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetObjectParameterivARB")]
-        public static extern void glGetObjectParameterivARB(GLhandleARB obj, GLenum pname, IntPtr @params);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetInfoLogARB(GLhandleARB obj, GLsizei maxLength, GLsizei *length, GLcharARB *infoLog);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetInfoLogARB")]
-        public static extern void glGetInfoLogARB(GLhandleARB obj, GLsizei maxLength, IntPtr length, IntPtr infoLog);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetAttachedObjectsARB(GLhandleARB containerObj, GLsizei maxCount, GLsizei *count, GLhandleARB *obj);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetAttachedObjectsARB")]
-        public static extern void glGetAttachedObjectsARB(GLhandleARB containerObj, GLsizei maxCount, IntPtr count, IntPtr obj);
-
-        /// <summary>
-        /// <para>Original signature is 'extern GLint glGetUniformLocationARB(GLhandleARB programObj, const GLcharARB *name);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetUniformLocationARB")]
-        public static extern GLint glGetUniformLocationARB(GLhandleARB programObj, IntPtr name);
-
-        /// <summary>
-        /// <para>Original signature is 'extern GLint glGetUniformLocationARB(GLhandleARB programObj, const GLcharARB *name);'</para>
-        /// </summary>
-        public static GLint glGetUniformLocationARB(GLhandleARB programObj, GLcharARB[] name)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)) * name.Length);
-            GLubyte[] __array2 = Array.ConvertAll(name, item => (GLubyte)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            GLint result = glGetUniformLocationARB(programObj, __local2);
-            Marshal.FreeHGlobal(__local2);
-            return result;
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern GLint glGetUniformLocationARB(GLhandleARB programObj, const GLcharARB *name);'</para>
-        /// </summary>
-        public static GLint glGetUniformLocationARB(GLhandleARB programObj, ref GLcharARB name)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
-            Marshal.WriteByte(__local2, (GLubyte)name);
-            GLint result = glGetUniformLocationARB(programObj, __local2);
-            Marshal.FreeHGlobal(__local2);
-            return result;
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetActiveUniformARB")]
-        public static extern void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, IntPtr length, IntPtr size, IntPtr type, IntPtr name);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetUniformfvARB(GLhandleARB programObj, GLint location, GLfloat *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetUniformfvARB")]
-        public static extern void glGetUniformfvARB(GLhandleARB programObj, GLint location, IntPtr @params);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetUniformivARB(GLhandleARB programObj, GLint location, GLint *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetUniformivARB")]
-        public static extern void glGetUniformivARB(GLhandleARB programObj, GLint location, IntPtr @params);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetShaderSourceARB(GLhandleARB obj, GLsizei maxLength, GLsizei *length, GLcharARB *source);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetShaderSourceARB")]
-        public static extern void glGetShaderSourceARB(GLhandleARB obj, GLsizei maxLength, IntPtr length, IntPtr source);
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteObjectARB(GLhandleARB obj);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDeleteObjectARB")]
+public static extern void glDeleteObjectARB(GLhandleARB obj);
+
+/// <summary>
+/// <para>Original signature is 'extern GLhandleARB glGetHandleARB(GLenum pname);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetHandleARB")]
+public static extern GLhandleARB glGetHandleARB(GLenum pname);
+
+/// <summary>
+/// <para>Original signature is 'extern void glDetachObjectARB(GLhandleARB containerObj, GLhandleARB attachedObj);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDetachObjectARB")]
+public static extern void glDetachObjectARB(GLhandleARB containerObj, GLhandleARB attachedObj);
+
+/// <summary>
+/// <para>Original signature is 'extern GLhandleARB glCreateShaderObjectARB(GLenum shaderType);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glCreateShaderObjectARB")]
+public static extern GLhandleARB glCreateShaderObjectARB(GLenum shaderType);
+
+/// <summary>
+/// <para>Original signature is 'extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, const GLcharARB **string, const GLint *length);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glShaderSourceARB")]
+public static extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, IntPtr @string, IntPtr length);
+
+/// <summary>
+/// <para>Original signature is 'extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, const GLcharARB **string, const GLint *length);'</para>
+/// </summary>
+public static  void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, IntPtr @string, GLint[] length)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * length.Length);
+Marshal.Copy(length, 0, __local4, length.Length);
+glShaderSourceARB(shaderObj, count, @string, __local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, const GLcharARB **string, const GLint *length);'</para>
+/// </summary>
+public static  void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, IntPtr @string, ref GLint length)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local4, length);
+glShaderSourceARB(shaderObj, count, @string, __local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, const GLcharARB **string, const GLint *length);'</para>
+/// </summary>
+public static  void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, GLcharARB[] @string, IntPtr length)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)) * @string.Length);
+GLubyte[] __array3 = Array.ConvertAll(@string, item => (GLubyte) item);
+Marshal.Copy(__array3, 0, __local3, __array3.Length);
+glShaderSourceARB(shaderObj, count, __local3, length);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, const GLcharARB **string, const GLint *length);'</para>
+/// </summary>
+public static  void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, GLcharARB[] @string, GLint[] length)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)) * @string.Length);
+GLubyte[] __array3 = Array.ConvertAll(@string, item => (GLubyte) item);
+Marshal.Copy(__array3, 0, __local3, __array3.Length);
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * length.Length);
+Marshal.Copy(length, 0, __local4, length.Length);
+glShaderSourceARB(shaderObj, count, __local3, __local4);
+Marshal.FreeHGlobal(__local3);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, const GLcharARB **string, const GLint *length);'</para>
+/// </summary>
+public static  void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, GLcharARB[] @string, ref GLint length)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)) * @string.Length);
+GLubyte[] __array3 = Array.ConvertAll(@string, item => (GLubyte) item);
+Marshal.Copy(__array3, 0, __local3, __array3.Length);
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local4, length);
+glShaderSourceARB(shaderObj, count, __local3, __local4);
+Marshal.FreeHGlobal(__local3);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, const GLcharARB **string, const GLint *length);'</para>
+/// </summary>
+public static  void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, ref GLcharARB @string, IntPtr length)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+Marshal.WriteByte(__local3, (GLubyte) @string);
+glShaderSourceARB(shaderObj, count, __local3, length);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, const GLcharARB **string, const GLint *length);'</para>
+/// </summary>
+public static  void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, ref GLcharARB @string, GLint[] length)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+Marshal.WriteByte(__local3, (GLubyte) @string);
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * length.Length);
+Marshal.Copy(length, 0, __local4, length.Length);
+glShaderSourceARB(shaderObj, count, __local3, __local4);
+Marshal.FreeHGlobal(__local3);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, const GLcharARB **string, const GLint *length);'</para>
+/// </summary>
+public static  void glShaderSourceARB(GLhandleARB shaderObj, GLsizei count, ref GLcharARB @string, ref GLint length)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+Marshal.WriteByte(__local3, (GLubyte) @string);
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local4, length);
+glShaderSourceARB(shaderObj, count, __local3, __local4);
+Marshal.FreeHGlobal(__local3);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glCompileShaderARB(GLhandleARB shaderObj);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glCompileShaderARB")]
+public static extern void glCompileShaderARB(GLhandleARB shaderObj);
+
+/// <summary>
+/// <para>Original signature is 'extern GLhandleARB glCreateProgramObjectARB(void);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glCreateProgramObjectARB")]
+public static extern GLhandleARB glCreateProgramObjectARB();
+
+/// <summary>
+/// <para>Original signature is 'extern void glAttachObjectARB(GLhandleARB containerObj, GLhandleARB obj);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glAttachObjectARB")]
+public static extern void glAttachObjectARB(GLhandleARB containerObj, GLhandleARB obj);
+
+/// <summary>
+/// <para>Original signature is 'extern void glLinkProgramARB(GLhandleARB programObj);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glLinkProgramARB")]
+public static extern void glLinkProgramARB(GLhandleARB programObj);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUseProgramObjectARB(GLhandleARB programObj);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUseProgramObjectARB")]
+public static extern void glUseProgramObjectARB(GLhandleARB programObj);
+
+/// <summary>
+/// <para>Original signature is 'extern void glValidateProgramARB(GLhandleARB programObj);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glValidateProgramARB")]
+public static extern void glValidateProgramARB(GLhandleARB programObj);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform1fARB(GLint location, GLfloat v0);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform1fARB")]
+public static extern void glUniform1fARB(GLint location, GLfloat v0);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform2fARB(GLint location, GLfloat v0, GLfloat v1);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform2fARB")]
+public static extern void glUniform2fARB(GLint location, GLfloat v0, GLfloat v1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform3fARB(GLint location, GLfloat v0, GLfloat v1, GLfloat v2);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform3fARB")]
+public static extern void glUniform3fARB(GLint location, GLfloat v0, GLfloat v1, GLfloat v2);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform4fARB(GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform4fARB")]
+public static extern void glUniform4fARB(GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform1iARB(GLint location, GLint v0);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform1iARB")]
+public static extern void glUniform1iARB(GLint location, GLint v0);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform2iARB(GLint location, GLint v0, GLint v1);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform2iARB")]
+public static extern void glUniform2iARB(GLint location, GLint v0, GLint v1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform3iARB(GLint location, GLint v0, GLint v1, GLint v2);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform3iARB")]
+public static extern void glUniform3iARB(GLint location, GLint v0, GLint v1, GLint v2);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform4iARB(GLint location, GLint v0, GLint v1, GLint v2, GLint v3);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform4iARB")]
+public static extern void glUniform4iARB(GLint location, GLint v0, GLint v1, GLint v2, GLint v3);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform1fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform1fvARB")]
+public static extern void glUniform1fvARB(GLint location, GLsizei count, IntPtr value);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform1fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
+/// </summary>
+public static  void glUniform1fvARB(GLint location, GLsizei count, GLfloat[] value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * value.Length);
+Marshal.Copy(value, 0, __local3, value.Length);
+glUniform1fvARB(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform1fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
+/// </summary>
+public static  void glUniform1fvARB(GLint location, GLsizei count, ref GLfloat value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(value, __local3, false);
+glUniform1fvARB(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform2fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform2fvARB")]
+public static extern void glUniform2fvARB(GLint location, GLsizei count, IntPtr value);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform2fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
+/// </summary>
+public static  void glUniform2fvARB(GLint location, GLsizei count, GLfloat[] value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * value.Length);
+Marshal.Copy(value, 0, __local3, value.Length);
+glUniform2fvARB(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform2fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
+/// </summary>
+public static  void glUniform2fvARB(GLint location, GLsizei count, ref GLfloat value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(value, __local3, false);
+glUniform2fvARB(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform3fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform3fvARB")]
+public static extern void glUniform3fvARB(GLint location, GLsizei count, IntPtr value);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform3fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
+/// </summary>
+public static  void glUniform3fvARB(GLint location, GLsizei count, GLfloat[] value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * value.Length);
+Marshal.Copy(value, 0, __local3, value.Length);
+glUniform3fvARB(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform3fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
+/// </summary>
+public static  void glUniform3fvARB(GLint location, GLsizei count, ref GLfloat value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(value, __local3, false);
+glUniform3fvARB(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform4fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform4fvARB")]
+public static extern void glUniform4fvARB(GLint location, GLsizei count, IntPtr value);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform4fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
+/// </summary>
+public static  void glUniform4fvARB(GLint location, GLsizei count, GLfloat[] value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * value.Length);
+Marshal.Copy(value, 0, __local3, value.Length);
+glUniform4fvARB(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform4fvARB(GLint location, GLsizei count, const GLfloat *value);'</para>
+/// </summary>
+public static  void glUniform4fvARB(GLint location, GLsizei count, ref GLfloat value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(value, __local3, false);
+glUniform4fvARB(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform1ivARB(GLint location, GLsizei count, const GLint *value);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform1ivARB")]
+public static extern void glUniform1ivARB(GLint location, GLsizei count, IntPtr value);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform1ivARB(GLint location, GLsizei count, const GLint *value);'</para>
+/// </summary>
+public static  void glUniform1ivARB(GLint location, GLsizei count, GLint[] value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * value.Length);
+Marshal.Copy(value, 0, __local3, value.Length);
+glUniform1ivARB(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform1ivARB(GLint location, GLsizei count, const GLint *value);'</para>
+/// </summary>
+public static  void glUniform1ivARB(GLint location, GLsizei count, ref GLint value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local3, value);
+glUniform1ivARB(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform2ivARB(GLint location, GLsizei count, const GLint *value);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform2ivARB")]
+public static extern void glUniform2ivARB(GLint location, GLsizei count, IntPtr value);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform2ivARB(GLint location, GLsizei count, const GLint *value);'</para>
+/// </summary>
+public static  void glUniform2ivARB(GLint location, GLsizei count, GLint[] value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * value.Length);
+Marshal.Copy(value, 0, __local3, value.Length);
+glUniform2ivARB(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform2ivARB(GLint location, GLsizei count, const GLint *value);'</para>
+/// </summary>
+public static  void glUniform2ivARB(GLint location, GLsizei count, ref GLint value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local3, value);
+glUniform2ivARB(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform3ivARB(GLint location, GLsizei count, const GLint *value);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform3ivARB")]
+public static extern void glUniform3ivARB(GLint location, GLsizei count, IntPtr value);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform3ivARB(GLint location, GLsizei count, const GLint *value);'</para>
+/// </summary>
+public static  void glUniform3ivARB(GLint location, GLsizei count, GLint[] value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * value.Length);
+Marshal.Copy(value, 0, __local3, value.Length);
+glUniform3ivARB(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform3ivARB(GLint location, GLsizei count, const GLint *value);'</para>
+/// </summary>
+public static  void glUniform3ivARB(GLint location, GLsizei count, ref GLint value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local3, value);
+glUniform3ivARB(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform4ivARB(GLint location, GLsizei count, const GLint *value);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform4ivARB")]
+public static extern void glUniform4ivARB(GLint location, GLsizei count, IntPtr value);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform4ivARB(GLint location, GLsizei count, const GLint *value);'</para>
+/// </summary>
+public static  void glUniform4ivARB(GLint location, GLsizei count, GLint[] value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * value.Length);
+Marshal.Copy(value, 0, __local3, value.Length);
+glUniform4ivARB(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform4ivARB(GLint location, GLsizei count, const GLint *value);'</para>
+/// </summary>
+public static  void glUniform4ivARB(GLint location, GLsizei count, ref GLint value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local3, value);
+glUniform4ivARB(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniformMatrix2fvARB(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniformMatrix2fvARB")]
+public static extern void glUniformMatrix2fvARB(GLint location, GLsizei count, GLboolean transpose, IntPtr value);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniformMatrix2fvARB(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);'</para>
+/// </summary>
+public static  void glUniformMatrix2fvARB(GLint location, GLsizei count, GLboolean transpose, GLfloat[] value)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * value.Length);
+Marshal.Copy(value, 0, __local4, value.Length);
+glUniformMatrix2fvARB(location, count, transpose, __local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniformMatrix2fvARB(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);'</para>
+/// </summary>
+public static  void glUniformMatrix2fvARB(GLint location, GLsizei count, GLboolean transpose, ref GLfloat value)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(value, __local4, false);
+glUniformMatrix2fvARB(location, count, transpose, __local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniformMatrix3fvARB(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniformMatrix3fvARB")]
+public static extern void glUniformMatrix3fvARB(GLint location, GLsizei count, GLboolean transpose, IntPtr value);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniformMatrix3fvARB(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);'</para>
+/// </summary>
+public static  void glUniformMatrix3fvARB(GLint location, GLsizei count, GLboolean transpose, GLfloat[] value)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * value.Length);
+Marshal.Copy(value, 0, __local4, value.Length);
+glUniformMatrix3fvARB(location, count, transpose, __local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniformMatrix3fvARB(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);'</para>
+/// </summary>
+public static  void glUniformMatrix3fvARB(GLint location, GLsizei count, GLboolean transpose, ref GLfloat value)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(value, __local4, false);
+glUniformMatrix3fvARB(location, count, transpose, __local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniformMatrix4fvARB(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniformMatrix4fvARB")]
+public static extern void glUniformMatrix4fvARB(GLint location, GLsizei count, GLboolean transpose, IntPtr value);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniformMatrix4fvARB(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);'</para>
+/// </summary>
+public static  void glUniformMatrix4fvARB(GLint location, GLsizei count, GLboolean transpose, GLfloat[] value)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * value.Length);
+Marshal.Copy(value, 0, __local4, value.Length);
+glUniformMatrix4fvARB(location, count, transpose, __local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniformMatrix4fvARB(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);'</para>
+/// </summary>
+public static  void glUniformMatrix4fvARB(GLint location, GLsizei count, GLboolean transpose, ref GLfloat value)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(value, __local4, false);
+glUniformMatrix4fvARB(location, count, transpose, __local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetObjectParameterfvARB(GLhandleARB obj, GLenum pname, GLfloat *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetObjectParameterfvARB")]
+public static extern void glGetObjectParameterfvARB(GLhandleARB obj, GLenum pname, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetObjectParameterfvARB(GLhandleARB obj, GLenum pname, GLfloat *params);'</para>
+/// </summary>
+public static  void glGetObjectParameterfvARB(GLhandleARB obj, GLenum pname, out GLfloat @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetObjectParameterfvARB(obj, pname, __local3);
+@params = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetObjectParameterivARB(GLhandleARB obj, GLenum pname, GLint *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetObjectParameterivARB")]
+public static extern void glGetObjectParameterivARB(GLhandleARB obj, GLenum pname, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetObjectParameterivARB(GLhandleARB obj, GLenum pname, GLint *params);'</para>
+/// </summary>
+public static  void glGetObjectParameterivARB(GLhandleARB obj, GLenum pname, out GLint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetObjectParameterivARB(obj, pname, __local3);
+@params = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetInfoLogARB(GLhandleARB obj, GLsizei maxLength, GLsizei *length, GLcharARB *infoLog);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetInfoLogARB")]
+public static extern void glGetInfoLogARB(GLhandleARB obj, GLsizei maxLength, IntPtr length, IntPtr infoLog);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetInfoLogARB(GLhandleARB obj, GLsizei maxLength, GLsizei *length, GLcharARB *infoLog);'</para>
+/// </summary>
+public static  void glGetInfoLogARB(GLhandleARB obj, GLsizei maxLength, IntPtr length, out GLcharARB infoLog)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetInfoLogARB(obj, maxLength, length, __local4);
+infoLog = (GLcharARB) Marshal.ReadByte(__local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetInfoLogARB(GLhandleARB obj, GLsizei maxLength, GLsizei *length, GLcharARB *infoLog);'</para>
+/// </summary>
+public static  void glGetInfoLogARB(GLhandleARB obj, GLsizei maxLength, out GLsizei length, IntPtr infoLog)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+glGetInfoLogARB(obj, maxLength, __local3, infoLog);
+length = (GLsizei) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetInfoLogARB(GLhandleARB obj, GLsizei maxLength, GLsizei *length, GLcharARB *infoLog);'</para>
+/// </summary>
+public static  void glGetInfoLogARB(GLhandleARB obj, GLsizei maxLength, out GLsizei length, out GLcharARB infoLog)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetInfoLogARB(obj, maxLength, __local3, __local4);
+length = (GLsizei) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+infoLog = (GLcharARB) Marshal.ReadByte(__local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetAttachedObjectsARB(GLhandleARB containerObj, GLsizei maxCount, GLsizei *count, GLhandleARB *obj);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetAttachedObjectsARB")]
+public static extern void glGetAttachedObjectsARB(GLhandleARB containerObj, GLsizei maxCount, IntPtr count, IntPtr obj);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetAttachedObjectsARB(GLhandleARB containerObj, GLsizei maxCount, GLsizei *count, GLhandleARB *obj);'</para>
+/// </summary>
+public static  void glGetAttachedObjectsARB(GLhandleARB containerObj, GLsizei maxCount, IntPtr count, out GLhandleARB obj)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLhandleARB)));
+glGetAttachedObjectsARB(containerObj, maxCount, count, __local4);
+obj = (GLhandleARB) Marshal.ReadIntPtr(__local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetAttachedObjectsARB(GLhandleARB containerObj, GLsizei maxCount, GLsizei *count, GLhandleARB *obj);'</para>
+/// </summary>
+public static  void glGetAttachedObjectsARB(GLhandleARB containerObj, GLsizei maxCount, out GLsizei count, IntPtr obj)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+glGetAttachedObjectsARB(containerObj, maxCount, __local3, obj);
+count = (GLsizei) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetAttachedObjectsARB(GLhandleARB containerObj, GLsizei maxCount, GLsizei *count, GLhandleARB *obj);'</para>
+/// </summary>
+public static  void glGetAttachedObjectsARB(GLhandleARB containerObj, GLsizei maxCount, out GLsizei count, out GLhandleARB obj)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLhandleARB)));
+glGetAttachedObjectsARB(containerObj, maxCount, __local3, __local4);
+count = (GLsizei) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+obj = (GLhandleARB) Marshal.ReadIntPtr(__local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern GLint glGetUniformLocationARB(GLhandleARB programObj, const GLcharARB *name);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetUniformLocationARB")]
+public static extern GLint glGetUniformLocationARB(GLhandleARB programObj, IntPtr name);
+
+/// <summary>
+/// <para>Original signature is 'extern GLint glGetUniformLocationARB(GLhandleARB programObj, const GLcharARB *name);'</para>
+/// </summary>
+public static  GLint glGetUniformLocationARB(GLhandleARB programObj, GLcharARB[] name)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)) * name.Length);
+GLubyte[] __array2 = Array.ConvertAll(name, item => (GLubyte) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+GLint result = glGetUniformLocationARB(programObj, __local2);
+Marshal.FreeHGlobal(__local2);
+return result;}
+
+/// <summary>
+/// <para>Original signature is 'extern GLint glGetUniformLocationARB(GLhandleARB programObj, const GLcharARB *name);'</para>
+/// </summary>
+public static  GLint glGetUniformLocationARB(GLhandleARB programObj, ref GLcharARB name)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+Marshal.WriteByte(__local2, (GLubyte) name);
+GLint result = glGetUniformLocationARB(programObj, __local2);
+Marshal.FreeHGlobal(__local2);
+return result;}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetActiveUniformARB")]
+public static extern void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, IntPtr length, IntPtr size, IntPtr type, IntPtr name);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, IntPtr length, IntPtr size, IntPtr type, out GLcharARB name)
+{
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetActiveUniformARB(programObj, index, maxLength, length, size, type, __local7);
+name = (GLcharARB) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, IntPtr length, IntPtr size, out GLenum type, IntPtr name)
+{
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+glGetActiveUniformARB(programObj, index, maxLength, length, size, __local6, name);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, IntPtr length, IntPtr size, out GLenum type, out GLcharARB name)
+{
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetActiveUniformARB(programObj, index, maxLength, length, size, __local6, __local7);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+name = (GLcharARB) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, IntPtr length, out GLint size, IntPtr type, IntPtr name)
+{
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetActiveUniformARB(programObj, index, maxLength, length, __local5, type, name);
+size = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, IntPtr length, out GLint size, IntPtr type, out GLcharARB name)
+{
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetActiveUniformARB(programObj, index, maxLength, length, __local5, type, __local7);
+size = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+name = (GLcharARB) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, IntPtr length, out GLint size, out GLenum type, IntPtr name)
+{
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+glGetActiveUniformARB(programObj, index, maxLength, length, __local5, __local6, name);
+size = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, IntPtr length, out GLint size, out GLenum type, out GLcharARB name)
+{
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetActiveUniformARB(programObj, index, maxLength, length, __local5, __local6, __local7);
+size = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+name = (GLcharARB) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, out GLsizei length, IntPtr size, IntPtr type, IntPtr name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+glGetActiveUniformARB(programObj, index, maxLength, __local4, size, type, name);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, out GLsizei length, IntPtr size, IntPtr type, out GLcharARB name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetActiveUniformARB(programObj, index, maxLength, __local4, size, type, __local7);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+name = (GLcharARB) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, out GLsizei length, IntPtr size, out GLenum type, IntPtr name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+glGetActiveUniformARB(programObj, index, maxLength, __local4, size, __local6, name);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, out GLsizei length, IntPtr size, out GLenum type, out GLcharARB name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetActiveUniformARB(programObj, index, maxLength, __local4, size, __local6, __local7);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+name = (GLcharARB) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, out GLsizei length, out GLint size, IntPtr type, IntPtr name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetActiveUniformARB(programObj, index, maxLength, __local4, __local5, type, name);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+size = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, out GLsizei length, out GLint size, IntPtr type, out GLcharARB name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetActiveUniformARB(programObj, index, maxLength, __local4, __local5, type, __local7);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+size = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+name = (GLcharARB) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, out GLsizei length, out GLint size, out GLenum type, IntPtr name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+glGetActiveUniformARB(programObj, index, maxLength, __local4, __local5, __local6, name);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+size = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, out GLsizei length, out GLint size, out GLenum type, out GLcharARB name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetActiveUniformARB(programObj, index, maxLength, __local4, __local5, __local6, __local7);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+size = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+name = (GLcharARB) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetUniformfvARB(GLhandleARB programObj, GLint location, GLfloat *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetUniformfvARB")]
+public static extern void glGetUniformfvARB(GLhandleARB programObj, GLint location, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetUniformfvARB(GLhandleARB programObj, GLint location, GLfloat *params);'</para>
+/// </summary>
+public static  void glGetUniformfvARB(GLhandleARB programObj, GLint location, out GLfloat @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetUniformfvARB(programObj, location, __local3);
+@params = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetUniformivARB(GLhandleARB programObj, GLint location, GLint *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetUniformivARB")]
+public static extern void glGetUniformivARB(GLhandleARB programObj, GLint location, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetUniformivARB(GLhandleARB programObj, GLint location, GLint *params);'</para>
+/// </summary>
+public static  void glGetUniformivARB(GLhandleARB programObj, GLint location, out GLint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetUniformivARB(programObj, location, __local3);
+@params = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetShaderSourceARB(GLhandleARB obj, GLsizei maxLength, GLsizei *length, GLcharARB *source);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetShaderSourceARB")]
+public static extern void glGetShaderSourceARB(GLhandleARB obj, GLsizei maxLength, IntPtr length, IntPtr source);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetShaderSourceARB(GLhandleARB obj, GLsizei maxLength, GLsizei *length, GLcharARB *source);'</para>
+/// </summary>
+public static  void glGetShaderSourceARB(GLhandleARB obj, GLsizei maxLength, IntPtr length, out GLcharARB source)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetShaderSourceARB(obj, maxLength, length, __local4);
+source = (GLcharARB) Marshal.ReadByte(__local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetShaderSourceARB(GLhandleARB obj, GLsizei maxLength, GLsizei *length, GLcharARB *source);'</para>
+/// </summary>
+public static  void glGetShaderSourceARB(GLhandleARB obj, GLsizei maxLength, out GLsizei length, IntPtr source)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+glGetShaderSourceARB(obj, maxLength, __local3, source);
+length = (GLsizei) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetShaderSourceARB(GLhandleARB obj, GLsizei maxLength, GLsizei *length, GLcharARB *source);'</para>
+/// </summary>
+public static  void glGetShaderSourceARB(GLhandleARB obj, GLsizei maxLength, out GLsizei length, out GLcharARB source)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetShaderSourceARB(obj, maxLength, __local3, __local4);
+length = (GLsizei) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+source = (GLcharARB) Marshal.ReadByte(__local4);
+Marshal.FreeHGlobal(__local4);
+}
 
 #endif
 
 #if GL_ARB_vertex_shader
-        /// <summary>
-        /// <para>Original signature is 'extern void glBindAttribLocationARB(GLhandleARB programObj, GLuint index, const GLcharARB *name);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBindAttribLocationARB")]
-        public static extern void glBindAttribLocationARB(GLhandleARB programObj, GLuint index, IntPtr name);
+/// <summary>
+/// <para>Original signature is 'extern void glBindAttribLocationARB(GLhandleARB programObj, GLuint index, const GLcharARB *name);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBindAttribLocationARB")]
+public static extern void glBindAttribLocationARB(GLhandleARB programObj, GLuint index, IntPtr name);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glBindAttribLocationARB(GLhandleARB programObj, GLuint index, const GLcharARB *name);'</para>
-        /// </summary>
-        public static void glBindAttribLocationARB(GLhandleARB programObj, GLuint index, GLcharARB[] name)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)) * name.Length);
-            GLubyte[] __array3 = Array.ConvertAll(name, item => (GLubyte)item);
-            Marshal.Copy(__array3, 0, __local3, __array3.Length);
-            glBindAttribLocationARB(programObj, index, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glBindAttribLocationARB(GLhandleARB programObj, GLuint index, const GLcharARB *name);'</para>
+/// </summary>
+public static  void glBindAttribLocationARB(GLhandleARB programObj, GLuint index, GLcharARB[] name)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)) * name.Length);
+GLubyte[] __array3 = Array.ConvertAll(name, item => (GLubyte) item);
+Marshal.Copy(__array3, 0, __local3, __array3.Length);
+glBindAttribLocationARB(programObj, index, __local3);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glBindAttribLocationARB(GLhandleARB programObj, GLuint index, const GLcharARB *name);'</para>
-        /// </summary>
-        public static void glBindAttribLocationARB(GLhandleARB programObj, GLuint index, ref GLcharARB name)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
-            Marshal.WriteByte(__local3, (GLubyte)name);
-            glBindAttribLocationARB(programObj, index, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glBindAttribLocationARB(GLhandleARB programObj, GLuint index, const GLcharARB *name);'</para>
+/// </summary>
+public static  void glBindAttribLocationARB(GLhandleARB programObj, GLuint index, ref GLcharARB name)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+Marshal.WriteByte(__local3, (GLubyte) name);
+glBindAttribLocationARB(programObj, index, __local3);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetActiveAttribARB")]
-        public static extern void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, IntPtr length, IntPtr size, IntPtr type, IntPtr name);
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetActiveAttribARB")]
+public static extern void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, IntPtr length, IntPtr size, IntPtr type, IntPtr name);
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLint glGetAttribLocationARB(GLhandleARB programObj, const GLcharARB *name);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetAttribLocationARB")]
-        public static extern GLint glGetAttribLocationARB(GLhandleARB programObj, IntPtr name);
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, IntPtr length, IntPtr size, IntPtr type, out GLcharARB name)
+{
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetActiveAttribARB(programObj, index, maxLength, length, size, type, __local7);
+name = (GLcharARB) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLint glGetAttribLocationARB(GLhandleARB programObj, const GLcharARB *name);'</para>
-        /// </summary>
-        public static GLint glGetAttribLocationARB(GLhandleARB programObj, GLcharARB[] name)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)) * name.Length);
-            GLubyte[] __array2 = Array.ConvertAll(name, item => (GLubyte)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            GLint result = glGetAttribLocationARB(programObj, __local2);
-            Marshal.FreeHGlobal(__local2);
-            return result;
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, IntPtr length, IntPtr size, out GLenum type, IntPtr name)
+{
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+glGetActiveAttribARB(programObj, index, maxLength, length, size, __local6, name);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLint glGetAttribLocationARB(GLhandleARB programObj, const GLcharARB *name);'</para>
-        /// </summary>
-        public static GLint glGetAttribLocationARB(GLhandleARB programObj, ref GLcharARB name)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
-            Marshal.WriteByte(__local2, (GLubyte)name);
-            GLint result = glGetAttribLocationARB(programObj, __local2);
-            Marshal.FreeHGlobal(__local2);
-            return result;
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, IntPtr length, IntPtr size, out GLenum type, out GLcharARB name)
+{
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetActiveAttribARB(programObj, index, maxLength, length, size, __local6, __local7);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+name = (GLcharARB) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, IntPtr length, out GLint size, IntPtr type, IntPtr name)
+{
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetActiveAttribARB(programObj, index, maxLength, length, __local5, type, name);
+size = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, IntPtr length, out GLint size, IntPtr type, out GLcharARB name)
+{
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetActiveAttribARB(programObj, index, maxLength, length, __local5, type, __local7);
+size = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+name = (GLcharARB) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, IntPtr length, out GLint size, out GLenum type, IntPtr name)
+{
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+glGetActiveAttribARB(programObj, index, maxLength, length, __local5, __local6, name);
+size = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, IntPtr length, out GLint size, out GLenum type, out GLcharARB name)
+{
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetActiveAttribARB(programObj, index, maxLength, length, __local5, __local6, __local7);
+size = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+name = (GLcharARB) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, out GLsizei length, IntPtr size, IntPtr type, IntPtr name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+glGetActiveAttribARB(programObj, index, maxLength, __local4, size, type, name);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, out GLsizei length, IntPtr size, IntPtr type, out GLcharARB name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetActiveAttribARB(programObj, index, maxLength, __local4, size, type, __local7);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+name = (GLcharARB) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, out GLsizei length, IntPtr size, out GLenum type, IntPtr name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+glGetActiveAttribARB(programObj, index, maxLength, __local4, size, __local6, name);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, out GLsizei length, IntPtr size, out GLenum type, out GLcharARB name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetActiveAttribARB(programObj, index, maxLength, __local4, size, __local6, __local7);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+name = (GLcharARB) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, out GLsizei length, out GLint size, IntPtr type, IntPtr name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetActiveAttribARB(programObj, index, maxLength, __local4, __local5, type, name);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+size = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, out GLsizei length, out GLint size, IntPtr type, out GLcharARB name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetActiveAttribARB(programObj, index, maxLength, __local4, __local5, type, __local7);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+size = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+name = (GLcharARB) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, out GLsizei length, out GLint size, out GLenum type, IntPtr name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+glGetActiveAttribARB(programObj, index, maxLength, __local4, __local5, __local6, name);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+size = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name);'</para>
+/// </summary>
+public static  void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, out GLsizei length, out GLint size, out GLenum type, out GLcharARB name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+glGetActiveAttribARB(programObj, index, maxLength, __local4, __local5, __local6, __local7);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+size = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+name = (GLcharARB) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern GLint glGetAttribLocationARB(GLhandleARB programObj, const GLcharARB *name);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetAttribLocationARB")]
+public static extern GLint glGetAttribLocationARB(GLhandleARB programObj, IntPtr name);
+
+/// <summary>
+/// <para>Original signature is 'extern GLint glGetAttribLocationARB(GLhandleARB programObj, const GLcharARB *name);'</para>
+/// </summary>
+public static  GLint glGetAttribLocationARB(GLhandleARB programObj, GLcharARB[] name)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)) * name.Length);
+GLubyte[] __array2 = Array.ConvertAll(name, item => (GLubyte) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+GLint result = glGetAttribLocationARB(programObj, __local2);
+Marshal.FreeHGlobal(__local2);
+return result;}
+
+/// <summary>
+/// <para>Original signature is 'extern GLint glGetAttribLocationARB(GLhandleARB programObj, const GLcharARB *name);'</para>
+/// </summary>
+public static  GLint glGetAttribLocationARB(GLhandleARB programObj, ref GLcharARB name)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLcharARB)));
+Marshal.WriteByte(__local2, (GLubyte) name);
+GLint result = glGetAttribLocationARB(programObj, __local2);
+Marshal.FreeHGlobal(__local2);
+return result;}
 
 #endif
 
 #if GL_ARB_vertex_buffer_object
-        /// <summary>
-        /// <para>Original signature is 'extern void glBindBufferARB(GLenum target, GLuint buffer);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBindBufferARB")]
-        public static extern void glBindBufferARB(GLenum target, GLuint buffer);
+/// <summary>
+/// <para>Original signature is 'extern void glBindBufferARB(GLenum target, GLuint buffer);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBindBufferARB")]
+public static extern void glBindBufferARB(GLenum target, GLuint buffer);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteBuffersARB(GLsizei n, const GLuint *buffers);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDeleteBuffersARB")]
-        public static extern void glDeleteBuffersARB(GLsizei n, IntPtr buffers);
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteBuffersARB(GLsizei n, const GLuint *buffers);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDeleteBuffersARB")]
+public static extern void glDeleteBuffersARB(GLsizei n, IntPtr buffers);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteBuffersARB(GLsizei n, const GLuint *buffers);'</para>
-        /// </summary>
-        public static void glDeleteBuffersARB(GLsizei n, GLuint[] buffers)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * buffers.Length);
-            GLint[] __array2 = Array.ConvertAll(buffers, item => (GLint)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glDeleteBuffersARB(n, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteBuffersARB(GLsizei n, const GLuint *buffers);'</para>
+/// </summary>
+public static  void glDeleteBuffersARB(GLsizei n, GLuint[] buffers)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * buffers.Length);
+GLint[] __array2 = Array.ConvertAll(buffers, item => (GLint) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glDeleteBuffersARB(n, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteBuffersARB(GLsizei n, const GLuint *buffers);'</para>
-        /// </summary>
-        public static void glDeleteBuffersARB(GLsizei n, ref GLuint buffers)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local2, (GLint)buffers);
-            glDeleteBuffersARB(n, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteBuffersARB(GLsizei n, const GLuint *buffers);'</para>
+/// </summary>
+public static  void glDeleteBuffersARB(GLsizei n, ref GLuint buffers)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local2, (GLint) buffers);
+glDeleteBuffersARB(n, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGenBuffersARB(GLsizei n, GLuint *buffers);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGenBuffersARB")]
-        public static extern void glGenBuffersARB(GLsizei n, IntPtr buffers);
+/// <summary>
+/// <para>Original signature is 'extern void glGenBuffersARB(GLsizei n, GLuint *buffers);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGenBuffersARB")]
+public static extern void glGenBuffersARB(GLsizei n, IntPtr buffers);
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLboolean glIsBufferARB(GLuint buffer);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glIsBufferARB")]
-        public static extern GLboolean glIsBufferARB(GLuint buffer);
+/// <summary>
+/// <para>Original signature is 'extern void glGenBuffersARB(GLsizei n, GLuint *buffers);'</para>
+/// </summary>
+public static  void glGenBuffersARB(GLsizei n, out GLuint buffers)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glGenBuffersARB(n, __local2);
+buffers = (GLuint) Marshal.ReadInt32(__local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glBufferDataARB(GLenum target, GLsizeiptrARB size, const GLvoid *data, GLenum usage);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBufferDataARB")]
-        public static extern void glBufferDataARB(GLenum target, GLsizeiptrARB size, IntPtr data, GLenum usage);
+/// <summary>
+/// <para>Original signature is 'extern GLboolean glIsBufferARB(GLuint buffer);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glIsBufferARB")]
+public static extern GLboolean glIsBufferARB(GLuint buffer);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glBufferSubDataARB(GLenum target, GLintptrARB offset, GLsizeiptrARB size, const GLvoid *data);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBufferSubDataARB")]
-        public static extern void glBufferSubDataARB(GLenum target, GLintptrARB offset, GLsizeiptrARB size, IntPtr data);
+/// <summary>
+/// <para>Original signature is 'extern void glBufferDataARB(GLenum target, GLsizeiptrARB size, const GLvoid *data, GLenum usage);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBufferDataARB")]
+public static extern void glBufferDataARB(GLenum target, GLsizeiptrARB size, IntPtr data, GLenum usage);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetBufferSubDataARB(GLenum target, GLintptrARB offset, GLsizeiptrARB size, GLvoid *data);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetBufferSubDataARB")]
-        public static extern void glGetBufferSubDataARB(GLenum target, GLintptrARB offset, GLsizeiptrARB size, IntPtr data);
+/// <summary>
+/// <para>Original signature is 'extern void glBufferSubDataARB(GLenum target, GLintptrARB offset, GLsizeiptrARB size, const GLvoid *data);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBufferSubDataARB")]
+public static extern void glBufferSubDataARB(GLenum target, GLintptrARB offset, GLsizeiptrARB size, IntPtr data);
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLvoid *glMapBufferARB(GLenum target, GLenum access);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMapBufferARB")]
-        public static extern IntPtr glMapBufferARB(GLenum target, GLenum access);
+/// <summary>
+/// <para>Original signature is 'extern void glGetBufferSubDataARB(GLenum target, GLintptrARB offset, GLsizeiptrARB size, GLvoid *data);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetBufferSubDataARB")]
+public static extern void glGetBufferSubDataARB(GLenum target, GLintptrARB offset, GLsizeiptrARB size, IntPtr data);
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLboolean glUnmapBufferARB(GLenum target);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUnmapBufferARB")]
-        public static extern GLboolean glUnmapBufferARB(GLenum target);
+/// <summary>
+/// <para>Original signature is 'extern GLvoid *glMapBufferARB(GLenum target, GLenum access);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMapBufferARB")]
+public static extern IntPtr glMapBufferARB(GLenum target, GLenum access);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetBufferParameterivARB(GLenum target, GLenum pname, GLint *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetBufferParameterivARB")]
-        public static extern void glGetBufferParameterivARB(GLenum target, GLenum pname, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern GLboolean glUnmapBufferARB(GLenum target);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUnmapBufferARB")]
+public static extern GLboolean glUnmapBufferARB(GLenum target);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetBufferPointervARB(GLenum target, GLenum pname, GLvoid **params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetBufferPointervARB")]
-        public static extern void glGetBufferPointervARB(GLenum target, GLenum pname, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glGetBufferParameterivARB(GLenum target, GLenum pname, GLint *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetBufferParameterivARB")]
+public static extern void glGetBufferParameterivARB(GLenum target, GLenum pname, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetBufferParameterivARB(GLenum target, GLenum pname, GLint *params);'</para>
+/// </summary>
+public static  void glGetBufferParameterivARB(GLenum target, GLenum pname, out GLint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetBufferParameterivARB(target, pname, __local3);
+@params = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetBufferPointervARB(GLenum target, GLenum pname, GLvoid **params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetBufferPointervARB")]
+public static extern void glGetBufferPointervARB(GLenum target, GLenum pname, IntPtr @params);
 
 #endif
 
 #if GL_ARB_draw_buffers
-        /// <summary>
-        /// <para>Original signature is 'extern void glDrawBuffersARB(GLsizei n, const GLenum *bufs);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDrawBuffersARB")]
-        public static extern void glDrawBuffersARB(GLsizei n, IntPtr bufs);
+/// <summary>
+/// <para>Original signature is 'extern void glDrawBuffersARB(GLsizei n, const GLenum *bufs);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDrawBuffersARB")]
+public static extern void glDrawBuffersARB(GLsizei n, IntPtr bufs);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDrawBuffersARB(GLsizei n, const GLenum *bufs);'</para>
-        /// </summary>
-        public static void glDrawBuffersARB(GLsizei n, GLenum[] bufs)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)) * bufs.Length);
-            GLint[] __array2 = Array.ConvertAll(bufs, item => (GLint)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glDrawBuffersARB(n, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glDrawBuffersARB(GLsizei n, const GLenum *bufs);'</para>
+/// </summary>
+public static  void glDrawBuffersARB(GLsizei n, GLenum[] bufs)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)) * bufs.Length);
+GLint[] __array2 = Array.ConvertAll(bufs, item => (GLint) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glDrawBuffersARB(n, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDrawBuffersARB(GLsizei n, const GLenum *bufs);'</para>
-        /// </summary>
-        public static void glDrawBuffersARB(GLsizei n, ref GLenum bufs)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
-            Marshal.WriteInt32(__local2, (GLint)bufs);
-            glDrawBuffersARB(n, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glDrawBuffersARB(GLsizei n, const GLenum *bufs);'</para>
+/// </summary>
+public static  void glDrawBuffersARB(GLsizei n, ref GLenum bufs)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+Marshal.WriteInt32(__local2, (GLint) bufs);
+glDrawBuffersARB(n, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
 #endif
 
 #if GL_ARB_color_buffer_float
-        /// <summary>
-        /// <para>Original signature is 'extern void glClampColorARB(GLenum target, GLenum clamp);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glClampColorARB")]
-        public static extern void glClampColorARB(GLenum target, GLenum clamp);
+/// <summary>
+/// <para>Original signature is 'extern void glClampColorARB(GLenum target, GLenum clamp);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glClampColorARB")]
+public static extern void glClampColorARB(GLenum target, GLenum clamp);
 
 #endif
 
 #if GL_ARB_instanced_arrays
-        /// <summary>
-        /// <para>Original signature is 'extern void glDrawArraysInstancedARB(GLenum mode, GLint first, GLsizei count, GLsizei primcount);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDrawArraysInstancedARB")]
-        public static extern void glDrawArraysInstancedARB(GLenum mode, GLint first, GLsizei count, GLsizei primcount);
+/// <summary>
+/// <para>Original signature is 'extern void glDrawArraysInstancedARB(GLenum mode, GLint first, GLsizei count, GLsizei primcount);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDrawArraysInstancedARB")]
+public static extern void glDrawArraysInstancedARB(GLenum mode, GLint first, GLsizei count, GLsizei primcount);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDrawElementsInstancedARB(GLenum mode, GLsizei count, GLenum type, const GLvoid *indices, GLsizei primcount);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDrawElementsInstancedARB")]
-        public static extern void glDrawElementsInstancedARB(GLenum mode, GLsizei count, GLenum type, IntPtr indices, GLsizei primcount);
+/// <summary>
+/// <para>Original signature is 'extern void glDrawElementsInstancedARB(GLenum mode, GLsizei count, GLenum type, const GLvoid *indices, GLsizei primcount);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDrawElementsInstancedARB")]
+public static extern void glDrawElementsInstancedARB(GLenum mode, GLsizei count, GLenum type, IntPtr indices, GLsizei primcount);
 
 #endif
 
 #if GL_ARB_instanced_arrays
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribDivisorARB(GLuint index, GLuint divisor);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribDivisorARB")]
-        public static extern void glVertexAttribDivisorARB(GLuint index, GLuint divisor);
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribDivisorARB(GLuint index, GLuint divisor);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribDivisorARB")]
+public static extern void glVertexAttribDivisorARB(GLuint index, GLuint divisor);
 
 #endif
 
 #if GL_ARB_uniform_buffer_object
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetUniformIndices(GLuint program, GLsizei uniformCount, const GLchar** uniformNames, GLuint* uniformIndices);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetUniformIndices")]
-        public static extern void glGetUniformIndices(GLuint program, GLsizei uniformCount, IntPtr uniformNames, IntPtr uniformIndices);
+/// <summary>
+/// <para>Original signature is 'extern void glGetUniformIndices(GLuint program, GLsizei uniformCount, const GLchar** uniformNames, GLuint* uniformIndices);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetUniformIndices")]
+public static extern void glGetUniformIndices(GLuint program, GLsizei uniformCount, IntPtr uniformNames, IntPtr uniformIndices);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetUniformIndices(GLuint program, GLsizei uniformCount, const GLchar** uniformNames, GLuint* uniformIndices);'</para>
-        /// </summary>
-        public static void glGetUniformIndices(GLuint program, GLsizei uniformCount, GLchar[] uniformNames, IntPtr uniformIndices)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)) * uniformNames.Length);
-            GLubyte[] __array3 = Array.ConvertAll(uniformNames, item => (GLubyte)item);
-            Marshal.Copy(__array3, 0, __local3, __array3.Length);
-            glGetUniformIndices(program, uniformCount, __local3, uniformIndices);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glGetUniformIndices(GLuint program, GLsizei uniformCount, const GLchar** uniformNames, GLuint* uniformIndices);'</para>
+/// </summary>
+public static  void glGetUniformIndices(GLuint program, GLsizei uniformCount, IntPtr uniformNames, out GLuint uniformIndices)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glGetUniformIndices(program, uniformCount, uniformNames, __local4);
+uniformIndices = (GLuint) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetUniformIndices(GLuint program, GLsizei uniformCount, const GLchar** uniformNames, GLuint* uniformIndices);'</para>
-        /// </summary>
-        public static void glGetUniformIndices(GLuint program, GLsizei uniformCount, ref GLchar uniformNames, IntPtr uniformIndices)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
-            Marshal.WriteByte(__local3, (GLubyte)uniformNames);
-            glGetUniformIndices(program, uniformCount, __local3, uniformIndices);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glGetUniformIndices(GLuint program, GLsizei uniformCount, const GLchar** uniformNames, GLuint* uniformIndices);'</para>
+/// </summary>
+public static  void glGetUniformIndices(GLuint program, GLsizei uniformCount, GLchar[] uniformNames, IntPtr uniformIndices)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)) * uniformNames.Length);
+GLubyte[] __array3 = Array.ConvertAll(uniformNames, item => (GLubyte) item);
+Marshal.Copy(__array3, 0, __local3, __array3.Length);
+glGetUniformIndices(program, uniformCount, __local3, uniformIndices);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetActiveUniformsiv(GLuint program, GLsizei uniformCount, const GLuint* uniformIndices, GLenum pname, GLint* params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetActiveUniformsiv")]
-        public static extern void glGetActiveUniformsiv(GLuint program, GLsizei uniformCount, IntPtr uniformIndices, GLenum pname, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glGetUniformIndices(GLuint program, GLsizei uniformCount, const GLchar** uniformNames, GLuint* uniformIndices);'</para>
+/// </summary>
+public static  void glGetUniformIndices(GLuint program, GLsizei uniformCount, GLchar[] uniformNames, out GLuint uniformIndices)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)) * uniformNames.Length);
+GLubyte[] __array3 = Array.ConvertAll(uniformNames, item => (GLubyte) item);
+Marshal.Copy(__array3, 0, __local3, __array3.Length);
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glGetUniformIndices(program, uniformCount, __local3, __local4);
+Marshal.FreeHGlobal(__local3);
+uniformIndices = (GLuint) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetActiveUniformsiv(GLuint program, GLsizei uniformCount, const GLuint* uniformIndices, GLenum pname, GLint* params);'</para>
-        /// </summary>
-        public static void glGetActiveUniformsiv(GLuint program, GLsizei uniformCount, GLuint[] uniformIndices, GLenum pname, IntPtr @params)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * uniformIndices.Length);
-            GLint[] __array3 = Array.ConvertAll(uniformIndices, item => (GLint)item);
-            Marshal.Copy(__array3, 0, __local3, __array3.Length);
-            glGetActiveUniformsiv(program, uniformCount, __local3, pname, @params);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glGetUniformIndices(GLuint program, GLsizei uniformCount, const GLchar** uniformNames, GLuint* uniformIndices);'</para>
+/// </summary>
+public static  void glGetUniformIndices(GLuint program, GLsizei uniformCount, ref GLchar uniformNames, IntPtr uniformIndices)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
+Marshal.WriteByte(__local3, (GLubyte) uniformNames);
+glGetUniformIndices(program, uniformCount, __local3, uniformIndices);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetActiveUniformsiv(GLuint program, GLsizei uniformCount, const GLuint* uniformIndices, GLenum pname, GLint* params);'</para>
-        /// </summary>
-        public static void glGetActiveUniformsiv(GLuint program, GLsizei uniformCount, ref GLuint uniformIndices, GLenum pname, IntPtr @params)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local3, (GLint)uniformIndices);
-            glGetActiveUniformsiv(program, uniformCount, __local3, pname, @params);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glGetUniformIndices(GLuint program, GLsizei uniformCount, const GLchar** uniformNames, GLuint* uniformIndices);'</para>
+/// </summary>
+public static  void glGetUniformIndices(GLuint program, GLsizei uniformCount, ref GLchar uniformNames, out GLuint uniformIndices)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
+Marshal.WriteByte(__local3, (GLubyte) uniformNames);
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glGetUniformIndices(program, uniformCount, __local3, __local4);
+Marshal.FreeHGlobal(__local3);
+uniformIndices = (GLuint) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetActiveUniformName(GLuint program, GLuint uniformIndex, GLsizei bufSize, GLsizei* length, GLchar* uniformName);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetActiveUniformName")]
-        public static extern void glGetActiveUniformName(GLuint program, GLuint uniformIndex, GLsizei bufSize, IntPtr length, IntPtr uniformName);
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformsiv(GLuint program, GLsizei uniformCount, const GLuint* uniformIndices, GLenum pname, GLint* params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetActiveUniformsiv")]
+public static extern void glGetActiveUniformsiv(GLuint program, GLsizei uniformCount, IntPtr uniformIndices, GLenum pname, IntPtr @params);
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLuint glGetUniformBlockIndex(GLuint program, const GLchar* uniformBlockName);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetUniformBlockIndex")]
-        public static extern GLuint glGetUniformBlockIndex(GLuint program, IntPtr uniformBlockName);
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformsiv(GLuint program, GLsizei uniformCount, const GLuint* uniformIndices, GLenum pname, GLint* params);'</para>
+/// </summary>
+public static  void glGetActiveUniformsiv(GLuint program, GLsizei uniformCount, IntPtr uniformIndices, GLenum pname, out GLint @params)
+{
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetActiveUniformsiv(program, uniformCount, uniformIndices, pname, __local5);
+@params = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLuint glGetUniformBlockIndex(GLuint program, const GLchar* uniformBlockName);'</para>
-        /// </summary>
-        public static GLuint glGetUniformBlockIndex(GLuint program, GLchar[] uniformBlockName)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)) * uniformBlockName.Length);
-            GLubyte[] __array2 = Array.ConvertAll(uniformBlockName, item => (GLubyte)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            GLuint result = glGetUniformBlockIndex(program, __local2);
-            Marshal.FreeHGlobal(__local2);
-            return result;
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformsiv(GLuint program, GLsizei uniformCount, const GLuint* uniformIndices, GLenum pname, GLint* params);'</para>
+/// </summary>
+public static  void glGetActiveUniformsiv(GLuint program, GLsizei uniformCount, GLuint[] uniformIndices, GLenum pname, IntPtr @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * uniformIndices.Length);
+GLint[] __array3 = Array.ConvertAll(uniformIndices, item => (GLint) item);
+Marshal.Copy(__array3, 0, __local3, __array3.Length);
+glGetActiveUniformsiv(program, uniformCount, __local3, pname, @params);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLuint glGetUniformBlockIndex(GLuint program, const GLchar* uniformBlockName);'</para>
-        /// </summary>
-        public static GLuint glGetUniformBlockIndex(GLuint program, ref GLchar uniformBlockName)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
-            Marshal.WriteByte(__local2, (GLubyte)uniformBlockName);
-            GLuint result = glGetUniformBlockIndex(program, __local2);
-            Marshal.FreeHGlobal(__local2);
-            return result;
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformsiv(GLuint program, GLsizei uniformCount, const GLuint* uniformIndices, GLenum pname, GLint* params);'</para>
+/// </summary>
+public static  void glGetActiveUniformsiv(GLuint program, GLsizei uniformCount, GLuint[] uniformIndices, GLenum pname, out GLint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * uniformIndices.Length);
+GLint[] __array3 = Array.ConvertAll(uniformIndices, item => (GLint) item);
+Marshal.Copy(__array3, 0, __local3, __array3.Length);
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetActiveUniformsiv(program, uniformCount, __local3, pname, __local5);
+Marshal.FreeHGlobal(__local3);
+@params = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetActiveUniformBlockiv(GLuint program, GLuint uniformBlockIndex, GLenum pname, GLint* params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetActiveUniformBlockiv")]
-        public static extern void glGetActiveUniformBlockiv(GLuint program, GLuint uniformBlockIndex, GLenum pname, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformsiv(GLuint program, GLsizei uniformCount, const GLuint* uniformIndices, GLenum pname, GLint* params);'</para>
+/// </summary>
+public static  void glGetActiveUniformsiv(GLuint program, GLsizei uniformCount, ref GLuint uniformIndices, GLenum pname, IntPtr @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local3, (GLint) uniformIndices);
+glGetActiveUniformsiv(program, uniformCount, __local3, pname, @params);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetActiveUniformBlockName(GLuint program, GLuint uniformBlockIndex, GLsizei bufSize, GLsizei* length, GLchar* uniformBlockName);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetActiveUniformBlockName")]
-        public static extern void glGetActiveUniformBlockName(GLuint program, GLuint uniformBlockIndex, GLsizei bufSize, IntPtr length, IntPtr uniformBlockName);
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformsiv(GLuint program, GLsizei uniformCount, const GLuint* uniformIndices, GLenum pname, GLint* params);'</para>
+/// </summary>
+public static  void glGetActiveUniformsiv(GLuint program, GLsizei uniformCount, ref GLuint uniformIndices, GLenum pname, out GLint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local3, (GLint) uniformIndices);
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetActiveUniformsiv(program, uniformCount, __local3, pname, __local5);
+Marshal.FreeHGlobal(__local3);
+@params = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glBindBufferRange(GLenum target, GLuint index, GLuint buffer, GLintptr offset, GLsizeiptr size);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBindBufferRange")]
-        public static extern void glBindBufferRange(GLenum target, GLuint index, GLuint buffer, GLintptr offset, GLsizeiptr size);
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformName(GLuint program, GLuint uniformIndex, GLsizei bufSize, GLsizei* length, GLchar* uniformName);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetActiveUniformName")]
+public static extern void glGetActiveUniformName(GLuint program, GLuint uniformIndex, GLsizei bufSize, IntPtr length, IntPtr uniformName);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glBindBufferBase(GLenum target, GLuint index, GLuint buffer);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBindBufferBase")]
-        public static extern void glBindBufferBase(GLenum target, GLuint index, GLuint buffer);
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformName(GLuint program, GLuint uniformIndex, GLsizei bufSize, GLsizei* length, GLchar* uniformName);'</para>
+/// </summary>
+public static  void glGetActiveUniformName(GLuint program, GLuint uniformIndex, GLsizei bufSize, IntPtr length, out GLchar uniformName)
+{
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
+glGetActiveUniformName(program, uniformIndex, bufSize, length, __local5);
+uniformName = (GLchar) Marshal.ReadByte(__local5);
+Marshal.FreeHGlobal(__local5);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetIntegeri_v(GLenum pname, GLuint index, GLint* data);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetIntegeri_v")]
-        public static extern void glGetIntegeri_v(GLenum pname, GLuint index, IntPtr data);
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformName(GLuint program, GLuint uniformIndex, GLsizei bufSize, GLsizei* length, GLchar* uniformName);'</para>
+/// </summary>
+public static  void glGetActiveUniformName(GLuint program, GLuint uniformIndex, GLsizei bufSize, out GLsizei length, IntPtr uniformName)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+glGetActiveUniformName(program, uniformIndex, bufSize, __local4, uniformName);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniformBlockBinding(GLuint program, GLuint uniformBlockIndex, GLuint uniformBlockBinding);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniformBlockBinding")]
-        public static extern void glUniformBlockBinding(GLuint program, GLuint uniformBlockIndex, GLuint uniformBlockBinding);
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformName(GLuint program, GLuint uniformIndex, GLsizei bufSize, GLsizei* length, GLchar* uniformName);'</para>
+/// </summary>
+public static  void glGetActiveUniformName(GLuint program, GLuint uniformIndex, GLsizei bufSize, out GLsizei length, out GLchar uniformName)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
+glGetActiveUniformName(program, uniformIndex, bufSize, __local4, __local5);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+uniformName = (GLchar) Marshal.ReadByte(__local5);
+Marshal.FreeHGlobal(__local5);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern GLuint glGetUniformBlockIndex(GLuint program, const GLchar* uniformBlockName);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetUniformBlockIndex")]
+public static extern GLuint glGetUniformBlockIndex(GLuint program, IntPtr uniformBlockName);
+
+/// <summary>
+/// <para>Original signature is 'extern GLuint glGetUniformBlockIndex(GLuint program, const GLchar* uniformBlockName);'</para>
+/// </summary>
+public static  GLuint glGetUniformBlockIndex(GLuint program, GLchar[] uniformBlockName)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)) * uniformBlockName.Length);
+GLubyte[] __array2 = Array.ConvertAll(uniformBlockName, item => (GLubyte) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+GLuint result = glGetUniformBlockIndex(program, __local2);
+Marshal.FreeHGlobal(__local2);
+return result;}
+
+/// <summary>
+/// <para>Original signature is 'extern GLuint glGetUniformBlockIndex(GLuint program, const GLchar* uniformBlockName);'</para>
+/// </summary>
+public static  GLuint glGetUniformBlockIndex(GLuint program, ref GLchar uniformBlockName)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
+Marshal.WriteByte(__local2, (GLubyte) uniformBlockName);
+GLuint result = glGetUniformBlockIndex(program, __local2);
+Marshal.FreeHGlobal(__local2);
+return result;}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformBlockiv(GLuint program, GLuint uniformBlockIndex, GLenum pname, GLint* params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetActiveUniformBlockiv")]
+public static extern void glGetActiveUniformBlockiv(GLuint program, GLuint uniformBlockIndex, GLenum pname, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformBlockiv(GLuint program, GLuint uniformBlockIndex, GLenum pname, GLint* params);'</para>
+/// </summary>
+public static  void glGetActiveUniformBlockiv(GLuint program, GLuint uniformBlockIndex, GLenum pname, out GLint @params)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetActiveUniformBlockiv(program, uniformBlockIndex, pname, __local4);
+@params = (GLint) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformBlockName(GLuint program, GLuint uniformBlockIndex, GLsizei bufSize, GLsizei* length, GLchar* uniformBlockName);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetActiveUniformBlockName")]
+public static extern void glGetActiveUniformBlockName(GLuint program, GLuint uniformBlockIndex, GLsizei bufSize, IntPtr length, IntPtr uniformBlockName);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformBlockName(GLuint program, GLuint uniformBlockIndex, GLsizei bufSize, GLsizei* length, GLchar* uniformBlockName);'</para>
+/// </summary>
+public static  void glGetActiveUniformBlockName(GLuint program, GLuint uniformBlockIndex, GLsizei bufSize, IntPtr length, out GLchar uniformBlockName)
+{
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
+glGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, length, __local5);
+uniformBlockName = (GLchar) Marshal.ReadByte(__local5);
+Marshal.FreeHGlobal(__local5);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformBlockName(GLuint program, GLuint uniformBlockIndex, GLsizei bufSize, GLsizei* length, GLchar* uniformBlockName);'</para>
+/// </summary>
+public static  void glGetActiveUniformBlockName(GLuint program, GLuint uniformBlockIndex, GLsizei bufSize, out GLsizei length, IntPtr uniformBlockName)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+glGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __local4, uniformBlockName);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetActiveUniformBlockName(GLuint program, GLuint uniformBlockIndex, GLsizei bufSize, GLsizei* length, GLchar* uniformBlockName);'</para>
+/// </summary>
+public static  void glGetActiveUniformBlockName(GLuint program, GLuint uniformBlockIndex, GLsizei bufSize, out GLsizei length, out GLchar uniformBlockName)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
+glGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __local4, __local5);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+uniformBlockName = (GLchar) Marshal.ReadByte(__local5);
+Marshal.FreeHGlobal(__local5);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glBindBufferRange(GLenum target, GLuint index, GLuint buffer, GLintptr offset, GLsizeiptr size);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBindBufferRange")]
+public static extern void glBindBufferRange(GLenum target, GLuint index, GLuint buffer, GLintptr offset, GLsizeiptr size);
+
+/// <summary>
+/// <para>Original signature is 'extern void glBindBufferBase(GLenum target, GLuint index, GLuint buffer);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBindBufferBase")]
+public static extern void glBindBufferBase(GLenum target, GLuint index, GLuint buffer);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetIntegeri_v(GLenum pname, GLuint index, GLint* data);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetIntegeri_v")]
+public static extern void glGetIntegeri_v(GLenum pname, GLuint index, IntPtr data);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetIntegeri_v(GLenum pname, GLuint index, GLint* data);'</para>
+/// </summary>
+public static  void glGetIntegeri_v(GLenum pname, GLuint index, out GLint data)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetIntegeri_v(pname, index, __local3);
+data = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniformBlockBinding(GLuint program, GLuint uniformBlockIndex, GLuint uniformBlockBinding);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniformBlockBinding")]
+public static extern void glUniformBlockBinding(GLuint program, GLuint uniformBlockIndex, GLuint uniformBlockBinding);
 
 #endif
 
 #if GL_EXT_blend_color
-        /// <summary>
-        /// <para>Original signature is 'extern void glBlendColorEXT (GLclampf, GLclampf, GLclampf, GLclampf);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBlendColorEXT")]
-        public static extern void glBlendColorEXT(GLclampf p0, GLclampf p1, GLclampf p2, GLclampf p3);
+/// <summary>
+/// <para>Original signature is 'extern void glBlendColorEXT (GLclampf, GLclampf, GLclampf, GLclampf);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBlendColorEXT")]
+public static extern void glBlendColorEXT(GLclampf p0, GLclampf p1, GLclampf p2, GLclampf p3);
 
 #endif
 
@@ -3744,10 +4661,32 @@ public static extern void glGetHistogramEXT(GLenum p0, GLboolean p1, GLenum p2, 
 public static extern void glGetHistogramParameterfvEXT(GLenum p0, GLenum p1, IntPtr p2);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetHistogramParameterfvEXT (GLenum, GLenum, GLfloat *);'</para>
+/// </summary>
+public static  void glGetHistogramParameterfvEXT(GLenum p0, GLenum p1, out GLfloat p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetHistogramParameterfvEXT(p0, p1, __local3);
+p2 = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetHistogramParameterivEXT (GLenum, GLenum, GLint *);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetHistogramParameterivEXT")]
 public static extern void glGetHistogramParameterivEXT(GLenum p0, GLenum p1, IntPtr p2);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetHistogramParameterivEXT (GLenum, GLenum, GLint *);'</para>
+/// </summary>
+public static  void glGetHistogramParameterivEXT(GLenum p0, GLenum p1, out GLint p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetHistogramParameterivEXT(p0, p1, __local3);
+p2 = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glGetMinmaxEXT (GLenum, GLboolean, GLenum, GLenum, GLvoid *);'</para>
@@ -3762,10 +4701,32 @@ public static extern void glGetMinmaxEXT(GLenum p0, GLboolean p1, GLenum p2, GLe
 public static extern void glGetMinmaxParameterfvEXT(GLenum p0, GLenum p1, IntPtr p2);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetMinmaxParameterfvEXT (GLenum, GLenum, GLfloat *);'</para>
+/// </summary>
+public static  void glGetMinmaxParameterfvEXT(GLenum p0, GLenum p1, out GLfloat p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetMinmaxParameterfvEXT(p0, p1, __local3);
+p2 = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetMinmaxParameterivEXT (GLenum, GLenum, GLint *);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetMinmaxParameterivEXT")]
 public static extern void glGetMinmaxParameterivEXT(GLenum p0, GLenum p1, IntPtr p2);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetMinmaxParameterivEXT (GLenum, GLenum, GLint *);'</para>
+/// </summary>
+public static  void glGetMinmaxParameterivEXT(GLenum p0, GLenum p1, out GLint p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetMinmaxParameterivEXT(p0, p1, __local3);
+p2 = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glHistogramEXT (GLenum, GLsizei, GLenum, GLboolean);'</para>
@@ -3899,10 +4860,32 @@ public static extern void glGetConvolutionFilterEXT(GLenum p0, GLenum p1, GLenum
 public static extern void glGetConvolutionParameterfvEXT(GLenum p0, GLenum p1, IntPtr p2);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetConvolutionParameterfvEXT (GLenum, GLenum, GLfloat *);'</para>
+/// </summary>
+public static  void glGetConvolutionParameterfvEXT(GLenum p0, GLenum p1, out GLfloat p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetConvolutionParameterfvEXT(p0, p1, __local3);
+p2 = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetConvolutionParameterivEXT (GLenum, GLenum, GLint *);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetConvolutionParameterivEXT")]
 public static extern void glGetConvolutionParameterivEXT(GLenum p0, GLenum p1, IntPtr p2);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetConvolutionParameterivEXT (GLenum, GLenum, GLint *);'</para>
+/// </summary>
+public static  void glGetConvolutionParameterivEXT(GLenum p0, GLenum p1, out GLint p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetConvolutionParameterivEXT(p0, p1, __local3);
+p2 = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glGetSeparableFilterEXT (GLenum, GLenum, GLenum, GLvoid *, GLvoid *, GLvoid *);'</para>
@@ -3928,6 +4911,17 @@ public static extern GLboolean glAreTexturesResidentEXT(GLsizei p0, IntPtr p1, I
 /// <summary>
 /// <para>Original signature is 'extern GLboolean glAreTexturesResidentEXT (GLsizei, const GLuint *, GLboolean *);'</para>
 /// </summary>
+public static  GLboolean glAreTexturesResidentEXT(GLsizei p0, IntPtr p1, out GLboolean p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLboolean)));
+GLboolean result = glAreTexturesResidentEXT(p0, p1, __local3);
+p2 = (bool) Marshal.ReadByte(__local3);
+Marshal.FreeHGlobal(__local3);
+return result;}
+
+/// <summary>
+/// <para>Original signature is 'extern GLboolean glAreTexturesResidentEXT (GLsizei, const GLuint *, GLboolean *);'</para>
+/// </summary>
 public static  GLboolean glAreTexturesResidentEXT(GLsizei p0, GLuint[] p1, IntPtr p2)
 {
 IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * p1.Length);
@@ -3940,12 +4934,41 @@ return result;}
 /// <summary>
 /// <para>Original signature is 'extern GLboolean glAreTexturesResidentEXT (GLsizei, const GLuint *, GLboolean *);'</para>
 /// </summary>
+public static  GLboolean glAreTexturesResidentEXT(GLsizei p0, GLuint[] p1, out GLboolean p2)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * p1.Length);
+GLint[] __array2 = Array.ConvertAll(p1, item => (GLint) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLboolean)));
+GLboolean result = glAreTexturesResidentEXT(p0, __local2, __local3);
+Marshal.FreeHGlobal(__local2);
+p2 = (bool) Marshal.ReadByte(__local3);
+Marshal.FreeHGlobal(__local3);
+return result;}
+
+/// <summary>
+/// <para>Original signature is 'extern GLboolean glAreTexturesResidentEXT (GLsizei, const GLuint *, GLboolean *);'</para>
+/// </summary>
 public static  GLboolean glAreTexturesResidentEXT(GLsizei p0, ref GLuint p1, IntPtr p2)
 {
 IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
 Marshal.WriteInt32(__local2, (GLint) p1);
 GLboolean result = glAreTexturesResidentEXT(p0, __local2, p2);
 Marshal.FreeHGlobal(__local2);
+return result;}
+
+/// <summary>
+/// <para>Original signature is 'extern GLboolean glAreTexturesResidentEXT (GLsizei, const GLuint *, GLboolean *);'</para>
+/// </summary>
+public static  GLboolean glAreTexturesResidentEXT(GLsizei p0, ref GLuint p1, out GLboolean p2)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local2, (GLint) p1);
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLboolean)));
+GLboolean result = glAreTexturesResidentEXT(p0, __local2, __local3);
+Marshal.FreeHGlobal(__local2);
+p2 = (bool) Marshal.ReadByte(__local3);
+Marshal.FreeHGlobal(__local3);
 return result;}
 
 /// <summary>
@@ -3988,6 +5011,17 @@ Marshal.FreeHGlobal(__local2);
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGenTexturesEXT")]
 public static extern void glGenTexturesEXT(GLsizei p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGenTexturesEXT (GLsizei, GLuint *);'</para>
+/// </summary>
+public static  void glGenTexturesEXT(GLsizei p0, out GLuint p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glGenTexturesEXT(p0, __local2);
+p1 = (GLuint) Marshal.ReadInt32(__local2);
+Marshal.FreeHGlobal(__local2);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern GLboolean glIsTextureEXT (GLuint);'</para>
@@ -4164,11 +5198,11 @@ public static extern void glVertexPointerEXT(GLint p0, GLenum p1, GLsizei p2, GL
 #endif
 
 #if GL_EXT_blend_minmax
-        /// <summary>
-        /// <para>Original signature is 'extern void glBlendEquationEXT (GLenum);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBlendEquationEXT")]
-        public static extern void glBlendEquationEXT(GLenum p0);
+/// <summary>
+/// <para>Original signature is 'extern void glBlendEquationEXT (GLenum);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBlendEquationEXT")]
+public static extern void glBlendEquationEXT(GLenum p0);
 
 #endif
 
@@ -4213,10 +5247,32 @@ public static extern void glGetColorTableEXT(GLenum p0, GLenum p1, GLenum p2, In
 public static extern void glGetColorTableParameterivEXT(GLenum p0, GLenum p1, IntPtr p2);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetColorTableParameterivEXT (GLenum, GLenum, GLint *);'</para>
+/// </summary>
+public static  void glGetColorTableParameterivEXT(GLenum p0, GLenum p1, out GLint p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetColorTableParameterivEXT(p0, p1, __local3);
+p2 = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetColorTableParameterfvEXT (GLenum, GLenum, GLfloat *);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetColorTableParameterfvEXT")]
 public static extern void glGetColorTableParameterfvEXT(GLenum p0, GLenum p1, IntPtr p2);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetColorTableParameterfvEXT (GLenum, GLenum, GLfloat *);'</para>
+/// </summary>
+public static  void glGetColorTableParameterfvEXT(GLenum p0, GLenum p1, out GLfloat p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetColorTableParameterfvEXT(p0, p1, __local3);
+p2 = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
 
 #endif
 
@@ -4239,17 +5295,17 @@ public static extern void glIndexFuncEXT(GLenum p0, GLclampf p1);
 #endif
 
 #if GL_EXT_compiled_vertex_array
-        /// <summary>
-        /// <para>Original signature is 'extern void glLockArraysEXT (GLint, GLsizei);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glLockArraysEXT")]
-        public static extern void glLockArraysEXT(GLint p0, GLsizei p1);
+/// <summary>
+/// <para>Original signature is 'extern void glLockArraysEXT (GLint, GLsizei);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glLockArraysEXT")]
+public static extern void glLockArraysEXT(GLint p0, GLsizei p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glUnlockArraysEXT (void);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUnlockArraysEXT")]
-        public static extern void glUnlockArraysEXT();
+/// <summary>
+/// <para>Original signature is 'extern void glUnlockArraysEXT (void);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUnlockArraysEXT")]
+public static extern void glUnlockArraysEXT();
 
 #endif
 
@@ -4261,19 +5317,41 @@ public static extern void glIndexFuncEXT(GLenum p0, GLclampf p1);
 public static extern void glCullParameterdvEXT(GLenum p0, IntPtr p1);
 
 /// <summary>
+/// <para>Original signature is 'extern void glCullParameterdvEXT (GLenum, GLdouble *);'</para>
+/// </summary>
+public static  void glCullParameterdvEXT(GLenum p0, out GLdouble p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+glCullParameterdvEXT(p0, __local2);
+p1 = (GLdouble) Marshal.PtrToStructure(__local2, typeof(GLdouble));
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glCullParameterfvEXT (GLenum, GLfloat *);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glCullParameterfvEXT")]
 public static extern void glCullParameterfvEXT(GLenum p0, IntPtr p1);
 
+/// <summary>
+/// <para>Original signature is 'extern void glCullParameterfvEXT (GLenum, GLfloat *);'</para>
+/// </summary>
+public static  void glCullParameterfvEXT(GLenum p0, out GLfloat p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glCullParameterfvEXT(p0, __local2);
+p1 = (GLfloat) Marshal.PtrToStructure(__local2, typeof(GLfloat));
+Marshal.FreeHGlobal(__local2);
+}
+
 #endif
 
 #if GL_EXT_draw_range_elements
-        /// <summary>
-        /// <para>Original signature is 'extern void glDrawRangeElementsEXT (GLenum, GLuint, GLuint, GLsizei, GLenum, const GLvoid *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDrawRangeElementsEXT")]
-        public static extern void glDrawRangeElementsEXT(GLenum p0, GLuint p1, GLuint p2, GLsizei p3, GLenum p4, IntPtr p5);
+/// <summary>
+/// <para>Original signature is 'extern void glDrawRangeElementsEXT (GLenum, GLuint, GLuint, GLsizei, GLenum, const GLvoid *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDrawRangeElementsEXT")]
+public static extern void glDrawRangeElementsEXT(GLenum p0, GLuint p1, GLuint p2, GLsizei p3, GLenum p4, IntPtr p5);
 
 #endif
 
@@ -4370,286 +5448,286 @@ Marshal.FreeHGlobal(__local3);
 #endif
 
 #if GL_EXT_secondary_color
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3bEXT (GLbyte, GLbyte, GLbyte);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSecondaryColor3bEXT")]
-        public static extern void glSecondaryColor3bEXT(GLbyte p0, GLbyte p1, GLbyte p2);
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3bEXT (GLbyte, GLbyte, GLbyte);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSecondaryColor3bEXT")]
+public static extern void glSecondaryColor3bEXT(GLbyte p0, GLbyte p1, GLbyte p2);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3bvEXT (const GLbyte *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSecondaryColor3bvEXT")]
-        public static extern void glSecondaryColor3bvEXT(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3bvEXT (const GLbyte *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSecondaryColor3bvEXT")]
+public static extern void glSecondaryColor3bvEXT(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3bvEXT (const GLbyte *);'</para>
-        /// </summary>
-        public static void glSecondaryColor3bvEXT(GLbyte[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)) * p0.Length);
-            GLubyte[] __array1 = Array.ConvertAll(p0, item => (GLubyte)item);
-            Marshal.Copy(__array1, 0, __local1, __array1.Length);
-            glSecondaryColor3bvEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3bvEXT (const GLbyte *);'</para>
+/// </summary>
+public static  void glSecondaryColor3bvEXT(GLbyte[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)) * p0.Length);
+GLubyte[] __array1 = Array.ConvertAll(p0, item => (GLubyte) item);
+Marshal.Copy(__array1, 0, __local1, __array1.Length);
+glSecondaryColor3bvEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3bvEXT (const GLbyte *);'</para>
-        /// </summary>
-        public static void glSecondaryColor3bvEXT(ref GLbyte p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)));
-            Marshal.WriteByte(__local1, (GLubyte)p0);
-            glSecondaryColor3bvEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3bvEXT (const GLbyte *);'</para>
+/// </summary>
+public static  void glSecondaryColor3bvEXT(ref GLbyte p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)));
+Marshal.WriteByte(__local1, (GLubyte) p0);
+glSecondaryColor3bvEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3dEXT (GLdouble, GLdouble, GLdouble);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSecondaryColor3dEXT")]
-        public static extern void glSecondaryColor3dEXT(GLdouble p0, GLdouble p1, GLdouble p2);
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3dEXT (GLdouble, GLdouble, GLdouble);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSecondaryColor3dEXT")]
+public static extern void glSecondaryColor3dEXT(GLdouble p0, GLdouble p1, GLdouble p2);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3dvEXT (const GLdouble *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSecondaryColor3dvEXT")]
-        public static extern void glSecondaryColor3dvEXT(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3dvEXT (const GLdouble *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSecondaryColor3dvEXT")]
+public static extern void glSecondaryColor3dvEXT(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3dvEXT (const GLdouble *);'</para>
-        /// </summary>
-        public static void glSecondaryColor3dvEXT(GLdouble[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p0.Length);
-            Marshal.Copy(p0, 0, __local1, p0.Length);
-            glSecondaryColor3dvEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3dvEXT (const GLdouble *);'</para>
+/// </summary>
+public static  void glSecondaryColor3dvEXT(GLdouble[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p0.Length);
+Marshal.Copy(p0, 0, __local1, p0.Length);
+glSecondaryColor3dvEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3dvEXT (const GLdouble *);'</para>
-        /// </summary>
-        public static void glSecondaryColor3dvEXT(ref GLdouble p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
-            Marshal.StructureToPtr(p0, __local1, false);
-            glSecondaryColor3dvEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3dvEXT (const GLdouble *);'</para>
+/// </summary>
+public static  void glSecondaryColor3dvEXT(ref GLdouble p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+Marshal.StructureToPtr(p0, __local1, false);
+glSecondaryColor3dvEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3fEXT (GLfloat, GLfloat, GLfloat);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSecondaryColor3fEXT")]
-        public static extern void glSecondaryColor3fEXT(GLfloat p0, GLfloat p1, GLfloat p2);
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3fEXT (GLfloat, GLfloat, GLfloat);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSecondaryColor3fEXT")]
+public static extern void glSecondaryColor3fEXT(GLfloat p0, GLfloat p1, GLfloat p2);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3fvEXT (const GLfloat *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSecondaryColor3fvEXT")]
-        public static extern void glSecondaryColor3fvEXT(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3fvEXT (const GLfloat *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSecondaryColor3fvEXT")]
+public static extern void glSecondaryColor3fvEXT(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3fvEXT (const GLfloat *);'</para>
-        /// </summary>
-        public static void glSecondaryColor3fvEXT(GLfloat[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p0.Length);
-            Marshal.Copy(p0, 0, __local1, p0.Length);
-            glSecondaryColor3fvEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3fvEXT (const GLfloat *);'</para>
+/// </summary>
+public static  void glSecondaryColor3fvEXT(GLfloat[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p0.Length);
+Marshal.Copy(p0, 0, __local1, p0.Length);
+glSecondaryColor3fvEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3fvEXT (const GLfloat *);'</para>
-        /// </summary>
-        public static void glSecondaryColor3fvEXT(ref GLfloat p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(p0, __local1, false);
-            glSecondaryColor3fvEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3fvEXT (const GLfloat *);'</para>
+/// </summary>
+public static  void glSecondaryColor3fvEXT(ref GLfloat p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(p0, __local1, false);
+glSecondaryColor3fvEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3iEXT (GLint, GLint, GLint);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSecondaryColor3iEXT")]
-        public static extern void glSecondaryColor3iEXT(GLint p0, GLint p1, GLint p2);
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3iEXT (GLint, GLint, GLint);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSecondaryColor3iEXT")]
+public static extern void glSecondaryColor3iEXT(GLint p0, GLint p1, GLint p2);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3ivEXT (const GLint *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSecondaryColor3ivEXT")]
-        public static extern void glSecondaryColor3ivEXT(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3ivEXT (const GLint *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSecondaryColor3ivEXT")]
+public static extern void glSecondaryColor3ivEXT(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3ivEXT (const GLint *);'</para>
-        /// </summary>
-        public static void glSecondaryColor3ivEXT(GLint[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p0.Length);
-            Marshal.Copy(p0, 0, __local1, p0.Length);
-            glSecondaryColor3ivEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3ivEXT (const GLint *);'</para>
+/// </summary>
+public static  void glSecondaryColor3ivEXT(GLint[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p0.Length);
+Marshal.Copy(p0, 0, __local1, p0.Length);
+glSecondaryColor3ivEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3ivEXT (const GLint *);'</para>
-        /// </summary>
-        public static void glSecondaryColor3ivEXT(ref GLint p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local1, p0);
-            glSecondaryColor3ivEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3ivEXT (const GLint *);'</para>
+/// </summary>
+public static  void glSecondaryColor3ivEXT(ref GLint p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local1, p0);
+glSecondaryColor3ivEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3sEXT (GLshort, GLshort, GLshort);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSecondaryColor3sEXT")]
-        public static extern void glSecondaryColor3sEXT(GLshort p0, GLshort p1, GLshort p2);
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3sEXT (GLshort, GLshort, GLshort);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSecondaryColor3sEXT")]
+public static extern void glSecondaryColor3sEXT(GLshort p0, GLshort p1, GLshort p2);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3svEXT (const GLshort *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSecondaryColor3svEXT")]
-        public static extern void glSecondaryColor3svEXT(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3svEXT (const GLshort *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSecondaryColor3svEXT")]
+public static extern void glSecondaryColor3svEXT(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3svEXT (const GLshort *);'</para>
-        /// </summary>
-        public static void glSecondaryColor3svEXT(GLshort[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * p0.Length);
-            Marshal.Copy(p0, 0, __local1, p0.Length);
-            glSecondaryColor3svEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3svEXT (const GLshort *);'</para>
+/// </summary>
+public static  void glSecondaryColor3svEXT(GLshort[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * p0.Length);
+Marshal.Copy(p0, 0, __local1, p0.Length);
+glSecondaryColor3svEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3svEXT (const GLshort *);'</para>
-        /// </summary>
-        public static void glSecondaryColor3svEXT(ref GLshort p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
-            Marshal.WriteInt16(__local1, p0);
-            glSecondaryColor3svEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3svEXT (const GLshort *);'</para>
+/// </summary>
+public static  void glSecondaryColor3svEXT(ref GLshort p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+Marshal.WriteInt16(__local1, p0);
+glSecondaryColor3svEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3ubEXT (GLubyte, GLubyte, GLubyte);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSecondaryColor3ubEXT")]
-        public static extern void glSecondaryColor3ubEXT(GLubyte p0, GLubyte p1, GLubyte p2);
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3ubEXT (GLubyte, GLubyte, GLubyte);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSecondaryColor3ubEXT")]
+public static extern void glSecondaryColor3ubEXT(GLubyte p0, GLubyte p1, GLubyte p2);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3ubvEXT (const GLubyte *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSecondaryColor3ubvEXT")]
-        public static extern void glSecondaryColor3ubvEXT(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3ubvEXT (const GLubyte *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSecondaryColor3ubvEXT")]
+public static extern void glSecondaryColor3ubvEXT(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3ubvEXT (const GLubyte *);'</para>
-        /// </summary>
-        public static void glSecondaryColor3ubvEXT(GLubyte[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)) * p0.Length);
-            Marshal.Copy(p0, 0, __local1, p0.Length);
-            glSecondaryColor3ubvEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3ubvEXT (const GLubyte *);'</para>
+/// </summary>
+public static  void glSecondaryColor3ubvEXT(GLubyte[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)) * p0.Length);
+Marshal.Copy(p0, 0, __local1, p0.Length);
+glSecondaryColor3ubvEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3ubvEXT (const GLubyte *);'</para>
-        /// </summary>
-        public static void glSecondaryColor3ubvEXT(ref GLubyte p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)));
-            Marshal.WriteByte(__local1, p0);
-            glSecondaryColor3ubvEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3ubvEXT (const GLubyte *);'</para>
+/// </summary>
+public static  void glSecondaryColor3ubvEXT(ref GLubyte p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)));
+Marshal.WriteByte(__local1, p0);
+glSecondaryColor3ubvEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3uiEXT (GLuint, GLuint, GLuint);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSecondaryColor3uiEXT")]
-        public static extern void glSecondaryColor3uiEXT(GLuint p0, GLuint p1, GLuint p2);
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3uiEXT (GLuint, GLuint, GLuint);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSecondaryColor3uiEXT")]
+public static extern void glSecondaryColor3uiEXT(GLuint p0, GLuint p1, GLuint p2);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3uivEXT (const GLuint *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSecondaryColor3uivEXT")]
-        public static extern void glSecondaryColor3uivEXT(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3uivEXT (const GLuint *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSecondaryColor3uivEXT")]
+public static extern void glSecondaryColor3uivEXT(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3uivEXT (const GLuint *);'</para>
-        /// </summary>
-        public static void glSecondaryColor3uivEXT(GLuint[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * p0.Length);
-            GLint[] __array1 = Array.ConvertAll(p0, item => (GLint)item);
-            Marshal.Copy(__array1, 0, __local1, __array1.Length);
-            glSecondaryColor3uivEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3uivEXT (const GLuint *);'</para>
+/// </summary>
+public static  void glSecondaryColor3uivEXT(GLuint[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * p0.Length);
+GLint[] __array1 = Array.ConvertAll(p0, item => (GLint) item);
+Marshal.Copy(__array1, 0, __local1, __array1.Length);
+glSecondaryColor3uivEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3uivEXT (const GLuint *);'</para>
-        /// </summary>
-        public static void glSecondaryColor3uivEXT(ref GLuint p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local1, (GLint)p0);
-            glSecondaryColor3uivEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3uivEXT (const GLuint *);'</para>
+/// </summary>
+public static  void glSecondaryColor3uivEXT(ref GLuint p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local1, (GLint) p0);
+glSecondaryColor3uivEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3usEXT (GLushort, GLushort, GLushort);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSecondaryColor3usEXT")]
-        public static extern void glSecondaryColor3usEXT(GLushort p0, GLushort p1, GLushort p2);
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3usEXT (GLushort, GLushort, GLushort);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSecondaryColor3usEXT")]
+public static extern void glSecondaryColor3usEXT(GLushort p0, GLushort p1, GLushort p2);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3usvEXT (const GLushort *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSecondaryColor3usvEXT")]
-        public static extern void glSecondaryColor3usvEXT(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3usvEXT (const GLushort *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSecondaryColor3usvEXT")]
+public static extern void glSecondaryColor3usvEXT(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3usvEXT (const GLushort *);'</para>
-        /// </summary>
-        public static void glSecondaryColor3usvEXT(GLushort[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)) * p0.Length);
-            GLshort[] __array1 = Array.ConvertAll(p0, item => (GLshort)item);
-            Marshal.Copy(__array1, 0, __local1, __array1.Length);
-            glSecondaryColor3usvEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3usvEXT (const GLushort *);'</para>
+/// </summary>
+public static  void glSecondaryColor3usvEXT(GLushort[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)) * p0.Length);
+GLshort[] __array1 = Array.ConvertAll(p0, item => (GLshort) item);
+Marshal.Copy(__array1, 0, __local1, __array1.Length);
+glSecondaryColor3usvEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColor3usvEXT (const GLushort *);'</para>
-        /// </summary>
-        public static void glSecondaryColor3usvEXT(ref GLushort p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)));
-            Marshal.WriteInt16(__local1, (GLshort)p0);
-            glSecondaryColor3usvEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColor3usvEXT (const GLushort *);'</para>
+/// </summary>
+public static  void glSecondaryColor3usvEXT(ref GLushort p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)));
+Marshal.WriteInt16(__local1, (GLshort) p0);
+glSecondaryColor3usvEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSecondaryColorPointerEXT (GLint, GLenum, GLsizei, const GLvoid *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSecondaryColorPointerEXT")]
-        public static extern void glSecondaryColorPointerEXT(GLint p0, GLenum p1, GLsizei p2, IntPtr p3);
+/// <summary>
+/// <para>Original signature is 'extern void glSecondaryColorPointerEXT (GLint, GLenum, GLsizei, const GLvoid *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSecondaryColorPointerEXT")]
+public static extern void glSecondaryColorPointerEXT(GLint p0, GLenum p1, GLsizei p2, IntPtr p3);
 
 #endif
 
@@ -4663,216 +5741,216 @@ public static extern void glTextureNormalEXT(GLenum p0);
 #endif
 
 #if GL_EXT_multi_draw_arrays
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawArraysEXT (GLenum, const GLint *, const GLsizei *, GLsizei);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiDrawArraysEXT")]
-        public static extern void glMultiDrawArraysEXT(GLenum p0, IntPtr p1, IntPtr p2, GLsizei p3);
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawArraysEXT (GLenum, const GLint *, const GLsizei *, GLsizei);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiDrawArraysEXT")]
+public static extern void glMultiDrawArraysEXT(GLenum p0, IntPtr p1, IntPtr p2, GLsizei p3);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawArraysEXT (GLenum, const GLint *, const GLsizei *, GLsizei);'</para>
-        /// </summary>
-        public static void glMultiDrawArraysEXT(GLenum p0, IntPtr p1, GLsizei[] p2, GLsizei p3)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * p2.Length);
-            Marshal.Copy(p2, 0, __local3, p2.Length);
-            glMultiDrawArraysEXT(p0, p1, __local3, p3);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawArraysEXT (GLenum, const GLint *, const GLsizei *, GLsizei);'</para>
+/// </summary>
+public static  void glMultiDrawArraysEXT(GLenum p0, IntPtr p1, GLsizei[] p2, GLsizei p3)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * p2.Length);
+Marshal.Copy(p2, 0, __local3, p2.Length);
+glMultiDrawArraysEXT(p0, p1, __local3, p3);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawArraysEXT (GLenum, const GLint *, const GLsizei *, GLsizei);'</para>
-        /// </summary>
-        public static void glMultiDrawArraysEXT(GLenum p0, IntPtr p1, ref GLsizei p2, GLsizei p3)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
-            Marshal.WriteInt32(__local3, p2);
-            glMultiDrawArraysEXT(p0, p1, __local3, p3);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawArraysEXT (GLenum, const GLint *, const GLsizei *, GLsizei);'</para>
+/// </summary>
+public static  void glMultiDrawArraysEXT(GLenum p0, IntPtr p1, ref GLsizei p2, GLsizei p3)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+Marshal.WriteInt32(__local3, p2);
+glMultiDrawArraysEXT(p0, p1, __local3, p3);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawArraysEXT (GLenum, const GLint *, const GLsizei *, GLsizei);'</para>
-        /// </summary>
-        public static void glMultiDrawArraysEXT(GLenum p0, GLint[] p1, IntPtr p2, GLsizei p3)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glMultiDrawArraysEXT(p0, __local2, p2, p3);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawArraysEXT (GLenum, const GLint *, const GLsizei *, GLsizei);'</para>
+/// </summary>
+public static  void glMultiDrawArraysEXT(GLenum p0, GLint[] p1, IntPtr p2, GLsizei p3)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glMultiDrawArraysEXT(p0, __local2, p2, p3);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawArraysEXT (GLenum, const GLint *, const GLsizei *, GLsizei);'</para>
-        /// </summary>
-        public static void glMultiDrawArraysEXT(GLenum p0, GLint[] p1, GLsizei[] p2, GLsizei p3)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * p2.Length);
-            Marshal.Copy(p2, 0, __local3, p2.Length);
-            glMultiDrawArraysEXT(p0, __local2, __local3, p3);
-            Marshal.FreeHGlobal(__local2);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawArraysEXT (GLenum, const GLint *, const GLsizei *, GLsizei);'</para>
+/// </summary>
+public static  void glMultiDrawArraysEXT(GLenum p0, GLint[] p1, GLsizei[] p2, GLsizei p3)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * p2.Length);
+Marshal.Copy(p2, 0, __local3, p2.Length);
+glMultiDrawArraysEXT(p0, __local2, __local3, p3);
+Marshal.FreeHGlobal(__local2);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawArraysEXT (GLenum, const GLint *, const GLsizei *, GLsizei);'</para>
-        /// </summary>
-        public static void glMultiDrawArraysEXT(GLenum p0, GLint[] p1, ref GLsizei p2, GLsizei p3)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
-            Marshal.WriteInt32(__local3, p2);
-            glMultiDrawArraysEXT(p0, __local2, __local3, p3);
-            Marshal.FreeHGlobal(__local2);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawArraysEXT (GLenum, const GLint *, const GLsizei *, GLsizei);'</para>
+/// </summary>
+public static  void glMultiDrawArraysEXT(GLenum p0, GLint[] p1, ref GLsizei p2, GLsizei p3)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+Marshal.WriteInt32(__local3, p2);
+glMultiDrawArraysEXT(p0, __local2, __local3, p3);
+Marshal.FreeHGlobal(__local2);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawArraysEXT (GLenum, const GLint *, const GLsizei *, GLsizei);'</para>
-        /// </summary>
-        public static void glMultiDrawArraysEXT(GLenum p0, ref GLint p1, IntPtr p2, GLsizei p3)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local2, p1);
-            glMultiDrawArraysEXT(p0, __local2, p2, p3);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawArraysEXT (GLenum, const GLint *, const GLsizei *, GLsizei);'</para>
+/// </summary>
+public static  void glMultiDrawArraysEXT(GLenum p0, ref GLint p1, IntPtr p2, GLsizei p3)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local2, p1);
+glMultiDrawArraysEXT(p0, __local2, p2, p3);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawArraysEXT (GLenum, const GLint *, const GLsizei *, GLsizei);'</para>
-        /// </summary>
-        public static void glMultiDrawArraysEXT(GLenum p0, ref GLint p1, GLsizei[] p2, GLsizei p3)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local2, p1);
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * p2.Length);
-            Marshal.Copy(p2, 0, __local3, p2.Length);
-            glMultiDrawArraysEXT(p0, __local2, __local3, p3);
-            Marshal.FreeHGlobal(__local2);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawArraysEXT (GLenum, const GLint *, const GLsizei *, GLsizei);'</para>
+/// </summary>
+public static  void glMultiDrawArraysEXT(GLenum p0, ref GLint p1, GLsizei[] p2, GLsizei p3)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local2, p1);
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * p2.Length);
+Marshal.Copy(p2, 0, __local3, p2.Length);
+glMultiDrawArraysEXT(p0, __local2, __local3, p3);
+Marshal.FreeHGlobal(__local2);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawArraysEXT (GLenum, const GLint *, const GLsizei *, GLsizei);'</para>
-        /// </summary>
-        public static void glMultiDrawArraysEXT(GLenum p0, ref GLint p1, ref GLsizei p2, GLsizei p3)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local2, p1);
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
-            Marshal.WriteInt32(__local3, p2);
-            glMultiDrawArraysEXT(p0, __local2, __local3, p3);
-            Marshal.FreeHGlobal(__local2);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawArraysEXT (GLenum, const GLint *, const GLsizei *, GLsizei);'</para>
+/// </summary>
+public static  void glMultiDrawArraysEXT(GLenum p0, ref GLint p1, ref GLsizei p2, GLsizei p3)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local2, p1);
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+Marshal.WriteInt32(__local3, p2);
+glMultiDrawArraysEXT(p0, __local2, __local3, p3);
+Marshal.FreeHGlobal(__local2);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawElementsEXT (GLenum, const GLsizei *, GLenum, const GLvoid* *, GLsizei);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiDrawElementsEXT")]
-        public static extern void glMultiDrawElementsEXT(GLenum p0, IntPtr p1, GLenum p2, IntPtr p3, GLsizei p4);
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawElementsEXT (GLenum, const GLsizei *, GLenum, const GLvoid* *, GLsizei);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiDrawElementsEXT")]
+public static extern void glMultiDrawElementsEXT(GLenum p0, IntPtr p1, GLenum p2, IntPtr p3, GLsizei p4);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawElementsEXT (GLenum, const GLsizei *, GLenum, const GLvoid* *, GLsizei);'</para>
-        /// </summary>
-        public static void glMultiDrawElementsEXT(GLenum p0, GLsizei[] p1, GLenum p2, IntPtr p3, GLsizei p4)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * p1.Length);
-            Marshal.Copy(p1, 0, __local2, p1.Length);
-            glMultiDrawElementsEXT(p0, __local2, p2, p3, p4);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawElementsEXT (GLenum, const GLsizei *, GLenum, const GLvoid* *, GLsizei);'</para>
+/// </summary>
+public static  void glMultiDrawElementsEXT(GLenum p0, GLsizei[] p1, GLenum p2, IntPtr p3, GLsizei p4)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * p1.Length);
+Marshal.Copy(p1, 0, __local2, p1.Length);
+glMultiDrawElementsEXT(p0, __local2, p2, p3, p4);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawElementsEXT (GLenum, const GLsizei *, GLenum, const GLvoid* *, GLsizei);'</para>
-        /// </summary>
-        public static void glMultiDrawElementsEXT(GLenum p0, ref GLsizei p1, GLenum p2, IntPtr p3, GLsizei p4)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
-            Marshal.WriteInt32(__local2, p1);
-            glMultiDrawElementsEXT(p0, __local2, p2, p3, p4);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawElementsEXT (GLenum, const GLsizei *, GLenum, const GLvoid* *, GLsizei);'</para>
+/// </summary>
+public static  void glMultiDrawElementsEXT(GLenum p0, ref GLsizei p1, GLenum p2, IntPtr p3, GLsizei p4)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+Marshal.WriteInt32(__local2, p1);
+glMultiDrawElementsEXT(p0, __local2, p2, p3, p4);
+Marshal.FreeHGlobal(__local2);
+}
 
 #endif
 
 #if GL_EXT_fog_coord
-        /// <summary>
-        /// <para>Original signature is 'extern void glFogCoordfEXT (GLfloat);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFogCoordfEXT")]
-        public static extern void glFogCoordfEXT(GLfloat p0);
+/// <summary>
+/// <para>Original signature is 'extern void glFogCoordfEXT (GLfloat);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFogCoordfEXT")]
+public static extern void glFogCoordfEXT(GLfloat p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFogCoordfvEXT (const GLfloat *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFogCoordfvEXT")]
-        public static extern void glFogCoordfvEXT(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glFogCoordfvEXT (const GLfloat *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFogCoordfvEXT")]
+public static extern void glFogCoordfvEXT(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFogCoordfvEXT (const GLfloat *);'</para>
-        /// </summary>
-        public static void glFogCoordfvEXT(GLfloat[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p0.Length);
-            Marshal.Copy(p0, 0, __local1, p0.Length);
-            glFogCoordfvEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glFogCoordfvEXT (const GLfloat *);'</para>
+/// </summary>
+public static  void glFogCoordfvEXT(GLfloat[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * p0.Length);
+Marshal.Copy(p0, 0, __local1, p0.Length);
+glFogCoordfvEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFogCoordfvEXT (const GLfloat *);'</para>
-        /// </summary>
-        public static void glFogCoordfvEXT(ref GLfloat p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(p0, __local1, false);
-            glFogCoordfvEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glFogCoordfvEXT (const GLfloat *);'</para>
+/// </summary>
+public static  void glFogCoordfvEXT(ref GLfloat p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(p0, __local1, false);
+glFogCoordfvEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFogCoorddEXT (GLdouble);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFogCoorddEXT")]
-        public static extern void glFogCoorddEXT(GLdouble p0);
+/// <summary>
+/// <para>Original signature is 'extern void glFogCoorddEXT (GLdouble);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFogCoorddEXT")]
+public static extern void glFogCoorddEXT(GLdouble p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFogCoorddvEXT (const GLdouble *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFogCoorddvEXT")]
-        public static extern void glFogCoorddvEXT(IntPtr p0);
+/// <summary>
+/// <para>Original signature is 'extern void glFogCoorddvEXT (const GLdouble *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFogCoorddvEXT")]
+public static extern void glFogCoorddvEXT(IntPtr p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFogCoorddvEXT (const GLdouble *);'</para>
-        /// </summary>
-        public static void glFogCoorddvEXT(GLdouble[] p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p0.Length);
-            Marshal.Copy(p0, 0, __local1, p0.Length);
-            glFogCoorddvEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glFogCoorddvEXT (const GLdouble *);'</para>
+/// </summary>
+public static  void glFogCoorddvEXT(GLdouble[] p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * p0.Length);
+Marshal.Copy(p0, 0, __local1, p0.Length);
+glFogCoorddvEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFogCoorddvEXT (const GLdouble *);'</para>
-        /// </summary>
-        public static void glFogCoorddvEXT(ref GLdouble p0)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
-            Marshal.StructureToPtr(p0, __local1, false);
-            glFogCoorddvEXT(__local1);
-            Marshal.FreeHGlobal(__local1);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glFogCoorddvEXT (const GLdouble *);'</para>
+/// </summary>
+public static  void glFogCoorddvEXT(ref GLdouble p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+Marshal.StructureToPtr(p0, __local1, false);
+glFogCoorddvEXT(__local1);
+Marshal.FreeHGlobal(__local1);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFogCoordPointerEXT (GLenum, GLsizei, const GLvoid *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFogCoordPointerEXT")]
-        public static extern void glFogCoordPointerEXT(GLenum p0, GLsizei p1, IntPtr p2);
+/// <summary>
+/// <para>Original signature is 'extern void glFogCoordPointerEXT (GLenum, GLsizei, const GLvoid *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFogCoordPointerEXT")]
+public static extern void glFogCoordPointerEXT(GLenum p0, GLsizei p1, IntPtr p2);
 
 #endif
 
@@ -5234,11 +6312,11 @@ public static extern void glBinormalPointerEXT(GLenum p0, GLsizei p1, IntPtr p2)
 #endif
 
 #if GL_EXT_blend_func_separate
-        /// <summary>
-        /// <para>Original signature is 'extern void glBlendFuncSeparateEXT (GLenum, GLenum, GLenum, GLenum);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBlendFuncSeparateEXT")]
-        public static extern void glBlendFuncSeparateEXT(GLenum p0, GLenum p1, GLenum p2, GLenum p3);
+/// <summary>
+/// <para>Original signature is 'extern void glBlendFuncSeparateEXT (GLenum, GLenum, GLenum, GLenum);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBlendFuncSeparateEXT")]
+public static extern void glBlendFuncSeparateEXT(GLenum p0, GLenum p1, GLenum p2, GLenum p3);
 
 #endif
 
@@ -5383,10 +6461,32 @@ public static extern void glSetLocalConstantEXT(GLuint id, GLenum type, IntPtr a
 public static extern void glVariantbvEXT(GLuint id, IntPtr addr);
 
 /// <summary>
+/// <para>Original signature is 'extern void glVariantbvEXT (GLuint id, GLbyte *addr);'</para>
+/// </summary>
+public static  void glVariantbvEXT(GLuint id, out GLbyte addr)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)));
+glVariantbvEXT(id, __local2);
+addr = (GLbyte) Marshal.ReadByte(__local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glVariantdvEXT (GLuint id, GLdouble *addr);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glVariantdvEXT")]
 public static extern void glVariantdvEXT(GLuint id, IntPtr addr);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVariantdvEXT (GLuint id, GLdouble *addr);'</para>
+/// </summary>
+public static  void glVariantdvEXT(GLuint id, out GLdouble addr)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+glVariantdvEXT(id, __local2);
+addr = (GLdouble) Marshal.PtrToStructure(__local2, typeof(GLdouble));
+Marshal.FreeHGlobal(__local2);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glVariantfvEXT (GLuint id, GLfloat *addr);'</para>
@@ -5395,10 +6495,32 @@ public static extern void glVariantdvEXT(GLuint id, IntPtr addr);
 public static extern void glVariantfvEXT(GLuint id, IntPtr addr);
 
 /// <summary>
+/// <para>Original signature is 'extern void glVariantfvEXT (GLuint id, GLfloat *addr);'</para>
+/// </summary>
+public static  void glVariantfvEXT(GLuint id, out GLfloat addr)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glVariantfvEXT(id, __local2);
+addr = (GLfloat) Marshal.PtrToStructure(__local2, typeof(GLfloat));
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glVariantivEXT (GLuint id, GLint *addr);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glVariantivEXT")]
 public static extern void glVariantivEXT(GLuint id, IntPtr addr);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVariantivEXT (GLuint id, GLint *addr);'</para>
+/// </summary>
+public static  void glVariantivEXT(GLuint id, out GLint addr)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glVariantivEXT(id, __local2);
+addr = (GLint) Marshal.ReadInt32(__local2);
+Marshal.FreeHGlobal(__local2);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glVariantsvEXT (GLuint id, GLshort *addr);'</para>
@@ -5407,10 +6529,32 @@ public static extern void glVariantivEXT(GLuint id, IntPtr addr);
 public static extern void glVariantsvEXT(GLuint id, IntPtr addr);
 
 /// <summary>
+/// <para>Original signature is 'extern void glVariantsvEXT (GLuint id, GLshort *addr);'</para>
+/// </summary>
+public static  void glVariantsvEXT(GLuint id, out GLshort addr)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+glVariantsvEXT(id, __local2);
+addr = Marshal.ReadInt16(__local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glVariantubvEXT (GLuint id, GLubyte *addr);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glVariantubvEXT")]
 public static extern void glVariantubvEXT(GLuint id, IntPtr addr);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVariantubvEXT (GLuint id, GLubyte *addr);'</para>
+/// </summary>
+public static  void glVariantubvEXT(GLuint id, out GLubyte addr)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)));
+glVariantubvEXT(id, __local2);
+addr = Marshal.ReadByte(__local2);
+Marshal.FreeHGlobal(__local2);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glVariantuivEXT (GLuint id, GLuint *addr);'</para>
@@ -5419,10 +6563,32 @@ public static extern void glVariantubvEXT(GLuint id, IntPtr addr);
 public static extern void glVariantuivEXT(GLuint id, IntPtr addr);
 
 /// <summary>
+/// <para>Original signature is 'extern void glVariantuivEXT (GLuint id, GLuint *addr);'</para>
+/// </summary>
+public static  void glVariantuivEXT(GLuint id, out GLuint addr)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glVariantuivEXT(id, __local2);
+addr = (GLuint) Marshal.ReadInt32(__local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glVariantusvEXT (GLuint id, GLushort *addr);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glVariantusvEXT")]
 public static extern void glVariantusvEXT(GLuint id, IntPtr addr);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVariantusvEXT (GLuint id, GLushort *addr);'</para>
+/// </summary>
+public static  void glVariantusvEXT(GLuint id, out GLushort addr)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)));
+glVariantusvEXT(id, __local2);
+addr = (GLushort) Marshal.ReadInt16(__local2);
+Marshal.FreeHGlobal(__local2);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glVariantPointerEXT (GLuint id, GLenum type, GLuint stride, GLvoid *addr);'</para>
@@ -5485,16 +6651,49 @@ public static extern GLboolean glIsVariantEnabledEXT(GLuint id, GLenum cap);
 public static extern void glGetVariantBooleanvEXT(GLuint id, GLenum value, IntPtr data);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetVariantBooleanvEXT (GLuint id, GLenum value, GLboolean *data);'</para>
+/// </summary>
+public static  void glGetVariantBooleanvEXT(GLuint id, GLenum value, out GLboolean data)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLboolean)));
+glGetVariantBooleanvEXT(id, value, __local3);
+data = (bool) Marshal.ReadByte(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetVariantIntegervEXT (GLuint id, GLenum value, GLint *data);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetVariantIntegervEXT")]
 public static extern void glGetVariantIntegervEXT(GLuint id, GLenum value, IntPtr data);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetVariantIntegervEXT (GLuint id, GLenum value, GLint *data);'</para>
+/// </summary>
+public static  void glGetVariantIntegervEXT(GLuint id, GLenum value, out GLint data)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetVariantIntegervEXT(id, value, __local3);
+data = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetVariantFloatvEXT (GLuint id, GLenum value, GLfloat *data);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetVariantFloatvEXT")]
 public static extern void glGetVariantFloatvEXT(GLuint id, GLenum value, IntPtr data);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetVariantFloatvEXT (GLuint id, GLenum value, GLfloat *data);'</para>
+/// </summary>
+public static  void glGetVariantFloatvEXT(GLuint id, GLenum value, out GLfloat data)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetVariantFloatvEXT(id, value, __local3);
+data = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glGetVariantPointervEXT (GLuint id, GLenum value, GLvoid **data);'</para>
@@ -5509,10 +6708,32 @@ public static extern void glGetVariantPointervEXT(GLuint id, GLenum value, IntPt
 public static extern void glGetInvariantBooleanvEXT(GLuint id, GLenum value, IntPtr data);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetInvariantBooleanvEXT (GLuint id, GLenum value, GLboolean *data);'</para>
+/// </summary>
+public static  void glGetInvariantBooleanvEXT(GLuint id, GLenum value, out GLboolean data)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLboolean)));
+glGetInvariantBooleanvEXT(id, value, __local3);
+data = (bool) Marshal.ReadByte(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetInvariantIntegervEXT (GLuint id, GLenum value, GLint *data);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetInvariantIntegervEXT")]
 public static extern void glGetInvariantIntegervEXT(GLuint id, GLenum value, IntPtr data);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetInvariantIntegervEXT (GLuint id, GLenum value, GLint *data);'</para>
+/// </summary>
+public static  void glGetInvariantIntegervEXT(GLuint id, GLenum value, out GLint data)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetInvariantIntegervEXT(id, value, __local3);
+data = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glGetInvariantFloatvEXT (GLuint id, GLenum value, GLfloat *data);'</para>
@@ -5521,10 +6742,32 @@ public static extern void glGetInvariantIntegervEXT(GLuint id, GLenum value, Int
 public static extern void glGetInvariantFloatvEXT(GLuint id, GLenum value, IntPtr data);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetInvariantFloatvEXT (GLuint id, GLenum value, GLfloat *data);'</para>
+/// </summary>
+public static  void glGetInvariantFloatvEXT(GLuint id, GLenum value, out GLfloat data)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetInvariantFloatvEXT(id, value, __local3);
+data = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetLocalConstantBooleanvEXT (GLuint id, GLenum value, GLboolean *data);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetLocalConstantBooleanvEXT")]
 public static extern void glGetLocalConstantBooleanvEXT(GLuint id, GLenum value, IntPtr data);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetLocalConstantBooleanvEXT (GLuint id, GLenum value, GLboolean *data);'</para>
+/// </summary>
+public static  void glGetLocalConstantBooleanvEXT(GLuint id, GLenum value, out GLboolean data)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLboolean)));
+glGetLocalConstantBooleanvEXT(id, value, __local3);
+data = (bool) Marshal.ReadByte(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glGetLocalConstantIntegervEXT (GLuint id, GLenum value, GLint *data);'</para>
@@ -5533,10 +6776,32 @@ public static extern void glGetLocalConstantBooleanvEXT(GLuint id, GLenum value,
 public static extern void glGetLocalConstantIntegervEXT(GLuint id, GLenum value, IntPtr data);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetLocalConstantIntegervEXT (GLuint id, GLenum value, GLint *data);'</para>
+/// </summary>
+public static  void glGetLocalConstantIntegervEXT(GLuint id, GLenum value, out GLint data)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetLocalConstantIntegervEXT(id, value, __local3);
+data = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetLocalConstantFloatvEXT (GLuint id, GLenum value, GLfloat *data);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetLocalConstantFloatvEXT")]
 public static extern void glGetLocalConstantFloatvEXT(GLuint id, GLenum value, IntPtr data);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetLocalConstantFloatvEXT (GLuint id, GLenum value, GLfloat *data);'</para>
+/// </summary>
+public static  void glGetLocalConstantFloatvEXT(GLuint id, GLenum value, out GLfloat data)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetLocalConstantFloatvEXT(id, value, __local3);
+data = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
 
 #endif
 
@@ -5665,1776 +6930,2210 @@ public static extern void glSamplePatternEXT(GLenum p0);
 #endif
 
 #if GL_EXT_stencil_two_side
-        /// <summary>
-        /// <para>Original signature is 'extern void glActiveStencilFaceEXT(GLenum face);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glActiveStencilFaceEXT")]
-        public static extern void glActiveStencilFaceEXT(GLenum face);
+/// <summary>
+/// <para>Original signature is 'extern void glActiveStencilFaceEXT(GLenum face);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glActiveStencilFaceEXT")]
+public static extern void glActiveStencilFaceEXT(GLenum face);
 
 #endif
 
 #if GL_EXT_depth_bounds_test
-        /// <summary>
-        /// <para>Original signature is 'extern void glDepthBoundsEXT(GLclampd zmin, GLclampd zmax);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDepthBoundsEXT")]
-        public static extern void glDepthBoundsEXT(GLclampd zmin, GLclampd zmax);
+/// <summary>
+/// <para>Original signature is 'extern void glDepthBoundsEXT(GLclampd zmin, GLclampd zmax);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDepthBoundsEXT")]
+public static extern void glDepthBoundsEXT(GLclampd zmin, GLclampd zmax);
 
 #endif
 
 #if GL_EXT_blend_equation_separate
-        /// <summary>
-        /// <para>Original signature is 'extern void glBlendEquationSeparateEXT(GLenum modeRGB, GLenum modeAlpha);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBlendEquationSeparateEXT")]
-        public static extern void glBlendEquationSeparateEXT(GLenum modeRGB, GLenum modeAlpha);
+/// <summary>
+/// <para>Original signature is 'extern void glBlendEquationSeparateEXT(GLenum modeRGB, GLenum modeAlpha);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBlendEquationSeparateEXT")]
+public static extern void glBlendEquationSeparateEXT(GLenum modeRGB, GLenum modeAlpha);
 
 #endif
 
 #if GL_EXT_framebuffer_object
-        /// <summary>
-        /// <para>Original signature is 'extern GLboolean glIsRenderbufferEXT(GLuint renderbuffer);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glIsRenderbufferEXT")]
-        public static extern GLboolean glIsRenderbufferEXT(GLuint renderbuffer);
+/// <summary>
+/// <para>Original signature is 'extern GLboolean glIsRenderbufferEXT(GLuint renderbuffer);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glIsRenderbufferEXT")]
+public static extern GLboolean glIsRenderbufferEXT(GLuint renderbuffer);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glBindRenderbufferEXT(GLenum target, GLuint renderbuffer);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBindRenderbufferEXT")]
-        public static extern void glBindRenderbufferEXT(GLenum target, GLuint renderbuffer);
+/// <summary>
+/// <para>Original signature is 'extern void glBindRenderbufferEXT(GLenum target, GLuint renderbuffer);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBindRenderbufferEXT")]
+public static extern void glBindRenderbufferEXT(GLenum target, GLuint renderbuffer);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteRenderbuffersEXT(GLsizei n, const GLuint *renderbuffers);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDeleteRenderbuffersEXT")]
-        public static extern void glDeleteRenderbuffersEXT(GLsizei n, IntPtr renderbuffers);
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteRenderbuffersEXT(GLsizei n, const GLuint *renderbuffers);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDeleteRenderbuffersEXT")]
+public static extern void glDeleteRenderbuffersEXT(GLsizei n, IntPtr renderbuffers);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteRenderbuffersEXT(GLsizei n, const GLuint *renderbuffers);'</para>
-        /// </summary>
-        public static void glDeleteRenderbuffersEXT(GLsizei n, GLuint[] renderbuffers)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * renderbuffers.Length);
-            GLint[] __array2 = Array.ConvertAll(renderbuffers, item => (GLint)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glDeleteRenderbuffersEXT(n, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteRenderbuffersEXT(GLsizei n, const GLuint *renderbuffers);'</para>
+/// </summary>
+public static  void glDeleteRenderbuffersEXT(GLsizei n, GLuint[] renderbuffers)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * renderbuffers.Length);
+GLint[] __array2 = Array.ConvertAll(renderbuffers, item => (GLint) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glDeleteRenderbuffersEXT(n, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteRenderbuffersEXT(GLsizei n, const GLuint *renderbuffers);'</para>
-        /// </summary>
-        public static void glDeleteRenderbuffersEXT(GLsizei n, ref GLuint renderbuffers)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local2, (GLint)renderbuffers);
-            glDeleteRenderbuffersEXT(n, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteRenderbuffersEXT(GLsizei n, const GLuint *renderbuffers);'</para>
+/// </summary>
+public static  void glDeleteRenderbuffersEXT(GLsizei n, ref GLuint renderbuffers)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local2, (GLint) renderbuffers);
+glDeleteRenderbuffersEXT(n, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGenRenderbuffersEXT(GLsizei n, GLuint *renderbuffers);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGenRenderbuffersEXT")]
-        public static extern void glGenRenderbuffersEXT(GLsizei n, IntPtr renderbuffers);
+/// <summary>
+/// <para>Original signature is 'extern void glGenRenderbuffersEXT(GLsizei n, GLuint *renderbuffers);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGenRenderbuffersEXT")]
+public static extern void glGenRenderbuffersEXT(GLsizei n, IntPtr renderbuffers);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glRenderbufferStorageEXT(GLenum target, GLenum internalformat, GLsizei width, GLsizei height);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glRenderbufferStorageEXT")]
-        public static extern void glRenderbufferStorageEXT(GLenum target, GLenum internalformat, GLsizei width, GLsizei height);
+/// <summary>
+/// <para>Original signature is 'extern void glGenRenderbuffersEXT(GLsizei n, GLuint *renderbuffers);'</para>
+/// </summary>
+public static  void glGenRenderbuffersEXT(GLsizei n, out GLuint renderbuffers)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glGenRenderbuffersEXT(n, __local2);
+renderbuffers = (GLuint) Marshal.ReadInt32(__local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetRenderbufferParameterivEXT(GLenum target, GLenum pname, GLint *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetRenderbufferParameterivEXT")]
-        public static extern void glGetRenderbufferParameterivEXT(GLenum target, GLenum pname, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glRenderbufferStorageEXT(GLenum target, GLenum internalformat, GLsizei width, GLsizei height);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glRenderbufferStorageEXT")]
+public static extern void glRenderbufferStorageEXT(GLenum target, GLenum internalformat, GLsizei width, GLsizei height);
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLboolean glIsFramebufferEXT(GLuint framebuffer);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glIsFramebufferEXT")]
-        public static extern GLboolean glIsFramebufferEXT(GLuint framebuffer);
+/// <summary>
+/// <para>Original signature is 'extern void glGetRenderbufferParameterivEXT(GLenum target, GLenum pname, GLint *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetRenderbufferParameterivEXT")]
+public static extern void glGetRenderbufferParameterivEXT(GLenum target, GLenum pname, IntPtr @params);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glBindFramebufferEXT(GLenum target, GLuint framebuffer);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBindFramebufferEXT")]
-        public static extern void glBindFramebufferEXT(GLenum target, GLuint framebuffer);
+/// <summary>
+/// <para>Original signature is 'extern void glGetRenderbufferParameterivEXT(GLenum target, GLenum pname, GLint *params);'</para>
+/// </summary>
+public static  void glGetRenderbufferParameterivEXT(GLenum target, GLenum pname, out GLint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetRenderbufferParameterivEXT(target, pname, __local3);
+@params = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteFramebuffersEXT(GLsizei n, const GLuint *framebuffers);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDeleteFramebuffersEXT")]
-        public static extern void glDeleteFramebuffersEXT(GLsizei n, IntPtr framebuffers);
+/// <summary>
+/// <para>Original signature is 'extern GLboolean glIsFramebufferEXT(GLuint framebuffer);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glIsFramebufferEXT")]
+public static extern GLboolean glIsFramebufferEXT(GLuint framebuffer);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteFramebuffersEXT(GLsizei n, const GLuint *framebuffers);'</para>
-        /// </summary>
-        public static void glDeleteFramebuffersEXT(GLsizei n, GLuint[] framebuffers)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * framebuffers.Length);
-            GLint[] __array2 = Array.ConvertAll(framebuffers, item => (GLint)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glDeleteFramebuffersEXT(n, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glBindFramebufferEXT(GLenum target, GLuint framebuffer);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBindFramebufferEXT")]
+public static extern void glBindFramebufferEXT(GLenum target, GLuint framebuffer);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteFramebuffersEXT(GLsizei n, const GLuint *framebuffers);'</para>
-        /// </summary>
-        public static void glDeleteFramebuffersEXT(GLsizei n, ref GLuint framebuffers)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local2, (GLint)framebuffers);
-            glDeleteFramebuffersEXT(n, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteFramebuffersEXT(GLsizei n, const GLuint *framebuffers);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDeleteFramebuffersEXT")]
+public static extern void glDeleteFramebuffersEXT(GLsizei n, IntPtr framebuffers);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGenFramebuffersEXT(GLsizei n, GLuint *framebuffers);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGenFramebuffersEXT")]
-        public static extern void glGenFramebuffersEXT(GLsizei n, IntPtr framebuffers);
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteFramebuffersEXT(GLsizei n, const GLuint *framebuffers);'</para>
+/// </summary>
+public static  void glDeleteFramebuffersEXT(GLsizei n, GLuint[] framebuffers)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * framebuffers.Length);
+GLint[] __array2 = Array.ConvertAll(framebuffers, item => (GLint) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glDeleteFramebuffersEXT(n, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLenum glCheckFramebufferStatusEXT(GLenum target);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glCheckFramebufferStatusEXT")]
-        public static extern GLenum glCheckFramebufferStatusEXT(GLenum target);
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteFramebuffersEXT(GLsizei n, const GLuint *framebuffers);'</para>
+/// </summary>
+public static  void glDeleteFramebuffersEXT(GLsizei n, ref GLuint framebuffers)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local2, (GLint) framebuffers);
+glDeleteFramebuffersEXT(n, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFramebufferTexture1DEXT(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFramebufferTexture1DEXT")]
-        public static extern void glFramebufferTexture1DEXT(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level);
+/// <summary>
+/// <para>Original signature is 'extern void glGenFramebuffersEXT(GLsizei n, GLuint *framebuffers);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGenFramebuffersEXT")]
+public static extern void glGenFramebuffersEXT(GLsizei n, IntPtr framebuffers);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFramebufferTexture2DEXT(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFramebufferTexture2DEXT")]
-        public static extern void glFramebufferTexture2DEXT(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level);
+/// <summary>
+/// <para>Original signature is 'extern void glGenFramebuffersEXT(GLsizei n, GLuint *framebuffers);'</para>
+/// </summary>
+public static  void glGenFramebuffersEXT(GLsizei n, out GLuint framebuffers)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glGenFramebuffersEXT(n, __local2);
+framebuffers = (GLuint) Marshal.ReadInt32(__local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFramebufferTexture3DEXT(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level, GLint zoffset);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFramebufferTexture3DEXT")]
-        public static extern void glFramebufferTexture3DEXT(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level, GLint zoffset);
+/// <summary>
+/// <para>Original signature is 'extern GLenum glCheckFramebufferStatusEXT(GLenum target);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glCheckFramebufferStatusEXT")]
+public static extern GLenum glCheckFramebufferStatusEXT(GLenum target);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFramebufferRenderbufferEXT(GLenum target, GLenum attachment, GLenum renderbuffertarget, GLuint renderbuffer);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFramebufferRenderbufferEXT")]
-        public static extern void glFramebufferRenderbufferEXT(GLenum target, GLenum attachment, GLenum renderbuffertarget, GLuint renderbuffer);
+/// <summary>
+/// <para>Original signature is 'extern void glFramebufferTexture1DEXT(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFramebufferTexture1DEXT")]
+public static extern void glFramebufferTexture1DEXT(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetFramebufferAttachmentParameterivEXT(GLenum target, GLenum attachment, GLenum pname, GLint *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetFramebufferAttachmentParameterivEXT")]
-        public static extern void glGetFramebufferAttachmentParameterivEXT(GLenum target, GLenum attachment, GLenum pname, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glFramebufferTexture2DEXT(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFramebufferTexture2DEXT")]
+public static extern void glFramebufferTexture2DEXT(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGenerateMipmapEXT(GLenum target);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGenerateMipmapEXT")]
-        public static extern void glGenerateMipmapEXT(GLenum target);
+/// <summary>
+/// <para>Original signature is 'extern void glFramebufferTexture3DEXT(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level, GLint zoffset);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFramebufferTexture3DEXT")]
+public static extern void glFramebufferTexture3DEXT(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level, GLint zoffset);
+
+/// <summary>
+/// <para>Original signature is 'extern void glFramebufferRenderbufferEXT(GLenum target, GLenum attachment, GLenum renderbuffertarget, GLuint renderbuffer);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFramebufferRenderbufferEXT")]
+public static extern void glFramebufferRenderbufferEXT(GLenum target, GLenum attachment, GLenum renderbuffertarget, GLuint renderbuffer);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetFramebufferAttachmentParameterivEXT(GLenum target, GLenum attachment, GLenum pname, GLint *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetFramebufferAttachmentParameterivEXT")]
+public static extern void glGetFramebufferAttachmentParameterivEXT(GLenum target, GLenum attachment, GLenum pname, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetFramebufferAttachmentParameterivEXT(GLenum target, GLenum attachment, GLenum pname, GLint *params);'</para>
+/// </summary>
+public static  void glGetFramebufferAttachmentParameterivEXT(GLenum target, GLenum attachment, GLenum pname, out GLint @params)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetFramebufferAttachmentParameterivEXT(target, attachment, pname, __local4);
+@params = (GLint) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGenerateMipmapEXT(GLenum target);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGenerateMipmapEXT")]
+public static extern void glGenerateMipmapEXT(GLenum target);
 
 #endif
 
 #if GL_EXT_framebuffer_blit
-        /// <summary>
-        /// <para>Original signature is 'extern void glBlitFramebufferEXT(GLint srcX0, GLint srcY0, GLint srcX1, GLint srcY1, GLint dstX0, GLint dstY0, GLint dstX1, GLint dstY1, GLbitfield mask, GLenum filter);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBlitFramebufferEXT")]
-        public static extern void glBlitFramebufferEXT(GLint srcX0, GLint srcY0, GLint srcX1, GLint srcY1, GLint dstX0, GLint dstY0, GLint dstX1, GLint dstY1, GLbitfield mask, GLenum filter);
+/// <summary>
+/// <para>Original signature is 'extern void glBlitFramebufferEXT(GLint srcX0, GLint srcY0, GLint srcX1, GLint srcY1, GLint dstX0, GLint dstY0, GLint dstX1, GLint dstY1, GLbitfield mask, GLenum filter);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBlitFramebufferEXT")]
+public static extern void glBlitFramebufferEXT(GLint srcX0, GLint srcY0, GLint srcX1, GLint srcY1, GLint dstX0, GLint dstY0, GLint dstX1, GLint dstY1, GLbitfield mask, GLenum filter);
 
 #endif
 
 #if GL_EXT_framebuffer_multisample
-        /// <summary>
-        /// <para>Original signature is 'extern void glRenderbufferStorageMultisampleEXT(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glRenderbufferStorageMultisampleEXT")]
-        public static extern void glRenderbufferStorageMultisampleEXT(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height);
+/// <summary>
+/// <para>Original signature is 'extern void glRenderbufferStorageMultisampleEXT(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glRenderbufferStorageMultisampleEXT")]
+public static extern void glRenderbufferStorageMultisampleEXT(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height);
 
 #endif
 
 #if GL_EXT_geometry_shader4
-        /// <summary>
-        /// <para>Original signature is 'extern void glProgramParameteriEXT(GLuint program, GLenum pname, GLint value);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glProgramParameteriEXT")]
-        public static extern void glProgramParameteriEXT(GLuint program, GLenum pname, GLint value);
+/// <summary>
+/// <para>Original signature is 'extern void glProgramParameteriEXT(GLuint program, GLenum pname, GLint value);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glProgramParameteriEXT")]
+public static extern void glProgramParameteriEXT(GLuint program, GLenum pname, GLint value);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFramebufferTextureEXT(GLenum target, GLenum attachment, GLuint texture, GLint level);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFramebufferTextureEXT")]
-        public static extern void glFramebufferTextureEXT(GLenum target, GLenum attachment, GLuint texture, GLint level);
+/// <summary>
+/// <para>Original signature is 'extern void glFramebufferTextureEXT(GLenum target, GLenum attachment, GLuint texture, GLint level);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFramebufferTextureEXT")]
+public static extern void glFramebufferTextureEXT(GLenum target, GLenum attachment, GLuint texture, GLint level);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFramebufferTextureFaceEXT(GLenum target, GLenum attachment, GLuint texture, GLint level, GLenum face);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFramebufferTextureFaceEXT")]
-        public static extern void glFramebufferTextureFaceEXT(GLenum target, GLenum attachment, GLuint texture, GLint level, GLenum face);
+/// <summary>
+/// <para>Original signature is 'extern void glFramebufferTextureFaceEXT(GLenum target, GLenum attachment, GLuint texture, GLint level, GLenum face);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFramebufferTextureFaceEXT")]
+public static extern void glFramebufferTextureFaceEXT(GLenum target, GLenum attachment, GLuint texture, GLint level, GLenum face);
 
 #endif
 
 #if GL_EXT_geometry_shader4 || GL_EXT_texture_array
-        /// <summary>
-        /// <para>Original signature is 'extern void glFramebufferTextureLayerEXT(GLenum target, GLenum attachment, GLuint texture, GLint level, GLint layer);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFramebufferTextureLayerEXT")]
-        public static extern void glFramebufferTextureLayerEXT(GLenum target, GLenum attachment, GLuint texture, GLint level, GLint layer);
+/// <summary>
+/// <para>Original signature is 'extern void glFramebufferTextureLayerEXT(GLenum target, GLenum attachment, GLuint texture, GLint level, GLint layer);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFramebufferTextureLayerEXT")]
+public static extern void glFramebufferTextureLayerEXT(GLenum target, GLenum attachment, GLuint texture, GLint level, GLint layer);
 
 #endif
 
 #if GL_ARB_framebuffer_object
-        /// <summary>
-        /// <para>Original signature is 'extern GLboolean glIsRenderbuffer (GLuint);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glIsRenderbuffer")]
-        public static extern GLboolean glIsRenderbuffer(GLuint p0);
+/// <summary>
+/// <para>Original signature is 'extern GLboolean glIsRenderbuffer (GLuint);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glIsRenderbuffer")]
+public static extern GLboolean glIsRenderbuffer(GLuint p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glBindRenderbuffer (GLenum, GLuint);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBindRenderbuffer")]
-        public static extern void glBindRenderbuffer(GLenum p0, GLuint p1);
+/// <summary>
+/// <para>Original signature is 'extern void glBindRenderbuffer (GLenum, GLuint);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBindRenderbuffer")]
+public static extern void glBindRenderbuffer(GLenum p0, GLuint p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteRenderbuffers (GLsizei, const GLuint *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDeleteRenderbuffers")]
-        public static extern void glDeleteRenderbuffers(GLsizei p0, IntPtr p1);
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteRenderbuffers (GLsizei, const GLuint *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDeleteRenderbuffers")]
+public static extern void glDeleteRenderbuffers(GLsizei p0, IntPtr p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteRenderbuffers (GLsizei, const GLuint *);'</para>
-        /// </summary>
-        public static void glDeleteRenderbuffers(GLsizei p0, GLuint[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * p1.Length);
-            GLint[] __array2 = Array.ConvertAll(p1, item => (GLint)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glDeleteRenderbuffers(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteRenderbuffers (GLsizei, const GLuint *);'</para>
+/// </summary>
+public static  void glDeleteRenderbuffers(GLsizei p0, GLuint[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * p1.Length);
+GLint[] __array2 = Array.ConvertAll(p1, item => (GLint) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glDeleteRenderbuffers(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteRenderbuffers (GLsizei, const GLuint *);'</para>
-        /// </summary>
-        public static void glDeleteRenderbuffers(GLsizei p0, ref GLuint p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local2, (GLint)p1);
-            glDeleteRenderbuffers(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteRenderbuffers (GLsizei, const GLuint *);'</para>
+/// </summary>
+public static  void glDeleteRenderbuffers(GLsizei p0, ref GLuint p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local2, (GLint) p1);
+glDeleteRenderbuffers(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGenRenderbuffers (GLsizei, GLuint *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGenRenderbuffers")]
-        public static extern void glGenRenderbuffers(GLsizei p0, IntPtr p1);
+/// <summary>
+/// <para>Original signature is 'extern void glGenRenderbuffers (GLsizei, GLuint *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGenRenderbuffers")]
+public static extern void glGenRenderbuffers(GLsizei p0, IntPtr p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glRenderbufferStorage (GLenum, GLenum, GLsizei, GLsizei);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glRenderbufferStorage")]
-        public static extern void glRenderbufferStorage(GLenum p0, GLenum p1, GLsizei p2, GLsizei p3);
+/// <summary>
+/// <para>Original signature is 'extern void glGenRenderbuffers (GLsizei, GLuint *);'</para>
+/// </summary>
+public static  void glGenRenderbuffers(GLsizei p0, out GLuint p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glGenRenderbuffers(p0, __local2);
+p1 = (GLuint) Marshal.ReadInt32(__local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetRenderbufferParameteriv (GLenum, GLenum, GLint *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetRenderbufferParameteriv")]
-        public static extern void glGetRenderbufferParameteriv(GLenum p0, GLenum p1, IntPtr p2);
+/// <summary>
+/// <para>Original signature is 'extern void glRenderbufferStorage (GLenum, GLenum, GLsizei, GLsizei);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glRenderbufferStorage")]
+public static extern void glRenderbufferStorage(GLenum p0, GLenum p1, GLsizei p2, GLsizei p3);
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLboolean glIsFramebuffer (GLuint);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glIsFramebuffer")]
-        public static extern GLboolean glIsFramebuffer(GLuint p0);
+/// <summary>
+/// <para>Original signature is 'extern void glGetRenderbufferParameteriv (GLenum, GLenum, GLint *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetRenderbufferParameteriv")]
+public static extern void glGetRenderbufferParameteriv(GLenum p0, GLenum p1, IntPtr p2);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glBindFramebuffer (GLenum, GLuint);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBindFramebuffer")]
-        public static extern void glBindFramebuffer(GLenum p0, GLuint p1);
+/// <summary>
+/// <para>Original signature is 'extern void glGetRenderbufferParameteriv (GLenum, GLenum, GLint *);'</para>
+/// </summary>
+public static  void glGetRenderbufferParameteriv(GLenum p0, GLenum p1, out GLint p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetRenderbufferParameteriv(p0, p1, __local3);
+p2 = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteFramebuffers (GLsizei, const GLuint *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDeleteFramebuffers")]
-        public static extern void glDeleteFramebuffers(GLsizei p0, IntPtr p1);
+/// <summary>
+/// <para>Original signature is 'extern GLboolean glIsFramebuffer (GLuint);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glIsFramebuffer")]
+public static extern GLboolean glIsFramebuffer(GLuint p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteFramebuffers (GLsizei, const GLuint *);'</para>
-        /// </summary>
-        public static void glDeleteFramebuffers(GLsizei p0, GLuint[] p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * p1.Length);
-            GLint[] __array2 = Array.ConvertAll(p1, item => (GLint)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glDeleteFramebuffers(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glBindFramebuffer (GLenum, GLuint);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBindFramebuffer")]
+public static extern void glBindFramebuffer(GLenum p0, GLuint p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteFramebuffers (GLsizei, const GLuint *);'</para>
-        /// </summary>
-        public static void glDeleteFramebuffers(GLsizei p0, ref GLuint p1)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local2, (GLint)p1);
-            glDeleteFramebuffers(p0, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteFramebuffers (GLsizei, const GLuint *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDeleteFramebuffers")]
+public static extern void glDeleteFramebuffers(GLsizei p0, IntPtr p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGenFramebuffers (GLsizei, GLuint *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGenFramebuffers")]
-        public static extern void glGenFramebuffers(GLsizei p0, IntPtr p1);
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteFramebuffers (GLsizei, const GLuint *);'</para>
+/// </summary>
+public static  void glDeleteFramebuffers(GLsizei p0, GLuint[] p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * p1.Length);
+GLint[] __array2 = Array.ConvertAll(p1, item => (GLint) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glDeleteFramebuffers(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLenum glCheckFramebufferStatus (GLenum);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glCheckFramebufferStatus")]
-        public static extern GLenum glCheckFramebufferStatus(GLenum p0);
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteFramebuffers (GLsizei, const GLuint *);'</para>
+/// </summary>
+public static  void glDeleteFramebuffers(GLsizei p0, ref GLuint p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local2, (GLint) p1);
+glDeleteFramebuffers(p0, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFramebufferTexture1D (GLenum, GLenum, GLenum, GLuint, GLint);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFramebufferTexture1D")]
-        public static extern void glFramebufferTexture1D(GLenum p0, GLenum p1, GLenum p2, GLuint p3, GLint p4);
+/// <summary>
+/// <para>Original signature is 'extern void glGenFramebuffers (GLsizei, GLuint *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGenFramebuffers")]
+public static extern void glGenFramebuffers(GLsizei p0, IntPtr p1);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFramebufferTexture2D (GLenum, GLenum, GLenum, GLuint, GLint);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFramebufferTexture2D")]
-        public static extern void glFramebufferTexture2D(GLenum p0, GLenum p1, GLenum p2, GLuint p3, GLint p4);
+/// <summary>
+/// <para>Original signature is 'extern void glGenFramebuffers (GLsizei, GLuint *);'</para>
+/// </summary>
+public static  void glGenFramebuffers(GLsizei p0, out GLuint p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glGenFramebuffers(p0, __local2);
+p1 = (GLuint) Marshal.ReadInt32(__local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFramebufferTexture3D (GLenum, GLenum, GLenum, GLuint, GLint, GLint);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFramebufferTexture3D")]
-        public static extern void glFramebufferTexture3D(GLenum p0, GLenum p1, GLenum p2, GLuint p3, GLint p4, GLint p5);
+/// <summary>
+/// <para>Original signature is 'extern GLenum glCheckFramebufferStatus (GLenum);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glCheckFramebufferStatus")]
+public static extern GLenum glCheckFramebufferStatus(GLenum p0);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFramebufferRenderbuffer (GLenum, GLenum, GLenum, GLuint);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFramebufferRenderbuffer")]
-        public static extern void glFramebufferRenderbuffer(GLenum p0, GLenum p1, GLenum p2, GLuint p3);
+/// <summary>
+/// <para>Original signature is 'extern void glFramebufferTexture1D (GLenum, GLenum, GLenum, GLuint, GLint);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFramebufferTexture1D")]
+public static extern void glFramebufferTexture1D(GLenum p0, GLenum p1, GLenum p2, GLuint p3, GLint p4);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetFramebufferAttachmentParameteriv (GLenum, GLenum, GLenum, GLint *);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetFramebufferAttachmentParameteriv")]
-        public static extern void glGetFramebufferAttachmentParameteriv(GLenum p0, GLenum p1, GLenum p2, IntPtr p3);
+/// <summary>
+/// <para>Original signature is 'extern void glFramebufferTexture2D (GLenum, GLenum, GLenum, GLuint, GLint);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFramebufferTexture2D")]
+public static extern void glFramebufferTexture2D(GLenum p0, GLenum p1, GLenum p2, GLuint p3, GLint p4);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGenerateMipmap (GLenum);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGenerateMipmap")]
-        public static extern void glGenerateMipmap(GLenum p0);
+/// <summary>
+/// <para>Original signature is 'extern void glFramebufferTexture3D (GLenum, GLenum, GLenum, GLuint, GLint, GLint);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFramebufferTexture3D")]
+public static extern void glFramebufferTexture3D(GLenum p0, GLenum p1, GLenum p2, GLuint p3, GLint p4, GLint p5);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glBlitFramebuffer (GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLbitfield, GLenum);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBlitFramebuffer")]
-        public static extern void glBlitFramebuffer(GLint p0, GLint p1, GLint p2, GLint p3, GLint p4, GLint p5, GLint p6, GLint p7, GLbitfield p8, GLenum p9);
+/// <summary>
+/// <para>Original signature is 'extern void glFramebufferRenderbuffer (GLenum, GLenum, GLenum, GLuint);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFramebufferRenderbuffer")]
+public static extern void glFramebufferRenderbuffer(GLenum p0, GLenum p1, GLenum p2, GLuint p3);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glRenderbufferStorageMultisample (GLenum, GLsizei, GLenum, GLsizei, GLsizei);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glRenderbufferStorageMultisample")]
-        public static extern void glRenderbufferStorageMultisample(GLenum p0, GLsizei p1, GLenum p2, GLsizei p3, GLsizei p4);
+/// <summary>
+/// <para>Original signature is 'extern void glGetFramebufferAttachmentParameteriv (GLenum, GLenum, GLenum, GLint *);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetFramebufferAttachmentParameteriv")]
+public static extern void glGetFramebufferAttachmentParameteriv(GLenum p0, GLenum p1, GLenum p2, IntPtr p3);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFramebufferTextureLayer (GLenum, GLenum, GLuint, GLint, GLint);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFramebufferTextureLayer")]
-        public static extern void glFramebufferTextureLayer(GLenum p0, GLenum p1, GLuint p2, GLint p3, GLint p4);
+/// <summary>
+/// <para>Original signature is 'extern void glGetFramebufferAttachmentParameteriv (GLenum, GLenum, GLenum, GLint *);'</para>
+/// </summary>
+public static  void glGetFramebufferAttachmentParameteriv(GLenum p0, GLenum p1, GLenum p2, out GLint p3)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetFramebufferAttachmentParameteriv(p0, p1, p2, __local4);
+p3 = (GLint) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGenerateMipmap (GLenum);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGenerateMipmap")]
+public static extern void glGenerateMipmap(GLenum p0);
+
+/// <summary>
+/// <para>Original signature is 'extern void glBlitFramebuffer (GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLbitfield, GLenum);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBlitFramebuffer")]
+public static extern void glBlitFramebuffer(GLint p0, GLint p1, GLint p2, GLint p3, GLint p4, GLint p5, GLint p6, GLint p7, GLbitfield p8, GLenum p9);
+
+/// <summary>
+/// <para>Original signature is 'extern void glRenderbufferStorageMultisample (GLenum, GLsizei, GLenum, GLsizei, GLsizei);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glRenderbufferStorageMultisample")]
+public static extern void glRenderbufferStorageMultisample(GLenum p0, GLsizei p1, GLenum p2, GLsizei p3, GLsizei p4);
+
+/// <summary>
+/// <para>Original signature is 'extern void glFramebufferTextureLayer (GLenum, GLenum, GLuint, GLint, GLint);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFramebufferTextureLayer")]
+public static extern void glFramebufferTextureLayer(GLenum p0, GLenum p1, GLuint p2, GLint p3, GLint p4);
 
 #endif
-
+    
 #if GL_EXT_transform_feedback
-        /// <summary>
-        /// <para>Original signature is 'extern void glBindBufferRangeEXT(GLenum target, GLuint index, GLuint buffer, GLintptr offset, GLsizeiptr size);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBindBufferRangeEXT")]
-        public static extern void glBindBufferRangeEXT(GLenum target, GLuint index, GLuint buffer, GLintptr offset, GLsizeiptr size);
+/// <summary>
+/// <para>Original signature is 'extern void glBindBufferRangeEXT(GLenum target, GLuint index, GLuint buffer, GLintptr offset, GLsizeiptr size);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBindBufferRangeEXT")]
+public static extern void glBindBufferRangeEXT(GLenum target, GLuint index, GLuint buffer, GLintptr offset, GLsizeiptr size);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glBindBufferOffsetEXT(GLenum target, GLuint index, GLuint buffer, GLintptr offset);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBindBufferOffsetEXT")]
-        public static extern void glBindBufferOffsetEXT(GLenum target, GLuint index, GLuint buffer, GLintptr offset);
+/// <summary>
+/// <para>Original signature is 'extern void glBindBufferOffsetEXT(GLenum target, GLuint index, GLuint buffer, GLintptr offset);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBindBufferOffsetEXT")]
+public static extern void glBindBufferOffsetEXT(GLenum target, GLuint index, GLuint buffer, GLintptr offset);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glBindBufferBaseEXT(GLenum target, GLuint index, GLuint buffer);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBindBufferBaseEXT")]
-        public static extern void glBindBufferBaseEXT(GLenum target, GLuint index, GLuint buffer);
+/// <summary>
+/// <para>Original signature is 'extern void glBindBufferBaseEXT(GLenum target, GLuint index, GLuint buffer);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBindBufferBaseEXT")]
+public static extern void glBindBufferBaseEXT(GLenum target, GLuint index, GLuint buffer);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glBeginTransformFeedbackEXT(GLenum primitiveMode);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBeginTransformFeedbackEXT")]
-        public static extern void glBeginTransformFeedbackEXT(GLenum primitiveMode);
+/// <summary>
+/// <para>Original signature is 'extern void glBeginTransformFeedbackEXT(GLenum primitiveMode);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBeginTransformFeedbackEXT")]
+public static extern void glBeginTransformFeedbackEXT(GLenum primitiveMode);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glEndTransformFeedbackEXT(void);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glEndTransformFeedbackEXT")]
-        public static extern void glEndTransformFeedbackEXT();
+/// <summary>
+/// <para>Original signature is 'extern void glEndTransformFeedbackEXT(void);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glEndTransformFeedbackEXT")]
+public static extern void glEndTransformFeedbackEXT();
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glTransformFeedbackVaryingsEXT(GLuint program, GLsizei count, const GLchar **varyings, GLenum bufferMode);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glTransformFeedbackVaryingsEXT")]
-        public static extern void glTransformFeedbackVaryingsEXT(GLuint program, GLsizei count, IntPtr varyings, GLenum bufferMode);
+/// <summary>
+/// <para>Original signature is 'extern void glTransformFeedbackVaryingsEXT(GLuint program, GLsizei count, const GLchar **varyings, GLenum bufferMode);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glTransformFeedbackVaryingsEXT")]
+public static extern void glTransformFeedbackVaryingsEXT(GLuint program, GLsizei count, IntPtr varyings, GLenum bufferMode);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glTransformFeedbackVaryingsEXT(GLuint program, GLsizei count, const GLchar **varyings, GLenum bufferMode);'</para>
-        /// </summary>
-        public static void glTransformFeedbackVaryingsEXT(GLuint program, GLsizei count, GLchar[] varyings, GLenum bufferMode)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)) * varyings.Length);
-            GLubyte[] __array3 = Array.ConvertAll(varyings, item => (GLubyte)item);
-            Marshal.Copy(__array3, 0, __local3, __array3.Length);
-            glTransformFeedbackVaryingsEXT(program, count, __local3, bufferMode);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glTransformFeedbackVaryingsEXT(GLuint program, GLsizei count, const GLchar **varyings, GLenum bufferMode);'</para>
+/// </summary>
+public static  void glTransformFeedbackVaryingsEXT(GLuint program, GLsizei count, GLchar[] varyings, GLenum bufferMode)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)) * varyings.Length);
+GLubyte[] __array3 = Array.ConvertAll(varyings, item => (GLubyte) item);
+Marshal.Copy(__array3, 0, __local3, __array3.Length);
+glTransformFeedbackVaryingsEXT(program, count, __local3, bufferMode);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glTransformFeedbackVaryingsEXT(GLuint program, GLsizei count, const GLchar **varyings, GLenum bufferMode);'</para>
-        /// </summary>
-        public static void glTransformFeedbackVaryingsEXT(GLuint program, GLsizei count, ref GLchar varyings, GLenum bufferMode)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
-            Marshal.WriteByte(__local3, (GLubyte)varyings);
-            glTransformFeedbackVaryingsEXT(program, count, __local3, bufferMode);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glTransformFeedbackVaryingsEXT(GLuint program, GLsizei count, const GLchar **varyings, GLenum bufferMode);'</para>
+/// </summary>
+public static  void glTransformFeedbackVaryingsEXT(GLuint program, GLsizei count, ref GLchar varyings, GLenum bufferMode)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
+Marshal.WriteByte(__local3, (GLubyte) varyings);
+glTransformFeedbackVaryingsEXT(program, count, __local3, bufferMode);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *type, GLchar *name);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetTransformFeedbackVaryingEXT")]
-        public static extern void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, IntPtr length, IntPtr size, IntPtr type, IntPtr name);
+/// <summary>
+/// <para>Original signature is 'extern void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *type, GLchar *name);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetTransformFeedbackVaryingEXT")]
+public static extern void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, IntPtr length, IntPtr size, IntPtr type, IntPtr name);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *type, GLchar *name);'</para>
+/// </summary>
+public static  void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, IntPtr length, IntPtr size, IntPtr type, out GLchar name)
+{
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
+glGetTransformFeedbackVaryingEXT(program, index, bufSize, length, size, type, __local7);
+name = (GLchar) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *type, GLchar *name);'</para>
+/// </summary>
+public static  void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, IntPtr length, IntPtr size, out GLenum type, IntPtr name)
+{
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+glGetTransformFeedbackVaryingEXT(program, index, bufSize, length, size, __local6, name);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *type, GLchar *name);'</para>
+/// </summary>
+public static  void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, IntPtr length, IntPtr size, out GLenum type, out GLchar name)
+{
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
+glGetTransformFeedbackVaryingEXT(program, index, bufSize, length, size, __local6, __local7);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+name = (GLchar) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *type, GLchar *name);'</para>
+/// </summary>
+public static  void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, IntPtr length, out GLsizei size, IntPtr type, IntPtr name)
+{
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+glGetTransformFeedbackVaryingEXT(program, index, bufSize, length, __local5, type, name);
+size = (GLsizei) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *type, GLchar *name);'</para>
+/// </summary>
+public static  void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, IntPtr length, out GLsizei size, IntPtr type, out GLchar name)
+{
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
+glGetTransformFeedbackVaryingEXT(program, index, bufSize, length, __local5, type, __local7);
+size = (GLsizei) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+name = (GLchar) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *type, GLchar *name);'</para>
+/// </summary>
+public static  void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, IntPtr length, out GLsizei size, out GLenum type, IntPtr name)
+{
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+glGetTransformFeedbackVaryingEXT(program, index, bufSize, length, __local5, __local6, name);
+size = (GLsizei) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *type, GLchar *name);'</para>
+/// </summary>
+public static  void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, IntPtr length, out GLsizei size, out GLenum type, out GLchar name)
+{
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
+glGetTransformFeedbackVaryingEXT(program, index, bufSize, length, __local5, __local6, __local7);
+size = (GLsizei) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+name = (GLchar) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *type, GLchar *name);'</para>
+/// </summary>
+public static  void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, out GLsizei length, IntPtr size, IntPtr type, IntPtr name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+glGetTransformFeedbackVaryingEXT(program, index, bufSize, __local4, size, type, name);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *type, GLchar *name);'</para>
+/// </summary>
+public static  void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, out GLsizei length, IntPtr size, IntPtr type, out GLchar name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
+glGetTransformFeedbackVaryingEXT(program, index, bufSize, __local4, size, type, __local7);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+name = (GLchar) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *type, GLchar *name);'</para>
+/// </summary>
+public static  void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, out GLsizei length, IntPtr size, out GLenum type, IntPtr name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+glGetTransformFeedbackVaryingEXT(program, index, bufSize, __local4, size, __local6, name);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *type, GLchar *name);'</para>
+/// </summary>
+public static  void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, out GLsizei length, IntPtr size, out GLenum type, out GLchar name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
+glGetTransformFeedbackVaryingEXT(program, index, bufSize, __local4, size, __local6, __local7);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+name = (GLchar) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *type, GLchar *name);'</para>
+/// </summary>
+public static  void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, out GLsizei length, out GLsizei size, IntPtr type, IntPtr name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+glGetTransformFeedbackVaryingEXT(program, index, bufSize, __local4, __local5, type, name);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+size = (GLsizei) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *type, GLchar *name);'</para>
+/// </summary>
+public static  void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, out GLsizei length, out GLsizei size, IntPtr type, out GLchar name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
+glGetTransformFeedbackVaryingEXT(program, index, bufSize, __local4, __local5, type, __local7);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+size = (GLsizei) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+name = (GLchar) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *type, GLchar *name);'</para>
+/// </summary>
+public static  void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, out GLsizei length, out GLsizei size, out GLenum type, IntPtr name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+glGetTransformFeedbackVaryingEXT(program, index, bufSize, __local4, __local5, __local6, name);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+size = (GLsizei) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *type, GLchar *name);'</para>
+/// </summary>
+public static  void glGetTransformFeedbackVaryingEXT(GLuint program, GLuint index, GLsizei bufSize, out GLsizei length, out GLsizei size, out GLenum type, out GLchar name)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+IntPtr __local6 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLenum)));
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
+glGetTransformFeedbackVaryingEXT(program, index, bufSize, __local4, __local5, __local6, __local7);
+length = (GLsizei) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+size = (GLsizei) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+type = (GLenum) Marshal.ReadInt32(__local6);
+Marshal.FreeHGlobal(__local6);
+name = (GLchar) Marshal.ReadByte(__local7);
+Marshal.FreeHGlobal(__local7);
+}
 
 #endif
 
 #if GL_EXT_transform_feedback || GL_EXT_draw_buffers2
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetIntegerIndexedvEXT(GLenum param, GLuint index, GLint *values);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetIntegerIndexedvEXT")]
-        public static extern void glGetIntegerIndexedvEXT(GLenum param, GLuint index, IntPtr values);
+/// <summary>
+/// <para>Original signature is 'extern void glGetIntegerIndexedvEXT(GLenum param, GLuint index, GLint *values);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetIntegerIndexedvEXT")]
+public static extern void glGetIntegerIndexedvEXT(GLenum param, GLuint index, IntPtr values);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetBooleanIndexedvEXT(GLenum param, GLuint index, GLboolean *values);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetBooleanIndexedvEXT")]
-        public static extern void glGetBooleanIndexedvEXT(GLenum param, GLuint index, IntPtr values);
+/// <summary>
+/// <para>Original signature is 'extern void glGetIntegerIndexedvEXT(GLenum param, GLuint index, GLint *values);'</para>
+/// </summary>
+public static  void glGetIntegerIndexedvEXT(GLenum param, GLuint index, out GLint values)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetIntegerIndexedvEXT(param, index, __local3);
+values = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetBooleanIndexedvEXT(GLenum param, GLuint index, GLboolean *values);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetBooleanIndexedvEXT")]
+public static extern void glGetBooleanIndexedvEXT(GLenum param, GLuint index, IntPtr values);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetBooleanIndexedvEXT(GLenum param, GLuint index, GLboolean *values);'</para>
+/// </summary>
+public static  void glGetBooleanIndexedvEXT(GLenum param, GLuint index, out GLboolean values)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLboolean)));
+glGetBooleanIndexedvEXT(param, index, __local3);
+values = (GLboolean)Marshal.ReadByte(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
 #endif
 
 #if GL_EXT_bindable_uniform
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniformBufferEXT(GLuint program, GLint location, GLuint buffer);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniformBufferEXT")]
-        public static extern void glUniformBufferEXT(GLuint program, GLint location, GLuint buffer);
+/// <summary>
+/// <para>Original signature is 'extern void glUniformBufferEXT(GLuint program, GLint location, GLuint buffer);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniformBufferEXT")]
+public static extern void glUniformBufferEXT(GLuint program, GLint location, GLuint buffer);
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLint glGetUniformBufferSizeEXT(GLuint program, GLint location);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetUniformBufferSizeEXT")]
-        public static extern GLint glGetUniformBufferSizeEXT(GLuint program, GLint location);
+/// <summary>
+/// <para>Original signature is 'extern GLint glGetUniformBufferSizeEXT(GLuint program, GLint location);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetUniformBufferSizeEXT")]
+public static extern GLint glGetUniformBufferSizeEXT(GLuint program, GLint location);
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLintptr glGetUniformOffsetEXT(GLuint program, GLint location);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetUniformOffsetEXT")]
-        public static extern GLintptr glGetUniformOffsetEXT(GLuint program, GLint location);
+/// <summary>
+/// <para>Original signature is 'extern GLintptr glGetUniformOffsetEXT(GLuint program, GLint location);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetUniformOffsetEXT")]
+public static extern GLintptr glGetUniformOffsetEXT(GLuint program, GLint location);
 
 #endif
 
 #if GL_EXT_texture_integer
-        /// <summary>
-        /// <para>Original signature is 'extern void glClearColorIiEXT( GLint r, GLint g, GLint b, GLint a );'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glClearColorIiEXT")]
-        public static extern void glClearColorIiEXT(GLint r, GLint g, GLint b, GLint a);
+/// <summary>
+/// <para>Original signature is 'extern void glClearColorIiEXT( GLint r, GLint g, GLint b, GLint a );'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glClearColorIiEXT")]
+public static extern void glClearColorIiEXT(GLint r, GLint g, GLint b, GLint a);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glClearColorIuiEXT( GLuint r, GLuint g, GLuint b, GLuint a );'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glClearColorIuiEXT")]
-        public static extern void glClearColorIuiEXT(GLuint r, GLuint g, GLuint b, GLuint a);
+/// <summary>
+/// <para>Original signature is 'extern void glClearColorIuiEXT( GLuint r, GLuint g, GLuint b, GLuint a );'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glClearColorIuiEXT")]
+public static extern void glClearColorIuiEXT(GLuint r, GLuint g, GLuint b, GLuint a);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glTexParameterIivEXT( GLenum target, GLenum pname, GLint *params );'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glTexParameterIivEXT")]
-        public static extern void glTexParameterIivEXT(GLenum target, GLenum pname, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glTexParameterIivEXT( GLenum target, GLenum pname, GLint *params );'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glTexParameterIivEXT")]
+public static extern void glTexParameterIivEXT(GLenum target, GLenum pname, IntPtr @params);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glTexParameterIuivEXT( GLenum target, GLenum pname, GLuint *params );'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glTexParameterIuivEXT")]
-        public static extern void glTexParameterIuivEXT(GLenum target, GLenum pname, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glTexParameterIivEXT( GLenum target, GLenum pname, GLint *params );'</para>
+/// </summary>
+public static  void glTexParameterIivEXT(GLenum target, GLenum pname, out GLint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glTexParameterIivEXT(target, pname, __local3);
+@params = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetTexParameterIivEXT( GLenum target, GLenum pname, GLint *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetTexParameterIivEXT")]
-        public static extern void glGetTexParameterIivEXT(GLenum target, GLenum pname, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glTexParameterIuivEXT( GLenum target, GLenum pname, GLuint *params );'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glTexParameterIuivEXT")]
+public static extern void glTexParameterIuivEXT(GLenum target, GLenum pname, IntPtr @params);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetTexParameterIuivEXT( GLenum target, GLenum pname, GLuint *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetTexParameterIuivEXT")]
-        public static extern void glGetTexParameterIuivEXT(GLenum target, GLenum pname, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glTexParameterIuivEXT( GLenum target, GLenum pname, GLuint *params );'</para>
+/// </summary>
+public static  void glTexParameterIuivEXT(GLenum target, GLenum pname, out GLuint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glTexParameterIuivEXT(target, pname, __local3);
+@params = (GLuint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTexParameterIivEXT( GLenum target, GLenum pname, GLint *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetTexParameterIivEXT")]
+public static extern void glGetTexParameterIivEXT(GLenum target, GLenum pname, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTexParameterIivEXT( GLenum target, GLenum pname, GLint *params);'</para>
+/// </summary>
+public static  void glGetTexParameterIivEXT(GLenum target, GLenum pname, out GLint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetTexParameterIivEXT(target, pname, __local3);
+@params = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTexParameterIuivEXT( GLenum target, GLenum pname, GLuint *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetTexParameterIuivEXT")]
+public static extern void glGetTexParameterIuivEXT(GLenum target, GLenum pname, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTexParameterIuivEXT( GLenum target, GLenum pname, GLuint *params);'</para>
+/// </summary>
+public static  void glGetTexParameterIuivEXT(GLenum target, GLenum pname, out GLuint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glGetTexParameterIuivEXT(target, pname, __local3);
+@params = (GLuint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
 #endif
 
 #if GL_EXT_gpu_shader4
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI1iEXT(GLuint index, GLint x);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI1iEXT")]
-        public static extern void glVertexAttribI1iEXT(GLuint index, GLint x);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI2iEXT(GLuint index, GLint x, GLint y);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI2iEXT")]
-        public static extern void glVertexAttribI2iEXT(GLuint index, GLint x, GLint y);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI3iEXT(GLuint index, GLint x, GLint y, GLint z);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI3iEXT")]
-        public static extern void glVertexAttribI3iEXT(GLuint index, GLint x, GLint y, GLint z);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4iEXT(GLuint index, GLint x, GLint y, GLint z, GLint w);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI4iEXT")]
-        public static extern void glVertexAttribI4iEXT(GLuint index, GLint x, GLint y, GLint z, GLint w);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI1uiEXT(GLuint index, GLuint x);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI1uiEXT")]
-        public static extern void glVertexAttribI1uiEXT(GLuint index, GLuint x);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI2uiEXT(GLuint index, GLuint x, GLuint y);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI2uiEXT")]
-        public static extern void glVertexAttribI2uiEXT(GLuint index, GLuint x, GLuint y);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI3uiEXT(GLuint index, GLuint x, GLuint y, GLuint z);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI3uiEXT")]
-        public static extern void glVertexAttribI3uiEXT(GLuint index, GLuint x, GLuint y, GLuint z);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4uiEXT(GLuint index, GLuint x, GLuint y, GLuint z, GLuint w);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI4uiEXT")]
-        public static extern void glVertexAttribI4uiEXT(GLuint index, GLuint x, GLuint y, GLuint z, GLuint w);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI1ivEXT(GLuint index, const GLint *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI1ivEXT")]
-        public static extern void glVertexAttribI1ivEXT(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI1ivEXT(GLuint index, const GLint *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI1ivEXT(GLuint index, GLint[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttribI1ivEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI1ivEXT(GLuint index, const GLint *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI1ivEXT(GLuint index, ref GLint v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local2, v);
-            glVertexAttribI1ivEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI2ivEXT(GLuint index, const GLint *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI2ivEXT")]
-        public static extern void glVertexAttribI2ivEXT(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI2ivEXT(GLuint index, const GLint *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI2ivEXT(GLuint index, GLint[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttribI2ivEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI2ivEXT(GLuint index, const GLint *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI2ivEXT(GLuint index, ref GLint v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local2, v);
-            glVertexAttribI2ivEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI3ivEXT(GLuint index, const GLint *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI3ivEXT")]
-        public static extern void glVertexAttribI3ivEXT(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI3ivEXT(GLuint index, const GLint *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI3ivEXT(GLuint index, GLint[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttribI3ivEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI3ivEXT(GLuint index, const GLint *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI3ivEXT(GLuint index, ref GLint v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local2, v);
-            glVertexAttribI3ivEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4ivEXT(GLuint index, const GLint *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI4ivEXT")]
-        public static extern void glVertexAttribI4ivEXT(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4ivEXT(GLuint index, const GLint *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI4ivEXT(GLuint index, GLint[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttribI4ivEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4ivEXT(GLuint index, const GLint *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI4ivEXT(GLuint index, ref GLint v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local2, v);
-            glVertexAttribI4ivEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI1uivEXT(GLuint index, const GLuint *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI1uivEXT")]
-        public static extern void glVertexAttribI1uivEXT(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI1uivEXT(GLuint index, const GLuint *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI1uivEXT(GLuint index, GLuint[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * v.Length);
-            GLint[] __array2 = Array.ConvertAll(v, item => (GLint)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glVertexAttribI1uivEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI1uivEXT(GLuint index, const GLuint *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI1uivEXT(GLuint index, ref GLuint v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local2, (GLint)v);
-            glVertexAttribI1uivEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI2uivEXT(GLuint index, const GLuint *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI2uivEXT")]
-        public static extern void glVertexAttribI2uivEXT(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI2uivEXT(GLuint index, const GLuint *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI2uivEXT(GLuint index, GLuint[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * v.Length);
-            GLint[] __array2 = Array.ConvertAll(v, item => (GLint)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glVertexAttribI2uivEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI2uivEXT(GLuint index, const GLuint *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI2uivEXT(GLuint index, ref GLuint v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local2, (GLint)v);
-            glVertexAttribI2uivEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI3uivEXT(GLuint index, const GLuint *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI3uivEXT")]
-        public static extern void glVertexAttribI3uivEXT(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI3uivEXT(GLuint index, const GLuint *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI3uivEXT(GLuint index, GLuint[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * v.Length);
-            GLint[] __array2 = Array.ConvertAll(v, item => (GLint)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glVertexAttribI3uivEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI3uivEXT(GLuint index, const GLuint *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI3uivEXT(GLuint index, ref GLuint v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local2, (GLint)v);
-            glVertexAttribI3uivEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4uivEXT(GLuint index, const GLuint *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI4uivEXT")]
-        public static extern void glVertexAttribI4uivEXT(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4uivEXT(GLuint index, const GLuint *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI4uivEXT(GLuint index, GLuint[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * v.Length);
-            GLint[] __array2 = Array.ConvertAll(v, item => (GLint)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glVertexAttribI4uivEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4uivEXT(GLuint index, const GLuint *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI4uivEXT(GLuint index, ref GLuint v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local2, (GLint)v);
-            glVertexAttribI4uivEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4bvEXT(GLuint index, const GLbyte *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI4bvEXT")]
-        public static extern void glVertexAttribI4bvEXT(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4bvEXT(GLuint index, const GLbyte *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI4bvEXT(GLuint index, GLbyte[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)) * v.Length);
-            GLubyte[] __array2 = Array.ConvertAll(v, item => (GLubyte)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glVertexAttribI4bvEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4bvEXT(GLuint index, const GLbyte *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI4bvEXT(GLuint index, ref GLbyte v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)));
-            Marshal.WriteByte(__local2, (GLubyte)v);
-            glVertexAttribI4bvEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4svEXT(GLuint index, const GLshort *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI4svEXT")]
-        public static extern void glVertexAttribI4svEXT(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4svEXT(GLuint index, const GLshort *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI4svEXT(GLuint index, GLshort[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttribI4svEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4svEXT(GLuint index, const GLshort *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI4svEXT(GLuint index, ref GLshort v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
-            Marshal.WriteInt16(__local2, v);
-            glVertexAttribI4svEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4ubvEXT(GLuint index, const GLubyte *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI4ubvEXT")]
-        public static extern void glVertexAttribI4ubvEXT(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4ubvEXT(GLuint index, const GLubyte *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI4ubvEXT(GLuint index, GLubyte[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)) * v.Length);
-            Marshal.Copy(v, 0, __local2, v.Length);
-            glVertexAttribI4ubvEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4ubvEXT(GLuint index, const GLubyte *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI4ubvEXT(GLuint index, ref GLubyte v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)));
-            Marshal.WriteByte(__local2, v);
-            glVertexAttribI4ubvEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4usvEXT(GLuint index, const GLushort *v);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribI4usvEXT")]
-        public static extern void glVertexAttribI4usvEXT(GLuint index, IntPtr v);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4usvEXT(GLuint index, const GLushort *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI4usvEXT(GLuint index, GLushort[] v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)) * v.Length);
-            GLshort[] __array2 = Array.ConvertAll(v, item => (GLshort)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glVertexAttribI4usvEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribI4usvEXT(GLuint index, const GLushort *v);'</para>
-        /// </summary>
-        public static void glVertexAttribI4usvEXT(GLuint index, ref GLushort v)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)));
-            Marshal.WriteInt16(__local2, (GLshort)v);
-            glVertexAttribI4usvEXT(index, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexAttribIPointerEXT(GLuint index, GLint size, GLenum type, GLsizei stride, const GLvoid *pointer);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexAttribIPointerEXT")]
-        public static extern void glVertexAttribIPointerEXT(GLuint index, GLint size, GLenum type, GLsizei stride, IntPtr pointer);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetVertexAttribIivEXT(GLuint index, GLenum pname, GLint *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetVertexAttribIivEXT")]
-        public static extern void glGetVertexAttribIivEXT(GLuint index, GLenum pname, IntPtr @params);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetVertexAttribIuivEXT(GLuint index, GLenum pname, GLuint *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetVertexAttribIuivEXT")]
-        public static extern void glGetVertexAttribIuivEXT(GLuint index, GLenum pname, IntPtr @params);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform1uiEXT(GLint location, GLuint v0);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform1uiEXT")]
-        public static extern void glUniform1uiEXT(GLint location, GLuint v0);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform2uiEXT(GLint location, GLuint v0, GLuint v1);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform2uiEXT")]
-        public static extern void glUniform2uiEXT(GLint location, GLuint v0, GLuint v1);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform3uiEXT(GLint location, GLuint v0, GLuint v1, GLuint v2);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform3uiEXT")]
-        public static extern void glUniform3uiEXT(GLint location, GLuint v0, GLuint v1, GLuint v2);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform4uiEXT(GLint location, GLuint v0, GLuint v1, GLuint v2, GLuint v3);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform4uiEXT")]
-        public static extern void glUniform4uiEXT(GLint location, GLuint v0, GLuint v1, GLuint v2, GLuint v3);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform1uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform1uivEXT")]
-        public static extern void glUniform1uivEXT(GLint location, GLsizei count, IntPtr value);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform1uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
-        /// </summary>
-        public static void glUniform1uivEXT(GLint location, GLsizei count, GLuint[] value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * value.Length);
-            GLint[] __array3 = Array.ConvertAll(value, item => (GLint)item);
-            Marshal.Copy(__array3, 0, __local3, __array3.Length);
-            glUniform1uivEXT(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform1uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
-        /// </summary>
-        public static void glUniform1uivEXT(GLint location, GLsizei count, ref GLuint value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local3, (GLint)value);
-            glUniform1uivEXT(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform2uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform2uivEXT")]
-        public static extern void glUniform2uivEXT(GLint location, GLsizei count, IntPtr value);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform2uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
-        /// </summary>
-        public static void glUniform2uivEXT(GLint location, GLsizei count, GLuint[] value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * value.Length);
-            GLint[] __array3 = Array.ConvertAll(value, item => (GLint)item);
-            Marshal.Copy(__array3, 0, __local3, __array3.Length);
-            glUniform2uivEXT(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform2uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
-        /// </summary>
-        public static void glUniform2uivEXT(GLint location, GLsizei count, ref GLuint value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local3, (GLint)value);
-            glUniform2uivEXT(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform3uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform3uivEXT")]
-        public static extern void glUniform3uivEXT(GLint location, GLsizei count, IntPtr value);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform3uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
-        /// </summary>
-        public static void glUniform3uivEXT(GLint location, GLsizei count, GLuint[] value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * value.Length);
-            GLint[] __array3 = Array.ConvertAll(value, item => (GLint)item);
-            Marshal.Copy(__array3, 0, __local3, __array3.Length);
-            glUniform3uivEXT(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform3uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
-        /// </summary>
-        public static void glUniform3uivEXT(GLint location, GLsizei count, ref GLuint value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local3, (GLint)value);
-            glUniform3uivEXT(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform4uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glUniform4uivEXT")]
-        public static extern void glUniform4uivEXT(GLint location, GLsizei count, IntPtr value);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform4uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
-        /// </summary>
-        public static void glUniform4uivEXT(GLint location, GLsizei count, GLuint[] value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * value.Length);
-            GLint[] __array3 = Array.ConvertAll(value, item => (GLint)item);
-            Marshal.Copy(__array3, 0, __local3, __array3.Length);
-            glUniform4uivEXT(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glUniform4uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
-        /// </summary>
-        public static void glUniform4uivEXT(GLint location, GLsizei count, ref GLuint value)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local3, (GLint)value);
-            glUniform4uivEXT(location, count, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetUniformuivEXT(GLuint program, GLint location, GLuint *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetUniformuivEXT")]
-        public static extern void glGetUniformuivEXT(GLuint program, GLint location, IntPtr @params);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glBindFragDataLocationEXT(GLuint program, GLuint colorNumber, const GLchar *name);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBindFragDataLocationEXT")]
-        public static extern void glBindFragDataLocationEXT(GLuint program, GLuint colorNumber, IntPtr name);
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glBindFragDataLocationEXT(GLuint program, GLuint colorNumber, const GLchar *name);'</para>
-        /// </summary>
-        public static void glBindFragDataLocationEXT(GLuint program, GLuint colorNumber, GLchar[] name)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)) * name.Length);
-            GLubyte[] __array3 = Array.ConvertAll(name, item => (GLubyte)item);
-            Marshal.Copy(__array3, 0, __local3, __array3.Length);
-            glBindFragDataLocationEXT(program, colorNumber, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern void glBindFragDataLocationEXT(GLuint program, GLuint colorNumber, const GLchar *name);'</para>
-        /// </summary>
-        public static void glBindFragDataLocationEXT(GLuint program, GLuint colorNumber, ref GLchar name)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
-            Marshal.WriteByte(__local3, (GLubyte)name);
-            glBindFragDataLocationEXT(program, colorNumber, __local3);
-            Marshal.FreeHGlobal(__local3);
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern GLint glGetFragDataLocationEXT(GLuint program, const GLchar *name);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetFragDataLocationEXT")]
-        public static extern GLint glGetFragDataLocationEXT(GLuint program, IntPtr name);
-
-        /// <summary>
-        /// <para>Original signature is 'extern GLint glGetFragDataLocationEXT(GLuint program, const GLchar *name);'</para>
-        /// </summary>
-        public static GLint glGetFragDataLocationEXT(GLuint program, GLchar[] name)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)) * name.Length);
-            GLubyte[] __array2 = Array.ConvertAll(name, item => (GLubyte)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            GLint result = glGetFragDataLocationEXT(program, __local2);
-            Marshal.FreeHGlobal(__local2);
-            return result;
-        }
-
-        /// <summary>
-        /// <para>Original signature is 'extern GLint glGetFragDataLocationEXT(GLuint program, const GLchar *name);'</para>
-        /// </summary>
-        public static GLint glGetFragDataLocationEXT(GLuint program, ref GLchar name)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
-            Marshal.WriteByte(__local2, (GLubyte)name);
-            GLint result = glGetFragDataLocationEXT(program, __local2);
-            Marshal.FreeHGlobal(__local2);
-            return result;
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI1iEXT(GLuint index, GLint x);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI1iEXT")]
+public static extern void glVertexAttribI1iEXT(GLuint index, GLint x);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI2iEXT(GLuint index, GLint x, GLint y);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI2iEXT")]
+public static extern void glVertexAttribI2iEXT(GLuint index, GLint x, GLint y);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI3iEXT(GLuint index, GLint x, GLint y, GLint z);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI3iEXT")]
+public static extern void glVertexAttribI3iEXT(GLuint index, GLint x, GLint y, GLint z);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4iEXT(GLuint index, GLint x, GLint y, GLint z, GLint w);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI4iEXT")]
+public static extern void glVertexAttribI4iEXT(GLuint index, GLint x, GLint y, GLint z, GLint w);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI1uiEXT(GLuint index, GLuint x);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI1uiEXT")]
+public static extern void glVertexAttribI1uiEXT(GLuint index, GLuint x);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI2uiEXT(GLuint index, GLuint x, GLuint y);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI2uiEXT")]
+public static extern void glVertexAttribI2uiEXT(GLuint index, GLuint x, GLuint y);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI3uiEXT(GLuint index, GLuint x, GLuint y, GLuint z);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI3uiEXT")]
+public static extern void glVertexAttribI3uiEXT(GLuint index, GLuint x, GLuint y, GLuint z);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4uiEXT(GLuint index, GLuint x, GLuint y, GLuint z, GLuint w);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI4uiEXT")]
+public static extern void glVertexAttribI4uiEXT(GLuint index, GLuint x, GLuint y, GLuint z, GLuint w);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI1ivEXT(GLuint index, const GLint *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI1ivEXT")]
+public static extern void glVertexAttribI1ivEXT(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI1ivEXT(GLuint index, const GLint *v);'</para>
+/// </summary>
+public static  void glVertexAttribI1ivEXT(GLuint index, GLint[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttribI1ivEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI1ivEXT(GLuint index, const GLint *v);'</para>
+/// </summary>
+public static  void glVertexAttribI1ivEXT(GLuint index, ref GLint v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local2, v);
+glVertexAttribI1ivEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI2ivEXT(GLuint index, const GLint *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI2ivEXT")]
+public static extern void glVertexAttribI2ivEXT(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI2ivEXT(GLuint index, const GLint *v);'</para>
+/// </summary>
+public static  void glVertexAttribI2ivEXT(GLuint index, GLint[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttribI2ivEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI2ivEXT(GLuint index, const GLint *v);'</para>
+/// </summary>
+public static  void glVertexAttribI2ivEXT(GLuint index, ref GLint v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local2, v);
+glVertexAttribI2ivEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI3ivEXT(GLuint index, const GLint *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI3ivEXT")]
+public static extern void glVertexAttribI3ivEXT(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI3ivEXT(GLuint index, const GLint *v);'</para>
+/// </summary>
+public static  void glVertexAttribI3ivEXT(GLuint index, GLint[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttribI3ivEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI3ivEXT(GLuint index, const GLint *v);'</para>
+/// </summary>
+public static  void glVertexAttribI3ivEXT(GLuint index, ref GLint v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local2, v);
+glVertexAttribI3ivEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4ivEXT(GLuint index, const GLint *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI4ivEXT")]
+public static extern void glVertexAttribI4ivEXT(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4ivEXT(GLuint index, const GLint *v);'</para>
+/// </summary>
+public static  void glVertexAttribI4ivEXT(GLuint index, GLint[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttribI4ivEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4ivEXT(GLuint index, const GLint *v);'</para>
+/// </summary>
+public static  void glVertexAttribI4ivEXT(GLuint index, ref GLint v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local2, v);
+glVertexAttribI4ivEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI1uivEXT(GLuint index, const GLuint *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI1uivEXT")]
+public static extern void glVertexAttribI1uivEXT(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI1uivEXT(GLuint index, const GLuint *v);'</para>
+/// </summary>
+public static  void glVertexAttribI1uivEXT(GLuint index, GLuint[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * v.Length);
+GLint[] __array2 = Array.ConvertAll(v, item => (GLint) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glVertexAttribI1uivEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI1uivEXT(GLuint index, const GLuint *v);'</para>
+/// </summary>
+public static  void glVertexAttribI1uivEXT(GLuint index, ref GLuint v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local2, (GLint) v);
+glVertexAttribI1uivEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI2uivEXT(GLuint index, const GLuint *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI2uivEXT")]
+public static extern void glVertexAttribI2uivEXT(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI2uivEXT(GLuint index, const GLuint *v);'</para>
+/// </summary>
+public static  void glVertexAttribI2uivEXT(GLuint index, GLuint[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * v.Length);
+GLint[] __array2 = Array.ConvertAll(v, item => (GLint) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glVertexAttribI2uivEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI2uivEXT(GLuint index, const GLuint *v);'</para>
+/// </summary>
+public static  void glVertexAttribI2uivEXT(GLuint index, ref GLuint v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local2, (GLint) v);
+glVertexAttribI2uivEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI3uivEXT(GLuint index, const GLuint *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI3uivEXT")]
+public static extern void glVertexAttribI3uivEXT(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI3uivEXT(GLuint index, const GLuint *v);'</para>
+/// </summary>
+public static  void glVertexAttribI3uivEXT(GLuint index, GLuint[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * v.Length);
+GLint[] __array2 = Array.ConvertAll(v, item => (GLint) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glVertexAttribI3uivEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI3uivEXT(GLuint index, const GLuint *v);'</para>
+/// </summary>
+public static  void glVertexAttribI3uivEXT(GLuint index, ref GLuint v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local2, (GLint) v);
+glVertexAttribI3uivEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4uivEXT(GLuint index, const GLuint *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI4uivEXT")]
+public static extern void glVertexAttribI4uivEXT(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4uivEXT(GLuint index, const GLuint *v);'</para>
+/// </summary>
+public static  void glVertexAttribI4uivEXT(GLuint index, GLuint[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * v.Length);
+GLint[] __array2 = Array.ConvertAll(v, item => (GLint) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glVertexAttribI4uivEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4uivEXT(GLuint index, const GLuint *v);'</para>
+/// </summary>
+public static  void glVertexAttribI4uivEXT(GLuint index, ref GLuint v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local2, (GLint) v);
+glVertexAttribI4uivEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4bvEXT(GLuint index, const GLbyte *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI4bvEXT")]
+public static extern void glVertexAttribI4bvEXT(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4bvEXT(GLuint index, const GLbyte *v);'</para>
+/// </summary>
+public static  void glVertexAttribI4bvEXT(GLuint index, GLbyte[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)) * v.Length);
+GLubyte[] __array2 = Array.ConvertAll(v, item => (GLubyte) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glVertexAttribI4bvEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4bvEXT(GLuint index, const GLbyte *v);'</para>
+/// </summary>
+public static  void glVertexAttribI4bvEXT(GLuint index, ref GLbyte v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLbyte)));
+Marshal.WriteByte(__local2, (GLubyte) v);
+glVertexAttribI4bvEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4svEXT(GLuint index, const GLshort *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI4svEXT")]
+public static extern void glVertexAttribI4svEXT(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4svEXT(GLuint index, const GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttribI4svEXT(GLuint index, GLshort[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttribI4svEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4svEXT(GLuint index, const GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttribI4svEXT(GLuint index, ref GLshort v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+Marshal.WriteInt16(__local2, v);
+glVertexAttribI4svEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4ubvEXT(GLuint index, const GLubyte *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI4ubvEXT")]
+public static extern void glVertexAttribI4ubvEXT(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4ubvEXT(GLuint index, const GLubyte *v);'</para>
+/// </summary>
+public static  void glVertexAttribI4ubvEXT(GLuint index, GLubyte[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)) * v.Length);
+Marshal.Copy(v, 0, __local2, v.Length);
+glVertexAttribI4ubvEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4ubvEXT(GLuint index, const GLubyte *v);'</para>
+/// </summary>
+public static  void glVertexAttribI4ubvEXT(GLuint index, ref GLubyte v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)));
+Marshal.WriteByte(__local2, v);
+glVertexAttribI4ubvEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4usvEXT(GLuint index, const GLushort *v);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribI4usvEXT")]
+public static extern void glVertexAttribI4usvEXT(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4usvEXT(GLuint index, const GLushort *v);'</para>
+/// </summary>
+public static  void glVertexAttribI4usvEXT(GLuint index, GLushort[] v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)) * v.Length);
+GLshort[] __array2 = Array.ConvertAll(v, item => (GLshort) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glVertexAttribI4usvEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribI4usvEXT(GLuint index, const GLushort *v);'</para>
+/// </summary>
+public static  void glVertexAttribI4usvEXT(GLuint index, ref GLushort v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLushort)));
+Marshal.WriteInt16(__local2, (GLshort) v);
+glVertexAttribI4usvEXT(index, __local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribIPointerEXT(GLuint index, GLint size, GLenum type, GLsizei stride, const GLvoid *pointer);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexAttribIPointerEXT")]
+public static extern void glVertexAttribIPointerEXT(GLuint index, GLint size, GLenum type, GLsizei stride, IntPtr pointer);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetVertexAttribIivEXT(GLuint index, GLenum pname, GLint *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetVertexAttribIivEXT")]
+public static extern void glGetVertexAttribIivEXT(GLuint index, GLenum pname, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetVertexAttribIivEXT(GLuint index, GLenum pname, GLint *params);'</para>
+/// </summary>
+public static  void glGetVertexAttribIivEXT(GLuint index, GLenum pname, out GLint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetVertexAttribIivEXT(index, pname, __local3);
+@params = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetVertexAttribIuivEXT(GLuint index, GLenum pname, GLuint *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetVertexAttribIuivEXT")]
+public static extern void glGetVertexAttribIuivEXT(GLuint index, GLenum pname, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetVertexAttribIuivEXT(GLuint index, GLenum pname, GLuint *params);'</para>
+/// </summary>
+public static  void glGetVertexAttribIuivEXT(GLuint index, GLenum pname, out GLuint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glGetVertexAttribIuivEXT(index, pname, __local3);
+@params = (GLuint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform1uiEXT(GLint location, GLuint v0);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform1uiEXT")]
+public static extern void glUniform1uiEXT(GLint location, GLuint v0);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform2uiEXT(GLint location, GLuint v0, GLuint v1);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform2uiEXT")]
+public static extern void glUniform2uiEXT(GLint location, GLuint v0, GLuint v1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform3uiEXT(GLint location, GLuint v0, GLuint v1, GLuint v2);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform3uiEXT")]
+public static extern void glUniform3uiEXT(GLint location, GLuint v0, GLuint v1, GLuint v2);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform4uiEXT(GLint location, GLuint v0, GLuint v1, GLuint v2, GLuint v3);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform4uiEXT")]
+public static extern void glUniform4uiEXT(GLint location, GLuint v0, GLuint v1, GLuint v2, GLuint v3);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform1uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform1uivEXT")]
+public static extern void glUniform1uivEXT(GLint location, GLsizei count, IntPtr value);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform1uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
+/// </summary>
+public static  void glUniform1uivEXT(GLint location, GLsizei count, GLuint[] value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * value.Length);
+GLint[] __array3 = Array.ConvertAll(value, item => (GLint) item);
+Marshal.Copy(__array3, 0, __local3, __array3.Length);
+glUniform1uivEXT(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform1uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
+/// </summary>
+public static  void glUniform1uivEXT(GLint location, GLsizei count, ref GLuint value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local3, (GLint) value);
+glUniform1uivEXT(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform2uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform2uivEXT")]
+public static extern void glUniform2uivEXT(GLint location, GLsizei count, IntPtr value);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform2uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
+/// </summary>
+public static  void glUniform2uivEXT(GLint location, GLsizei count, GLuint[] value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * value.Length);
+GLint[] __array3 = Array.ConvertAll(value, item => (GLint) item);
+Marshal.Copy(__array3, 0, __local3, __array3.Length);
+glUniform2uivEXT(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform2uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
+/// </summary>
+public static  void glUniform2uivEXT(GLint location, GLsizei count, ref GLuint value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local3, (GLint) value);
+glUniform2uivEXT(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform3uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform3uivEXT")]
+public static extern void glUniform3uivEXT(GLint location, GLsizei count, IntPtr value);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform3uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
+/// </summary>
+public static  void glUniform3uivEXT(GLint location, GLsizei count, GLuint[] value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * value.Length);
+GLint[] __array3 = Array.ConvertAll(value, item => (GLint) item);
+Marshal.Copy(__array3, 0, __local3, __array3.Length);
+glUniform3uivEXT(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform3uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
+/// </summary>
+public static  void glUniform3uivEXT(GLint location, GLsizei count, ref GLuint value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local3, (GLint) value);
+glUniform3uivEXT(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform4uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glUniform4uivEXT")]
+public static extern void glUniform4uivEXT(GLint location, GLsizei count, IntPtr value);
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform4uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
+/// </summary>
+public static  void glUniform4uivEXT(GLint location, GLsizei count, GLuint[] value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * value.Length);
+GLint[] __array3 = Array.ConvertAll(value, item => (GLint) item);
+Marshal.Copy(__array3, 0, __local3, __array3.Length);
+glUniform4uivEXT(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glUniform4uivEXT(GLint location, GLsizei count, const GLuint *value);'</para>
+/// </summary>
+public static  void glUniform4uivEXT(GLint location, GLsizei count, ref GLuint value)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local3, (GLint) value);
+glUniform4uivEXT(location, count, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetUniformuivEXT(GLuint program, GLint location, GLuint *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetUniformuivEXT")]
+public static extern void glGetUniformuivEXT(GLuint program, GLint location, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetUniformuivEXT(GLuint program, GLint location, GLuint *params);'</para>
+/// </summary>
+public static  void glGetUniformuivEXT(GLuint program, GLint location, out GLuint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glGetUniformuivEXT(program, location, __local3);
+@params = (GLuint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glBindFragDataLocationEXT(GLuint program, GLuint colorNumber, const GLchar *name);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBindFragDataLocationEXT")]
+public static extern void glBindFragDataLocationEXT(GLuint program, GLuint colorNumber, IntPtr name);
+
+/// <summary>
+/// <para>Original signature is 'extern void glBindFragDataLocationEXT(GLuint program, GLuint colorNumber, const GLchar *name);'</para>
+/// </summary>
+public static  void glBindFragDataLocationEXT(GLuint program, GLuint colorNumber, GLchar[] name)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)) * name.Length);
+GLubyte[] __array3 = Array.ConvertAll(name, item => (GLubyte) item);
+Marshal.Copy(__array3, 0, __local3, __array3.Length);
+glBindFragDataLocationEXT(program, colorNumber, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern void glBindFragDataLocationEXT(GLuint program, GLuint colorNumber, const GLchar *name);'</para>
+/// </summary>
+public static  void glBindFragDataLocationEXT(GLuint program, GLuint colorNumber, ref GLchar name)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
+Marshal.WriteByte(__local3, (GLubyte) name);
+glBindFragDataLocationEXT(program, colorNumber, __local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern GLint glGetFragDataLocationEXT(GLuint program, const GLchar *name);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetFragDataLocationEXT")]
+public static extern GLint glGetFragDataLocationEXT(GLuint program, IntPtr name);
+
+/// <summary>
+/// <para>Original signature is 'extern GLint glGetFragDataLocationEXT(GLuint program, const GLchar *name);'</para>
+/// </summary>
+public static  GLint glGetFragDataLocationEXT(GLuint program, GLchar[] name)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)) * name.Length);
+GLubyte[] __array2 = Array.ConvertAll(name, item => (GLubyte) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+GLint result = glGetFragDataLocationEXT(program, __local2);
+Marshal.FreeHGlobal(__local2);
+return result;}
+
+/// <summary>
+/// <para>Original signature is 'extern GLint glGetFragDataLocationEXT(GLuint program, const GLchar *name);'</para>
+/// </summary>
+public static  GLint glGetFragDataLocationEXT(GLuint program, ref GLchar name)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLchar)));
+Marshal.WriteByte(__local2, (GLubyte) name);
+GLint result = glGetFragDataLocationEXT(program, __local2);
+Marshal.FreeHGlobal(__local2);
+return result;}
 
 #endif
 
 #if GL_EXT_draw_buffers2
-        /// <summary>
-        /// <para>Original signature is 'extern void glColorMaskIndexedEXT(GLuint index, GLboolean r, GLboolean g, GLboolean b, GLboolean a);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glColorMaskIndexedEXT")]
-        public static extern void glColorMaskIndexedEXT(GLuint index, GLboolean r, GLboolean g, GLboolean b, GLboolean a);
+/// <summary>
+/// <para>Original signature is 'extern void glColorMaskIndexedEXT(GLuint index, GLboolean r, GLboolean g, GLboolean b, GLboolean a);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glColorMaskIndexedEXT")]
+public static extern void glColorMaskIndexedEXT(GLuint index, GLboolean r, GLboolean g, GLboolean b, GLboolean a);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glEnableIndexedEXT(GLenum target, GLuint index);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glEnableIndexedEXT")]
-        public static extern void glEnableIndexedEXT(GLenum target, GLuint index);
+/// <summary>
+/// <para>Original signature is 'extern void glEnableIndexedEXT(GLenum target, GLuint index);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glEnableIndexedEXT")]
+public static extern void glEnableIndexedEXT(GLenum target, GLuint index);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDisableIndexedEXT(GLenum target, GLuint index);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDisableIndexedEXT")]
-        public static extern void glDisableIndexedEXT(GLenum target, GLuint index);
+/// <summary>
+/// <para>Original signature is 'extern void glDisableIndexedEXT(GLenum target, GLuint index);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDisableIndexedEXT")]
+public static extern void glDisableIndexedEXT(GLenum target, GLuint index);
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLboolean glIsEnabledIndexedEXT(GLenum target, GLuint index);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glIsEnabledIndexedEXT")]
-        public static extern GLboolean glIsEnabledIndexedEXT(GLenum target, GLuint index);
+/// <summary>
+/// <para>Original signature is 'extern GLboolean glIsEnabledIndexedEXT(GLenum target, GLuint index);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glIsEnabledIndexedEXT")]
+public static extern GLboolean glIsEnabledIndexedEXT(GLenum target, GLuint index);
 
 #endif
 
 #if GL_EXT_provoking_vertex
-        /// <summary>
-        /// <para>Original signature is 'extern void glProvokingVertexEXT(GLenum mode);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glProvokingVertexEXT")]
-        public static extern void glProvokingVertexEXT(GLenum mode);
+/// <summary>
+/// <para>Original signature is 'extern void glProvokingVertexEXT(GLenum mode);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glProvokingVertexEXT")]
+public static extern void glProvokingVertexEXT(GLenum mode);
 
 #endif
 
 #if GL_APPLE_texture_range
-        /// <summary>
-        /// <para>Original signature is 'extern void glTextureRangeAPPLE(GLenum target, GLsizei length, const GLvoid *pointer);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glTextureRangeAPPLE")]
-        public static extern void glTextureRangeAPPLE(GLenum target, GLsizei length, IntPtr pointer);
+/// <summary>
+/// <para>Original signature is 'extern void glTextureRangeAPPLE(GLenum target, GLsizei length, const GLvoid *pointer);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glTextureRangeAPPLE")]
+public static extern void glTextureRangeAPPLE(GLenum target, GLsizei length, IntPtr pointer);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGetTexParameterPointervAPPLE(GLenum target, GLenum pname, GLvoid **params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetTexParameterPointervAPPLE")]
-        public static extern void glGetTexParameterPointervAPPLE(GLenum target, GLenum pname, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glGetTexParameterPointervAPPLE(GLenum target, GLenum pname, GLvoid **params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetTexParameterPointervAPPLE")]
+public static extern void glGetTexParameterPointervAPPLE(GLenum target, GLenum pname, IntPtr @params);
 
 #endif
 
 #if GL_APPLE_vertex_array_range
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexArrayRangeAPPLE(GLsizei length, const GLvoid *pointer);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexArrayRangeAPPLE")]
-        public static extern void glVertexArrayRangeAPPLE(GLsizei length, IntPtr pointer);
+/// <summary>
+/// <para>Original signature is 'extern void glVertexArrayRangeAPPLE(GLsizei length, const GLvoid *pointer);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexArrayRangeAPPLE")]
+public static extern void glVertexArrayRangeAPPLE(GLsizei length, IntPtr pointer);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFlushVertexArrayRangeAPPLE(GLsizei length, const GLvoid *pointer);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFlushVertexArrayRangeAPPLE")]
-        public static extern void glFlushVertexArrayRangeAPPLE(GLsizei length, IntPtr pointer);
+/// <summary>
+/// <para>Original signature is 'extern void glFlushVertexArrayRangeAPPLE(GLsizei length, const GLvoid *pointer);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFlushVertexArrayRangeAPPLE")]
+public static extern void glFlushVertexArrayRangeAPPLE(GLsizei length, IntPtr pointer);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glVertexArrayParameteriAPPLE(GLenum pname, GLint param);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glVertexArrayParameteriAPPLE")]
-        public static extern void glVertexArrayParameteriAPPLE(GLenum pname, GLint param);
+/// <summary>
+/// <para>Original signature is 'extern void glVertexArrayParameteriAPPLE(GLenum pname, GLint param);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glVertexArrayParameteriAPPLE")]
+public static extern void glVertexArrayParameteriAPPLE(GLenum pname, GLint param);
 
 #endif
 
 #if GL_APPLE_vertex_array_object
-        /// <summary>
-        /// <para>Original signature is 'extern void glBindVertexArrayAPPLE(GLuint id);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBindVertexArrayAPPLE")]
-        public static extern void glBindVertexArrayAPPLE(GLuint id);
+/// <summary>
+/// <para>Original signature is 'extern void glBindVertexArrayAPPLE(GLuint id);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBindVertexArrayAPPLE")]
+public static extern void glBindVertexArrayAPPLE(GLuint id);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteVertexArraysAPPLE(GLsizei n, const GLuint *ids);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDeleteVertexArraysAPPLE")]
-        public static extern void glDeleteVertexArraysAPPLE(GLsizei n, IntPtr ids);
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteVertexArraysAPPLE(GLsizei n, const GLuint *ids);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDeleteVertexArraysAPPLE")]
+public static extern void glDeleteVertexArraysAPPLE(GLsizei n, IntPtr ids);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteVertexArraysAPPLE(GLsizei n, const GLuint *ids);'</para>
-        /// </summary>
-        public static void glDeleteVertexArraysAPPLE(GLsizei n, GLuint[] ids)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * ids.Length);
-            GLint[] __array2 = Array.ConvertAll(ids, item => (GLint)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glDeleteVertexArraysAPPLE(n, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteVertexArraysAPPLE(GLsizei n, const GLuint *ids);'</para>
+/// </summary>
+public static  void glDeleteVertexArraysAPPLE(GLsizei n, GLuint[] ids)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * ids.Length);
+GLint[] __array2 = Array.ConvertAll(ids, item => (GLint) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glDeleteVertexArraysAPPLE(n, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteVertexArraysAPPLE(GLsizei n, const GLuint *ids);'</para>
-        /// </summary>
-        public static void glDeleteVertexArraysAPPLE(GLsizei n, ref GLuint ids)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local2, (GLint)ids);
-            glDeleteVertexArraysAPPLE(n, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteVertexArraysAPPLE(GLsizei n, const GLuint *ids);'</para>
+/// </summary>
+public static  void glDeleteVertexArraysAPPLE(GLsizei n, ref GLuint ids)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local2, (GLint) ids);
+glDeleteVertexArraysAPPLE(n, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glGenVertexArraysAPPLE(GLsizei n, GLuint *ids);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGenVertexArraysAPPLE")]
-        public static extern void glGenVertexArraysAPPLE(GLsizei n, IntPtr ids);
+/// <summary>
+/// <para>Original signature is 'extern void glGenVertexArraysAPPLE(GLsizei n, GLuint *ids);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGenVertexArraysAPPLE")]
+public static extern void glGenVertexArraysAPPLE(GLsizei n, IntPtr ids);
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLboolean glIsVertexArrayAPPLE(GLuint id);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glIsVertexArrayAPPLE")]
-        public static extern GLboolean glIsVertexArrayAPPLE(GLuint id);
+/// <summary>
+/// <para>Original signature is 'extern void glGenVertexArraysAPPLE(GLsizei n, GLuint *ids);'</para>
+/// </summary>
+public static  void glGenVertexArraysAPPLE(GLsizei n, out GLuint ids)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glGenVertexArraysAPPLE(n, __local2);
+ids = (GLuint) Marshal.ReadInt32(__local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
+/// <para>Original signature is 'extern GLboolean glIsVertexArrayAPPLE(GLuint id);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glIsVertexArrayAPPLE")]
+public static extern GLboolean glIsVertexArrayAPPLE(GLuint id);
 
 #endif
 
 #if GL_APPLE_fence
-        /// <summary>
-        /// <para>Original signature is 'extern void glGenFencesAPPLE(GLsizei n, GLuint *fences);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGenFencesAPPLE")]
-        public static extern void glGenFencesAPPLE(GLsizei n, IntPtr fences);
+/// <summary>
+/// <para>Original signature is 'extern void glGenFencesAPPLE(GLsizei n, GLuint *fences);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGenFencesAPPLE")]
+public static extern void glGenFencesAPPLE(GLsizei n, IntPtr fences);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteFencesAPPLE(GLsizei n, const GLuint *fences);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDeleteFencesAPPLE")]
-        public static extern void glDeleteFencesAPPLE(GLsizei n, IntPtr fences);
+/// <summary>
+/// <para>Original signature is 'extern void glGenFencesAPPLE(GLsizei n, GLuint *fences);'</para>
+/// </summary>
+public static  void glGenFencesAPPLE(GLsizei n, out GLuint fences)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glGenFencesAPPLE(n, __local2);
+fences = (GLuint) Marshal.ReadInt32(__local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteFencesAPPLE(GLsizei n, const GLuint *fences);'</para>
-        /// </summary>
-        public static void glDeleteFencesAPPLE(GLsizei n, GLuint[] fences)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * fences.Length);
-            GLint[] __array2 = Array.ConvertAll(fences, item => (GLint)item);
-            Marshal.Copy(__array2, 0, __local2, __array2.Length);
-            glDeleteFencesAPPLE(n, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteFencesAPPLE(GLsizei n, const GLuint *fences);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDeleteFencesAPPLE")]
+public static extern void glDeleteFencesAPPLE(GLsizei n, IntPtr fences);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDeleteFencesAPPLE(GLsizei n, const GLuint *fences);'</para>
-        /// </summary>
-        public static void glDeleteFencesAPPLE(GLsizei n, ref GLuint fences)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
-            Marshal.WriteInt32(__local2, (GLint)fences);
-            glDeleteFencesAPPLE(n, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteFencesAPPLE(GLsizei n, const GLuint *fences);'</para>
+/// </summary>
+public static  void glDeleteFencesAPPLE(GLsizei n, GLuint[] fences)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * fences.Length);
+GLint[] __array2 = Array.ConvertAll(fences, item => (GLint) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+glDeleteFencesAPPLE(n, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSetFenceAPPLE(GLuint fence);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSetFenceAPPLE")]
-        public static extern void glSetFenceAPPLE(GLuint fence);
+/// <summary>
+/// <para>Original signature is 'extern void glDeleteFencesAPPLE(GLsizei n, const GLuint *fences);'</para>
+/// </summary>
+public static  void glDeleteFencesAPPLE(GLsizei n, ref GLuint fences)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local2, (GLint) fences);
+glDeleteFencesAPPLE(n, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLboolean glIsFenceAPPLE(GLuint fence);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glIsFenceAPPLE")]
-        public static extern GLboolean glIsFenceAPPLE(GLuint fence);
+/// <summary>
+/// <para>Original signature is 'extern void glSetFenceAPPLE(GLuint fence);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSetFenceAPPLE")]
+public static extern void glSetFenceAPPLE(GLuint fence);
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLboolean glTestFenceAPPLE(GLuint fence);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glTestFenceAPPLE")]
-        public static extern GLboolean glTestFenceAPPLE(GLuint fence);
+/// <summary>
+/// <para>Original signature is 'extern GLboolean glIsFenceAPPLE(GLuint fence);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glIsFenceAPPLE")]
+public static extern GLboolean glIsFenceAPPLE(GLuint fence);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFinishFenceAPPLE(GLuint fence);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFinishFenceAPPLE")]
-        public static extern void glFinishFenceAPPLE(GLuint fence);
+/// <summary>
+/// <para>Original signature is 'extern GLboolean glTestFenceAPPLE(GLuint fence);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glTestFenceAPPLE")]
+public static extern GLboolean glTestFenceAPPLE(GLuint fence);
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLboolean glTestObjectAPPLE(GLenum object, GLuint name);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glTestObjectAPPLE")]
-        public static extern GLboolean glTestObjectAPPLE(GLenum @object, GLuint name);
+/// <summary>
+/// <para>Original signature is 'extern void glFinishFenceAPPLE(GLuint fence);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFinishFenceAPPLE")]
+public static extern void glFinishFenceAPPLE(GLuint fence);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFinishObjectAPPLE(GLenum object, GLuint name);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFinishObjectAPPLE")]
-        public static extern void glFinishObjectAPPLE(GLenum @object, GLuint name);
+/// <summary>
+/// <para>Original signature is 'extern GLboolean glTestObjectAPPLE(GLenum object, GLuint name);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glTestObjectAPPLE")]
+public static extern GLboolean glTestObjectAPPLE(GLenum @object, GLuint name);
+
+/// <summary>
+/// <para>Original signature is 'extern void glFinishObjectAPPLE(GLenum object, GLuint name);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFinishObjectAPPLE")]
+public static extern void glFinishObjectAPPLE(GLenum @object, GLuint name);
 
 #endif
 
 #if GL_APPLE_element_array
-        /// <summary>
-        /// <para>Original signature is 'extern void glElementPointerAPPLE(GLenum type, const GLvoid *pointer);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glElementPointerAPPLE")]
-        public static extern void glElementPointerAPPLE(GLenum type, IntPtr pointer);
+/// <summary>
+/// <para>Original signature is 'extern void glElementPointerAPPLE(GLenum type, const GLvoid *pointer);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glElementPointerAPPLE")]
+public static extern void glElementPointerAPPLE(GLenum type, IntPtr pointer);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDrawElementArrayAPPLE(GLenum mode, GLint first, GLsizei count);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDrawElementArrayAPPLE")]
-        public static extern void glDrawElementArrayAPPLE(GLenum mode, GLint first, GLsizei count);
+/// <summary>
+/// <para>Original signature is 'extern void glDrawElementArrayAPPLE(GLenum mode, GLint first, GLsizei count);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDrawElementArrayAPPLE")]
+public static extern void glDrawElementArrayAPPLE(GLenum mode, GLint first, GLsizei count);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, GLint first, GLsizei count);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDrawRangeElementArrayAPPLE")]
-        public static extern void glDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, GLint first, GLsizei count);
+/// <summary>
+/// <para>Original signature is 'extern void glDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, GLint first, GLsizei count);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDrawRangeElementArrayAPPLE")]
+public static extern void glDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, GLint first, GLsizei count);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawElementArrayAPPLE(GLenum mode, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiDrawElementArrayAPPLE")]
-        public static extern void glMultiDrawElementArrayAPPLE(GLenum mode, IntPtr first, IntPtr count, GLsizei primcount);
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawElementArrayAPPLE(GLenum mode, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiDrawElementArrayAPPLE")]
+public static extern void glMultiDrawElementArrayAPPLE(GLenum mode, IntPtr first, IntPtr count, GLsizei primcount);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawElementArrayAPPLE(GLenum mode, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
-        /// </summary>
-        public static void glMultiDrawElementArrayAPPLE(GLenum mode, IntPtr first, GLsizei[] count, GLsizei primcount)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * count.Length);
-            Marshal.Copy(count, 0, __local3, count.Length);
-            glMultiDrawElementArrayAPPLE(mode, first, __local3, primcount);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawElementArrayAPPLE(GLenum mode, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
+/// </summary>
+public static  void glMultiDrawElementArrayAPPLE(GLenum mode, IntPtr first, GLsizei[] count, GLsizei primcount)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * count.Length);
+Marshal.Copy(count, 0, __local3, count.Length);
+glMultiDrawElementArrayAPPLE(mode, first, __local3, primcount);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawElementArrayAPPLE(GLenum mode, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
-        /// </summary>
-        public static void glMultiDrawElementArrayAPPLE(GLenum mode, IntPtr first, ref GLsizei count, GLsizei primcount)
-        {
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
-            Marshal.WriteInt32(__local3, count);
-            glMultiDrawElementArrayAPPLE(mode, first, __local3, primcount);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawElementArrayAPPLE(GLenum mode, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
+/// </summary>
+public static  void glMultiDrawElementArrayAPPLE(GLenum mode, IntPtr first, ref GLsizei count, GLsizei primcount)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+Marshal.WriteInt32(__local3, count);
+glMultiDrawElementArrayAPPLE(mode, first, __local3, primcount);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawElementArrayAPPLE(GLenum mode, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
-        /// </summary>
-        public static void glMultiDrawElementArrayAPPLE(GLenum mode, GLint[] first, IntPtr count, GLsizei primcount)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * first.Length);
-            Marshal.Copy(first, 0, __local2, first.Length);
-            glMultiDrawElementArrayAPPLE(mode, __local2, count, primcount);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawElementArrayAPPLE(GLenum mode, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
+/// </summary>
+public static  void glMultiDrawElementArrayAPPLE(GLenum mode, GLint[] first, IntPtr count, GLsizei primcount)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * first.Length);
+Marshal.Copy(first, 0, __local2, first.Length);
+glMultiDrawElementArrayAPPLE(mode, __local2, count, primcount);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawElementArrayAPPLE(GLenum mode, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
-        /// </summary>
-        public static void glMultiDrawElementArrayAPPLE(GLenum mode, GLint[] first, GLsizei[] count, GLsizei primcount)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * first.Length);
-            Marshal.Copy(first, 0, __local2, first.Length);
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * count.Length);
-            Marshal.Copy(count, 0, __local3, count.Length);
-            glMultiDrawElementArrayAPPLE(mode, __local2, __local3, primcount);
-            Marshal.FreeHGlobal(__local2);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawElementArrayAPPLE(GLenum mode, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
+/// </summary>
+public static  void glMultiDrawElementArrayAPPLE(GLenum mode, GLint[] first, GLsizei[] count, GLsizei primcount)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * first.Length);
+Marshal.Copy(first, 0, __local2, first.Length);
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * count.Length);
+Marshal.Copy(count, 0, __local3, count.Length);
+glMultiDrawElementArrayAPPLE(mode, __local2, __local3, primcount);
+Marshal.FreeHGlobal(__local2);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawElementArrayAPPLE(GLenum mode, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
-        /// </summary>
-        public static void glMultiDrawElementArrayAPPLE(GLenum mode, GLint[] first, ref GLsizei count, GLsizei primcount)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * first.Length);
-            Marshal.Copy(first, 0, __local2, first.Length);
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
-            Marshal.WriteInt32(__local3, count);
-            glMultiDrawElementArrayAPPLE(mode, __local2, __local3, primcount);
-            Marshal.FreeHGlobal(__local2);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawElementArrayAPPLE(GLenum mode, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
+/// </summary>
+public static  void glMultiDrawElementArrayAPPLE(GLenum mode, GLint[] first, ref GLsizei count, GLsizei primcount)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * first.Length);
+Marshal.Copy(first, 0, __local2, first.Length);
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+Marshal.WriteInt32(__local3, count);
+glMultiDrawElementArrayAPPLE(mode, __local2, __local3, primcount);
+Marshal.FreeHGlobal(__local2);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawElementArrayAPPLE(GLenum mode, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
-        /// </summary>
-        public static void glMultiDrawElementArrayAPPLE(GLenum mode, ref GLint first, IntPtr count, GLsizei primcount)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local2, first);
-            glMultiDrawElementArrayAPPLE(mode, __local2, count, primcount);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawElementArrayAPPLE(GLenum mode, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
+/// </summary>
+public static  void glMultiDrawElementArrayAPPLE(GLenum mode, ref GLint first, IntPtr count, GLsizei primcount)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local2, first);
+glMultiDrawElementArrayAPPLE(mode, __local2, count, primcount);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawElementArrayAPPLE(GLenum mode, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
-        /// </summary>
-        public static void glMultiDrawElementArrayAPPLE(GLenum mode, ref GLint first, GLsizei[] count, GLsizei primcount)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local2, first);
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * count.Length);
-            Marshal.Copy(count, 0, __local3, count.Length);
-            glMultiDrawElementArrayAPPLE(mode, __local2, __local3, primcount);
-            Marshal.FreeHGlobal(__local2);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawElementArrayAPPLE(GLenum mode, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
+/// </summary>
+public static  void glMultiDrawElementArrayAPPLE(GLenum mode, ref GLint first, GLsizei[] count, GLsizei primcount)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local2, first);
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * count.Length);
+Marshal.Copy(count, 0, __local3, count.Length);
+glMultiDrawElementArrayAPPLE(mode, __local2, __local3, primcount);
+Marshal.FreeHGlobal(__local2);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawElementArrayAPPLE(GLenum mode, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
-        /// </summary>
-        public static void glMultiDrawElementArrayAPPLE(GLenum mode, ref GLint first, ref GLsizei count, GLsizei primcount)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local2, first);
-            IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
-            Marshal.WriteInt32(__local3, count);
-            glMultiDrawElementArrayAPPLE(mode, __local2, __local3, primcount);
-            Marshal.FreeHGlobal(__local2);
-            Marshal.FreeHGlobal(__local3);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawElementArrayAPPLE(GLenum mode, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
+/// </summary>
+public static  void glMultiDrawElementArrayAPPLE(GLenum mode, ref GLint first, ref GLsizei count, GLsizei primcount)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local2, first);
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+Marshal.WriteInt32(__local3, count);
+glMultiDrawElementArrayAPPLE(mode, __local2, __local3, primcount);
+Marshal.FreeHGlobal(__local2);
+Marshal.FreeHGlobal(__local3);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMultiDrawRangeElementArrayAPPLE")]
-        public static extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, IntPtr first, IntPtr count, GLsizei primcount);
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMultiDrawRangeElementArrayAPPLE")]
+public static extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, IntPtr first, IntPtr count, GLsizei primcount);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
-        /// </summary>
-        public static void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, IntPtr first, GLsizei[] count, GLsizei primcount)
-        {
-            IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * count.Length);
-            Marshal.Copy(count, 0, __local5, count.Length);
-            glMultiDrawRangeElementArrayAPPLE(mode, start, end, first, __local5, primcount);
-            Marshal.FreeHGlobal(__local5);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
+/// </summary>
+public static  void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, IntPtr first, GLsizei[] count, GLsizei primcount)
+{
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * count.Length);
+Marshal.Copy(count, 0, __local5, count.Length);
+glMultiDrawRangeElementArrayAPPLE(mode, start, end, first, __local5, primcount);
+Marshal.FreeHGlobal(__local5);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
-        /// </summary>
-        public static void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, IntPtr first, ref GLsizei count, GLsizei primcount)
-        {
-            IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
-            Marshal.WriteInt32(__local5, count);
-            glMultiDrawRangeElementArrayAPPLE(mode, start, end, first, __local5, primcount);
-            Marshal.FreeHGlobal(__local5);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
+/// </summary>
+public static  void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, IntPtr first, ref GLsizei count, GLsizei primcount)
+{
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+Marshal.WriteInt32(__local5, count);
+glMultiDrawRangeElementArrayAPPLE(mode, start, end, first, __local5, primcount);
+Marshal.FreeHGlobal(__local5);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
-        /// </summary>
-        public static void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, GLint[] first, IntPtr count, GLsizei primcount)
-        {
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * first.Length);
-            Marshal.Copy(first, 0, __local4, first.Length);
-            glMultiDrawRangeElementArrayAPPLE(mode, start, end, __local4, count, primcount);
-            Marshal.FreeHGlobal(__local4);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
+/// </summary>
+public static  void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, GLint[] first, IntPtr count, GLsizei primcount)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * first.Length);
+Marshal.Copy(first, 0, __local4, first.Length);
+glMultiDrawRangeElementArrayAPPLE(mode, start, end, __local4, count, primcount);
+Marshal.FreeHGlobal(__local4);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
-        /// </summary>
-        public static void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, GLint[] first, GLsizei[] count, GLsizei primcount)
-        {
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * first.Length);
-            Marshal.Copy(first, 0, __local4, first.Length);
-            IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * count.Length);
-            Marshal.Copy(count, 0, __local5, count.Length);
-            glMultiDrawRangeElementArrayAPPLE(mode, start, end, __local4, __local5, primcount);
-            Marshal.FreeHGlobal(__local4);
-            Marshal.FreeHGlobal(__local5);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
+/// </summary>
+public static  void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, GLint[] first, GLsizei[] count, GLsizei primcount)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * first.Length);
+Marshal.Copy(first, 0, __local4, first.Length);
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * count.Length);
+Marshal.Copy(count, 0, __local5, count.Length);
+glMultiDrawRangeElementArrayAPPLE(mode, start, end, __local4, __local5, primcount);
+Marshal.FreeHGlobal(__local4);
+Marshal.FreeHGlobal(__local5);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
-        /// </summary>
-        public static void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, GLint[] first, ref GLsizei count, GLsizei primcount)
-        {
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * first.Length);
-            Marshal.Copy(first, 0, __local4, first.Length);
-            IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
-            Marshal.WriteInt32(__local5, count);
-            glMultiDrawRangeElementArrayAPPLE(mode, start, end, __local4, __local5, primcount);
-            Marshal.FreeHGlobal(__local4);
-            Marshal.FreeHGlobal(__local5);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
+/// </summary>
+public static  void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, GLint[] first, ref GLsizei count, GLsizei primcount)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * first.Length);
+Marshal.Copy(first, 0, __local4, first.Length);
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+Marshal.WriteInt32(__local5, count);
+glMultiDrawRangeElementArrayAPPLE(mode, start, end, __local4, __local5, primcount);
+Marshal.FreeHGlobal(__local4);
+Marshal.FreeHGlobal(__local5);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
-        /// </summary>
-        public static void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, ref GLint first, IntPtr count, GLsizei primcount)
-        {
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local4, first);
-            glMultiDrawRangeElementArrayAPPLE(mode, start, end, __local4, count, primcount);
-            Marshal.FreeHGlobal(__local4);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
+/// </summary>
+public static  void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, ref GLint first, IntPtr count, GLsizei primcount)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local4, first);
+glMultiDrawRangeElementArrayAPPLE(mode, start, end, __local4, count, primcount);
+Marshal.FreeHGlobal(__local4);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
-        /// </summary>
-        public static void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, ref GLint first, GLsizei[] count, GLsizei primcount)
-        {
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local4, first);
-            IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * count.Length);
-            Marshal.Copy(count, 0, __local5, count.Length);
-            glMultiDrawRangeElementArrayAPPLE(mode, start, end, __local4, __local5, primcount);
-            Marshal.FreeHGlobal(__local4);
-            Marshal.FreeHGlobal(__local5);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
+/// </summary>
+public static  void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, ref GLint first, GLsizei[] count, GLsizei primcount)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local4, first);
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)) * count.Length);
+Marshal.Copy(count, 0, __local5, count.Length);
+glMultiDrawRangeElementArrayAPPLE(mode, start, end, __local4, __local5, primcount);
+Marshal.FreeHGlobal(__local4);
+Marshal.FreeHGlobal(__local5);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
-        /// </summary>
-        public static void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, ref GLint first, ref GLsizei count, GLsizei primcount)
-        {
-            IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local4, first);
-            IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
-            Marshal.WriteInt32(__local5, count);
-            glMultiDrawRangeElementArrayAPPLE(mode, start, end, __local4, __local5, primcount);
-            Marshal.FreeHGlobal(__local4);
-            Marshal.FreeHGlobal(__local5);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, const GLint *first, const GLsizei *count, GLsizei primcount);'</para>
+/// </summary>
+public static  void glMultiDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, ref GLint first, ref GLsizei count, GLsizei primcount)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local4, first);
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLsizei)));
+Marshal.WriteInt32(__local5, count);
+glMultiDrawRangeElementArrayAPPLE(mode, start, end, __local4, __local5, primcount);
+Marshal.FreeHGlobal(__local4);
+Marshal.FreeHGlobal(__local5);
+}
 
 #endif
 
 #if GL_APPLE_flush_render
-        /// <summary>
-        /// <para>Original signature is 'extern void glFlushRenderAPPLE(void);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFlushRenderAPPLE")]
-        public static extern void glFlushRenderAPPLE();
+/// <summary>
+/// <para>Original signature is 'extern void glFlushRenderAPPLE(void);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFlushRenderAPPLE")]
+public static extern void glFlushRenderAPPLE();
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFinishRenderAPPLE(void);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFinishRenderAPPLE")]
-        public static extern void glFinishRenderAPPLE();
+/// <summary>
+/// <para>Original signature is 'extern void glFinishRenderAPPLE(void);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFinishRenderAPPLE")]
+public static extern void glFinishRenderAPPLE();
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glSwapAPPLE(void);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glSwapAPPLE")]
-        public static extern void glSwapAPPLE();
+/// <summary>
+/// <para>Original signature is 'extern void glSwapAPPLE(void);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glSwapAPPLE")]
+public static extern void glSwapAPPLE();
 
 #endif
 
 #if GL_APPLE_vertex_program_evaluators
-        /// <summary>
-        /// <para>Original signature is 'extern void glEnableVertexAttribAPPLE(GLuint index, GLenum pname);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glEnableVertexAttribAPPLE")]
-        public static extern void glEnableVertexAttribAPPLE(GLuint index, GLenum pname);
+/// <summary>
+/// <para>Original signature is 'extern void glEnableVertexAttribAPPLE(GLuint index, GLenum pname);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glEnableVertexAttribAPPLE")]
+public static extern void glEnableVertexAttribAPPLE(GLuint index, GLenum pname);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glDisableVertexAttribAPPLE(GLuint index, GLenum pname);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glDisableVertexAttribAPPLE")]
-        public static extern void glDisableVertexAttribAPPLE(GLuint index, GLenum pname);
+/// <summary>
+/// <para>Original signature is 'extern void glDisableVertexAttribAPPLE(GLuint index, GLenum pname);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glDisableVertexAttribAPPLE")]
+public static extern void glDisableVertexAttribAPPLE(GLuint index, GLenum pname);
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLboolean glIsVertexAttribEnabledAPPLE(GLuint index, GLenum pname);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glIsVertexAttribEnabledAPPLE")]
-        public static extern GLboolean glIsVertexAttribEnabledAPPLE(GLuint index, GLenum pname);
+/// <summary>
+/// <para>Original signature is 'extern GLboolean glIsVertexAttribEnabledAPPLE(GLuint index, GLenum pname);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glIsVertexAttribEnabledAPPLE")]
+public static extern GLboolean glIsVertexAttribEnabledAPPLE(GLuint index, GLenum pname);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMapVertexAttrib1dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint stride, GLint order, const GLdouble *points);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMapVertexAttrib1dAPPLE")]
-        public static extern void glMapVertexAttrib1dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint stride, GLint order, IntPtr points);
+/// <summary>
+/// <para>Original signature is 'extern void glMapVertexAttrib1dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint stride, GLint order, const GLdouble *points);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMapVertexAttrib1dAPPLE")]
+public static extern void glMapVertexAttrib1dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint stride, GLint order, IntPtr points);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMapVertexAttrib1dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint stride, GLint order, const GLdouble *points);'</para>
-        /// </summary>
-        public static void glMapVertexAttrib1dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint stride, GLint order, GLdouble[] points)
-        {
-            IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * points.Length);
-            Marshal.Copy(points, 0, __local7, points.Length);
-            glMapVertexAttrib1dAPPLE(index, size, u1, u2, stride, order, __local7);
-            Marshal.FreeHGlobal(__local7);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMapVertexAttrib1dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint stride, GLint order, const GLdouble *points);'</para>
+/// </summary>
+public static  void glMapVertexAttrib1dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint stride, GLint order, GLdouble[] points)
+{
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * points.Length);
+Marshal.Copy(points, 0, __local7, points.Length);
+glMapVertexAttrib1dAPPLE(index, size, u1, u2, stride, order, __local7);
+Marshal.FreeHGlobal(__local7);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMapVertexAttrib1dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint stride, GLint order, const GLdouble *points);'</para>
-        /// </summary>
-        public static void glMapVertexAttrib1dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint stride, GLint order, ref GLdouble points)
-        {
-            IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
-            Marshal.StructureToPtr(points, __local7, false);
-            glMapVertexAttrib1dAPPLE(index, size, u1, u2, stride, order, __local7);
-            Marshal.FreeHGlobal(__local7);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMapVertexAttrib1dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint stride, GLint order, const GLdouble *points);'</para>
+/// </summary>
+public static  void glMapVertexAttrib1dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint stride, GLint order, ref GLdouble points)
+{
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+Marshal.StructureToPtr(points, __local7, false);
+glMapVertexAttrib1dAPPLE(index, size, u1, u2, stride, order, __local7);
+Marshal.FreeHGlobal(__local7);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMapVertexAttrib1fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint stride, GLint order, const GLfloat *points);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMapVertexAttrib1fAPPLE")]
-        public static extern void glMapVertexAttrib1fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint stride, GLint order, IntPtr points);
+/// <summary>
+/// <para>Original signature is 'extern void glMapVertexAttrib1fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint stride, GLint order, const GLfloat *points);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMapVertexAttrib1fAPPLE")]
+public static extern void glMapVertexAttrib1fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint stride, GLint order, IntPtr points);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMapVertexAttrib1fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint stride, GLint order, const GLfloat *points);'</para>
-        /// </summary>
-        public static void glMapVertexAttrib1fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint stride, GLint order, GLfloat[] points)
-        {
-            IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * points.Length);
-            Marshal.Copy(points, 0, __local7, points.Length);
-            glMapVertexAttrib1fAPPLE(index, size, u1, u2, stride, order, __local7);
-            Marshal.FreeHGlobal(__local7);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMapVertexAttrib1fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint stride, GLint order, const GLfloat *points);'</para>
+/// </summary>
+public static  void glMapVertexAttrib1fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint stride, GLint order, GLfloat[] points)
+{
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * points.Length);
+Marshal.Copy(points, 0, __local7, points.Length);
+glMapVertexAttrib1fAPPLE(index, size, u1, u2, stride, order, __local7);
+Marshal.FreeHGlobal(__local7);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMapVertexAttrib1fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint stride, GLint order, const GLfloat *points);'</para>
-        /// </summary>
-        public static void glMapVertexAttrib1fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint stride, GLint order, ref GLfloat points)
-        {
-            IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(points, __local7, false);
-            glMapVertexAttrib1fAPPLE(index, size, u1, u2, stride, order, __local7);
-            Marshal.FreeHGlobal(__local7);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMapVertexAttrib1fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint stride, GLint order, const GLfloat *points);'</para>
+/// </summary>
+public static  void glMapVertexAttrib1fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint stride, GLint order, ref GLfloat points)
+{
+IntPtr __local7 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(points, __local7, false);
+glMapVertexAttrib1fAPPLE(index, size, u1, u2, stride, order, __local7);
+Marshal.FreeHGlobal(__local7);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMapVertexAttrib2dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint ustride, GLint uorder, GLdouble v1, GLdouble v2, GLint vstride, GLint vorder, const GLdouble *points);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMapVertexAttrib2dAPPLE")]
-        public static extern void glMapVertexAttrib2dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint ustride, GLint uorder, GLdouble v1, GLdouble v2, GLint vstride, GLint vorder, IntPtr points);
+/// <summary>
+/// <para>Original signature is 'extern void glMapVertexAttrib2dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint ustride, GLint uorder, GLdouble v1, GLdouble v2, GLint vstride, GLint vorder, const GLdouble *points);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMapVertexAttrib2dAPPLE")]
+public static extern void glMapVertexAttrib2dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint ustride, GLint uorder, GLdouble v1, GLdouble v2, GLint vstride, GLint vorder, IntPtr points);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMapVertexAttrib2dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint ustride, GLint uorder, GLdouble v1, GLdouble v2, GLint vstride, GLint vorder, const GLdouble *points);'</para>
-        /// </summary>
-        public static void glMapVertexAttrib2dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint ustride, GLint uorder, GLdouble v1, GLdouble v2, GLint vstride, GLint vorder, GLdouble[] points)
-        {
-            IntPtr __local11 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * points.Length);
-            Marshal.Copy(points, 0, __local11, points.Length);
-            glMapVertexAttrib2dAPPLE(index, size, u1, u2, ustride, uorder, v1, v2, vstride, vorder, __local11);
-            Marshal.FreeHGlobal(__local11);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMapVertexAttrib2dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint ustride, GLint uorder, GLdouble v1, GLdouble v2, GLint vstride, GLint vorder, const GLdouble *points);'</para>
+/// </summary>
+public static  void glMapVertexAttrib2dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint ustride, GLint uorder, GLdouble v1, GLdouble v2, GLint vstride, GLint vorder, GLdouble[] points)
+{
+IntPtr __local11 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)) * points.Length);
+Marshal.Copy(points, 0, __local11, points.Length);
+glMapVertexAttrib2dAPPLE(index, size, u1, u2, ustride, uorder, v1, v2, vstride, vorder, __local11);
+Marshal.FreeHGlobal(__local11);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMapVertexAttrib2dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint ustride, GLint uorder, GLdouble v1, GLdouble v2, GLint vstride, GLint vorder, const GLdouble *points);'</para>
-        /// </summary>
-        public static void glMapVertexAttrib2dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint ustride, GLint uorder, GLdouble v1, GLdouble v2, GLint vstride, GLint vorder, ref GLdouble points)
-        {
-            IntPtr __local11 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
-            Marshal.StructureToPtr(points, __local11, false);
-            glMapVertexAttrib2dAPPLE(index, size, u1, u2, ustride, uorder, v1, v2, vstride, vorder, __local11);
-            Marshal.FreeHGlobal(__local11);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMapVertexAttrib2dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint ustride, GLint uorder, GLdouble v1, GLdouble v2, GLint vstride, GLint vorder, const GLdouble *points);'</para>
+/// </summary>
+public static  void glMapVertexAttrib2dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint ustride, GLint uorder, GLdouble v1, GLdouble v2, GLint vstride, GLint vorder, ref GLdouble points)
+{
+IntPtr __local11 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+Marshal.StructureToPtr(points, __local11, false);
+glMapVertexAttrib2dAPPLE(index, size, u1, u2, ustride, uorder, v1, v2, vstride, vorder, __local11);
+Marshal.FreeHGlobal(__local11);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMapVertexAttrib2fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint ustride, GLint uorder, GLfloat v1, GLfloat v2, GLint vstride, GLint vorder, const GLfloat *points);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glMapVertexAttrib2fAPPLE")]
-        public static extern void glMapVertexAttrib2fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint ustride, GLint uorder, GLfloat v1, GLfloat v2, GLint vstride, GLint vorder, IntPtr points);
+/// <summary>
+/// <para>Original signature is 'extern void glMapVertexAttrib2fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint ustride, GLint uorder, GLfloat v1, GLfloat v2, GLint vstride, GLint vorder, const GLfloat *points);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glMapVertexAttrib2fAPPLE")]
+public static extern void glMapVertexAttrib2fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint ustride, GLint uorder, GLfloat v1, GLfloat v2, GLint vstride, GLint vorder, IntPtr points);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMapVertexAttrib2fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint ustride, GLint uorder, GLfloat v1, GLfloat v2, GLint vstride, GLint vorder, const GLfloat *points);'</para>
-        /// </summary>
-        public static void glMapVertexAttrib2fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint ustride, GLint uorder, GLfloat v1, GLfloat v2, GLint vstride, GLint vorder, GLfloat[] points)
-        {
-            IntPtr __local11 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * points.Length);
-            Marshal.Copy(points, 0, __local11, points.Length);
-            glMapVertexAttrib2fAPPLE(index, size, u1, u2, ustride, uorder, v1, v2, vstride, vorder, __local11);
-            Marshal.FreeHGlobal(__local11);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMapVertexAttrib2fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint ustride, GLint uorder, GLfloat v1, GLfloat v2, GLint vstride, GLint vorder, const GLfloat *points);'</para>
+/// </summary>
+public static  void glMapVertexAttrib2fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint ustride, GLint uorder, GLfloat v1, GLfloat v2, GLint vstride, GLint vorder, GLfloat[] points)
+{
+IntPtr __local11 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)) * points.Length);
+Marshal.Copy(points, 0, __local11, points.Length);
+glMapVertexAttrib2fAPPLE(index, size, u1, u2, ustride, uorder, v1, v2, vstride, vorder, __local11);
+Marshal.FreeHGlobal(__local11);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glMapVertexAttrib2fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint ustride, GLint uorder, GLfloat v1, GLfloat v2, GLint vstride, GLint vorder, const GLfloat *points);'</para>
-        /// </summary>
-        public static void glMapVertexAttrib2fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint ustride, GLint uorder, GLfloat v1, GLfloat v2, GLint vstride, GLint vorder, ref GLfloat points)
-        {
-            IntPtr __local11 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
-            Marshal.StructureToPtr(points, __local11, false);
-            glMapVertexAttrib2fAPPLE(index, size, u1, u2, ustride, uorder, v1, v2, vstride, vorder, __local11);
-            Marshal.FreeHGlobal(__local11);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glMapVertexAttrib2fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint ustride, GLint uorder, GLfloat v1, GLfloat v2, GLint vstride, GLint vorder, const GLfloat *points);'</para>
+/// </summary>
+public static  void glMapVertexAttrib2fAPPLE(GLuint index, GLuint size, GLfloat u1, GLfloat u2, GLint ustride, GLint uorder, GLfloat v1, GLfloat v2, GLint vstride, GLint vorder, ref GLfloat points)
+{
+IntPtr __local11 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+Marshal.StructureToPtr(points, __local11, false);
+glMapVertexAttrib2fAPPLE(index, size, u1, u2, ustride, uorder, v1, v2, vstride, vorder, __local11);
+Marshal.FreeHGlobal(__local11);
+}
 
 #endif
 
 #if GL_APPLE_flush_buffer_range
-        /// <summary>
-        /// <para>Original signature is 'extern void glBufferParameteriAPPLE(GLenum target, GLenum pname, GLint param);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBufferParameteriAPPLE")]
-        public static extern void glBufferParameteriAPPLE(GLenum target, GLenum pname, GLint param);
+/// <summary>
+/// <para>Original signature is 'extern void glBufferParameteriAPPLE(GLenum target, GLenum pname, GLint param);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBufferParameteriAPPLE")]
+public static extern void glBufferParameteriAPPLE(GLenum target, GLenum pname, GLint param);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glFlushMappedBufferRangeAPPLE(GLenum target, GLintptr offset, GLsizeiptr size);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glFlushMappedBufferRangeAPPLE")]
-        public static extern void glFlushMappedBufferRangeAPPLE(GLenum target, GLintptr offset, GLsizeiptr size);
+/// <summary>
+/// <para>Original signature is 'extern void glFlushMappedBufferRangeAPPLE(GLenum target, GLintptr offset, GLsizeiptr size);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glFlushMappedBufferRangeAPPLE")]
+public static extern void glFlushMappedBufferRangeAPPLE(GLenum target, GLintptr offset, GLsizeiptr size);
 
 #endif
 
 #if GL_APPLE_object_purgeable
-        /// <summary>
-        /// <para>Original signature is 'extern GLenum glObjectPurgeableAPPLE(GLenum objectType, GLuint name, GLenum option);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glObjectPurgeableAPPLE")]
-        public static extern GLenum glObjectPurgeableAPPLE(GLenum objectType, GLuint name, GLenum option);
+/// <summary>
+/// <para>Original signature is 'extern GLenum glObjectPurgeableAPPLE(GLenum objectType, GLuint name, GLenum option);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glObjectPurgeableAPPLE")]
+public static extern GLenum glObjectPurgeableAPPLE(GLenum objectType, GLuint name, GLenum option);
 
-        /// <summary>
-        /// <para>Original signature is 'extern GLenum glObjectUnpurgeableAPPLE(GLenum objectType, GLuint name, GLenum option);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glObjectUnpurgeableAPPLE")]
-        public static extern GLenum glObjectUnpurgeableAPPLE(GLenum objectType, GLuint name, GLenum option);
+/// <summary>
+/// <para>Original signature is 'extern GLenum glObjectUnpurgeableAPPLE(GLenum objectType, GLuint name, GLenum option);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glObjectUnpurgeableAPPLE")]
+public static extern GLenum glObjectUnpurgeableAPPLE(GLenum objectType, GLuint name, GLenum option);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void   glGetObjectParameterivAPPLE(GLenum objectType, GLuint name, GLenum pname, GLint* params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glGetObjectParameterivAPPLE")]
-        public static extern void glGetObjectParameterivAPPLE(GLenum objectType, GLuint name, GLenum pname, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void   glGetObjectParameterivAPPLE(GLenum objectType, GLuint name, GLenum pname, GLint* params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glGetObjectParameterivAPPLE")]
+public static extern void glGetObjectParameterivAPPLE(GLenum objectType, GLuint name, GLenum pname, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void   glGetObjectParameterivAPPLE(GLenum objectType, GLuint name, GLenum pname, GLint* params);'</para>
+/// </summary>
+public static  void glGetObjectParameterivAPPLE(GLenum objectType, GLuint name, GLenum pname, out GLint @params)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetObjectParameterivAPPLE(objectType, name, pname, __local4);
+@params = (GLint) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+}
 
 #endif
 
@@ -7454,56 +9153,56 @@ public static extern void glVertexPointSizefAPPLE(GLfloat size);
 #endif
 
 #if GL_ATI_pn_triangles
-        /// <summary>
-        /// <para>Original signature is 'extern void glPNTrianglesiATI(GLenum pname, GLint param);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glPNTrianglesiATI")]
-        public static extern void glPNTrianglesiATI(GLenum pname, GLint param);
+/// <summary>
+/// <para>Original signature is 'extern void glPNTrianglesiATI(GLenum pname, GLint param);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glPNTrianglesiATI")]
+public static extern void glPNTrianglesiATI(GLenum pname, GLint param);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glPNTrianglesfATI(GLenum pname, GLfloat param);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glPNTrianglesfATI")]
-        public static extern void glPNTrianglesfATI(GLenum pname, GLfloat param);
+/// <summary>
+/// <para>Original signature is 'extern void glPNTrianglesfATI(GLenum pname, GLfloat param);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glPNTrianglesfATI")]
+public static extern void glPNTrianglesfATI(GLenum pname, GLfloat param);
 
 #endif
 
 #if GL_ATI_blend_equation_separate
-        /// <summary>
-        /// <para>Original signature is 'extern void glBlendEquationSeparateATI(GLenum equationRGB, GLenum equationAlpha);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBlendEquationSeparateATI")]
-        public static extern void glBlendEquationSeparateATI(GLenum equationRGB, GLenum equationAlpha);
+/// <summary>
+/// <para>Original signature is 'extern void glBlendEquationSeparateATI(GLenum equationRGB, GLenum equationAlpha);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBlendEquationSeparateATI")]
+public static extern void glBlendEquationSeparateATI(GLenum equationRGB, GLenum equationAlpha);
 
 #endif
 
 #if GL_ATI_separate_stencil
-        /// <summary>
-        /// <para>Original signature is 'extern void glStencilOpSeparateATI(GLenum face, GLenum sfail, GLenum dpfail, GLenum dppass);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glStencilOpSeparateATI")]
-        public static extern void glStencilOpSeparateATI(GLenum face, GLenum sfail, GLenum dpfail, GLenum dppass);
+/// <summary>
+/// <para>Original signature is 'extern void glStencilOpSeparateATI(GLenum face, GLenum sfail, GLenum dpfail, GLenum dppass);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glStencilOpSeparateATI")]
+public static extern void glStencilOpSeparateATI(GLenum face, GLenum sfail, GLenum dpfail, GLenum dppass);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glStencilFuncSeparateATI(GLenum frontfunc, GLenum backfunc, GLint ref, GLuint mask);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glStencilFuncSeparateATI")]
-        public static extern void glStencilFuncSeparateATI(GLenum frontfunc, GLenum backfunc, GLint @ref, GLuint mask);
+/// <summary>
+/// <para>Original signature is 'extern void glStencilFuncSeparateATI(GLenum frontfunc, GLenum backfunc, GLint ref, GLuint mask);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glStencilFuncSeparateATI")]
+public static extern void glStencilFuncSeparateATI(GLenum frontfunc, GLenum backfunc, GLint @ref, GLuint mask);
 
 #endif
 
 #if GL_ATIX_pn_triangles
-        /// <summary>
-        /// <para>Original signature is 'extern void glPNTrianglesiATIX(GLenum pname, GLint param);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glPNTrianglesiATIX")]
-        public static extern void glPNTrianglesiATIX(GLenum pname, GLint param);
+/// <summary>
+/// <para>Original signature is 'extern void glPNTrianglesiATIX(GLenum pname, GLint param);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glPNTrianglesiATIX")]
+public static extern void glPNTrianglesiATIX(GLenum pname, GLint param);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glPNTrianglesfATIX(GLenum pname, GLfloat param);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glPNTrianglesfATIX")]
-        public static extern void glPNTrianglesfATIX(GLenum pname, GLfloat param);
+/// <summary>
+/// <para>Original signature is 'extern void glPNTrianglesfATIX(GLenum pname, GLfloat param);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glPNTrianglesfATIX")]
+public static extern void glPNTrianglesfATIX(GLenum pname, GLfloat param);
 
 #endif
 
@@ -7584,10 +9283,32 @@ Marshal.FreeHGlobal(__local3);
 public static extern void glGetImageTransformParameterivHP(GLenum p0, GLenum p1, IntPtr p2);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetImageTransformParameterivHP (GLenum, GLenum, GLint *);'</para>
+/// </summary>
+public static  void glGetImageTransformParameterivHP(GLenum p0, GLenum p1, out GLint p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetImageTransformParameterivHP(p0, p1, __local3);
+p2 = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetImageTransformParameterfvHP (GLenum, GLenum, GLfloat *);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetImageTransformParameterfvHP")]
 public static extern void glGetImageTransformParameterfvHP(GLenum p0, GLenum p1, IntPtr p2);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetImageTransformParameterfvHP (GLenum, GLenum, GLfloat *);'</para>
+/// </summary>
+public static  void glGetImageTransformParameterfvHP(GLenum p0, GLenum p1, out GLfloat p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetImageTransformParameterfvHP(p0, p1, __local3);
+p2 = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
 
 #endif
 
@@ -8031,10 +9752,32 @@ public static extern void glFinalCombinerInputNV(GLenum p0, GLenum p1, GLenum p2
 public static extern void glGetCombinerInputParameterfvNV(GLenum p0, GLenum p1, GLenum p2, GLenum p3, IntPtr p4);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetCombinerInputParameterfvNV (GLenum, GLenum, GLenum, GLenum, GLfloat *);'</para>
+/// </summary>
+public static  void glGetCombinerInputParameterfvNV(GLenum p0, GLenum p1, GLenum p2, GLenum p3, out GLfloat p4)
+{
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetCombinerInputParameterfvNV(p0, p1, p2, p3, __local5);
+p4 = (GLfloat) Marshal.PtrToStructure(__local5, typeof(GLfloat));
+Marshal.FreeHGlobal(__local5);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetCombinerInputParameterivNV (GLenum, GLenum, GLenum, GLenum, GLint *);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetCombinerInputParameterivNV")]
 public static extern void glGetCombinerInputParameterivNV(GLenum p0, GLenum p1, GLenum p2, GLenum p3, IntPtr p4);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetCombinerInputParameterivNV (GLenum, GLenum, GLenum, GLenum, GLint *);'</para>
+/// </summary>
+public static  void glGetCombinerInputParameterivNV(GLenum p0, GLenum p1, GLenum p2, GLenum p3, out GLint p4)
+{
+IntPtr __local5 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetCombinerInputParameterivNV(p0, p1, p2, p3, __local5);
+p4 = (GLint) Marshal.ReadInt32(__local5);
+Marshal.FreeHGlobal(__local5);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glGetCombinerOutputParameterfvNV (GLenum, GLenum, GLenum, GLfloat *);'</para>
@@ -8043,10 +9786,32 @@ public static extern void glGetCombinerInputParameterivNV(GLenum p0, GLenum p1, 
 public static extern void glGetCombinerOutputParameterfvNV(GLenum p0, GLenum p1, GLenum p2, IntPtr p3);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetCombinerOutputParameterfvNV (GLenum, GLenum, GLenum, GLfloat *);'</para>
+/// </summary>
+public static  void glGetCombinerOutputParameterfvNV(GLenum p0, GLenum p1, GLenum p2, out GLfloat p3)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetCombinerOutputParameterfvNV(p0, p1, p2, __local4);
+p3 = (GLfloat) Marshal.PtrToStructure(__local4, typeof(GLfloat));
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetCombinerOutputParameterivNV (GLenum, GLenum, GLenum, GLint *);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetCombinerOutputParameterivNV")]
 public static extern void glGetCombinerOutputParameterivNV(GLenum p0, GLenum p1, GLenum p2, IntPtr p3);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetCombinerOutputParameterivNV (GLenum, GLenum, GLenum, GLint *);'</para>
+/// </summary>
+public static  void glGetCombinerOutputParameterivNV(GLenum p0, GLenum p1, GLenum p2, out GLint p3)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetCombinerOutputParameterivNV(p0, p1, p2, __local4);
+p3 = (GLint) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glGetFinalCombinerInputParameterfvNV (GLenum, GLenum, GLfloat *);'</para>
@@ -8055,10 +9820,32 @@ public static extern void glGetCombinerOutputParameterivNV(GLenum p0, GLenum p1,
 public static extern void glGetFinalCombinerInputParameterfvNV(GLenum p0, GLenum p1, IntPtr p2);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetFinalCombinerInputParameterfvNV (GLenum, GLenum, GLfloat *);'</para>
+/// </summary>
+public static  void glGetFinalCombinerInputParameterfvNV(GLenum p0, GLenum p1, out GLfloat p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetFinalCombinerInputParameterfvNV(p0, p1, __local3);
+p2 = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetFinalCombinerInputParameterivNV (GLenum, GLenum, GLint *);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetFinalCombinerInputParameterivNV")]
 public static extern void glGetFinalCombinerInputParameterivNV(GLenum p0, GLenum p1, IntPtr p2);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetFinalCombinerInputParameterivNV (GLenum, GLenum, GLint *);'</para>
+/// </summary>
+public static  void glGetFinalCombinerInputParameterivNV(GLenum p0, GLenum p1, out GLint p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetFinalCombinerInputParameterivNV(p0, p1, __local3);
+p2 = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
 #endif
 
@@ -8096,6 +9883,17 @@ Marshal.FreeHGlobal(__local3);
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetCombinerStageParameterfvNV")]
 public static extern void glGetCombinerStageParameterfvNV(GLenum p0, GLenum p1, IntPtr p2);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetCombinerStageParameterfvNV (GLenum, GLenum, GLfloat *);'</para>
+/// </summary>
+public static  void glGetCombinerStageParameterfvNV(GLenum p0, GLenum p1, out GLfloat p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetCombinerStageParameterfvNV(p0, p1, __local3);
+p2 = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
 
 #endif
 
@@ -8170,10 +9968,32 @@ Marshal.FreeHGlobal(__local3);
 public static extern void glGenProgramsNV(GLsizei n, IntPtr ids);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGenProgramsNV(GLsizei n, GLuint *ids);'</para>
+/// </summary>
+public static  void glGenProgramsNV(GLsizei n, out GLuint ids)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glGenProgramsNV(n, __local2);
+ids = (GLuint) Marshal.ReadInt32(__local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern GLboolean glAreProgramsResidentNV(GLsizei n, const GLuint *ids, GLboolean *residences);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glAreProgramsResidentNV")]
 public static extern GLboolean glAreProgramsResidentNV(GLsizei n, IntPtr ids, IntPtr residences);
+
+/// <summary>
+/// <para>Original signature is 'extern GLboolean glAreProgramsResidentNV(GLsizei n, const GLuint *ids, GLboolean *residences);'</para>
+/// </summary>
+public static  GLboolean glAreProgramsResidentNV(GLsizei n, IntPtr ids, out GLboolean residences)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLboolean)));
+GLboolean result = glAreProgramsResidentNV(n, ids, __local3);
+residences = (bool) Marshal.ReadByte(__local3);
+Marshal.FreeHGlobal(__local3);
+return result;}
 
 /// <summary>
 /// <para>Original signature is 'extern GLboolean glAreProgramsResidentNV(GLsizei n, const GLuint *ids, GLboolean *residences);'</para>
@@ -8190,6 +10010,21 @@ return result;}
 /// <summary>
 /// <para>Original signature is 'extern GLboolean glAreProgramsResidentNV(GLsizei n, const GLuint *ids, GLboolean *residences);'</para>
 /// </summary>
+public static  GLboolean glAreProgramsResidentNV(GLsizei n, GLuint[] ids, out GLboolean residences)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)) * ids.Length);
+GLint[] __array2 = Array.ConvertAll(ids, item => (GLint) item);
+Marshal.Copy(__array2, 0, __local2, __array2.Length);
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLboolean)));
+GLboolean result = glAreProgramsResidentNV(n, __local2, __local3);
+Marshal.FreeHGlobal(__local2);
+residences = (bool) Marshal.ReadByte(__local3);
+Marshal.FreeHGlobal(__local3);
+return result;}
+
+/// <summary>
+/// <para>Original signature is 'extern GLboolean glAreProgramsResidentNV(GLsizei n, const GLuint *ids, GLboolean *residences);'</para>
+/// </summary>
 public static  GLboolean glAreProgramsResidentNV(GLsizei n, ref GLuint ids, IntPtr residences)
 {
 IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
@@ -8199,10 +10034,35 @@ Marshal.FreeHGlobal(__local2);
 return result;}
 
 /// <summary>
+/// <para>Original signature is 'extern GLboolean glAreProgramsResidentNV(GLsizei n, const GLuint *ids, GLboolean *residences);'</para>
+/// </summary>
+public static  GLboolean glAreProgramsResidentNV(GLsizei n, ref GLuint ids, out GLboolean residences)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+Marshal.WriteInt32(__local2, (GLint) ids);
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLboolean)));
+GLboolean result = glAreProgramsResidentNV(n, __local2, __local3);
+Marshal.FreeHGlobal(__local2);
+residences = (bool) Marshal.ReadByte(__local3);
+Marshal.FreeHGlobal(__local3);
+return result;}
+
+/// <summary>
 /// <para>Original signature is 'extern void glRequestResidentProgramsNV(GLsizei n, GLuint *ids);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glRequestResidentProgramsNV")]
 public static extern void glRequestResidentProgramsNV(GLsizei n, IntPtr ids);
+
+/// <summary>
+/// <para>Original signature is 'extern void glRequestResidentProgramsNV(GLsizei n, GLuint *ids);'</para>
+/// </summary>
+public static  void glRequestResidentProgramsNV(GLsizei n, out GLuint ids)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+glRequestResidentProgramsNV(n, __local2);
+ids = (GLuint) Marshal.ReadInt32(__local2);
+Marshal.FreeHGlobal(__local2);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glGetProgramParameterfvNV(GLenum target, GLuint index, GLenum pname, GLfloat *params);'</para>
@@ -8211,10 +10071,32 @@ public static extern void glRequestResidentProgramsNV(GLsizei n, IntPtr ids);
 public static extern void glGetProgramParameterfvNV(GLenum target, GLuint index, GLenum pname, IntPtr @params);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetProgramParameterfvNV(GLenum target, GLuint index, GLenum pname, GLfloat *params);'</para>
+/// </summary>
+public static  void glGetProgramParameterfvNV(GLenum target, GLuint index, GLenum pname, out GLfloat @params)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetProgramParameterfvNV(target, index, pname, __local4);
+@params = (GLfloat) Marshal.PtrToStructure(__local4, typeof(GLfloat));
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetProgramParameterdvNV(GLenum target, GLuint index, GLenum pname, GLdouble *params);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetProgramParameterdvNV")]
 public static extern void glGetProgramParameterdvNV(GLenum target, GLuint index, GLenum pname, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetProgramParameterdvNV(GLenum target, GLuint index, GLenum pname, GLdouble *params);'</para>
+/// </summary>
+public static  void glGetProgramParameterdvNV(GLenum target, GLuint index, GLenum pname, out GLdouble @params)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+glGetProgramParameterdvNV(target, index, pname, __local4);
+@params = (GLdouble) Marshal.PtrToStructure(__local4, typeof(GLdouble));
+Marshal.FreeHGlobal(__local4);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glGetProgramivNV(GLuint id, GLenum pname, GLint *params);'</para>
@@ -8223,10 +10105,32 @@ public static extern void glGetProgramParameterdvNV(GLenum target, GLuint index,
 public static extern void glGetProgramivNV(GLuint id, GLenum pname, IntPtr @params);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetProgramivNV(GLuint id, GLenum pname, GLint *params);'</para>
+/// </summary>
+public static  void glGetProgramivNV(GLuint id, GLenum pname, out GLint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetProgramivNV(id, pname, __local3);
+@params = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetProgramStringNV(GLuint id, GLenum pname, GLubyte *program);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetProgramStringNV")]
 public static extern void glGetProgramStringNV(GLuint id, GLenum pname, IntPtr program);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetProgramStringNV(GLuint id, GLenum pname, GLubyte *program);'</para>
+/// </summary>
+public static  void glGetProgramStringNV(GLuint id, GLenum pname, out GLubyte program)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)));
+glGetProgramStringNV(id, pname, __local3);
+program = Marshal.ReadByte(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glGetTrackMatrixivNV(GLenum target, GLuint address, GLenum pname, GLint *params);'</para>
@@ -8235,10 +10139,32 @@ public static extern void glGetProgramStringNV(GLuint id, GLenum pname, IntPtr p
 public static extern void glGetTrackMatrixivNV(GLenum target, GLuint address, GLenum pname, IntPtr @params);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetTrackMatrixivNV(GLenum target, GLuint address, GLenum pname, GLint *params);'</para>
+/// </summary>
+public static  void glGetTrackMatrixivNV(GLenum target, GLuint address, GLenum pname, out GLint @params)
+{
+IntPtr __local4 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetTrackMatrixivNV(target, address, pname, __local4);
+@params = (GLint) Marshal.ReadInt32(__local4);
+Marshal.FreeHGlobal(__local4);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetVertexAttribdvNV(GLuint index, GLenum pname, GLdouble *params);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetVertexAttribdvNV")]
 public static extern void glGetVertexAttribdvNV(GLuint index, GLenum pname, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetVertexAttribdvNV(GLuint index, GLenum pname, GLdouble *params);'</para>
+/// </summary>
+public static  void glGetVertexAttribdvNV(GLuint index, GLenum pname, out GLdouble @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+glGetVertexAttribdvNV(index, pname, __local3);
+@params = (GLdouble) Marshal.PtrToStructure(__local3, typeof(GLdouble));
+Marshal.FreeHGlobal(__local3);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glGetVertexAttribfvNV(GLuint index, GLenum pname, GLfloat *params);'</para>
@@ -8247,10 +10173,32 @@ public static extern void glGetVertexAttribdvNV(GLuint index, GLenum pname, IntP
 public static extern void glGetVertexAttribfvNV(GLuint index, GLenum pname, IntPtr @params);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetVertexAttribfvNV(GLuint index, GLenum pname, GLfloat *params);'</para>
+/// </summary>
+public static  void glGetVertexAttribfvNV(GLuint index, GLenum pname, out GLfloat @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetVertexAttribfvNV(index, pname, __local3);
+@params = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetVertexAttribivNV(GLuint index, GLenum pname, GLint *params);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetVertexAttribivNV")]
 public static extern void glGetVertexAttribivNV(GLuint index, GLenum pname, IntPtr @params);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetVertexAttribivNV(GLuint index, GLenum pname, GLint *params);'</para>
+/// </summary>
+public static  void glGetVertexAttribivNV(GLuint index, GLenum pname, out GLint @params)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetVertexAttribivNV(index, pname, __local3);
+@params = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glGetVertexAttribPointervNV(GLuint index, GLenum pname, GLvoid **pointer);'</para>
@@ -8513,10 +10461,32 @@ public static extern void glVertexAttrib4ubNV(GLuint index, GLubyte x, GLubyte y
 public static extern void glVertexAttrib1svNV(GLuint index, IntPtr v);
 
 /// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib1svNV(GLuint index, GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttrib1svNV(GLuint index, out GLshort v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+glVertexAttrib1svNV(index, __local2);
+v = Marshal.ReadInt16(__local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glVertexAttrib1fvNV(GLuint index, GLfloat *v);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glVertexAttrib1fvNV")]
 public static extern void glVertexAttrib1fvNV(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib1fvNV(GLuint index, GLfloat *v);'</para>
+/// </summary>
+public static  void glVertexAttrib1fvNV(GLuint index, out GLfloat v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glVertexAttrib1fvNV(index, __local2);
+v = (GLfloat) Marshal.PtrToStructure(__local2, typeof(GLfloat));
+Marshal.FreeHGlobal(__local2);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glVertexAttrib1dvNV(GLuint index, GLdouble *v);'</para>
@@ -8525,10 +10495,32 @@ public static extern void glVertexAttrib1fvNV(GLuint index, IntPtr v);
 public static extern void glVertexAttrib1dvNV(GLuint index, IntPtr v);
 
 /// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib1dvNV(GLuint index, GLdouble *v);'</para>
+/// </summary>
+public static  void glVertexAttrib1dvNV(GLuint index, out GLdouble v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+glVertexAttrib1dvNV(index, __local2);
+v = (GLdouble) Marshal.PtrToStructure(__local2, typeof(GLdouble));
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glVertexAttrib2svNV(GLuint index, GLshort *v);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glVertexAttrib2svNV")]
 public static extern void glVertexAttrib2svNV(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib2svNV(GLuint index, GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttrib2svNV(GLuint index, out GLshort v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+glVertexAttrib2svNV(index, __local2);
+v = Marshal.ReadInt16(__local2);
+Marshal.FreeHGlobal(__local2);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glVertexAttrib2fvNV(GLuint index, GLfloat *v);'</para>
@@ -8537,10 +10529,32 @@ public static extern void glVertexAttrib2svNV(GLuint index, IntPtr v);
 public static extern void glVertexAttrib2fvNV(GLuint index, IntPtr v);
 
 /// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib2fvNV(GLuint index, GLfloat *v);'</para>
+/// </summary>
+public static  void glVertexAttrib2fvNV(GLuint index, out GLfloat v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glVertexAttrib2fvNV(index, __local2);
+v = (GLfloat) Marshal.PtrToStructure(__local2, typeof(GLfloat));
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glVertexAttrib2dvNV(GLuint index, GLdouble *v);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glVertexAttrib2dvNV")]
 public static extern void glVertexAttrib2dvNV(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib2dvNV(GLuint index, GLdouble *v);'</para>
+/// </summary>
+public static  void glVertexAttrib2dvNV(GLuint index, out GLdouble v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+glVertexAttrib2dvNV(index, __local2);
+v = (GLdouble) Marshal.PtrToStructure(__local2, typeof(GLdouble));
+Marshal.FreeHGlobal(__local2);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glVertexAttrib3svNV(GLuint index, GLshort *v);'</para>
@@ -8549,10 +10563,32 @@ public static extern void glVertexAttrib2dvNV(GLuint index, IntPtr v);
 public static extern void glVertexAttrib3svNV(GLuint index, IntPtr v);
 
 /// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib3svNV(GLuint index, GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttrib3svNV(GLuint index, out GLshort v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+glVertexAttrib3svNV(index, __local2);
+v = Marshal.ReadInt16(__local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glVertexAttrib3fvNV(GLuint index, GLfloat *v);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glVertexAttrib3fvNV")]
 public static extern void glVertexAttrib3fvNV(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib3fvNV(GLuint index, GLfloat *v);'</para>
+/// </summary>
+public static  void glVertexAttrib3fvNV(GLuint index, out GLfloat v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glVertexAttrib3fvNV(index, __local2);
+v = (GLfloat) Marshal.PtrToStructure(__local2, typeof(GLfloat));
+Marshal.FreeHGlobal(__local2);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glVertexAttrib3dvNV(GLuint index, GLdouble *v);'</para>
@@ -8561,10 +10597,32 @@ public static extern void glVertexAttrib3fvNV(GLuint index, IntPtr v);
 public static extern void glVertexAttrib3dvNV(GLuint index, IntPtr v);
 
 /// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib3dvNV(GLuint index, GLdouble *v);'</para>
+/// </summary>
+public static  void glVertexAttrib3dvNV(GLuint index, out GLdouble v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+glVertexAttrib3dvNV(index, __local2);
+v = (GLdouble) Marshal.PtrToStructure(__local2, typeof(GLdouble));
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glVertexAttrib4svNV(GLuint index, GLshort *v);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glVertexAttrib4svNV")]
 public static extern void glVertexAttrib4svNV(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4svNV(GLuint index, GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4svNV(GLuint index, out GLshort v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+glVertexAttrib4svNV(index, __local2);
+v = Marshal.ReadInt16(__local2);
+Marshal.FreeHGlobal(__local2);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glVertexAttrib4fvNV(GLuint index, GLfloat *v);'</para>
@@ -8573,10 +10631,32 @@ public static extern void glVertexAttrib4svNV(GLuint index, IntPtr v);
 public static extern void glVertexAttrib4fvNV(GLuint index, IntPtr v);
 
 /// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4fvNV(GLuint index, GLfloat *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4fvNV(GLuint index, out GLfloat v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glVertexAttrib4fvNV(index, __local2);
+v = (GLfloat) Marshal.PtrToStructure(__local2, typeof(GLfloat));
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glVertexAttrib4dvNV(GLuint index, GLdouble *v);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glVertexAttrib4dvNV")]
 public static extern void glVertexAttrib4dvNV(GLuint index, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4dvNV(GLuint index, GLdouble *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4dvNV(GLuint index, out GLdouble v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+glVertexAttrib4dvNV(index, __local2);
+v = (GLdouble) Marshal.PtrToStructure(__local2, typeof(GLdouble));
+Marshal.FreeHGlobal(__local2);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glVertexAttrib4ubvNV(GLuint index, GLubyte *v);'</para>
@@ -8585,10 +10665,32 @@ public static extern void glVertexAttrib4dvNV(GLuint index, IntPtr v);
 public static extern void glVertexAttrib4ubvNV(GLuint index, IntPtr v);
 
 /// <summary>
+/// <para>Original signature is 'extern void glVertexAttrib4ubvNV(GLuint index, GLubyte *v);'</para>
+/// </summary>
+public static  void glVertexAttrib4ubvNV(GLuint index, out GLubyte v)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)));
+glVertexAttrib4ubvNV(index, __local2);
+v = Marshal.ReadByte(__local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glVertexAttribs1svNV(GLuint index, GLsizei n, GLshort *v);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glVertexAttribs1svNV")]
 public static extern void glVertexAttribs1svNV(GLuint index, GLsizei n, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribs1svNV(GLuint index, GLsizei n, GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttribs1svNV(GLuint index, GLsizei n, out GLshort v)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+glVertexAttribs1svNV(index, n, __local3);
+v = Marshal.ReadInt16(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glVertexAttribs1fvNV(GLuint index, GLsizei n, GLfloat *v);'</para>
@@ -8597,10 +10699,32 @@ public static extern void glVertexAttribs1svNV(GLuint index, GLsizei n, IntPtr v
 public static extern void glVertexAttribs1fvNV(GLuint index, GLsizei n, IntPtr v);
 
 /// <summary>
+/// <para>Original signature is 'extern void glVertexAttribs1fvNV(GLuint index, GLsizei n, GLfloat *v);'</para>
+/// </summary>
+public static  void glVertexAttribs1fvNV(GLuint index, GLsizei n, out GLfloat v)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glVertexAttribs1fvNV(index, n, __local3);
+v = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glVertexAttribs1dvNV(GLuint index, GLsizei n, GLdouble *v);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glVertexAttribs1dvNV")]
 public static extern void glVertexAttribs1dvNV(GLuint index, GLsizei n, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribs1dvNV(GLuint index, GLsizei n, GLdouble *v);'</para>
+/// </summary>
+public static  void glVertexAttribs1dvNV(GLuint index, GLsizei n, out GLdouble v)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+glVertexAttribs1dvNV(index, n, __local3);
+v = (GLdouble) Marshal.PtrToStructure(__local3, typeof(GLdouble));
+Marshal.FreeHGlobal(__local3);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glVertexAttribs2svNV(GLuint index, GLsizei n, GLshort *v);'</para>
@@ -8609,10 +10733,32 @@ public static extern void glVertexAttribs1dvNV(GLuint index, GLsizei n, IntPtr v
 public static extern void glVertexAttribs2svNV(GLuint index, GLsizei n, IntPtr v);
 
 /// <summary>
+/// <para>Original signature is 'extern void glVertexAttribs2svNV(GLuint index, GLsizei n, GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttribs2svNV(GLuint index, GLsizei n, out GLshort v)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+glVertexAttribs2svNV(index, n, __local3);
+v = Marshal.ReadInt16(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glVertexAttribs2fvNV(GLuint index, GLsizei n, GLfloat *v);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glVertexAttribs2fvNV")]
 public static extern void glVertexAttribs2fvNV(GLuint index, GLsizei n, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribs2fvNV(GLuint index, GLsizei n, GLfloat *v);'</para>
+/// </summary>
+public static  void glVertexAttribs2fvNV(GLuint index, GLsizei n, out GLfloat v)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glVertexAttribs2fvNV(index, n, __local3);
+v = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glVertexAttribs2dvNV(GLuint index, GLsizei n, GLdouble *v);'</para>
@@ -8621,10 +10767,32 @@ public static extern void glVertexAttribs2fvNV(GLuint index, GLsizei n, IntPtr v
 public static extern void glVertexAttribs2dvNV(GLuint index, GLsizei n, IntPtr v);
 
 /// <summary>
+/// <para>Original signature is 'extern void glVertexAttribs2dvNV(GLuint index, GLsizei n, GLdouble *v);'</para>
+/// </summary>
+public static  void glVertexAttribs2dvNV(GLuint index, GLsizei n, out GLdouble v)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+glVertexAttribs2dvNV(index, n, __local3);
+v = (GLdouble) Marshal.PtrToStructure(__local3, typeof(GLdouble));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glVertexAttribs3svNV(GLuint index, GLsizei n, GLshort *v);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glVertexAttribs3svNV")]
 public static extern void glVertexAttribs3svNV(GLuint index, GLsizei n, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribs3svNV(GLuint index, GLsizei n, GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttribs3svNV(GLuint index, GLsizei n, out GLshort v)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+glVertexAttribs3svNV(index, n, __local3);
+v = Marshal.ReadInt16(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glVertexAttribs3fvNV(GLuint index, GLsizei n, GLfloat *v);'</para>
@@ -8633,10 +10801,32 @@ public static extern void glVertexAttribs3svNV(GLuint index, GLsizei n, IntPtr v
 public static extern void glVertexAttribs3fvNV(GLuint index, GLsizei n, IntPtr v);
 
 /// <summary>
+/// <para>Original signature is 'extern void glVertexAttribs3fvNV(GLuint index, GLsizei n, GLfloat *v);'</para>
+/// </summary>
+public static  void glVertexAttribs3fvNV(GLuint index, GLsizei n, out GLfloat v)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glVertexAttribs3fvNV(index, n, __local3);
+v = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glVertexAttribs3dvNV(GLuint index, GLsizei n, GLdouble *v);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glVertexAttribs3dvNV")]
 public static extern void glVertexAttribs3dvNV(GLuint index, GLsizei n, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribs3dvNV(GLuint index, GLsizei n, GLdouble *v);'</para>
+/// </summary>
+public static  void glVertexAttribs3dvNV(GLuint index, GLsizei n, out GLdouble v)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+glVertexAttribs3dvNV(index, n, __local3);
+v = (GLdouble) Marshal.PtrToStructure(__local3, typeof(GLdouble));
+Marshal.FreeHGlobal(__local3);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glVertexAttribs4svNV(GLuint index, GLsizei n, GLshort *v);'</para>
@@ -8645,10 +10835,32 @@ public static extern void glVertexAttribs3dvNV(GLuint index, GLsizei n, IntPtr v
 public static extern void glVertexAttribs4svNV(GLuint index, GLsizei n, IntPtr v);
 
 /// <summary>
+/// <para>Original signature is 'extern void glVertexAttribs4svNV(GLuint index, GLsizei n, GLshort *v);'</para>
+/// </summary>
+public static  void glVertexAttribs4svNV(GLuint index, GLsizei n, out GLshort v)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLshort)));
+glVertexAttribs4svNV(index, n, __local3);
+v = Marshal.ReadInt16(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glVertexAttribs4fvNV(GLuint index, GLsizei n, GLfloat *v);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glVertexAttribs4fvNV")]
 public static extern void glVertexAttribs4fvNV(GLuint index, GLsizei n, IntPtr v);
+
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribs4fvNV(GLuint index, GLsizei n, GLfloat *v);'</para>
+/// </summary>
+public static  void glVertexAttribs4fvNV(GLuint index, GLsizei n, out GLfloat v)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glVertexAttribs4fvNV(index, n, __local3);
+v = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glVertexAttribs4dvNV(GLuint index, GLsizei n, GLdouble *v);'</para>
@@ -8657,47 +10869,69 @@ public static extern void glVertexAttribs4fvNV(GLuint index, GLsizei n, IntPtr v
 public static extern void glVertexAttribs4dvNV(GLuint index, GLsizei n, IntPtr v);
 
 /// <summary>
+/// <para>Original signature is 'extern void glVertexAttribs4dvNV(GLuint index, GLsizei n, GLdouble *v);'</para>
+/// </summary>
+public static  void glVertexAttribs4dvNV(GLuint index, GLsizei n, out GLdouble v)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLdouble)));
+glVertexAttribs4dvNV(index, n, __local3);
+v = (GLdouble) Marshal.PtrToStructure(__local3, typeof(GLdouble));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glVertexAttribs4ubvNV(GLuint index, GLsizei n, GLubyte *v);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glVertexAttribs4ubvNV")]
 public static extern void glVertexAttribs4ubvNV(GLuint index, GLsizei n, IntPtr v);
 
+/// <summary>
+/// <para>Original signature is 'extern void glVertexAttribs4ubvNV(GLuint index, GLsizei n, GLubyte *v);'</para>
+/// </summary>
+public static  void glVertexAttribs4ubvNV(GLuint index, GLsizei n, out GLubyte v)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLubyte)));
+glVertexAttribs4ubvNV(index, n, __local3);
+v = Marshal.ReadByte(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
 #endif
 
 #if GL_NV_point_sprite
-        /// <summary>
-        /// <para>Original signature is 'extern void glPointParameteriNV(GLenum pname, GLint param);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glPointParameteriNV")]
-        public static extern void glPointParameteriNV(GLenum pname, GLint param);
+/// <summary>
+/// <para>Original signature is 'extern void glPointParameteriNV(GLenum pname, GLint param);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glPointParameteriNV")]
+public static extern void glPointParameteriNV(GLenum pname, GLint param);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glPointParameterivNV(GLenum pname, const GLint *params);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glPointParameterivNV")]
-        public static extern void glPointParameterivNV(GLenum pname, IntPtr @params);
+/// <summary>
+/// <para>Original signature is 'extern void glPointParameterivNV(GLenum pname, const GLint *params);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glPointParameterivNV")]
+public static extern void glPointParameterivNV(GLenum pname, IntPtr @params);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glPointParameterivNV(GLenum pname, const GLint *params);'</para>
-        /// </summary>
-        public static void glPointParameterivNV(GLenum pname, GLint[] @params)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * @params.Length);
-            Marshal.Copy(@params, 0, __local2, @params.Length);
-            glPointParameterivNV(pname, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glPointParameterivNV(GLenum pname, const GLint *params);'</para>
+/// </summary>
+public static  void glPointParameterivNV(GLenum pname, GLint[] @params)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)) * @params.Length);
+Marshal.Copy(@params, 0, __local2, @params.Length);
+glPointParameterivNV(pname, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glPointParameterivNV(GLenum pname, const GLint *params);'</para>
-        /// </summary>
-        public static void glPointParameterivNV(GLenum pname, ref GLint @params)
-        {
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
-            Marshal.WriteInt32(__local2, @params);
-            glPointParameterivNV(pname, __local2);
-            Marshal.FreeHGlobal(__local2);
-        }
+/// <summary>
+/// <para>Original signature is 'extern void glPointParameterivNV(GLenum pname, const GLint *params);'</para>
+/// </summary>
+public static  void glPointParameterivNV(GLenum pname, ref GLint @params)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+Marshal.WriteInt32(__local2, @params);
+glPointParameterivNV(pname, __local2);
+Marshal.FreeHGlobal(__local2);
+}
 
 #endif
 
@@ -8794,10 +11028,32 @@ public static extern void glGetColorTableSGI(GLenum p0, GLenum p1, GLenum p2, In
 public static extern void glGetColorTableParameterfvSGI(GLenum p0, GLenum p1, IntPtr p2);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetColorTableParameterfvSGI (GLenum, GLenum, GLfloat *);'</para>
+/// </summary>
+public static  void glGetColorTableParameterfvSGI(GLenum p0, GLenum p1, out GLfloat p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetColorTableParameterfvSGI(p0, p1, __local3);
+p2 = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetColorTableParameterivSGI (GLenum, GLenum, GLint *);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetColorTableParameterivSGI")]
 public static extern void glGetColorTableParameterivSGI(GLenum p0, GLenum p1, IntPtr p2);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetColorTableParameterivSGI (GLenum, GLenum, GLint *);'</para>
+/// </summary>
+public static  void glGetColorTableParameterivSGI(GLenum p0, GLenum p1, out GLint p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetColorTableParameterivSGI(p0, p1, __local3);
+p2 = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
 #endif
 
@@ -8807,6 +11063,17 @@ public static extern void glGetColorTableParameterivSGI(GLenum p0, GLenum p1, In
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetTexFilterFuncSGIS")]
 public static extern void glGetTexFilterFuncSGIS(GLenum p0, GLenum p1, IntPtr p2);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetTexFilterFuncSGIS (GLenum, GLenum, GLfloat *);'</para>
+/// </summary>
+public static  void glGetTexFilterFuncSGIS(GLenum p0, GLenum p1, out GLfloat p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetTexFilterFuncSGIS(p0, p1, __local3);
+p2 = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glTexFilterFuncSGIS (GLenum, GLenum, GLsizei, const GLfloat *);'</para>
@@ -8914,10 +11181,32 @@ Marshal.FreeHGlobal(__local2);
 public static extern void glGetPixelTexGenParameterivSGIS(GLenum p0, IntPtr p1);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetPixelTexGenParameterivSGIS (GLenum, GLint *);'</para>
+/// </summary>
+public static  void glGetPixelTexGenParameterivSGIS(GLenum p0, out GLint p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetPixelTexGenParameterivSGIS(p0, __local2);
+p1 = (GLint) Marshal.ReadInt32(__local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetPixelTexGenParameterfvSGIS (GLenum, GLfloat *);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetPixelTexGenParameterfvSGIS")]
 public static extern void glGetPixelTexGenParameterfvSGIS(GLenum p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetPixelTexGenParameterfvSGIS (GLenum, GLfloat *);'</para>
+/// </summary>
+public static  void glGetPixelTexGenParameterfvSGIS(GLenum p0, out GLfloat p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetPixelTexGenParameterfvSGIS(p0, __local2);
+p1 = (GLfloat) Marshal.PtrToStructure(__local2, typeof(GLfloat));
+Marshal.FreeHGlobal(__local2);
+}
 
 #endif
 
@@ -8970,6 +11259,18 @@ Marshal.FreeHGlobal(__local3);
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetDetailTexFuncSGIS")]
 public static extern void glGetDetailTexFuncSGIS(GLenum p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetDetailTexFuncSGIS (GLenum, GLfloat *);'</para>
+/// </summary>
+public static  void glGetDetailTexFuncSGIS(GLenum p0, out GLfloat p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetDetailTexFuncSGIS(p0, __local2);
+p1 = (GLfloat) Marshal.PtrToStructure(__local2, typeof(GLfloat));
+Marshal.FreeHGlobal(__local2);
+}
+
 #endif
 
 #if GL_SGIS_sharpen_texture
@@ -9006,6 +11307,18 @@ Marshal.FreeHGlobal(__local3);
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetSharpenTexFuncSGIS")]
 public static extern void glGetSharpenTexFuncSGIS(GLenum p0, IntPtr p1);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetSharpenTexFuncSGIS (GLenum, GLfloat *);'</para>
+/// </summary>
+public static  void glGetSharpenTexFuncSGIS(GLenum p0, out GLfloat p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetSharpenTexFuncSGIS(p0, __local2);
+p1 = (GLfloat) Marshal.PtrToStructure(__local2, typeof(GLfloat));
+Marshal.FreeHGlobal(__local2);
+}
+
 #endif
 
 #if GL_SGIS_multisample
@@ -9020,6 +11333,7 @@ public static extern void glSampleMaskSGIS(GLclampf p0, GLboolean p1);
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glSamplePatternSGIS")]
 public static extern void glSamplePatternSGIS(GLenum p0);
+
 #endif
 
 #if GL_SGIS_fog_function
@@ -9184,10 +11498,32 @@ public static extern GLint glGetInstrumentsSGIX();
 public static extern void glInstrumentsBufferSGIX(GLsizei p0, IntPtr p1);
 
 /// <summary>
+/// <para>Original signature is 'extern void glInstrumentsBufferSGIX (GLsizei, GLint *);'</para>
+/// </summary>
+public static  void glInstrumentsBufferSGIX(GLsizei p0, out GLint p1)
+{
+IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glInstrumentsBufferSGIX(p0, __local2);
+p1 = (GLint) Marshal.ReadInt32(__local2);
+Marshal.FreeHGlobal(__local2);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern GLint glPollInstrumentsSGIX (GLint *);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glPollInstrumentsSGIX")]
 public static extern GLint glPollInstrumentsSGIX(IntPtr p0);
+
+/// <summary>
+/// <para>Original signature is 'extern GLint glPollInstrumentsSGIX (GLint *);'</para>
+/// </summary>
+public static  GLint glPollInstrumentsSGIX(out GLint p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+GLint result = glPollInstrumentsSGIX(__local1);
+p0 = (GLint) Marshal.ReadInt32(__local1);
+Marshal.FreeHGlobal(__local1);
+return result;}
 
 /// <summary>
 /// <para>Original signature is 'extern void glReadInstrumentsSGIX (GLint);'</para>
@@ -9295,6 +11631,7 @@ public static extern void glDeformSGIX(GLbitfield p0);
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glLoadIdentityDeformationMapSGIX")]
 public static extern void glLoadIdentityDeformationMapSGIX(GLbitfield p0);
+
 #endif
 
 #if GL_SGIX_reference_plane
@@ -9325,6 +11662,7 @@ Marshal.StructureToPtr(p0, __local1, false);
 glReferencePlaneSGIX(__local1);
 Marshal.FreeHGlobal(__local1);
 }
+
 #endif
 
 #if GL_SGIX_flush_raster
@@ -9333,6 +11671,7 @@ Marshal.FreeHGlobal(__local1);
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glFlushRasterSGIX")]
 public static extern void glFlushRasterSGIX();
+
 #endif
 
 #if GL_SGIX_list_priority
@@ -9343,10 +11682,32 @@ public static extern void glFlushRasterSGIX();
 public static extern void glGetListParameterfvSGIX(GLuint p0, GLenum p1, IntPtr p2);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetListParameterfvSGIX (GLuint, GLenum, GLfloat *);'</para>
+/// </summary>
+public static  void glGetListParameterfvSGIX(GLuint p0, GLenum p1, out GLfloat p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetListParameterfvSGIX(p0, p1, __local3);
+p2 = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetListParameterivSGIX (GLuint, GLenum, GLint *);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetListParameterivSGIX")]
 public static extern void glGetListParameterivSGIX(GLuint p0, GLenum p1, IntPtr p2);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetListParameterivSGIX (GLuint, GLenum, GLint *);'</para>
+/// </summary>
+public static  void glGetListParameterivSGIX(GLuint p0, GLenum p1, out GLint p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetListParameterivSGIX(p0, p1, __local3);
+p2 = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glListParameterfSGIX (GLuint, GLenum, GLfloat);'</para>
@@ -9415,6 +11776,7 @@ Marshal.WriteInt32(__local3, p2);
 glListParameterivSGIX(p0, p1, __local3);
 Marshal.FreeHGlobal(__local3);
 }
+
 #endif
 
 #if GL_SGIX_fragment_lighting
@@ -9635,10 +11997,32 @@ Marshal.FreeHGlobal(__local3);
 public static extern void glGetFragmentLightfvSGIX(GLenum p0, GLenum p1, IntPtr p2);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetFragmentLightfvSGIX (GLenum, GLenum, GLfloat *);'</para>
+/// </summary>
+public static  void glGetFragmentLightfvSGIX(GLenum p0, GLenum p1, out GLfloat p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetFragmentLightfvSGIX(p0, p1, __local3);
+p2 = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetFragmentLightivSGIX (GLenum, GLenum, GLint *);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetFragmentLightivSGIX")]
 public static extern void glGetFragmentLightivSGIX(GLenum p0, GLenum p1, IntPtr p2);
+
+/// <summary>
+/// <para>Original signature is 'extern void glGetFragmentLightivSGIX (GLenum, GLenum, GLint *);'</para>
+/// </summary>
+public static  void glGetFragmentLightivSGIX(GLenum p0, GLenum p1, out GLint p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetFragmentLightivSGIX(p0, p1, __local3);
+p2 = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
 
 /// <summary>
 /// <para>Original signature is 'extern void glGetFragmentMaterialfvSGIX (GLenum, GLenum, GLfloat *);'</para>
@@ -9647,16 +12031,39 @@ public static extern void glGetFragmentLightivSGIX(GLenum p0, GLenum p1, IntPtr 
 public static extern void glGetFragmentMaterialfvSGIX(GLenum p0, GLenum p1, IntPtr p2);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetFragmentMaterialfvSGIX (GLenum, GLenum, GLfloat *);'</para>
+/// </summary>
+public static  void glGetFragmentMaterialfvSGIX(GLenum p0, GLenum p1, out GLfloat p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLfloat)));
+glGetFragmentMaterialfvSGIX(p0, p1, __local3);
+p2 = (GLfloat) Marshal.PtrToStructure(__local3, typeof(GLfloat));
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glGetFragmentMaterialivSGIX (GLenum, GLenum, GLint *);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glGetFragmentMaterialivSGIX")]
 public static extern void glGetFragmentMaterialivSGIX(GLenum p0, GLenum p1, IntPtr p2);
 
 /// <summary>
+/// <para>Original signature is 'extern void glGetFragmentMaterialivSGIX (GLenum, GLenum, GLint *);'</para>
+/// </summary>
+public static  void glGetFragmentMaterialivSGIX(GLenum p0, GLenum p1, out GLint p2)
+{
+IntPtr __local3 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLint)));
+glGetFragmentMaterialivSGIX(p0, p1, __local3);
+p2 = (GLint) Marshal.ReadInt32(__local3);
+Marshal.FreeHGlobal(__local3);
+}
+
+/// <summary>
 /// <para>Original signature is 'extern void glLightEnviSGIX (GLenum, GLint);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glLightEnviSGIX")]
 public static extern void glLightEnviSGIX(GLenum p0, GLint p1);
+
 #endif
 
 #if GL_SGIX_async
@@ -9673,10 +12080,32 @@ public static extern void glAsyncMarkerSGIX(GLuint p0);
 public static extern GLint glFinishAsyncSGIX(IntPtr p0);
 
 /// <summary>
+/// <para>Original signature is 'extern GLint glFinishAsyncSGIX (GLuint *);'</para>
+/// </summary>
+public static  GLint glFinishAsyncSGIX(out GLuint p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+GLint result = glFinishAsyncSGIX(__local1);
+p0 = (GLuint) Marshal.ReadInt32(__local1);
+Marshal.FreeHGlobal(__local1);
+return result;}
+
+/// <summary>
 /// <para>Original signature is 'extern GLint glPollAsyncSGIX (GLuint *);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glPollAsyncSGIX")]
 public static extern GLint glPollAsyncSGIX(IntPtr p0);
+
+/// <summary>
+/// <para>Original signature is 'extern GLint glPollAsyncSGIX (GLuint *);'</para>
+/// </summary>
+public static  GLint glPollAsyncSGIX(out GLuint p0)
+{
+IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GLuint)));
+GLint result = glPollAsyncSGIX(__local1);
+p0 = (GLuint) Marshal.ReadInt32(__local1);
+Marshal.FreeHGlobal(__local1);
+return result;}
 
 /// <summary>
 /// <para>Original signature is 'extern GLuint glGenAsyncMarkersSGIX (GLsizei);'</para>
@@ -9695,6 +12124,7 @@ public static extern void glDeleteAsyncMarkersSGIX(GLuint p0, GLsizei p1);
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glIsAsyncMarkerSGIX")]
 public static extern GLboolean glIsAsyncMarkerSGIX(GLuint p0);
+
 #endif
 
 #if GL_SGIX_igloo_interface
@@ -9703,7 +12133,9 @@ public static extern GLboolean glIsAsyncMarkerSGIX(GLuint p0);
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glIglooInterfaceSGIX")]
 public static extern void glIglooInterfaceSGIX(GLenum p0, IntPtr p1);
+
 #endif
+
 
 #if GL_SUN_global_alpha
 /// <summary>
@@ -23473,6 +25905,7 @@ public static extern void glFinishTextureSUNX();
 
 #endif
 
+
 #if GL_3DFX_tbuffer
 /// <summary>
 /// <para>Original signature is 'extern void glTbufferMask3DFX (GLuint);'</para>
@@ -23482,16 +25915,17 @@ public static extern void glTbufferMask3DFX(GLuint p0);
 
 #endif
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glBeginConditionalRenderNV (GLuint id, GLenum mode);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glBeginConditionalRenderNV")]
-        public static extern void glBeginConditionalRenderNV(GLuint id, GLenum mode);
 
-        /// <summary>
-        /// <para>Original signature is 'extern void glEndConditionalRenderNV (void);'</para>
-        /// </summary>
-        [DllImport(OPENGL, EntryPoint = "glEndConditionalRenderNV")]
-        public static extern void glEndConditionalRenderNV();
+/// <summary>
+/// <para>Original signature is 'extern void glBeginConditionalRenderNV (GLuint id, GLenum mode);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glBeginConditionalRenderNV")]
+public static extern void glBeginConditionalRenderNV(GLuint id, GLenum mode);
+
+/// <summary>
+/// <para>Original signature is 'extern void glEndConditionalRenderNV (void);'</para>
+/// </summary>
+[DllImport(OPENGL, EntryPoint = "glEndConditionalRenderNV")]
+public static extern void glEndConditionalRenderNV();
     }
 }

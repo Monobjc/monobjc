@@ -78,6 +78,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.Generator.OpenGL", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.OpenGL.Tests", "tests\Monobjc.OpenGL.Tests\Monobjc.OpenGL.Tests.csproj", "{E11A67B8-8A32-4D2A-A435-00B362BE2AFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.Doxygenator", "tools\Monobjc.Doxygenator\Monobjc.Doxygenator.csproj", "{9CF48D68-660D-4F3A-A93F-8A993C32EE4A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -190,6 +192,10 @@ Global
 		{E11A67B8-8A32-4D2A-A435-00B362BE2AFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E11A67B8-8A32-4D2A-A435-00B362BE2AFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E11A67B8-8A32-4D2A-A435-00B362BE2AFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CF48D68-660D-4F3A-A93F-8A993C32EE4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CF48D68-660D-4F3A-A93F-8A993C32EE4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CF48D68-660D-4F3A-A93F-8A993C32EE4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CF48D68-660D-4F3A-A93F-8A993C32EE4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -222,6 +228,7 @@ Global
 		{E11A67B8-8A32-4D2A-A435-00B362BE2AFD} = {C9CA3586-F7BD-4D17-B6E2-70D0E5CCB09B}
 		{4E5AB71D-38C8-4F8F-BCCF-ABA04FD016EB} = {98F78E3F-8433-4062-9B99-1E45B6F67A06}
 		{F0B65148-1657-4B4A-AB29-53D2625E5550} = {98F78E3F-8433-4062-9B99-1E45B6F67A06}
+		{9CF48D68-660D-4F3A-A93F-8A993C32EE4A} = {98F78E3F-8433-4062-9B99-1E45B6F67A06}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = libraries\Monobjc\Monobjc.csproj
