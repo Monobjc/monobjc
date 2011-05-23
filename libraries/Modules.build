@@ -34,6 +34,7 @@
           unless="${file::exists(marker.file)}">
       <fileset basedir="${tools.dir}/Monobjc.Doxygenator/bin/Release">
         <include name="WebKit.DOM/**"/>
+        <include name="JavaScriptCore/**"/>
         <include name="CorePlot/**"/>
         <include name="Growl/**"/>
         <include name="SM2DGraphView/**"/>
