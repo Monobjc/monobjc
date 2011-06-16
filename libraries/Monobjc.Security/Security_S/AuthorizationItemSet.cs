@@ -23,13 +23,13 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace Monobjc.SecurityFoundation
+namespace Monobjc.Security
 {
     /// <summary>
     /// Represents a set of authorization items.
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    public struct AuthorizationEnvironment
+    public struct AuthorizationItemSet
     {
         /// <summary>
         /// The number of elements in the items array.

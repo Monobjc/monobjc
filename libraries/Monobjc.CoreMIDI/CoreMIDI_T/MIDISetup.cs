@@ -34,7 +34,7 @@ namespace Monobjc.CoreMIDI
     {
         /// <summary>
         /// <para>Original signature is 'externOSStatusMIDIDeviceAddEntity(   MIDIDeviceRefdevice,   CFStringRefname,   Booleanembedded,   ItemCountnumSourceEndpoints,   ItemCountnumDestinationEndpoints,   MIDIEntityRef *newEntity) ;'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="e">MISSING</param>
         /// <param name="e">MISSING</param>
@@ -49,7 +49,7 @@ namespace Monobjc.CoreMIDI
 
         /// <summary>
         /// <para>Original signature is 'externOSStatusMIDIDeviceRemoveEntity(   MIDIDeviceRefdevice,   MIDIEntityRefentity) ;'</para>
-        /// <para>Available in Mac OS X v10.1 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="e">MISSING</param>
         /// <param name="y">MISSING</param>
@@ -60,7 +60,7 @@ namespace Monobjc.CoreMIDI
 
         /// <summary>
         /// <para>Original signature is 'externOSStatusMIDIEntityAddOrRemoveEndpoints(   MIDIEntityRefentity,   ItemCountnumSourceEndpoints,   ItemCountnumDestinationEndpoints);'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="y">MISSING</param>
         /// <param name="s">MISSING</param>
@@ -73,7 +73,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Create a new external MIDI device.</para>
         /// <para>Original signature is 'externOSStatusMIDIExternalDeviceCreate(   CFStringRefname,   CFStringRefmanufacturer,   CFStringRefmodel,   MIDIDeviceRef *outDevice) ;'</para>
-        /// <para>Available in Mac OS X v10.1 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="e">MISSING</param>
         /// <param name="r">MISSING</param>
@@ -87,7 +87,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Returns a list of installed MIDI drivers for serial port MIDI devices.</para>
         /// <para>Original signature is 'externOSStatusMIDIGetSerialPortDrivers(   CFArrayRef *outDriverNames );'</para>
-        /// <para>Available in Mac OS X v10.1 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="outDriverNames">MISSING</param>
         /// <returns>An OSStatus result code.</returns>
@@ -98,7 +98,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Returns the MIDI driver that owns a serial port.</para>
         /// <para>Original signature is 'externOSStatusMIDIGetSerialPortOwner(   CFStringRefportName,   CFStringRef *outDriverName );'</para>
-        /// <para>Available in Mac OS X v10.1 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="e">MISSING</param>
         /// <param name="outDriverName">MISSING</param>
@@ -110,7 +110,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Specifies the MIDI driver that owns a serial port.</para>
         /// <para>Original signature is 'externOSStatusMIDISetSerialPortOwner(   CFStringRefportName,   CFStringRefdriverName );'</para>
-        /// <para>Available in Mac OS X v10.1 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="e">MISSING</param>
         /// <param name="e">MISSING</param>
@@ -122,7 +122,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Adds a driver-owner MIDI device to the current MIDISetup</para>
         /// <para>Original signature is 'externOSStatusMIDISetupAddDevice(   MIDIDeviceRefdevice );'</para>
-        /// <para>Available in Mac OS X v10.1 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="e">MISSING</param>
         /// <returns></returns>
@@ -133,7 +133,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Adds an external MIDI device to the current MIDISetup</para>
         /// <para>Original signature is 'externOSStatusMIDISetupAddExternalDevice(   MIDIDeviceRefdevice );'</para>
-        /// <para>Available in Mac OS X v10.1 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="e">MISSING</param>
         /// <returns></returns>
@@ -146,7 +146,7 @@ namespace Monobjc.CoreMIDI
         /// <para>As of CoreMIDI 1.1, it is usually not necessary to call this function, as CoreMIDI manages a single persistent</para>
         /// <para>MIDISetup itself.</para>
         /// <para>Original signature is 'externOSStatusMIDISetupCreate(   MIDISetupRef *outSetup );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="outSetup">MISSING</param>
         /// <returns>An OSStatus result code.</returns>
@@ -159,7 +159,7 @@ namespace Monobjc.CoreMIDI
         /// <para>As of CoreMIDI 1.1, it is usually not necessary to call this function, as CoreMIDI manages a single persistent</para>
         /// <para>MIDISetup itself.</para>
         /// <para>Original signature is 'externOSStatusMIDISetupDispose(   MIDISetupRefsetup );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="p">MISSING</param>
         /// <returns>An OSStatus result code.</returns>
@@ -172,7 +172,7 @@ namespace Monobjc.CoreMIDI
         /// <para>As of CoreMIDI 1.1, it is usually not necessary to call this function, as CoreMIDI manages a single persistent</para>
         /// <para>MIDISetup itself.</para>
         /// <para>Original signature is 'externOSStatusMIDISetupFromData(   CFDataRefdata,   MIDISetupRef *outSetup);'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="a">MISSING</param>
         /// <param name="outSetup">MISSING</param>
@@ -186,7 +186,7 @@ namespace Monobjc.CoreMIDI
         /// <para>As of CoreMIDI 1.1, it is usually not necessary to call this function, as CoreMIDI manages a single persistent</para>
         /// <para>MIDISetup itself.</para>
         /// <para>Original signature is 'externOSStatusMIDISetupGetCurrent(   MIDISetupRef *outSetup );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="outSetup">MISSING</param>
         /// <returns>An OSStatus result code.</returns>
@@ -201,7 +201,7 @@ namespace Monobjc.CoreMIDI
         /// <para>As of CoreMIDI 1.1, it is usually not necessary to call</para>
         /// <para>this function, as CoreMIDI manages a single persistent MIDISetup itself.</para>
         /// <para>Original signature is 'externOSStatusMIDISetupInstall(   MIDISetupRefsetup );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="p">MISSING</param>
         /// <returns>An OSStatus result code.</returns>
@@ -212,7 +212,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Removes a driver-owned MIDI device from the current MIDISetup</para>
         /// <para>Original signature is 'externOSStatusMIDISetupRemoveDevice(   MIDIDeviceRefdevice );'</para>
-        /// <para>Available in Mac OS X v10.1 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="e">MISSING</param>
         /// <returns></returns>
@@ -223,7 +223,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Removes an external MIDI device from the current MIDISetup</para>
         /// <para>Original signature is 'externOSStatusMIDISetupRemoveExternalDevice(   MIDIDeviceRefdevice );'</para>
-        /// <para>Available in Mac OS X v10.1 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="e">MISSING</param>
         /// <returns></returns>
@@ -236,7 +236,7 @@ namespace Monobjc.CoreMIDI
         /// <para>As of CoreMIDI 1.1, it is usually not necessary to call this function, as CoreMIDI manages a single persistent</para>
         /// <para>MIDISetup itself.</para>
         /// <para>Original signature is 'externOSStatusMIDISetupToData(   MIDISetupRefsetup,   CFDataRef *outData );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="p">MISSING</param>
         /// <param name="outData">MISSING</param>

@@ -22,7 +22,7 @@
 // 
 using System.Runtime.InteropServices;
 
-namespace Monobjc.SecurityFoundation
+namespace Monobjc.Security
 {
     /// <summary>
     /// Contains information about keychain settings.

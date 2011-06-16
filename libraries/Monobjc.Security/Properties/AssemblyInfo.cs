@@ -27,8 +27,8 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Monobjc Bridge - WebKit Library")]
-[assembly: AssemblyDescription("Monobjc Bridge WebKit Library")]
+[assembly: AssemblyTitle("Monobjc Bridge - Security Library")]
+[assembly: AssemblyDescription("Monobjc Bridge Security Library")]
 [assembly: AssemblyCompany("Monobjc Project")]
 [assembly: AssemblyProduct("Monobjc Bridge Project")]
 [assembly: AssemblyCopyright("Copyright (c) Monobjc Project 2007-2011 - Licensed under MIT License")]
@@ -36,8 +36,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en-US")]
 [assembly: ComVisible(false)]
-[assembly: Guid("fe0d7896-6cf2-93a8-2e62-e35eb2c740e1")]
+[assembly: Guid("bf8d7202-2909-d007-63a2-25a625f57eb4")]
 
 #if TESTING
-[assembly: InternalsVisibleTo("Monobjc.WebKit.Tests")]
+[assembly: InternalsVisibleTo("Monobjc.Security.Tests")]
 #endif

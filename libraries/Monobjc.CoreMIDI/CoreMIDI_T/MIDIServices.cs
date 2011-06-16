@@ -35,7 +35,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Creates a MIDIClient object.</para>
         /// <para>Original signature is 'externOSStatusMIDIClientCreate(   CFStringRefname,   MIDINotifyProcnotifyProc,   void *notifyRefCon,   MIDIClientRef *outClient );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="e">MISSING</param>
         /// <param name="c">MISSING</param>
@@ -49,7 +49,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Disposes a MIDIClient object.</para>
         /// <para>Original signature is 'externOSStatusMIDIClientDispose(   MIDIClientRefclient );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="t">MISSING</param>
         /// <returns>An OSStatus result code.</returns>
@@ -60,7 +60,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Creates a virtual destination in a client.</para>
         /// <para>Original signature is 'externOSStatusMIDIDestinationCreate(   MIDIClientRefclient,   CFStringRefname,   MIDIReadProcreadProc,   void *refCon,   MIDIEndpointRef *outDest );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="t">MISSING</param>
         /// <param name="e">MISSING</param>
@@ -75,7 +75,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Returns one of a given device's entities.</para>
         /// <para>Original signature is 'externMIDIEntityRefMIDIDeviceGetEntity(   MIDIDeviceRefdevice,   ItemCountentityIndex0 );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="e">MISSING</param>
         /// <param name="0">MISSING</param>
@@ -87,7 +87,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Returns the number of entities in a given device.</para>
         /// <para>Original signature is 'externItemCountMIDIDeviceGetNumberOfEntities(   MIDIDeviceRefdevice );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="e">MISSING</param>
         /// <returns>The number of entities the device contains, or 0 if an error occurred.</returns>
@@ -98,7 +98,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Disposes a virtual source or destination your client created.</para>
         /// <para>Original signature is 'externOSStatusMIDIEndpointDispose(   MIDIEndpointRefendpt );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="t">MISSING</param>
         /// <returns>An OSStatus result code.</returns>
@@ -109,7 +109,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Returns an endpoint's entity.</para>
         /// <para>Original signature is 'externOSStatusMIDIEndpointGetEntity(   MIDIEndpointRefinEndpoint,   MIDIEntityRef *outEntity);'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="t">MISSING</param>
         /// <param name="outEntity">MISSING</param>
@@ -121,7 +121,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Returns one of a given entity's destinations.</para>
         /// <para>Original signature is 'externMIDIEndpointRefMIDIEntityGetDestination(   MIDIEntityRefentity,   ItemCountdestIndex0 );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="y">MISSING</param>
         /// <param name="0">MISSING</param>
@@ -133,7 +133,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Returns an entity's device.</para>
         /// <para>Original signature is 'externOSStatusMIDIEntityGetDevice(   MIDIEntityRefinEntity,   MIDIDeviceRef *outDevice);'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="y">MISSING</param>
         /// <param name="outDevice">MISSING</param>
@@ -145,7 +145,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Returns the number of destinations in a given entity.</para>
         /// <para>Original signature is 'externItemCountMIDIEntityGetNumberOfDestinations(   MIDIEntityRefentity );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="y">MISSING</param>
         /// <returns>The number of destinations the entity contains, or 0 if an error occurred.</returns>
@@ -156,7 +156,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Returns the number of sources in a given entity.</para>
         /// <para>Original signature is 'externItemCountMIDIEntityGetNumberOfSources(   MIDIEntityRefentity );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="y">MISSING</param>
         /// <returns>The number of sources the entity contains, or 0 if an error occurred.</returns>
@@ -167,7 +167,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Returns one of a given entity's sources.</para>
         /// <para>Original signature is 'externMIDIEndpointRefMIDIEntityGetSource(   MIDIEntityRefentity,   ItemCountsourceIndex0 );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="y">MISSING</param>
         /// <param name="0">MISSING</param>
@@ -179,7 +179,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Unschedules previously-sent packets.</para>
         /// <para>Original signature is 'externOSStatusMIDIFlushOutput(   MIDIEndpointRefdest );'</para>
-        /// <para>Available in Mac OS X v10.1 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="t">MISSING</param>
         /// <returns></returns>
@@ -190,7 +190,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Returns one of the destinations in the system.</para>
         /// <para>Original signature is 'externMIDIEndpointRefMIDIGetDestination(   ItemCountdestIndex0 );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="0">MISSING</param>
         /// <returns>A reference to a destination, or NULL if an error occurred.</returns>
@@ -201,7 +201,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Returns one of the devices in the system.</para>
         /// <para>Original signature is 'externMIDIDeviceRefMIDIGetDevice(   ItemCountdeviceIndex0 );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="0">MISSING</param>
         /// <returns>A reference to a device, or NULL if an error occurred.</returns>
@@ -212,7 +212,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Returns one of the external devices in the system.</para>
         /// <para>Original signature is 'externMIDIDeviceRefMIDIGetExternalDevice(   ItemCountdeviceIndex0 );'</para>
-        /// <para>Available in Mac OS X v10.1 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="0">MISSING</param>
         /// <returns>A reference to a device, or NULL if an error occurred.</returns>
@@ -223,7 +223,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Returns one of the sources in the system.</para>
         /// <para>Original signature is 'externMIDIEndpointRefMIDIGetSource(   ItemCountsourceIndex0 );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="0">MISSING</param>
         /// <returns>A reference to a source, or NULL if an error occurred.</returns>
@@ -234,7 +234,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Creates an input port through which the client may receive incoming MIDI messages from any MIDI source.</para>
         /// <para>Original signature is 'externOSStatusMIDIInputPortCreate(   MIDIClientRefclient,   CFStringRefportName,   MIDIReadProcreadProc,   void *refCon,   MIDIPortRef *outPort );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="t">MISSING</param>
         /// <param name="e">MISSING</param>
@@ -249,7 +249,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Locates a device, external device, entity, or endpoint by its uniqueID.</para>
         /// <para>Original signature is 'externOSStatusMIDIObjectFindByUniqueID(   MIDIUniqueIDinUniqueID,   MIDIObjectRef *outObject,   MIDIObjectType *outObjectType) ;'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="D">MISSING</param>
         /// <param name="outObject">MISSING</param>
@@ -262,7 +262,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Gets an object's data-type property.</para>
         /// <para>Original signature is 'externOSStatusMIDIObjectGetDataProperty(   MIDIObjectRefobj,   CFStringRefpropertyID,   CFDataRef *outData );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="j">MISSING</param>
         /// <param name="D">MISSING</param>
@@ -275,7 +275,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Gets an object's dictionary-type property.</para>
         /// <para>Original signature is 'externOSStatusMIDIObjectGetDictionaryProperty(   MIDIObjectRefobj,   CFStringRefpropertyID,   CFDictionaryRef *outDict ) ;'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="j">MISSING</param>
         /// <param name="D">MISSING</param>
@@ -288,7 +288,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Gets an object's integer-type property.</para>
         /// <para>Original signature is 'externOSStatusMIDIObjectGetIntegerProperty(   MIDIObjectRefobj,   CFStringRefpropertyID,   SInt32 *outValue );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="j">MISSING</param>
         /// <param name="D">MISSING</param>
@@ -301,7 +301,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Gets all of an object's properties.</para>
         /// <para>Original signature is 'externOSStatusMIDIObjectGetProperties(   MIDIObjectRefobj,   CFPropertyListRef *outProperties,   Booleandeep );'</para>
-        /// <para>Available in Mac OS X v10.1 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="j">MISSING</param>
         /// <param name="outProperties">MISSING</param>
@@ -314,7 +314,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Gets an object's string-type property.</para>
         /// <para>Original signature is 'externOSStatusMIDIObjectGetStringProperty(   MIDIObjectRefobj,   CFStringRefpropertyID,   CFStringRef *str );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="j">MISSING</param>
         /// <param name="D">MISSING</param>
@@ -327,7 +327,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Removes an object's property.</para>
         /// <para>Original signature is 'externOSStatusMIDIObjectRemoveProperty(   MIDIObjectRefobj,   CFStringRefpropertyID ) ;'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="j">MISSING</param>
         /// <param name="D">MISSING</param>
@@ -339,7 +339,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Sets an object's data-type property.</para>
         /// <para>Original signature is 'externOSStatusMIDIObjectSetDataProperty(   MIDIObjectRefobj,   CFStringRefpropertyID,   CFDataRefdata );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="j">MISSING</param>
         /// <param name="D">MISSING</param>
@@ -352,7 +352,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Sets an object's dictionary-type property.</para>
         /// <para>Original signature is 'externOSStatusMIDIObjectSetDictionaryProperty(   MIDIObjectRefobj,   CFStringRefpropertyID,   CFDictionaryRefdata );'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="j">MISSING</param>
         /// <param name="D">MISSING</param>
@@ -365,7 +365,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Sets an object's integer-type property.</para>
         /// <para>Original signature is 'externOSStatusMIDIObjectSetIntegerProperty(   MIDIObjectRefobj,   CFStringRefpropertyID,   SInt32value );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="j">MISSING</param>
         /// <param name="D">MISSING</param>
@@ -378,7 +378,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Sets an object's string-type property.</para>
         /// <para>Original signature is 'externOSStatusMIDIObjectSetStringProperty(   MIDIObjectRefobj,   CFStringRefpropertyID,   CFStringRefstr );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="j">MISSING</param>
         /// <param name="D">MISSING</param>
@@ -391,7 +391,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Creates an output port through which the client may send outgoing MIDI messages to any MIDI destination.</para>
         /// <para>Original signature is 'externOSStatusMIDIOutputPortCreate(   MIDIClientRefclient,   CFStringRefportName,   MIDIPortRef *outPort );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="t">MISSING</param>
         /// <param name="e">MISSING</param>
@@ -404,7 +404,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Adds a MIDI event to a MIDIPacketList.</para>
         /// <para>Original signature is 'externMIDIPacket*MIDIPacketListAdd(   MIDIPacketList *pktlist,   ByteCountlistSize,   MIDIPacket *curPacket,   MIDITimeStamptime,   ByteCountnData,   constByte *data);'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="pktlist">MISSING</param>
         /// <param name="e">MISSING</param>
@@ -420,7 +420,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Prepares a MIDIPacketList to be built up dynamically.</para>
         /// <para>Original signature is 'externMIDIPacket*MIDIPacketListInit(   MIDIPacketList *pktlist );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="pktlist">MISSING</param>
         /// <returns>A pointer to the first MIDIPacket in the packet list.</returns>
@@ -441,7 +441,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Establishes a connection from a source to a client's input port.</para>
         /// <para>Original signature is 'externOSStatusMIDIPortConnectSource(   MIDIPortRefport,   MIDIEndpointRefsource,   void *connRefCon );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="t">MISSING</param>
         /// <param name="e">MISSING</param>
@@ -454,7 +454,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Closes a previously-established source-to-input port connection.</para>
         /// <para>Original signature is 'externOSStatusMIDIPortDisconnectSource(   MIDIPortRefport,   MIDIEndpointRefsource );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="t">MISSING</param>
         /// <param name="e">MISSING</param>
@@ -466,7 +466,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Disposes a MIDIPort object.</para>
         /// <para>Original signature is 'externOSStatusMIDIPortDispose(   MIDIPortRefport );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="t">MISSING</param>
         /// <returns>An OSStatus result code.</returns>
@@ -477,7 +477,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Distributes incoming MIDI from a source to the client input ports which are connected to that source.</para>
         /// <para>Original signature is 'externOSStatusMIDIReceived(   MIDIEndpointRefsrc,   constMIDIPacketList *pktlist );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="c">MISSING</param>
         /// <param name="pktlist">MISSING</param>
@@ -489,7 +489,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Sends MIDI to a destination.</para>
         /// <para>Original signature is 'externOSStatusMIDISend(   MIDIPortRefport,   MIDIEndpointRefdest,   constMIDIPacketList *pktlist );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="t">MISSING</param>
         /// <param name="t">MISSING</param>
@@ -502,7 +502,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Sends a single system-exclusive event, asynchronously.</para>
         /// <para>Original signature is 'externOSStatusMIDISendSysex(   MIDISysexSendRequest *request );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="request">MISSING</param>
         /// <returns>An OSStatus result code.</returns>
@@ -513,7 +513,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Creates a virtual source in a client.</para>
         /// <para>Original signature is 'externOSStatusMIDISourceCreate(   MIDIClientRefclient,   CFStringRefname,   MIDIEndpointRef *outSrc );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="t">MISSING</param>
         /// <param name="e">MISSING</param>

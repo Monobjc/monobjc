@@ -12,7 +12,6 @@
     <AssemblyName>Monobjc.CoreWLAN</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -71,6 +70,10 @@
     <ProjectReference Include="..\Monobjc.SecurityFoundation\Monobjc.SecurityFoundation.csproj">
       <Project>{B49863BB-D088-4AAC-8D2F-D8726F27A930}</Project>
       <Name>Monobjc.SecurityFoundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.Security\Monobjc.Security.csproj">
+      <Project>{D8948503-4D3A-4AE2-8C90-897C5AE18884}</Project>
+      <Name>Monobjc.Security</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

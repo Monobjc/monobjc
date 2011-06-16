@@ -23,22 +23,33 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace Monobjc.SecurityFoundation
+namespace Monobjc.Security
 {
     /// <summary>
-    /// Represents a set of authorization items.
+    /// Contains information about an authorization right or the authorization environment.
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    public struct AuthorizationRights
+    public struct AuthorizationItem
     {
         /// <summary>
-        /// The number of elements in the items array.
+        /// The required name of the authorization right or environment data. The name of a right is something that you create. You should name rights in a style similar to Java package names. For example, "com.myOrganization.myProduct.myRight". Set this field to kAuthorizationRightExecute when requesting a right for use in the function AuthorizationExecuteWithPrivileges.
         /// </summary>
-        public uint count;
+        [MarshalAs(UnmanagedType.LPStr)]
+        public String name;
 
         /// <summary>
-        /// A pointer to an array of authorization items. If count is greater than 1, items points to the first item in an array of such items. You should set this parameter to NULL if there are no items.
+        /// An unsigned 32-bit integer that represents the number of bytes in the value field. Set the valueLength field to 0 if you set the value field to NULL.
         /// </summary>
-        public IntPtr items;
+        public uint valueLength;
+
+        /// <summary>
+        /// A pointer to information pertaining to the name field. For example, if the name field is set to the value represented by the constant kAuthorizationRightExecute, then set the value field to the full POSIX pathname of the tool you want to execute. In most other cases, set this field to NULL.
+        /// </summary>
+        public IntPtr value;
+
+        /// <summary>
+        /// Reserved option bits. Set to 0.
+        /// </summary>
+        public uint flags;
     }
 }

@@ -20,25 +20,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using System;
-using System.Runtime.InteropServices;
+using Monobjc;
 
-namespace Monobjc.SecurityFoundation
-{
-    /// <summary>
-    /// Represents a set of authorization items.
-    /// </summary>
-    [StructLayout(LayoutKind.Sequential)]
-    public struct AuthorizationItemSet
-    {
-        /// <summary>
-        /// The number of elements in the items array.
-        /// </summary>
-        public uint count;
-
-        /// <summary>
-        /// A pointer to an array of authorization items. If count is greater than 1, items points to the first item in an array of such items. You should set this parameter to NULL if there are no items.
-        /// </summary>
-        public IntPtr items;
-    }
-}
+[assembly: ObjectiveCFramework(true)]

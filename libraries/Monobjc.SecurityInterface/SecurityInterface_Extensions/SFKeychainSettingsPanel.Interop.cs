@@ -23,6 +23,7 @@
 using System;
 using Monobjc.AppKit;
 using Monobjc.Foundation;
+using Monobjc.Security;
 using Monobjc.SecurityFoundation;
 
 namespace Monobjc.SecurityInterface

@@ -35,7 +35,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Creates a thru connection.</para>
         /// <para>Original signature is 'externOSStatusMIDIThruConnectionCreate(   CFStringRefinPersistentOwnerID,   CFDataRefinConnectionParams,   MIDIThruConnectionRef *outConnection ) ;'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="D">MISSING</param>
         /// <param name="s">MISSING</param>
@@ -48,7 +48,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Disposes a thru connection.</para>
         /// <para>Original signature is 'externOSStatusMIDIThruConnectionDispose(   MIDIThruConnectionRefconnection ) ;'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="n">MISSING</param>
         /// <returns>An OSStatus result code.</returns>
@@ -59,7 +59,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Returns all of the persistent thru connections created by a client.</para>
         /// <para>Original signature is 'externOSStatusMIDIThruConnectionFind(   CFStringRefinPersistentOwnerID,   CFDataRef *outConnectionList ) ;'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="D">MISSING</param>
         /// <param name="outConnectionList">MISSING</param>
@@ -71,7 +71,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Obtains a thru connection's MIDIThruConnectionParams.</para>
         /// <para>Original signature is 'externOSStatusMIDIThruConnectionGetParams(   MIDIThruConnectionRefconnection,   CFDataRef *outConnectionParams ) ;'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="n">MISSING</param>
         /// <param name="outConnectionParams">MISSING</param>
@@ -83,7 +83,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Fills a MIDIThruConnectionParams with default values.</para>
         /// <para>Original signature is 'externvoidMIDIThruConnectionParamsInitialize(   MIDIThruConnectionParams *inConnectionParams ) ;'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="inConnectionParams">MISSING</param>
         [DllImport("/System/Library/Frameworks/CoreMIDI.framework/CoreMIDI", EntryPoint="MIDIThruConnectionParamsInitialize")]
@@ -93,7 +93,7 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>Alters a thru connection's MIDIThruConnectionParams.</para>
         /// <para>Original signature is 'externOSStatusMIDIThruConnectionSetParams(   MIDIThruConnectionRefconnection,   CFDataRefinConnectionParams ) ;'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
+        /// <para>Available in VERSION and later.</para>
         /// </summary>
         /// <param name="n">MISSING</param>
         /// <param name="s">MISSING</param>

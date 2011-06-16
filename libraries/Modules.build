@@ -41,7 +41,7 @@
         <include name="Sparkle/**"/>
       </fileset>
     </copy>
-
+    
     <!-- Execute the generator -->
     <exec workingdir="${tools.dir}/Monobjc.Generator/bin/Release"
           program="${tools.dir}/Monobjc.Generator/bin/Release/MonobjcGenerator.exe"
@@ -185,6 +185,18 @@
     </fileset>
     <call target="build-library-intern"/>
 
+    <!-- Library Monobjc.Security -->
+    <property name="lib.name" value="Monobjc.Security"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Security_E/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Security_S/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Security_T/*.cs"/>
+    </fileset>
+    <call target="build-library-intern"/>
+
     <!-- Library Monobjc.SecurityFoundation -->
     <property name="lib.name" value="Monobjc.SecurityFoundation"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -196,6 +208,13 @@
       <include name="${base.dir}/${lib.name}/SecurityFoundation_T/Security*.cs"/>
       <exclude name="${base.dir}/${lib.name}/SecurityFoundation_T/KeyChainServices.cs"/>
     </fileset>
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+      <include name="Monobjc.dll"/>
+      <include name="Monobjc.Foundation.dll"/>
+      <include name="Monobjc.Security.dll"/>
+    </assemblyfileset>
     <call target="build-library-intern"/>
 
     <!-- Library Monobjc.CoreWLAN -->
@@ -212,6 +231,7 @@
       <include name="System.Core.dll"/>
       <include name="Monobjc.dll"/>
       <include name="Monobjc.Foundation.dll"/>
+      <include name="Monobjc.Security.dll"/>
       <include name="Monobjc.SecurityFoundation.dll"/>
     </assemblyfileset>
     <call target="build-library-intern"/>
@@ -420,6 +440,7 @@
       <include name="System.Core.dll"/>
       <include name="Monobjc.dll"/>
       <include name="Monobjc.Foundation.dll"/>
+      <include name="Monobjc.Security.dll"/>
       <include name="Monobjc.SecurityFoundation.dll"/>
       <include name="Monobjc.AppKit.dll"/>
     </assemblyfileset>

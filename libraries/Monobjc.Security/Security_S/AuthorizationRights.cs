@@ -1,4 +1,4 @@
-﻿//
+//
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2011 - Laurent Etiemble
 //
@@ -23,13 +23,22 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace Monobjc.SecurityFoundation
+namespace Monobjc.Security
 {
+    /// <summary>
+    /// Represents a set of authorization items.
+    /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    public struct SecKeychainAttribute
+    public struct AuthorizationRights
     {
-        public uint tag;
-        public UInt32 length;
-        public IntPtr data;
+        /// <summary>
+        /// The number of elements in the items array.
+        /// </summary>
+        public uint count;
+
+        /// <summary>
+        /// A pointer to an array of authorization items. If count is greater than 1, items points to the first item in an array of such items. You should set this parameter to NULL if there are no items.
+        /// </summary>
+        public IntPtr items;
     }
 }

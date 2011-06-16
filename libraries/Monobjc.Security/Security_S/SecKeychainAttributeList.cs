@@ -23,25 +23,21 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace Monobjc.SecurityFoundation
+namespace Monobjc.Security
 {
 	/// <summary>
-	/// Represents an attribute.
+	/// Represents a list of keychain attributes.
 	/// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    public struct SecKeychainAttributeInfo
+    public struct SecKeychainAttributeList
     {
 		/// <summary>
-		/// The number of tag-format pairs in the respective arrays.
+		/// An unsigned 32-bit integer that represents the number of keychain attributes in the array.
 		/// </summary>
         public UInt32 count;
 		/// <summary>
-		/// A pointer to the first attribute tag in the array.
+		/// A pointer to the first keychain attribute in the array.
 		/// </summary>
-        public IntPtr tag;
-		/// <summary>
-		/// A pointer to the first CSSM_DB_ATTRIBUTE_FORMAT in the array.
-		/// </summary>
-        public IntPtr format;
+        public IntPtr attr;
     }
 }
