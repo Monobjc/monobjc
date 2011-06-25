@@ -49,6 +49,8 @@
     <Compile Include="CGFloatTests.cs" />
     <Compile Include="Common\AbstractObjectiveCTests.cs" />
     <Compile Include="Common\AbstractWrapperTests.cs" />
+    <Compile Include="Common\AbstractCompletnessTests.cs" />
+    <Compile Include="CompletnessTests.cs" />
     <Compile Include="FrameworkTests.cs" />
     <Compile Include="NSArrayTests.cs" />
     <Compile Include="NSDecimalNumberTests.cs" />

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E11A67B8-8A32-4D2A-A435-00B362BE2AFD}</ProjectGuid>
+    <ProjectGuid>{1E37E7D3-5C78-4772-964E-2D890053C124}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Monobjc.OpenGL</RootNamespace>
-    <AssemblyName>Monobjc.OpenGL.Tests</AssemblyName>
+    <RootNamespace>Monobjc.WebKit</RootNamespace>
+    <AssemblyName>Monobjc.WebKit.Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractCompletnessTests.cs">
+      <Link>AbstractCompletnessTests.cs</Link>
+    </Compile>
     <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractFrameworkTests.cs">
       <Link>AbstractFrameworkTests.cs</Link>
     </Compile>
@@ -48,18 +51,23 @@
     <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractWrapperTests.cs">
       <Link>AbstractWrapperTests.cs</Link>
     </Compile>
+    <Compile Include="CompletnessTests.cs" />
     <Compile Include="FrameworkTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WrapperTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\libraries\Monobjc.AppKit\Monobjc.AppKit.csproj">
+      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
+      <Name>Monobjc.AppKit</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\libraries\Monobjc.Foundation\Monobjc.Foundation.csproj">
       <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
       <Name>Monobjc.Foundation</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\libraries\Monobjc.OpenGL\Monobjc.OpenGL.csproj">
-      <Project>{7D2F874C-9C0E-4CD5-8763-D71972F68325}</Project>
-      <Name>Monobjc.OpenGL</Name>
+    <ProjectReference Include="..\..\libraries\Monobjc.WebKit\Monobjc.WebKit.csproj">
+      <Project>{53DAF3A9-568F-468D-9CF1-FAE1CF63CACC}</Project>
+      <Name>Monobjc.WebKit</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\libraries\Monobjc\Monobjc.csproj">
       <Project>{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}</Project>

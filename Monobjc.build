@@ -81,7 +81,7 @@
     <!-- Archive content -->
     <tar compression="GZip" destfile="${archive.prefix}.tar.gz">
       <fileset basedir="${archive.prefix}" prefix="${archive.prefix}">
-      	<include name="**/*"/>
+        <include name="**/*"/>
       </fileset>
     </tar>
   </target>
@@ -94,41 +94,41 @@
     
     <!-- Prepare the content -->
     <copy todir="${package.dir}/content">
-    	<fileset basedir="${archive.prefix}">
-    	  <include name="**/*"/>
-    	</fileset>
+      <fileset basedir="${archive.prefix}">
+        <include name="**/*"/>
+      </fileset>
     </copy>
-	
-	<!-- Prepare the scripts -->
-	<echo file="${package.dir}/content/Install.sh"><![CDATA[#!/bin/bash
+  
+  <!-- Prepare the scripts -->
+  <echo file="${package.dir}/content/Install.sh"><![CDATA[#!/bin/bash
 cd "$2"
 chmod a+x ./Monobjc.sh
 ./Monobjc.sh install
 ]]></echo>
-	<exec program="chmod">
-		<arg value="a+x"/>
-		<arg value="${package.dir}/content/Monobjc.sh"/>
-		<arg value="${package.dir}/content/Install.sh"/>
-	</exec>
+  <exec program="chmod">
+    <arg value="a+x"/>
+    <arg value="${package.dir}/content/Monobjc.sh"/>
+    <arg value="${package.dir}/content/Install.sh"/>
+  </exec>
 
-	<!-- Copy the package settings -->
-	<copy todir="${package.dir}/${archive.prefix}.pmdoc">
-		<fileset basedir="${package.dir}/Monobjc.pmdoc">
-			<include name="**/*"/>
-		</fileset>
-		<filterchain>
-			<replacestring from="version>1.0" to="version>3.0.${revision}" />
-		</filterchain>
-	</copy>
-	
-	<!-- Build the package -->
-	<exec program="/Developer/usr/bin/packagemaker">
-		<arg value="--verbose"/>
-		<arg value="--doc"/>
-		<arg value="${package.dir}/${archive.prefix}.pmdoc"/>
-		<arg value="-o"/>
-		<arg value="${archive.prefix}.pkg"/>
-	</exec>
+  <!-- Copy the package settings -->
+  <copy todir="${package.dir}/${archive.prefix}.pmdoc">
+    <fileset basedir="${package.dir}/Monobjc.pmdoc">
+      <include name="**/*"/>
+    </fileset>
+    <filterchain>
+      <replacestring from="version>1.0" to="version>3.0.${revision}" />
+    </filterchain>
+  </copy>
+  
+  <!-- Build the package -->
+  <exec program="/Developer/usr/bin/packagemaker">
+    <arg value="--verbose"/>
+    <arg value="--doc"/>
+    <arg value="${package.dir}/${archive.prefix}.pmdoc"/>
+    <arg value="-o"/>
+    <arg value="${archive.prefix}.pkg"/>
+  </exec>
  
   </target>
 
@@ -142,12 +142,12 @@ chmod a+x ./Monobjc.sh
     
     <!-- Compute the native architectures -->
     <if test="${arch.profile=='universal-32'}">
-		<property name="arch-10.5" value="i386 ppc"/>
-		<property name="arch-10.6" value="i386"/>
+    <property name="arch-10.5" value="i386 ppc"/>
+    <property name="arch-10.6" value="i386"/>
     </if>
     <if test="${arch.profile=='universal-32-64'}">
-		<property name="arch-10.5" value="i386 ppc x86_64"/>
-		<property name="arch-10.6" value="i386 x86_64"/>
+    <property name="arch-10.5" value="i386 ppc x86_64"/>
+    <property name="arch-10.6" value="i386 x86_64"/>
     </if>
   </target>
 

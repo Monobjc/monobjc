@@ -46,6 +46,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractCompletnessTests.cs">
+      <Link>AbstractCompletnessTests.cs</Link>
+    </Compile>
     <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractFrameworkTests.cs">
       <Link>AbstractFrameworkTests.cs</Link>
     </Compile>
@@ -55,6 +58,7 @@
     <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractWrapperTests.cs">
       <Link>AbstractWrapperTests.cs</Link>
     </Compile>
+    <Compile Include="CompletnessTests.cs" />
     <Compile Include="FrameworkTests.cs" />
     <Compile Include="NSColorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

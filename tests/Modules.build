@@ -157,6 +157,42 @@
     </assemblyfileset>
     <call target="build-test-intern"/>
 
+    <!-- Test Monobjc.Security -->
+    <property name="test.name" value="Monobjc.Security.Tests"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${test.name}/**/*.cs"/>
+      <include name="${base.dir}/Monobjc.Foundation.Tests/Common/*.cs"/>
+    </fileset>
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+      <include name="${external.dir}/nunit.framework.dll"/>
+      <include name="${output.dir}/Monobjc.dll"/>
+      <include name="${output.dir}/Monobjc.Foundation.dll"/>
+      <include name="${output.dir}/Monobjc.AppKit.dll"/>
+      <include name="${output.dir}/Monobjc.Security.dll"/>
+    </assemblyfileset>
+    <call target="build-test-intern"/>
+
+    <!-- Test Monobjc.WebKit -->
+    <property name="test.name" value="Monobjc.WebKit.Tests"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${test.name}/**/*.cs"/>
+      <include name="${base.dir}/Monobjc.Foundation.Tests/Common/*.cs"/>
+    </fileset>
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+      <include name="${external.dir}/nunit.framework.dll"/>
+      <include name="${output.dir}/Monobjc.dll"/>
+      <include name="${output.dir}/Monobjc.Foundation.dll"/>
+      <include name="${output.dir}/Monobjc.AppKit.dll"/>
+      <include name="${output.dir}/Monobjc.WebKit.dll"/>
+    </assemblyfileset>
+    <call target="build-test-intern"/>
+
   </target>
 
   <!-- Build unit tests -->
@@ -217,6 +253,20 @@
     </exec>
 
     <property name="test.name" value="Monobjc.OpenGL.Tests"/>
+    <exec program="${output.dir}/nunit-${version}" failonerror="false">
+      <arg value="-labels"/>
+      <arg value="-xml=${dist.dir}/Tests/${test.name}-${version}.xml"/>
+      <arg value="${output.dir}/${test.name}.dll"/>
+    </exec>
+
+    <property name="test.name" value="Monobjc.Security.Tests"/>
+    <exec program="${output.dir}/nunit-${version}" failonerror="false">
+      <arg value="-labels"/>
+      <arg value="-xml=${dist.dir}/Tests/${test.name}-${version}.xml"/>
+      <arg value="${output.dir}/${test.name}.dll"/>
+    </exec>
+
+    <property name="test.name" value="Monobjc.WebKit.Tests"/>
     <exec program="${output.dir}/nunit-${version}" failonerror="false">
       <arg value="-labels"/>
       <arg value="-xml=${dist.dir}/Tests/${test.name}-${version}.xml"/>
