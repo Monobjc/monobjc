@@ -248,10 +248,10 @@
       <exclude name="${base.dir}/${lib.name}/AppKit_P/*.Deprecated.Protocol.cs"/>
       <include name="${base.dir}/${lib.name}/AppKit_T/*.cs"/>
       <include name="${base.dir}/${lib.name}/ApplicationServices_Functions/*.cs"/>
+      <include name="${base.dir}/${lib.name}/ApplicationServices_Extensions/*.cs"/>
       <include name="${base.dir}/${lib.name}/ApplicationServices_S/*.cs"/>
       <include name="${base.dir}/Monobjc.Foundation/ApplicationServices_T/*.cs"/>
       <exclude name="${base.dir}/Monobjc.Foundation/ApplicationServices_T/CGAffineTransform.cs"/>
-      <exclude name="${base.dir}/Monobjc.Foundation/ApplicationServices_T/CT*.cs"/>
       <exclude name="${base.dir}/Monobjc.Foundation/ApplicationServices_T/*.Deprecated.cs"/>
       <include name="${base.dir}/${lib.name}/CoreData_C/*.cs"/>
       <include name="${base.dir}/${lib.name}/CoreData_T/*.cs"/>
@@ -457,7 +457,7 @@
     <!-- Compile the library with signing -->
     <csc target="library"
          output="${output.dir}/${lib.name}.dll"
-	     keyfile="${key.file}"
+       keyfile="${key.file}"
          doc="${output.dir}/${lib.name}.xml"
          debug="${debug}"
          define="${define}" unless="${testing}">

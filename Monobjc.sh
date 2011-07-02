@@ -11,11 +11,15 @@ echo "Installer                              "
 echo "======================================="
 echo
 
-if [ $UID != 0 ]; then
+ID=`id -un`
+if [ $ID != "root" ]; then
 	echo "!!! You must run this script as a sudoer !!!"
 	echo "Please launch this script by typing: sudo $0"
+    echo "Note that you were running as $ID/$UID"
 	exit 1
 fi
+
+echo "You are now running as $ID/$UID"
 
 COMMAND=$1
 

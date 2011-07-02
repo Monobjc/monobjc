@@ -20,24 +20,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-
 using System;
-using System.Reflection;
-using System.Resources;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using Monobjc.Foundation;
 
-[assembly: AssemblyTitle("Monobjc Bridge - CoreLocation Library")]
-[assembly: AssemblyDescription("Monobjc Bridge CoreLocation Library")]
-[assembly: AssemblyCompany("Monobjc Project")]
-[assembly: AssemblyProduct("Monobjc Bridge Project")]
-[assembly: AssemblyCopyright("Copyright (c) Monobjc Project 2007-2011 - Licensed under MIT License")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-[assembly: NeutralResourcesLanguage("en-US")]
-[assembly: ComVisible(false)]
-[assembly: Guid("9bc78801-45d0-e4ab-4556-1e0a067fa8c1")]
-
-#if TESTING
-[assembly: InternalsVisibleTo("Monobjc.CoreLocation.Tests")]
+namespace Monobjc.ApplicationServices
+{
+#if MACOSX_10_5
+    /// <summary>
+    /// <para>This callback can be specified to obtain the matching font descriptors of a collection in sorted order. The callback function should return the comparison result of the first descriptor to the second descriptor.</para>
+    /// <para>Available in Mac OS X v10.5 and later.</para>
+    /// </summary>
+    public delegate NSComparisonResult CTFontCollectionSortDescriptorsCallback(IntPtr first, IntPtr second, IntPtr refCon);
 #endif
+}

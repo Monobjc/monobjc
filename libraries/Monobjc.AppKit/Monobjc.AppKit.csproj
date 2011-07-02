@@ -129,6 +129,42 @@
     <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGShading.cs">
       <Link>ApplicationServices_T\CGShading.cs</Link>
     </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CTFont.cs">
+      <Link>ApplicationServices_T\CTFont.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CTFontCollection.cs">
+      <Link>ApplicationServices_T\CTFontCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CTFontDescriptor.cs">
+      <Link>ApplicationServices_T\CTFontDescriptor.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CTFontManager.cs">
+      <Link>ApplicationServices_T\CTFontManager.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CTFrame.cs">
+      <Link>ApplicationServices_T\CTFrame.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CTFramesetter.cs">
+      <Link>ApplicationServices_T\CTFramesetter.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CTGlyphInfo.cs">
+      <Link>ApplicationServices_T\CTGlyphInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CTLine.cs">
+      <Link>ApplicationServices_T\CTLine.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CTParagraphStyle.cs">
+      <Link>ApplicationServices_T\CTParagraphStyle.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CTRun.cs">
+      <Link>ApplicationServices_T\CTRun.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CTTextTab.cs">
+      <Link>ApplicationServices_T\CTTextTab.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CTTypesetter.cs">
+      <Link>ApplicationServices_T\CTTypesetter.cs</Link>
+    </Compile>
     <Compile Include="AppKit_C\CIColor_AppKitAdditions.cs" />
     <Compile Include="AppKit_C\CIImage_AppKitAdditions.cs" />
     <Compile Include="AppKit_C\NSActionCell.Class.cs" />
@@ -1013,6 +1049,7 @@
     <Compile Include="AppKit_T\AppKitFramework.Constants.cs" />
     <Compile Include="AppKit_T\AppKitFramework.DataTypes.cs" />
     <Compile Include="AppKit_T\AppKitFramework.Functions.cs" />
+    <Compile Include="ApplicationServices_Extensions\CTFontCollectionSortDescriptorsCallback.cs" />
     <Compile Include="ApplicationServices_Functions\CGBitmapContextReleaseDataCallback.cs" />
     <Compile Include="ApplicationServices_Functions\CGDataConsumerCallbacks.cs" />
     <Compile Include="ApplicationServices_Functions\CGDataConsumerPutBytesCallback.cs" />
@@ -1032,6 +1069,7 @@
     <Compile Include="ApplicationServices_Functions\CGDataProviderSkipBytesCallback.cs" />
     <Compile Include="ApplicationServices_Functions\CGDataProviderSkipForwardCallback.cs" />
     <Compile Include="ApplicationServices_Functions\CGPDFOperatorCallback.cs" />
+    <Compile Include="ApplicationServices_S\CTParagraphStyleSetting.cs" />
     <Compile Include="CoreData_C\NSAtomicStore.Class.cs" />
     <Compile Include="CoreData_C\NSAtomicStore.Constructors.cs" />
     <Compile Include="CoreData_C\NSAtomicStore.cs" />

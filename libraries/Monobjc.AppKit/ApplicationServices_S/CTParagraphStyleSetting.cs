@@ -20,24 +20,33 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-
 using System;
-using System.Reflection;
-using System.Resources;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Monobjc Bridge - CoreLocation Library")]
-[assembly: AssemblyDescription("Monobjc Bridge CoreLocation Library")]
-[assembly: AssemblyCompany("Monobjc Project")]
-[assembly: AssemblyProduct("Monobjc Bridge Project")]
-[assembly: AssemblyCopyright("Copyright (c) Monobjc Project 2007-2011 - Licensed under MIT License")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-[assembly: NeutralResourcesLanguage("en-US")]
-[assembly: ComVisible(false)]
-[assembly: Guid("9bc78801-45d0-e4ab-4556-1e0a067fa8c1")]
+namespace Monobjc.ApplicationServices
+{
+#if MACOSX_10_5
+    /// <summary>
+    /// <para>This structure is used to alter the paragraph style.</para>
+    /// <para>Available in Mac OS X v10.5 and later.</para>
+    /// </summary>
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct CTParagraphStyleSetting
+    {
+        /// <summary>
+        /// <para>The specifier of the setting. See “CTParagraphStyleSpecifier” for possible values.</para>
+        /// </summary>
+        public CTParagraphStyleSpecifier spec;
 
-#if TESTING
-[assembly: InternalsVisibleTo("Monobjc.CoreLocation.Tests")]
+        /// <summary>
+        /// <para>The size of the value pointed to by the value field. This value must match the size of the value required by the CTParagraphStyleSpecifier set in the spec field.</para>
+        /// </summary>
+        public IntPtr valueSize;
+
+        /// <summary>
+        /// <para>A reference to the value of the setting specified by the spec field. The value must be in the proper range for the spec value and at least as large as the size specified in valueSize.</para>
+        /// </summary>
+        public IntPtr value;
+    }
 #endif
+}

@@ -195,4 +195,7 @@
   <data name="ObjectiveCFrameworkString" xml:space="preserve">
     <value>ObjectiveCFramework[IsSystem = '{0}']</value>
   </data>
+  <data name="BlockCannotBeUnmarshalled" xml:space="preserve">
+    <value>Block cannot be unmarshalled</value>
+  </data>
 </root>

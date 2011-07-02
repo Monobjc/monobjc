@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Attributes.cs" />
     <Compile Include="Class.cs" />
+    <Compile Include="BlockMarshaler.cs" />
     <Compile Include="Id.Methods.cs" />
     <Compile Include="Exception.cs" />
     <Compile Include="Generators\BlockGenerator.cs" />
