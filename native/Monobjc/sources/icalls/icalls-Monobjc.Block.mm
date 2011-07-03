@@ -46,8 +46,8 @@ void *icall_Monobjc_Block_CreateBlock(void *function) {
     
     // Create the layout then
     Block_layout *layout = g_new(Block_layout, 1);
-    layout->isa = objc_lookUpClass("__NSConcreteGlobalBlock");
-    layout->flags = BLOCK_IS_GLOBAL | BLOCK_HAS_DESCRIPTOR;
+    layout->isa = objc_lookUpClass("__NSStackBlock");
+    layout->flags = BLOCK_HAS_DESCRIPTOR;
     layout->reserved = 0;
     layout->invoke = (void (*)(void *, ...)) function;
     layout->descriptor = descriptor;

@@ -14,9 +14,12 @@ _ReSharper*
 *.suo
 *.user
 *.userprefs
+*.xcworkspace
 Monobjc-*/
 Monobjc-*.pkg
 Monobjc-*.tar.gz
 Monobjc-*.txt
 runtime
 TestResult.xml
+xcuserdata/
+
