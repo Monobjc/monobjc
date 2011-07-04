@@ -103,7 +103,7 @@
   <echo file="${package.dir}/content/Install.sh"><![CDATA[#!/bin/bash
 cd "$2"
 chmod a+x ./Monobjc.sh
-./Monobjc.sh install
+sudo ./Monobjc.sh install
 ]]></echo>
   <exec program="chmod">
     <arg value="a+x"/>

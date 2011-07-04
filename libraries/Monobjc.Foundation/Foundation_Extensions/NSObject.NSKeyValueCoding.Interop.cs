@@ -27,6 +27,30 @@ namespace Monobjc.Foundation
     public partial class NSObject
     {
         /// <summary>
+        /// <para>Returns the value for the property identified by a given key.</para>
+        /// <para>Original signature is '- (id)valueForKey:(NSString *)key'</para>
+        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// </summary>
+        /// <param name="key">The name of one of the receiver's properties.</param>
+        /// <returns>The value for the property identified by key.</returns>
+        public virtual T ValueForKey<T>(NSString key) where T : Id
+        {
+            return ObjectiveCRuntime.SendMessage<T>(this, "valueForKey:", key);
+        }
+
+        /// <summary>
+        /// <para>Returns the value for the derived property identified by a given key path.</para>
+        /// <para>Original signature is '- (id)valueForKeyPath:(NSString *)keyPath'</para>
+        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// </summary>
+        /// <param name="keyPath">A key path of the form relationship.property (with one or more relationships); for example “department.name” or “department.manager.lastName”.</param>
+        /// <returns>The value for the derived property identified by keyPath.</returns>
+        public virtual T ValueForKeyPath<T>(NSString keyPath) where T : Id
+        {
+            return ObjectiveCRuntime.SendMessage<T>(this, "valueForKeyPath:", keyPath);
+        }
+
+        /// <summary>
         /// <para>Sets the property of the receiver specified by a given key to a given value.</para>
         /// <para>Original signature is '- (void)setValue:(id)value forKey:(NSString *)key'</para>
         /// <para>Available in Mac OS X v10.3 and later.</para>
