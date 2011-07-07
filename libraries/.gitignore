@@ -7,8 +7,13 @@ AppKit_P
 AppKit_T
 ApplicationServices_E
 ApplicationServices_T
+AVFoundation_C
+AVFoundation_P
+AVFoundation_T
 CoreData_C
 CoreData_T
+CoreMedia_C
+CoreMedia_T
 CoreFoundation_T
 CoreLocation_C
 CoreLocation_P

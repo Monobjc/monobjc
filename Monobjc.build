@@ -22,11 +22,12 @@
   <property name="testing" value="false"/>
 
   <property name="min.version" value="10.5"/>
-  <property name="max.version" value="10.6"/>
+  <property name="max.version" value="10.7"/>
   
   <property name="arch.profile" value="universal-32" unless="${property::exists('arch.profile')}"/>
   <property name="arch-10.5" value="i386 ppc" unless="${property::exists('arch-10.5')}"/>
   <property name="arch-10.6" value="i386" unless="${property::exists('arch-10.6')}"/>
+  <property name="arch-10.7" value="i386" unless="${property::exists('arch-10.7')}"/>
 
   <property name="strip.sources" value="${file::exists('strip.sh')}"/>
 
@@ -76,8 +77,6 @@
   Build an archive with the sources and the binaries
   ================================================================================ -->
   <target name="tarball" description="Builds an archive with the sources and the binaries" depends="archive">
-    <property name="archive.prefix" value="Monobjc-3.0.${revision}.0"/>
-
     <!-- Archive content -->
     <tar compression="GZip" destfile="${archive.prefix}.tar.gz">
       <fileset basedir="${archive.prefix}" prefix="${archive.prefix}">
@@ -90,8 +89,6 @@
   Build an installable package from the archive
   ================================================================================ -->
   <target name="package" description="Build an installable package from the archive" depends="archive">
-    <property name="archive.prefix" value="Monobjc-3.0.${revision}.0"/>
-    
     <!-- Prepare the content -->
     <copy todir="${package.dir}/content">
       <fileset basedir="${archive.prefix}">
@@ -117,7 +114,7 @@ sudo ./Monobjc.sh install
       <include name="**/*"/>
     </fileset>
     <filterchain>
-      <replacestring from="version>1.0" to="version>3.0.${revision}" />
+      <replacestring from="version>1.0" to="version>4.0.${revision}" />
     </filterchain>
   </copy>
   
@@ -139,15 +136,18 @@ sudo ./Monobjc.sh install
 
     <!-- Compute the revision -->
     <property name="revision" value="${timespan::get-days(datetime::now() - datetime::parse('2007-07-01'))}"/>
-    
+    <property name="archive.prefix" value="Monobjc-4.0.${revision}.0"/>
+	
     <!-- Compute the native architectures -->
     <if test="${arch.profile=='universal-32'}">
-    <property name="arch-10.5" value="i386 ppc"/>
-    <property name="arch-10.6" value="i386"/>
+      <property name="arch-10.5" value="i386 ppc"/>
+      <property name="arch-10.6" value="i386"/>
+      <property name="arch-10.7" value="i386"/>
     </if>
     <if test="${arch.profile=='universal-32-64'}">
-    <property name="arch-10.5" value="i386 ppc x86_64"/>
-    <property name="arch-10.6" value="i386 x86_64"/>
+      <property name="arch-10.5" value="i386 ppc x86_64"/>
+      <property name="arch-10.6" value="i386 x86_64"/>
+      <property name="arch-10.7" value="i386 x86_64"/>
     </if>
   </target>
 
@@ -163,7 +163,6 @@ sudo ./Monobjc.sh install
 
   <!-- Archive the files -->
   <target name="archive" description="Archive the files" depends="build-tools,build-libraries">
-    <property name="archive.prefix" value="Monobjc-3.0.${revision}.0"/>
     <exec program="strip.sh" if="${strip.sources}"/>
     <property name="libraries.stripped.dir" value="stripped.libraries"/>
     

@@ -11,16 +11,6 @@ echo "Installer                              "
 echo "======================================="
 echo
 
-ID=`id -un`
-if [ $ID != "root" ]; then
-	echo "!!! You must run this script as a sudoer !!!"
-	echo "Please launch this script by typing: sudo $0"
-    echo "Note that you were running as $ID/$UID"
-	exit 1
-fi
-
-echo "You are now running as $ID/$UID"
-
 COMMAND=$1
 
 MONO_DIR="/Library/Frameworks/Mono.framework/Versions/Current"
@@ -34,7 +24,7 @@ fi
 #
 function install {
 
-    VERSIONS="10.5 10.6"
+    VERSIONS="10.5 10.6 10.7"
 
     # Perform the installation for each version
     for version in $VERSIONS; do
@@ -124,7 +114,7 @@ EOF
 #
 function uninstall {
 
-    VERSIONS="10.5 10.6"
+    VERSIONS="10.5 10.6 10.7"
     ASSEMBLIES=`gacutil -l | grep Monobjc | awk -F"," '{ print $1 }' | sort -u`
 
     # Remove assemblies from the GAC

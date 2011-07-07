@@ -70,6 +70,13 @@
       <property name="define" value="TESTING;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT" if="${testing}"/>
       <call target="build-libraries-intern" if="${version::get-minor(version::parse(max.version)) >= 6}"/>
     </if>
+
+    <if test="${version::get-minor(version::parse(min.version)) &lt;= 7}" >
+      <property name="version" value="10.7"/>
+      <property name="define" value="MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;HAVE_BLOCK_SUPPORT" unless="${testing}"/>
+      <property name="define" value="TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;HAVE_BLOCK_SUPPORT" if="${testing}"/>
+      <call target="build-libraries-intern" if="${version::get-minor(version::parse(max.version)) >= 7}"/>
+    </if>
   </target>
 
   <!-- ===============================================================================

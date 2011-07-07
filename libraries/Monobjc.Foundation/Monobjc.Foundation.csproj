@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;HAVE_BLOCK_SUPPORT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -40,9 +40,48 @@
     <Compile Include="ApplicationServices_S\CGFloat.Conversion.cs" />
     <Compile Include="CoreFoundation_T\CFType.cs" />
     <Compile Include="Foundation_C\NSClassDescription.Constants.cs" />
+    <Compile Include="Foundation_C\NSDataDetector.Class.cs" />
+    <Compile Include="Foundation_C\NSDataDetector.Constructors.cs" />
+    <Compile Include="Foundation_C\NSDataDetector.cs" />
+    <Compile Include="Foundation_C\NSDataDetector.Protocols.cs" />
     <Compile Include="Foundation_C\NSDate.Constants.cs" />
+    <Compile Include="Foundation_C\NSFileCoordinator.Class.cs" />
+    <Compile Include="Foundation_C\NSFileCoordinator.Constants.cs" />
+    <Compile Include="Foundation_C\NSFileCoordinator.Constructors.cs" />
+    <Compile Include="Foundation_C\NSFileCoordinator.cs" />
+    <Compile Include="Foundation_C\NSFileSecurity.Class.cs" />
+    <Compile Include="Foundation_C\NSFileSecurity.Constructors.cs" />
+    <Compile Include="Foundation_C\NSFileSecurity.cs" />
+    <Compile Include="Foundation_C\NSFileSecurity.Protocols.cs" />
+    <Compile Include="Foundation_C\NSFileVersion.Class.cs" />
+    <Compile Include="Foundation_C\NSFileVersion.Constants.cs" />
+    <Compile Include="Foundation_C\NSFileVersion.cs" />
+    <Compile Include="Foundation_C\NSJSONSerialization.Class.cs" />
+    <Compile Include="Foundation_C\NSJSONSerialization.Constants.cs" />
+    <Compile Include="Foundation_C\NSJSONSerialization.cs" />
+    <Compile Include="Foundation_C\NSLinguisticTagger.Class.cs" />
+    <Compile Include="Foundation_C\NSLinguisticTagger.Constants.cs" />
+    <Compile Include="Foundation_C\NSLinguisticTagger.Constructors.cs" />
+    <Compile Include="Foundation_C\NSLinguisticTagger.cs" />
+    <Compile Include="Foundation_C\NSMetadataItem.Constants.cs" />
+    <Compile Include="Foundation_C\NSMutableOrderedSet.Class.cs" />
+    <Compile Include="Foundation_C\NSMutableOrderedSet.Constructors.cs" />
+    <Compile Include="Foundation_C\NSMutableOrderedSet.cs" />
+    <Compile Include="Foundation_C\NSMutableOrderedSet.Protocols.cs" />
+    <Compile Include="Foundation_C\NSOrderedSet.Class.cs" />
+    <Compile Include="Foundation_C\NSOrderedSet.Constructors.cs" />
+    <Compile Include="Foundation_C\NSOrderedSet.cs" />
+    <Compile Include="Foundation_C\NSOrderedSet.Protocols.cs" />
     <Compile Include="Foundation_C\NSPort.Constants.cs" />
+    <Compile Include="Foundation_C\NSRegularExpression.Class.cs" />
+    <Compile Include="Foundation_C\NSRegularExpression.Constants.cs" />
+    <Compile Include="Foundation_C\NSRegularExpression.Constructors.cs" />
+    <Compile Include="Foundation_C\NSRegularExpression.cs" />
+    <Compile Include="Foundation_C\NSRegularExpression.Protocols.cs" />
     <Compile Include="Foundation_C\NSThread.Constants.cs" />
+    <Compile Include="Foundation_C\NSUbiquitousKeyValueStore.Class.cs" />
+    <Compile Include="Foundation_C\NSUbiquitousKeyValueStore.Constants.cs" />
+    <Compile Include="Foundation_C\NSUbiquitousKeyValueStore.cs" />
     <Compile Include="Foundation_C\NSURLCredentialStorage.Constants.cs" />
     <Compile Include="Foundation_Collections\NSMutableIndexSet.ICollection.cs" />
     <Compile Include="Foundation_Collections\NSIndexSet.ICollection.cs" />
@@ -729,6 +768,7 @@
     <Compile Include="Foundation_P\NSFastEnumeration.Protocol.cs" />
     <Compile Include="Foundation_P\NSFileManager.Delegate.cs" />
     <Compile Include="Foundation_P\NSFileManagerDelegate.Protocol.cs" />
+    <Compile Include="Foundation_P\NSFilePresenter.Protocol.cs" />
     <Compile Include="Foundation_P\NSKeyedArchiver.Delegate.cs" />
     <Compile Include="Foundation_P\NSKeyedArchiverDelegate.Protocol.cs" />
     <Compile Include="Foundation_P\NSKeyedUnarchiver.Delegate.cs" />

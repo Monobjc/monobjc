@@ -169,31 +169,6 @@ namespace Monobjc.Security
 
 #if MACOSX_10_5
         /// <summary>
-        /// <para>Retrieves the preferred certificate for the specified name and key use.</para>
-        /// <para>Original signature is 'OSStatus SecCertificateCopyPreference(  CFStringRef name,  CSSM_KEYUSE keyUsage,  SecCertificateRef *certificate );'</para>
-        /// <para>Available in Mac OS X v10.5 and later.</para>
-        /// </summary>
-        /// <param name="name">MISSING</param>
-        /// <param name="keyUsage">MISSING</param>
-        /// <param name="certificate">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecCertificateCopyPreference(NSString name, CSSM_KEYUSE keyUsage, out IntPtr certificate)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(IntPtr.Size);
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            int __result = SecCertificateCopyPreference_Inner(name, keyUsage, __local1);
-            certificate = Marshal.ReadIntPtr(__local1);
-            Marshal.FreeHGlobal(__local1);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecCertificateCopyPreference")]
-        private static extern int SecCertificateCopyPreference_Inner([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (IdMarshaler<NSString>))] NSString name, CSSM_KEYUSE keyUsage, IntPtr certificate);
-
-#endif
-
-#if MACOSX_10_5
-        /// <summary>
         /// <para>Retrieves the public key from a certificate.</para>
         /// <para>Original signature is 'OSStatus SecCertificateCopyPublicKey(  SecCertificateRef certificate,  SecKeyRef *key );'</para>
         /// <para>Available in Mac OS X v10.5 and later.</para>
@@ -230,34 +205,6 @@ namespace Monobjc.Security
 
 #endif
 
-        /// <summary>
-        /// <para>Creates a certificate object based on the specified data, type, and encoding.</para>
-        /// <para>Original signature is 'OSStatus SecCertificateCreateFromData (  const CSSM_DATA *data,  CSSM_CERT_TYPE type,  CSSM_CERT_ENCODING encoding,  SecCertificateRef *certificate );'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
-        /// </summary>
-        /// <param name="data">MISSING</param>
-        /// <param name="type">MISSING</param>
-        /// <param name="encoding">MISSING</param>
-        /// <param name="certificate">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecCertificateCreateFromData(ref CSSM_DATA data, CSSM_CERT_TYPE type, CSSM_CERT_ENCODING encoding, out IntPtr certificate)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof (IntPtr)));
-            IntPtr __local2 = Marshal.AllocHGlobal(IntPtr.Size);
-            Marshal.StructureToPtr(data, __local1, false);
-            Marshal.WriteIntPtr(__local2, IntPtr.Zero);
-            int __result = SecCertificateCreateFromData_Inner(__local1, type, encoding, __local2);
-            data = (CSSM_DATA) Marshal.PtrToStructure(__local1, typeof(CSSM_DATA));
-            certificate = Marshal.ReadIntPtr(__local2);
-            Marshal.FreeHGlobal(__local1);
-            Marshal.FreeHGlobal(__local2);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecCertificateCreateFromData")]
-        private static extern int SecCertificateCreateFromData_Inner(IntPtr data, CSSM_CERT_TYPE type, CSSM_CERT_ENCODING encoding, IntPtr certificate);
-
-
 #if MACOSX_10_6
         /// <summary>
         /// <para>Creates a certificate object from a DER representation of a certificate.</para>
@@ -272,96 +219,6 @@ namespace Monobjc.Security
 
 #endif
 
-#if MACOSX_10_5
-        /// <summary>
-        /// <para>Retrieves the algorithm identifier for a certificate.</para>
-        /// <para>Original signature is 'OSStatus SecCertificateGetAlgorithmID(  SecCertificateRef certificate,  const CSSM_X509_ALGORITHM_IDENTIFIER **algid );'</para>
-        /// <para>Available in Mac OS X v10.5 and later.</para>
-        /// </summary>
-        /// <param name="certificate">MISSING</param>
-        /// <param name="algid">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecCertificateGetAlgorithmID(IntPtr certificate, out IntPtr algid)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(IntPtr.Size);
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            int __result = SecCertificateGetAlgorithmID_Inner(certificate, __local1);
-            algid = Marshal.ReadIntPtr(__local1);
-            Marshal.FreeHGlobal(__local1);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecCertificateGetAlgorithmID")]
-        private static extern int SecCertificateGetAlgorithmID_Inner(IntPtr certificate, IntPtr algid);
-
-#endif
-
-        /// <summary>
-        /// <para>Retrieves the certificate library handle from a certificate object.</para>
-        /// <para>Original signature is 'OSStatus SecCertificateGetCLHandle (  SecCertificateRef certificate,  CSSM_CL_HANDLE *clHandle );'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
-        /// </summary>
-        /// <param name="certificate">MISSING</param>
-        /// <param name="clHandle">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecCertificateGetCLHandle(IntPtr certificate, out IntPtr clHandle)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(IntPtr.Size);
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            int __result = SecCertificateGetCLHandle_Inner(certificate, __local1);
-            clHandle = Marshal.ReadIntPtr(__local1);
-            Marshal.FreeHGlobal(__local1);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecCertificateGetCLHandle")]
-        private static extern int SecCertificateGetCLHandle_Inner(IntPtr certificate, IntPtr clHandle);
-
-
-        /// <summary>
-        /// <para>Retrieves the data for a certificate.</para>
-        /// <para>Original signature is 'OSStatus SecCertificateGetData (  SecCertificateRef certificate,  CSSM_DATA_PTR data );'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
-        /// </summary>
-        /// <param name="certificate">MISSING</param>
-        /// <param name="data">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecCertificateGetData(IntPtr certificate, out CSSM_DATA data)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof (IntPtr)));
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            int __result = SecCertificateGetData_Inner(certificate, __local1);
-            data = (CSSM_DATA) Marshal.PtrToStructure(__local1, typeof(CSSM_DATA));
-            Marshal.FreeHGlobal(__local1);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecCertificateGetData")]
-        private static extern int SecCertificateGetData_Inner(IntPtr certificate, IntPtr data);
-
-
-        /// <summary>
-        /// <para>Unsupported.</para>
-        /// <para>Original signature is 'OSStatus SecCertificateGetIssuer (  SecCertificateRef certificate,  CSSM_X509_NAME *issuer );'</para>
-        /// <para>Available in VERSION and later.</para>
-        /// </summary>
-        /// <param name="certificate">MISSING</param>
-        /// <param name="issuer">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecCertificateGetIssuer(IntPtr certificate, out CSSM_X509_NAME issuer)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof (IntPtr)));
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            int __result = SecCertificateGetIssuer_Inner(certificate, __local1);
-            issuer = (CSSM_X509_NAME) Marshal.PtrToStructure(__local1, typeof(CSSM_X509_NAME));
-            Marshal.FreeHGlobal(__local1);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecCertificateGetIssuer")]
-        private static extern int SecCertificateGetIssuer_Inner(IntPtr certificate, IntPtr issuer);
-
-
         /// <summary>
         /// <para>Unsupported.</para>
         /// <para>Original signature is 'OSStatus SecCertificateGetItem (  SecCertificateRef certificate,  SecKeychainItemRef *item );'</para>
@@ -369,7 +226,7 @@ namespace Monobjc.Security
         /// </summary>
         /// <param name="certificate">MISSING</param>
         /// <param name="item">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
+        /// <returns>A value that identifies the opaque type of a SecCertificateRef object.</returns>
         public static int SecCertificateGetItem(IntPtr certificate, out IntPtr item)
         {
             IntPtr __local1 = Marshal.AllocHGlobal(IntPtr.Size);
@@ -382,50 +239,6 @@ namespace Monobjc.Security
 
         [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecCertificateGetItem")]
         private static extern int SecCertificateGetItem_Inner(IntPtr certificate, IntPtr item);
-
-
-        /// <summary>
-        /// <para>Unsupported.</para>
-        /// <para>Original signature is 'OSStatus SecCertificateGetSubject (  SecCertificateRef certificate,  CSSM_X509_NAME *subject );'</para>
-        /// <para>Available in VERSION and later.</para>
-        /// </summary>
-        /// <param name="certificate">MISSING</param>
-        /// <param name="subject">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecCertificateGetSubject(IntPtr certificate, out CSSM_X509_NAME subject)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof (IntPtr)));
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            int __result = SecCertificateGetSubject_Inner(certificate, __local1);
-            subject = (CSSM_X509_NAME) Marshal.PtrToStructure(__local1, typeof(CSSM_X509_NAME));
-            Marshal.FreeHGlobal(__local1);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecCertificateGetSubject")]
-        private static extern int SecCertificateGetSubject_Inner(IntPtr certificate, IntPtr subject);
-
-
-        /// <summary>
-        /// <para>Retrieves the type of a specified certificate.</para>
-        /// <para>Original signature is 'OSStatus SecCertificateGetType (  SecCertificateRef certificate,  CSSM_CERT_TYPE *certificateType );'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
-        /// </summary>
-        /// <param name="certificate">MISSING</param>
-        /// <param name="certificateType">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecCertificateGetType(IntPtr certificate, out CSSM_CERT_TYPE certificateType)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof (IntPtr)));
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            int __result = SecCertificateGetType_Inner(certificate, __local1);
-            certificateType = (CSSM_CERT_TYPE) Marshal.ReadInt32(__local1);
-            Marshal.FreeHGlobal(__local1);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecCertificateGetType")]
-        private static extern int SecCertificateGetType_Inner(IntPtr certificate, IntPtr certificateType);
 
 
 #if MACOSX_10_5
@@ -480,32 +293,6 @@ namespace Monobjc.Security
         [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecIdentityCopyCertificate")]
         private static extern int SecIdentityCopyCertificate_Inner(IntPtr identityRef, IntPtr certificateRef);
 
-
-#if MACOSX_10_5
-        /// <summary>
-        /// <para>Returns the preferred identity for the specified name and key use.</para>
-        /// <para>Original signature is 'OSStatus SecIdentityCopyPreference(  CFStringRef name,  CSSM_KEYUSE keyUsage,  CFArrayRef validIssuers,  SecIdentityRef *identity );'</para>
-        /// <para>Available in Mac OS X v10.5 and later.</para>
-        /// </summary>
-        /// <param name="name">MISSING</param>
-        /// <param name="keyUsage">MISSING</param>
-        /// <param name="validIssuers">MISSING</param>
-        /// <param name="identity">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecIdentityCopyPreference(NSString name, CSSM_KEYUSE keyUsage, NSArray validIssuers, out IntPtr identity)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(IntPtr.Size);
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            int __result = SecIdentityCopyPreference_Inner(name, keyUsage, validIssuers, __local1);
-            identity = Marshal.ReadIntPtr(__local1);
-            Marshal.FreeHGlobal(__local1);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecIdentityCopyPreference")]
-        private static extern int SecIdentityCopyPreference_Inner([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (IdMarshaler<NSString>))] NSString name, CSSM_KEYUSE keyUsage, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (IdMarshaler<NSArray>))] NSArray validIssuers, IntPtr identity);
-
-#endif
 
         /// <summary>
         /// <para>Retrieves the private key associated with an identity.</para>
@@ -583,66 +370,6 @@ namespace Monobjc.Security
 
 #endif
 
-        /// <summary>
-        /// <para>Finds the next identity matching specified search criteria</para>
-        /// <para>Original signature is 'OSStatus SecIdentitySearchCopyNext (  SecIdentitySearchRef searchRef,  SecIdentityRef *identity );'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
-        /// </summary>
-        /// <param name="searchRef">MISSING</param>
-        /// <param name="identity">MISSING</param>
-        /// <returns>A result code. When there are no more identities that match the parameters specified to SecIdentitySearchCreate, errSecItemNotFound is returned. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecIdentitySearchCopyNext(IntPtr searchRef, out IntPtr identity)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(IntPtr.Size);
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            int __result = SecIdentitySearchCopyNext_Inner(searchRef, __local1);
-            identity = Marshal.ReadIntPtr(__local1);
-            Marshal.FreeHGlobal(__local1);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecIdentitySearchCopyNext")]
-        private static extern int SecIdentitySearchCopyNext_Inner(IntPtr searchRef, IntPtr identity);
-
-
-        /// <summary>
-        /// <para>Creates a search object for finding identities.</para>
-        /// <para>Original signature is 'OSStatus SecIdentitySearchCreate (  CFTypeRef keychainOrArray,  CSSM_KEYUSE keyUsage,  SecIdentitySearchRef *searchRef );'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
-        /// </summary>
-        /// <param name="keychainOrArray">MISSING</param>
-        /// <param name="keyUsage">MISSING</param>
-        /// <param name="searchRef">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecIdentitySearchCreate(IntPtr keychainOrArray, CSSM_KEYUSE keyUsage, out IntPtr searchRef)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(IntPtr.Size);
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            int __result = SecIdentitySearchCreate_Inner(keychainOrArray, keyUsage, __local1);
-            searchRef = Marshal.ReadIntPtr(__local1);
-            Marshal.FreeHGlobal(__local1);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecIdentitySearchCreate")]
-        private static extern int SecIdentitySearchCreate_Inner(IntPtr keychainOrArray, CSSM_KEYUSE keyUsage, IntPtr searchRef);
-
-
-#if MACOSX_10_5
-        /// <summary>
-        /// <para>Sets the preferred identity for the specified name and key use.</para>
-        /// <para>Original signature is 'OSStatus SecIdentitySetPreference(  SecIdentityRef identity,  CFStringRef name,  CSSM_KEYUSE keyUsage );'</para>
-        /// <para>Available in Mac OS X v10.5 and later.</para>
-        /// </summary>
-        /// <param name="identity">MISSING</param>
-        /// <param name="name">MISSING</param>
-        /// <param name="keyUsage">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecIdentitySetPreference")]
-        public static extern int SecIdentitySetPreference(IntPtr identity, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (IdMarshaler<NSString>))] NSString name, CSSM_KEYUSE keyUsage);
-
-#endif
-
 #if MACOSX_10_5
         /// <summary>
         /// <para>Assigns the system-wide identity to be associated with a specified domain.</para>
@@ -657,68 +384,18 @@ namespace Monobjc.Security
 
 #endif
 
+#if MACOSX_10_7
         /// <summary>
-        /// <para>Creates an asymmetric key pair and stores it in a keychain.</para>
-        /// <para>Original signature is 'OSStatus SecKeyCreatePair (  SecKeychainRef keychainRef,  CSSM_ALGORITHMS algorithm,  uint32 keySizeInBits,  CSSM_CC_HANDLE contextHandle,  CSSM_KEYUSE publicKeyUsage,  uint32 publicKeyAttr,  CSSM_KEYUSE privateKeyUsage,  uint32 privateKeyAttr,  SecAccessRef initialAccess,  SecKeyRef *publicKey,  SecKeyRef *privateKey );'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
+        /// <para>Creates an asymmetric key pair.</para>
+        /// <para>Original signature is 'OSStatus SecKeyGeneratePair (  CFDictionaryRef parameters,  SecKeyRef *publicKey,  SecKeyRef *privateKey );'</para>
+        /// <para>Available in Mac OS X v10.7 and later.</para>
         /// </summary>
-        /// <param name="keychainRef">MISSING</param>
-        /// <param name="algorithm">MISSING</param>
-        /// <param name="keySizeInBits">MISSING</param>
-        /// <param name="contextHandle">MISSING</param>
-        /// <param name="publicKeyUsage">MISSING</param>
-        /// <param name="publicKeyAttr">MISSING</param>
-        /// <param name="privateKeyUsage">MISSING</param>
-        /// <param name="privateKeyAttr">MISSING</param>
-        /// <param name="initialAccess">MISSING</param>
+        /// <param name="parameters">MISSING</param>
         /// <param name="publicKey">MISSING</param>
         /// <param name="privateKey">MISSING</param>
         /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecKeyCreatePair(IntPtr keychainRef, CSSM_ALGORITHMS algorithm, uint keySizeInBits, ulong contextHandle, CSSM_KEYUSE publicKeyUsage, uint publicKeyAttr, CSSM_KEYUSE privateKeyUsage, uint privateKeyAttr, IntPtr initialAccess, out IntPtr publicKey, out IntPtr privateKey)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(IntPtr.Size);
-            IntPtr __local2 = Marshal.AllocHGlobal(IntPtr.Size);
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            Marshal.WriteIntPtr(__local2, IntPtr.Zero);
-            int __result = SecKeyCreatePair_Inner(keychainRef, algorithm, keySizeInBits, contextHandle, publicKeyUsage, publicKeyAttr, privateKeyUsage, privateKeyAttr, initialAccess, __local1, __local2);
-            publicKey = Marshal.ReadIntPtr(__local1);
-            privateKey = Marshal.ReadIntPtr(__local2);
-            Marshal.FreeHGlobal(__local1);
-            Marshal.FreeHGlobal(__local2);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecKeyCreatePair")]
-        private static extern int SecKeyCreatePair_Inner(IntPtr keychainRef, CSSM_ALGORITHMS algorithm, uint keySizeInBits, ulong contextHandle, CSSM_KEYUSE publicKeyUsage, uint publicKeyAttr, CSSM_KEYUSE privateKeyUsage, uint privateKeyAttr, IntPtr initialAccess, IntPtr publicKey, IntPtr privateKey);
-
-
-#if MACOSX_10_5
-        /// <summary>
-        /// <para>Creates a symmetric key and optionally stores it in a keychain.</para>
-        /// <para>Original signature is 'OSStatus SecKeyGenerate(  SecKeychainRef keychainRef,  CSSM_ALGORITHMS algorithm,  uint32 keySizeInBits,  CSSM_CC_HANDLE contextHandle,  CSSM_KEYUSE keyUsage,  uint32 keyAttr,  SecAccessRef initialAccess,  SecKeyRef* keyRef );'</para>
-        /// <para>Available in Mac OS X v10.5 and later.</para>
-        /// </summary>
-        /// <param name="keychainRef">MISSING</param>
-        /// <param name="algorithm">MISSING</param>
-        /// <param name="keySizeInBits">MISSING</param>
-        /// <param name="contextHandle">MISSING</param>
-        /// <param name="keyUsage">MISSING</param>
-        /// <param name="keyAttr">MISSING</param>
-        /// <param name="initialAccess">MISSING</param>
-        /// <param name="keyRef">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecKeyGenerate(IntPtr keychainRef, CSSM_ALGORITHMS algorithm, uint keySizeInBits, ulong contextHandle, CSSM_KEYUSE keyUsage, uint keyAttr, IntPtr initialAccess, out IntPtr keyRef)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(IntPtr.Size);
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            int __result = SecKeyGenerate_Inner(keychainRef, algorithm, keySizeInBits, contextHandle, keyUsage, keyAttr, initialAccess, __local1);
-            keyRef = Marshal.ReadIntPtr(__local1);
-            Marshal.FreeHGlobal(__local1);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecKeyGenerate")]
-        private static extern int SecKeyGenerate_Inner(IntPtr keychainRef, CSSM_ALGORITHMS algorithm, uint keySizeInBits, ulong contextHandle, CSSM_KEYUSE keyUsage, uint keyAttr, IntPtr initialAccess, IntPtr keyRef);
+        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecKeyGeneratePair")]
+        public static extern int SecKeyGeneratePair([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (IdMarshaler<NSDictionary>))] NSDictionary parameters, out IntPtr publicKey, out IntPtr privateKey);
 
 #endif
 
@@ -749,78 +426,6 @@ namespace Monobjc.Security
         private static extern uint SecKeyGetBlockSize_32(IntPtr key);
 
 #endif
-
-#if MACOSX_10_5
-        /// <summary>
-        /// <para>Returns an access credential for a key.</para>
-        /// <para>Original signature is 'OSStatus SecKeyGetCredentials(  SecKeyRef keyRef,  CSSM_ACL_AUTHORIZATION_TAG operation,  SecCredentialType credentialType,  const CSSM_ACCESS_CREDENTIALS **outCredentials );'</para>
-        /// <para>Available in Mac OS X v10.5 and later.</para>
-        /// </summary>
-        /// <param name="keyRef">MISSING</param>
-        /// <param name="operation">MISSING</param>
-        /// <param name="credentialType">MISSING</param>
-        /// <param name="outCredentials">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecKeyGetCredentials(IntPtr keyRef, CSSM_ACL_AUTHORIZATION_TAG operation, SecCredentialType credentialType, out IntPtr outCredentials)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(IntPtr.Size);
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            int __result = SecKeyGetCredentials_Inner(keyRef, operation, credentialType, __local1);
-            outCredentials = Marshal.ReadIntPtr(__local1);
-            Marshal.FreeHGlobal(__local1);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecKeyGetCredentials")]
-        private static extern int SecKeyGetCredentials_Inner(IntPtr keyRef, CSSM_ACL_AUTHORIZATION_TAG operation, SecCredentialType credentialType, IntPtr outCredentials);
-
-#endif
-
-#if MACOSX_10_5
-        /// <summary>
-        /// <para>Returns the CSSM CSP handle for a key.</para>
-        /// <para>Original signature is 'OSStatus SecKeyGetCSPHandle(  SecKeyRef keyRef,  CSSM_CSP_HANDLE *cspHandle );'</para>
-        /// <para>Available in Mac OS X v10.5 and later.</para>
-        /// </summary>
-        /// <param name="keyRef">MISSING</param>
-        /// <param name="cspHandle">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecKeyGetCSPHandle(IntPtr keyRef, out IntPtr cspHandle)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(IntPtr.Size);
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            int __result = SecKeyGetCSPHandle_Inner(keyRef, __local1);
-            cspHandle = Marshal.ReadIntPtr(__local1);
-            Marshal.FreeHGlobal(__local1);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecKeyGetCSPHandle")]
-        private static extern int SecKeyGetCSPHandle_Inner(IntPtr keyRef, IntPtr cspHandle);
-
-#endif
-
-        /// <summary>
-        /// <para>Retrieves a pointer to the CSSM_KEY structure containing the key stored in a keychain item.</para>
-        /// <para>Original signature is 'OSStatus SecKeyGetCSSMKey (  SecKeyRef key,  const CSSM_KEY **cssmKey );'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
-        /// </summary>
-        /// <param name="key">MISSING</param>
-        /// <param name="cssmKey">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecKeyGetCSSMKey(IntPtr key, out IntPtr cssmKey)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(IntPtr.Size);
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            int __result = SecKeyGetCSSMKey_Inner(key, __local1);
-            cssmKey = Marshal.ReadIntPtr(__local1);
-            Marshal.FreeHGlobal(__local1);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecKeyGetCSSMKey")]
-        private static extern int SecKeyGetCSSMKey_Inner(IntPtr key, IntPtr cssmKey);
-
 
 #if MACOSX_10_6
         /// <summary>
@@ -873,147 +478,73 @@ namespace Monobjc.Security
 
 #endif
 
+#if MACOSX_10_7
         /// <summary>
-        /// <para>Retrieves a policy’s object identifier.</para>
-        /// <para>Original signature is 'OSStatus SecPolicyGetOID (  SecPolicyRef policyRef,  CSSM_OID *oid );'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
+        /// <para>Returns the public key for a leaf certificate after it has been evaluated.</para>
+        /// <para>Original signature is 'SecKeyRef SecTrustCopyPublicKey (  SecTrustRef trust );'</para>
+        /// <para>Available in Mac OS X v10.7 and later.</para>
         /// </summary>
-        /// <param name="policyRef">MISSING</param>
-        /// <param name="oid">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecPolicyGetOID(IntPtr policyRef, out CSSM_DATA oid)
+        /// <param name="trust">MISSING</param>
+        /// <returns>The leaf certificate's public key, or NULL if it the public key could not be extracted (this can happen with DSA certificate chains if the parameters in the chain cannot be found). Call the CFRelease function to release this object when you are finished with it.</returns>
+        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecTrustCopyPublicKey")]
+        public static extern IntPtr SecTrustCopyPublicKey(IntPtr trust);
+
+#endif
+
+#if MACOSX_10_7
+        /// <summary>
+        /// <para>Returns a specific certificate from the certificate chain used to evaluate trust.</para>
+        /// <para>Original signature is 'SecCertificateRef SecTrustGetCertificateAtIndex (  SecTrustRef trust,  CFIndex ix );'</para>
+        /// <para>Available in Mac OS X v10.7 and later.</para>
+        /// </summary>
+        /// <param name="trust">MISSING</param>
+        /// <param name="ix">MISSING</param>
+        /// <returns>A certificate object for the requested certificate.</returns>
+        public static IntPtr SecTrustGetCertificateAtIndex(IntPtr trust, NSInteger ix)
         {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof (IntPtr)));
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            int __result = SecPolicyGetOID_Inner(policyRef, __local1);
-            oid = (CSSM_DATA) Marshal.PtrToStructure(__local1, typeof(CSSM_DATA));
-            Marshal.FreeHGlobal(__local1);
-            return __result;
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                return SecTrustGetCertificateAtIndex_64(trust, (long) ix);
+            }
+            else
+            {
+                return SecTrustGetCertificateAtIndex_32(trust, (int) ix);
+            }
         }
 
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecPolicyGetOID")]
-        private static extern int SecPolicyGetOID_Inner(IntPtr policyRef, IntPtr oid);
+        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecTrustGetCertificateAtIndex")]
+        private static extern IntPtr SecTrustGetCertificateAtIndex_64(IntPtr trust, long ix);
 
+        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecTrustGetCertificateAtIndex")]
+        private static extern IntPtr SecTrustGetCertificateAtIndex_32(IntPtr trust, int ix);
 
+#endif
+
+#if MACOSX_10_7
         /// <summary>
-        /// <para>Retrieves the trust policy handle for a policy object.</para>
-        /// <para>Original signature is 'OSStatus SecPolicyGetTPHandle (  SecPolicyRef policyRef,  CSSM_TP_HANDLE *tpHandle );'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
+        /// <para>Returns the number of certificates in an evaluated certificate chain.</para>
+        /// <para>Original signature is 'CFIndex SecTrustGetCertificateCount (  SecTrustRef trust );'</para>
+        /// <para>Available in Mac OS X v10.7 and later.</para>
         /// </summary>
-        /// <param name="policyRef">MISSING</param>
-        /// <param name="tpHandle">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecPolicyGetTPHandle(IntPtr policyRef, out IntPtr tpHandle)
+        /// <param name="trust">MISSING</param>
+        /// <returns>The number of certificates in the certificate chain.</returns>
+        public static NSInteger SecTrustGetCertificateCount(IntPtr trust)
         {
-            IntPtr __local1 = Marshal.AllocHGlobal(IntPtr.Size);
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            int __result = SecPolicyGetTPHandle_Inner(policyRef, __local1);
-            tpHandle = Marshal.ReadIntPtr(__local1);
-            Marshal.FreeHGlobal(__local1);
-            return __result;
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                return (NSInteger) SecTrustGetCertificateCount_64(trust);
+            }
+            else
+            {
+                return (NSInteger) SecTrustGetCertificateCount_32(trust);
+            }
         }
 
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecPolicyGetTPHandle")]
-        private static extern int SecPolicyGetTPHandle_Inner(IntPtr policyRef, IntPtr tpHandle);
+        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecTrustGetCertificateCount")]
+        private static extern long SecTrustGetCertificateCount_64(IntPtr trust);
 
-
-        /// <summary>
-        /// <para>Retrieves a policy’s value.</para>
-        /// <para>Original signature is 'OSStatus SecPolicyGetValue (  SecPolicyRef policyRef,  CSSM_DATA *value );'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
-        /// </summary>
-        /// <param name="policyRef">MISSING</param>
-        /// <param name="value">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecPolicyGetValue(IntPtr policyRef, out CSSM_DATA value)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof (IntPtr)));
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            int __result = SecPolicyGetValue_Inner(policyRef, __local1);
-            value = (CSSM_DATA) Marshal.PtrToStructure(__local1, typeof(CSSM_DATA));
-            Marshal.FreeHGlobal(__local1);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecPolicyGetValue")]
-        private static extern int SecPolicyGetValue_Inner(IntPtr policyRef, IntPtr value);
-
-
-        /// <summary>
-        /// <para>Retrieves a policy object for the next policy matching specified search criteria.</para>
-        /// <para>Original signature is 'OSStatus SecPolicySearchCopyNext (  SecPolicySearchRef searchRef,  SecPolicyRef *policyRef );'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
-        /// </summary>
-        /// <param name="searchRef">MISSING</param>
-        /// <param name="policyRef">MISSING</param>
-        /// <returns>A result code. When there are no more policies that match the parameters specified to SecPolicySearchCreate, errSecPolicyNotFound is returned. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecPolicySearchCopyNext(IntPtr searchRef, out IntPtr policyRef)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(IntPtr.Size);
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            int __result = SecPolicySearchCopyNext_Inner(searchRef, __local1);
-            policyRef = Marshal.ReadIntPtr(__local1);
-            Marshal.FreeHGlobal(__local1);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecPolicySearchCopyNext")]
-        private static extern int SecPolicySearchCopyNext_Inner(IntPtr searchRef, IntPtr policyRef);
-
-
-        /// <summary>
-        /// <para>Creates a search object for finding policies.</para>
-        /// <para>Original signature is 'OSStatus SecPolicySearchCreate (  CSSM_CERT_TYPE certType,  const CSSM_OID *policyOID,  const CSSM_DATA *value,  SecPolicySearchRef *searchRef );'</para>
-        /// <para>Available in Mac OS X v10.2 and later.</para>
-        /// </summary>
-        /// <param name="certType">MISSING</param>
-        /// <param name="policyOID">MISSING</param>
-        /// <param name="value">MISSING</param>
-        /// <param name="searchRef">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecPolicySearchCreate(CSSM_CERT_TYPE certType, ref CSSM_DATA policyOID, ref CSSM_DATA value, out IntPtr searchRef)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof (IntPtr)));
-            IntPtr __local2 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof (IntPtr)));
-            IntPtr __local3 = Marshal.AllocHGlobal(IntPtr.Size);
-            Marshal.StructureToPtr(policyOID, __local1, false);
-            Marshal.StructureToPtr(value, __local2, false);
-            Marshal.WriteIntPtr(__local3, IntPtr.Zero);
-            int __result = SecPolicySearchCreate_Inner(certType, __local1, __local2, __local3);
-            policyOID = (CSSM_DATA) Marshal.PtrToStructure(__local1, typeof(CSSM_DATA));
-            value = (CSSM_DATA) Marshal.PtrToStructure(__local2, typeof(CSSM_DATA));
-            searchRef = Marshal.ReadIntPtr(__local3);
-            Marshal.FreeHGlobal(__local1);
-            Marshal.FreeHGlobal(__local2);
-            Marshal.FreeHGlobal(__local3);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecPolicySearchCreate")]
-        private static extern int SecPolicySearchCreate_Inner(CSSM_CERT_TYPE certType, IntPtr policyOID, IntPtr value, IntPtr searchRef);
-
-
-#if MACOSX_10_5
-        /// <summary>
-        /// <para>Sets a policy's value.</para>
-        /// <para>Original signature is 'OSStatus SecPolicySetValue(  SecPolicyRef policyRef,  const CSSM_DATA *value );'</para>
-        /// <para>Available in Mac OS X v10.5 and later.</para>
-        /// </summary>
-        /// <param name="policyRef">MISSING</param>
-        /// <param name="value">MISSING</param>
-        /// <returns>A result code. See “Certificate, Key, and Trust Services Result Codes.”</returns>
-        public static int SecPolicySetValue(IntPtr policyRef, ref CSSM_DATA value)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof (IntPtr)));
-            Marshal.StructureToPtr(value, __local1, false);
-            int __result = SecPolicySetValue_Inner(policyRef, __local1);
-            value = (CSSM_DATA) Marshal.PtrToStructure(__local1, typeof(CSSM_DATA));
-            Marshal.FreeHGlobal(__local1);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecPolicySetValue")]
-        private static extern int SecPolicySetValue_Inner(IntPtr policyRef, IntPtr value);
+        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="SecTrustGetCertificateCount")]
+        private static extern int SecTrustGetCertificateCount_32(IntPtr trust);
 
 #endif
 
