@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Monobjc.CoreLocation</RootNamespace>
     <AssemblyName>Monobjc.CoreLocation</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -43,6 +43,11 @@
     <Compile Include="CoreLocation_C\CLLocationManager.Class.cs" />
     <Compile Include="CoreLocation_C\CLLocationManager.Constants.cs" />
     <Compile Include="CoreLocation_C\CLLocationManager.cs" />
+    <Compile Include="CoreLocation_C\CLRegion.Class.cs" />
+    <Compile Include="CoreLocation_C\CLRegion.Constructors.cs" />
+    <Compile Include="CoreLocation_C\CLRegion.cs" />
+    <Compile Include="CoreLocation_C\CLRegion.Protocols.cs" />
+    <Compile Include="CoreLocation_E\CLAuthorizationStatus.cs" />
     <Compile Include="CoreLocation_P\CLLocationManager.Delegate.cs" />
     <Compile Include="CoreLocation_P\CLLocationManagerDelegate.Protocol.cs" />
     <Compile Include="CoreLocation_S\CLLocationCoordinate2D.cs" />

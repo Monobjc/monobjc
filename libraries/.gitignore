@@ -16,6 +16,7 @@ CoreMedia_C
 CoreMedia_T
 CoreFoundation_T
 CoreLocation_C
+CoreLocation_E
 CoreLocation_P
 CoreLocation_T
 CorePlot_C
