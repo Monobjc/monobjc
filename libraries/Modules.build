@@ -108,18 +108,25 @@
       </attributes>
     </asminfo>
 
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+    </assemblyfileset>
+    
     <!-- Library Monobjc -->
     <property name="lib.name" value="Monobjc"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/**/*.cs"/>
     </fileset>
+    <call target="build-library-intern"/>
+
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
       <include name="System.Core.dll"/>
+      <include name="Monobjc.dll"/>
     </assemblyfileset>
-    <call target="build-library-intern"/>
-
+    
     <!-- Library Monobjc.Foundation -->
     <property name="lib.name" value="Monobjc.Foundation"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -138,13 +145,15 @@
       <include name="${base.dir}/${lib.name}/Foundation_T/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
     </fileset>
+    <call target="build-library-intern"/>
+
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
       <include name="System.Core.dll"/>
       <include name="Monobjc.dll"/>
+      <include name="Monobjc.Foundation.dll"/>
     </assemblyfileset>
-    <call target="build-library-intern"/>
-
+    
     <!-- Library Monobjc.CoreLocation -->
     <property name="lib.name" value="Monobjc.CoreLocation"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -157,12 +166,6 @@
       <include name="${base.dir}/${lib.name}/CoreLocation_S/*.cs"/>
       <include name="${base.dir}/${lib.name}/CoreLocation_T/*.cs"/>
     </fileset>
-    <assemblyfileset id="lib.references" basedir="${output.dir}">
-      <include name="System.dll"/>
-      <include name="System.Core.dll"/>
-      <include name="Monobjc.dll"/>
-      <include name="Monobjc.Foundation.dll"/>
-    </assemblyfileset>
     <call target="build-library-intern"/>
 
     <!-- Library Monobjc.DiscRecording -->
@@ -217,6 +220,14 @@
     </fileset>
     <call target="build-library-intern"/>
 
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+      <include name="Monobjc.dll"/>
+      <include name="Monobjc.Foundation.dll"/>
+      <include name="Monobjc.Security.dll"/>
+    </assemblyfileset>
+    
     <!-- Library Monobjc.SecurityFoundation -->
     <property name="lib.name" value="Monobjc.SecurityFoundation"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -228,15 +239,17 @@
       <include name="${base.dir}/${lib.name}/SecurityFoundation_T/Security*.cs"/>
       <exclude name="${base.dir}/${lib.name}/SecurityFoundation_T/KeyChainServices.cs"/>
     </fileset>
+    <call target="build-library-intern"/>
+
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
       <include name="System.Core.dll"/>
       <include name="Monobjc.dll"/>
       <include name="Monobjc.Foundation.dll"/>
       <include name="Monobjc.Security.dll"/>
+      <include name="Monobjc.SecurityFoundation.dll"/>
     </assemblyfileset>
-    <call target="build-library-intern"/>
-
+    
     <!-- Library Monobjc.CoreWLAN -->
     <property name="lib.name" value="Monobjc.CoreWLAN"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -246,16 +259,15 @@
       <include name="${base.dir}/${lib.name}/CoreWLAN_T/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
     </fileset>
+    <call target="build-library-intern"/>
+
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
       <include name="System.Core.dll"/>
       <include name="Monobjc.dll"/>
       <include name="Monobjc.Foundation.dll"/>
-      <include name="Monobjc.Security.dll"/>
-      <include name="Monobjc.SecurityFoundation.dll"/>
     </assemblyfileset>
-    <call target="build-library-intern"/>
-
+    
     <!-- Library Monobjc.AppKit -->
     <property name="lib.name" value="Monobjc.AppKit"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -266,6 +278,7 @@
       <include name="${base.dir}/${lib.name}/AppKit_Extensions/*.cs"/>
       <include name="${base.dir}/${lib.name}/AppKit_P/*.cs"/>
       <exclude name="${base.dir}/${lib.name}/AppKit_P/*.Deprecated.Protocol.cs"/>
+      <include name="${base.dir}/${lib.name}/AppKit_S/*.cs"/>
       <include name="${base.dir}/${lib.name}/AppKit_T/*.cs"/>
       <include name="${base.dir}/${lib.name}/ApplicationServices_Functions/*.cs"/>
       <include name="${base.dir}/${lib.name}/ApplicationServices_Extensions/*.cs"/>
@@ -284,13 +297,15 @@
       <include name="${base.dir}/${lib.name}/QuartzCore_S/*.cs"/>
       <include name="${base.dir}/${lib.name}/QuartzCore_T/*.cs"/>
     </fileset>
+    <call target="build-library-intern"/>
+
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
       <include name="System.Core.dll"/>
       <include name="Monobjc.dll"/>
       <include name="Monobjc.Foundation.dll"/>
+      <include name="Monobjc.AppKit.dll"/>
     </assemblyfileset>
-    <call target="build-library-intern"/>
 
     <!-- Library Monobjc.AddressBook -->
     <property name="lib.name" value="Monobjc.AddressBook"/>
@@ -302,13 +317,17 @@
       <include name="${base.dir}/${lib.name}/AddressBook_T/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
     </fileset>
-    <assemblyfileset id="lib.references" basedir="${output.dir}">
-      <include name="System.dll"/>
-      <include name="System.Core.dll"/>
-      <include name="Monobjc.dll"/>
-      <include name="Monobjc.Foundation.dll"/>
-      <include name="Monobjc.AppKit.dll"/>
-    </assemblyfileset>
+    <call target="build-library-intern"/>
+
+    <!-- Library Monobjc.CoreMedia -->
+    <property name="lib.name" value="Monobjc.CoreMedia"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/CoreMedia_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/CoreMedia_T/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+    </fileset>
     <call target="build-library-intern"/>
 
     <!-- Library Monobjc.CorePlot -->
@@ -410,6 +429,36 @@
     </fileset>
     <call target="build-library-intern"/>
 
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+      <include name="Monobjc.dll"/>
+      <include name="Monobjc.Foundation.dll"/>
+      <include name="Monobjc.CoreMedia.dll"/>
+      <include name="Monobjc.AppKit.dll"/>
+    </assemblyfileset>
+    
+    <!-- Library Monobjc.AVFoundation -->
+    <property name="lib.name" value="Monobjc.AVFoundation"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${version.info}"/>
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/AVFoundation_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/AVFoundation_P/*.cs"/>
+      <include name="${base.dir}/${lib.name}/AVFoundation_T/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+    </fileset>
+    <call target="build-library-intern"/>
+
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+      <include name="Monobjc.dll"/>
+      <include name="Monobjc.Foundation.dll"/>
+      <include name="Monobjc.DiscRecording.dll"/>
+      <include name="Monobjc.AppKit.dll"/>
+    </assemblyfileset>
+    
     <!-- Library Monobjc.DiscRecordingUI -->
     <property name="lib.name" value="Monobjc.DiscRecordingUI"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -422,16 +471,18 @@
       <include name="${base.dir}/${lib.name}/DiscRecordingUI_T/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
     </fileset>
+    <call target="build-library-intern"/>
+
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
       <include name="System.Core.dll"/>
       <include name="Monobjc.dll"/>
       <include name="Monobjc.Foundation.dll"/>
-      <include name="Monobjc.DiscRecording.dll"/>
+      <include name="Monobjc.Security.dll"/>
+      <include name="Monobjc.SecurityFoundation.dll"/>
       <include name="Monobjc.AppKit.dll"/>
     </assemblyfileset>
-    <call target="build-library-intern"/>
-
+    
     <!-- Library Monobjc.SecurityInterface -->
     <property name="lib.name" value="Monobjc.SecurityInterface"/>
     <fileset id="src.references" basedir="${output.dir}">
@@ -443,15 +494,6 @@
       <include name="${base.dir}/${lib.name}/SecurityInterface_Extensions/*.cs"/>
       <include name="${base.dir}/${lib.name}/SecurityInterface_T/*.cs"/>
     </fileset>
-    <assemblyfileset id="lib.references" basedir="${output.dir}">
-      <include name="System.dll"/>
-      <include name="System.Core.dll"/>
-      <include name="Monobjc.dll"/>
-      <include name="Monobjc.Foundation.dll"/>
-      <include name="Monobjc.Security.dll"/>
-      <include name="Monobjc.SecurityFoundation.dll"/>
-      <include name="Monobjc.AppKit.dll"/>
-    </assemblyfileset>
     <call target="build-library-intern"/>
 
   </target>

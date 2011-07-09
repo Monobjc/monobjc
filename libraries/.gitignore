@@ -12,7 +12,6 @@ AVFoundation_P
 AVFoundation_T
 CoreData_C
 CoreData_T
-CoreMedia_C
 CoreMedia_T
 CoreFoundation_T
 CoreLocation_C

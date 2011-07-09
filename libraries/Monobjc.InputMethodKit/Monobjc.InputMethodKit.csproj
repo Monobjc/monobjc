@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Monobjc.InputMethodKit</RootNamespace>
     <AssemblyName>Monobjc.InputMethodKit</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -40,6 +40,7 @@
     <Compile Include="InputMethodKit_C\IMKCandidates.Constants.cs" />
     <Compile Include="InputMethodKit_C\IMKCandidates.Constructors.cs" />
     <Compile Include="InputMethodKit_C\IMKCandidates.cs" />
+    <Compile Include="InputMethodKit_C\IMKCandidates.Protocols.cs" />
     <Compile Include="InputMethodKit_C\IMKInputController.Class.cs" />
     <Compile Include="InputMethodKit_C\IMKInputController.Constructors.cs" />
     <Compile Include="InputMethodKit_C\IMKInputController.cs" />

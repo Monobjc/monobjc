@@ -963,6 +963,7 @@
     <Compile Include="AppKit_Extensions\NSTableView.Action.cs" />
     <Compile Include="AppKit_Extensions\NSToolbarItem.Action.cs" />
     <Compile Include="AppKit_Extensions\NSWorkspace.Interop.cs" />
+    <Compile Include="AppKit_E\NSTableViewGridLineStyle.cs" />
     <Compile Include="AppKit_E\NSTrackingAreaOptions.cs" />
     <Compile Include="AppKit_P\NSAccessibility.Constants.cs" />
     <Compile Include="AppKit_P\NSAccessibility.Protocol.cs" />

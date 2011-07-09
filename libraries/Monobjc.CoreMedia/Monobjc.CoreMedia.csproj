@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Monobjc.CoreMedia</RootNamespace>
     <AssemblyName>Monobjc.CoreMedia</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,33 +36,29 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CoreMedia_C\CMAttachment.Class.cs" />
-    <Compile Include="CoreMedia_C\CMAttachment.Constants.cs" />
-    <Compile Include="CoreMedia_C\CMAttachment.cs" />
-    <Compile Include="CoreMedia_C\CMBlockBuffer.Class.cs" />
-    <Compile Include="CoreMedia_C\CMBlockBuffer.Constants.cs" />
-    <Compile Include="CoreMedia_C\CMBlockBuffer.cs" />
-    <Compile Include="CoreMedia_C\CMBufferQueue.Class.cs" />
-    <Compile Include="CoreMedia_C\CMBufferQueue.Constants.cs" />
-    <Compile Include="CoreMedia_C\CMBufferQueue.cs" />
-    <Compile Include="CoreMedia_C\CMFormatDescription.Class.cs" />
-    <Compile Include="CoreMedia_C\CMFormatDescription.Constants.cs" />
-    <Compile Include="CoreMedia_C\CMFormatDescription.cs" />
-    <Compile Include="CoreMedia_C\CMSampleBuffer.Class.cs" />
-    <Compile Include="CoreMedia_C\CMSampleBuffer.Constants.cs" />
-    <Compile Include="CoreMedia_C\CMSampleBuffer.cs" />
-    <Compile Include="CoreMedia_C\CMTime.Class.cs" />
-    <Compile Include="CoreMedia_C\CMTime.Constants.cs" />
-    <Compile Include="CoreMedia_C\CMTime.cs" />
-    <Compile Include="CoreMedia_C\CMTimeRange.Class.cs" />
-    <Compile Include="CoreMedia_C\CMTimeRange.Constants.cs" />
-    <Compile Include="CoreMedia_C\CMTimeRange.cs" />
-    <Compile Include="CoreMedia_T\CoreMedia.Constants.cs" />
+    <Compile Include="CoreMedia_S\CMBlockBufferCustomBlockSource.cs" />
+    <Compile Include="CoreMedia_S\CMTime.cs" />
+    <Compile Include="CoreMedia_S\CMTimeMapping.cs" />
+    <Compile Include="CoreMedia_S\CMTimeRange.cs" />
+    <Compile Include="CoreMedia_T\CMAttachment.cs" />
+    <Compile Include="CoreMedia_T\CMBlockBuffer.cs" />
+    <Compile Include="CoreMedia_T\CMBufferQueue.cs" />
+    <Compile Include="CoreMedia_T\CMFormatDescription.cs" />
+    <Compile Include="CoreMedia_T\CMSampleBuffer.cs" />
+    <Compile Include="CoreMedia_T\CMTime.cs" />
+    <Compile Include="CoreMedia_T\CMTimeRange.cs" />
+    <Compile Include="CoreMedia_T\CoreMedia.Constants.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="CoreMedia_T\CoreMedia.DataTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
+      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
+      <Name>Monobjc.AppKit</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
       <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
       <Name>Monobjc.Foundation</Name>
@@ -71,6 +68,7 @@
       <Name>Monobjc</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
