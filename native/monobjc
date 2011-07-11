@@ -7,8 +7,12 @@ case $(uname -r) in
 	10.*)
 		"/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/monobjc-10.6/runtime" $@
 	;;
+	11.*)
+		"/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/monobjc-10.6/runtime" $@
+	;;
 	*)
 		echo "Unsupported version of Mac OS X"
+		uname -r
 		exit 1
 	;;
 esac
