@@ -24,31 +24,21 @@ using Monobjc.Foundation;
 
 namespace Monobjc.CorePlot
 {
-    public partial class CPTTradingRangePlot
+    public partial class CPTPieChart
     {
         /// <summary>
-        ///   <para>X values.</para>
+        ///   <para>Pie slice width.</para>
         /// </summary>
-        public static readonly NSNumber FieldX = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldX);
+        public static readonly NSNumber FieldSliceWidth = new NSNumber((int) CPTPieChartField.CPTPieChartFieldSliceWidth);
 
         /// <summary>
-        ///   <para>Open values.</para>
+        ///   <para>Pie slice width normalized [0, 1].</para>
         /// </summary>
-        public static readonly NSNumber FieldOpen = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldOpen);
+        public static readonly NSNumber FieldSliceWidthNormalized = new NSNumber((int) CPTPieChartField.CPTPieChartFieldSliceWidthNormalized);
 
         /// <summary>
-        ///   <para>High values.</para>
+        ///   <para>Cumulative sum of pie slice widths.</para>
         /// </summary>
-        public static readonly NSNumber FieldHigh = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldHigh);
-
-        /// <summary>
-        ///   <para>Low values.</para>
-        /// </summary>
-        public static readonly NSNumber FieldLow = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldLow);
-
-        /// <summary>
-        ///   <para>Close values.</para>
-        /// </summary>
-        public static readonly NSNumber FieldClose = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldClose);
+        public static readonly NSNumber FieldSliceWidthSum = new NSNumber((int) CPTPieChartField.CPTPieChartFieldSliceWidthSum);
     }
 }

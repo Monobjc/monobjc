@@ -24,31 +24,21 @@ using Monobjc.Foundation;
 
 namespace Monobjc.CorePlot
 {
-    public partial class CPTTradingRangePlot
+    public partial class CPTBarPlot
     {
         /// <summary>
-        ///   <para>X values.</para>
+        ///   <para>Bar location on independent coordinate axis.</para>
         /// </summary>
-        public static readonly NSNumber FieldX = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldX);
+        public static readonly NSNumber FieldBarLocation = new NSNumber((int) CPTBarPlotField.CPTBarPlotFieldBarLocation);
 
         /// <summary>
-        ///   <para>Open values.</para>
+        ///   <para>Bar tip value.</para>
         /// </summary>
-        public static readonly NSNumber FieldOpen = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldOpen);
+        public static readonly NSNumber FieldBarTip = new NSNumber((int) CPTBarPlotField.CPTBarPlotFieldBarTip);
 
         /// <summary>
-        ///   <para>High values.</para>
+        ///   <para>Bar base (if baseValue is nil.)</para>
         /// </summary>
-        public static readonly NSNumber FieldHigh = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldHigh);
-
-        /// <summary>
-        ///   <para>Low values.</para>
-        /// </summary>
-        public static readonly NSNumber FieldLow = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldLow);
-
-        /// <summary>
-        ///   <para>Close values.</para>
-        /// </summary>
-        public static readonly NSNumber FieldClose = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldClose);
+        public static readonly NSNumber FieldBarBase = new NSNumber((int) CPTBarPlotField.CPTBarPlotFieldBarBase);
     }
 }

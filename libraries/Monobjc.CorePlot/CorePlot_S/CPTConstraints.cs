@@ -20,35 +20,23 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using Monobjc.Foundation;
+using System.Runtime.InteropServices;
 
 namespace Monobjc.CorePlot
 {
-    public partial class CPTTradingRangePlot
+    /// <summary>
+    /// Constraints for a relative position.
+    /// </summary>
+    [StructLayout(LayoutKind.Sequential)]
+    public struct CPTConstraints
     {
         /// <summary>
-        ///   <para>X values.</para>
+        /// The constraint on the lower range.
         /// </summary>
-        public static readonly NSNumber FieldX = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldX);
-
+        public CPTConstraint lower;
         /// <summary>
-        ///   <para>Open values.</para>
+        /// The constraint on the upper range.
         /// </summary>
-        public static readonly NSNumber FieldOpen = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldOpen);
-
-        /// <summary>
-        ///   <para>High values.</para>
-        /// </summary>
-        public static readonly NSNumber FieldHigh = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldHigh);
-
-        /// <summary>
-        ///   <para>Low values.</para>
-        /// </summary>
-        public static readonly NSNumber FieldLow = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldLow);
-
-        /// <summary>
-        ///   <para>Close values.</para>
-        /// </summary>
-        public static readonly NSNumber FieldClose = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldClose);
+        public CPTConstraint upper;
     }
 }

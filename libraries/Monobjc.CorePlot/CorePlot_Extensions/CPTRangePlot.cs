@@ -24,31 +24,36 @@ using Monobjc.Foundation;
 
 namespace Monobjc.CorePlot
 {
-    public partial class CPTTradingRangePlot
+    public partial class CPTRangePlot
     {
         /// <summary>
         ///   <para>X values.</para>
         /// </summary>
-        public static readonly NSNumber FieldX = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldX);
+        public static readonly NSNumber FieldX = new NSNumber((int) CPTRangePlotField.CPTRangePlotFieldX);
 
         /// <summary>
-        ///   <para>Open values.</para>
+        ///   <para>Y values.</para>
         /// </summary>
-        public static readonly NSNumber FieldOpen = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldOpen);
+        public static readonly NSNumber FieldY = new NSNumber((int) CPTRangePlotField.CPTRangePlotFieldY);
 
         /// <summary>
-        ///   <para>High values.</para>
+        ///   <para>relative High values.</para>
         /// </summary>
-        public static readonly NSNumber FieldHigh = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldHigh);
+        public static readonly NSNumber FieldHigh = new NSNumber((int) CPTRangePlotField.CPTRangePlotFieldHigh);
 
         /// <summary>
-        ///   <para>Low values.</para>
+        ///   <para>relative Low values.</para>
         /// </summary>
-        public static readonly NSNumber FieldLow = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldLow);
+        public static readonly NSNumber FieldLow = new NSNumber((int) CPTRangePlotField.CPTRangePlotFieldLow);
 
         /// <summary>
-        ///   <para>Close values.</para>
+        ///   <para>relative Left values.</para>
         /// </summary>
-        public static readonly NSNumber FieldClose = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldClose);
+        public static readonly NSNumber FieldLeft = new NSNumber((int) CPTRangePlotField.CPTRangePlotFieldLeft);
+
+        /// <summary>
+        ///   <para>relative Right values.</para>
+        /// </summary>
+        public static readonly NSNumber FieldRight = new NSNumber((int) CPTRangePlotField.CPTRangePlotFieldRight);
     }
 }

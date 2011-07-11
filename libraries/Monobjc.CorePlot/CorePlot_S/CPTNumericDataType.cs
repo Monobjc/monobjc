@@ -20,35 +20,44 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using Monobjc.Foundation;
+using System.Runtime.InteropServices;
 
 namespace Monobjc.CorePlot
 {
-    public partial class CPTTradingRangePlot
+    /// <summary>
+    /// Struct that describes the encoding of numeric data samples.
+    /// </summary>
+    [ObjectiveCUnderlyingType(typeof(CPTNumericDataType), Is64Bits = false)]
+    [ObjectiveCUnderlyingType(typeof(CPTNumericDataType64), Is64Bits = true)]
+    [StructLayout(LayoutKind.Sequential)]
+    public struct CPTNumericDataType
     {
         /// <summary>
-        ///   <para>X values.</para>
+        /// Data type format
         /// </summary>
-        public static readonly NSNumber FieldX = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldX);
+        public CPTDataTypeFormat dataTypeFormat;
 
         /// <summary>
-        ///   <para>Open values.</para>
+        /// Number of bytes in each sample
         /// </summary>
-        public static readonly NSNumber FieldOpen = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldOpen);
+        public uint sampleBytes;
 
         /// <summary>
-        ///   <para>High values.</para>
+        /// Byte order
         /// </summary>
-        public static readonly NSNumber FieldHigh = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldHigh);
+        public int byteOrder;
 
         /// <summary>
-        ///   <para>Low values.</para>
+        /// Initializes a new instance of the <see cref="CPNumericDataType"/> struct.
         /// </summary>
-        public static readonly NSNumber FieldLow = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldLow);
-
-        /// <summary>
-        ///   <para>Close values.</para>
-        /// </summary>
-        public static readonly NSNumber FieldClose = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldClose);
+        /// <param name="dataTypeFormat">The data type format.</param>
+        /// <param name="sampleBytes">The sample bytes.</param>
+        /// <param name="byteOrder">The byte order.</param>
+        public CPTNumericDataType(CPTDataTypeFormat dataTypeFormat, uint sampleBytes, int byteOrder)
+        {
+            this.dataTypeFormat = dataTypeFormat;
+            this.sampleBytes = sampleBytes;
+            this.byteOrder = byteOrder;
+        }
     }
 }

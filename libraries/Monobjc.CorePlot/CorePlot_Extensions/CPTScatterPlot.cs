@@ -24,31 +24,16 @@ using Monobjc.Foundation;
 
 namespace Monobjc.CorePlot
 {
-    public partial class CPTTradingRangePlot
+    public partial class CPTScatterPlot
     {
         /// <summary>
         ///   <para>X values.</para>
         /// </summary>
-        public static readonly NSNumber FieldX = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldX);
+        public static readonly NSNumber FieldX = new NSNumber((int) CPTScatterPlotField.CPTScatterPlotFieldX);
 
         /// <summary>
-        ///   <para>Open values.</para>
+        ///   <para>Y values.</para>
         /// </summary>
-        public static readonly NSNumber FieldOpen = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldOpen);
-
-        /// <summary>
-        ///   <para>High values.</para>
-        /// </summary>
-        public static readonly NSNumber FieldHigh = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldHigh);
-
-        /// <summary>
-        ///   <para>Low values.</para>
-        /// </summary>
-        public static readonly NSNumber FieldLow = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldLow);
-
-        /// <summary>
-        ///   <para>Close values.</para>
-        /// </summary>
-        public static readonly NSNumber FieldClose = new NSNumber((int) CPTTradingRangePlotField.CPTTradingRangePlotFieldClose);
+        public static readonly NSNumber FieldY = new NSNumber((int) CPTScatterPlotField.CPTScatterPlotFieldY);
     }
 }
