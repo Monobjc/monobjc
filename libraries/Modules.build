@@ -46,7 +46,7 @@
     <exec workingdir="${tools.dir}/Monobjc.Generator/bin/Release"
           program="${tools.dir}/Monobjc.Generator/bin/Release/MonobjcGenerator.exe"
           failonerror="true"
-          commandline="-t=retrieve,extract,generate,copy -d=${libraries.dir}"
+          commandline="-s=SnowLeopard -t=retrieve,extract,generate,copy -d=${libraries.dir}"
           unless="${file::exists(marker.file)}">
     </exec>
 
