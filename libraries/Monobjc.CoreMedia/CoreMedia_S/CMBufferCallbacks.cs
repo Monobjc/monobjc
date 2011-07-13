@@ -68,42 +68,42 @@ namespace Monobjc.CoreMedia
 		/// <para></para>
 		/// <para>Available in Mac OS X v10.7 and later.</para>
 		/// </summary>
-		uint version;  
+		public uint version;  
 		/// <summary>
 		/// <para></para>
 		/// <para>Available in Mac OS X v10.7 and later.</para>
 		/// </summary>
-		IntPtr refcon;  
+		public IntPtr refcon;  
 		/// <summary>
 		/// <para></para>
 		/// <para>Available in Mac OS X v10.7 and later.</para>
 		/// </summary>
-		CMBufferGetTimeCallback getDecodeTimeStamp; 
+		public CMBufferGetTimeCallback getDecodeTimeStamp; 
 		/// <summary>
 		/// <para></para>
 		/// <para>Available in Mac OS X v10.7 and later.</para>
 		/// </summary>
-		CMBufferGetTimeCallback getPresentationTimeStamp;   
+		public CMBufferGetTimeCallback getPresentationTimeStamp;   
 		/// <summary>
 		/// <para></para>
 		/// <para>Available in Mac OS X v10.7 and later.</para>
 		/// </summary>
-		CMBufferGetTimeCallback getDuration; 
+		public CMBufferGetTimeCallback getDuration; 
 		/// <summary>
 		/// <para></para>
 		/// <para>Available in Mac OS X v10.7 and later.</para>
 		/// </summary>
-		CMBufferGetBooleanCallback isDataReady; 
+		public CMBufferGetBooleanCallback isDataReady; 
 		/// <summary>
 		/// <para></para>
 		/// <para>Available in Mac OS X v10.7 and later.</para>
 		/// </summary>
-		CMBufferCompareCallback compare;   
+		public CMBufferCompareCallback compare;   
 		/// <summary>
 		/// <para></para>
 		/// <para>Available in Mac OS X v10.7 and later.</para>
 		/// </summary>
-		NSString dataBecameReadyNotification;
+		public NSString dataBecameReadyNotification;
 	}
 #endif
 }

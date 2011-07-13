@@ -143,6 +143,8 @@
       <exclude name="${base.dir}/${lib.name}/Foundation_P/*.Deprecated.Protocol.cs"/>
       <include name="${base.dir}/${lib.name}/Foundation_S/*.cs"/>
       <include name="${base.dir}/${lib.name}/Foundation_T/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Kernel_Extensions/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Kernel_T/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
@@ -287,6 +289,7 @@
       <exclude name="${base.dir}/Monobjc.Foundation/ApplicationServices_T/CGAffineTransform.cs"/>
       <exclude name="${base.dir}/Monobjc.Foundation/ApplicationServices_T/*.Deprecated.cs"/>
       <include name="${base.dir}/${lib.name}/CoreData_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/CoreData_Extensions/*.cs"/>
       <include name="${base.dir}/${lib.name}/CoreData_T/*.cs"/>
       <include name="${base.dir}/${lib.name}/CoreServices_T/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>

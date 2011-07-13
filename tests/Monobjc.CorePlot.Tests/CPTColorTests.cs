@@ -15,27 +15,13 @@
 // You should have received a copy of the GNU General Public License
 // along with Monobjc.  If not, see <http://www.gnu.org/licenses/>.
 //
-using System.Collections.Generic;
 using Monobjc.AppKit;
-using Monobjc.Foundation.Common;
+using NUnit.Framework;
 
 namespace Monobjc.CorePlot
 {
-    public class FrameworkTests : AbstractFrameworkTests
-    {
-        protected override IEnumerable<string> Frameworks
-        {
-            get { return new[] { "Foundation", "AppKit", "CorePlot" }; }
-        }
-
-        protected override string AssemblyName
-        {
-            get { return "Monobjc.CorePlot"; }
-        }
-
-        protected override void EnsureAssemblyIsReferenced()
-        {
-            CPTColor dummy = null;
-        }
-    }
+    [TestFixture]
+    [Category("CPTColor")]
+    [Description("Test with CPTColor wrapper")]
+    public class CPTColorTests : WrapperTests { }
 }
