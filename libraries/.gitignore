@@ -36,6 +36,7 @@ Growl_P
 InputMethodKit_C
 InputMethodKit_P
 JavaScriptCore_C
+Kernel_T
 OpenGL_T
 QTKit_C
 QTKit_E

@@ -37,8 +37,6 @@ namespace Monobjc.CoreMedia
     /// <para></para>
     /// <para>Available in Mac OS X v10.7 and later.</para>
     /// </summary>
-	public delegate int CMSampleBufferCallForEachSampleCallback(IntPtr sampleBuffer, NSInteger index, IntPtr refcon);
-	
-	public delegate int CMSampleBufferMakeDataReadyCallback();
+	public delegate int CMBufferQueueCallback(IntPtr buffer, IntPtr refcon);
 #endif
 }

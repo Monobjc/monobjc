@@ -22,23 +22,27 @@
 // 
 
 using Monobjc;
-using Monobjc.Foundation;
-using Monobjc.AppKit;
-using Monobjc.ApplicationServices;
 using System;
 using System.CodeDom.Compiler;
 using System.Globalization;
 using System.Runtime.InteropServices;
+using Monobjc.Foundation;
 
-namespace Monobjc.CoreMedia
+namespace Monobjc.Kernel
 {
-#if MACOSX_10_7
+#if MACOSX_10_6
     /// <summary>
     /// <para></para>
-    /// <para>Available in Mac OS X v10.7 and later.</para>
+    /// <para>Original signature is 'typedef void (*dispatch_function_t)(void *);'</para>
+    /// <para>Available in Mac OS X v10.6 and later.</para>
     /// </summary>
-	public delegate int CMSampleBufferCallForEachSampleCallback(IntPtr sampleBuffer, NSInteger index, IntPtr refcon);
+	public delegate void dispatch_function_t(IntPtr context);
 	
-	public delegate int CMSampleBufferMakeDataReadyCallback();
+    /// <summary>
+    /// <para></para>
+    /// <para>Original signature is 'typedef void (*work)(void *, size_t)'</para>
+    /// <para>Available in Mac OS X v10.6 and later.</para>
+    /// </summary>
+	public delegate void dispatch_function_tc(IntPtr context, NSUInteger count);
 #endif
 }

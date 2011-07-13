@@ -52,6 +52,7 @@
     <Compile Include="CoreMedia_S\CMBufferCallbacks.cs" />
     <Compile Include="CoreMedia_T\CoreMedia.Constants.cs" />
     <Compile Include="CoreMedia_Extensions\CMSampleBuffer.cs" />
+    <Compile Include="CoreMedia_Extensions\CMBufferQueue.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
