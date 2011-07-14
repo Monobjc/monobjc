@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,7 +12,6 @@
     <AssemblyName>Monobjc.Growl</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,11 +39,10 @@
     <Compile Include="Growl_C\GrowlApplicationBridge.cs" />
     <Compile Include="Growl_C\GrowlDefines_Definitions.Constants.cs" />
     <Compile Include="Growl_C\GrowlDefines_Definitions.cs" />
-    <Compile Include="Growl_P\GrowlApplicationBridge.Delegate.cs" />
-    <Compile Include="Growl_P\GrowlApplicationBridgeDelegate.Protocol.cs" />
-    <Compile Include="Growl_P\GrowlApplicationBridgeInstallationDelegate.Protocol.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
+    <Compile Include="Growl_P\GrowlApplicationBridgeDelegate.Protocol.cs" />
+    <Compile Include="Growl_P\GrowlApplicationBridgeInstallationDelegate.Protocol.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">

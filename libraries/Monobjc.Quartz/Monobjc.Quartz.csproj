@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,7 +12,6 @@
     <AssemblyName>Monobjc.QuartzComposer</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -60,6 +59,45 @@
   -->
   <ItemGroup>
     <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
+    <Compile Include="Quartz_E\PDFAreaOfInterest.cs" />
+    <Compile Include="Quartz_E\PDFBorderStyle.cs" />
+    <Compile Include="Quartz_E\PDFDisplayBox.cs" />
+    <Compile Include="Quartz_E\PDFDisplayMode.cs" />
+    <Compile Include="Quartz_E\PDFLineStyle.cs" />
+    <Compile Include="Quartz_E\PDFMarkupType.cs" />
+    <Compile Include="Quartz_E\PDFTextAnnotationIconType.cs" />
+    <Compile Include="Quartz_P\IKCameraDeviceView.Delegate.cs" />
+    <Compile Include="Quartz_P\IKCameraDeviceViewDelegate.Protocol.cs" />
+    <Compile Include="Quartz_P\IKDeviceBrowserView.Delegate.cs" />
+    <Compile Include="Quartz_P\IKDeviceBrowserViewDelegate.Protocol.cs" />
+    <Compile Include="Quartz_P\IKFilterCustomUIProvider.Protocol.cs" />
+    <Compile Include="Quartz_P\IKImageBrowserDataSource.Protocol.cs" />
+    <Compile Include="Quartz_P\IKImageBrowserDelegate.Protocol.cs" />
+    <Compile Include="Quartz_P\IKImageBrowserItem.Constants.cs" />
+    <Compile Include="Quartz_P\IKImageBrowserItem.Protocol.cs" />
+    <Compile Include="Quartz_P\IKImageEditPanelDataSource.Protocol.cs" />
+    <Compile Include="Quartz_P\IKSaveOptions.Delegate.cs" />
+    <Compile Include="Quartz_P\IKSaveOptionsDelegate.Protocol.cs" />
+    <Compile Include="Quartz_P\IKScannerDeviceView.Delegate.cs" />
+    <Compile Include="Quartz_P\IKScannerDeviceViewDelegate.Protocol.cs" />
+    <Compile Include="Quartz_P\IKSlideshowDataSource.Protocol.cs" />
+    <Compile Include="Quartz_P\PDFDocument.Delegate.cs" />
+    <Compile Include="Quartz_P\PDFDocumentDelegate.Protocol.cs" />
+    <Compile Include="Quartz_P\PDFView.Delegate.cs" />
+    <Compile Include="Quartz_P\PDFViewDelegate.Protocol.cs" />
+    <Compile Include="Quartz_P\QCCompositionParameterView.Delegate.cs" />
+    <Compile Include="Quartz_P\QCCompositionParameterViewDelegate.Protocol.cs" />
+    <Compile Include="Quartz_P\QCCompositionPickerView.Delegate.cs" />
+    <Compile Include="Quartz_P\QCCompositionPickerViewDelegate.Protocol.cs" />
+    <Compile Include="Quartz_P\QCCompositionRenderer.Protocol.cs" />
+    <Compile Include="Quartz_P\QCPlugInContext.Protocol.cs" />
+    <Compile Include="Quartz_P\QCPlugInInputImageSource.Protocol.cs" />
+    <Compile Include="Quartz_P\QCPlugInOutputImageProvider.Protocol.cs" />
+    <Compile Include="Quartz_P\QLPreviewItem.Protocol.cs" />
+    <Compile Include="Quartz_P\QLPreviewPanel.Delegate.cs" />
+    <Compile Include="Quartz_P\QLPreviewPanelDataSource.Protocol.cs" />
+    <Compile Include="Quartz_P\QLPreviewPanelDelegate.Protocol.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quartz_C\CIFilter_ImageKitAdditions.Constants.cs" />
     <Compile Include="Quartz_C\CIFilter_ImageKitAdditions.cs" />
     <Compile Include="Quartz_C\IKCameraDeviceView.Class.cs" />
@@ -125,6 +163,7 @@
     <Compile Include="Quartz_C\IKSlideshow.cs" />
     <Compile Include="Quartz_C\PDFAction.Class.cs" />
     <Compile Include="Quartz_C\PDFAction.cs" />
+    <Compile Include="Quartz_C\PDFAction.Protocols.cs" />
     <Compile Include="Quartz_C\PDFActionGoTo.Class.cs" />
     <Compile Include="Quartz_C\PDFActionGoTo.Constructors.cs" />
     <Compile Include="Quartz_C\PDFActionGoTo.cs" />
@@ -148,49 +187,64 @@
     <Compile Include="Quartz_C\PDFAnnotation.Class.cs" />
     <Compile Include="Quartz_C\PDFAnnotation.Constructors.cs" />
     <Compile Include="Quartz_C\PDFAnnotation.cs" />
+    <Compile Include="Quartz_C\PDFAnnotation.Protocols.cs" />
     <Compile Include="Quartz_C\PDFAnnotationButtonWidget.Class.cs" />
     <Compile Include="Quartz_C\PDFAnnotationButtonWidget.Constants.cs" />
     <Compile Include="Quartz_C\PDFAnnotationButtonWidget.Constructors.cs" />
     <Compile Include="Quartz_C\PDFAnnotationButtonWidget.cs" />
     <Compile Include="Quartz_C\PDFAnnotationButtonWidget.Deprecated.cs" />
+    <Compile Include="Quartz_C\PDFAnnotationButtonWidget.Protocols.cs" />
     <Compile Include="Quartz_C\PDFAnnotationChoiceWidget.Class.cs" />
     <Compile Include="Quartz_C\PDFAnnotationChoiceWidget.Constructors.cs" />
     <Compile Include="Quartz_C\PDFAnnotationChoiceWidget.cs" />
+    <Compile Include="Quartz_C\PDFAnnotationChoiceWidget.Protocols.cs" />
     <Compile Include="Quartz_C\PDFAnnotationCircle.Class.cs" />
     <Compile Include="Quartz_C\PDFAnnotationCircle.Constructors.cs" />
     <Compile Include="Quartz_C\PDFAnnotationCircle.cs" />
+    <Compile Include="Quartz_C\PDFAnnotationCircle.Protocols.cs" />
     <Compile Include="Quartz_C\PDFAnnotationFreeText.Class.cs" />
     <Compile Include="Quartz_C\PDFAnnotationFreeText.Constructors.cs" />
     <Compile Include="Quartz_C\PDFAnnotationFreeText.cs" />
+    <Compile Include="Quartz_C\PDFAnnotationFreeText.Protocols.cs" />
     <Compile Include="Quartz_C\PDFAnnotationInk.Class.cs" />
     <Compile Include="Quartz_C\PDFAnnotationInk.Constructors.cs" />
     <Compile Include="Quartz_C\PDFAnnotationInk.cs" />
+    <Compile Include="Quartz_C\PDFAnnotationInk.Protocols.cs" />
     <Compile Include="Quartz_C\PDFAnnotationLine.Class.cs" />
     <Compile Include="Quartz_C\PDFAnnotationLine.Constructors.cs" />
     <Compile Include="Quartz_C\PDFAnnotationLine.cs" />
+    <Compile Include="Quartz_C\PDFAnnotationLine.Protocols.cs" />
     <Compile Include="Quartz_C\PDFAnnotationLink.Class.cs" />
     <Compile Include="Quartz_C\PDFAnnotationLink.Constructors.cs" />
     <Compile Include="Quartz_C\PDFAnnotationLink.cs" />
+    <Compile Include="Quartz_C\PDFAnnotationLink.Protocols.cs" />
     <Compile Include="Quartz_C\PDFAnnotationMarkup.Class.cs" />
     <Compile Include="Quartz_C\PDFAnnotationMarkup.Constructors.cs" />
     <Compile Include="Quartz_C\PDFAnnotationMarkup.cs" />
+    <Compile Include="Quartz_C\PDFAnnotationMarkup.Protocols.cs" />
     <Compile Include="Quartz_C\PDFAnnotationPopup.Class.cs" />
     <Compile Include="Quartz_C\PDFAnnotationPopup.Constructors.cs" />
     <Compile Include="Quartz_C\PDFAnnotationPopup.cs" />
+    <Compile Include="Quartz_C\PDFAnnotationPopup.Protocols.cs" />
     <Compile Include="Quartz_C\PDFAnnotationSquare.Class.cs" />
     <Compile Include="Quartz_C\PDFAnnotationSquare.Constructors.cs" />
     <Compile Include="Quartz_C\PDFAnnotationSquare.cs" />
+    <Compile Include="Quartz_C\PDFAnnotationSquare.Protocols.cs" />
     <Compile Include="Quartz_C\PDFAnnotationStamp.Class.cs" />
     <Compile Include="Quartz_C\PDFAnnotationStamp.Constructors.cs" />
     <Compile Include="Quartz_C\PDFAnnotationStamp.cs" />
+    <Compile Include="Quartz_C\PDFAnnotationStamp.Protocols.cs" />
     <Compile Include="Quartz_C\PDFAnnotationText.Class.cs" />
     <Compile Include="Quartz_C\PDFAnnotationText.Constructors.cs" />
     <Compile Include="Quartz_C\PDFAnnotationText.cs" />
+    <Compile Include="Quartz_C\PDFAnnotationText.Protocols.cs" />
     <Compile Include="Quartz_C\PDFAnnotationTextWidget.Class.cs" />
     <Compile Include="Quartz_C\PDFAnnotationTextWidget.Constructors.cs" />
     <Compile Include="Quartz_C\PDFAnnotationTextWidget.cs" />
+    <Compile Include="Quartz_C\PDFAnnotationTextWidget.Protocols.cs" />
     <Compile Include="Quartz_C\PDFBorder.Class.cs" />
     <Compile Include="Quartz_C\PDFBorder.cs" />
+    <Compile Include="Quartz_C\PDFBorder.Protocols.cs" />
     <Compile Include="Quartz_C\PDFDestination.Class.cs" />
     <Compile Include="Quartz_C\PDFDestination.Constructors.cs" />
     <Compile Include="Quartz_C\PDFDestination.cs" />
@@ -199,6 +253,7 @@
     <Compile Include="Quartz_C\PDFDocument.Constants.cs" />
     <Compile Include="Quartz_C\PDFDocument.Constructors.cs" />
     <Compile Include="Quartz_C\PDFDocument.cs" />
+    <Compile Include="Quartz_C\PDFDocument.Protocols.cs" />
     <Compile Include="Quartz_C\PDFOutline.Class.cs" />
     <Compile Include="Quartz_C\PDFOutline.Constructors.cs" />
     <Compile Include="Quartz_C\PDFOutline.cs" />
@@ -265,44 +320,5 @@
     <Compile Include="Quartz_C\QLPreviewPanel.Constructors.cs" />
     <Compile Include="Quartz_C\QLPreviewPanel.cs" />
     <Compile Include="Quartz_C\QLPreviewPanel.Protocols.cs" />
-    <Compile Include="Quartz_E\PDFAreaOfInterest.cs" />
-    <Compile Include="Quartz_E\PDFBorderStyle.cs" />
-    <Compile Include="Quartz_E\PDFDisplayBox.cs" />
-    <Compile Include="Quartz_E\PDFDisplayMode.cs" />
-    <Compile Include="Quartz_E\PDFLineStyle.cs" />
-    <Compile Include="Quartz_E\PDFMarkupType.cs" />
-    <Compile Include="Quartz_E\PDFTextAnnotationIconType.cs" />
-    <Compile Include="Quartz_P\IKCameraDeviceView.Delegate.cs" />
-    <Compile Include="Quartz_P\IKCameraDeviceViewDelegate.Protocol.cs" />
-    <Compile Include="Quartz_P\IKDeviceBrowserView.Delegate.cs" />
-    <Compile Include="Quartz_P\IKDeviceBrowserViewDelegate.Protocol.cs" />
-    <Compile Include="Quartz_P\IKFilterCustomUIProvider.Protocol.cs" />
-    <Compile Include="Quartz_P\IKImageBrowserDataSource.Protocol.cs" />
-    <Compile Include="Quartz_P\IKImageBrowserDelegate.Protocol.cs" />
-    <Compile Include="Quartz_P\IKImageBrowserItem.Constants.cs" />
-    <Compile Include="Quartz_P\IKImageBrowserItem.Protocol.cs" />
-    <Compile Include="Quartz_P\IKImageEditPanelDataSource.Protocol.cs" />
-    <Compile Include="Quartz_P\IKSaveOptions.Delegate.cs" />
-    <Compile Include="Quartz_P\IKSaveOptionsDelegate.Protocol.cs" />
-    <Compile Include="Quartz_P\IKScannerDeviceView.Delegate.cs" />
-    <Compile Include="Quartz_P\IKScannerDeviceViewDelegate.Protocol.cs" />
-    <Compile Include="Quartz_P\IKSlideshowDataSource.Protocol.cs" />
-    <Compile Include="Quartz_P\PDFDocument.Delegate.cs" />
-    <Compile Include="Quartz_P\PDFDocumentDelegate.Protocol.cs" />
-    <Compile Include="Quartz_P\PDFView.Delegate.cs" />
-    <Compile Include="Quartz_P\PDFViewDelegate.Protocol.cs" />
-    <Compile Include="Quartz_P\QCCompositionParameterView.Delegate.cs" />
-    <Compile Include="Quartz_P\QCCompositionParameterViewDelegate.Protocol.cs" />
-    <Compile Include="Quartz_P\QCCompositionPickerView.Delegate.cs" />
-    <Compile Include="Quartz_P\QCCompositionPickerViewDelegate.Protocol.cs" />
-    <Compile Include="Quartz_P\QCCompositionRenderer.Protocol.cs" />
-    <Compile Include="Quartz_P\QCPlugInContext.Protocol.cs" />
-    <Compile Include="Quartz_P\QCPlugInInputImageSource.Protocol.cs" />
-    <Compile Include="Quartz_P\QCPlugInOutputImageProvider.Protocol.cs" />
-    <Compile Include="Quartz_P\QLPreviewItem.Protocol.cs" />
-    <Compile Include="Quartz_P\QLPreviewPanel.Delegate.cs" />
-    <Compile Include="Quartz_P\QLPreviewPanelDataSource.Protocol.cs" />
-    <Compile Include="Quartz_P\QLPreviewPanelDelegate.Protocol.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
 </Project>
