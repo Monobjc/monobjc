@@ -95,7 +95,8 @@ EOF
     cp "./dist/Monobjc.Sdp.exe" "$MONO_DIR/lib/mono/2.0/Monobjc.Sdp.exe"
 
     # Copy the NAnt tasks
-    cp "./dist/Monobjc.NAnt.dll" "$MONO_DIR/share/NAnt/bin/extensions/common/2.0/"
+    mkdir -p "$MONO_DIR/share/NAnt/bin/extensions/common/4.0"
+    cp "./dist/Monobjc.NAnt.dll" "$MONO_DIR/share/NAnt/bin/extensions/common/4.0/"
 
     # Copy the runtime wrappers and soft-link them
     cp "./dist/monobjc" "$MONO_DIR/bin/monobjc"
@@ -140,7 +141,7 @@ function uninstall {
     rm -f "$MONO_DIR/bin/monobjc-nunit"
     
     # Remove the NAnt tasks
-    rm -f "$MONO_DIR/share/NAnt/bin/extensions/common/2.0/Monobjc.NAnt.dll"
+    rm -f "$MONO_DIR/share/NAnt/bin/extensions/common/4.0/Monobjc.NAnt.dll"
 }
 
 # Main entry point

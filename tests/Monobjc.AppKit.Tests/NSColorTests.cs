@@ -1,4 +1,4 @@
-﻿//
+//
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2011 - Laurent Etiemble
 //
@@ -15,7 +15,8 @@
 // You should have received a copy of the GNU General Public License
 // along with Monobjc.  If not, see <http://www.gnu.org/licenses/>.
 //
-using Monobjc.Foundation.Common;
+using System;
+using Monobjc.Foundation;
 using NUnit.Framework;
 
 namespace Monobjc.AppKit
@@ -23,5 +24,45 @@ namespace Monobjc.AppKit
     [TestFixture]
     [Category("NSColor")]
     [Description("Test with NSColor wrapper")]
-    public class NSColorTests : WrapperTests { }
+    public class NSColorTests : WrapperTests
+	{
+        [Test]
+        public void TestStaticCreation()
+        {
+			NSColor color;
+		
+            color = NSColor.BlackColor;
+            Check(color);
+			
+            color = NSColor.ColorForControlTint(NSControlTint.NSDefaultControlTint);
+            Check(color);
+			
+            color = NSColor.ColorWithCalibratedHueSaturationBrightnessAlpha(0.5, 0.5, 0.5, 0.5);
+            Check(color);
+			
+            color = NSColor.ColorWithCalibratedRedGreenBlueAlpha(0.5, 0.5, 0.5, 0.5);
+            Check(color);
+			
+            color = NSColor.ColorWithCalibratedWhiteAlpha(0.5, 0.5);
+            Check(color);
+			
+            color = NSColor.ColorWithDeviceCyanMagentaYellowBlackAlpha(0.5, 0.5, 0.5, 0.5, 0.5);
+            Check(color);
+			
+            color = NSColor.ColorWithDeviceHueSaturationBrightnessAlpha(0.5, 0.5, 0.5, 0.5);
+            Check(color);
+			
+            color = NSColor.ColorWithDeviceRedGreenBlueAlpha(0.5, 0.5, 0.5, 0.5);
+            Check(color);
+			
+            color = NSColor.ColorWithDeviceWhiteAlpha(0.5, 0.5);
+            Check(color);
+        }
+
+        private static void Check(Id @object)
+        {
+            Assert.IsNotNull(@object, "Instance cannot be null");
+            Assert.AreNotEqual(IntPtr.Zero, @object.NativePointer, "Native pointer cannot be null");
+        }
+	}
 }

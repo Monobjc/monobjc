@@ -56,8 +56,10 @@ namespace Monobjc.AppKit
                     String fileName = Path.GetTempFileName();
                     File.WriteAllBytes(fileName, buffer);
 
-                    NSDictionary context = NSDictionary.DictionaryWithObjectForKey(owner, NSNib.NSNibOwner);
-                    result = bundle.LoadNibFileExternalNameTableWithZone(fileName, context, IntPtr.Zero);
+					NSNib nib = new NSNib(NSURL.URLWithString(fileName));
+					NSArray topLevelObjects;
+					result = nib.InstantiateNibWithOwnerTopLevelObjects(owner, out topLevelObjects);
+					nib.Release();
 
                     File.Delete(fileName);
                 }

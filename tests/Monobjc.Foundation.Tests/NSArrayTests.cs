@@ -1,4 +1,4 @@
-﻿//
+//
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2011 - Laurent Etiemble
 //
@@ -78,7 +78,7 @@ namespace Monobjc.Foundation
 			}
 			
 			Func<Id, Id, NSComparisonResult> sorter = delegate(Id id1, Id id2) {
-				Console.WriteLine(id1.SendMessage<NSString>("description") + " <-> " + id2.SendMessage<NSString>("description"));
+				//Console.WriteLine(id1.SendMessage<NSString>("description") + " <-> " + id2.SendMessage<NSString>("description"));
 				return id1.SendMessage<NSComparisonResult>("compare:", id2);
 			};
 			
@@ -86,9 +86,11 @@ namespace Monobjc.Foundation
             Assert.IsNotNull(sorted, "Creation cannot fail");
             Assert.AreNotEqual(IntPtr.Zero, sorted.NativePointer, "Pointer cannot be null");
 			
+			/*
 			foreach(NSString slot in sorted.GetEnumerator<NSString>()) {
 				Console.WriteLine(slot.SendMessage<NSString>("description"));
 			}
+			*/
 			
 			Assert.True(sorted.ObjectAtIndex<NSString>(0).IsEqualToString(str1), "Elements must be sorted");
 			Assert.True(sorted.ObjectAtIndex<NSString>(1).IsEqualToString(str2), "Elements must be sorted");
