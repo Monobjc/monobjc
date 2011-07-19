@@ -2,6 +2,8 @@
 <project name="Monobjc" default="build" basedir=".">
   <description>Monobjc Build File</description>
 
+  <property name="nant.settings.currentframework" value="mono-2.0"/>
+  
   <!-- Define properties -->
   <property name="external.dir" value="${path::get-full-path('./external')}"/>
   <property name="libraries.dir" value="${path::get-full-path('./libraries')}"/>
