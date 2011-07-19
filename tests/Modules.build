@@ -8,12 +8,6 @@
   <target name="build">
     <fail message="Please use -D:testing=true in order to build the unit tests" unless="${testing}"/>
 
-    <if test="${version::get-minor(version::parse(min.version)) &lt;= 5}" >
-      <property name="version" value="10.5"/>
-      <property name="define" value="TESTING;MACOSX_10_5"/>
-      <call target="build-tests-intern" if="${version::get-minor(version::parse(max.version)) >= 5}"/>
-    </if>
-
     <if test="${version::get-minor(version::parse(min.version)) &lt;= 6}" >
       <property name="version" value="10.6"/>
       <property name="define" value="TESTING;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT"/>
@@ -33,11 +27,6 @@
   ================================================================================ -->
   <target name="run">
     <fail message="Please use -D:testing=true in order to run the unit tests" unless="${testing}"/>
-
-    <if test="${version::get-minor(version::parse(min.version)) &lt;= 5}" >
-      <property name="version" value="10.5"/>
-      <call target="run-tests-intern" if="${version::get-minor(version::parse(max.version)) >= 5}"/>
-    </if>
 
     <if test="${version::get-minor(version::parse(min.version)) &lt;= 6}" >
       <property name="version" value="10.6"/>

@@ -57,13 +57,6 @@
   Build all the sets of libraries
   ================================================================================ -->
   <target name="build" depends="generate">
-    <if test="${version::get-minor(version::parse(min.version)) &lt;= 5}" >
-      <property name="version" value="10.5"/>
-      <property name="define" value="MACOSX_10_5" unless="${testing}"/>
-      <property name="define" value="TESTING;MACOSX_10_5" if="${testing}"/>
-      <call target="build-libraries-intern" if="${version::get-minor(version::parse(max.version)) >= 5}"/>
-    </if>
-
     <if test="${version::get-minor(version::parse(min.version)) &lt;= 6}" >
       <property name="version" value="10.6"/>
       <property name="define" value="MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT" unless="${testing}"/>

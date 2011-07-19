@@ -14,13 +14,6 @@
     <!-- Define some common properties -->
     <property name="arguments.common"  value="-project Monobjc.xcodeproj -target runtime -configuration Release"/>
 
-    <if test="${version::get-minor(version::parse(min.version)) &lt;= 5}" >
-      <property name="version" value="10.5"/>
-      <property name="arguments.archs"   value="-sdk ${dev.dir}/SDKs/MacOSX10.5.sdk ARCHS='${arch-10.5}' ONLY_ACTIVE_ARCH=false GCC_VERSION=4.2"/>
-      <property name="arguments.version" value="DYLIB_COMPATIBILITY_VERSION=105.0.0 DYLIB_CURRENT_VERSION=105.${minor.number}.${build.number}"/>
-      <call target="build-loader-intern" if="${version::get-minor(version::parse(max.version)) >= 5}"/>
-    </if>
-
     <if test="${version::get-minor(version::parse(min.version)) &lt;= 6}" >
       <property name="version" value="10.6"/>
       <property name="arguments.archs"   value="-sdk ${dev.dir}/SDKs/MacOSX10.6.sdk ARCHS='${arch-10.6}' ONLY_ACTIVE_ARCH=false GCC_VERSION=4.2"/>

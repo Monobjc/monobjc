@@ -869,8 +869,8 @@
     <Compile Include="ApplicationServices_S\CGAffineTransform.Functions.cs" />
     <Compile Include="ApplicationServices_S\CGAffineTransform64.cs" />
     <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
-    <Compile Include="Kernel_T\GCD.cs" />
-    <Compile Include="Kernel_Extensions\GCD.cs" />
+    <Compile Include="Kernel_Extensions\Dispatch.cs" />
+    <Compile Include="Kernel_T\Dispatch.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -895,5 +895,6 @@
   -->
   <ItemGroup>
     <Folder Include="Kernel_Extensions\" />
+    <Folder Include="Kernel_T\" />
   </ItemGroup>
 </Project>

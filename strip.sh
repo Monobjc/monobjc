@@ -5,7 +5,7 @@ FOLDER=stripped
 rm -Rf $FOLDER.libraries
 
 # Get all the files from the src folder
-find libraries -type f | sed '/.svn/d' > .allfiles
+find libraries -type f | sed '/.git/d' > .allfiles
 
 # Filter source files
 egrep ".cs$" .allfiles > .sourcefiles
