@@ -24,7 +24,7 @@ fi
 #
 function install {
 
-    VERSIONS="10.5 10.6 10.7"
+    VERSIONS="10.6 10.7"
 
     # Perform the installation for each version
     for version in $VERSIONS; do
@@ -115,7 +115,7 @@ EOF
 #
 function uninstall {
 
-    VERSIONS="10.5 10.6 10.7"
+    VERSIONS="10.6 10.7"
     ASSEMBLIES=`gacutil -l | grep Monobjc | awk -F"," '{ print $1 }' | sort -u`
 
     # Remove assemblies from the GAC
