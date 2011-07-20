@@ -12,7 +12,6 @@
     <AssemblyName>Monobjc.Growl</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,7 +39,6 @@
     <Compile Include="Growl_C\GrowlApplicationBridge.cs" />
     <Compile Include="Growl_C\GrowlDefines_Definitions.Constants.cs" />
     <Compile Include="Growl_C\GrowlDefines_Definitions.cs" />
-    <Compile Include="Growl_P\GrowlApplicationBridge.Delegate.cs" />
     <Compile Include="Growl_P\GrowlApplicationBridgeDelegate.Protocol.cs" />
     <Compile Include="Growl_P\GrowlApplicationBridgeInstallationDelegate.Protocol.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

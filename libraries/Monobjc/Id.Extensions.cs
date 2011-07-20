@@ -101,5 +101,25 @@ namespace Monobjc
         {
             return (id != null) ? ObjectiveCRuntime.CastAs<TInstance>(id) : null;
         }
+		
+        /// <summary>
+        /// <para>Returns the object returned by copyWithZone:, where the zone is nil.</para>
+        /// <para>Original signature is '- (id)copy'</para>
+        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// </summary>
+        public static TInstance Copy<TInstance>(this TInstance instance) where TInstance : class, IManagedWrapper
+        {
+			return (instance != null) ? ObjectiveCRuntime.SendMessage<TInstance>(instance, "copy") : null;
+        }
+
+        /// <summary>
+        /// <para>Returns the object returned by mutableCopyWithZone: where the zone is nil.</para>
+        /// <para>Original signature is '- (id)mutableCopy'</para>
+        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// </summary>
+        public static TInstance MutableCopy<TInstance>(this TInstance instance) where TInstance : class, IManagedWrapper
+        {
+			return (instance != null) ? ObjectiveCRuntime.SendMessage<TInstance>(instance, "mutableCopy") : null;
+        }
     }
 }

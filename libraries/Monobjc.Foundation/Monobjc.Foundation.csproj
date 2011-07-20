@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,7 +12,6 @@
     <AssemblyName>Monobjc.Foundation</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -181,7 +180,6 @@
     <Compile Include="Foundation_C\NSDateFormatter.Constants.cs" />
     <Compile Include="Foundation_C\NSDateFormatter.Constructors.cs" />
     <Compile Include="Foundation_C\NSDateFormatter.cs" />
-    <Compile Include="Foundation_C\NSDateFormatter.Deprecated.cs" />
     <Compile Include="Foundation_C\NSDateFormatter.Protocols.cs" />
     <Compile Include="Foundation_C\NSDecimalNumber.Class.cs" />
     <Compile Include="Foundation_C\NSDecimalNumber.Constants.cs" />

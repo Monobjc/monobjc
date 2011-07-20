@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,7 +12,6 @@
     <AssemblyName>Monobjc.QuartzComposer</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -200,7 +199,6 @@
     <Compile Include="Quartz_C\PDFDocument.Constructors.cs" />
     <Compile Include="Quartz_C\PDFDocument.cs" />
     <Compile Include="Quartz_C\PDFOutline.Class.cs" />
-    <Compile Include="Quartz_C\PDFOutline.Constructors.cs" />
     <Compile Include="Quartz_C\PDFOutline.cs" />
     <Compile Include="Quartz_C\PDFPage.Class.cs" />
     <Compile Include="Quartz_C\PDFPage.Constructors.cs" />
