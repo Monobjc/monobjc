@@ -82,10 +82,15 @@ typedef enum OSVersion {
      */
     MACOS_10_5 = 0x1050,
     /**
-     * @brief   Value for MacOS 10.5 (Snow Leopard).
+     * @brief   Value for MacOS 10.6 (Snow Leopard).
      * @remark  This is a supported platform.
      */
     MACOS_10_6 = 0x1060,
+    /**
+     * @brief   Value for MacOS 10.7 (Lion).
+     * @remark  This is a supported platform.
+     */
+    MACOS_10_7 = 0x1070,
 };
 
 #endif // __ENUMERATIONS_H__

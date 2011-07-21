@@ -71,5 +71,9 @@ namespace Monobjc
         ///   Value for MacOS 10.6 (Snow Leopard)
         /// </summary>
         MacOS106 = 0x1060,
+        /// <summary>
+        ///   Value for MacOS 10.7 (Lion)
+        /// </summary>
+        MacOS107 = 0x1070,
     }
 }

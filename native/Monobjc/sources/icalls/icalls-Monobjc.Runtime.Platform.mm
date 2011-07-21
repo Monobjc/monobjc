@@ -73,7 +73,10 @@ OSVersion icall_Monobjc_Runtime_Platform_GetOSVersion(void) {
     if (version < MACOS_10_6) {
         return MACOS_10_5;
     }
-    return MACOS_10_6;
+    if (version < MACOS_10_7) {
+        return MACOS_10_6;
+    }
+    return MACOS_10_7;
 }
 
 /**
@@ -94,6 +97,6 @@ boolean_t icall_Monobjc_Runtime_Platform_IsBigEndian(void) {
 #elif TARGET_RT_LITTLE_ENDIAN
     return false;
 #else
-    #error Unsupported Endianness
+#error Unsupported Endianness
 #endif
 }
