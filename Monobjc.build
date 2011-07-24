@@ -98,8 +98,10 @@
   <!-- Prepare the scripts -->
   <echo file="${package.dir}/content/Install.sh"><![CDATA[#!/bin/bash
 cd "$2"
-chmod a+x ./Monobjc.sh
-sudo ./Monobjc.sh install
+echo $UID
+id -un
+id -u -r
+exec ./Monobjc.sh install
 ]]></echo>
   <exec program="chmod">
     <arg value="a+x"/>
