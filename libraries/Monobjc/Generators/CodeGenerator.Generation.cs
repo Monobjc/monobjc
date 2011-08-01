@@ -130,6 +130,7 @@ namespace Monobjc.Generators
         {
             if (TypeHelper.NeedWrapping(localType))
             {
+                generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_READINTPTR);
                 MethodInfo retrieveInstance = EmitInfos.OBJECTIVECRUNTIME_GETINSTANCE.MakeGenericMethod(new[] {localType});
                 generator.Emit(OpCodes.Call, retrieveInstance);
             }
