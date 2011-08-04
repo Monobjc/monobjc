@@ -97,6 +97,6 @@ boolean_t icall_Monobjc_Runtime_Platform_IsBigEndian(void) {
 #elif TARGET_RT_LITTLE_ENDIAN
     return false;
 #else
-#error Unsupported Endianness
+    #error Unsupported Endianness
 #endif
 }

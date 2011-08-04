@@ -388,12 +388,23 @@ namespace Monobjc
         ///   Returns the name of the native selector.
         /// </summary>
         /// <param name = "value">The selector.</param>
-        /// <returns>A pointer to a selector</returns>
+        /// <returns>The name of the selector</returns>
         public static String Selector(IntPtr value)
         {
             return Marshal.PtrToStringAnsi(NativeMethods.sel_getName(value));
         }
-
+		
+#if MACOSX_10_5
+        /// <summary>
+        ///   Returns the name of the native protocol.
+        /// </summary>
+        /// <param name = "value">The bative protocol.</param>
+        /// <returns>The name of the protocol</returns>
+        public static String GetProtocolName(IntPtr value)
+        {
+            return Marshal.PtrToStringAnsi(NativeMethods.protocol_getName(value));
+        }
+#endif
 
         /// <summary>
         ///   Gets the symbol.

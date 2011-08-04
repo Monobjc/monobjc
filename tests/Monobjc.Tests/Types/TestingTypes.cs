@@ -56,6 +56,12 @@ namespace Monobjc.Types
     {
         public TSObject() {}
         public TSObject(IntPtr value) : base(value) {}
+        protected TSObject(String selector, Object firstParameter, params Object[] otherParameters) : base(selector, firstParameter, otherParameters) {}
+		
+		public virtual Id Init()
+		{
+			return ObjectiveCRuntime.SendMessage<Id>(this, "init");
+		}
     }
 
     [ObjectiveCClass("NSAutoreleasePool")]

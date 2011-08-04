@@ -73,9 +73,11 @@ namespace Monobjc.Foundation
             Assert.IsNotNull(array, "Creation cannot fail");
             Assert.AreNotEqual(IntPtr.Zero, array.NativePointer, "Pointer cannot be null");
 			
+			/*
 			foreach(NSString slot in array.GetEnumerator<NSString>()) {
 				Console.WriteLine(slot.SendMessage<NSString>("description"));
 			}
+			*/
 			
 			Func<Id, Id, NSComparisonResult> sorter = delegate(Id id1, Id id2) {
 				Console.WriteLine(id1.SendMessage<NSString>("description") + " <-> " + id2.SendMessage<NSString>("description"));
@@ -86,9 +88,11 @@ namespace Monobjc.Foundation
             Assert.IsNotNull(sorted, "Creation cannot fail");
             Assert.AreNotEqual(IntPtr.Zero, sorted.NativePointer, "Pointer cannot be null");
 			
+			/*
 			foreach(NSString slot in sorted.GetEnumerator<NSString>()) {
 				Console.WriteLine(slot.SendMessage<NSString>("description"));
 			}
+			*/
 			
 			Assert.True(sorted.ObjectAtIndex<NSString>(0).IsEqualToString(str1), "Elements must be sorted");
 			Assert.True(sorted.ObjectAtIndex<NSString>(1).IsEqualToString(str2), "Elements must be sorted");

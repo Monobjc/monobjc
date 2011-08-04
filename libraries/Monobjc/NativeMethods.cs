@@ -86,5 +86,26 @@ namespace Monobjc
         /// </remarks>
         [DllImport("libobjc", CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern IntPtr sel_registerName([MarshalAs(UnmanagedType.LPStr)] String str);
+		
+#if MACOSX_10_5
+		/// <summary>
+		///   <para>Returns a the name of a protocol.</para>
+        ///   <para>The original declaration is :
+        ///     <code>
+        ///       const char *protocol_getName(Protocol *p);
+        ///     </code>
+        ///   </para>
+		/// </summary>
+		/// <returns>
+		/// The name.
+		/// </returns>
+		/// <param name='protocol'>A protocol.</param>
+        /// <returns>The name of the protocol p as a C string.</returns>
+        /// <remarks>
+        ///   For more details, see the Objective-C Runtime Reference (http://developer.apple.com/DOCUMENTATION/Cocoa/Reference/ObjectiveCRuntimeRef/index.html).
+        /// </remarks>
+        [DllImport("libobjc", CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern IntPtr protocol_getName(IntPtr protocol);
+#endif
     }
 }

@@ -41,8 +41,8 @@ namespace Monobjc
         {
             this.owner = true;
             Class cls = Class.Get(this.GetType());
-            IntPtr ptr = ObjectiveCRuntime.SendMessage<IntPtr>(cls.pointer, "alloc");
-            this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr>(ptr, "init");
+            this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr>(cls, "alloc");
+            this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr>(this, "init");
         }
 
         /// <summary>
@@ -64,8 +64,8 @@ namespace Monobjc
         {
             this.owner = true;
             Class cls = Class.Get(this.GetType());
-            IntPtr ptr = ObjectiveCRuntime.SendMessage<IntPtr>(cls.pointer, "alloc");
-            this.NativePointer = ObjectiveCRuntime.SendMessageVarArgs<IntPtr>(ptr, selector, firstParameter, otherParameters);
+            this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr>(cls, "alloc");
+            this.NativePointer = ObjectiveCRuntime.SendMessageVarArgs<IntPtr>(this, selector, firstParameter, otherParameters);
         }
 
         /// <summary>
