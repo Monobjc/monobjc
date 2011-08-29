@@ -831,6 +831,7 @@
     <Compile Include="ApplicationServices_S\CGAffineTransform.Functions.cs" />
     <Compile Include="ApplicationServices_S\CGAffineTransform64.cs" />
     <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
+    <Compile Include="Foundation_C\NSArchiver.Constructors.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
