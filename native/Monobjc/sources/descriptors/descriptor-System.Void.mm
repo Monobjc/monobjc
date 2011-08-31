@@ -89,8 +89,8 @@ MonobjcTypeDescriptor *monobjc_create_descriptor_for_System_Void() {
     
     // Set the Objective-C encoding
     descriptor->encoding = strdup("v");
-    descriptor->size = sizeof(void *);
-    descriptor->alignment = log2(sizeof(void *));
+    descriptor->size = sizeof(int32_t);
+    descriptor->alignment = MIN(log2(descriptor->size), log2(sizeof(int32_t)));
     
     // Set the type to use with libffi
     descriptor->foreign_type = &ffi_type_void;

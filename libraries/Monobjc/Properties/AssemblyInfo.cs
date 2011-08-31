@@ -39,6 +39,5 @@ using System.Runtime.InteropServices;
 [assembly: Guid("0315fc87-e820-485f-814d-7bd6e75b37ad")]
 
 #if TESTING
-
 [assembly: InternalsVisibleTo("Monobjc.Tests")]
 #endif

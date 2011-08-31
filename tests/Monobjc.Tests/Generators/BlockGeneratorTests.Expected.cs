@@ -976,15 +976,12 @@ namespace Monobjc.Generators
 
         public TSRect Execute(IntPtr layout)
         {
-            return ((Func<TSRect>)base.Invoker)();
+            return ((Func<TSRect>) base.Invoker)();
         }
 
         public override Delegate BlockInvoker
         {
-            get
-            {
-                return this.blockInvoker;
-            }
+            get { return this.blockInvoker; }
         }
 
         public delegate TSRect ExecuteInvoker(IntPtr layout);
@@ -1005,15 +1002,12 @@ namespace Monobjc.Generators
 
         public TSRect64 Execute(IntPtr layout)
         {
-            return ((Func<TSRect>)base.Invoker)();
+            return ((Func<TSRect>) base.Invoker)();
         }
 
         public override Delegate BlockInvoker
         {
-            get
-            {
-                return this.blockInvoker;
-            }
+            get { return this.blockInvoker; }
         }
 
         public delegate TSRect64 ExecuteInvoker(IntPtr layout);

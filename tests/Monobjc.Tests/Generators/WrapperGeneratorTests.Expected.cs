@@ -44,7 +44,7 @@ namespace Monobjc.Dynamic.Wrappers
 
     public class ManagedWrapper21Impl : Id, IManagedWrapper21
     {
-        public ManagedWrapper21Impl(){}
+        public ManagedWrapper21Impl() {}
 
         public ManagedWrapper21Impl(IntPtr value) : base(value) {}
     }
@@ -58,7 +58,7 @@ namespace Monobjc.Dynamic.Wrappers
 
     public class ManagedWrapper22Impl : Id, IManagedWrapper22
     {
-        public ManagedWrapper22Impl() { }
+        public ManagedWrapper22Impl() {}
 
         public ManagedWrapper22Impl(IntPtr value) : base(value) {}
 
@@ -78,7 +78,7 @@ namespace Monobjc.Dynamic.Wrappers
 
     public class ManagedWrapper23Impl : Id, IManagedWrapper23
     {
-        public ManagedWrapper23Impl() { }
+        public ManagedWrapper23Impl() {}
 
         public ManagedWrapper23Impl(IntPtr value) : base(value) {}
 
@@ -102,7 +102,7 @@ namespace Monobjc.Dynamic.Wrappers
 
     public class ManagedWrapper24Impl : Id, IManagedWrapper24
     {
-        public ManagedWrapper24Impl() { }
+        public ManagedWrapper24Impl() {}
 
         public ManagedWrapper24Impl(IntPtr value) : base(value) {}
 
@@ -119,25 +119,21 @@ namespace Monobjc.Dynamic.Wrappers
     }
 
     [ObjectiveCProtocol("ManagedWrapper25")]
-    public interface IManagedWrapper25 : IManagedWrapper
-    {
-    }
+    public interface IManagedWrapper25 : IManagedWrapper {}
 
     public class ManagedWrapper25Impl : Id, IManagedWrapper25
     {
-        public ManagedWrapper25Impl() { }
+        public ManagedWrapper25Impl() {}
 
         public ManagedWrapper25Impl(IntPtr value) : base(value) {}
     }
 
     [ObjectiveCProtocol("ManagedWrapper26")]
-    public interface IManagedWrapper26 : IManagedWrapper
-    {
-    }
+    public interface IManagedWrapper26 : IManagedWrapper {}
 
     public class ManagedWrapper26Impl : Id, IManagedWrapper26
     {
-        public ManagedWrapper26Impl() { }
+        public ManagedWrapper26Impl() {}
 
         public ManagedWrapper26Impl(IntPtr value) : base(value) {}
     }

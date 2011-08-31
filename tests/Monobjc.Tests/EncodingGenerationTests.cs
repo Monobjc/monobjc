@@ -119,35 +119,91 @@ namespace Monobjc
 
             methodInfo = typeof (TestClassForMethodWithoutReturnType).GetMethod("DoNoReturn", Type.EmptyTypes);
             Assert.IsNotNull(methodInfo, "Method cannot be null");
-            Assert.AreEqual("v8@0:4", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                Assert.AreEqual("v16@0:8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
+            else
+            {
+                Assert.AreEqual("v8@0:4", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
 
             methodInfo = typeof (TestClassForMethodWithoutReturnType).GetMethod("DoNoReturn", new[] {typeof (bool)});
             Assert.IsNotNull(methodInfo, "Method cannot be null");
-            Assert.AreEqual("v12@0:4c8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                Assert.AreEqual("v20@0:8c16", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
+            else
+            {
+                Assert.AreEqual("v12@0:4c8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
 
             methodInfo = typeof (TestClassForMethodWithoutReturnType).GetMethod("DoNoReturn", new[] {typeof (char)});
             Assert.IsNotNull(methodInfo, "Method cannot be null");
-            Assert.AreEqual("v12@0:4S8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                Assert.AreEqual("v20@0:8S16", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
+            else
+            {
+                Assert.AreEqual("v12@0:4S8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
 
             methodInfo = typeof (TestClassForMethodWithoutReturnType).GetMethod("DoNoReturn", new[] {typeof (short)});
             Assert.IsNotNull(methodInfo, "Method cannot be null");
-            Assert.AreEqual("v12@0:4s8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                Assert.AreEqual("v20@0:8s16", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
+            else
+            {
+                Assert.AreEqual("v12@0:4s8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
 
             methodInfo = typeof (TestClassForMethodWithoutReturnType).GetMethod("DoNoReturn", new[] {typeof (int)});
             Assert.IsNotNull(methodInfo, "Method cannot be null");
-            Assert.AreEqual("v12@0:4i8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                Assert.AreEqual("v20@0:8i16", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
+            else
+            {
+                Assert.AreEqual("v12@0:4i8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
 
             methodInfo = typeof (TestClassForMethodWithoutReturnType).GetMethod("DoNoReturn", new[] {typeof (long)});
             Assert.IsNotNull(methodInfo, "Method cannot be null");
-            Assert.AreEqual("v16@0:4q8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                Assert.AreEqual("v24@0:8q16", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
+            else
+            {
+                Assert.AreEqual("v16@0:4q8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
 
             methodInfo = typeof (TestClassForMethodWithoutReturnType).GetMethod("DoNoReturn", new[] {typeof (float)});
             Assert.IsNotNull(methodInfo, "Method cannot be null");
-            Assert.AreEqual("v12@0:4f8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                Assert.AreEqual("v20@0:8f16", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
+            else
+            {
+                Assert.AreEqual("v12@0:4f8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
 
             methodInfo = typeof (TestClassForMethodWithoutReturnType).GetMethod("DoNoReturn", new[] {typeof (double)});
             Assert.IsNotNull(methodInfo, "Method cannot be null");
-            Assert.AreEqual("v16@0:4d8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                Assert.AreEqual("v24@0:8d16", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
+            else
+            {
+                Assert.AreEqual("v16@0:4d8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
         }
 
         /// <summary>
@@ -160,35 +216,91 @@ namespace Monobjc
 
             methodInfo = typeof (TestClassForMethodWithReturnType).GetMethod("DoWithReturn", Type.EmptyTypes);
             Assert.IsNotNull(methodInfo, "Method cannot be null");
-            Assert.AreEqual("i8@0:4", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                Assert.AreEqual("i16@0:8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
+            else
+            {
+                Assert.AreEqual("i8@0:4", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
 
             methodInfo = typeof (TestClassForMethodWithReturnType).GetMethod("DoWithReturn", new[] {typeof (bool)});
             Assert.IsNotNull(methodInfo, "Method cannot be null");
-            Assert.AreEqual("d12@0:4c8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                Assert.AreEqual("d24@0:8c16", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
+            else
+            {
+                Assert.AreEqual("d12@0:4c8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
 
             methodInfo = typeof (TestClassForMethodWithReturnType).GetMethod("DoWithReturn", new[] {typeof (char)});
             Assert.IsNotNull(methodInfo, "Method cannot be null");
-            Assert.AreEqual("f12@0:4S8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                Assert.AreEqual("f20@0:8S16", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
+            else
+            {
+                Assert.AreEqual("f12@0:4S8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
 
             methodInfo = typeof (TestClassForMethodWithReturnType).GetMethod("DoWithReturn", new[] {typeof (short)});
             Assert.IsNotNull(methodInfo, "Method cannot be null");
-            Assert.AreEqual("q12@0:4s8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                Assert.AreEqual("q24@0:8s16", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
+            else
+            {
+                Assert.AreEqual("q12@0:4s8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
 
             methodInfo = typeof (TestClassForMethodWithReturnType).GetMethod("DoWithReturn", new[] {typeof (int)});
             Assert.IsNotNull(methodInfo, "Method cannot be null");
-            Assert.AreEqual("i12@0:4i8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                Assert.AreEqual("i20@0:8i16", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
+            else
+            {
+                Assert.AreEqual("i12@0:4i8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
 
             methodInfo = typeof (TestClassForMethodWithReturnType).GetMethod("DoWithReturn", new[] {typeof (long)});
             Assert.IsNotNull(methodInfo, "Method cannot be null");
-            Assert.AreEqual("s16@0:4q8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                Assert.AreEqual("s24@0:8q16", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
+            else
+            {
+                Assert.AreEqual("s16@0:4q8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
 
             methodInfo = typeof (TestClassForMethodWithReturnType).GetMethod("DoWithReturn", new[] {typeof (float)});
             Assert.IsNotNull(methodInfo, "Method cannot be null");
-            Assert.AreEqual("S12@0:4f8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                Assert.AreEqual("S20@0:8f16", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
+            else
+            {
+                Assert.AreEqual("S12@0:4f8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
 
             methodInfo = typeof (TestClassForMethodWithReturnType).GetMethod("DoWithReturn", new[] {typeof (double)});
             Assert.IsNotNull(methodInfo, "Method cannot be null");
-            Assert.AreEqual("c16@0:4d8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                Assert.AreEqual("c24@0:8d16", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
+            else
+            {
+                Assert.AreEqual("c16@0:4d8", ObjectiveCEncoding.GetSignature(methodInfo), "Selector encoding don't match");
+            }
         }
 
         /// <summary>

@@ -36,12 +36,12 @@ namespace Monobjc
             instance = objc_sendMsg_IntPtr(instance, this.sel_init);
             Assert.AreNotEqual(IntPtr.Zero, instance, "Instance initialization failed");
 
-			ITSObject wrapper = ObjectiveCRuntime.GetInstance<ITSObject>(instance);
+            ITSObject wrapper = ObjectiveCRuntime.GetInstance<ITSObject>(instance);
             Assert.IsNotNull(wrapper, "Wrapper cannot be null");
             Assert.AreNotEqual(IntPtr.Zero, wrapper.NativePointer, "Instance retrieval has failed");
-			
-			bool isProxy = wrapper.IsProxy;
-			Assert.IsFalse(isProxy, "Class is not a proxy");
+
+            bool isProxy = wrapper.IsProxy;
+            Assert.IsFalse(isProxy, "Class is not a proxy");
         }
     }
 
@@ -75,11 +75,11 @@ namespace Monobjc
         {
             return value;
         }
-		
+
         [ObjectiveCMessage("copyWithZone:")]
-        Id CopyWithZone(IntPtr zone)
-		{
-			return this;
-		}
+        private Id CopyWithZone(IntPtr zone)
+        {
+            return this;
+        }
     }
 }

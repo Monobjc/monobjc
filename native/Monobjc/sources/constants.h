@@ -62,6 +62,9 @@
 #define STRING_CANNOT_COMPUTE_SIZE          "Cannot compute size for type %s"
 
 /** @brief  Resource string. */
+#define STRING_CANNOT_COMPUTE_ALIGNMENT     "Cannot compute alignment for type %s"
+
+/** @brief  Resource string. */
 #define STRING_CANNOT_CREATE_DESCRIPTOR     "Cannot create a descriptor for %s"
 
 /** @brief  Resource string. */

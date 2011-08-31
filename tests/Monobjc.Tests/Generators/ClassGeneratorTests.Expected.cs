@@ -524,9 +524,9 @@ namespace Monobjc.Generators
         {
             DummyClassParametersByRef instance = ObjectiveCRuntime.GetInstance<DummyClassParametersByRef>(receiver);
             byte num = Marshal.ReadByte(arg1);
-            ushort num2 = (ushort)Marshal.ReadInt16(arg2);
-            uint num3 = (uint)Marshal.ReadInt32(arg3);
-            ulong num4 = (ulong)Marshal.ReadInt64(arg4);
+            ushort num2 = (ushort) Marshal.ReadInt16(arg2);
+            uint num3 = (uint) Marshal.ReadInt32(arg3);
+            ulong num4 = (ulong) Marshal.ReadInt64(arg4);
             instance.MethodParameter3(ref num, ref num2, ref num3, ref num4);
             Marshal.WriteByte(arg1, num);
             Marshal.WriteInt16(arg2, (short) num2);
@@ -538,11 +538,11 @@ namespace Monobjc.Generators
         {
             DummyClassParametersByRef instance = ObjectiveCRuntime.GetInstance<DummyClassParametersByRef>(receiver);
             IntPtr ptr = Marshal.ReadIntPtr(arg1);
-            Class class2 = ObjectiveCRuntime.GetInstance<Class>(arg2);
-            Id id = ObjectiveCRuntime.GetInstance<Id>(arg3);
-            int num = instance.MethodParameter4(ref ptr, ref class2, ref id);
+            Class clazz = ObjectiveCRuntime.GetInstance<Class>(Marshal.ReadIntPtr(arg2));
+            Id id = ObjectiveCRuntime.GetInstance<Id>(Marshal.ReadIntPtr(arg3));
+            int num = instance.MethodParameter4(ref ptr, ref clazz, ref id);
             Marshal.WriteIntPtr(arg1, ptr);
-            Marshal.WriteIntPtr(arg2, (class2 == null) ? IntPtr.Zero : class2.NativePointer);
+            Marshal.WriteIntPtr(arg2, (clazz == null) ? IntPtr.Zero : clazz.NativePointer);
             Marshal.WriteIntPtr(arg3, (id == null) ? IntPtr.Zero : id.NativePointer);
             return num;
         }
@@ -699,7 +699,7 @@ namespace Monobjc.Generators
         {
             TSWindingRule rule;
             int num = ObjectiveCRuntime.GetInstance<DummyClassParametersOut>(receiver).MethodParameter5(out rule);
-            Marshal.WriteInt32(arg1, (int)rule);
+            Marshal.WriteInt32(arg1, (int) rule);
             return num;
         }
 
@@ -1067,11 +1067,11 @@ namespace Monobjc.Generators
 
         public static void MethodParameter2_Monobjc_Types_TSInteger_Monobjc_Types_TSUInteger_Monobjc_Types_TSFloat(IntPtr receiver, IntPtr selector, IntPtr arg1, IntPtr arg2, IntPtr arg3)
         {
-            TSInteger integer = (TSInteger) Marshal.ReadInt32(arg1);
-            TSUInteger integer2 = (TSUInteger) (uint) Marshal.ReadInt32(arg2);
-            TSFloat num = (TSFloat) (float) Marshal.PtrToStructure(arg3, typeof (float));
+            TSInteger integer = Marshal.ReadInt32(arg1);
+            TSUInteger integer2 = (uint) Marshal.ReadInt32(arg2);
+            TSFloat num = (float) Marshal.PtrToStructure(arg3, typeof (float));
             DummyClassParametersByRefVariableTypes.MethodParameter2(ref integer, ref integer2, ref num);
-            Marshal.WriteInt32(arg1, (int) integer);
+            Marshal.WriteInt32(arg1, integer);
             Marshal.WriteInt32(arg2, (int) (uint) integer2);
             Marshal.StructureToPtr((float) num, arg3, false);
         }
@@ -1129,11 +1129,11 @@ namespace Monobjc.Generators
 
         public static void MethodParameter2_Monobjc_Types_TSInteger_Monobjc_Types_TSUInteger_Monobjc_Types_TSFloat(IntPtr receiver, IntPtr selector, IntPtr arg1, IntPtr arg2, IntPtr arg3)
         {
-            TSInteger integer = (TSInteger) Marshal.ReadInt64(arg1);
-            TSUInteger integer2 = (TSUInteger) (ulong) Marshal.ReadInt64(arg2);
-            TSFloat num = (TSFloat) (double) Marshal.PtrToStructure(arg3, typeof (double));
+            TSInteger integer = Marshal.ReadInt64(arg1);
+            TSUInteger integer2 = (ulong) Marshal.ReadInt64(arg2);
+            TSFloat num = (double) Marshal.PtrToStructure(arg3, typeof (double));
             DummyClassParametersByRefVariableTypes.MethodParameter2(ref integer, ref integer2, ref num);
-			Marshal.WriteInt64(arg1, (long) integer);
+            Marshal.WriteInt64(arg1, integer);
             Marshal.WriteInt64(arg2, (long) (ulong) integer2);
             Marshal.StructureToPtr((double) num, arg3, false);
         }
@@ -1141,16 +1141,16 @@ namespace Monobjc.Generators
         public static void MethodParameter3_Monobjc_Types_TSRange(IntPtr receiver, IntPtr selector, IntPtr arg1)
         {
             DummyClassParametersByRefVariableTypes instance = ObjectiveCRuntime.GetInstance<DummyClassParametersByRefVariableTypes>(receiver);
-            TSRange range = (TSRange) (TSRange64) Marshal.PtrToStructure(arg1, typeof (TSRange64));
+            TSRange range = (TSRange64) Marshal.PtrToStructure(arg1, typeof (TSRange64));
             instance.MethodParameter3(ref range);
             Marshal.StructureToPtr((TSRange64) range, arg1, false);
         }
 
         public static void MethodParameter4_Monobjc_Types_TSPoint_Monobjc_Types_TSSize_Monobjc_Types_TSRect(IntPtr receiver, IntPtr selector, IntPtr arg1, IntPtr arg2, IntPtr arg3)
         {
-            TSPoint point = (TSPoint) (TSPoint64) Marshal.PtrToStructure(arg1, typeof (TSPoint64));
-            TSSize size = (TSSize) (TSSize64) Marshal.PtrToStructure(arg2, typeof (TSSize64));
-            TSRect rect = (TSRect) (TSRect64) Marshal.PtrToStructure(arg3, typeof (TSRect64));
+            TSPoint point = (TSPoint64) Marshal.PtrToStructure(arg1, typeof (TSPoint64));
+            TSSize size = (TSSize64) Marshal.PtrToStructure(arg2, typeof (TSSize64));
+            TSRect rect = (TSRect64) Marshal.PtrToStructure(arg3, typeof (TSRect64));
             DummyClassParametersByRefVariableTypes.MethodParameter4(ref point, ref size, ref rect);
             Marshal.StructureToPtr((TSPoint64) point, arg1, false);
             Marshal.StructureToPtr((TSSize64) size, arg2, false);
@@ -1231,7 +1231,7 @@ namespace Monobjc.Generators
             TSUInteger integer2;
             TSFloat num;
             DummyClassParametersOutVariableTypes.MethodParameter2(out integer, out integer2, out num);
-            Marshal.WriteInt32(arg1, (int) integer);
+            Marshal.WriteInt32(arg1, integer);
             Marshal.WriteInt32(arg2, (int) (uint) integer2);
             Marshal.StructureToPtr((float) num, arg3, false);
         }
@@ -1291,7 +1291,7 @@ namespace Monobjc.Generators
             TSUInteger integer2;
             TSFloat num;
             DummyClassParametersOutVariableTypes.MethodParameter2(out integer, out integer2, out num);
-			Marshal.WriteInt64(arg1, (long) integer);
+            Marshal.WriteInt64(arg1, integer);
             Marshal.WriteInt64(arg2, (long) (ulong) integer2);
             Marshal.StructureToPtr((double) num, arg3, false);
         }

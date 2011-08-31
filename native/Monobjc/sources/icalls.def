@@ -67,6 +67,7 @@ ICALL("LogErrorMessage",                void,           icall_Monobjc_Logger_Log
 #define ICALLTYPE   "Monobjc.ObjectiveCEncoding"
 ICALL("GetTypeEncodingInternal",        MonoString *,   icall_Monobjc_ObjectiveCEncoding_GetTypeEncoding,           (MonoType *type))
 ICALL("GetTypeSizeInternal",            int32_t,        icall_Monobjc_ObjectiveCEncoding_GetTypeSize,               (MonoType *type))
+ICALL("GetTypeAlignmentInternal",       int32_t,        icall_Monobjc_ObjectiveCEncoding_GetTypeAlignment,          (MonoType *type))
 #undef ICALLTYPE
 
 #pragma mark ----- Internal Calls for Monobjc.ObjectiveCRuntime -----

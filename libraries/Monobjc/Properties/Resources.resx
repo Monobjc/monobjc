@@ -198,4 +198,7 @@
   <data name="BlockCannotBeUnmarshalled" xml:space="preserve">
     <value>Block cannot be unmarshalled</value>
   </data>
+  <data name="CannotFindAConverter" xml:space="preserve">
+    <value>Cannot find a converter between {0} and {1}</value>
+  </data>
 </root>

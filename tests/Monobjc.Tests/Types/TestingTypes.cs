@@ -25,30 +25,21 @@ namespace Monobjc.Types
     {
         [ObjectiveCMessage("isMemberOfClass:")]
         bool IsMemberOfClass(Class aClass);
-        
+
         [ObjectiveCMessage("performSelector:")]
         Id PerformSelector(IntPtr aSelector);
-        
+
         [ObjectiveCMessage("respondsToSelector:")]
         bool RespondsToSelector(IntPtr aSelector);
-        
-        TSUInteger Hash
-        {
-            [ObjectiveCMessage("hash")]
-            get;
-        }
-        
-        bool IsProxy
-        {
-            [ObjectiveCMessage("isProxy")]
-            get;
-        }
-        
-        Class Superclass
-        {
-            [ObjectiveCMessage("superclass")]
-            get;
-        }
+
+        TSUInteger Hash { [ObjectiveCMessage("hash")]
+        get; }
+
+        bool IsProxy { [ObjectiveCMessage("isProxy")]
+        get; }
+
+        Class Superclass { [ObjectiveCMessage("superclass")]
+        get; }
     }
 
     [ObjectiveCClass("NSObject", InterceptDealloc = true)]
@@ -57,11 +48,11 @@ namespace Monobjc.Types
         public TSObject() {}
         public TSObject(IntPtr value) : base(value) {}
         protected TSObject(String selector, Object firstParameter, params Object[] otherParameters) : base(selector, firstParameter, otherParameters) {}
-		
-		public virtual Id Init()
-		{
-			return ObjectiveCRuntime.SendMessage<Id>(this, "init");
-		}
+
+        public virtual Id Init()
+        {
+            return ObjectiveCRuntime.SendMessage<Id>(this, "init");
+        }
     }
 
     [ObjectiveCClass("NSAutoreleasePool")]
@@ -112,16 +103,16 @@ namespace Monobjc.Types
         NSEvenOddWindingRule = 1
     }
 
-    [ObjectiveCUnderlyingType(typeof(int), Is64Bits = false)]
-    [ObjectiveCUnderlyingType(typeof(long), Is64Bits = true)]
+    [ObjectiveCUnderlyingType(typeof (int), Is64Bits = false)]
+    [ObjectiveCUnderlyingType(typeof (long), Is64Bits = true)]
     public enum TSIntegerEnumeration
     {
         NSNonZeroWindingRule = 0,
         NSEvenOddWindingRule = 1
     }
 
-    [ObjectiveCUnderlyingType(typeof(uint), Is64Bits = false)]
-    [ObjectiveCUnderlyingType(typeof(ulong), Is64Bits = true)]
+    [ObjectiveCUnderlyingType(typeof (uint), Is64Bits = false)]
+    [ObjectiveCUnderlyingType(typeof (ulong), Is64Bits = true)]
     public enum TSUIntegerEnumeration : uint
     {
         NSNonZeroWindingRule = 0,
@@ -142,8 +133,8 @@ namespace Monobjc.Types
 
     [Serializable]
     [StructLayout(LayoutKind.Sequential)]
-    [ObjectiveCUnderlyingType(typeof(float), Is64Bits = false)]
-    [ObjectiveCUnderlyingType(typeof(double), Is64Bits = true)]
+    [ObjectiveCUnderlyingType(typeof (float), Is64Bits = false)]
+    [ObjectiveCUnderlyingType(typeof (double), Is64Bits = true)]
     public struct TSFloat
     {
         public float value;
@@ -165,7 +156,7 @@ namespace Monobjc.Types
 
         public static implicit operator TSFloat(double value)
         {
-            return new TSFloat((float)value);
+            return new TSFloat((float) value);
         }
 
         public static implicit operator double(TSFloat value)
@@ -176,8 +167,8 @@ namespace Monobjc.Types
 
     [Serializable]
     [StructLayout(LayoutKind.Sequential)]
-    [ObjectiveCUnderlyingType(typeof(int), Is64Bits = false)]
-    [ObjectiveCUnderlyingType(typeof(long), Is64Bits = true)]
+    [ObjectiveCUnderlyingType(typeof (int), Is64Bits = false)]
+    [ObjectiveCUnderlyingType(typeof (long), Is64Bits = true)]
     public struct TSInteger
     {
         public int value;
@@ -199,7 +190,7 @@ namespace Monobjc.Types
 
         public static implicit operator TSInteger(long value)
         {
-            return new TSInteger((int)value);
+            return new TSInteger((int) value);
         }
 
         public static implicit operator long(TSInteger value)
@@ -210,8 +201,8 @@ namespace Monobjc.Types
 
     [Serializable]
     [StructLayout(LayoutKind.Sequential)]
-    [ObjectiveCUnderlyingType(typeof(uint), Is64Bits = false)]
-    [ObjectiveCUnderlyingType(typeof(ulong), Is64Bits = true)]
+    [ObjectiveCUnderlyingType(typeof (uint), Is64Bits = false)]
+    [ObjectiveCUnderlyingType(typeof (ulong), Is64Bits = true)]
     public struct TSUInteger
     {
         public uint value;
@@ -233,7 +224,7 @@ namespace Monobjc.Types
 
         public static implicit operator TSUInteger(ulong value)
         {
-            return new TSUInteger((uint)value);
+            return new TSUInteger((uint) value);
         }
 
         public static implicit operator ulong(TSUInteger value)
@@ -244,8 +235,8 @@ namespace Monobjc.Types
 
     [Serializable]
     [StructLayout(LayoutKind.Sequential)]
-    [ObjectiveCUnderlyingType(typeof(TSPoint), Is64Bits = false)]
-    [ObjectiveCUnderlyingType(typeof(TSPoint64), Is64Bits = true)]
+    [ObjectiveCUnderlyingType(typeof (TSPoint), Is64Bits = false)]
+    [ObjectiveCUnderlyingType(typeof (TSPoint64), Is64Bits = true)]
     public struct TSPoint
     {
         public float x;
@@ -272,7 +263,7 @@ namespace Monobjc.Types
 
         public static implicit operator TSPoint(TSPoint64 value)
         {
-            return new TSPoint((float)value.x, (float)value.y);
+            return new TSPoint((float) value.x, (float) value.y);
         }
 
         public static implicit operator TSPoint64(TSPoint value)
@@ -282,8 +273,8 @@ namespace Monobjc.Types
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    [ObjectiveCUnderlyingType(typeof(TSSize), Is64Bits = false)]
-    [ObjectiveCUnderlyingType(typeof(TSSize64), Is64Bits = true)]
+    [ObjectiveCUnderlyingType(typeof (TSSize), Is64Bits = false)]
+    [ObjectiveCUnderlyingType(typeof (TSSize64), Is64Bits = true)]
     public struct TSSize
     {
         public float width;
@@ -310,7 +301,7 @@ namespace Monobjc.Types
 
         public static implicit operator TSSize(TSSize64 value)
         {
-            return new TSSize((float)value.width, (float)value.height);
+            return new TSSize((float) value.width, (float) value.height);
         }
 
         public static implicit operator TSSize64(TSSize value)
@@ -320,8 +311,8 @@ namespace Monobjc.Types
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    [ObjectiveCUnderlyingType(typeof(TSRect), Is64Bits = false)]
-    [ObjectiveCUnderlyingType(typeof(TSRect64), Is64Bits = true)]
+    [ObjectiveCUnderlyingType(typeof (TSRect), Is64Bits = false)]
+    [ObjectiveCUnderlyingType(typeof (TSRect64), Is64Bits = true)]
     public struct TSRect
     {
         public TSPoint origin;
@@ -374,8 +365,8 @@ namespace Monobjc.Types
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    [ObjectiveCUnderlyingType(typeof(TSRange), Is64Bits = false)]
-    [ObjectiveCUnderlyingType(typeof(TSRange64), Is64Bits = true)]
+    [ObjectiveCUnderlyingType(typeof (TSRange), Is64Bits = false)]
+    [ObjectiveCUnderlyingType(typeof (TSRange64), Is64Bits = true)]
     public struct TSRange
     {
         public uint location;
@@ -407,7 +398,7 @@ namespace Monobjc.Types
 
         public static implicit operator TSRange(TSRange64 value)
         {
-            return new TSRange((uint)value.location, (uint)value.length);
+            return new TSRange((uint) value.location, (uint) value.length);
         }
 
         public static implicit operator TSRange64(TSRange value)
@@ -417,12 +408,12 @@ namespace Monobjc.Types
     }
 
     [StructLayout(LayoutKind.Sequential)]
-	public struct TSDecimal
-	{
+    public struct TSDecimal
+    {
         public int fields;
         public ushort mantissa1, mantissa2, mantissa3, mantissa4, mantissa5, mantissa6, mantissa7, mantissa8;
     }
-	
+
     [StructLayout(LayoutKind.Sequential)]
     public struct TSBig
     {

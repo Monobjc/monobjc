@@ -22,6 +22,7 @@
 // 
 using System;
 using System.Reflection;
+using Monobjc.Properties;
 
 namespace Monobjc.Utils
 {
@@ -149,26 +150,68 @@ namespace Monobjc.Utils
             }
 
             // Process well-known conversion first);
-            if (sourceType == typeof(int) && targetType == typeof(long)) { return INT_2_LONG; }
-            if (sourceType == typeof(long) && targetType == typeof(int)) { return LONG_2_INT; }
-			
-            if (sourceType == typeof(uint) && targetType == typeof(ulong)) { return UINT_2_ULONG; }
-            if (sourceType == typeof(ulong) && targetType == typeof(uint)) { return ULONG_2_UINT; }
-			
-            if (sourceType == typeof(float) && targetType == typeof(int)) { return FLOAT_2_INT; }
-            if (sourceType == typeof(int) && targetType == typeof(float)) { return INT_2_FLOAT; }
-			
-            if (sourceType == typeof(float) && targetType == typeof(uint)) { return FLOAT_2_UINT; }
-            if (sourceType == typeof(uint) && targetType == typeof(float)) { return UINT_2_FLOAT; }
-			
-            if (sourceType == typeof(float) && targetType == typeof(long)) { return FLOAT_2_LONG; }
-            if (sourceType == typeof(long) && targetType == typeof(float)) { return LONG_2_FLOAT; }
-			
-            if (sourceType == typeof(float) && targetType == typeof(ulong)) { return FLOAT_2_ULONG; }
-            if (sourceType == typeof(ulong) && targetType == typeof(float)) { return ULONG_2_FLOAT; }
-			
-            if (sourceType == typeof(float) && targetType == typeof(double)) { return FLOAT_2_DOUBLE; }
-            if (sourceType == typeof(double) && targetType == typeof(float)) { return DOUBLE_2_FLOAT; }
+            if (sourceType == typeof (int) && targetType == typeof (long))
+            {
+                return INT_2_LONG;
+            }
+            if (sourceType == typeof (long) && targetType == typeof (int))
+            {
+                return LONG_2_INT;
+            }
+
+            if (sourceType == typeof (uint) && targetType == typeof (ulong))
+            {
+                return UINT_2_ULONG;
+            }
+            if (sourceType == typeof (ulong) && targetType == typeof (uint))
+            {
+                return ULONG_2_UINT;
+            }
+
+            if (sourceType == typeof (float) && targetType == typeof (int))
+            {
+                return FLOAT_2_INT;
+            }
+            if (sourceType == typeof (int) && targetType == typeof (float))
+            {
+                return INT_2_FLOAT;
+            }
+
+            if (sourceType == typeof (float) && targetType == typeof (uint))
+            {
+                return FLOAT_2_UINT;
+            }
+            if (sourceType == typeof (uint) && targetType == typeof (float))
+            {
+                return UINT_2_FLOAT;
+            }
+
+            if (sourceType == typeof (float) && targetType == typeof (long))
+            {
+                return FLOAT_2_LONG;
+            }
+            if (sourceType == typeof (long) && targetType == typeof (float))
+            {
+                return LONG_2_FLOAT;
+            }
+
+            if (sourceType == typeof (float) && targetType == typeof (ulong))
+            {
+                return FLOAT_2_ULONG;
+            }
+            if (sourceType == typeof (ulong) && targetType == typeof (float))
+            {
+                return ULONG_2_FLOAT;
+            }
+
+            if (sourceType == typeof (float) && targetType == typeof (double))
+            {
+                return FLOAT_2_DOUBLE;
+            }
+            if (sourceType == typeof (double) && targetType == typeof (float))
+            {
+                return DOUBLE_2_FLOAT;
+            }
 
             // Process value-type conversion
             if (sourceType.IsValueType && targetType.IsValueType)
@@ -182,8 +225,7 @@ namespace Monobjc.Utils
                 }
             }
 
-
-            throw new NotSupportedException("Cannot find a converter between " + sourceType + " and " + targetType);
+            throw new NotSupportedException(String.Format(Resources.CannotFindAConverter, sourceType, targetType));
         }
 
         /// <summary>
@@ -197,22 +239,22 @@ namespace Monobjc.Utils
 
         private static readonly MethodInfo INT_2_LONG = typeof (Convert).GetMethod("ToInt64", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (int)}, null);
         private static readonly MethodInfo LONG_2_INT = typeof (Convert).GetMethod("ToInt32", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (long)}, null);
-		
+
         private static readonly MethodInfo UINT_2_ULONG = typeof (Convert).GetMethod("ToUInt64", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (uint)}, null);
         private static readonly MethodInfo ULONG_2_UINT = typeof (Convert).GetMethod("ToUInt32", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (ulong)}, null);
 
         private static readonly MethodInfo FLOAT_2_INT = typeof (Convert).GetMethod("ToInt32", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (float)}, null);
         private static readonly MethodInfo INT_2_FLOAT = typeof (Convert).GetMethod("ToSingle", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (int)}, null);
-		
+
         private static readonly MethodInfo FLOAT_2_UINT = typeof (Convert).GetMethod("ToUInt32", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (float)}, null);
         private static readonly MethodInfo UINT_2_FLOAT = typeof (Convert).GetMethod("ToSingle", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (uint)}, null);
-		
+
         private static readonly MethodInfo FLOAT_2_LONG = typeof (Convert).GetMethod("ToInt64", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (float)}, null);
         private static readonly MethodInfo LONG_2_FLOAT = typeof (Convert).GetMethod("ToSingle", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (long)}, null);
-		
+
         private static readonly MethodInfo FLOAT_2_ULONG = typeof (Convert).GetMethod("ToUInt64", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (float)}, null);
         private static readonly MethodInfo ULONG_2_FLOAT = typeof (Convert).GetMethod("ToSingle", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (ulong)}, null);
-		
+
         private static readonly MethodInfo FLOAT_2_DOUBLE = typeof (Convert).GetMethod("ToDouble", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (float)}, null);
         private static readonly MethodInfo DOUBLE_2_FLOAT = typeof (Convert).GetMethod("ToSingle", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (double)}, null);
     }

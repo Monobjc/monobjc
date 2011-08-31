@@ -169,19 +169,28 @@ namespace Monobjc
             // Add self and SEL offsets
             int offset = IntPtr.Size*2;
 
+            int alignmentMask;
             foreach (ParameterInfo t in parameters)
             {
                 if (parametersToSkip-- > 0)
                 {
                     continue;
                 }
+
+                // Compute the type encoding and offset
                 Type type = t.ParameterType;
+                alignmentMask = (1 << GetTypeAlignment(type)) - 1;
+                offset = (offset + alignmentMask) & ~alignmentMask;
+
                 builder.AppendFormat(CultureInfo.CurrentCulture, ENCODING_OFFSET, GetTypeEncoding(type), offset);
-                // Add type size to offset 
+
                 offset += GetTypeSize(type);
             }
 
             // Compute the return type encoding and offset
+            alignmentMask = (1 << GetTypeAlignment(returnType)) - 1;
+            offset = (offset + alignmentMask) & ~alignmentMask;
+
             String returnEncoding = String.Format(CultureInfo.CurrentCulture, ENCODING_OFFSET, GetTypeEncoding(returnType), offset);
             builder.Insert(0, returnEncoding);
 
@@ -222,14 +231,13 @@ namespace Monobjc
         /// </summary>
         /// <param name = "type">The type to encode.</param>
         /// <returns>The encoding representation</returns>
-        /// <exception cref = "ArgumentNullException">If the type is null.</exception>
         public static String GetTypeEncoding(Type type)
         {
             return GetTypeEncodingInternal(type.TypeHandle.Value);
         }
 
         /// <summary>
-        ///   <para>Return the native type size used to build selector signature. The value represents the size to use when the type is placed on the parameter stack.</para>
+        ///   <para>Return the native type size. The value represents the natural size of the type.</para>
         ///   <para>Here are some examples of sizes:
         ///     <list type = "table">
         ///       <listheader>
@@ -258,10 +266,44 @@ namespace Monobjc
         /// <para>Of course, the size value is platform dependant.</para>
         /// <param name = "type">The type to measure.</param>
         /// <returns>The size value</returns>
-        /// <exception cref = "ArgumentNullException">If the type is null.</exception>
         public static int GetTypeSize(Type type)
         {
             return GetTypeSizeInternal(type.TypeHandle.Value);
+        }
+
+        /// <summary>
+        ///   <para>Return the native type alignment size used to build selector signature. The value represents the size of the parameter on the stack.</para>
+        ///   <para>Here are some examples of sizes:
+        ///     <list type = "table">
+        ///       <listheader>
+        ///         <term>Type</term>
+        ///         <description>Corresponding size (on IA32 architecture)</description>
+        ///       </listheader>
+        ///       <item>
+        ///         <term>bool or Boolean</term>
+        ///         <description>1</description>
+        ///       </item>
+        ///       <item>
+        ///         <term>int or Int32</term>
+        ///         <description>4</description>
+        ///       </item>
+        ///       <item>
+        ///         <term>NSString</term>
+        ///         <description>4</description>
+        ///       </item>
+        ///       <item>
+        ///         <term>NSRect</term>
+        ///         <description>16</description>
+        ///       </item>
+        ///     </list>
+        ///   </para>
+        /// </summary>
+        /// <para>Of course, the size value is platform dependant.</para>
+        /// <param name = "type">The type to measure.</param>
+        /// <returns>The size value</returns>
+        public static int GetTypeAlignment(Type type)
+        {
+            return GetTypeAlignmentInternal(type.TypeHandle.Value);
         }
 
         [MethodImpl(MethodImplOptions.InternalCall)]
@@ -269,5 +311,8 @@ namespace Monobjc
 
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         private static extern int GetTypeSizeInternal(IntPtr type);
+
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        private static extern int GetTypeAlignmentInternal(IntPtr type);
     }
 }

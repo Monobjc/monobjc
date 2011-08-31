@@ -34,7 +34,7 @@ namespace Monobjc.Generators
         {
             counter = 10;
 
-            this.TestClass(typeof(DummyClassEmpty), typeof(DummyClassEmpty_Proxy), false);
+            this.TestClass(typeof (DummyClassEmpty), typeof (DummyClassEmpty_Proxy), false);
         }
 
         [Test]
@@ -42,8 +42,8 @@ namespace Monobjc.Generators
         {
             counter = 20;
 
-            this.TestClass(typeof(DummyClassOneField), typeof(DummyClassOneField_Proxy), false);
-            this.TestClass(typeof(DummyClassMoreField), typeof(DummyClassMoreField_Proxy), false);
+            this.TestClass(typeof (DummyClassOneField), typeof (DummyClassOneField_Proxy), false);
+            this.TestClass(typeof (DummyClassMoreField), typeof (DummyClassMoreField_Proxy), false);
         }
 
         [Test]
@@ -51,9 +51,9 @@ namespace Monobjc.Generators
         {
             counter = 30;
 
-            this.TestClass(typeof(DummyClassStaticInstance), typeof(DummyClassStaticInstance_Proxy), false);
-            this.TestClass(typeof(DummyClassVariousParameters), typeof(DummyClassVariousParameters_Proxy), false);
-            this.TestClass(typeof(DummyClassVariousReturns), typeof(DummyClassVariousReturns_Proxy), false);
+            this.TestClass(typeof (DummyClassStaticInstance), typeof (DummyClassStaticInstance_Proxy), false);
+            this.TestClass(typeof (DummyClassVariousParameters), typeof (DummyClassVariousParameters_Proxy), false);
+            this.TestClass(typeof (DummyClassVariousReturns), typeof (DummyClassVariousReturns_Proxy), false);
         }
 
         [Test]
@@ -61,8 +61,8 @@ namespace Monobjc.Generators
         {
             counter = 40;
 
-            this.TestClass(typeof(DummyClassParametersByRef), typeof(DummyClassParametersByRef_Proxy), false);
-            this.TestClass(typeof(DummyClassParametersOut), typeof(DummyClassParametersOut_Proxy), false);
+            this.TestClass(typeof (DummyClassParametersByRef), typeof (DummyClassParametersByRef_Proxy), false);
+            this.TestClass(typeof (DummyClassParametersOut), typeof (DummyClassParametersOut_Proxy), false);
         }
 
         [Test]
@@ -70,10 +70,10 @@ namespace Monobjc.Generators
         {
             counter = 50;
 
-            this.TestClass(typeof(DummyClassVariousParametersVariableTypes), typeof(DummyClassVariousParametersVariableTypes32Bits_Proxy), false);
-            this.TestClass(typeof(DummyClassVariousReturnsVariableTypes), typeof(DummyClassVariousReturnsVariableTypes32Bits_Proxy), false);
-            this.TestClass(typeof(DummyClassParametersByRefVariableTypes), typeof(DummyClassParametersByRefVariableTypes32Bits_Proxy), false);
-            this.TestClass(typeof(DummyClassParametersOutVariableTypes), typeof(DummyClassParametersOutVariableTypes32Bits_Proxy), false);
+            this.TestClass(typeof (DummyClassVariousParametersVariableTypes), typeof (DummyClassVariousParametersVariableTypes32Bits_Proxy), false);
+            this.TestClass(typeof (DummyClassVariousReturnsVariableTypes), typeof (DummyClassVariousReturnsVariableTypes32Bits_Proxy), false);
+            this.TestClass(typeof (DummyClassParametersByRefVariableTypes), typeof (DummyClassParametersByRefVariableTypes32Bits_Proxy), false);
+            this.TestClass(typeof (DummyClassParametersOutVariableTypes), typeof (DummyClassParametersOutVariableTypes32Bits_Proxy), false);
         }
 
         [Test]
@@ -81,10 +81,10 @@ namespace Monobjc.Generators
         {
             counter = 60;
 
-            this.TestClass(typeof(DummyClassVariousParametersVariableTypes), typeof(DummyClassVariousParametersVariableTypes64Bits_Proxy), true);
-            this.TestClass(typeof(DummyClassVariousReturnsVariableTypes), typeof(DummyClassVariousReturnsVariableTypes64Bits_Proxy), true);
-            this.TestClass(typeof(DummyClassParametersByRefVariableTypes), typeof(DummyClassParametersByRefVariableTypes64Bits_Proxy), true);
-            this.TestClass(typeof(DummyClassParametersOutVariableTypes), typeof(DummyClassParametersOutVariableTypes64Bits_Proxy), true);
+            this.TestClass(typeof (DummyClassVariousParametersVariableTypes), typeof (DummyClassVariousParametersVariableTypes64Bits_Proxy), true);
+            this.TestClass(typeof (DummyClassVariousReturnsVariableTypes), typeof (DummyClassVariousReturnsVariableTypes64Bits_Proxy), true);
+            this.TestClass(typeof (DummyClassParametersByRefVariableTypes), typeof (DummyClassParametersByRefVariableTypes64Bits_Proxy), true);
+            this.TestClass(typeof (DummyClassParametersOutVariableTypes), typeof (DummyClassParametersOutVariableTypes64Bits_Proxy), true);
         }
 
         private void TestClass(Type classType, Type referenceType, bool is64Bits)

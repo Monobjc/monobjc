@@ -40,10 +40,10 @@ namespace Monobjc.Generators
         [Test]
         public void TestWrapperGeneration()
         {
-            this.TestWrapper(21, typeof(IManagedWrapper21), typeof(ManagedWrapper21Impl));
-            this.TestWrapper(22, typeof(IManagedWrapper22), typeof(ManagedWrapper22Impl));
-            this.TestWrapper(23, typeof(IManagedWrapper23), typeof(ManagedWrapper23Impl));
-            this.TestWrapper(24, typeof(IManagedWrapper24), typeof(ManagedWrapper24Impl));
+            this.TestWrapper(21, typeof (IManagedWrapper21), typeof (ManagedWrapper21Impl));
+            this.TestWrapper(22, typeof (IManagedWrapper22), typeof (ManagedWrapper22Impl));
+            this.TestWrapper(23, typeof (IManagedWrapper23), typeof (ManagedWrapper23Impl));
+            this.TestWrapper(24, typeof (IManagedWrapper24), typeof (ManagedWrapper24Impl));
         }
 
         private void TestWrapper(int number, Type protocolType, Type referenceType)

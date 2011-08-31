@@ -34,8 +34,8 @@ namespace Monobjc.Generators
         {
             counter = 10;
 
-            this.TestClass(typeof(DummyCategoryVariousParameters), typeof(DummyCategoryVariousParameters_Proxy), false);
-            this.TestClass(typeof(DummyCategoryVariousReturns), typeof(DummyCategoryVariousReturns_Proxy), false);
+            this.TestClass(typeof (DummyCategoryVariousParameters), typeof (DummyCategoryVariousParameters_Proxy), false);
+            this.TestClass(typeof (DummyCategoryVariousReturns), typeof (DummyCategoryVariousReturns_Proxy), false);
         }
 
         [Test]
@@ -43,8 +43,8 @@ namespace Monobjc.Generators
         {
             counter = 20;
 
-            this.TestClass(typeof(DummyCategoryVariousParametersVariableTypes), typeof(DummyCategoryVariousParametersVariableTypes32Bits_Proxy), false);
-            this.TestClass(typeof(DummyCategoryVariousReturnsVariableTypes), typeof(DummyCategoryVariousReturnsVariableTypes32Bits_Proxy), false);
+            this.TestClass(typeof (DummyCategoryVariousParametersVariableTypes), typeof (DummyCategoryVariousParametersVariableTypes32Bits_Proxy), false);
+            this.TestClass(typeof (DummyCategoryVariousReturnsVariableTypes), typeof (DummyCategoryVariousReturnsVariableTypes32Bits_Proxy), false);
         }
 
         [Test]
@@ -52,8 +52,8 @@ namespace Monobjc.Generators
         {
             counter = 30;
 
-            this.TestClass(typeof(DummyCategoryVariousParametersVariableTypes), typeof(DummyCategoryVariousParametersVariableTypes64Bits_Proxy), true);
-            this.TestClass(typeof(DummyCategoryVariousReturnsVariableTypes), typeof(DummyCategoryVariousReturnsVariableTypes64Bits_Proxy), true);
+            this.TestClass(typeof (DummyCategoryVariousParametersVariableTypes), typeof (DummyCategoryVariousParametersVariableTypes64Bits_Proxy), true);
+            this.TestClass(typeof (DummyCategoryVariousReturnsVariableTypes), typeof (DummyCategoryVariousReturnsVariableTypes64Bits_Proxy), true);
         }
 
         private void TestClass(Type classType, Type referenceType, bool is64Bits)

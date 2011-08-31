@@ -55,7 +55,7 @@ namespace Monobjc.Generators.Cecil
         private static readonly OpCode[] two_bytes_opcodes;
 
         /// <summary>
-        /// Initializes the <see cref="MethodBodyReader"/> class.
+        ///   Initializes the <see cref = "MethodBodyReader" /> class.
         /// </summary>
         static MethodBodyReader()
         {

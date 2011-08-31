@@ -130,7 +130,7 @@ namespace Monobjc.Generators
 
             // Creates local variables for by-ref parameters
             ByRefParameter[] byRefLocalVariables = CreateLocalVariableForByRefParameters(generator, methodTuple.MethodInfo.GetParameters());
-            bool hasByRef = byRefLocalVariables.Where(p => p.LocalBuilder != null && !p.IsOut).Count() > 0;
+            bool hasByRef = byRefLocalVariables.Any(p => p.LocalBuilder != null && !p.IsOut);
 
             // To store result before return
             LocalBuilder result = null;
@@ -224,7 +224,10 @@ namespace Monobjc.Generators
         private void EmitProxyMethodBodyForInstanceMethod(ILGenerator generator, MethodTuple methodTuple, Type returnType, Type nativeReturnType, Type[] parameterTypes, Type[] nativeParameterTypes)
         {
             bool isNotVoid = (returnType != typeof (void));
-            bool hasByRef = methodTuple.MethodInfo.GetParameters().Where(pi => pi.ParameterType.IsByRef && !pi.IsOut).Count() > 0;
+
+            // Creates local variables for by-ref parameters
+            ByRefParameter[] byRefLocalVariables = CreateLocalVariableForByRefParameters(generator, methodTuple.MethodInfo.GetParameters());
+            bool hasByRef = byRefLocalVariables.Any(p => p.LocalBuilder != null && !p.IsOut);
 
             // To store translated receiver
             LocalBuilder target = null;
@@ -232,9 +235,6 @@ namespace Monobjc.Generators
             {
                 target = generator.DeclareLocal(methodTuple.MethodInfo.DeclaringType);
             }
-
-            // Creates local variables for by-ref parameters
-            ByRefParameter[] byRefLocalVariables = CreateLocalVariableForByRefParameters(generator, methodTuple.MethodInfo.GetParameters());
 
             // To store result before return
             LocalBuilder result = null;
@@ -264,7 +264,6 @@ namespace Monobjc.Generators
             {
                 generator.Emit(OpCodes.Stloc, target);
             }
-
             // For by-ref parameters passed as reference (without [out] attribute), we first set the value of local variables
             this.EmitNativeToManagedMarshallingForByRefParameters(generator, nativeParameterTypes, byRefLocalVariables);
 

@@ -33,23 +33,21 @@ namespace Monobjc.Utils
         [Test]
         public void TestBinder()
         {
-            Binder binder = new ImplicitMethodBinder(typeof(Class01), typeof(Class02));
-            MethodInfo methodInfo = typeof(Class01).GetMethod(METHOD, BindingFlags.Public | BindingFlags.Static, binder, new[] { typeof(Class01) }, null);
+            Binder binder = new ImplicitMethodBinder(typeof (Class01), typeof (Class02));
+            MethodInfo methodInfo = typeof (Class01).GetMethod(METHOD, BindingFlags.Public | BindingFlags.Static, binder, new[] {typeof (Class01)}, null);
             Assert.Null(methodInfo, METHOD_MUST_NOT_EXIST);
 
-            methodInfo = typeof(Class01).GetMethod(METHOD, BindingFlags.Public | BindingFlags.Static, binder, new[] { typeof(Class02) }, null);
+            methodInfo = typeof (Class01).GetMethod(METHOD, BindingFlags.Public | BindingFlags.Static, binder, new[] {typeof (Class02)}, null);
             Assert.Null(methodInfo, METHOD_MUST_NOT_EXIST);
 
-            methodInfo = typeof(Class02).GetMethod(METHOD, BindingFlags.Public | BindingFlags.Static, binder, new[] { typeof(Class01) }, null);
+            methodInfo = typeof (Class02).GetMethod(METHOD, BindingFlags.Public | BindingFlags.Static, binder, new[] {typeof (Class01)}, null);
             Assert.NotNull(methodInfo, METHOD_MUST_EXIST);
 
-            methodInfo = typeof(Class02).GetMethod(METHOD, BindingFlags.Public | BindingFlags.Static, binder, new[] { typeof(Class02) }, null);
+            methodInfo = typeof (Class02).GetMethod(METHOD, BindingFlags.Public | BindingFlags.Static, binder, new[] {typeof (Class02)}, null);
             Assert.NotNull(methodInfo, METHOD_MUST_EXIST);
         }
 
-        public class Class01
-        {
-        }
+        public class Class01 {}
 
         public class Class02
         {

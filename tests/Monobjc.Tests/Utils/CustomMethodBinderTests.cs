@@ -127,16 +127,16 @@ namespace Monobjc.Utils
             methodInfo = typeof (Class06).GetMethod(METHOD, BindingFlags.Public | BindingFlags.Instance, binder, new[] {typeof (object), typeof (Object[])}, null);
             Assert.NotNull(methodInfo, METHOD_NOT_FOUND);
             Assert.AreEqual(false, methodInfo.IsGenericMethod, METHOD_NOT_GENERIC);
-			
+
             methodInfo = typeof (Class07).GetMethod(METHOD, BindingFlags.Public | BindingFlags.Instance, binder, new[] {typeof (IntPtr), typeof (Object[])}, null);
             Assert.NotNull(methodInfo, METHOD_NOT_FOUND);
             Assert.AreEqual(false, methodInfo.IsGenericMethod, METHOD_NOT_GENERIC);
-			Assert.AreEqual(typeof(IntPtr), methodInfo.GetParameters()[0].ParameterType, METHOD_WRONG_TYPE);
-			
+            Assert.AreEqual(typeof (IntPtr), methodInfo.GetParameters()[0].ParameterType, METHOD_WRONG_TYPE);
+
             methodInfo = typeof (Class07).GetMethod(METHOD, BindingFlags.Public | BindingFlags.Instance, binder, new[] {typeof (Id), typeof (Object[])}, null);
             Assert.NotNull(methodInfo, METHOD_NOT_FOUND);
             Assert.AreEqual(false, methodInfo.IsGenericMethod, METHOD_NOT_GENERIC);
-			Assert.AreEqual(typeof(Id), methodInfo.GetParameters()[0].ParameterType, METHOD_WRONG_TYPE);
+            Assert.AreEqual(typeof (Id), methodInfo.GetParameters()[0].ParameterType, METHOD_WRONG_TYPE);
         }
 
         [Test]
@@ -177,18 +177,18 @@ namespace Monobjc.Utils
             methodInfo = typeof (Class06).GetMethod(METHOD, BindingFlags.Public | BindingFlags.Instance, binder, new[] {typeof (object), typeof (Object[])}, null);
             Assert.NotNull(methodInfo, METHOD_NOT_FOUND);
             Assert.AreEqual(true, methodInfo.IsGenericMethod, METHOD_NOT_GENERIC);
-			
+
             methodInfo = typeof (Class07).GetMethod(METHOD, BindingFlags.Public | BindingFlags.Instance, binder, new[] {typeof (IntPtr), typeof (Object[])}, null);
             Assert.NotNull(methodInfo, METHOD_NOT_FOUND);
             Assert.AreEqual(true, methodInfo.IsGenericMethod, METHOD_NOT_GENERIC);
-			Assert.AreEqual(typeof(IntPtr), methodInfo.GetParameters()[0].ParameterType, METHOD_WRONG_TYPE);
-			
+            Assert.AreEqual(typeof (IntPtr), methodInfo.GetParameters()[0].ParameterType, METHOD_WRONG_TYPE);
+
             methodInfo = typeof (Class07).GetMethod(METHOD, BindingFlags.Public | BindingFlags.Instance, binder, new[] {typeof (Id), typeof (Object[])}, null);
             Assert.NotNull(methodInfo, METHOD_NOT_FOUND);
             Assert.AreEqual(true, methodInfo.IsGenericMethod, METHOD_NOT_GENERIC);
-			Assert.AreEqual(typeof(Id), methodInfo.GetParameters()[0].ParameterType, METHOD_WRONG_TYPE);
+            Assert.AreEqual(typeof (Id), methodInfo.GetParameters()[0].ParameterType, METHOD_WRONG_TYPE);
         }
-		
+
         public class Class01
         {
             public void DoSomething(Object obj) {}
@@ -248,7 +248,7 @@ namespace Monobjc.Utils
                 return default(T);
             }
         }
-		
+
         public class Class07
         {
             public void DoSomething(IntPtr ptr, params Object[] parameters) {}

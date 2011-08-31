@@ -295,7 +295,7 @@ MonobjcTypeDescriptor *monobjc_get_descriptor(MonoType *type, char *encoding, bo
                         g_string_append(buffer, field_descriptor->encoding);
                         
                         // Append the size
-                        //structure_size += MAX(field_descriptor->size, sizeof(int32_t));
+                        //structure_size += MAX(field_descriptor->size, sizeof(void *));
                         structure_size += field_descriptor->size;
                         
                         // Append the foreing type

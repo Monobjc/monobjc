@@ -283,14 +283,14 @@ namespace Monobjc
             SCANNED_ASSEMBLIES.Add(name);
         }
 
-		/// <summary>
-		/// Dumps the assembly that holds the runtime generated wrappers.
-		/// </summary>
-		public static void DumpAssembly()
-		{
-			DynamicAssembly.Save();
-		}
-		
+        /// <summary>
+        ///   Dumps the assembly that holds the runtime generated wrappers.
+        /// </summary>
+        public static void DumpAssembly()
+        {
+            DynamicAssembly.Save();
+        }
+
         /// <summary>
         ///   Handles the AssemblyLoad event of the CurrentDomain control.
         /// </summary>
@@ -393,7 +393,7 @@ namespace Monobjc
         {
             return Marshal.PtrToStringAnsi(NativeMethods.sel_getName(value));
         }
-		
+
 #if MACOSX_10_5
         /// <summary>
         ///   Returns the name of the native protocol.

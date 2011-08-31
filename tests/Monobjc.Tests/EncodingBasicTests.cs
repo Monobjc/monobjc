@@ -58,8 +58,8 @@ namespace Monobjc
             Assert.AreEqual("@", ObjectiveCEncoding.GetTypeEncoding(typeof (Id)), "Encoding is wrong for id");
             Assert.AreEqual("#", ObjectiveCEncoding.GetTypeEncoding(typeof (Class)), "Encoding is wrong for ObjCClass");
 
-            Assert.AreEqual("{TSDecimal=iSSSSSSSS}", ObjectiveCEncoding.GetTypeEncoding(typeof(TSDecimal)), "Encoding is wrong for TSDecimal");
-			
+            Assert.AreEqual("{TSDecimal=iSSSSSSSS}", ObjectiveCEncoding.GetTypeEncoding(typeof (TSDecimal)), "Encoding is wrong for TSDecimal");
+
             // Variable types
             if (ObjectiveCRuntime.Is64Bits)
             {
@@ -72,8 +72,8 @@ namespace Monobjc
                 Assert.AreEqual("{TSSize64=dd}", ObjectiveCEncoding.GetTypeEncoding(typeof (TSSize)), "Encoding is wrong for TSSize");
                 Assert.AreEqual("{TSRect64={TSPoint64=dd}{TSSize64=dd}}", ObjectiveCEncoding.GetTypeEncoding(typeof (TSRect)), "Encoding is wrong for TSRect");
 
-                Assert.AreEqual("q", ObjectiveCEncoding.GetTypeEncoding(typeof(TSIntegerEnumeration)), "Encoding is wrong for TSIntegerEnumeration");
-                Assert.AreEqual("Q", ObjectiveCEncoding.GetTypeEncoding(typeof(TSUIntegerEnumeration)), "Encoding is wrong for TSUIntegerEnumeration");
+                Assert.AreEqual("q", ObjectiveCEncoding.GetTypeEncoding(typeof (TSIntegerEnumeration)), "Encoding is wrong for TSIntegerEnumeration");
+                Assert.AreEqual("Q", ObjectiveCEncoding.GetTypeEncoding(typeof (TSUIntegerEnumeration)), "Encoding is wrong for TSUIntegerEnumeration");
             }
             else
             {
@@ -86,8 +86,8 @@ namespace Monobjc
                 Assert.AreEqual("{TSSize=ff}", ObjectiveCEncoding.GetTypeEncoding(typeof (TSSize)), "Encoding is wrong for TSSize");
                 Assert.AreEqual("{TSRect={TSPoint=ff}{TSSize=ff}}", ObjectiveCEncoding.GetTypeEncoding(typeof (TSRect)), "Encoding is wrong for TSRect");
 
-                Assert.AreEqual("i", ObjectiveCEncoding.GetTypeEncoding(typeof(TSIntegerEnumeration)), "Encoding is wrong for TSIntegerEnumeration");
-                Assert.AreEqual("I", ObjectiveCEncoding.GetTypeEncoding(typeof(TSUIntegerEnumeration)), "Encoding is wrong for TSUIntegerEnumeration");
+                Assert.AreEqual("i", ObjectiveCEncoding.GetTypeEncoding(typeof (TSIntegerEnumeration)), "Encoding is wrong for TSIntegerEnumeration");
+                Assert.AreEqual("I", ObjectiveCEncoding.GetTypeEncoding(typeof (TSUIntegerEnumeration)), "Encoding is wrong for TSUIntegerEnumeration");
             }
 
             // Arrays (Not Supported Yet)
@@ -113,18 +113,18 @@ namespace Monobjc
         [Test]
         public void TestGetSize()
         {
-            Assert.AreEqual(4, ObjectiveCEncoding.GetTypeSize(typeof (bool)), "Size is wrong for bool");
-            Assert.AreEqual(4, ObjectiveCEncoding.GetTypeSize(typeof (char)), "Size is wrong for char");
+            Assert.AreEqual(1, ObjectiveCEncoding.GetTypeSize(typeof (bool)), "Size is wrong for bool");
+            Assert.AreEqual(2, ObjectiveCEncoding.GetTypeSize(typeof (char)), "Size is wrong for char");
 
-            Assert.AreEqual(4, ObjectiveCEncoding.GetTypeSize(typeof (short)), "Size is wrong for short");
-            Assert.AreEqual(4, ObjectiveCEncoding.GetTypeSize(typeof (Int16)), "Size is wrong for Int16");
+            Assert.AreEqual(2, ObjectiveCEncoding.GetTypeSize(typeof (short)), "Size is wrong for short");
+            Assert.AreEqual(2, ObjectiveCEncoding.GetTypeSize(typeof (Int16)), "Size is wrong for Int16");
             Assert.AreEqual(4, ObjectiveCEncoding.GetTypeSize(typeof (int)), "Size is wrong for int");
             Assert.AreEqual(4, ObjectiveCEncoding.GetTypeSize(typeof (Int32)), "Size is wrong for Int32");
             Assert.AreEqual(8, ObjectiveCEncoding.GetTypeSize(typeof (long)), "Size is wrong for long");
             Assert.AreEqual(8, ObjectiveCEncoding.GetTypeSize(typeof (Int64)), "Size is wrong for Int64");
 
-            Assert.AreEqual(4, ObjectiveCEncoding.GetTypeSize(typeof (ushort)), "Size is wrong for ushort");
-            Assert.AreEqual(4, ObjectiveCEncoding.GetTypeSize(typeof (UInt16)), "Size is wrong for UInt16");
+            Assert.AreEqual(2, ObjectiveCEncoding.GetTypeSize(typeof (ushort)), "Size is wrong for ushort");
+            Assert.AreEqual(2, ObjectiveCEncoding.GetTypeSize(typeof (UInt16)), "Size is wrong for UInt16");
             Assert.AreEqual(4, ObjectiveCEncoding.GetTypeSize(typeof (uint)), "Size is wrong for uint");
             Assert.AreEqual(4, ObjectiveCEncoding.GetTypeSize(typeof (UInt32)), "Size is wrong for UInt32");
             Assert.AreEqual(8, ObjectiveCEncoding.GetTypeSize(typeof (ulong)), "Size is wrong for ulong");
@@ -133,14 +133,14 @@ namespace Monobjc
             Assert.AreEqual(4, ObjectiveCEncoding.GetTypeSize(typeof (float)), "Size is wrong for float");
             Assert.AreEqual(8, ObjectiveCEncoding.GetTypeSize(typeof (double)), "Size is wrong for double");
 
-            Assert.AreEqual(IntPtr.Size, ObjectiveCEncoding.GetTypeSize(typeof (void)), "Size is wrong for void");
+            Assert.AreEqual(4, ObjectiveCEncoding.GetTypeSize(typeof (void)), "Size is wrong for void");
 
             Assert.AreEqual(IntPtr.Size, ObjectiveCEncoding.GetTypeSize(typeof (String)), "Size is wrong for String");
             Assert.AreEqual(IntPtr.Size, ObjectiveCEncoding.GetTypeSize(typeof (Id)), "Size is wrong for id");
             Assert.AreEqual(IntPtr.Size, ObjectiveCEncoding.GetTypeSize(typeof (Class)), "Size is wrong for ObjCClass");
 
-            Assert.AreEqual(20, ObjectiveCEncoding.GetTypeSize(typeof(TSDecimal)), "Size is wrong for TSDecimal");
-			
+            Assert.AreEqual(20, ObjectiveCEncoding.GetTypeSize(typeof (TSDecimal)), "Size is wrong for TSDecimal");
+
             // Variable types
             if (ObjectiveCRuntime.Is64Bits)
             {

@@ -62,13 +62,37 @@ int32_t icall_Monobjc_ObjectiveCEncoding_GetTypeSize(MonoType *type) {
     // Check that type is a cached one
     MonobjcTypeDescriptor *type_descriptor = monobjc_get_descriptor(type, NULL);
     if (type_descriptor) {
-        return MAX(type_descriptor->size, sizeof(void *));
-    }
+        return type_descriptor->size;
+	}
     
     // For all other cases, raise an exception
     char *name = mono_type_get_name(type);
     char *msg;
     asprintf(&msg, STRING_CANNOT_COMPUTE_SIZE, name);
+    MonoException *exc = mono_exception_from_name_msg(monobjc_get_Monobjc_image(), MONOBJC, OBJECTIVE_C_EXCEPTION, msg);
+    g_free(msg);
+    g_free(name);
+    
+    mono_raise_exception(exc);
+    
+    return -1;
+}
+
+/**
+ * @brief   Get the natural alignement Objective-C size.
+ * @param   type    The type handle.
+ */
+int32_t icall_Monobjc_ObjectiveCEncoding_GetTypeAlignment(MonoType *type) {
+    // Check that type is a cached one
+    MonobjcTypeDescriptor *type_descriptor = monobjc_get_descriptor(type, NULL);
+    if (type_descriptor) {
+        return type_descriptor->alignment;
+	}
+    
+    // For all other cases, raise an exception
+    char *name = mono_type_get_name(type);
+    char *msg;
+    asprintf(&msg, STRING_CANNOT_COMPUTE_ALIGNMENT, name);
     MonoException *exc = mono_exception_from_name_msg(monobjc_get_Monobjc_image(), MONOBJC, OBJECTIVE_C_EXCEPTION, msg);
     g_free(msg);
     g_free(name);

@@ -59,7 +59,18 @@ MonoObject *icall_Monobjc_Id_GetInstanceVariable(MonoType *type, void *ptr, Mono
         object_getInstanceVariable((id) ptr, variable_name, (void **) storage);    
     }
     
-    result = descriptor->marshal_from_native(descriptor, storage, TRUE);
+    // Process the result value
+    if (descriptor->convert_to_managed) {
+        void *args[1];
+        args[0] = storage;
+            
+        // Convert the value type and marshal back the result
+        result = mono_runtime_invoke(descriptor->convert_to_managed, NULL, args, NULL);
+    } else {
+        // Marshal back the result
+        result = descriptor->marshal_from_native(descriptor, storage, TRUE);
+    }
+	
     descriptor->free_native_storage(storage);
 
     g_free(variable_name);
@@ -76,6 +87,15 @@ MonoObject *icall_Monobjc_Id_GetInstanceVariable(MonoType *type, void *ptr, Mono
  */
 void icall_Monobjc_Id_SetInstanceVariable(MonoType *type, void *ptr, MonoString *name, MonoObject *value) {
     MonobjcTypeDescriptor *descriptor = monobjc_get_descriptor(type, NULL);
+	
+    // Convert the managed type if needed
+    if (descriptor->convert_from_managed) {
+        void *args[1];
+        args[0] = mono_object_unbox(value);
+         
+        value = mono_runtime_invoke(descriptor->convert_from_managed, NULL, args, NULL);
+    }
+	
     void *storage = descriptor->alloc_native_storage(descriptor, TRUE);
     descriptor->marshal_to_native(descriptor, value, storage, TRUE);
 

@@ -199,12 +199,22 @@ namespace Monobjc.Generators
                 Type underlyingType = TypeHelper.GetUnderlyingType(localType, this.Is64Bits);
                 if (localType != underlyingType)
                 {
-                    // Marshal the native value into the local variable
-                    generator.Emit(OpCodes.Ldtoken, underlyingType);
-                    generator.Emit(OpCodes.Call, EmitInfos.TYPE_GETTYPEFROMHANDLE);
-                    generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_PTRTOSTRUCTURE);
-                    generator.Emit(OpCodes.Unbox_Any, underlyingType);
-                    EmitHelper.CastValueType(generator, underlyingType, localType);
+                    if (underlyingType == typeof (int) ||
+                        underlyingType == typeof (uint) ||
+                        underlyingType == typeof (long) ||
+                        underlyingType == typeof (ulong))
+                    {
+                        this.EmitNativeToManagedMarshallingCast(generator, underlyingType);
+                    }
+                    else
+                    {
+                        // Marshal the native value into the local variable
+                        generator.Emit(OpCodes.Ldtoken, underlyingType);
+                        generator.Emit(OpCodes.Call, EmitInfos.TYPE_GETTYPEFROMHANDLE);
+                        generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_PTRTOSTRUCTURE);
+                        generator.Emit(OpCodes.Unbox_Any, underlyingType);
+                        EmitHelper.CastValueType(generator, underlyingType, localType);
+                    }
                 }
                 else
                 {
@@ -276,7 +286,7 @@ namespace Monobjc.Generators
         {
             if (TypeHelper.NeedWrapping(localType))
             {
-                Label nullValueLabel = generator.DefineLabel();
+                Label falseValueLabel = generator.DefineLabel();
                 Label continueLabel = generator.DefineLabel();
 
                 // Load the target argument on the stack
@@ -284,16 +294,17 @@ namespace Monobjc.Generators
                 EmitLoadArgument(generator, i + 2);
                 generator.Emit(OpCodes.Ldloc, local);
                 generator.Emit(OpCodes.Ldnull);
-                generator.Emit(OpCodes.Beq_S, nullValueLabel);
-
-                // If not null, extract the pointer
-                generator.Emit(OpCodes.Ldloc, local);
-                generator.Emit(OpCodes.Call, EmitInfos.ID_GETNATIVEPOINTER);
-                generator.Emit(OpCodes.Br_S, continueLabel);
+                generator.Emit(OpCodes.Call, EmitInfos.ID_OP_EQUALITY);
+                generator.Emit(OpCodes.Brfalse, falseValueLabel);
 
                 // If null, load a zero pointer
-                generator.MarkLabel(nullValueLabel);
                 generator.Emit(OpCodes.Ldsfld, EmitInfos.INTPTR_ZERO);
+                generator.Emit(OpCodes.Br, continueLabel);
+
+                // If not null, extract the pointer
+                generator.MarkLabel(falseValueLabel);
+                generator.Emit(OpCodes.Ldloc, local);
+                generator.Emit(OpCodes.Call, EmitInfos.ID_GETNATIVEPOINTER);
 
                 // Store the final result into the target argument
                 generator.MarkLabel(continueLabel);
@@ -343,7 +354,7 @@ namespace Monobjc.Generators
             {
                 EmitLoadArgument(generator, i + 2);
                 generator.Emit(OpCodes.Ldloc, local);
-                generator.Emit(OpCodes.Conv_I2, local);
+                generator.Emit(OpCodes.Conv_I2);
                 generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_WRITEINT16);
             }
             else if (localType == typeof (int) || localType == typeof (uint))
@@ -401,12 +412,29 @@ namespace Monobjc.Generators
                 if (localType != underlyingType)
                 {
                     // Store the final result into the target argument
-                    generator.Emit(OpCodes.Ldloc, local);
-                    EmitHelper.CastValueType(generator, localType, underlyingType);
-                    generator.Emit(OpCodes.Box, underlyingType);
-                    EmitLoadArgument(generator, i + 2);
-                    generator.Emit(OpCodes.Ldc_I4_0);
-                    generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_STRUCTURETOPTR);
+                    if (underlyingType == typeof (int) || underlyingType == typeof (uint))
+                    {
+                        EmitLoadArgument(generator, i + 2);
+                        generator.Emit(OpCodes.Ldloc, local);
+                        EmitHelper.CastValueType(generator, localType, underlyingType);
+                        generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_WRITEINT32);
+                    }
+                    else if (underlyingType == typeof (long) || underlyingType == typeof (ulong))
+                    {
+                        EmitLoadArgument(generator, i + 2);
+                        generator.Emit(OpCodes.Ldloc, local);
+                        EmitHelper.CastValueType(generator, localType, underlyingType);
+                        generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_WRITEINT64);
+                    }
+                    else
+                    {
+                        generator.Emit(OpCodes.Ldloc, local);
+                        EmitHelper.CastValueType(generator, localType, underlyingType);
+                        generator.Emit(OpCodes.Box, underlyingType);
+                        EmitLoadArgument(generator, i + 2);
+                        generator.Emit(OpCodes.Ldc_I4_0);
+                        generator.Emit(OpCodes.Call, EmitInfos.MARSHAL_STRUCTURETOPTR);
+                    }
                 }
                 else
                 {

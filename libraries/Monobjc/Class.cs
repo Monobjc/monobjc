@@ -102,14 +102,12 @@ namespace Monobjc
             String className = GetAttributeName(type);
             return IsMapped(className);
         }
-		
-		/// <summary>
-		/// Gets or sets the wrapper type linked to this class. 
-		/// </summary>
-		public IntPtr WrapperType {
-			get; internal set;
-		}
-		
+
+        /// <summary>
+        ///   Gets or sets the wrapper type linked to this class.
+        /// </summary>
+        public IntPtr WrapperType { get; internal set; }
+
         /// <summary>
         ///   Gets the name of the <see cref = "ObjectiveCClassAttribute" /> instance for the given type.
         /// </summary>

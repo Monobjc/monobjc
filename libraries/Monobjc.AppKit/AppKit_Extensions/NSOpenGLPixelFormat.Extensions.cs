@@ -34,8 +34,8 @@ using System.Runtime.InteropServices;
 
 namespace Monobjc.AppKit
 {
-	public partial class NSOpenGLPixelFormat
-	{
+    public partial class NSOpenGLPixelFormat
+    {
         /// <summary>
         /// <para>Returns an NSOpenGLPixelFormat object initialized with specified pixel format attributes.</para>
         /// <para>Original signature is '- (id)initWithAttributes:(const NSOpenGLPixelFormatAttribute *)attribs'</para>
@@ -44,7 +44,7 @@ namespace Monobjc.AppKit
         public NSOpenGLPixelFormat(NSOpenGLPixelFormatAttribute[] attribs) : this(attribs.Select(attribute => Convert.ToUInt32(attribute)).ToArray())
         {
         }
-		
+        
         /// <summary>
         /// <para>Returns an NSOpenGLPixelFormat object initialized with specified pixel format attributes.</para>
         /// <para>Original signature is '- (id)initWithAttributes:(const NSOpenGLPixelFormatAttribute *)attribs'</para>
@@ -53,7 +53,7 @@ namespace Monobjc.AppKit
         public NSOpenGLPixelFormat(Object[] attribs) : this(attribs.Select(Convert.ToUInt32).ToArray())
         {
         }
-		
+        
         /// <summary>
         /// <para>Returns an NSOpenGLPixelFormat object initialized with specified pixel format attributes.</para>
         /// <para>Original signature is '- (id)initWithAttributes:(const NSOpenGLPixelFormatAttribute *)attribs'</para>
@@ -61,16 +61,16 @@ namespace Monobjc.AppKit
         /// </summary>
         public NSOpenGLPixelFormat(uint[] attribs) : this(ObjectiveCRuntime.SendMessage<IntPtr>(NSOpenGLPixelFormatClass, "alloc"))
         {
-			// TODO: Remove when array are supported in bridge
-			int size = Marshal.SizeOf(typeof(uint));
-			IntPtr native = Marshal.AllocHGlobal(attribs.Length * size);
-			for(int i = 0; i < attribs.Length; i++)
-			{
-				IntPtr insert = new IntPtr(native.ToInt64() + i * size);
-				Marshal.WriteInt32(insert, (int) attribs[i]);
-			}
+            // TODO: Remove when array are supported in bridge
+            int size = Marshal.SizeOf(typeof(uint));
+            IntPtr native = Marshal.AllocHGlobal(attribs.Length * size);
+            for(int i = 0; i < attribs.Length; i++)
+            {
+                IntPtr insert = new IntPtr(native.ToInt64() + i * size);
+                Marshal.WriteInt32(insert, (int) attribs[i]);
+            }
             this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr>(this, "initWithAttributes:", native);
-			Marshal.FreeHGlobal(native);
+            Marshal.FreeHGlobal(native);
         }
-	}
+    }
 }
