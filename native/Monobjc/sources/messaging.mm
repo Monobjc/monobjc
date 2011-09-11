@@ -19,7 +19,7 @@
  * @file    messaging.mm
  * @brief   Contains definitions for Objective-C/.NET messaging.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #include <sys/mman.h>
 #include "cache.h"

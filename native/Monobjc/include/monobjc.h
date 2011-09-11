@@ -19,7 +19,7 @@
  * @file    monobjc.h
  * @brief   Contains exposed functions for the bridging library.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #ifndef __MONOBJC_H__
 #define __MONOBJC_H__

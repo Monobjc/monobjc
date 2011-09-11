@@ -19,7 +19,7 @@
  * @file    definitions.h
  * @brief   Defines the accessors to get access to the definition of the managed entities (assemblies, images, classes, methods, etc).
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #ifndef __DEFINITIONS_H__
 #define __DEFINITIONS_H__

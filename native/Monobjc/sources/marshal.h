@@ -19,7 +19,7 @@
  * @file    marshal.h
  * @brief   Contains various marshal functions to convert managed objects.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #ifndef __MARSHAL_H__
 #define __MARSHAL_H__
@@ -129,10 +129,8 @@ MonobjcTypeDescriptor *monobjc_get_descriptor(MonoType *type, char *encoding, bo
 
 #pragma mark ----- Creator functions -----
 
-#if NS_BLOCKS_AVAILABLE
 /** @brief  Create the descriptor for "Monobjc.Block". */
 MonobjcTypeDescriptor *monobjc_create_descriptor_for_Monobjc_Block();
-#endif
 
 /** @brief  Create the descriptor for "Monobjc.Class". */
 MonobjcTypeDescriptor *monobjc_create_descriptor_for_Monobjc_Class();

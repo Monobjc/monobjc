@@ -19,7 +19,7 @@
  * @file    domain.h
  * @brief   Contains the per-domain structure and functions.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #ifndef __DOMAIN_H__
 #define __DOMAIN_H__

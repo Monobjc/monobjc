@@ -16,13 +16,13 @@
 // along with Monobjc. If not, see <http://www.gnu.org/licenses/>.
 // 
 /**
- * @file    mono-support.h
+ * @file    support-mono.h
  * @brief   Contains functions to retrieve Mono entities definitions.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
-#ifndef __MONO_SUPPORT_H__
-#define __MONO_SUPPORT_H__
+#ifndef __SUPPORT_MONO_H__
+#define __SUPPORT_MONO_H__
 
 /**
  * @brief   Check the expression related to the given argument.
@@ -127,4 +127,4 @@ MonoMethod *monobjc_get_wrapper_constructor(MonoClass *klass);
  */
 boolean_t monobjc_type_is_interface(MonoType *type);
 
-#endif // __MONO_SUPPORT_H__
+#endif // __SUPPORT_MONO_H__

@@ -16,13 +16,13 @@
 // along with Monobjc. If not, see <http://www.gnu.org/licenses/>.
 // 
 /**
- * @file    ffi-support.h
+ * @file    support-ffi.h
  * @brief   Contains diagnosis functions for FFI.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
-#ifndef __FFI_SUPPORT_H__
-#define __FFI_SUPPORT_H__
+#ifndef __SUPPORT_FFI_H__
+#define __SUPPORT_FFI_H__
 
 #include <ffi/ffi.h>
 
@@ -66,4 +66,4 @@ char *monobjc_get_ffi_cif_string(ffi_cif *cif);
  */
 void monobjc_print_ffi_cif(ffi_cif *cif);
 
-#endif // __FFI_SUPPORT_H__
+#endif // __SUPPORT_FFI_H__

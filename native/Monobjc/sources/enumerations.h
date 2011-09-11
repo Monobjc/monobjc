@@ -19,7 +19,7 @@
  * @file    enumerations.h
  * @brief   Contains common enumerations.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #ifndef __ENUMERATIONS_H__
 #define __ENUMERATIONS_H__

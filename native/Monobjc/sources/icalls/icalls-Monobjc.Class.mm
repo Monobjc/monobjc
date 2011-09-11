@@ -19,7 +19,7 @@
  * @file    icalls-Monobjc.Class.mm
  * @brief   Contains the internal calls for the Monobjc.Class type.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #include "cache.h"
 #include "definitions.h"

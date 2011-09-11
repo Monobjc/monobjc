@@ -16,10 +16,10 @@
 // along with Monobjc. If not, see <http://www.gnu.org/licenses/>.
 // 
 /**
- * @file    mono-support.mm
+ * @file    support-mono.mm
  * @brief   Contains functions to retrieve Mono entities definitions.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #include "logging.h"
 #include "support-mono.h"

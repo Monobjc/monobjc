@@ -19,7 +19,7 @@
  * @file    threading.h
  * @brief   Contains functions to control native/managed thread interaction.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #ifndef __THREADING_H__
 #define __THREADING_H__
@@ -58,50 +58,5 @@
  * @param   mutex       The mutex to destroy.
  */
 #define MONOBJC_MUTEX_FREE(mutex)   pthread_mutex_destroy(mutex);
-
-#pragma mark -----
-
-#if defined(THREAD_MANAGEMENT)
-
-/** 
- * @brief   Statically assigned thread key for Monobjc TSD.
- * @remark  See http://www.opensource.apple.com/source/Libc/Libc-583/pthreads/pthread_machdep.h
- */
-#define PTK_FRAMEWORK_MONOBJC_KEY1 240
-
-/**
- * @brief   Structure to store each thread related data
- */
-typedef struct MonobjcThreadEntry {
-    /** @brief  The pthread_t structure of the thread */
-    pthread_t id;
-    /** @brief  The TSD destruction count */
-    int tsd_count;
-};
-
-/** 
- * @brief   Function pointer for the "pthread_key_init_np()" function.
- * @remark  See http://www.opensource.apple.com/source/Libc/Libc-583/pthreads/pthread_tsd.c
- */
-typedef int (*PTHREAD_KEY_INIT_NP)(int, void (*)(void *));
-
-/*! @brief  Function pointer for the "GC_thread GC_lookup_thread(pthread_t)" function. */
-typedef void *(*MONO_GC_LOOKUP_THREAD)(pthread_t);
-
-/** @brief  Function pointer for the "void GC_thread_deregister_foreign(void *)" function. */
-typedef void (*MONO_GC_THREAD_DEREGISTER_FOREIGN)(void *);
-
-/**
- * @brief   Enroll the give thread to the thread list, if it is not added yet.
- * @param   id  The identifier of the thread.
- */
-void monobjc_enroll_thread(pthread_t id);
-
-/**
- * @brief   Setup the thread management for the bridge.
- */
-void monobjc_setup_thread_management();
-
-#endif
 
 #endif // __THREADING_H__

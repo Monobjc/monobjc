@@ -19,7 +19,7 @@
  * @file    monobjc.mm
  * @brief   Contains exposed functions for the bridging library.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #include <dlfcn.h>
 #include "icalls.h"
@@ -46,11 +46,6 @@ void monobjc_install_bridge() {
     monobjc_setup_logging();
     
     LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Setting up the bridge...");
-    
-#if defined(THREAD_MANAGEMENT)
-    // Setup the thread management
-    monobjc_setup_thread_management();
-#endif
     
     LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Installing internal calls...");
     

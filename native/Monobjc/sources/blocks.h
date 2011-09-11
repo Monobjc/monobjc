@@ -19,12 +19,10 @@
  * @file    blocks.h
  * @brief   Private headers for blocks.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #ifndef __BLOCKS_H__
 #define __BLOCKS_H__
-
-#if NS_BLOCKS_AVAILABLE
 
 /** @brief  The flags applicable to a block. */
 enum {
@@ -54,7 +52,5 @@ struct Block_layout {
     struct Block_descriptor *descriptor;    /**< @brief  The block's descriptor. */
     /* Imported variables. */
 };
-
-#endif
 
 #endif // __BLOCKS_H__

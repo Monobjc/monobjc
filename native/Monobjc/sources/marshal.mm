@@ -19,7 +19,7 @@
  * @file    marshal.mm
  * @brief   Contains various marshal functions to convert managed objects.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #include "cache.h"
 #include "constants.h"
@@ -28,6 +28,7 @@
 #include "logging.h"
 #include "marshal.h"
 #include "support-objc.h"
+#include "support-os.h"
 
 /**
  * @brief   Destruction callback for the descriptor.
@@ -140,9 +141,9 @@ void monobjc_create_default_descriptors() {
     __DESCRIPTORS_HASHTABLE = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, __destroy_descriptor);
 
     // Create marshalers for Monobjc types
-#if NS_BLOCKS_AVAILABLE
-    __map_descriptor(monobjc_get_Monobjc_Block_type(),              monobjc_create_descriptor_for_Monobjc_Block());
-#endif
+    if (monobjc_are_blocks_available()) {
+        __map_descriptor(monobjc_get_Monobjc_Block_type(),          monobjc_create_descriptor_for_Monobjc_Block());
+    }
     __map_descriptor(monobjc_get_Monobjc_Class_type(),              monobjc_create_descriptor_for_Monobjc_Class());
     __map_descriptor(monobjc_get_Monobjc_Id_type(),                 monobjc_create_descriptor_for_Monobjc_Id(monobjc_get_Monobjc_Id_type()));
     

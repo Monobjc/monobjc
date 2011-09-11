@@ -19,7 +19,7 @@
  * @file    descriptor-Monobjc.Class.mm
  * @brief   Contains the descriptor code to handle the Monobjc.Class type.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #include "definitions.h"
 #include "icalls.h"

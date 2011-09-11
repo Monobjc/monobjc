@@ -19,7 +19,7 @@
  * @file    descriptor-System.String.mm
  * @brief   Contains the descriptor code to handle the System.String type.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #include "logging.h"
 #include "marshal.h"

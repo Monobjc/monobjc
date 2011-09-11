@@ -16,10 +16,10 @@
 // along with Monobjc. If not, see <http://www.gnu.org/licenses/>.
 // 
 /**
- * @file    ffi-support.mm
+ * @file    support-ffi.mm
  * @brief   Contains diagnosis functions for FFI.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #include "support-ffi.h"
 #include "logging.h"

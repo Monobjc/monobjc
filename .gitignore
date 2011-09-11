@@ -4,6 +4,7 @@ dist/
 obj/
 stripped.libraries/
 _ReSharper*
+.DS_Store
 .generator
 *.Cache
 *.docstates

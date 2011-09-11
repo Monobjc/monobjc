@@ -19,7 +19,7 @@
  * @file    main.mm
  * @brief   Default loader for the Monobjc bridge.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #import <stdlib.h>
 #import <Cocoa/Cocoa.h>
@@ -30,16 +30,24 @@
 #include <monobjc.h>
 
 int main(int argc, char *argv[]) {
-    int i, index = 1;
+    int i, index = 1, debug = 0;
 	
+    // Flag to debug command line arguments
+	char *options = getenv("MONOBJC_ARGS");
+	if (options && strlen(options) > 0) {
+        debug = 1;
+    }
+    
     // Create a pool, for the processing
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
     // Convert the command line arguments into an array for easy parsing
+    if (debug) NSLog(@"Raw arguments");
     NSMutableArray *arguments = [NSMutableArray array];
     for(int i = 0; i < argc; i++) {
         NSString *str = [NSString stringWithCString:argv[i] encoding:[NSString defaultCStringEncoding]];
         [arguments addObject:str];
+        if (debug) NSLog(@"%@", str);
     }
 
 	// Get the full name of the current executable and extract the last part
@@ -57,8 +65,9 @@ int main(int argc, char *argv[]) {
 	}
 	
 	// Insert options in the argument array
-	char *options = getenv("MONO_OPTIONS");
+	options = getenv("MONO_OPTIONS");
 	if (options && strlen(options) > 0) {
+        if (debug) NSLog(@"Parsing MONO_OPTIONS");
         NSString *str = [NSString stringWithCString:options encoding:[NSString defaultCStringEncoding]];
 		NSArray *parts = [str componentsSeparatedByString:@" "];
 		for(i = 0; i < [parts count]; i++) {
@@ -69,6 +78,7 @@ int main(int argc, char *argv[]) {
 	}
 
     if (!argument) {
+        if (debug) NSLog(@"Adding the main assembly");
         // If the main assembly is not found, compute the assembly path in the resources
         // - For command line applications, this is the current folder
         // - For bundled applications, this is the "Contents/Resources" folder.
@@ -79,9 +89,12 @@ int main(int argc, char *argv[]) {
 	// Build a new argument array
 	argc = [arguments count];
 	char **newargv = (char **) malloc(sizeof(char *) * (argc + 1));
+    if (debug) NSLog(@"Final arguments");
 	for (i = 0; i < argc; i++)
 	{
-		newargv[i] = (char *) [[arguments objectAtIndex:i] UTF8String];
+        NSString *str = [arguments objectAtIndex:i];
+        if (debug) NSLog(@"%@", str);
+		newargv[i] = (char *) [str UTF8String];
 	}
 	newargv[i++] = NULL;
 		

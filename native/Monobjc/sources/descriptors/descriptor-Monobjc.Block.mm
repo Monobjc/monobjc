@@ -19,14 +19,12 @@
  * @file    descriptor-Monobjc.Block.mm
  * @brief   Contains the descriptor code to handle the Monobjc.Block type.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #include "definitions.h"
 #include "icalls.h"
 #include "logging.h"
 #include "marshal.h"
-
-#if NS_BLOCKS_AVAILABLE
 
 /**
  * @brief   Allocates a storage zone large enough to hold a marshalled Monobjc.Block subclass instance.
@@ -114,5 +112,3 @@ MonobjcTypeDescriptor *monobjc_create_descriptor_for_Monobjc_Block() {
     
     return descriptor;
 }
-
-#endif

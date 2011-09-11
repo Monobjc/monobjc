@@ -19,12 +19,12 @@
  * @file    icalls-Monobjc.Runtime.Platform.mm
  * @brief   Contains the internal calls for the Monobjc.Runtime.Platform type.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
-#include <mach-o/arch.h>
 #include "constants.h"
 #include "icalls.h"
 #include "logging.h"
+#include "support-os.h"
 
 #pragma mark ----- Internal Calls -----
 
@@ -33,10 +33,7 @@
  * @return  A system dependent description.
  */
 MonoString *icall_Monobjc_Runtime_Platform_GetProcessor(void) {
-    const NXArchInfo *info = NXGetLocalArchInfo();
-    if (!info) {
-        LOG_ERROR(MONOBJC_DOMAIN_GENERAL, "Cannot retrieve the processor.");
-    }
+    const NXArchInfo *info = monobjc_get_arch_info();
     return mono_string_new(mono_domain_get(), info->description);
 }
 
@@ -47,10 +44,7 @@ MonoString *icall_Monobjc_Runtime_Platform_GetProcessor(void) {
  *          @li 1050 for Mac OS X 10.5, whatever the patch level is.
  */
 OSVersion icall_Monobjc_Runtime_Platform_GetOSVersion(void) {
-    SInt32 version = 0;
-    if (Gestalt(gestaltSystemVersion, &version) < 0) {
-        LOG_ERROR(MONOBJC_DOMAIN_GENERAL, "Cannot retrieve the system version.");
-    }
+    SInt32 version = monobjc_get_os_version();
     
     if (version < MACOS_10_0) {
         return MACOS_Unrecognized;

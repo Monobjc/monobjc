@@ -19,7 +19,7 @@
  * @file    logging.mm
  * @brief   Contains definitions for logging.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #include "logging.h"
 

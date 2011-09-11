@@ -19,11 +19,12 @@
  * @file    icalls-Monobjc.Block.mm
  * @brief   Contains the internal calls for the Monobjc.Block type.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #include "blocks.h"
 #include "icalls.h"
 #include "logging.h"
+#include "support-os.h"
 
 #pragma mark ----- Internal Calls -----
 
@@ -36,27 +37,27 @@
  *          @li Block Implementation Specification (http://clang.llvm.org/docs/BlockImplementation.txt).
  */
 void *icall_Monobjc_Block_CreateBlock(void *function) {
-#if NS_BLOCKS_AVAILABLE
-    // Create the descriptor first
-    Block_descriptor *descriptor = g_new(Block_descriptor, 1);
-    descriptor->reserved = 0;
-    descriptor->size = sizeof(Block_layout);
-    descriptor->copy = NULL;
-    descriptor->dispose = NULL;
-    
-    // Create the layout then
-    Block_layout *layout = g_new(Block_layout, 1);
-    layout->isa = objc_lookUpClass("__NSStackBlock");
-    layout->flags = BLOCK_HAS_DESCRIPTOR;
-    layout->reserved = 0;
-    layout->invoke = (void (*)(void *, ...)) function;
-    layout->descriptor = descriptor;
-    
-    return layout;
-#else
-    LOG_ERROR(MONOBJC_DOMAIN_GENERAL, "Block creation is not supported !!!");
-    return NULL;
-#endif
+    if (monobjc_are_blocks_available()) {
+        // Create the descriptor first
+        Block_descriptor *descriptor = g_new(Block_descriptor, 1);
+        descriptor->reserved = 0;
+        descriptor->size = sizeof(Block_layout);
+        descriptor->copy = NULL;
+        descriptor->dispose = NULL;
+        
+        // Create the layout then
+        Block_layout *layout = g_new(Block_layout, 1);
+        layout->isa = objc_lookUpClass("__NSStackBlock");
+        layout->flags = BLOCK_HAS_DESCRIPTOR;
+        layout->reserved = 0;
+        layout->invoke = (void (*)(void *, ...)) function;
+        layout->descriptor = descriptor;
+        
+        return layout;
+    } else {
+        LOG_ERROR(MONOBJC_DOMAIN_GENERAL, "Blocks are not supported !!!");
+        return NULL;
+    }
 }
 
 /**
@@ -64,17 +65,17 @@ void *icall_Monobjc_Block_CreateBlock(void *function) {
  * @param   block   The Objective-C block to destroy.
  */
 void icall_Monobjc_Block_DestroyBlock(void *block) {
-#if NS_BLOCKS_AVAILABLE
-    // Cast the pointer to access the structure
-    Block_layout *layout = (Block_layout *)block;
-    if (layout->descriptor &&
-        (layout->flags & BLOCK_HAS_DESCRIPTOR) == BLOCK_HAS_DESCRIPTOR) {
-        // Destroy the descriptor if present
-        g_free(layout->descriptor);
+    if (monobjc_are_blocks_available()) {
+        // Cast the pointer to access the structure
+        Block_layout *layout = (Block_layout *)block;
+        if (layout->descriptor &&
+            (layout->flags & BLOCK_HAS_DESCRIPTOR) == BLOCK_HAS_DESCRIPTOR) {
+            // Destroy the descriptor if present
+            g_free(layout->descriptor);
+        }
+        
+        g_free(layout);
+    } else {
+        LOG_ERROR(MONOBJC_DOMAIN_GENERAL, "Blocks are not supported !!!");
     }
-    
-    g_free(layout);
-#else
-    LOG_ERROR(MONOBJC_DOMAIN_GENERAL, "Block destruction is not supported !!!");
-#endif
 }

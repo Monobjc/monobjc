@@ -19,13 +19,14 @@
  * @file    definitions.mm
  * @brief   Defines the accessors to get access to the definition of the managed entities (assemblies, images, classes, methods, etc).
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #include "constants.h"
 #include "definitions.h"
 #include "domain.h"
 #include "logging.h"
 #include "support-mono.h"
+#include "support-os.h"
 
 #pragma mark ----- Implementation -----
 

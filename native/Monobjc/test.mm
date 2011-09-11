@@ -19,7 +19,7 @@
  * @file    main.mm
  * @brief   Default loader for the Monobjc bridge.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #import <Cocoa/Cocoa.h>
 

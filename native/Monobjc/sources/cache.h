@@ -19,7 +19,7 @@
  * @file    cache.h
  * @brief   Defines the cache semantics to for the caches used in the bridge.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #ifndef __CACHE_H__
 #define __CACHE_H__

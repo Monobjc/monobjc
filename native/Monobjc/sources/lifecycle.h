@@ -19,7 +19,7 @@
  * @file    lifecycle.h
  * @brief   Contains functions to plug into the Objective-C object lifecycle.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #ifndef __LIFECYCLE_H__
 #define __LIFECYCLE_H__

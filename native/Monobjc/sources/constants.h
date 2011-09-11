@@ -19,7 +19,7 @@
  * @file    constants.h
  * @brief   Contains common constants.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2010
+ * @date    2009-2011
  */
 #ifndef __CONSTANTS_H__
 #define __CONSTANTS_H__
