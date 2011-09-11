@@ -1,6 +1,6 @@
 [submodule "tools"]
 	path = tools
-	url = git://github.com/letiemble/monobjc-tools.git
+	url = git://github.com/Monobjc/monobjc-tools.git
 [submodule "samples"]
 	path = samples
-	url = git://github.com/letiemble/monobjc-samples.git
+	url = git://github.com/Monobjc/monobjc-samples.git
