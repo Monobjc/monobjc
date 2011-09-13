@@ -20,6 +20,12 @@
       <call target="build-tests-intern" if="${version::get-minor(version::parse(max.version)) >= 6}"/>
     </if>
 
+    <if test="${version::get-minor(version::parse(min.version)) &lt;= 7}" >
+      <property name="version" value="10.7"/>
+      <property name="define" value="TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;HAVE_BLOCK_SUPPORT"/>
+      <call target="build-tests-intern" if="${version::get-minor(version::parse(max.version)) >= 7}"/>
+    </if>
+
   </target>
 
   <!-- ===============================================================================
@@ -38,6 +44,11 @@
       <call target="run-tests-intern" if="${version::get-minor(version::parse(max.version)) >= 6}"/>
     </if>
 
+    <if test="${version::get-minor(version::parse(min.version)) &lt;= 7}" >
+      <property name="version" value="10.7"/>
+      <call target="run-tests-intern" if="${version::get-minor(version::parse(max.version)) >= 7}"/>
+    </if>
+
   </target>
 
   <!-- Build set of unit tests -->
@@ -51,6 +62,10 @@
     <property name="base.dir" value="${tests.dir}"/>
     <property name="output.dir" value="${dist.dir}/${version}"/>
     <mkdir dir="${output.dir}"/>
+
+    <!-- Copy NUnit wrapper -->
+    <copy file="${tests.dir}/nunit-${version}" todir="${output.dir}"/>
+    <mkdir dir="${dist.dir}/Tests"/>
 
     <!-- Copy the NUnit DLLs -->
     <copy todir="${output.dir}">
@@ -218,10 +233,6 @@
   <target name="run-tests-intern">
     <!-- Output dir is used to run the tests -->
     <property name="output.dir" value="${dist.dir}/${version}"/>
-
-    <!-- Copy NUnit wrapper -->
-    <copy file="${tests.dir}/nunit-${version}" todir="${output.dir}"/>
-    <mkdir dir="${dist.dir}/Tests"/>
 
     <!-- Run NUnit -->
     <property name="test.name" value="Monobjc.Tests"/>

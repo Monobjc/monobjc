@@ -27,8 +27,8 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Monobjc Bridge - QuartzComposer Library")]
-[assembly: AssemblyDescription("Monobjc Bridge QuartzComposer Library")]
+[assembly: AssemblyTitle("Monobjc Bridge - CoreMedia Library")]
+[assembly: AssemblyDescription("Monobjc Bridge CoreMedia Library")]
 [assembly: AssemblyCompany("Monobjc Project")]
 [assembly: AssemblyProduct("Monobjc Bridge Project")]
 [assembly: AssemblyCopyright("Copyright (c) Monobjc Project 2007-2011 - Licensed under MIT License")]
@@ -36,8 +36,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en-US")]
 [assembly: ComVisible(false)]
-[assembly: Guid("a9e3bca9-fd20-6ef5-04b7-8bdcb92fd2e6")]
+[assembly: Guid("86a8d193-5f39-765e-f43c-c9241e8b3dd2")]
 
 #if TESTING
-[assembly: InternalsVisibleTo("Monobjc.QuartzComposer.Tests")]
+[assembly: InternalsVisibleTo("Monobjc.CoreMedia.Tests")]
 #endif

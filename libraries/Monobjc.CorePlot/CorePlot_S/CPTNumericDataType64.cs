@@ -47,7 +47,7 @@ namespace Monobjc.CorePlot
         public long byteOrder;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CPNumericDataType64"/> struct.
+        /// Initializes a new instance of the <see cref="CPTNumericDataType64"/> struct.
         /// </summary>
         /// <param name="dataTypeFormat">The data type format.</param>
         /// <param name="sampleBytes">The sample bytes.</param>

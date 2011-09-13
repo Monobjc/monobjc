@@ -56,28 +56,6 @@ namespace Monobjc.Security
 
 
         /// <summary>
-        /// <para>Retrieves the authorization reference passed by the AuthorizationExecuteWithPrivileges function.</para>
-        /// <para>Original signature is 'OSStatus AuthorizationCopyPrivilegedReference (  AuthorizationRef *authorization,  AuthorizationFlags flags );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
-        /// </summary>
-        /// <param name="authorization">MISSING</param>
-        /// <param name="flags">MISSING</param>
-        /// <returns>A result code. See “Authorization Services Result Codes.”</returns>
-        public static int CopyPrivilegedReference(out IntPtr authorization, AuthorizationFlags flags)
-        {
-            IntPtr __local1 = Marshal.AllocHGlobal(IntPtr.Size);
-            Marshal.WriteIntPtr(__local1, IntPtr.Zero);
-            int __result = CopyPrivilegedReference_Inner(__local1, flags);
-            authorization = Marshal.ReadIntPtr(__local1);
-            Marshal.FreeHGlobal(__local1);
-            return __result;
-        }
-
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="AuthorizationCopyPrivilegedReference")]
-        private static extern int CopyPrivilegedReference_Inner(IntPtr authorization, AuthorizationFlags flags);
-
-
-        /// <summary>
         /// <para>Authorizes and preauthorizes rights.</para>
         /// <para>Original signature is 'OSStatus AuthorizationCopyRights (  AuthorizationRef authorization,  const AuthorizationRights *rights,  const AuthorizationEnvironment *environment,  AuthorizationFlags flags,  AuthorizationRights **authorizedRights );'</para>
         /// <para>Available in Mac OS X v10.0 and later.</para>
@@ -146,21 +124,6 @@ namespace Monobjc.Security
 
         [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="AuthorizationCreateFromExternalForm")]
         private static extern int CreateFromExternalForm_Inner(IntPtr extForm, IntPtr authorization);
-
-
-        /// <summary>
-        /// <para>Runs an executable tool with root privileges.</para>
-        /// <para>Original signature is 'OSStatus AuthorizationExecuteWithPrivileges (  AuthorizationRef authorization,  const char *pathToTool,  AuthorizationFlags options,  char *const *arguments,  FILE **communicationsPipe );'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
-        /// </summary>
-        /// <param name="authorization">MISSING</param>
-        /// <param name="pathToTool">MISSING</param>
-        /// <param name="options">MISSING</param>
-        /// <param name="arguments">MISSING</param>
-        /// <param name="communicationsPipe">MISSING</param>
-        /// <returns>A result code. See “Authorization Services Result Codes.”</returns>
-        [DllImport("/System/Library/Frameworks/Security.framework/Security", EntryPoint="AuthorizationExecuteWithPrivileges")]
-        public static extern int ExecuteWithPrivileges(IntPtr authorization, String pathToTool, AuthorizationFlags options, IntPtr arguments, IntPtr communicationsPipe);
 
 
         /// <summary>

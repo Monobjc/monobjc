@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Monobjc.CorePlot</RootNamespace>
     <AssemblyName>Monobjc.CorePlot</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -128,7 +128,6 @@
     <Compile Include="CorePlot_C\CPTGridLines.cs" />
     <Compile Include="CorePlot_C\CPTGridLines_Definitions.cs" />
     <Compile Include="CorePlot_C\CPTImage.Class.cs" />
-    <Compile Include="CorePlot_C\CPTImage.Constructors.cs" />
     <Compile Include="CorePlot_C\CPTImage.cs" />
     <Compile Include="CorePlot_C\CPTImage_Definitions.cs" />
     <Compile Include="CorePlot_C\CPTLayer.Class.cs" />
@@ -325,9 +324,9 @@
     <Compile Include="CorePlot_C\NSString_CPTTextStyleExtensions.cs" />
     <Compile Include="CorePlot_Extensions\CPTBarPlot.cs" />
     <Compile Include="CorePlot_Extensions\CPTPieChart.cs" />
-    <Compile Include="CorePlot_Extensions\CPTradingRangePlot.cs" />
     <Compile Include="CorePlot_Extensions\CPTRangePlot.cs" />
     <Compile Include="CorePlot_Extensions\CPTScatterPlot.cs" />
+    <Compile Include="CorePlot_Extensions\CPTTradingRangePlot.cs" />
     <Compile Include="CorePlot_P\CPTAxisDelegate.Protocol.cs" />
     <Compile Include="CorePlot_P\CPTBarPlotDataSource.Protocol.cs" />
     <Compile Include="CorePlot_P\CPTBarPlotDelegate.Protocol.cs" />
