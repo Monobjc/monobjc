@@ -42,9 +42,7 @@ void monobjc_create_definitions() {
     data->Monobjc_image = monobjc_define_image(data->Monobjc_assembly);
     
     // Classes
-#if NS_BLOCKS_AVAILABLE
     data->Monobjc_Block_class               = monobjc_define_class(data->Monobjc_image, MONOBJC, "Block");
-#endif
     data->Monobjc_Class_class               = monobjc_define_class(data->Monobjc_image, MONOBJC, "Class");
     data->Monobjc_Id_class                  = monobjc_define_class(data->Monobjc_image, MONOBJC, "Id");
     data->Monobjc_IManagedWrapper_interface = monobjc_define_class(data->Monobjc_image, MONOBJC, "IManagedWrapper");
@@ -62,9 +60,9 @@ void monobjc_create_definitions() {
     data->Monobjc_Id_ctor_method    = monobjc_define_method_by_desc(data->Monobjc_Id_class, "Id::.ctor(intptr)");
     
     // Methods
-#if NS_BLOCKS_AVAILABLE
-    data->Monobjc_Block_get_NativePointer_method            = monobjc_define_method(data->Monobjc_Block_class, "get_NativePointer", 0);
-#endif
+    data->Monobjc_Block_get_NativePointer_method            = data->Monobjc_Block_class ?
+	                                                          monobjc_define_method(data->Monobjc_Block_class, "get_NativePointer", 0) :
+															  NULL;
     data->Monobjc_Class_GetAttributeName_method             = monobjc_define_method(data->Monobjc_Class_class, "GetAttributeName", 1);
     data->Monobjc_Class_get_WrapperType_method              = monobjc_define_method(data->Monobjc_Class_class, "get_WrapperType", 0);
     data->Monobjc_Id_get_NativePointer_method               = monobjc_define_method(data->Monobjc_Id_class, "get_NativePointer", 0);

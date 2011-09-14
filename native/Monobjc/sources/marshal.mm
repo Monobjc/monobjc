@@ -337,16 +337,14 @@ MonobjcTypeDescriptor *monobjc_get_descriptor(MonoType *type, char *encoding, bo
             // Store the descriptor
             __map_descriptor(type, descriptor);
         }
-#if NS_BLOCKS_AVAILABLE
         // Case: Block subclasses
-        else if (mono_class_is_subclass_of(klass, monobjc_get_Monobjc_Block_class(), FALSE)) {
+        else if (monobjc_get_Monobjc_Block_class() && mono_class_is_subclass_of(klass, monobjc_get_Monobjc_Block_class(), FALSE)) {
             // For every subclasses, the descriptor is the same
             descriptor = monobjc_create_descriptor_for_Monobjc_Block();
             
             // Store the descriptor
             __map_descriptor(type, descriptor);
         }
-#endif
         // Case: Any other cases
         else {
             // For all other cases, raise an exception

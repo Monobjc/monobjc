@@ -47,9 +47,7 @@ MonoImage *monobjc_define_image(MonoAssembly *assembly) {
 MonoClass *monobjc_define_class(MonoImage *image, const char *name_space, const char *name) {
     LOG_DEBUG(MONOBJC_DOMAIN_GENERAL, "monobjc_define_class '%s'", name);
     MonoClass *klass = mono_class_from_name(image, name_space, name);
-    if (!klass) {
-        LOG_ERROR(MONOBJC_DOMAIN_GENERAL, "Failed to get the definition for class '%s'.", name);
-    }
+	// Don't throw an error if the class is missing, because we rely on the fact that class may not be found
     return klass;
 }
 
