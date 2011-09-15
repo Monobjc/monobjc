@@ -48,13 +48,7 @@ namespace Monobjc.Kernel
             __local1.Dispose();
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_after")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_after")]
         private static extern void dispatch_after_Inner(long when, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
 
 #endif
@@ -69,13 +63,7 @@ namespace Monobjc.Kernel
         /// <param name="queue">MISSING</param>
         /// <param name="context">MISSING</param>
         /// <param name="work">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_after_f")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_after_f")]
         public static extern void dispatch_after_f(long when, IntPtr queue, IntPtr context, dispatch_function_t work);
 
 #endif
@@ -105,22 +93,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_apply")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_apply")]
         private static extern void dispatch_apply_64(ulong iterations, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_apply")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_apply")]
         private static extern void dispatch_apply_32(uint iterations, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
 
 #endif
@@ -147,22 +123,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_apply_f")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_apply_f")]
         private static extern void dispatch_apply_f_64(ulong iterations, IntPtr queue, IntPtr context, dispatch_function_tc work);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_apply_f")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_apply_f")]
         private static extern void dispatch_apply_f_32(uint iterations, IntPtr queue, IntPtr context, dispatch_function_tc work);
 
 #endif
@@ -182,13 +146,7 @@ namespace Monobjc.Kernel
             __local1.Dispose();
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_async")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_async")]
         private static extern void dispatch_async_Inner(IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
 
 #endif
@@ -202,13 +160,7 @@ namespace Monobjc.Kernel
         /// <param name="queue">MISSING</param>
         /// <param name="context">MISSING</param>
         /// <param name="work">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_async_f")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_async_f")]
         public static extern void dispatch_async_f(IntPtr queue, IntPtr context, dispatch_function_t work);
 
 #endif
@@ -228,13 +180,7 @@ namespace Monobjc.Kernel
             __local1.Dispose();
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_barrier_async")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_barrier_async")]
         private static extern void dispatch_barrier_async_Inner(IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
 
 #endif
@@ -248,13 +194,7 @@ namespace Monobjc.Kernel
         /// <param name="queue">MISSING</param>
         /// <param name="context">MISSING</param>
         /// <param name="work">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_barrier_async_f")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_barrier_async_f")]
         public static extern void dispatch_barrier_async_f(IntPtr queue, IntPtr context, dispatch_function_t work);
 
 #endif
@@ -274,13 +214,7 @@ namespace Monobjc.Kernel
             __local1.Dispose();
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_barrier_sync")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_barrier_sync")]
         private static extern void dispatch_barrier_sync_Inner(IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
 
 #endif
@@ -294,13 +228,7 @@ namespace Monobjc.Kernel
         /// <param name="queue">MISSING</param>
         /// <param name="context">MISSING</param>
         /// <param name="work">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_barrier_sync_f")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_barrier_sync_f")]
         public static extern void dispatch_barrier_sync_f(IntPtr queue, IntPtr context, dispatch_function_t work);
 
 #endif
@@ -322,13 +250,7 @@ namespace Monobjc.Kernel
             return __result;
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_data_apply")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_data_apply")]
         private static extern bool dispatch_data_apply_Inner(IntPtr data, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block applier);
 
 #endif
@@ -363,22 +285,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_data_copy_region")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_data_copy_region")]
         private static extern IntPtr dispatch_data_copy_region_64(IntPtr data, ulong location, IntPtr offset_ptr);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_data_copy_region")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_data_copy_region")]
         private static extern IntPtr dispatch_data_copy_region_32(IntPtr data, uint location, IntPtr offset_ptr);
 
 #endif
@@ -412,22 +322,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_data_create")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_data_create")]
         private static extern IntPtr dispatch_data_create_64(IntPtr buffer, ulong size, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block destructor);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_data_create")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_data_create")]
         private static extern IntPtr dispatch_data_create_32(IntPtr buffer, uint size, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block destructor);
 
 #endif
@@ -441,13 +339,7 @@ namespace Monobjc.Kernel
         /// <param name="data1">MISSING</param>
         /// <param name="data2">MISSING</param>
         /// <returns>A new dispatch data object containing the concatenated memory.</returns>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_data_create_concat")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_data_create_concat")]
         public static extern IntPtr dispatch_data_create_concat(IntPtr data1, IntPtr data2);
 
 #endif
@@ -482,22 +374,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_data_create_map")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_data_create_map")]
         private static extern IntPtr dispatch_data_create_map_64(IntPtr data, IntPtr buffer_ptr, IntPtr size_ptr);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_data_create_map")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_data_create_map")]
         private static extern IntPtr dispatch_data_create_map_32(IntPtr data, IntPtr buffer_ptr, IntPtr size_ptr);
 
 #endif
@@ -524,22 +404,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_data_create_subrange")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_data_create_subrange")]
         private static extern IntPtr dispatch_data_create_subrange_64(IntPtr data, ulong offset, ulong length);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_data_create_subrange")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_data_create_subrange")]
         private static extern IntPtr dispatch_data_create_subrange_32(IntPtr data, uint offset, uint length);
 
 #endif
@@ -564,22 +432,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_data_get_size")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_data_get_size")]
         private static extern ulong dispatch_data_get_size_64(IntPtr data);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_data_get_size")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_data_get_size")]
         private static extern uint dispatch_data_get_size_32(IntPtr data);
 
 #endif
@@ -593,13 +449,7 @@ namespace Monobjc.Kernel
         /// <param name="object">MISSING</param>
         /// <param name="message">MISSING</param>
         /// <param name="values">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_debug")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_debug")]
         public static extern void dispatch_debug(IntPtr @object, String message, params Object[] values);
 
 #endif
@@ -612,13 +462,7 @@ namespace Monobjc.Kernel
         /// </summary>
         /// <param name="object">MISSING</param>
         /// <returns>The context of the object; can be NULL.</returns>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_get_context")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_get_context")]
         public static extern IntPtr dispatch_get_context(IntPtr @object);
 
 #endif
@@ -630,13 +474,7 @@ namespace Monobjc.Kernel
         /// <para>Available in Mac OS X v10.6 and later.</para>
         /// </summary>
         /// <returns>Returns the current queue.</returns>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_get_current_queue")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_get_current_queue")]
         public static extern IntPtr dispatch_get_current_queue();
 
 #endif
@@ -662,22 +500,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_get_global_queue")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_get_global_queue")]
         private static extern IntPtr dispatch_get_global_queue_64(long priority, ulong flags);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_get_global_queue")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_get_global_queue")]
         private static extern IntPtr dispatch_get_global_queue_32(int priority, uint flags);
 
 #endif
@@ -690,13 +516,7 @@ namespace Monobjc.Kernel
         /// </summary>
         /// <param name="key">MISSING</param>
         /// <returns>The context value for the specified key; otherwise NULL if the key was not set for the queue (or its target queue) or the queue is a global concurrent queue.</returns>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_get_specific")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_get_specific")]
         public static extern IntPtr dispatch_get_specific(IntPtr key);
 
 #endif
@@ -717,13 +537,7 @@ namespace Monobjc.Kernel
             __local1.Dispose();
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_group_async")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_group_async")]
         private static extern void dispatch_group_async_Inner(IntPtr group, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
 
 #endif
@@ -738,13 +552,7 @@ namespace Monobjc.Kernel
         /// <param name="queue">MISSING</param>
         /// <param name="context">MISSING</param>
         /// <param name="work">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_group_async_f")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_group_async_f")]
         public static extern void dispatch_group_async_f(IntPtr group, IntPtr queue, IntPtr context, dispatch_function_t work);
 
 #endif
@@ -756,13 +564,7 @@ namespace Monobjc.Kernel
         /// <para>Available in Mac OS X v10.6 and later.</para>
         /// </summary>
         /// <returns>The newly created group, or NULL on failure.</returns>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_group_create")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_group_create")]
         public static extern IntPtr dispatch_group_create();
 
 #endif
@@ -774,13 +576,7 @@ namespace Monobjc.Kernel
         /// <para>Available in Mac OS X v10.6 and later.</para>
         /// </summary>
         /// <param name="group">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_group_enter")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_group_enter")]
         public static extern void dispatch_group_enter(IntPtr group);
 
 #endif
@@ -792,13 +588,7 @@ namespace Monobjc.Kernel
         /// <para>Available in Mac OS X v10.6 and later.</para>
         /// </summary>
         /// <param name="group">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_group_leave")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_group_leave")]
         public static extern void dispatch_group_leave(IntPtr group);
 
 #endif
@@ -819,13 +609,7 @@ namespace Monobjc.Kernel
             __local1.Dispose();
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_group_notify")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_group_notify")]
         private static extern void dispatch_group_notify_Inner(IntPtr group, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
 
 #endif
@@ -840,13 +624,7 @@ namespace Monobjc.Kernel
         /// <param name="queue">MISSING</param>
         /// <param name="context">MISSING</param>
         /// <param name="work">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_group_notify_f")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_group_notify_f")]
         public static extern void dispatch_group_notify_f(IntPtr group, IntPtr queue, IntPtr context, dispatch_function_t work);
 
 #endif
@@ -872,22 +650,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_group_wait")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_group_wait")]
         private static extern long dispatch_group_wait_64(IntPtr group, long timeout);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_group_wait")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_group_wait")]
         private static extern int dispatch_group_wait_32(IntPtr group, long timeout);
 
 #endif
@@ -912,22 +678,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_io_close")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_close")]
         private static extern void dispatch_io_close_64(IntPtr channel, ulong flags);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_io_close")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_close")]
         private static extern void dispatch_io_close_32(IntPtr channel, uint flags);
 
 #endif
@@ -955,22 +709,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_io_create")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_create")]
         private static extern IntPtr dispatch_io_create_64(ulong type, int fd, IntPtr queue, Action<int> cleanup_handler);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_io_create")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_create")]
         private static extern IntPtr dispatch_io_create_32(uint type, int fd, IntPtr queue, Action<int> cleanup_handler);
 
 #endif
@@ -1006,22 +748,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_io_create_with_path")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_create_with_path")]
         private static extern IntPtr dispatch_io_create_with_path_64(ulong type, String path, int oflag, ushort mode, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block cleanup_handler);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_io_create_with_path")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_create_with_path")]
         private static extern IntPtr dispatch_io_create_with_path_32(uint type, String path, int oflag, ushort mode, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block cleanup_handler);
 
 #endif
@@ -1053,22 +783,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_io_read")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_read")]
         private static extern void dispatch_io_read_64(IntPtr channel, long offset, ulong length, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block io_handler);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_io_read")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_read")]
         private static extern void dispatch_io_read_32(IntPtr channel, long offset, uint length, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block io_handler);
 
 #endif
@@ -1093,22 +811,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_io_set_high_water")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_set_high_water")]
         private static extern void dispatch_io_set_high_water_64(IntPtr channel, ulong high_water);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_io_set_high_water")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_set_high_water")]
         private static extern void dispatch_io_set_high_water_32(IntPtr channel, uint high_water);
 
 #endif
@@ -1134,22 +840,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_io_set_interval")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_set_interval")]
         private static extern void dispatch_io_set_interval_64(IntPtr channel, ulong interval, ulong flags);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_io_set_interval")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_set_interval")]
         private static extern void dispatch_io_set_interval_32(IntPtr channel, ulong interval, uint flags);
 
 #endif
@@ -1174,22 +868,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_io_set_low_water")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_set_low_water")]
         private static extern void dispatch_io_set_low_water_64(IntPtr channel, ulong low_water);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_io_set_low_water")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_set_low_water")]
         private static extern void dispatch_io_set_low_water_32(IntPtr channel, uint low_water);
 
 #endif
@@ -1212,13 +894,7 @@ namespace Monobjc.Kernel
             __local1.Dispose();
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_io_write")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_write")]
         private static extern void dispatch_io_write_Inner(IntPtr channel, long offset, IntPtr data, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block io_handler);
 
 #endif
@@ -1229,13 +905,7 @@ namespace Monobjc.Kernel
         /// <para>Original signature is 'void dispatch_main(  void);'</para>
         /// <para>Available in Mac OS X v10.6 and later.</para>
         /// </summary>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_main")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_main")]
         public static extern void dispatch_main();
 
 #endif
@@ -1270,22 +940,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_once")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_once")]
         private static extern void dispatch_once_64(IntPtr predicate, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_once")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_once")]
         private static extern void dispatch_once_32(IntPtr predicate, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
 
 #endif
@@ -1298,13 +956,7 @@ namespace Monobjc.Kernel
         /// </summary>
         /// <param name="label">MISSING</param>
         /// <returns>The newly created dispatch queue.</returns>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_queue_create")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_queue_create")]
         public static extern IntPtr dispatch_queue_create(String label);
 
 #endif
@@ -1317,13 +969,7 @@ namespace Monobjc.Kernel
         /// </summary>
         /// <param name="queue">MISSING</param>
         /// <returns>The label of the queue. The result can be NULL if the application does not provide a label when it creates the queue.</returns>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_queue_get_label")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_queue_get_label")]
         public static extern IntPtr dispatch_queue_get_label(IntPtr queue);
 
 #endif
@@ -1337,13 +983,7 @@ namespace Monobjc.Kernel
         /// <param name="queue">MISSING</param>
         /// <param name="key">MISSING</param>
         /// <returns>The context data associated with key or NULL if no context was found.</returns>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_queue_get_specific")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_queue_get_specific")]
         public static extern IntPtr dispatch_queue_get_specific(IntPtr queue, IntPtr key);
 
 #endif
@@ -1358,13 +998,7 @@ namespace Monobjc.Kernel
         /// <param name="key">MISSING</param>
         /// <param name="context">MISSING</param>
         /// <param name="destructor">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_queue_set_specific")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_queue_set_specific")]
         public static extern void dispatch_queue_set_specific(IntPtr queue, IntPtr key, IntPtr context, dispatch_function_t destructor);
 
 #endif
@@ -1395,22 +1029,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_read")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_read")]
         private static extern void dispatch_read_64(int fd, ulong length, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block handler);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_read")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_read")]
         private static extern void dispatch_read_32(int fd, uint length, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block handler);
 
 #endif
@@ -1422,13 +1044,7 @@ namespace Monobjc.Kernel
         /// <para>Available in Mac OS X v10.6 and later.</para>
         /// </summary>
         /// <param name="object">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_release")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_release")]
         public static extern void dispatch_release(IntPtr @object);
 
 #endif
@@ -1440,13 +1056,7 @@ namespace Monobjc.Kernel
         /// <para>Available in Mac OS X v10.6 and later.</para>
         /// </summary>
         /// <param name="object">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_resume")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_resume")]
         public static extern void dispatch_resume(IntPtr @object);
 
 #endif
@@ -1458,13 +1068,7 @@ namespace Monobjc.Kernel
         /// <para>Available in Mac OS X v10.6 and later.</para>
         /// </summary>
         /// <param name="object">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_retain")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_retain")]
         public static extern void dispatch_retain(IntPtr @object);
 
 #endif
@@ -1489,22 +1093,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_semaphore_create")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_semaphore_create")]
         private static extern IntPtr dispatch_semaphore_create_64(long value);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_semaphore_create")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_semaphore_create")]
         private static extern IntPtr dispatch_semaphore_create_32(int value);
 
 #endif
@@ -1529,22 +1121,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_semaphore_signal")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_semaphore_signal")]
         private static extern long dispatch_semaphore_signal_64(IntPtr dsema);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_semaphore_signal")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_semaphore_signal")]
         private static extern int dispatch_semaphore_signal_32(IntPtr dsema);
 
 #endif
@@ -1570,22 +1150,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_semaphore_wait")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_semaphore_wait")]
         private static extern long dispatch_semaphore_wait_64(IntPtr dsema, long timeout);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_semaphore_wait")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_semaphore_wait")]
         private static extern int dispatch_semaphore_wait_32(IntPtr dsema, long timeout);
 
 #endif
@@ -1598,13 +1166,7 @@ namespace Monobjc.Kernel
         /// </summary>
         /// <param name="object">MISSING</param>
         /// <param name="context">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_set_context")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_set_context")]
         public static extern void dispatch_set_context(IntPtr @object, IntPtr context);
 
 #endif
@@ -1617,13 +1179,7 @@ namespace Monobjc.Kernel
         /// </summary>
         /// <param name="object">MISSING</param>
         /// <param name="finalizer">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_set_finalizer_f")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_set_finalizer_f")]
         public static extern void dispatch_set_finalizer_f(IntPtr @object, dispatch_function_t finalizer);
 
 #endif
@@ -1636,13 +1192,7 @@ namespace Monobjc.Kernel
         /// </summary>
         /// <param name="object">MISSING</param>
         /// <param name="queue">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_set_target_queue")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_set_target_queue")]
         public static extern void dispatch_set_target_queue(IntPtr @object, IntPtr queue);
 
 #endif
@@ -1654,13 +1204,7 @@ namespace Monobjc.Kernel
         /// <para>Available in Mac OS X v10.6 and later.</para>
         /// </summary>
         /// <param name="source">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_source_cancel")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_cancel")]
         public static extern void dispatch_source_cancel(IntPtr source);
 
 #endif
@@ -1688,22 +1232,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_source_create")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_create")]
         private static extern IntPtr dispatch_source_create_64(IntPtr type, IntPtr handle, ulong mask, IntPtr queue);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_source_create")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_create")]
         private static extern IntPtr dispatch_source_create_32(IntPtr type, IntPtr handle, uint mask, IntPtr queue);
 
 #endif
@@ -1728,22 +1260,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_source_get_data")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_get_data")]
         private static extern ulong dispatch_source_get_data_64(IntPtr source);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_source_get_data")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_get_data")]
         private static extern uint dispatch_source_get_data_32(IntPtr source);
 
 #endif
@@ -1756,13 +1276,7 @@ namespace Monobjc.Kernel
         /// </summary>
         /// <param name="source">MISSING</param>
         /// <returns>The return value should be interpreted according to the type of the dispatch source, and can be one of the following handles:</returns>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_source_get_handle")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_get_handle")]
         public static extern IntPtr dispatch_source_get_handle(IntPtr source);
 
 #endif
@@ -1787,22 +1301,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_source_get_mask")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_get_mask")]
         private static extern ulong dispatch_source_get_mask_64(IntPtr source);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_source_get_mask")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_get_mask")]
         private static extern uint dispatch_source_get_mask_32(IntPtr source);
 
 #endif
@@ -1827,22 +1329,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_source_merge_data")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_merge_data")]
         private static extern void dispatch_source_merge_data_64(IntPtr source, ulong value);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_source_merge_data")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_merge_data")]
         private static extern void dispatch_source_merge_data_32(IntPtr source, uint value);
 
 #endif
@@ -1862,13 +1352,7 @@ namespace Monobjc.Kernel
             __local1.Dispose();
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_source_set_cancel_handler")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_set_cancel_handler")]
         private static extern void dispatch_source_set_cancel_handler_Inner(IntPtr source, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block cancel_handler);
 
 #endif
@@ -1881,13 +1365,7 @@ namespace Monobjc.Kernel
         /// </summary>
         /// <param name="source">MISSING</param>
         /// <param name="cancel_handler">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_source_set_cancel_handler_f")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_set_cancel_handler_f")]
         public static extern void dispatch_source_set_cancel_handler_f(IntPtr source, dispatch_function_t cancel_handler);
 
 #endif
@@ -1907,13 +1385,7 @@ namespace Monobjc.Kernel
             __local1.Dispose();
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_source_set_event_handler")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_set_event_handler")]
         private static extern void dispatch_source_set_event_handler_Inner(IntPtr source, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block handler);
 
 #endif
@@ -1926,13 +1398,7 @@ namespace Monobjc.Kernel
         /// </summary>
         /// <param name="source">MISSING</param>
         /// <param name="handler">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_source_set_event_handler_f")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_set_event_handler_f")]
         public static extern void dispatch_source_set_event_handler_f(IntPtr source, dispatch_function_t handler);
 
 #endif
@@ -1952,13 +1418,7 @@ namespace Monobjc.Kernel
             __local1.Dispose();
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_source_set_registration_handler")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_set_registration_handler")]
         private static extern void dispatch_source_set_registration_handler_Inner(IntPtr source, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block registration_handler);
 
 #endif
@@ -1971,13 +1431,7 @@ namespace Monobjc.Kernel
         /// </summary>
         /// <param name="source">MISSING</param>
         /// <param name="registration_handler">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_source_set_registration_handler_f")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_set_registration_handler_f")]
         public static extern void dispatch_source_set_registration_handler_f(IntPtr source, dispatch_function_t registration_handler);
 
 #endif
@@ -1992,13 +1446,7 @@ namespace Monobjc.Kernel
         /// <param name="start">MISSING</param>
         /// <param name="interval">MISSING</param>
         /// <param name="leeway">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_source_set_timer")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_set_timer")]
         public static extern void dispatch_source_set_timer(IntPtr source, long start, ulong interval, ulong leeway);
 
 #endif
@@ -2023,22 +1471,10 @@ namespace Monobjc.Kernel
             }
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_source_testcancel")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_testcancel")]
         private static extern long dispatch_source_testcancel_64(IntPtr source);
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_source_testcancel")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_testcancel")]
         private static extern int dispatch_source_testcancel_32(IntPtr source);
 
 #endif
@@ -2050,13 +1486,7 @@ namespace Monobjc.Kernel
         /// <para>Available in Mac OS X v10.6 and later.</para>
         /// </summary>
         /// <param name="object">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_suspend")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_suspend")]
         public static extern void dispatch_suspend(IntPtr @object);
 
 #endif
@@ -2076,13 +1506,7 @@ namespace Monobjc.Kernel
             __local1.Dispose();
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_sync")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_sync")]
         private static extern void dispatch_sync_Inner(IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
 
 #endif
@@ -2096,13 +1520,7 @@ namespace Monobjc.Kernel
         /// <param name="queue">MISSING</param>
         /// <param name="context">MISSING</param>
         /// <param name="work">MISSING</param>
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_sync_f")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_sync_f")]
         public static extern void dispatch_sync_f(IntPtr queue, IntPtr context, dispatch_function_t work);
 
 #endif
@@ -2124,13 +1542,7 @@ namespace Monobjc.Kernel
             __local1.Dispose();
         }
 
-        [DllImport(
-#if MACOSX_10_7
-"/usr/lib/system/libdispatch"
-#elif MACOSX_10_6
-"/usr/lib/libSystem"
-#endif
-, EntryPoint="dispatch_write")]
+        [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_write")]
         private static extern void dispatch_write_Inner(int fd, IntPtr data, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block handler);
 
 #endif

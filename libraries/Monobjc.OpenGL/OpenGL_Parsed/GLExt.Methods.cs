@@ -61,9 +61,9 @@
 #define GL_ARB_half_float_vertex
 #define GL_ARB_texture_compression_rgtc
 #define GL_ARB_texture_rg
+#if MACOSX_10_6
 #define GL_ARB_uniform_buffer_object
 #define GL_ARB_framebuffer_object
-#if MACOSX_10_6
 #define GL_ARB_instanced_arrays
 #endif
 #define GL_ARB_depth_buffer_float
@@ -110,7 +110,9 @@
 #define GL_EXT_framebuffer_sRGB
 #define GL_EXT_packed_float
 #define GL_EXT_texture_shared_exponent
+#if MACOSX_10_6
 #define GL_EXT_provoking_vertex
+#endif
 #define GL_EXT_vertex_array_bgra
 #define GL_APPLE_flush_buffer_range
 #define GL_APPLE_specular_vector
@@ -25919,17 +25921,21 @@ public static extern void glTbufferMask3DFX(GLuint p0);
 
 #endif
 
-
+#if MACOSX_10_6
 /// <summary>
 /// <para>Original signature is 'extern void glBeginConditionalRenderNV (GLuint id, GLenum mode);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glBeginConditionalRenderNV")]
 public static extern void glBeginConditionalRenderNV(GLuint id, GLenum mode);
+#endif
 
+#if MACOSX_10_6
 /// <summary>
 /// <para>Original signature is 'extern void glEndConditionalRenderNV (void);'</para>
 /// </summary>
 [DllImport(OPENGL, EntryPoint = "glEndConditionalRenderNV")]
 public static extern void glEndConditionalRenderNV();
+#endif
+
     }
 }

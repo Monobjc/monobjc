@@ -31,6 +31,17 @@ using Monobjc.Foundation;
 namespace Monobjc.Kernel
 {
 #if MACOSX_10_6
+    public static partial class Dispatch
+    {
+#if MACOSX_10_7
+		public const String DISPATCH_LIBRARY = "/usr/lib/system/libdispatch";
+#elif MACOSX_10_6
+		public const String DISPATCH_LIBRARY = "/usr/lib/libSystem";
+#endif
+	}
+#endif
+
+#if MACOSX_10_6
     /// <summary>
     /// <para></para>
     /// <para>Original signature is 'typedef void (*dispatch_function_t)(void *);'</para>
