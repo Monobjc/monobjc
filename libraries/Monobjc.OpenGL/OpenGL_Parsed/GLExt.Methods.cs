@@ -55,13 +55,17 @@
 #define GL_ARB_shader_texture_lod
 #define GL_ARB_texture_float
 #define GL_ARB_half_float_pixel
+#if MACOSX_10_6
 #define GL_ARB_color_buffer_float
+#endif
 #define GL_ARB_half_float_vertex
 #define GL_ARB_texture_compression_rgtc
 #define GL_ARB_texture_rg
 #define GL_ARB_uniform_buffer_object
 #define GL_ARB_framebuffer_object
+#if MACOSX_10_6
 #define GL_ARB_instanced_arrays
+#endif
 #define GL_ARB_depth_buffer_float
 //#define GL_EXT_draw_instanced               
 #define GL_EXT_clip_volume_hint
