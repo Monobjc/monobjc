@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,7 +12,6 @@
     <AssemblyName>Monobjc.AVFoundation</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -237,7 +236,6 @@
     <Compile Include="AVFoundation_C\AVVideoCompositionLayerInstruction.cs" />
     <Compile Include="AVFoundation_C\AVVideoCompositionLayerInstruction.Protocols.cs" />
     <Compile Include="AVFoundation_C\NSCoder_AVFoundationAdditions.cs" />
-    <Compile Include="AVFoundation_C\NSValue AVFoundationAdditions.cs" />
     <Compile Include="AVFoundation_P\AVAsynchronousKeyValueLoading.Constants.cs" />
     <Compile Include="AVFoundation_P\AVAsynchronousKeyValueLoading.Protocol.cs" />
     <Compile Include="AVFoundation_P\AVAudioPlayerDelegate.Protocol.cs" />
@@ -255,6 +253,7 @@
     <Compile Include="AVFoundation_T\AVFoundationFramework.QuickTime.Constants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
+    <Compile Include="AVFoundation_C\NSValue_AVFoundationAdditions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
