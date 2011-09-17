@@ -23,7 +23,6 @@ using NUnit.Framework;
 
 namespace Monobjc.Foundation.Common
 {
-    [TestFixture]
     [Category("Framework")]
     [Description("Test the framework on various aspects (inheritance, constructors, etc)")]
     public abstract class AbstractFrameworkTests : AbstractObjectiveCTests

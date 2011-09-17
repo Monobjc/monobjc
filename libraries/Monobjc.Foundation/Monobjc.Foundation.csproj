@@ -871,6 +871,7 @@
     <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
     <Compile Include="Kernel_Extensions\Dispatch.cs" />
     <Compile Include="Kernel_T\Dispatch.cs" />
+    <Compile Include="Foundation_Extensions\ProcessManager.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

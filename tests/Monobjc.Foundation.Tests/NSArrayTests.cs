@@ -80,7 +80,7 @@ namespace Monobjc.Foundation
 			*/
 			
 			Func<Id, Id, NSComparisonResult> sorter = delegate(Id id1, Id id2) {
-				Console.WriteLine(id1.SendMessage<NSString>("description") + " <-> " + id2.SendMessage<NSString>("description"));
+				//Console.WriteLine(id1.SendMessage<NSString>("description") + " <-> " + id2.SendMessage<NSString>("description"));
 				return id1.SendMessage<NSComparisonResult>("compare:", id2);
 			};
 			

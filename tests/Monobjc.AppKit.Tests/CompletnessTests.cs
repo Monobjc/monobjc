@@ -18,9 +18,11 @@
 using System.Collections.Generic;
 using Monobjc.AppKit;
 using Monobjc.Foundation.Common;
+using NUnit.Framework;
 
 namespace Monobjc.AppKit
 {
+	[TestFixture]
     public class CompletnessTests : AbstractCompletnessTests
     {
         protected override IEnumerable<string> Frameworks

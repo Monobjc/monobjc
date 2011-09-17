@@ -21,7 +21,6 @@ using NUnit.Framework;
 
 namespace Monobjc.Foundation.Common
 {
-    [TestFixture]
     [Category("Wrapper")]
     [Description("Test the wrappers")]
     public abstract class AbstractObjectiveCTests

@@ -1,4 +1,4 @@
-//
+﻿//
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2011 - Laurent Etiemble
 //
@@ -16,17 +16,28 @@
 // along with Monobjc.  If not, see <http://www.gnu.org/licenses/>.
 //
 using System.Collections.Generic;
+using Monobjc.AppKit;
 using Monobjc.Foundation.Common;
 using NUnit.Framework;
 
-namespace Monobjc.Foundation
+namespace Monobjc.CorePlot
 {
 	[TestFixture]
-    public class WrapperTests: AbstractWrapperTests
+    public class CompletnessTests : AbstractCompletnessTests
     {
         protected override IEnumerable<string> Frameworks
         {
-            get { return new[] { "Foundation" }; }
+            get { return new[] { "Foundation", "AppKit", "CorePlot" }; }
+        }
+
+        protected override string AssemblyName
+        {
+            get { return "Monobjc.CorePlot"; }
+        }
+
+        protected override void EnsureAssemblyIsReferenced()
+        {
+            CPTColor dummy = null;
         }
     }
 }

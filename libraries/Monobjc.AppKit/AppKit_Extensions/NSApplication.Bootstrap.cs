@@ -41,6 +41,26 @@ namespace Monobjc.AppKit
             {
                 Logger.Info("NSApplication", "Bootstrap");
             }
+
+			// NSDictionary dictionary = NSBundle.MainBundle.InfoDictionary;
+			// if (dictionary == null) {
+			// return;
+			// }
+			//			
+			// NSNumber backgroundOnly = dictionary.ObjectForKey<NSNumber>((NSString)"LSBackgroundOnly");
+			// if (backgroundOnly != null && backgroundOnly.BoolValue) {
+			// return;
+			// }
+			//			
+			// NSString uiElement = dictionary.ObjectForKey<NSString>((NSString)"LSUIElement");
+			// if (uiElement != null && uiElement.IsEqualToString("1")) {
+			// return;
+			// }
+			
+			ProcessSerialNumber psn;
+			ProcessManager.GetCurrentProcess(ref psn);
+			ProcessManager.TransformProcessType(ref psn, ProcessApplicationTransformState.kProcessTransformToForegroundApplication);
+			ProcessManager.SetFrontProcess(ref psn);
         }
 
         /// <summary>

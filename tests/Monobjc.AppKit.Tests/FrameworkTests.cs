@@ -17,9 +17,11 @@
 //
 using System.Collections.Generic;
 using Monobjc.Foundation.Common;
+using NUnit.Framework;
 
 namespace Monobjc.AppKit
 {
+	[TestFixture]
     public class FrameworkTests : AbstractFrameworkTests
     {
         protected override IEnumerable<string> Frameworks
