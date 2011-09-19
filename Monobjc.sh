@@ -24,7 +24,7 @@ fi
 #
 function install {
 
-    VERSIONS="10.5 10.6"
+    VERSIONS="10.5 10.6 10.7"
 
     # Perform the installation for each version
     for version in $VERSIONS; do
@@ -92,10 +92,11 @@ EOF
     ln -s "$MONO_DIR/bin/pkg-config" "/usr/bin/pkg-config"
 
     # Copy the helper tools
-    cp "./dist/Monobjc.Sdp.exe" "$MONO_DIR/lib/mono/2.0/Monobjc.Sdp.exe"
+    cp "./dist/Monobjc.Sdp.exe" "$MONO_DIR/lib/mono/4.0/Monobjc.Sdp.exe"
 
     # Copy the NAnt tasks
-    cp "./dist/Monobjc.NAnt.dll" "$MONO_DIR/share/NAnt/bin/extensions/common/2.0/"
+    mkdir -p "$MONO_DIR/share/NAnt/bin/extensions/common/4.0/"
+    cp "./dist/Monobjc.NAnt.dll" "$MONO_DIR/share/NAnt/bin/extensions/common/4.0/"
 
     # Copy the runtime wrappers and soft-link them
     cp "./dist/monobjc" "$MONO_DIR/bin/monobjc"
@@ -114,7 +115,7 @@ EOF
 #
 function uninstall {
 
-    VERSIONS="10.5 10.6"
+    VERSIONS="10.5 10.6 10.7"
     ASSEMBLIES=`gacutil -l | grep Monobjc | awk -F"," '{ print $1 }' | sort -u`
 
     # Remove assemblies from the GAC
@@ -139,8 +140,11 @@ function uninstall {
     rm -f "$MONO_DIR/bin/monobjc"
     rm -f "$MONO_DIR/bin/monobjc-nunit"
     
+    # Remove the helper tools
+    rm -f "$MONO_DIR/lib/mono/4.0/Monobjc.Sdp.exe"
+
     # Remove the NAnt tasks
-    rm -f "$MONO_DIR/share/NAnt/bin/extensions/common/2.0/Monobjc.NAnt.dll"
+    rm -f "$MONO_DIR/share/NAnt/bin/extensions/common/4.0/Monobjc.NAnt.dll"
 }
 
 # Main entry point
