@@ -84,6 +84,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Native", "Native", "{A35D8D
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{98F78E3F-8433-4062-9B99-1E45B6F67A06}"
+	ProjectSection(SolutionItems) = preProject
+		tools\Monobjc-Tools.build = tools\Monobjc-Tools.build
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.Generator", "tools\Monobjc.Generator\Monobjc.Generator.csproj", "{4E5AB71D-38C8-4F8F-BCCF-ABA04FD016EB}"
 EndProject
@@ -94,6 +97,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.Tools", "tools\Monobjc.Tools\Monobjc.Tools.csproj", "{C44005EC-E057-4636-96E2-637CA83F5170}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.Sdp", "tools\Monobjc.Sdp\Monobjc.Sdp.csproj", "{7225DDBC-2BBA-4F64-B102-B8D1A3C3B700}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.MSBuild", "tools\Monobjc.MSBuild\Monobjc.MSBuild.csproj", "{4426C325-ED0D-4FEF-86E7-24EE923D0374}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -133,6 +138,10 @@ Global
 		{2EB6BD6B-2243-4208-8425-CE189866ADF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EB6BD6B-2243-4208-8425-CE189866ADF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EB6BD6B-2243-4208-8425-CE189866ADF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4426C325-ED0D-4FEF-86E7-24EE923D0374}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4426C325-ED0D-4FEF-86E7-24EE923D0374}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4426C325-ED0D-4FEF-86E7-24EE923D0374}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4426C325-ED0D-4FEF-86E7-24EE923D0374}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4E5AB71D-38C8-4F8F-BCCF-ABA04FD016EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4E5AB71D-38C8-4F8F-BCCF-ABA04FD016EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E5AB71D-38C8-4F8F-BCCF-ABA04FD016EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -278,6 +287,7 @@ Global
 		{9CF48D68-660D-4F3A-A93F-8A993C32EE4A} = {98F78E3F-8433-4062-9B99-1E45B6F67A06}
 		{C44005EC-E057-4636-96E2-637CA83F5170} = {98F78E3F-8433-4062-9B99-1E45B6F67A06}
 		{7225DDBC-2BBA-4F64-B102-B8D1A3C3B700} = {98F78E3F-8433-4062-9B99-1E45B6F67A06}
+		{4426C325-ED0D-4FEF-86E7-24EE923D0374} = {98F78E3F-8433-4062-9B99-1E45B6F67A06}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = libraries\Monobjc\Monobjc.csproj

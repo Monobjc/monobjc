@@ -12,8 +12,10 @@ echo "======================================="
 echo
 
 COMMAND=$1
+VERSION="4.0.0.0"
+HASH="d5a8d181860c16be"
 
-MONO_DIR="/Library/Frameworks/Mono.framework/Versions/Current"
+MONO_DIR="/Library/Frameworks/Mono.framework"
 if [ ! -d $MONO_DIR ]; then
 	echo "Cannot find Mono.framework. Is it installed ?"
 	exit 1
@@ -32,7 +34,7 @@ function install {
         echo "Installing Monobjc $version..."
         echo "=============================="
 	
-        LIB_DIR="$MONO_DIR/lib/mono/monobjc-$version"
+        LIB_DIR="$MONO_DIR/Libraries/mono/monobjc-$version"
 
         # Create directory
         mkdir -p "$LIB_DIR"
@@ -64,7 +66,7 @@ function install {
         done
 	
         # Create the PKG-CONFIG file
-        PC_FILE="$MONO_DIR/share/pkgconfig/monobjc-$version.pc"
+        PC_FILE="$MONO_DIR/Home/share/pkgconfig/monobjc-$version.pc"
         cat > "$PC_FILE" <<EOF
 prefix=$MONO_DIR
 exec_prefix=\${prefix}
@@ -82,25 +84,21 @@ EOF
 
     # Make sure that pkg-config has its soft-link
     # because the Mono CSDK doesn't create it
-    ln -s "$MONO_DIR/bin/pkg-config" "/usr/bin/pkg-config"
+    ln -s "$MONO_DIR/Commands/pkg-config" "/usr/bin/pkg-config"
 
     # Copy the helper tools
-    cp "./dist/Monobjc.Sdp.exe" "$MONO_DIR/lib/mono/4.0/Monobjc.Sdp.exe"
-
-    # Copy the NAnt tasks
-    mkdir -p "$MONO_DIR/share/NAnt/bin/extensions/common/4.0/"
-    cp "./dist/Monobjc.NAnt.dll" "$MONO_DIR/share/NAnt/bin/extensions/common/4.0/"
+    cp "./dist/Monobjc.Sdp.exe" "$MONO_DIR/Libraries/mono/4.0/Monobjc.Sdp.exe"
 
     # Copy the runtime wrappers and soft-link them
-    cp "./dist/monobjc" "$MONO_DIR/bin/monobjc"
-    cp "./dist/monobjc-sdp" "$MONO_DIR/bin/monobjc-sdp"
-    cp "./dist/monobjc-nunit" "$MONO_DIR/bin/monobjc-nunit"
-    chmod a+rx "$MONO_DIR/bin/monobjc"
-    chmod a+rx "$MONO_DIR/bin/monobjc-sdp"
-    chmod a+rx "$MONO_DIR/bin/monobjc-nunit"
-    ln -s "$MONO_DIR/bin/monobjc" "/usr/bin/monobjc"
-    ln -s "$MONO_DIR/bin/monobjc-sdp" "/usr/bin/monobjc-sdp"
-    ln -s "$MONO_DIR/bin/monobjc-nunit" "/usr/bin/monobjc-nunit"
+    cp "./dist/monobjc" "$MONO_DIR/Commands/monobjc"
+    cp "./dist/monobjc-sdp" "$MONO_DIR/Commands/monobjc-sdp"
+    cp "./dist/monobjc-nunit" "$MONO_DIR/Commands/monobjc-nunit"
+    chmod a+rx "$MONO_DIR/Commands/monobjc"
+    chmod a+rx "$MONO_DIR/Commands/monobjc-sdp"
+    chmod a+rx "$MONO_DIR/Commands/monobjc-nunit"
+    ln -s "$MONO_DIR/Commands/monobjc" "/usr/bin/monobjc"
+    ln -s "$MONO_DIR/Commands/monobjc-sdp" "/usr/bin/monobjc-sdp"
+    ln -s "$MONO_DIR/Commands/monobjc-nunit" "/usr/bin/monobjc-nunit"
 }
 
 #
@@ -122,7 +120,7 @@ function uninstall {
         echo "Uninstalling Monobjc $version..."
         echo "================================"
 	
-        LIB_DIR="$MONO_DIR/lib/mono/monobjc-$version"
+        LIB_DIR="$MONO_DIR/Libraries/mono/monobjc-$version"
         
         rm -Rf $LIB_DIR
     done
@@ -130,14 +128,42 @@ function uninstall {
     # Remove executables
     rm -f "/usr/bin/monobjc"
     rm -f "/usr/bin/monobjc-nunit"
-    rm -f "$MONO_DIR/bin/monobjc"
-    rm -f "$MONO_DIR/bin/monobjc-nunit"
+    rm -f "$MONO_DIR/Commands/monobjc"
+    rm -f "$MONO_DIR/Commands/monobjc-nunit"
     
     # Remove the helper tools
-    rm -f "$MONO_DIR/lib/mono/4.0/Monobjc.Sdp.exe"
+    rm -f "$MONO_DIR/Libraries/mono/4.0/Monobjc.Sdp.exe"
+}
+
+function install_nant {
+    EXT_DIR="$MONO_DIR/Home/share/NAnt/bin/extensions/common/4.0/"
+
+    # Copy the NAnt tasks
+    mkdir -p "$EXT_DIR"
+    cp "./dist/Monobjc.NAnt.dll" "$EXT_DIR"
+}
+
+function uninstall_nant {
+    EXT_DIR="$MONO_DIR/Home/share/NAnt/bin/extensions/common/4.0/"
 
     # Remove the NAnt tasks
-    rm -f "$MONO_DIR/share/NAnt/bin/extensions/common/4.0/Monobjc.NAnt.dll"
+    rm -f "$EXT_DIR/Monobjc.NAnt.dll"
+}
+
+function install_msbuild {
+    gacutil -i "./dist/Monobjc.MSBuild.dll"
+
+    # Copy the MSBuild tasks and targets
+    ln -s "$MONO_DIR/Libraries/mono/gac/Monobjc.MSBuild/$VERSION""__""$HASH/Monobjc.Build.dll" "$MONO_DIR/Libraries/mono/4.0/"
+    cp ./dist/Monobjc.*.tasks "$MONO_DIR/Libraries/mono/4.0/"
+    cp ./dist/Monobjc.*.targets "$MONO_DIR/Libraries/mono/4.0/"
+}
+
+function uninstall_msbuild {
+    # Remove the MSBuild tasks and targets
+    rm -f "$MONO_DIR/Libraries/mono/4.0/Monobjc.MSBuild.dll"
+    rm -f "$MONO_DIR/Libraries/mono/4.0/Monobjc.*.tasks"
+    rm -f "$MONO_DIR/Libraries/mono/4.0/Monobjc.*.targets"
 }
 
 # Main entry point
@@ -151,9 +177,27 @@ case "$COMMAND" in
     uninstall)
         uninstall
         ;;
-        
+
+    install_nant)
+        uninstall_nant
+        install_nant
+        ;;
+
+    uninstall_nant)
+        uninstall_nant
+        ;;
+
+    install_msbuild)
+        uninstall_msbuild
+        install_msbuild
+        ;;
+
+    uninstall_msbuild)
+        uninstall_msbuild
+        ;;
+
     *)
-        echo $"Usage: $0 {install|uninstall}"
+        echo $"Usage: $0 {install|uninstall|install-nant|uninstall-nant|install-msbuild|uninstall-msbuild}"
         exit 1
         ;;
 
