@@ -93,7 +93,7 @@
     <mkdir dir="${output.dir}"/>
 
     <!-- Create the assembly info -->
-    <property name="version.info" value="${build.dir}/GeneratedAssemblyInfo.${version}.${revision}.0.cs"/>
+    <property name="version.info" value="${build.dir}/GeneratedAssemblyInfo.${version}.0.0.cs"/>
     <asminfo output="${version.info}" language="CSharp" unless="${file::exists(version.info)}">
       <imports>
         <import namespace="System" />
@@ -101,8 +101,8 @@
         <import namespace="System.Runtime.InteropServices" />
       </imports>
       <attributes>
-        <attribute type="AssemblyVersionAttribute" value="${version}.${revision}.0" />
-        <attribute type="AssemblyFileVersionAttribute" value="${version}.${revision}.0" />
+        <attribute type="AssemblyVersionAttribute" value="${version}.0.0" />
+        <attribute type="AssemblyFileVersionAttribute" value="${version}.0.0" />
         <attribute type="AssemblyConfigurationAttribute" value="Release Configuration" unless="${testing}"/>
         <attribute type="AssemblyConfigurationAttribute" value="Testing Configuration" if="${testing}"/>
       </attributes>
@@ -540,26 +540,6 @@
       </resources>
       <references refid="lib.references"/>
     </csc>
-
-    <!-- Generate the policy -->
-    <echo file="${output.dir}/${lib.name}.policy" unless="${testing}">
-      <![CDATA[<configuration>
-   <runtime>
-      <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
-       <dependentAssembly>
-         <assemblyIdentity name="${lib.name}" publicKeyToken="d5a8d181860c16be" />
-         <bindingRedirect oldVersion="${version}.0.0-${version}.${revision}.0" newVersion="${version}.${revision}.0"/>
-       </dependentAssembly>
-      </assemblyBinding>
-   </runtime>
-</configuration>]]>
-    </echo>
-    <exec workingdir="${output.dir}"
-          program="al"
-          failonerror="true"
-          commandline="/link:${lib.name}.policy /out:policy.${version}.${lib.name}.dll /keyFile:../../${key.file}"
-          unless="${testing}">
-    </exec>
 
   </target>
 

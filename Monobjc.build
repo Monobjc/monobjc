@@ -173,6 +173,7 @@ sudo ./Monobjc.sh install
         <include name="${dist.dir}/monobjc-sdp"/>
         <include name="${dist.dir}/monobjc-nunit"/>
         <include name="${dist.dir}/Monobjc.Sdp.exe"/>
+        <include name="${dist.dir}/Monobjc.MSBuild.dll"/>
         <include name="${dist.dir}/Monobjc.NAnt.dll"/>
         <include name="${dist.dir}/Monobjc.Tools.dll"/>
         <include name="${dist.dir}/10.*/Monobjc*.dll"/>

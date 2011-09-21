@@ -54,13 +54,6 @@ function install {
             gacutil -i "$file" -package monobjc-$version
         done
 
-        # Register the Monobjc policies in the GAC
-		cd "dist/$version"
-        for file in `ls policy*.dll`; do
-            gacutil -i "$file"
-        done
-		cd "-"
-
         # Create the list of assemblies
         LIB_LIST="Libraries="
         LIB_REFERENCES="Libs:"

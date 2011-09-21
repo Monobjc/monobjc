@@ -75,7 +75,7 @@
     </copy>
 
     <!-- Create the assembly info -->
-    <property name="version.info" value="${build.dir}/GeneratedAssemblyInfo.${version}.${revision}.0.cs"/>
+    <property name="version.info" value="${build.dir}/GeneratedAssemblyInfo.${version}.0.0.cs"/>
     <asminfo output="${version.info}" language="CSharp" unless="${file::exists(version.info)}">
       <imports>
         <import namespace="System" />
@@ -83,8 +83,8 @@
         <import namespace="System.Runtime.InteropServices" />
       </imports>
       <attributes>
-        <attribute type="AssemblyVersionAttribute" value="${version}.${revision}.0" />
-        <attribute type="AssemblyFileVersionAttribute" value="${version}.${revision}.0" />
+        <attribute type="AssemblyVersionAttribute" value="${version}.0.0" />
+        <attribute type="AssemblyFileVersionAttribute" value="${version}.0.0" />
         <attribute type="AssemblyConfigurationAttribute" value="Testing Configuration"/>
       </attributes>
     </asminfo>

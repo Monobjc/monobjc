@@ -141,7 +141,7 @@ void monobjc_create_default_descriptors() {
     __DESCRIPTORS_HASHTABLE = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, __destroy_descriptor);
 
     // Create marshalers for Monobjc types
-    if (monobjc_are_blocks_available()) {
+    if (monobjc_get_Monobjc_Block_class() && monobjc_are_blocks_available()) {
         __map_descriptor(monobjc_get_Monobjc_Block_type(),          monobjc_create_descriptor_for_Monobjc_Block());
     }
     __map_descriptor(monobjc_get_Monobjc_Class_type(),              monobjc_create_descriptor_for_Monobjc_Class());
