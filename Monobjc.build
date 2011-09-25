@@ -99,18 +99,42 @@
         <include name="**/*"/>
       </fileset>
     </copy>
-  
-  <!-- Prepare the scripts -->
-  <echo file="${package.dir}/content/Install.sh"><![CDATA[#!/bin/bash
+
+    <!-- Retrieve the NAnt package -->
+    <get src="http://downloads.monobjc.net/NAnt.tar.gz" dest="${package.dir}/content/NAnt.tar.gz"/>
+    
+    <!-- Prepare the scripts -->
+    <echo file="${package.dir}/content/Install_Monobjc.sh"><![CDATA[#!/bin/bash
 cd "$2"
 chmod a+x ./Monobjc.sh
 sudo ./Monobjc.sh install
 ]]></echo>
-  <exec program="chmod">
-    <arg value="a+x"/>
-    <arg value="${package.dir}/content/Monobjc.sh"/>
-    <arg value="${package.dir}/content/Install.sh"/>
-  </exec>
+    <echo file="${package.dir}/content/Install_NAnt.sh"><![CDATA[#!/bin/bash
+ARCHIVE="$2/NAnt.tar.gz"
+cd "/Library/Frameworks/Mono.framework/Home/share"
+BACKUP="NAnt-"$(date +"%Y%m%d-%H%M%S")
+sudo mv NAnt "$BACKUP"
+sudo tar -zxf "$ARCHIVE"
+chown -R root:admin NAnt
+]]></echo>
+    <echo file="${package.dir}/content/Install_Monobjc_NAnt.sh"><![CDATA[#!/bin/bash
+cd "$2"
+chmod a+x ./Monobjc.sh
+sudo ./Monobjc.sh install_nant
+]]></echo>
+    <echo file="${package.dir}/content/Install_Monobjc_MSBuild.sh"><![CDATA[#!/bin/bash
+cd "$2"
+chmod a+x ./Monobjc.sh
+sudo ./Monobjc.sh install_msbuild
+]]></echo>
+    <exec program="chmod">
+      <arg value="a+x"/>
+      <arg value="${package.dir}/content/Monobjc.sh"/>
+      <arg value="${package.dir}/content/Install_Monobjc.sh"/>
+      <arg value="${package.dir}/content/Install_Monobjc_NAnt.sh"/>
+      <arg value="${package.dir}/content/Install_Monobjc_MSBuild.sh"/>
+      <arg value="${package.dir}/content/Install_NAnt.sh"/>
+    </exec>
 
   <!-- Copy the package settings -->
   <copy todir="${package.dir}/${archive.prefix}.pmdoc">
@@ -157,7 +181,7 @@ sudo ./Monobjc.sh install
   <target name="archive" description="Archive the files" depends="build-tools,build-libraries">
     <property name="archive.prefix" value="Monobjc-${monobjc.version}.${revision}.0"/>
     <exec program="strip.sh" if="${strip.sources}"/>
-    <property name="libraries.stripped.dir" value="stripped.libraries"/>
+    <property name="libraries.stripped.dir" value="stripped/libraries"/>
     
     <mkdir dir="${archive.prefix}"/>
     <copy todir="${archive.prefix}">
@@ -169,15 +193,12 @@ sudo ./Monobjc.sh install
         <include name="Monobjc.sh"/>
         <include name="Monobjc.sln"/>
         <include name="Monobjc.snk"/>
-        <include name="${dist.dir}/monobjc"/>
-        <include name="${dist.dir}/monobjc-sdp"/>
-        <include name="${dist.dir}/monobjc-nunit"/>
-        <include name="${dist.dir}/Monobjc.Sdp.exe"/>
-        <include name="${dist.dir}/Monobjc.MSBuild.dll"/>
-        <include name="${dist.dir}/Monobjc.NAnt.dll"/>
-        <include name="${dist.dir}/Monobjc.Tools.dll"/>
+        <include name="${dist.dir}/monobjc*"/>
+        <include name="${dist.dir}/Monobjc*.exe"/>
+        <include name="${dist.dir}/Monobjc*.dll"/>
+        <include name="${dist.dir}/Monobjc*.targets"/>
+        <include name="${dist.dir}/Monobjc*.tasks"/>
         <include name="${dist.dir}/10.*/Monobjc*.dll"/>
-        <include name="${dist.dir}/10.*/Monobjc*.policy"/>
         <include name="${dist.dir}/10.*/Monobjc*.xml"/>
         <include name="${dist.dir}/10.*/policy*.dll"/>
         <include name="${dist.dir}/10.*/runtime"/>

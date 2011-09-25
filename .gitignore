@@ -2,7 +2,7 @@ bin/
 build/
 dist/
 obj/
-stripped.libraries/
+stripped/
 _ReSharper*
 .DS_Store
 .generator
