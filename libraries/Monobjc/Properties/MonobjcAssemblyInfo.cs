@@ -23,7 +23,6 @@
 using Monobjc;
 using System.Reflection;
 
-[assembly: ObjectiveCFramework(false)]
 [assembly: AssemblyConfigurationAttribute("Release")]
 
 #if MACOSX_10_7

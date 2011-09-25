@@ -74,25 +74,9 @@
       </fileset>
     </copy>
 
-    <!-- Create the assembly info -->
-    <property name="version.info" value="${build.dir}/GeneratedAssemblyInfo.${version}.0.0.cs"/>
-    <asminfo output="${version.info}" language="CSharp" unless="${file::exists(version.info)}">
-      <imports>
-        <import namespace="System" />
-        <import namespace="System.Reflection" />
-        <import namespace="System.Runtime.InteropServices" />
-      </imports>
-      <attributes>
-        <attribute type="AssemblyVersionAttribute" value="${version}.0.0" />
-        <attribute type="AssemblyFileVersionAttribute" value="${version}.0.0" />
-        <attribute type="AssemblyConfigurationAttribute" value="Testing Configuration"/>
-      </attributes>
-    </asminfo>
-
     <!-- Test Monobjc -->
     <property name="test.name" value="Monobjc.Tests"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${test.name}/**/*.cs"/>
       <include name="${base.dir}/${test.name}/**/*.cs"/>
     </fileset>
@@ -107,7 +91,6 @@
     <!-- Test Monobjc.Foundation -->
     <property name="test.name" value="Monobjc.Foundation.Tests"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${test.name}/**/*.cs"/>
     </fileset>
     <assemblyfileset id="lib.references" basedir="${output.dir}">
@@ -122,7 +105,6 @@
     <!-- Test Monobjc.AppKit -->
     <property name="test.name" value="Monobjc.AppKit.Tests"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${test.name}/**/*.cs"/>
       <include name="${base.dir}/Monobjc.Foundation.Tests/Common/*.cs"/>
     </fileset>
@@ -139,7 +121,6 @@
     <!-- Test Monobjc.CorePlot -->
     <property name="test.name" value="Monobjc.CorePlot.Tests"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${test.name}/**/*.cs"/>
       <include name="${base.dir}/Monobjc.Foundation.Tests/Common/*.cs"/>
     </fileset>
@@ -157,7 +138,6 @@
     <!-- Test Monobjc.OpenGL -->
     <property name="test.name" value="Monobjc.OpenGL.Tests"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${test.name}/**/*.cs"/>
       <include name="${base.dir}/Monobjc.Foundation.Tests/Common/*.cs"/>
     </fileset>
@@ -175,7 +155,6 @@
     <!-- Test Monobjc.Security -->
     <property name="test.name" value="Monobjc.Security.Tests"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${test.name}/**/*.cs"/>
       <include name="${base.dir}/Monobjc.Foundation.Tests/Common/*.cs"/>
     </fileset>
@@ -193,7 +172,6 @@
     <!-- Test Monobjc.WebKit -->
     <property name="test.name" value="Monobjc.WebKit.Tests"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${test.name}/**/*.cs"/>
       <include name="${base.dir}/Monobjc.Foundation.Tests/Common/*.cs"/>
     </fileset>

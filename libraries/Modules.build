@@ -92,22 +92,6 @@
     <property name="output.dir" value="${dist.dir}/${version}"/>
     <mkdir dir="${output.dir}"/>
 
-    <!-- Create the assembly info -->
-    <property name="version.info" value="${build.dir}/GeneratedAssemblyInfo.${version}.0.0.cs"/>
-    <asminfo output="${version.info}" language="CSharp" unless="${file::exists(version.info)}">
-      <imports>
-        <import namespace="System" />
-        <import namespace="System.Reflection" />
-        <import namespace="System.Runtime.InteropServices" />
-      </imports>
-      <attributes>
-        <attribute type="AssemblyVersionAttribute" value="${version}.0.0" />
-        <attribute type="AssemblyFileVersionAttribute" value="${version}.0.0" />
-        <attribute type="AssemblyConfigurationAttribute" value="Release Configuration" unless="${testing}"/>
-        <attribute type="AssemblyConfigurationAttribute" value="Testing Configuration" if="${testing}"/>
-      </attributes>
-    </asminfo>
-
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
       <include name="System.Core.dll"/>
@@ -116,7 +100,6 @@
     <!-- Library Monobjc -->
     <property name="lib.name" value="Monobjc"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/**/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
@@ -130,7 +113,6 @@
     <!-- Library Monobjc.Foundation -->
     <property name="lib.name" value="Monobjc.Foundation"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/ApplicationServices_E/*.cs"/>
       <include name="${base.dir}/${lib.name}/ApplicationServices_Extensions/*.cs"/>
@@ -159,7 +141,6 @@
     <!-- Library Monobjc.CoreLocation -->
     <property name="lib.name" value="Monobjc.CoreLocation"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
       <include name="${base.dir}/${lib.name}/CoreLocation_C/*.cs"/>
@@ -173,7 +154,6 @@
     <!-- Library Monobjc.DiscRecording -->
     <property name="lib.name" value="Monobjc.DiscRecording"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
       <include name="${base.dir}/${lib.name}/DiscRecording_C/DR*.cs"/>
@@ -188,7 +168,6 @@
     <!-- Library Monobjc.OpenGL -->
     <property name="lib.name" value="Monobjc.OpenGL"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
       <include name="${base.dir}/${lib.name}/OpenGL_E/*.cs"/>
@@ -201,7 +180,6 @@
     <!-- Library Monobjc.Security -->
     <property name="lib.name" value="Monobjc.Security"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
       <include name="${base.dir}/${lib.name}/Security_E/*.cs"/>
@@ -213,7 +191,6 @@
     <!-- Library Monobjc.ScriptingBridge -->
     <property name="lib.name" value="Monobjc.ScriptingBridge"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
       <include name="${base.dir}/${lib.name}/ScriptingBridge_C/*.cs"/>
@@ -233,7 +210,6 @@
     <!-- Library Monobjc.SecurityFoundation -->
     <property name="lib.name" value="Monobjc.SecurityFoundation"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
       <include name="${base.dir}/${lib.name}/SecurityFoundation_C/*.cs"/>
@@ -255,7 +231,6 @@
     <!-- Library Monobjc.CoreWLAN -->
     <property name="lib.name" value="Monobjc.CoreWLAN"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/CoreWLAN_C/*.cs"/>
       <include name="${base.dir}/${lib.name}/CoreWLAN_T/*.cs"/>
@@ -273,7 +248,6 @@
     <!-- Library Monobjc.AppKit -->
     <property name="lib.name" value="Monobjc.AppKit"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/AppKit_C/*.cs"/>
       <include name="${base.dir}/${lib.name}/AppKit_E/*.cs"/>
@@ -313,7 +287,6 @@
     <!-- Library Monobjc.AddressBook -->
     <property name="lib.name" value="Monobjc.AddressBook"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/AddressBook_C/*.cs"/>
       <include name="${base.dir}/${lib.name}/AddressBook_P/*.cs"/>
@@ -325,7 +298,6 @@
     <!-- Library Monobjc.CoreMedia -->
     <property name="lib.name" value="Monobjc.CoreMedia"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/CoreMedia_Extensions/*.cs"/>
       <include name="${base.dir}/${lib.name}/CoreMedia_S/*.cs"/>
@@ -337,7 +309,6 @@
     <!-- Library Monobjc.CorePlot -->
     <property name="lib.name" value="Monobjc.CorePlot"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/CorePlot_C/*.cs"/>
       <include name="${base.dir}/${lib.name}/CorePlot_Extensions/*.cs"/>
@@ -350,7 +321,6 @@
     <!-- Library Monobjc.Growl -->
     <property name="lib.name" value="Monobjc.Growl"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/Growl_C/*.cs"/>
       <include name="${base.dir}/${lib.name}/Growl_P/*.cs"/>
@@ -361,7 +331,6 @@
     <!-- Library Monobjc.InputMethodKit -->
     <property name="lib.name" value="Monobjc.InputMethodKit"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/InputMethodKit_C/IMK*.cs"/>
       <exclude name="${base.dir}/${lib.name}/InputMethodKit_C/IMKServer.Protocols.cs"/>
@@ -373,7 +342,6 @@
     <!-- Library Monobjc.QTKit -->
     <property name="lib.name" value="Monobjc.QTKit"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
       <include name="${base.dir}/${lib.name}/QTKit_C/*.cs"/>
@@ -386,7 +354,6 @@
     <!-- Library Monobjc.Quartz -->
     <property name="lib.name" value="Monobjc.Quartz"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
       <include name="${base.dir}/${lib.name}/Quartz_C/*.cs"/>
@@ -398,7 +365,6 @@
     <!-- Library Monobjc.SM2DGraphView -->
     <property name="lib.name" value="Monobjc.SM2DGraphView"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
       <include name="${base.dir}/${lib.name}/SM2DGraphView_C/*.cs"/>
@@ -409,7 +375,6 @@
     <!-- Library Monobjc.Sparkle -->
     <property name="lib.name" value="Monobjc.Sparkle"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
       <include name="${base.dir}/${lib.name}/Sparkle_C/*.cs"/>
@@ -420,7 +385,6 @@
     <!-- Library Monobjc.WebKit -->
     <property name="lib.name" value="Monobjc.WebKit"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
       <include name="${base.dir}/${lib.name}/WebKit.DOM_C/*.cs"/>
@@ -445,7 +409,6 @@
     <!-- Library Monobjc.AVFoundation -->
     <property name="lib.name" value="Monobjc.AVFoundation"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/AVFoundation_C/*.cs"/>
       <include name="${base.dir}/${lib.name}/AVFoundation_P/*.cs"/>
@@ -466,7 +429,6 @@
     <!-- Library Monobjc.DiscRecordingUI -->
     <property name="lib.name" value="Monobjc.DiscRecordingUI"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/DiscRecordingUI_C/*.cs"/>
       <exclude name="${base.dir}/${lib.name}/DiscRecordingUI_C/*Session*.cs"/>
@@ -490,7 +452,6 @@
     <!-- Library Monobjc.SecurityInterface -->
     <property name="lib.name" value="Monobjc.SecurityInterface"/>
     <fileset id="src.references" basedir="${output.dir}">
-      <include name="${version.info}"/>
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
       <include name="${base.dir}/${lib.name}/SecurityInterface_C/*.cs"/>
