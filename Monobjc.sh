@@ -57,18 +57,18 @@ function install {
         done
 
         # Create the list of assemblies
-        LIB_LIST="Libraries="
+        LIB_LIST=""
         LIB_REFERENCES="Libs:"
         for file in `ls dist/$version/Monobjc*.dll`; do
             assembly=`basename $file`
-            LIB_LIST="$LIB_LIST \${pkglibdir}/$assembly"
+            LIB_LIST="$LIB_LIST\${pkglibdir}/$assembly "
             LIB_REFERENCES="$LIB_REFERENCES -r:\${pkglibdir}/$assembly"
         done
 	
         # Create the PKG-CONFIG file
         PC_FILE="$MONO_DIR/Home/share/pkgconfig/monobjc-$version.pc"
         cat > "$PC_FILE" <<EOF
-prefix=$MONO_DIR
+prefix=$MONO_DIR/Home
 exec_prefix=\${prefix}
 pkglibdir=\${exec_prefix}/lib/mono/monobjc-$version
 Libraries=$LIB_LIST
