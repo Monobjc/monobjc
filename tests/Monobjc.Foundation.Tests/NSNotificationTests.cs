@@ -1,4 +1,4 @@
-﻿//
+//
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2011 - Laurent Etiemble
 //
@@ -15,11 +15,11 @@
 // You should have received a copy of the GNU General Public License
 // along with Monobjc.  If not, see <http://www.gnu.org/licenses/>.
 //
+using System;
+using System.Threading;
 using Monobjc;
 using Monobjc.Foundation;
 using NUnit.Framework;
-using System.Threading;
-using System;
 
 namespace Monobjc.Foundation
 {
@@ -44,11 +44,14 @@ namespace Monobjc.Foundation
 			listener.Release();
 		}
 		
+#if MACOSX_10_6
         [Test]
         public void TestNotificationByBlock()
         {
-			Block block;
+			bool notified = false;
+			Block block = null;
 			Action<NSNotification> action = delegate(NSNotification notification) { 
+				notified = true;
 			};
 			block = Block.Create(action);
 			
@@ -58,9 +61,12 @@ namespace Monobjc.Foundation
 			new Thread(this.Notify).Start();
 			mre.WaitOne(5000);
 			
-			// We leak the block because of the way the notification works
+			Assert.IsTrue(notified, "Listener must be notified");
+			
+			// We leak the block because we cannot de-register the block
 			//block.Dispose();
 		}
+#endif
 		
 		private void Notify()
 		{
