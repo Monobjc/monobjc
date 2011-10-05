@@ -67,7 +67,12 @@ namespace Monobjc
         ///   Native pointer to the block layout structure
         /// </summary>
         private IntPtr layout;
-
+		
+		/// <summary>
+		///   GC handle to the exposed delegate.
+		/// </summary>
+		private GCHandle blockInvokerHandle;
+		
         /// <summary>
         ///   Initializes a new instance of the <see cref = "Block" /> class.
         /// </summary>
@@ -105,6 +110,7 @@ namespace Monobjc
             {
                 DestroyBlock(this.layout);
                 this.layout = IntPtr.Zero;
+				this.blockInvokerHandle.Free();
             }
         }
 
@@ -130,15 +136,28 @@ namespace Monobjc
             {
                 if (this.layout == IntPtr.Zero)
                 {
+					// Pin the delegate so it won't move
+					this.blockInvokerHandle = GCHandle.Alloc(this.BlockInvoker, GCHandleType.Pinned);
+					
                     // Create a block layout for a global block, with descriptor.
                     // This block will invoke a managed method through a delegate (marhsaled as a function pointer)
                     IntPtr function = Marshal.GetFunctionPointerForDelegate(this.BlockInvoker);
                     this.layout = CreateBlock(function);
                 }
-
                 return this.layout;
             }
         }
+				
+		/// <summary>
+		/// Create a block around the specified delegate.
+		/// </summary>
+		/// <param name='delegate'>
+		/// The delegate to expose as a block.
+		/// </param>
+		public static Block Create(Delegate @delegate)
+		{
+			return ObjectiveCRuntime.CreateBlock(@delegate);
+		}
 
         /// <summary>
         ///   Returns a <see cref = "String" /> that represents this instance.
@@ -158,7 +177,7 @@ namespace Monobjc
             builder.Append(")");
             return builder.ToString();
         }
-
+		
         /// <summary>
         ///   Create the native structure of the block by using the given delegate function pointer.
         /// </summary>
