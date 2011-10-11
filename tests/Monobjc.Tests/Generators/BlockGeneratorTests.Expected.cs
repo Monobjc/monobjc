@@ -16,6 +16,7 @@
 // along with Monobjc.  If not, see <http://www.gnu.org/licenses/>.
 //
 using System;
+using Monobjc;
 using Monobjc.Types;
 
 namespace Monobjc.Generators

@@ -10,7 +10,6 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Monobjc.ScriptingBridge</RootNamespace>
     <AssemblyName>Monobjc.ScriptingBridge</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -52,6 +51,7 @@
     <Compile Include="ScriptingBridge_P\SBApplicationDelegate.Protocol.cs" />
     <Compile Include="ScriptingBridge_E\LSLaunchFlags.cs" />
     <Compile Include="ScriptingBridge_E\AESendMode.cs" />
+    <Compile Include="Debugger.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
