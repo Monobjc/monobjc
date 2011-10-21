@@ -1068,7 +1068,7 @@ namespace Monobjc.Security
     /// <para>Defines constants you can use to identify the type of authentication to use for an Internet password.</para>
     /// <para>Available in Mac OS X v10.2 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum SecAuthenticationType : uint
     {
         /// <summary>
@@ -1125,7 +1125,7 @@ namespace Monobjc.Security
     /// <para>Defines the keychain-related event.</para>
     /// <para>Available in Mac OS X v10.2 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum SecKeychainEvent : uint
     {
         /// <summary>
@@ -1188,7 +1188,7 @@ namespace Monobjc.Security
     /// <para>Defines bit masks for keychain event constants</para>
     /// <para>Available in Mac OS X v10.2 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum SecKeychainEventMask : uint
     {
         /// <summary>
@@ -1254,7 +1254,7 @@ namespace Monobjc.Security
     /// <para>Specifies a keychain item’s attributes.</para>
     /// <para>Available in Mac OS X v10.2 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum SecItemAttr : uint
     {
         /// <summary>
@@ -1426,7 +1426,7 @@ namespace Monobjc.Security
     /// <para>Specifies the attributes for a key item in a keychain.</para>
     /// <para>Available in Mac OS X v10.4 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum SecKeyItemAttr : uint
     {
         /// <summary>
@@ -1569,7 +1569,7 @@ namespace Monobjc.Security
     /// <summary>
     /// <para>Specifies a keychain item’s class code.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum SecItemClass : uint
     {
         /// <summary>
@@ -1617,7 +1617,7 @@ namespace Monobjc.Security
     /// <para>Defines values for import and export flags.</para>
     /// <para>Available in Mac OS X v10.4 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum SecItemImportExportFlags : uint
     {
         /// <summary>
@@ -1631,7 +1631,7 @@ namespace Monobjc.Security
     /// <para>Defines values for the flags field of the import/export parameters.</para>
     /// <para>Available in Mac OS X v10.4 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum SecKeyImportExportFlags : uint
     {
         /// <summary>
@@ -1654,7 +1654,7 @@ namespace Monobjc.Security
     /// <summary>
     /// <para>Specifies the format of an item after export from or before import to the keychain.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum SecExternalFormat : uint
     {
         /// <summary>
@@ -1729,7 +1729,7 @@ namespace Monobjc.Security
     /// <summary>
     /// <para>Specifies the type of keychain item being imported.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum SecExternalItemType : uint
     {
         /// <summary>
@@ -1764,7 +1764,7 @@ namespace Monobjc.Security
     /// <para>Defines constants for the keychain preference domains.</para>
     /// <para>Available in Mac OS X v10.3 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum SecPreferencesDomain : int
     {
         /// <summary>
@@ -1792,7 +1792,7 @@ namespace Monobjc.Security
     /// <summary>
     /// <para>Defines the protocol type associated with an AppleShare or Internet password.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum SecProtocolType : uint
     {
         /// <summary>
@@ -1983,7 +1983,7 @@ namespace Monobjc.Security
     /// <para>Defines the current status of a keychain.</para>
     /// <para>Available in Mac OS X v10.2 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum SecKeychainStatus : uint
     {
         /// <summary>

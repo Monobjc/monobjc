@@ -568,7 +568,7 @@ namespace Monobjc.Security
     /// <para>Indicates certificate item attributes.</para>
     /// <para>Available in Mac OS X v10.2 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum CertificateItemAttributes : uint
     {
         /// <summary>
@@ -612,7 +612,7 @@ namespace Monobjc.Security
     /// <para>Specifies the status of a certificate.</para>
     /// <para>Available in Mac OS X v10.2 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum CSSM_TP_APPLE_CERT_STATUS : uint
     {
         /// <summary>
@@ -652,7 +652,7 @@ namespace Monobjc.Security
     /// <para>Specifies the type of padding to be used when creating or verifying a digital signature.</para>
     /// <para>Available in Mac OS X v10.6 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum SecPadding : uint
     {
 #if MACOSX_10_6
@@ -700,7 +700,7 @@ namespace Monobjc.Security
     /// <para>Specifies the trust result type.</para>
     /// <para>Available in Mac OS X v10.2 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum SecTrustResultType : uint
     {
         /// <summary>
@@ -749,7 +749,7 @@ namespace Monobjc.Security
     /// <para>Specifies options for the AppleX509TP trust policy module’s default action.</para>
     /// <para>Available in Mac OS X v10.2 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum CSSM_APPLE_TP_ACTION_FLAGS : uint
     {
         /// <summary>
@@ -779,7 +779,7 @@ namespace Monobjc.Security
     /// <para>The credential type to be returned by SecKeyGetCredentials.</para>
     /// <para>Available in Mac OS X v10.5 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum SecCredentialType : uint
     {
 #if MACOSX_10_5
@@ -812,7 +812,7 @@ namespace Monobjc.Security
     /// <para>The trust settings domains used by the trust settings API.</para>
     /// <para>Available in Mac OS X v10.5 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum SecTrustSettingsDomain : uint
     {
 #if MACOSX_10_5
@@ -846,7 +846,7 @@ namespace Monobjc.Security
     /// <para>Allowed uses for the encryption key in a certificate.</para>
     /// <para>Available in Mac OS X v10.5 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum SecTrustSettingsKeyUsage : uint
     {
 #if MACOSX_10_5
@@ -909,7 +909,7 @@ namespace Monobjc.Security
     /// <para>Effective trust settings for usage constraints dictionaries used by the SecTrustSettingsCopyTrustSettings and SecTrustSettingsSetTrustSettings functions.</para>
     /// <para>Available in Mac OS X v10.5 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum SecTrustSettingsResult : uint
     {
 #if MACOSX_10_5

@@ -217,7 +217,7 @@ namespace Monobjc.Security
     /// <para>Define valid authorization options.</para>
     /// <para>Available in Mac OS X v10.0 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum AuthorizationFlags : uint
     {
         /// <summary>
@@ -261,7 +261,7 @@ namespace Monobjc.Security
     /// <para>Defines values the Security Server sets in an authorization item’s flag field.</para>
     /// <para>Available in Mac OS X v10.0 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     [Flags]
     public enum AuthorizationRightsMask : uint
     {

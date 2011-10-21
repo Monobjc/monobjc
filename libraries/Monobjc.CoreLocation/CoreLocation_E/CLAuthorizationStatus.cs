@@ -35,7 +35,7 @@ namespace Monobjc.CoreLocation
     /// <para>Represents the current authorization state of the application.</para>
     /// <para>Available in Mac OS X v10.7 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum CLAuthorizationStatus : int
     {
 #if MACOSX_10_7

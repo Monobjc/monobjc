@@ -41,15 +41,8 @@ namespace Monobjc.Kernel
         /// <param name="when">MISSING</param>
         /// <param name="queue">MISSING</param>
         /// <param name="block">MISSING</param>
-        public static void dispatch_after(long when, IntPtr queue, Action block)
-        {
-            Block __local1 = ObjectiveCRuntime.CreateBlock(block);
-            dispatch_after_Inner(when, queue, __local1);
-            __local1.Dispose();
-        }
-
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_after")]
-        private static extern void dispatch_after_Inner(long when, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
+        public static extern void dispatch_after(long when, IntPtr queue, Block block);
 
 #endif
 
@@ -77,27 +70,23 @@ namespace Monobjc.Kernel
         /// <param name="iterations">MISSING</param>
         /// <param name="queue">MISSING</param>
         /// <param name="block">MISSING</param>
-        public static void dispatch_apply(NSUInteger iterations, IntPtr queue, Action<NSUInteger> block)
+        public static void dispatch_apply(NSUInteger iterations, IntPtr queue, Block block)
         {
             if (ObjectiveCRuntime.Is64Bits)
             {
-                Block __local1 = ObjectiveCRuntime.CreateBlock(block);
-                dispatch_apply_64((ulong) iterations, queue, __local1);
-                __local1.Dispose();
+                dispatch_apply_64((ulong) iterations, queue, block);
             }
             else
             {
-                Block __local1 = ObjectiveCRuntime.CreateBlock(block);
-                dispatch_apply_32((uint) iterations, queue, __local1);
-                __local1.Dispose();
+                dispatch_apply_32((uint) iterations, queue, block);
             }
         }
 
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_apply")]
-        private static extern void dispatch_apply_64(ulong iterations, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
+        private static extern void dispatch_apply_64(ulong iterations, IntPtr queue, Block block);
 
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_apply")]
-        private static extern void dispatch_apply_32(uint iterations, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
+        private static extern void dispatch_apply_32(uint iterations, IntPtr queue, Block block);
 
 #endif
 
@@ -139,15 +128,8 @@ namespace Monobjc.Kernel
         /// </summary>
         /// <param name="queue">MISSING</param>
         /// <param name="block">MISSING</param>
-        public static void dispatch_async(IntPtr queue, Action block)
-        {
-            Block __local1 = ObjectiveCRuntime.CreateBlock(block);
-            dispatch_async_Inner(queue, __local1);
-            __local1.Dispose();
-        }
-
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_async")]
-        private static extern void dispatch_async_Inner(IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
+        public static extern void dispatch_async(IntPtr queue, Block block);
 
 #endif
 
@@ -173,15 +155,8 @@ namespace Monobjc.Kernel
         /// </summary>
         /// <param name="queue">MISSING</param>
         /// <param name="block">MISSING</param>
-        public static void dispatch_barrier_async(IntPtr queue, Action block)
-        {
-            Block __local1 = ObjectiveCRuntime.CreateBlock(block);
-            dispatch_barrier_async_Inner(queue, __local1);
-            __local1.Dispose();
-        }
-
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_barrier_async")]
-        private static extern void dispatch_barrier_async_Inner(IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
+        public static extern void dispatch_barrier_async(IntPtr queue, Block block);
 
 #endif
 
@@ -207,15 +182,8 @@ namespace Monobjc.Kernel
         /// </summary>
         /// <param name="queue">MISSING</param>
         /// <param name="block">MISSING</param>
-        public static void dispatch_barrier_sync(IntPtr queue, Action block)
-        {
-            Block __local1 = ObjectiveCRuntime.CreateBlock(block);
-            dispatch_barrier_sync_Inner(queue, __local1);
-            __local1.Dispose();
-        }
-
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_barrier_sync")]
-        private static extern void dispatch_barrier_sync_Inner(IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
+        public static extern void dispatch_barrier_sync(IntPtr queue, Block block);
 
 #endif
 
@@ -242,16 +210,8 @@ namespace Monobjc.Kernel
         /// <param name="data">MISSING</param>
         /// <param name="applier">MISSING</param>
         /// <returns>A Boolean indicating whether the traversal completed successfully. Typically, this value is true if the applier block was executed on all of the regions or there was nothing to traverse. If it is false, it means the block terminated the traversal early.</returns>
-        public static bool dispatch_data_apply(IntPtr data, Func<IntPtr, NSUInteger, IntPtr, NSUInteger, bool> applier)
-        {
-            Block __local1 = ObjectiveCRuntime.CreateBlock(applier);
-            bool __result = dispatch_data_apply_Inner(data, __local1);
-            __local1.Dispose();
-            return __result;
-        }
-
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_data_apply")]
-        private static extern bool dispatch_data_apply_Inner(IntPtr data, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block applier);
+        public static extern bool dispatch_data_apply(IntPtr data, Block applier);
 
 #endif
 
@@ -304,29 +264,23 @@ namespace Monobjc.Kernel
         /// <param name="queue">MISSING</param>
         /// <param name="destructor">MISSING</param>
         /// <returns>A new data object containing the desired data. This object is retained initially. It is your responsibility to release the data object when you are done using it.If buffer is NULL or size is 0, this function returns an empty dispatch object.</returns>
-        public static IntPtr dispatch_data_create(IntPtr buffer, NSUInteger size, IntPtr queue, Action destructor)
+        public static IntPtr dispatch_data_create(IntPtr buffer, NSUInteger size, IntPtr queue, Block destructor)
         {
             if (ObjectiveCRuntime.Is64Bits)
             {
-                Block __local1 = ObjectiveCRuntime.CreateBlock(destructor);
-                IntPtr __result = dispatch_data_create_64(buffer, (ulong) size, queue, __local1);
-                __local1.Dispose();
-                return __result;
+                return dispatch_data_create_64(buffer, (ulong) size, queue, destructor);
             }
             else
             {
-                Block __local1 = ObjectiveCRuntime.CreateBlock(destructor);
-                IntPtr __result = dispatch_data_create_32(buffer, (uint) size, queue, __local1);
-                __local1.Dispose();
-                return __result;
+                return dispatch_data_create_32(buffer, (uint) size, queue, destructor);
             }
         }
 
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_data_create")]
-        private static extern IntPtr dispatch_data_create_64(IntPtr buffer, ulong size, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block destructor);
+        private static extern IntPtr dispatch_data_create_64(IntPtr buffer, ulong size, IntPtr queue, Block destructor);
 
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_data_create")]
-        private static extern IntPtr dispatch_data_create_32(IntPtr buffer, uint size, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block destructor);
+        private static extern IntPtr dispatch_data_create_32(IntPtr buffer, uint size, IntPtr queue, Block destructor);
 
 #endif
 
@@ -530,15 +484,8 @@ namespace Monobjc.Kernel
         /// <param name="group">MISSING</param>
         /// <param name="queue">MISSING</param>
         /// <param name="block">MISSING</param>
-        public static void dispatch_group_async(IntPtr group, IntPtr queue, Action block)
-        {
-            Block __local1 = ObjectiveCRuntime.CreateBlock(block);
-            dispatch_group_async_Inner(group, queue, __local1);
-            __local1.Dispose();
-        }
-
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_group_async")]
-        private static extern void dispatch_group_async_Inner(IntPtr group, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
+        public static extern void dispatch_group_async(IntPtr group, IntPtr queue, Block block);
 
 #endif
 
@@ -602,15 +549,8 @@ namespace Monobjc.Kernel
         /// <param name="group">MISSING</param>
         /// <param name="queue">MISSING</param>
         /// <param name="block">MISSING</param>
-        public static void dispatch_group_notify(IntPtr group, IntPtr queue, Action block)
-        {
-            Block __local1 = ObjectiveCRuntime.CreateBlock(block);
-            dispatch_group_notify_Inner(group, queue, __local1);
-            __local1.Dispose();
-        }
-
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_group_notify")]
-        private static extern void dispatch_group_notify_Inner(IntPtr group, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
+        public static extern void dispatch_group_notify(IntPtr group, IntPtr queue, Block block);
 
 #endif
 
@@ -730,29 +670,23 @@ namespace Monobjc.Kernel
         /// <param name="queue">MISSING</param>
         /// <param name="cleanup_handler">MISSING</param>
         /// <returns>The dispatch I/O channel or NULL if an error occurred. The returned object is retained before it is returned; it is your responsibility to close the channel and then release this object when you are done using it.</returns>
-        public static IntPtr dispatch_io_create_with_path(NSUInteger type, String path, int oflag, ushort mode, IntPtr queue, Action<NSUInteger> cleanup_handler)
+        public static IntPtr dispatch_io_create_with_path(NSUInteger type, String path, int oflag, ushort mode, IntPtr queue, Block cleanup_handler)
         {
             if (ObjectiveCRuntime.Is64Bits)
             {
-                Block __local1 = ObjectiveCRuntime.CreateBlock(cleanup_handler);
-                IntPtr __result = dispatch_io_create_with_path_64((ulong) type, path, oflag, mode, queue, __local1);
-                __local1.Dispose();
-                return __result;
+                return dispatch_io_create_with_path_64((ulong) type, path, oflag, mode, queue, cleanup_handler);
             }
             else
             {
-                Block __local1 = ObjectiveCRuntime.CreateBlock(cleanup_handler);
-                IntPtr __result = dispatch_io_create_with_path_32((uint) type, path, oflag, mode, queue, __local1);
-                __local1.Dispose();
-                return __result;
+                return dispatch_io_create_with_path_32((uint) type, path, oflag, mode, queue, cleanup_handler);
             }
         }
 
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_create_with_path")]
-        private static extern IntPtr dispatch_io_create_with_path_64(ulong type, String path, int oflag, ushort mode, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block cleanup_handler);
+        private static extern IntPtr dispatch_io_create_with_path_64(ulong type, String path, int oflag, ushort mode, IntPtr queue, Block cleanup_handler);
 
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_create_with_path")]
-        private static extern IntPtr dispatch_io_create_with_path_32(uint type, String path, int oflag, ushort mode, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block cleanup_handler);
+        private static extern IntPtr dispatch_io_create_with_path_32(uint type, String path, int oflag, ushort mode, IntPtr queue, Block cleanup_handler);
 
 #endif
 
@@ -767,27 +701,23 @@ namespace Monobjc.Kernel
         /// <param name="length">MISSING</param>
         /// <param name="queue">MISSING</param>
         /// <param name="io_handler">MISSING</param>
-        public static void dispatch_io_read(IntPtr channel, long offset, NSUInteger length, IntPtr queue, Action<bool, IntPtr, int> io_handler)
+        public static void dispatch_io_read(IntPtr channel, long offset, NSUInteger length, IntPtr queue, Block io_handler)
         {
             if (ObjectiveCRuntime.Is64Bits)
             {
-                Block __local1 = ObjectiveCRuntime.CreateBlock(io_handler);
-                dispatch_io_read_64(channel, offset, (ulong) length, queue, __local1);
-                __local1.Dispose();
+                dispatch_io_read_64(channel, offset, (ulong) length, queue, io_handler);
             }
             else
             {
-                Block __local1 = ObjectiveCRuntime.CreateBlock(io_handler);
-                dispatch_io_read_32(channel, offset, (uint) length, queue, __local1);
-                __local1.Dispose();
+                dispatch_io_read_32(channel, offset, (uint) length, queue, io_handler);
             }
         }
 
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_read")]
-        private static extern void dispatch_io_read_64(IntPtr channel, long offset, ulong length, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block io_handler);
+        private static extern void dispatch_io_read_64(IntPtr channel, long offset, ulong length, IntPtr queue, Block io_handler);
 
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_read")]
-        private static extern void dispatch_io_read_32(IntPtr channel, long offset, uint length, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block io_handler);
+        private static extern void dispatch_io_read_32(IntPtr channel, long offset, uint length, IntPtr queue, Block io_handler);
 
 #endif
 
@@ -887,15 +817,8 @@ namespace Monobjc.Kernel
         /// <param name="data">MISSING</param>
         /// <param name="queue">MISSING</param>
         /// <param name="io_handler">MISSING</param>
-        public static void dispatch_io_write(IntPtr channel, long offset, IntPtr data, IntPtr queue, Action<bool, IntPtr, int> io_handler)
-        {
-            Block __local1 = ObjectiveCRuntime.CreateBlock(io_handler);
-            dispatch_io_write_Inner(channel, offset, data, queue, __local1);
-            __local1.Dispose();
-        }
-
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_io_write")]
-        private static extern void dispatch_io_write_Inner(IntPtr channel, long offset, IntPtr data, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block io_handler);
+        public static extern void dispatch_io_write(IntPtr channel, long offset, IntPtr data, IntPtr queue, Block io_handler);
 
 #endif
 
@@ -918,33 +841,29 @@ namespace Monobjc.Kernel
         /// </summary>
         /// <param name="predicate">MISSING</param>
         /// <param name="block">MISSING</param>
-        public static void dispatch_once(out NSInteger predicate, Action block)
+        public static void dispatch_once(out NSInteger predicate, Block block)
         {
             if (ObjectiveCRuntime.Is64Bits)
             {
                 IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof (long)));
-                Block __local2 = ObjectiveCRuntime.CreateBlock(block);
-                dispatch_once_64(__local1, __local2);
+                dispatch_once_64(__local1, block);
                 predicate = (NSInteger) (long) Marshal.PtrToStructure(__local1, typeof(long));
                 Marshal.FreeHGlobal(__local1);
-                __local2.Dispose();
             }
             else
             {
                 IntPtr __local1 = Marshal.AllocHGlobal(Marshal.SizeOf(typeof (int)));
-                Block __local2 = ObjectiveCRuntime.CreateBlock(block);
-                dispatch_once_32(__local1, __local2);
+                dispatch_once_32(__local1, block);
                 predicate = (NSInteger) (int) Marshal.PtrToStructure(__local1, typeof(int));
                 Marshal.FreeHGlobal(__local1);
-                __local2.Dispose();
             }
         }
 
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_once")]
-        private static extern void dispatch_once_64(IntPtr predicate, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
+        private static extern void dispatch_once_64(IntPtr predicate, Block block);
 
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_once")]
-        private static extern void dispatch_once_32(IntPtr predicate, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
+        private static extern void dispatch_once_32(IntPtr predicate, Block block);
 
 #endif
 
@@ -1013,27 +932,23 @@ namespace Monobjc.Kernel
         /// <param name="length">MISSING</param>
         /// <param name="queue">MISSING</param>
         /// <param name="handler">MISSING</param>
-        public static void dispatch_read(int fd, NSUInteger length, IntPtr queue, Action<IntPtr, int> handler)
+        public static void dispatch_read(int fd, NSUInteger length, IntPtr queue, Block handler)
         {
             if (ObjectiveCRuntime.Is64Bits)
             {
-                Block __local1 = ObjectiveCRuntime.CreateBlock(handler);
-                dispatch_read_64(fd, (ulong) length, queue, __local1);
-                __local1.Dispose();
+                dispatch_read_64(fd, (ulong) length, queue, handler);
             }
             else
             {
-                Block __local1 = ObjectiveCRuntime.CreateBlock(handler);
-                dispatch_read_32(fd, (uint) length, queue, __local1);
-                __local1.Dispose();
+                dispatch_read_32(fd, (uint) length, queue, handler);
             }
         }
 
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_read")]
-        private static extern void dispatch_read_64(int fd, ulong length, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block handler);
+        private static extern void dispatch_read_64(int fd, ulong length, IntPtr queue, Block handler);
 
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_read")]
-        private static extern void dispatch_read_32(int fd, uint length, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block handler);
+        private static extern void dispatch_read_32(int fd, uint length, IntPtr queue, Block handler);
 
 #endif
 
@@ -1345,15 +1260,8 @@ namespace Monobjc.Kernel
         /// </summary>
         /// <param name="source">MISSING</param>
         /// <param name="cancel_handler">MISSING</param>
-        public static void dispatch_source_set_cancel_handler(IntPtr source, Action cancel_handler)
-        {
-            Block __local1 = ObjectiveCRuntime.CreateBlock(cancel_handler);
-            dispatch_source_set_cancel_handler_Inner(source, __local1);
-            __local1.Dispose();
-        }
-
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_set_cancel_handler")]
-        private static extern void dispatch_source_set_cancel_handler_Inner(IntPtr source, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block cancel_handler);
+        public static extern void dispatch_source_set_cancel_handler(IntPtr source, Block cancel_handler);
 
 #endif
 
@@ -1378,15 +1286,8 @@ namespace Monobjc.Kernel
         /// </summary>
         /// <param name="source">MISSING</param>
         /// <param name="handler">MISSING</param>
-        public static void dispatch_source_set_event_handler(IntPtr source, Action handler)
-        {
-            Block __local1 = ObjectiveCRuntime.CreateBlock(handler);
-            dispatch_source_set_event_handler_Inner(source, __local1);
-            __local1.Dispose();
-        }
-
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_set_event_handler")]
-        private static extern void dispatch_source_set_event_handler_Inner(IntPtr source, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block handler);
+        public static extern void dispatch_source_set_event_handler(IntPtr source, Block handler);
 
 #endif
 
@@ -1411,15 +1312,8 @@ namespace Monobjc.Kernel
         /// </summary>
         /// <param name="source">MISSING</param>
         /// <param name="registration_handler">MISSING</param>
-        public static void dispatch_source_set_registration_handler(IntPtr source, Action registration_handler)
-        {
-            Block __local1 = ObjectiveCRuntime.CreateBlock(registration_handler);
-            dispatch_source_set_registration_handler_Inner(source, __local1);
-            __local1.Dispose();
-        }
-
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_source_set_registration_handler")]
-        private static extern void dispatch_source_set_registration_handler_Inner(IntPtr source, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block registration_handler);
+        public static extern void dispatch_source_set_registration_handler(IntPtr source, Block registration_handler);
 
 #endif
 
@@ -1499,15 +1393,8 @@ namespace Monobjc.Kernel
         /// </summary>
         /// <param name="queue">MISSING</param>
         /// <param name="block">MISSING</param>
-        public static void dispatch_sync(IntPtr queue, Action block)
-        {
-            Block __local1 = ObjectiveCRuntime.CreateBlock(block);
-            dispatch_sync_Inner(queue, __local1);
-            __local1.Dispose();
-        }
-
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_sync")]
-        private static extern void dispatch_sync_Inner(IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block block);
+        public static extern void dispatch_sync(IntPtr queue, Block block);
 
 #endif
 
@@ -1535,15 +1422,8 @@ namespace Monobjc.Kernel
         /// <param name="data">MISSING</param>
         /// <param name="queue">MISSING</param>
         /// <param name="handler">MISSING</param>
-        public static void dispatch_write(int fd, IntPtr data, IntPtr queue, Action<IntPtr, int> handler)
-        {
-            Block __local1 = ObjectiveCRuntime.CreateBlock(handler);
-            dispatch_write_Inner(fd, data, queue, __local1);
-            __local1.Dispose();
-        }
-
         [DllImport(DISPATCH_LIBRARY, EntryPoint="dispatch_write")]
-        private static extern void dispatch_write_Inner(int fd, IntPtr data, IntPtr queue, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (BlockMarshaler))] Block handler);
+        public static extern void dispatch_write(int fd, IntPtr data, IntPtr queue, Block handler);
 
 #endif
 
@@ -1554,7 +1434,7 @@ namespace Monobjc.Kernel
     /// </summary>
     [ObjectiveCUnderlyingTypeAttribute(typeof(int), Is64Bits = false)]
     [ObjectiveCUnderlyingTypeAttribute(typeof(long), Is64Bits = true)]
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum dispatch_queue_priority_t : int
     {
         /// <summary>
@@ -1576,7 +1456,7 @@ namespace Monobjc.Kernel
     /// </summary>
     [ObjectiveCUnderlyingTypeAttribute(typeof(uint), Is64Bits = false)]
     [ObjectiveCUnderlyingTypeAttribute(typeof(ulong), Is64Bits = true)]
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum dispatch_source_mach_send_flags_t : uint
     {
         /// <summary>
@@ -1590,7 +1470,7 @@ namespace Monobjc.Kernel
     /// </summary>
     [ObjectiveCUnderlyingTypeAttribute(typeof(uint), Is64Bits = false)]
     [ObjectiveCUnderlyingTypeAttribute(typeof(ulong), Is64Bits = true)]
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum dispatch_source_proc_flags_t : uint
     {
         /// <summary>
@@ -1616,7 +1496,7 @@ namespace Monobjc.Kernel
     /// </summary>
     [ObjectiveCUnderlyingTypeAttribute(typeof(uint), Is64Bits = false)]
     [ObjectiveCUnderlyingTypeAttribute(typeof(ulong), Is64Bits = true)]
-    [GeneratedCodeAttribute("MonobjcGenerator", "0.0.0.0")]
+    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
     public enum dispatch_source_vnode_flags_t : uint
     {
         /// <summary>
