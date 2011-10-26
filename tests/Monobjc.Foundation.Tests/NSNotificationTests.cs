@@ -55,7 +55,7 @@ namespace Monobjc.Foundation
 			};
 			block = Block.Create(action);
 			
-			NSNotificationCenter.DefaultCenter.SendMessage("addObserverForName:object:queue:usingBlock:", MyListener.SELECTOR_NOTIFICATION, null, null, block);
+			Id listener = NSNotificationCenter.DefaultCenter.AddObserverForNameObjectQueueUsingBlock(MyListener.SELECTOR_NOTIFICATION, null, null, block);
 			
 			mre = new ManualResetEvent(false);
 			new Thread(this.Notify).Start();
@@ -63,8 +63,8 @@ namespace Monobjc.Foundation
 			
 			Assert.IsTrue(notified, "Listener must be notified");
 			
-			// We leak the block because we cannot de-register the block
-			//block.Dispose();
+			NSNotificationCenter.DefaultCenter.RemoveObserver(listener);
+			block.Dispose();
 		}
 #endif
 		
