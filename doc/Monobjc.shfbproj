@@ -127,8 +127,52 @@
       </ComponentConfig>
     </ComponentConfigurations>
     <DocumentationSources>
-      <DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.dll" />
-      <DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.AddressBook.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.AddressBook.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.AppKit.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.AppKit.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.AVFoundation.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.AVFoundation.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.CoreLocation.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.CoreLocation.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.CoreMedia.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.CoreMedia.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.CorePlot.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.CorePlot.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.CoreWLAN.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.CoreWLAN.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.DiscRecording.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.DiscRecording.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.DiscRecordingUI.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.DiscRecordingUI.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.Foundation.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.Foundation.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.Growl.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.Growl.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.InputMethodKit.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.InputMethodKit.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.OpenGL.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.OpenGL.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.QTKit.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.QTKit.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.Quartz.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.Quartz.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.ScriptingBridge.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.ScriptingBridge.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.Security.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.Security.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.SecurityFoundation.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.SecurityFoundation.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.SecurityInterface.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.SecurityInterface.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.SM2DGraphView.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.SM2DGraphView.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.Sparkle.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.Sparkle.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.WebKit.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.WebKit.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.xml" />
     </DocumentationSources>
     <PlugInConfigurations>
       <PlugInConfig id="Version Builder" enabled="@PLUGIN@">
