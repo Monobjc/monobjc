@@ -5,6 +5,7 @@
   <property name="nant.settings.currentframework" value="mono-4.0"/>
   
   <!-- Define properties -->
+  <property name="doc.dir" value="${path::get-full-path('./doc')}"/>
   <property name="external.dir" value="${path::get-full-path('./external')}"/>
   <property name="libraries.dir" value="${path::get-full-path('./libraries')}"/>
   <property name="native.dir" value="${path::get-full-path('./native')}"/>
@@ -204,6 +205,7 @@ sudo ./Monobjc.sh install_msbuild
         <include name="${dist.dir}/10.*/runtime"/>
         <include name="${dist.dir}/10.*/*.h"/>
         <include name="${dist.dir}/10.*/*.dylib"/>
+        <include name="${doc.dir}/Monobjc.shfbproj"/>
         <include name="${external.dir}/nunit.framework.dll"/>
         <include name="${marker.file}"/>
       </fileset>
