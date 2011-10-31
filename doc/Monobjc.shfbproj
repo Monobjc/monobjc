@@ -187,7 +187,7 @@
 <PlugInConfig id="Output Deployment" enabled="@PLUGIN@"><configuration deleteAfterDeploy="false"><deploymentLocation id="help1x" location=""><userCredentials useDefault="true" userName="" password="" /><proxyCredentials useProxy="false" proxyServer=""><userCredentials useDefault="true" userName="" password="" /></proxyCredentials></deploymentLocation><deploymentLocation id="help2x" location=""><userCredentials useDefault="true" userName="" password="" /><proxyCredentials useProxy="false" proxyServer=""><userCredentials useDefault="true" userName="" password="" /></proxyCredentials></deploymentLocation><deploymentLocation id="helpViewer" location=""><userCredentials useDefault="true" userName="" password="" /><proxyCredentials useProxy="false" proxyServer=""><userCredentials useDefault="true" userName="" password="" /></proxyCredentials></deploymentLocation><deploymentLocation id="website" location="..\..\net.monobjc.api"><userCredentials useDefault="true" userName="" password="" /><proxyCredentials useProxy="false" proxyServer=""><userCredentials useDefault="true" userName="" password="" /></proxyCredentials></deploymentLocation></configuration></PlugInConfig>    </PlugInConfigurations>
     <ProjectSummary>Monobjc Bridge Project</ProjectSummary>
     <HelpTitle>Monobjc Bridge Project</HelpTitle>
-    <NamingMethod>MemberName</NamingMethod>
+    <NamingMethod>HashedMemberName</NamingMethod>
     <HelpFileFormat>Website</HelpFileFormat>
     <NamespaceSummaries>
       <NamespaceSummaryItem name="(global)" isDocumented="True" xmlns="">Global namespace</NamespaceSummaryItem>
