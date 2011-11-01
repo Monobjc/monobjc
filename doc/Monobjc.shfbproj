@@ -231,8 +231,7 @@
     <PresentationStyle>Prototype</PresentationStyle>
     <HeaderText>
     </HeaderText>
-    <FooterText>
-    </FooterText>
+    <FooterText>&amp;lt%3bscript type=&amp;quot%3btext/javascript&amp;quot%3b&amp;gt%3b var _gaq = _gaq || []%3b _gaq.push%28[&amp;#39%3b_setAccount&amp;#39%3b, &amp;#39%3bUA-88776-5&amp;#39%3b]%29%3b _gaq.push%28[&amp;#39%3b_trackPageview&amp;#39%3b]%29%3b %28function%28%29 {{var ga = document.createElement%28&amp;#39%3bscript&amp;#39%3b%29%3b ga.type = &amp;#39%3btext/javascript&amp;#39%3b%3b ga.async = true%3bga.src = %28&amp;#39%3bhttps:&amp;#39%3b == document.location.protocol %3f &amp;#39%3bhttps://ssl&amp;#39%3b : &amp;#39%3bhttp://www&amp;#39%3b%29 + &amp;#39%3b.google-analytics.com/ga.js&amp;#39%3b%3bvar s = document.getElementsByTagName%28&amp;#39%3bscript&amp;#39%3b%29[0]%3b s.parentNode.insertBefore%28ga, s%29%3b}}%29%28%29%3b&amp;lt%3b/script&amp;gt%3b</FooterText>
     <RootNamespaceContainer>True</RootNamespaceContainer>
     <RootNamespaceTitle>Namespaces</RootNamespaceTitle>
     <SyntaxFilters>CSharp, VisualBasic, CPlusPlus, FSharp</SyntaxFilters>
