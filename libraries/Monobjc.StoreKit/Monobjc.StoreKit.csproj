@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4CB16373-18D9-488A-B267-565C88AD5E9D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Monobjc.StoreKit</RootNamespace>
+    <AssemblyName>Monobjc.StoreKit</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
+    <Compile Include="StoreKit_C\SKMutablePayment.Class.cs" />
+    <Compile Include="StoreKit_C\SKMutablePayment.cs" />
+    <Compile Include="StoreKit_C\SKMutablePayment.Protocols.cs" />
+    <Compile Include="StoreKit_C\SKPayment.Class.cs" />
+    <Compile Include="StoreKit_C\SKPayment.cs" />
+    <Compile Include="StoreKit_C\SKPayment.Protocols.cs" />
+    <Compile Include="StoreKit_C\SKPaymentQueue.Class.cs" />
+    <Compile Include="StoreKit_C\SKPaymentQueue.cs" />
+    <Compile Include="StoreKit_C\SKPaymentTransaction.Class.cs" />
+    <Compile Include="StoreKit_C\SKPaymentTransaction.Constants.cs" />
+    <Compile Include="StoreKit_C\SKPaymentTransaction.cs" />
+    <Compile Include="StoreKit_C\SKProduct.Class.cs" />
+    <Compile Include="StoreKit_C\SKProduct.cs" />
+    <Compile Include="StoreKit_C\SKProductsRequest.Class.cs" />
+    <Compile Include="StoreKit_C\SKProductsRequest.Constructors.cs" />
+    <Compile Include="StoreKit_C\SKProductsRequest.cs" />
+    <Compile Include="StoreKit_C\SKProductsResponse.Class.cs" />
+    <Compile Include="StoreKit_C\SKProductsResponse.cs" />
+    <Compile Include="StoreKit_C\SKRequest.Class.cs" />
+    <Compile Include="StoreKit_C\SKRequest.cs" />
+    <Compile Include="StoreKit_P\SKPaymentTransactionObserver.Protocol.cs" />
+    <Compile Include="StoreKit_P\SKProductsRequestDelegate.Protocol.cs" />
+    <Compile Include="StoreKit_P\SKRequestDelegate.Protocol.cs" />
+    <Compile Include="StoreKit_T\StoreKitFramework.Constants.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\Monobjc\Monobjc.csproj">
+      <Project>{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}</Project>
+      <Name>Monobjc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
+      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
+      <Name>Monobjc.Foundation</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

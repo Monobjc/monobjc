@@ -62,6 +62,9 @@ SM2DGraphView_C
 SM2DGraphView_P
 Sparkle_C
 Sparkle_P
+StoreKit_C
+StoreKit_P
+StoreKit_T
 WebKit_C
 WebKit_P
 WebKit_T
