@@ -53,7 +53,7 @@ namespace Monobjc
 
         private static DynamicAssembly DynamicAssembly { get; set; }
 
-#if MACOSX_10_6 && HAVE_BLOCK_SUPPORT
+#if MACOSX_10_6
         private static BlockGenerator BlockGenerator { get; set; }
 #endif
         private static CategoryGenerator CategoryGenerator { get; set; }

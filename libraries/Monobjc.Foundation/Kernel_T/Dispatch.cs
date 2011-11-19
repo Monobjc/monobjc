@@ -1430,28 +1430,6 @@ namespace Monobjc.Kernel
     }
 
     /// <summary>
-    /// <para>Used to select the appropriate global concurrent queue.</para>
-    /// </summary>
-    [ObjectiveCUnderlyingTypeAttribute(typeof(int), Is64Bits = false)]
-    [ObjectiveCUnderlyingTypeAttribute(typeof(long), Is64Bits = true)]
-    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
-    public enum dispatch_queue_priority_t : int
-    {
-        /// <summary>
-        /// <para>Items dispatched to the queue run at high priority; the queue is scheduled for execution before any default priority or low priority queue.</para>
-        /// </summary>
-        DISPATCH_QUEUE_PRIORITY_HIGH = 2,
-        /// <summary>
-        /// <para>Items dispatched to the queue run at the default priority; the queue is scheduled for execution after all high priority queues have been scheduled, but before any low priority queues have been scheduled.</para>
-        /// </summary>
-        DISPATCH_QUEUE_PRIORITY_DEFAULT = 0,
-        /// <summary>
-        /// <para>Items dispatched to the queue run at low priority; the queue is scheduled for execution after all default priority and high priority queues have been scheduled.</para>
-        /// </summary>
-        DISPATCH_QUEUE_PRIORITY_LOW = -2,
-    }
-
-    /// <summary>
     /// <para>Mach send event flags.</para>
     /// </summary>
     [ObjectiveCUnderlyingTypeAttribute(typeof(uint), Is64Bits = false)]

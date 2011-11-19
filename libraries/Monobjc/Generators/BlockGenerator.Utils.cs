@@ -26,7 +26,7 @@ using System.Text;
 
 namespace Monobjc.Generators
 {
-#if MACOSX_10_6 && HAVE_BLOCK_SUPPORT
+#if MACOSX_10_6
     internal partial class BlockGenerator
     {
         /// <summary>

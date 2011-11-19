@@ -25,7 +25,7 @@ using System.Collections.Generic;
 
 namespace Monobjc
 {
-#if MACOSX_10_6 && HAVE_BLOCK_SUPPORT
+#if MACOSX_10_6
     partial class ObjectiveCRuntime
     {
         // Map that store block classes, according to the delegate that they wrap.

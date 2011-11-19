@@ -28,7 +28,7 @@ using Monobjc.Utils;
 
 namespace Monobjc.Generators
 {
-#if MACOSX_10_6 && HAVE_BLOCK_SUPPORT
+#if MACOSX_10_6
     /// <summary>
     ///   Code generator that produces block proxies.
     /// </summary>

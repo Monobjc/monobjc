@@ -109,7 +109,7 @@ namespace Monobjc.Generators
 
     internal static class EmitInfos
     {
-#if MACOSX_10_6 && HAVE_BLOCK_SUPPORT
+#if MACOSX_10_6
         public static readonly ConstructorInfo BLOCK_CONSTRUCTOR_DELEGATE = typeof (Block).GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new[] {typeof (Delegate)}, null);
         public static readonly MethodInfo BLOCK_GET_INVOKER = typeof (Block).GetProperty("Invoker").GetGetMethod();
 #endif
