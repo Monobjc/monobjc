@@ -43,7 +43,7 @@ namespace Monobjc.Foundation
         /// <para>Original signature is '- (id)valueForKeyPath:(NSString *)keyPath'</para>
         /// <para>Available in Mac OS X v10.0 and later.</para>
         /// </summary>
-        /// <param name="keyPath">A key path of the form relationship.property (with one or more relationships); for example ìdepartment.nameî or ìdepartment.manager.lastNameî.</param>
+        /// <param name="keyPath">A key path of the form relationship.property (with one or more relationships); for example √¨department.name√Æ or √¨department.manager.lastName√Æ.</param>
         /// <returns>The value for the derived property identified by keyPath.</returns>
         public virtual T ValueForKeyPath<T>(NSString keyPath) where T : Id
         {

@@ -23,7 +23,7 @@ using NUnit.Framework;
 
 namespace Monobjc
 {
-#if MACOSX_10_6 && HAVE_BLOCK_SUPPORT
+#if MACOSX_10_6
     [TestFixture]
     [Category("Blocks")]
     [Category("Runtime")]
@@ -39,7 +39,7 @@ namespace Monobjc
             IntPtr number;
             int value;
             int[] values = new int[256];
-
+			
             // Create random values
             for (int i = 0; i < values.Length; i++)
             {

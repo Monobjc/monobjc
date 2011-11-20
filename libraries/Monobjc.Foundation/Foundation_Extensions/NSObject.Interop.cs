@@ -28,6 +28,36 @@ namespace Monobjc.Foundation
     public partial class NSObject
     {
         /// <summary>
+        /// <para>Invoked to inform the receiver that the value of a given property has changed.</para>
+        /// <para>Original signature is '- (void)didChangeValueForKey:(NSString *)key'</para>
+        /// <para>Available in Mac OS X v10.3 and later.</para>
+        /// </summary>
+        /// <param name="firstKey">The name of the property that changed.</param>
+        /// <param name="others">Others keys.</param>
+        public virtual void DidChangeValueForKey(NSString firstKey, params NSString[] others)
+        {
+            ObjectiveCRuntime.SendMessage(this, "didChangeValueForKey:", firstKey);
+			foreach(NSString key in others) {
+	            ObjectiveCRuntime.SendMessage(this, "didChangeValueForKey:", key);
+			}
+        }
+
+        /// <summary>
+        /// <para>Invoked to inform the receiver that the value of a given property is about to change.</para>
+        /// <para>Original signature is '- (void)willChangeValueForKey:(NSString *)key'</para>
+        /// <para>Available in Mac OS X v10.3 and later.</para>
+        /// </summary>
+        /// <param name="firstKey">The name of the property that will change.</param>
+        /// <param name="others">Others keys.</param>
+        public virtual void WillChangeValueForKey(NSString firstKey, params NSString[] others)
+        {
+            ObjectiveCRuntime.SendMessage(this, "willChangeValueForKey:", firstKey);
+			foreach(NSString key in others) {
+	            ObjectiveCRuntime.SendMessage(this, "willChangeValueForKey:", key);
+			}
+        }
+		
+        /// <summary>
         /// <para>Returns the object returned by copyWithZone:, where the zone is nil.</para>
         /// <para>Original signature is '- (id)copy'</para>
         /// <para>Available in Mac OS X v10.0 and later.</para>

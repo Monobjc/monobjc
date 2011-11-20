@@ -61,7 +61,7 @@ namespace Monobjc.Foundation
             Assert.AreNotEqual(IntPtr.Zero, array.NativePointer, "Pointer cannot be null");
         }
 		
-#if MACOSX_10_6 && HAVE_BLOCK_SUPPORT
+#if MACOSX_10_6
         [Test]
         public void TestBlock1()
         {

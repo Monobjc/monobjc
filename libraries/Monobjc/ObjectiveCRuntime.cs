@@ -125,7 +125,7 @@ namespace Monobjc
             DynamicAssembly = new DynamicAssembly("Monobjc.Dynamic", "GeneratedTypes");
 
             // Create the dynamic code generators
-#if MACOSX_10_6 && HAVE_BLOCK_SUPPORT
+#if MACOSX_10_6
             BlockGenerator = new BlockGenerator(DynamicAssembly, Is64Bits);
 #endif
             CategoryGenerator = new CategoryGenerator(DynamicAssembly, Is64Bits);

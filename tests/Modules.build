@@ -16,13 +16,13 @@
 
     <if test="${version::get-minor(version::parse(min.version)) &lt;= 6}" >
       <property name="version" value="10.6"/>
-      <property name="define" value="TESTING;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT"/>
+      <property name="define" value="TESTING;MACOSX_10_5;MACOSX_10_6"/>
       <call target="build-tests-intern" if="${version::get-minor(version::parse(max.version)) >= 6}"/>
     </if>
 
     <if test="${version::get-minor(version::parse(min.version)) &lt;= 7}" >
       <property name="version" value="10.7"/>
-      <property name="define" value="TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;HAVE_BLOCK_SUPPORT"/>
+      <property name="define" value="TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7"/>
       <call target="build-tests-intern" if="${version::get-minor(version::parse(max.version)) >= 7}"/>
     </if>
 

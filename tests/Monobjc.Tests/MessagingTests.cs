@@ -156,7 +156,7 @@ namespace Monobjc
             Assert.IsTrue(test, "String should be of the right class.");
         }
 
-#if MACOSX_10_6 && HAVE_BLOCK_SUPPORT
+#if MACOSX_10_6
         [Test]
         public void TestBlockMessaging()
         {

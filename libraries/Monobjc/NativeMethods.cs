@@ -72,7 +72,7 @@ namespace Monobjc
 
         /// <summary>
         ///   <para>Registers a method with the Objective-C runtime system, maps the method name to a selector, and returns the selector value.</para>
-        ///   <para>You must register a method name with the Objective-C runtime system to obtain the methodís selector before you can add the method to a class definition. If the method name has already been registered, this function simply returns the selector.</para>
+        ///   <para>You must register a method name with the Objective-C runtime system to obtain the method√≠s selector before you can add the method to a class definition. If the method name has already been registered, this function simply returns the selector.</para>
         ///   <para>The original declaration is :
         ///     <code>
         ///       SEL sel_registerName(const char *str);
