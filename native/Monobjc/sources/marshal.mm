@@ -265,7 +265,7 @@ MonobjcTypeDescriptor *monobjc_get_descriptor(MonoType *type, char *encoding, bo
                 // Iterate over the fields to count the public non-static ones
                 iter = NULL;
                 uint32_t field_count = 0;
-                while(field = mono_class_get_fields(klass, &iter)) {
+                while((field = mono_class_get_fields(klass, &iter))) {
                     uint32_t flags = mono_field_get_flags(field);
                     if ((flags & MONO_FIELD_ATTR_PUBLIC) == MONO_FIELD_ATTR_PUBLIC &&
                         (flags & MONO_FIELD_ATTR_STATIC) == 0) {
@@ -284,7 +284,7 @@ MonobjcTypeDescriptor *monobjc_get_descriptor(MonoType *type, char *encoding, bo
                 iter = NULL;
                 int32_t structure_size = 0;
                 ffi_type **current_element = foreign_type->elements;
-                while(field = mono_class_get_fields(klass, &iter)) {
+                while((field = mono_class_get_fields(klass, &iter))) {
                     uint32_t flags = mono_field_get_flags(field);
                     if ((flags & MONO_FIELD_ATTR_PUBLIC) == MONO_FIELD_ATTR_PUBLIC &&
                         (flags & MONO_FIELD_ATTR_STATIC) == 0) {

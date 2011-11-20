@@ -50,7 +50,7 @@ void icall_Monobjc_Runtime_Bridge_AddMethod(void *target, boolean_t meta, MonoMe
     MonoType **parameter_types = g_new(MonoType *, nargs);
     MonoType **current = parameter_types;
     void *iter = NULL;
-    while (*current = mono_signature_get_params(sig, &iter)) {
+    while ((*current = mono_signature_get_params(sig, &iter))) {
         current++;
     }
     

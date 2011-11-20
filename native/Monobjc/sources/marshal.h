@@ -27,7 +27,7 @@
 #include <ffi/ffi.h>
 
 // Forward declaration.
-typedef struct MonobjcTypeDescriptor;
+struct MonobjcTypeDescriptor;
 
 /**
  * @brief   Allocates a storage zone for the given descriptor.
@@ -104,7 +104,7 @@ typedef struct MonobjcTypeDescriptor {
     MonoMethod *convert_from_managed;    
     /** @brief  A conversion method from the real type to the managed type. Only applicable to value_type. */
     MonoMethod *convert_to_managed;
-};
+} MonobjcTypeDescriptor;
 
 #pragma mark ----- Descriptor functions -----
 

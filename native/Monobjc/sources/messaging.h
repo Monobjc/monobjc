@@ -50,7 +50,7 @@ typedef struct MonobjcNativeCall {
     MonobjcTypeDescriptor *return_descriptor;
     /** @brief  Stores the type descriptors for the parameters. */
     MonobjcTypeDescriptor **parameter_descriptors;
-};
+} MonobjcNativeCall;
 
 /**
  * @brief   Holds the information needed to send a message to the Mono runtime.
@@ -62,7 +62,7 @@ typedef struct MonobjcManagedCall {
     MonobjcTypeDescriptor *return_descriptor;
     /** @brief  Stores the type descriptors for the parameters. */
     MonobjcTypeDescriptor **parameter_descriptors;
-};
+} MonobjcManagedCall;
 
 /**
  * @brief   Represents a node in a hierarchical storage.
@@ -77,7 +77,7 @@ typedef struct MonobjcNativeCallSlot {
     MonobjcNativeCall *call;
     /** @brief  TODO */
     GHashTable *children;
-};
+} MonobjcNativeCallSlot;
 
 /**
  * @brief   Create the cache for the call descriptors.

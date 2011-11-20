@@ -56,7 +56,7 @@ typedef struct MonobjcDomainData {
     pthread_mutex_t DESCRIPTORS_MUTEX;
     /*! @brief  Mutex to guard access to #INSTANCES_HASHTABLE. */
     pthread_mutex_t INSTANCES_MUTEX;
-};
+} MonobjcDomainData;
 
 
 /** @brief  Shortcut accessor to the hashtable that serves as a cache for the calls. */

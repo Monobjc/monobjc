@@ -15,10 +15,17 @@ COMMAND=$1
 VERSION="4.0.0.0"
 HASH="d5a8d181860c16be"
 
+# Probe to check if Mono runtime is installed
 MONO_DIR="/Library/Frameworks/Mono.framework"
 if [ ! -d $MONO_DIR ]; then
 	echo "Cannot find Mono.framework. Is it installed ?"
 	exit 1
+fi
+
+# Probe the Mono runtime to check if it is universal (i386/x86_64)
+UNIVERSAL=0
+if [[ `file /usr/bin/mono` == *x86_64* ]]; then
+	UNIVERSAL=1
 fi
 
 #
@@ -79,7 +86,6 @@ Version: $version
 
 $LIB_REFERENCES
 EOF
-
     done
 
     # Make sure that pkg-config has its soft-link
@@ -89,8 +95,18 @@ EOF
     # Copy the helper tools
     cp "./dist/Monobjc.Sdp.exe" "$MONO_DIR/Libraries/mono/4.0/Monobjc.Sdp.exe"
 
+    # Copy the runtime binary
+	if [[ `file ./dist/monobjc` == *x86_64* ]]; then
+	    if [ $UNIVERSAL == "1" ]; then
+		    cp "./dist/monobjc" "$MONO_DIR/Commands/monobjc"
+	    else
+    		lipo -extract i386 "./dist/monobjc" -output "$MONO_DIR/Commands/monobjc"
+	    fi
+	else
+        cp "./dist/monobjc" "$MONO_DIR/Commands/monobjc"
+	fi
+    
     # Copy the runtime wrappers and soft-link them
-    cp "./dist/monobjc" "$MONO_DIR/Commands/monobjc"
     cp "./dist/monobjc-sdp" "$MONO_DIR/Commands/monobjc-sdp"
     cp "./dist/monobjc-nunit" "$MONO_DIR/Commands/monobjc-nunit"
     chmod a+rx "$MONO_DIR/Commands/monobjc"

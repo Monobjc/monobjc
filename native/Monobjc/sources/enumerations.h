@@ -34,7 +34,7 @@ typedef enum MonobjcLogLevel {
     MONOBJC_LOG_INFO    = 0x02,
     /*! @brief  Debug log level. */
     MONOBJC_LOG_DEBUG   = 0x04,
-};
+} MonobjcLogLevel;
 
 /*! @brief  Enumeration of the logging domains. */
 typedef enum MonobjcLogDomain {
@@ -45,7 +45,7 @@ typedef enum MonobjcLogDomain {
     
     /*! @brief  All the domain are logged. */
     MONOBJC_DOMAIN_ALL  = 0xFFFF,
-};
+} MonobjcLogDomain;
 
 /** @brief  Enumeration that holds values for Mac OS system version. */
 typedef enum OSVersion {
@@ -91,6 +91,6 @@ typedef enum OSVersion {
      * @remark  This is a supported platform.
      */
     MACOS_10_7 = 0x1070,
-};
+} OSVersion;
 
 #endif // __ENUMERATIONS_H__
