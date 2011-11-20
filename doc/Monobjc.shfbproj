@@ -170,6 +170,8 @@
 <DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.SM2DGraphView.xml" />
 <DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.Sparkle.dll" />
 <DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.Sparkle.xml" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.StoreKit.dll" />
+<DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.StoreKit.xml" />
 <DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.WebKit.dll" />
 <DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.WebKit.xml" />
 <DocumentationSource sourceFile="..\dist\@VERSION@\Monobjc.xml" />
@@ -219,6 +221,7 @@
       <NamespaceSummaryItem name="Monobjc.SecurityInterface" isDocumented="True" xmlns="">Contains wrappers for SecurityInterface framework.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="Monobjc.SM2DGraphView" isDocumented="True" xmlns="">Contains wrappers for SM2DGraphView framework.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="Monobjc.Sparkle" isDocumented="True" xmlns="">Contains wrappers for Sparkle framework.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Monobjc.StoreKit" isDocumented="True" xmlns="">Contains wrappers for StoreKit framework.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="Monobjc.WebKit" isDocumented="True" xmlns="">Contains wrappers for WebKit framework.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="Monobjc.WebKit.DOM" isDocumented="True" xmlns="">Contains wrappers for WebKit DOM framework.</NamespaceSummaryItem>
     </NamespaceSummaries>
