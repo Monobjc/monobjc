@@ -15,6 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Monobjc.  If not, see <http://www.gnu.org/licenses/>.
 //
+using System;
 using Monobjc.ApplicationServices;
 using NUnit.Framework;
 
@@ -64,5 +65,17 @@ namespace Monobjc.Foundation
             cgfloat = value;
             Assert.AreEqual((CGFloat)value, cgfloat, "Value must be equal");
         }
+		
+        [Test]
+        public void TestConstant()
+        {
+			uint value = NSUInteger.NSNotFound;
+			
+			if (ObjectiveCRuntime.Is64Bits) {
+	            Assert.AreEqual(value, UInt32.MaxValue, "Value must be equal");
+			} else {
+	            Assert.AreEqual(value, Int32.MaxValue, "Value must be equal");
+			}
+		}
     }
 }

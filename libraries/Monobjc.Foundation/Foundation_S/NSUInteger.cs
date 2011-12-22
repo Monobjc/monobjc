@@ -35,7 +35,7 @@ namespace Monobjc.Foundation
         /// <para>Defines a value that indicates that an item requested couldn’t be found or doesn’t exist.</para>
         /// <para>Available in Mac OS X v10.0 and later.</para>
         /// </summary>
-        public static readonly NSUInteger NSNotFound = Int32.MaxValue;
+        public static readonly NSUInteger NSNotFound = ObjectiveCRuntime.Is64Bits ? UInt32.MaxValue : Int32.MaxValue;
 
         /// <summary>
         /// The wrapped value.

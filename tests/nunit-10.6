@@ -1,2 +1,5 @@
 #!/bin/sh
-exec ./dist/10.6/runtime /Library/Frameworks/Mono.framework/Versions/Current/lib/mono/4.0/nunit-console.exe "$@"
+if [ "x$ARCH" == "x" ]; then
+    ARCH=i386
+fi
+arch -$ARCH ./dist/10.6/runtime /Library/Frameworks/Mono.framework/Versions/Current/lib/mono/4.0/nunit-console.exe "$@"

@@ -8,6 +8,7 @@
   <property name="doc.dir" value="${path::get-full-path('./doc')}"/>
   <property name="external.dir" value="${path::get-full-path('./external')}"/>
   <property name="libraries.dir" value="${path::get-full-path('./libraries')}"/>
+  <property name="libraries.stripped.dir" value="${path::get-full-path('./stripped/libraries')}"/>
   <property name="native.dir" value="${path::get-full-path('./native')}"/>
   <property name="package.dir" value="${path::get-full-path('./package')}"/>
   <property name="samples.dir" value="${path::get-full-path('./samples')}"/>
@@ -172,6 +173,7 @@ sudo ./Monobjc.sh install_msbuild
   <target name="clean">
     <delete dir="${build.dir}" failonerror="false" />
     <delete dir="${dist.dir}" failonerror="false" />
+    <delete dir="${libraries.stripped.dir}" failonerror="false" />
     <delete dir="${package.dir}/content" failonerror="false" />
 
     <!-- Clean sub-projects -->
@@ -182,7 +184,6 @@ sudo ./Monobjc.sh install_msbuild
   <target name="archive" description="Archive the files" depends="build-tools,build-libraries">
     <property name="archive.prefix" value="Monobjc-${monobjc.version}.${revision}.0"/>
     <exec program="strip.sh" if="${strip.sources}"/>
-    <property name="libraries.stripped.dir" value="stripped/libraries"/>
     
     <mkdir dir="${archive.prefix}"/>
     <copy todir="${archive.prefix}">
