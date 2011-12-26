@@ -236,26 +236,47 @@ namespace Monobjc.Utils
             MethodInfo methodInfo = GetConverter(sourceType, targetType);
             return (methodInfo != null) ? methodInfo.MethodHandle.Value : IntPtr.Zero;
         }
+		
+		public static long ToInt64(int value) { return value; }
+		public static int ToInt32(long value) { return (int) value; }
+		
+		public static ulong ToUInt64(uint value) { return value; }
+		public static uint ToUInt32(ulong value) { return (uint) value; }
+		
+		public static int ToInt32(float value) { return (int) value; }
+		public static float ToSingle(int value) { return value; }
+		
+		public static uint ToUInt32(float value) { return (uint) value; }
+		public static float ToSingle(uint value) { return value; }
+		
+		public static long ToInt64(float value) { return (long) value; }
+		public static float ToSingle(long value) { return value; }
+		
+		public static ulong ToUInt64(float value) { return (ulong) value; }
+		public static float ToSingle(ulong value) { return value; }
+		
+		public static double ToDouble(float value) { return value; }
+		public static float ToSingle(double value) { return (float) value; }
+		
+        private static readonly MethodInfo INT_2_LONG = typeof (TypeHelper).GetMethod("ToInt64", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (int)}, null);
+        private static readonly MethodInfo LONG_2_INT = typeof (TypeHelper).GetMethod("ToInt32", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (long)}, null);
 
-        private static readonly MethodInfo INT_2_LONG = typeof (Convert).GetMethod("ToInt64", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (int)}, null);
-        private static readonly MethodInfo LONG_2_INT = typeof (Convert).GetMethod("ToInt32", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (long)}, null);
+        private static readonly MethodInfo UINT_2_ULONG = typeof (TypeHelper).GetMethod("ToUInt64", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (uint)}, null);
+        private static readonly MethodInfo ULONG_2_UINT = typeof (TypeHelper).GetMethod("ToUInt32", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (ulong)}, null);
 
-        private static readonly MethodInfo UINT_2_ULONG = typeof (Convert).GetMethod("ToUInt64", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (uint)}, null);
-        private static readonly MethodInfo ULONG_2_UINT = typeof (Convert).GetMethod("ToUInt32", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (ulong)}, null);
+        private static readonly MethodInfo FLOAT_2_INT = typeof (TypeHelper).GetMethod("ToInt32", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (float)}, null);
+        private static readonly MethodInfo INT_2_FLOAT = typeof (TypeHelper).GetMethod("ToSingle", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (int)}, null);
 
-        private static readonly MethodInfo FLOAT_2_INT = typeof (Convert).GetMethod("ToInt32", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (float)}, null);
-        private static readonly MethodInfo INT_2_FLOAT = typeof (Convert).GetMethod("ToSingle", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (int)}, null);
+        private static readonly MethodInfo FLOAT_2_UINT = typeof (TypeHelper).GetMethod("ToUInt32", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (float)}, null);
+        private static readonly MethodInfo UINT_2_FLOAT = typeof (TypeHelper).GetMethod("ToSingle", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (uint)}, null);
 
-        private static readonly MethodInfo FLOAT_2_UINT = typeof (Convert).GetMethod("ToUInt32", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (float)}, null);
-        private static readonly MethodInfo UINT_2_FLOAT = typeof (Convert).GetMethod("ToSingle", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (uint)}, null);
+        private static readonly MethodInfo FLOAT_2_LONG = typeof (TypeHelper).GetMethod("ToInt64", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (float)}, null);
+        private static readonly MethodInfo LONG_2_FLOAT = typeof (TypeHelper).GetMethod("ToSingle", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (long)}, null);
 
-        private static readonly MethodInfo FLOAT_2_LONG = typeof (Convert).GetMethod("ToInt64", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (float)}, null);
-        private static readonly MethodInfo LONG_2_FLOAT = typeof (Convert).GetMethod("ToSingle", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (long)}, null);
+        private static readonly MethodInfo FLOAT_2_ULONG = typeof (TypeHelper).GetMethod("ToUInt64", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (float)}, null);
+        private static readonly MethodInfo ULONG_2_FLOAT = typeof (TypeHelper).GetMethod("ToSingle", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (ulong)}, null);
 
-        private static readonly MethodInfo FLOAT_2_ULONG = typeof (Convert).GetMethod("ToUInt64", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (float)}, null);
-        private static readonly MethodInfo ULONG_2_FLOAT = typeof (Convert).GetMethod("ToSingle", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (ulong)}, null);
-
-        private static readonly MethodInfo FLOAT_2_DOUBLE = typeof (Convert).GetMethod("ToDouble", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (float)}, null);
-        private static readonly MethodInfo DOUBLE_2_FLOAT = typeof (Convert).GetMethod("ToSingle", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (double)}, null);
+        private static readonly MethodInfo FLOAT_2_DOUBLE = typeof (TypeHelper).GetMethod("ToDouble", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (float)}, null);
+        private static readonly MethodInfo DOUBLE_2_FLOAT = typeof (TypeHelper).GetMethod("ToSingle", BindingFlags.Public | BindingFlags.Static, null, new[] {typeof (double)}, null);
     }
 }
