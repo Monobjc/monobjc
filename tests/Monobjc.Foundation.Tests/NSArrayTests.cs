@@ -1,6 +1,6 @@
 ﻿//
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2011 - Laurent Etiemble
+// Copyright (C) 2007-2012 - Laurent Etiemble
 //
 // Monobjc is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -65,39 +65,66 @@ namespace Monobjc.Foundation
         [Test]
         public void TestBlock1()
         {
+
 			NSString str1 = NSString.StringWithUTF8String("ABC");
+
 			NSString str2 = NSString.StringWithUTF8String("DEF");
+
 			NSString str3 = NSString.StringWithUTF8String("GHI");
+
 			
             NSArray array = NSArray.ArrayWithObjects(str2, str3, str1, null);
             Assert.IsNotNull(array, "Creation cannot fail");
             Assert.AreNotEqual(IntPtr.Zero, array.NativePointer, "Pointer cannot be null");
+
 			
 			/*
+
 			foreach(NSString slot in array.GetEnumerator<NSString>()) {
+
 				Console.WriteLine(slot.SendMessage<NSString>("description"));
+
 			}
 			*/
 			
+
 			Func<Id, Id, NSComparisonResult> sorter = delegate(Id id1, Id id2) {
+
 				//Console.WriteLine(id1.SendMessage<NSString>("description") + " <-> " + id2.SendMessage<NSString>("description"));
+
 				return id1.SendMessage<NSComparisonResult>("compare:", id2);
+
 			};
+
 			
+
 			NSArray sorted = array.SortedArrayUsingComparator(sorter);
+
             Assert.IsNotNull(sorted, "Creation cannot fail");
+
             Assert.AreNotEqual(IntPtr.Zero, sorted.NativePointer, "Pointer cannot be null");
+
 			
 			/*
+
 			foreach(NSString slot in sorted.GetEnumerator<NSString>()) {
+
 				Console.WriteLine(slot.SendMessage<NSString>("description"));
+
 			}
 			*/
+
 			
+
 			Assert.True(sorted.ObjectAtIndex<NSString>(0).IsEqualToString(str1), "Elements must be sorted");
+
 			Assert.True(sorted.ObjectAtIndex<NSString>(1).IsEqualToString(str2), "Elements must be sorted");
+
 			Assert.True(sorted.ObjectAtIndex<NSString>(2).IsEqualToString(str3), "Elements must be sorted");
+
 		}
+
 #endif
     }
 }
+

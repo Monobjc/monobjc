@@ -1,6 +1,6 @@
 // 
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2011 - Laurent Etiemble
+// Copyright (C) 2007-2012 - Laurent Etiemble
 // 
 // Monobjc is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published
@@ -19,7 +19,7 @@
  * @file    descriptor-System.Struct.mm
  * @brief   Contains the descriptor code to handle the System.Struct type.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2011
+ * @date    2009-2012
  */
 #include "logging.h"
 #include "marshal.h"

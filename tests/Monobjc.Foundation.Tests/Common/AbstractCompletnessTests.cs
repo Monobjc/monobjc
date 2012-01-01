@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2011 - Laurent Etiemble
+// Copyright (C) 2007-2012 - Laurent Etiemble
 //
 // Monobjc is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -122,6 +122,7 @@ namespace Monobjc.Foundation.Common
 					//Console.WriteLine("{0}: {1}/{2} -> BAD", cls.Name, matches, count);
 					//Assert.Fail("Less than 25% of members are wrapped for {0}", cls.Name);
 				}
+
                 /*
                 else if (ratio < 0.5)
                 {

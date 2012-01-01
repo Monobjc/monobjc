@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2011 - Laurent Etiemble
+// Copyright (C) 2007-2012 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -26,6 +26,7 @@ using System.Runtime.InteropServices;
 namespace Monobjc.ApplicationServices
 {
 #if MACOSX_10_5
+
     /// <summary>
     /// <para>This structure is used to alter the paragraph style.</para>
     /// <para>Available in Mac OS X v10.5 and later.</para>
@@ -33,20 +34,36 @@ namespace Monobjc.ApplicationServices
     [StructLayout(LayoutKind.Sequential)]
     public partial struct CTParagraphStyleSetting
     {
+
         /// <summary>
+
         /// <para>The specifier of the setting. See “CTParagraphStyleSpecifier” for possible values.</para>
+
         /// </summary>
+
         public CTParagraphStyleSpecifier spec;
 
-        /// <summary>
-        /// <para>The size of the value pointed to by the value field. This value must match the size of the value required by the CTParagraphStyleSpecifier set in the spec field.</para>
-        /// </summary>
-        public IntPtr valueSize;
+
 
         /// <summary>
-        /// <para>A reference to the value of the setting specified by the spec field. The value must be in the proper range for the spec value and at least as large as the size specified in valueSize.</para>
+
+        /// <para>The size of the value pointed to by the value field. This value must match the size of the value required by the CTParagraphStyleSpecifier set in the spec field.</para>
+
         /// </summary>
+
+        public IntPtr valueSize;
+
+
+
+        /// <summary>
+
+        /// <para>A reference to the value of the setting specified by the spec field. The value must be in the proper range for the spec value and at least as large as the size specified in valueSize.</para>
+
+        /// </summary>
+
         public IntPtr value;
     }
+
 #endif
+
 }

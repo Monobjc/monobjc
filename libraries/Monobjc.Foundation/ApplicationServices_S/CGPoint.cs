@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2011 - Laurent Etiemble
+// Copyright (C) 2007-2012 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -31,7 +31,9 @@ namespace Monobjc.ApplicationServices
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     [ObjectiveCUnderlyingType(typeof(CGPoint), Is64Bits = false)]
+
     [ObjectiveCUnderlyingType(typeof(CGPoint64), Is64Bits = true)]
+
     public partial struct CGPoint : IEquatable<CGPoint>
     {
         /// <summary>
@@ -125,7 +127,11 @@ namespace Monobjc.ApplicationServices
             return this.x.GetHashCode() + 29*this.y.GetHashCode();
         }
 
+
+
         public static readonly Converter<CGPoint, CGPoint64> CGPOINT_2_CGPoint64 = (value => (CGPoint64)value);
+
         public static readonly Converter<CGPoint64, CGPoint> CGPOINT64_2_CGPoint = (value => (CGPoint)value);
+
     }
 }

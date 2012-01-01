@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2011 - Laurent Etiemble
+// Copyright (C) 2007-2012 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,15 +22,25 @@
 // 
 using System;
 using System.Runtime.InteropServices;
+
 using Monobjc.Foundation;
+
+
 
 namespace Monobjc.ApplicationServices
 {
 #if MACOSX_10_5
+
     /// <summary>
+
     /// <para>This callback can be specified to obtain the matching font descriptors of a collection in sorted order. The callback function should return the comparison result of the first descriptor to the second descriptor.</para>
+
     /// <para>Available in Mac OS X v10.5 and later.</para>
+
     /// </summary>
+
     public delegate NSComparisonResult CTFontCollectionSortDescriptorsCallback(IntPtr first, IntPtr second, IntPtr refCon);
+
 #endif
+
 }

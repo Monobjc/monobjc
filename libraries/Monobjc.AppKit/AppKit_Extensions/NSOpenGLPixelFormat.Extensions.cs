@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2011 - Laurent Etiemble
+// Copyright (C) 2007-2012 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -41,6 +41,7 @@ namespace Monobjc.AppKit
         /// <para>Original signature is '- (id)initWithAttributes:(const NSOpenGLPixelFormatAttribute *)attribs'</para>
         /// <para>Available in Mac OS X v10.0 and later.</para>
         /// </summary>
+
         public NSOpenGLPixelFormat(NSOpenGLPixelFormatAttribute[] attribs) : this(attribs.Select(attribute => Convert.ToUInt32(attribute)).ToArray())
         {
         }
@@ -50,6 +51,7 @@ namespace Monobjc.AppKit
         /// <para>Original signature is '- (id)initWithAttributes:(const NSOpenGLPixelFormatAttribute *)attribs'</para>
         /// <para>Available in Mac OS X v10.0 and later.</para>
         /// </summary>
+
         public NSOpenGLPixelFormat(Object[] attribs) : this(attribs.Select(Convert.ToUInt32).ToArray())
         {
         }

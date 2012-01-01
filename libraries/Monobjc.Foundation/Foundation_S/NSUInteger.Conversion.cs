@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2011 - Laurent Etiemble
+// Copyright (C) 2007-2012 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,84 +20,161 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
+
 using Monobjc.ApplicationServices;
+
 using Monobjc.Foundation;
+
+
 
 namespace Monobjc.Foundation
 {
     public partial struct NSUInteger
     {
+
         public static implicit operator sbyte(NSUInteger value)
+
         {
+
             return (sbyte)value.value;
+
         }
+
         public static implicit operator NSUInteger(sbyte value)
+
         {
+
             return new NSUInteger((uint)value);
+
         }
+
+
 
         public static implicit operator short(NSUInteger value)
+
         {
+
             return (short)value.value;
+
         }
+
         public static implicit operator NSUInteger(short value)
+
         {
+
             return new NSUInteger((uint)value);
+
         }
+
+
 
         public static implicit operator int(NSUInteger value)
+
         {
+
             return (int)value.value;
+
         }
+
         public static implicit operator NSUInteger(int value)
+
         {
+
             return new NSUInteger((uint)value);
+
         }
+
+
 
         public static implicit operator long(NSUInteger value)
+
         {
+
             return value.value;
+
         }
+
         public static implicit operator NSUInteger(long value)
+
         {
+
             return new NSUInteger((uint)value);
+
         }
+
+
 
         public static implicit operator byte(NSUInteger value)
+
         {
+
             return (byte)value.value;
+
         }
+
         public static implicit operator NSUInteger(byte value)
+
         {
+
             return new NSUInteger(value);
+
         }
+
+
 
         public static implicit operator ushort(NSUInteger value)
+
         {
+
             return (ushort)value.value;
+
         }
+
         public static implicit operator NSUInteger(ushort value)
+
         {
+
             return new NSUInteger(value);
+
         }
+
+
 
         public static implicit operator uint(NSUInteger value)
+
         {
+
             return value.value;
-        }
-        public static implicit operator NSUInteger(uint value)
-        {
-            return new NSUInteger(value);
+
         }
 
+        public static implicit operator NSUInteger(uint value)
+
+        {
+
+            return new NSUInteger(value);
+
+        }
+
+
+
         public static implicit operator ulong(NSUInteger value)
+
         {
+
             return value.value;
+
         }
+
         public static implicit operator NSUInteger(ulong value)
+
         {
+
             return new NSUInteger((uint)value);
+
         }
+
+
 
         public static implicit operator float(NSUInteger value)
         {
@@ -117,13 +194,23 @@ namespace Monobjc.Foundation
             return new NSUInteger((uint)value);
         }
 
+
+
         public static implicit operator NSInteger(NSUInteger value)
+
         {
+
             return new NSInteger((int)value.value);
+
         }
+
         public static implicit operator CGFloat(NSUInteger value)
+
         {
+
             return new CGFloat(value.value);
+
         }
+
     }
 }

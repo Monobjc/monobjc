@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2011 - Laurent Etiemble
+// Copyright (C) 2007-2012 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -68,6 +68,7 @@ namespace Monobjc
         /// </summary>
         private IntPtr layout;
 		
+
 		/// <summary>
 		///   GC handle to the exposed delegate.
 		/// </summary>
@@ -111,6 +112,7 @@ namespace Monobjc
                 DestroyBlock(this.layout);
                 this.layout = IntPtr.Zero;
 				this.blockInvokerHandle.Free();
+
             }
         }
 
@@ -136,11 +138,16 @@ namespace Monobjc
             {
                 if (this.layout == IntPtr.Zero)
                 {
+
 					// Pin the delegate so it won't move
 					this.blockInvokerHandle = GCHandle.Alloc(this.BlockInvoker, GCHandleType.Pinned);
+
 					
+
                     // Create a block layout for a global block, with descriptor.
+
                     // This block will invoke a managed method through a delegate (marhsaled as a function pointer)
+
                     IntPtr function = Marshal.GetFunctionPointerForDelegate(this.BlockInvoker);
                     this.layout = CreateBlock(function);
                 }

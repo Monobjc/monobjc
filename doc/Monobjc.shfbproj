@@ -227,7 +227,7 @@
     </NamespaceSummaries>
     <FeedbackEMailLinkText>Monobjc Support</FeedbackEMailLinkText>
     <FeedbackEMailAddress>getsupport%40monobjc.net</FeedbackEMailAddress>
-    <CopyrightText>Copyright (c) 2007-2011 Monobjc Project</CopyrightText>
+    <CopyrightText>Copyright (C) 2007-2012 Monobjc Project</CopyrightText>
     <CopyrightHref>http://www.monobjc.net/</CopyrightHref>
     <CleanIntermediates>True</CleanIntermediates>
     <IndentHtml>True</IndentHtml>
