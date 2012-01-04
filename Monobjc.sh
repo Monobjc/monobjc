@@ -45,13 +45,20 @@ function install {
 
         # Create directory
         mkdir -p "$LIB_DIR"
-	
-        # Copy native libraries
-        cp ./dist/$version/monobjc.h "$LIB_DIR"
-        cp ./dist/$version/libmonobjc.dylib "$LIB_DIR"
-        cp ./dist/$version/runtime "$LIB_DIR"
-        chmod a+rx "$LIB_DIR"/libmonobjc.dylib
-        chmod a+rx "$LIB_DIR"/runtime
+    
+        # Copy native elements
+        cp "./dist/$version/monobjc.h" "$LIB_DIR"
+        
+	    if [ $UNIVERSAL == "1" ]; then
+	        cp "./dist/$version/libmonobjc.dylib" "$LIB_DIR"
+    	    cp "./dist/$version/runtime" "$LIB_DIR"
+	    else
+    		lipo -extract i386 "./dist/$version/libmonobjc.dylib" -output "$LIB_DIR/libmonobjc.dylib"
+    		lipo -extract i386 "./dist/$version/runtime" -output "$LIB_DIR/runtime"
+	    fi
+        
+        chmod a+rx "$LIB_DIR/libmonobjc.dylib"
+        chmod a+rx "$LIB_DIR/runtime"
 
         # Copy the documentation
         for file in `ls dist/$version/Monobjc*.xml`; do
@@ -94,18 +101,10 @@ EOF
 
     # Copy the helper tools
     cp "./dist/Monobjc.Sdp.exe" "$MONO_DIR/Libraries/mono/4.0/Monobjc.Sdp.exe"
-
-    # Copy the runtime binary
-	if [[ `file ./dist/monobjc` == *x86_64* ]]; then
-	    if [ $UNIVERSAL == "1" ]; then
-		    cp "./dist/monobjc" "$MONO_DIR/Commands/monobjc"
-	    else
-    		lipo -extract i386 "./dist/monobjc" -output "$MONO_DIR/Commands/monobjc"
-	    fi
-	else
-        cp "./dist/monobjc" "$MONO_DIR/Commands/monobjc"
-	fi
     
+    # Copy the runtime binary
+	cp "./dist/monobjc" "$MONO_DIR/Commands/monobjc"
+
     # Copy the runtime wrappers and soft-link them
     cp "./dist/monobjc-sdp" "$MONO_DIR/Commands/monobjc-sdp"
     cp "./dist/monobjc-nunit" "$MONO_DIR/Commands/monobjc-nunit"
