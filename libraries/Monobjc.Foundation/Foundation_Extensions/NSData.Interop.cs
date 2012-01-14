@@ -35,19 +35,28 @@ namespace Monobjc.Foundation
         /// </summary>
         /// <param name="bytes">The bytes.</param>
         public NSData(byte[] bytes)
-            : this(bytes, (uint) bytes.Length) {}
+            : this(bytes, (NSUInteger) bytes.Length) {}
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NSData"/> class.
         /// </summary>
         /// <param name="bytes">The bytes.</param>
         /// <param name="length">The length.</param>
-        public NSData(byte[] bytes, uint length)
+        public NSData(byte[] bytes, NSUInteger length)
             : this(ObjectiveCRuntime.SendMessage<IntPtr>(NSDataClass, "alloc"))
         {
             IntPtr pointer = Marshal.AllocHGlobal((int) length);
             Marshal.Copy(bytes, 0, pointer, (int) length);
-            this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr>(this, "initWithBytes:length:", pointer, length);
+			
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr>(this, "initWithBytes:length:", bytes, (ulong) length);
+            }
+            else
+            {
+                this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr>(this, "initWithBytes:length:", bytes, (uint) length);
+            }
+			
             Marshal.FreeHGlobal(pointer);
         }
 

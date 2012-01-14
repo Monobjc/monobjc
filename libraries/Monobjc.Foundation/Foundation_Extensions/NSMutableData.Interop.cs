@@ -39,7 +39,7 @@ namespace Monobjc.Foundation
         /// </summary>
         /// <param name="bytes">The bytes.</param>
         /// <param name="length">The length.</param>
-        public NSMutableData(byte[] bytes, uint length)
+        public NSMutableData(byte[] bytes, NSUInteger length)
             : base(bytes, length) {}
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Monobjc.Foundation
         /// <param name="bytes">A buffer containing data to append to the receiver's content.</param>
         /// <param name="length">The number of bytes from bytes to append.</param>
         /// <returns>An initialized NSMutableData object capable of holding capacity bytes.</returns>
-        public void AppendBytesLength(byte[] bytes, uint length)
+        public void AppendBytesLength(byte[] bytes, NSUInteger length)
         {
             IntPtr pointer = Marshal.AllocHGlobal((int) length);
             Marshal.Copy(bytes, 0, pointer, (int) length);

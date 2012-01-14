@@ -20,111 +20,104 @@ using NUnit.Framework;
 
 namespace Monobjc.Foundation
 {
-    [TestFixture]
+	[TestFixture]
     [Category("NSArray")]
     public class NSArrayTests : WrapperTests
-    {
-        [Test]
-        public void TestStaticCreation()
-        {
-            NSArray array = NSArray.Array;
-            Assert.IsNotNull(array, "Creation cannot fail");
-            Assert.AreNotEqual(IntPtr.Zero, array.NativePointer, "Pointer cannot be null");
+	{
+		[Test]
+		public void TestStaticCreation ()
+		{
+			NSArray array = NSArray.Array;
+			Assert.IsNotNull (array, "Creation cannot fail");
+			Assert.AreNotEqual (IntPtr.Zero, array.NativePointer, "Pointer cannot be null");
 
-            Class cls = array.Class;
-            Assert.IsNotNull(cls, "Class retrieval cannot fail");
-            Assert.AreNotEqual(IntPtr.Zero, cls.NativePointer, "Pointer cannot be null");
+			Class cls = array.Class;
+			Assert.IsNotNull (cls, "Class retrieval cannot fail");
+			Assert.AreNotEqual (IntPtr.Zero, cls.NativePointer, "Pointer cannot be null");
 
-            uint count = array.Count;
-            Assert.AreEqual(0, count, "Length must be 0");
+			uint count = array.Count;
+			Assert.AreEqual (0, count, "Length must be 0");
 
-            array = NSArray.ArrayWithObject(NSString.String);
-            Assert.IsNotNull(array, "Creation cannot fail");
-            Assert.AreNotEqual(IntPtr.Zero, array.NativePointer, "Pointer cannot be null");
-        }
+			array = NSArray.ArrayWithObject (NSString.String);
+			Assert.IsNotNull (array, "Creation cannot fail");
+			Assert.AreNotEqual (IntPtr.Zero, array.NativePointer, "Pointer cannot be null");
+		}
 
-        [Test]
-        public void TestVarArgsCreation()
-        {
-            NSArray array;
+		[Test]
+		public void TestVarArgsCreation ()
+		{
+			NSArray array;
 
-            array = NSArray.ArrayWithObjects(NSNumber.NumberWithInt(123), NSString.StringWithUTF8String("TEST"), null);
-            Assert.IsNotNull(array, "Creation cannot fail");
-            Assert.AreNotEqual(IntPtr.Zero, array.NativePointer, "Pointer cannot be null");
+			array = NSArray.ArrayWithObjects (NSNumber.NumberWithInt (123), NSString.StringWithUTF8String ("TEST"), null);
+			Assert.IsNotNull (array, "Creation cannot fail");
+			Assert.AreNotEqual (IntPtr.Zero, array.NativePointer, "Pointer cannot be null");
 
-            array = NSArray.ArrayWithObjects(NSNumber.NumberWithInt(123), NSNumber.NumberWithInt(456), NSNumber.NumberWithInt(789), null);
-            Assert.IsNotNull(array, "Creation cannot fail");
-            Assert.AreNotEqual(IntPtr.Zero, array.NativePointer, "Pointer cannot be null");
+			array = NSArray.ArrayWithObjects (NSNumber.NumberWithInt (123), NSNumber.NumberWithInt (456), NSNumber.NumberWithInt (789), null);
+			Assert.IsNotNull (array, "Creation cannot fail");
+			Assert.AreNotEqual (IntPtr.Zero, array.NativePointer, "Pointer cannot be null");
 
-            array = NSArray.ArrayWithObjects(NSNumber.NumberWithInt(123), NSString.String, NSNumber.NumberWithInt(789), null);
-            Assert.IsNotNull(array, "Creation cannot fail");
-            Assert.AreNotEqual(IntPtr.Zero, array.NativePointer, "Pointer cannot be null");
-        }
+			array = NSArray.ArrayWithObjects (NSNumber.NumberWithInt (123), NSString.String, NSNumber.NumberWithInt (789), null);
+			Assert.IsNotNull (array, "Creation cannot fail");
+			Assert.AreNotEqual (IntPtr.Zero, array.NativePointer, "Pointer cannot be null");
+		}
+
+		[Test]
+		public void TestObjectAtIndex ()
+		{
+			NSString str1 = NSString.StringWithUTF8String("ABC");
+			NSString str2 = NSString.StringWithUTF8String("DEF");
+			NSString str3 = NSString.StringWithUTF8String("GHI");
+			
+			NSArray array = NSArray.ArrayWithObjects(str2, str3, str1, null);
+			Assert.IsNotNull(array, "Creation cannot fail");
+			Assert.AreNotEqual(IntPtr.Zero, array.NativePointer, "Pointer cannot be null");
+			
+			for(int i = 0; i < 100; i++) {
+				for(int j = 0; j < 3; j++) {
+					Id id = array.ObjectAtIndex(j);
+					NSString str = array.ObjectAtIndex<NSString>(j);
+					Assert.AreEqual(id.NativePointer, str.NativePointer, "Pointer must be equal");
+				}
+			}
+		}
 		
 #if MACOSX_10_6
         [Test]
         public void TestBlock1()
         {
-
 			NSString str1 = NSString.StringWithUTF8String("ABC");
-
 			NSString str2 = NSString.StringWithUTF8String("DEF");
-
 			NSString str3 = NSString.StringWithUTF8String("GHI");
-
 			
-            NSArray array = NSArray.ArrayWithObjects(str2, str3, str1, null);
-            Assert.IsNotNull(array, "Creation cannot fail");
-            Assert.AreNotEqual(IntPtr.Zero, array.NativePointer, "Pointer cannot be null");
-
+			NSArray array = NSArray.ArrayWithObjects(str2, str3, str1, null);
+			Assert.IsNotNull(array, "Creation cannot fail");
+			Assert.AreNotEqual(IntPtr.Zero, array.NativePointer, "Pointer cannot be null");
 			
 			/*
-
 			foreach(NSString slot in array.GetEnumerator<NSString>()) {
-
-				Console.WriteLine(slot.SendMessage<NSString>("description"));
-
+			Console.WriteLine(slot.SendMessage<NSString>("description"));
 			}
 			*/
-			
-
+		
 			Func<Id, Id, NSComparisonResult> sorter = delegate(Id id1, Id id2) {
-
 				//Console.WriteLine(id1.SendMessage<NSString>("description") + " <-> " + id2.SendMessage<NSString>("description"));
-
 				return id1.SendMessage<NSComparisonResult>("compare:", id2);
-
 			};
-
 			
-
 			NSArray sorted = array.SortedArrayUsingComparator(sorter);
-
             Assert.IsNotNull(sorted, "Creation cannot fail");
-
             Assert.AreNotEqual(IntPtr.Zero, sorted.NativePointer, "Pointer cannot be null");
-
 			
 			/*
-
 			foreach(NSString slot in sorted.GetEnumerator<NSString>()) {
-
-				Console.WriteLine(slot.SendMessage<NSString>("description"));
-
+			Console.WriteLine(slot.SendMessage<NSString>("description"));
 			}
 			*/
-
 			
-
 			Assert.True(sorted.ObjectAtIndex<NSString>(0).IsEqualToString(str1), "Elements must be sorted");
-
 			Assert.True(sorted.ObjectAtIndex<NSString>(1).IsEqualToString(str2), "Elements must be sorted");
-
 			Assert.True(sorted.ObjectAtIndex<NSString>(2).IsEqualToString(str3), "Elements must be sorted");
-
 		}
-
 #endif
-    }
+	}
 }
-

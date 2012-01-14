@@ -40,7 +40,7 @@ namespace Monobjc.Foundation
         /// </summary>
         /// <param name="bytes">The bytes.</param>
         /// <param name="length">The length.</param>
-        public NSPurgeableData(byte[] bytes, uint length)
+        public NSPurgeableData(byte[] bytes, NSUInteger length)
             : base(bytes, length) {}
     }
 #endif

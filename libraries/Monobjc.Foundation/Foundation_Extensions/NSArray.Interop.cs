@@ -285,19 +285,6 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// <para>Returns the object located at index.</para>
-        /// <para>Original signature is '- (id)objectAtIndex:( NSUInteger)index'</para>
-        /// <para>Available in Mac OS X v10.0 and later.</para>
-        /// </summary>
-        /// <typeparam name="T">The parametric type</typeparam>
-        /// <param name="index">An index within the bounds of the receiver.</param>
-        /// <returns>The object located at index.</returns>
-        public virtual T ObjectAtIndex<T>(uint index) where T : IManagedWrapper
-        {
-            return ObjectiveCRuntime.SendMessage<T>(this, "objectAtIndex:", index);
-        }
-
-        /// <summary>
         /// Determines whether every element in the <see cref="NSArray"/> matches the conditions defined by the specified predicate.
         /// </summary>
         /// <typeparam name="T">The parametric type</typeparam>
@@ -313,6 +300,26 @@ namespace Monobjc.Foundation
                 }
             }
             return true;
+        }
+		
+        /// <summary>
+        /// <para>Returns the object located at index.</para>
+        /// <para>Original signature is '- (id)objectAtIndex:( NSUInteger)index'</para>
+        /// <para>Available in Mac OS X v10.0 and later.</para>
+        /// </summary>
+        /// <typeparam name="T">The parametric type</typeparam>
+        /// <param name="index">An index within the bounds of the receiver.</param>
+        /// <returns>The object located at index.</returns>
+        public virtual T ObjectAtIndex<T>(NSUInteger index) where T : IManagedWrapper
+        {
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                return ObjectiveCRuntime.SendMessage<T>(this, "objectAtIndex:", (ulong) index);
+            }
+            else
+            {
+                return ObjectiveCRuntime.SendMessage<T>(this, "objectAtIndex:", (uint) index);
+            }
         }
     }
 }
