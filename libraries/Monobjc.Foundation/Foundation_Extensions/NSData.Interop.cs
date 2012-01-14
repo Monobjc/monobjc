@@ -50,11 +50,11 @@ namespace Monobjc.Foundation
 			
             if (ObjectiveCRuntime.Is64Bits)
             {
-                this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr>(this, "initWithBytes:length:", bytes, (ulong) length);
+                this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr>(this, "initWithBytes:length:", pointer, (ulong) length);
             }
             else
             {
-                this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr>(this, "initWithBytes:length:", bytes, (uint) length);
+                this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr>(this, "initWithBytes:length:", pointer, (uint) length);
             }
 			
             Marshal.FreeHGlobal(pointer);
