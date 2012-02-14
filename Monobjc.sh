@@ -53,6 +53,8 @@ function install {
 	        cp "./dist/$version/libmonobjc.dylib" "$LIB_DIR"
     	    cp "./dist/$version/runtime" "$LIB_DIR"
 	    else
+            cp "./dist/$version/libmonobjc.dylib" "$LIB_DIR"
+            cp "./dist/$version/runtime" "$LIB_DIR"
     		lipo -extract i386 "./dist/$version/libmonobjc.dylib" -output "$LIB_DIR/libmonobjc.dylib"
     		lipo -extract i386 "./dist/$version/runtime" -output "$LIB_DIR/runtime"
 	    fi
