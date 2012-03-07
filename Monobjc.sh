@@ -171,7 +171,7 @@ function install_msbuild {
     gacutil -i "./dist/Monobjc.MSBuild.dll"
 
     # Copy the MSBuild tasks and targets
-    ln -s "$MONO_DIR/Libraries/mono/gac/Monobjc.MSBuild/$VERSION""__""$HASH/Monobjc.Build.dll" "$MONO_DIR/Libraries/mono/4.0"
+    ln -s "$MONO_DIR/Libraries/mono/gac/Monobjc.MSBuild/$VERSION""__""$HASH/Monobjc.MSBuild.dll" "$MONO_DIR/Libraries/mono/4.0"
     cp ./dist/Monobjc.*.tasks "$MONO_DIR/Libraries/mono/4.0/"
     cp ./dist/Monobjc.*.targets "$MONO_DIR/Libraries/mono/4.0/"
 }
