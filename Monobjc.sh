@@ -178,6 +178,7 @@ function install_msbuild {
 
 function uninstall_msbuild {
     # Remove the MSBuild tasks and targets
+    rm -f "$MONO_DIR/Libraries/mono/4.0/Monobjc.Build.dll"
     rm -f "$MONO_DIR/Libraries/mono/4.0/Monobjc.MSBuild.dll"
     rm -f "$MONO_DIR/Libraries/mono/4.0/Monobjc.*.tasks"
     rm -f "$MONO_DIR/Libraries/mono/4.0/Monobjc.*.targets"
