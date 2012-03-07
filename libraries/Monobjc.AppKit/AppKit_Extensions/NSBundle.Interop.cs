@@ -40,6 +40,7 @@ namespace Monobjc.AppKit
         /// <returns>
         /// YES if the nib file was loaded successfully; otherwise, NO.
         /// </returns>
+        [Obsolete]
         public static bool LoadNibResourceNamedOwner(this NSBundle bundle, Type type, NSString resourceName, Id owner)
         {
             bool result = false;

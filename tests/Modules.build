@@ -199,6 +199,10 @@
          debug="${debug}"
          define="${define}">
       <sources refid="src.references"/>
+      <resources prefix="${test.name}">
+        <include name="${base.dir}/${test.name}/**/*.png"/>
+        <include name="${base.dir}/${test.name}/**/*.nib"/>
+      </resources>
       <resources prefix="${test.name}.Properties">
         <include name="${base.dir}/${test.name}/**/*.resx"/>
       </resources>

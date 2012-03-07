@@ -871,6 +871,7 @@
     <Compile Include="Kernel_Extensions\Dispatch.cs" />
     <Compile Include="Kernel_T\Dispatch.cs" />
     <Compile Include="Foundation_Extensions\ProcessManager.cs" />
+    <Compile Include="Foundation_Extensions\NSLocale.Interop.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

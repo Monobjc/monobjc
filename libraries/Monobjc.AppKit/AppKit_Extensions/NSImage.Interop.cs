@@ -79,18 +79,20 @@ namespace Monobjc.AppKit
         {
             Assembly assembly = type.Assembly;
 
-            String imageName = assembly.GetName().FullName + "." + resourceName;
+            String imageName = assembly.GetName().Name + "." + resourceName;
             NSImage image = ImageNamed(imageName);
-            if (image == null)
+            if (image != null)
             {
-                using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+				return image;
+			}
+			
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                if (stream != null)
                 {
-                    if (stream != null)
-                    {
-                        image = ImageFromStream(stream);
-                        image.SetName(imageName);
-                        stream.Close();
-                    }
+                    image = ImageFromStream(stream);
+                    image.SetName(imageName);
+                    stream.Close();
                 }
             }
 
