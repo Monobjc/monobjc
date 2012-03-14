@@ -59,21 +59,24 @@ namespace Monobjc.AppKit
 			
 			// Check with full locale
 			CultureInfo cultureInfo = locale.ToCultureInfo ();
-			String candidate = resources.FirstOrDefault (r => String.Equals (r, resourceName + cultureInfo.Name));
+			String key = resourceName + (String.IsNullOrEmpty (cultureInfo.Name) ? String.Empty : "." + cultureInfo.Name);
+			String candidate = resources.FirstOrDefault (r => String.Equals (r, key));
 			if (candidate != null) {
 				candidates.Add (candidate);
 			}
 			
 			// Check with language
 			cultureInfo = cultureInfo.Parent;
-			candidate = resources.FirstOrDefault (r => String.Equals (r, resourceName + cultureInfo.Name));
+			key = resourceName + (String.IsNullOrEmpty (cultureInfo.Name) ? String.Empty : "." + cultureInfo.Name);
+			candidate = resources.FirstOrDefault (r => String.Equals (r, key));
 			if (candidate != null) {
 				candidates.Add (candidate);
 			}
 			
 			// Check invariant
 			cultureInfo = cultureInfo.Parent;
-			candidate = resources.FirstOrDefault (r => String.Equals (r, resourceName + cultureInfo.Name));
+			key = resourceName + (String.IsNullOrEmpty (cultureInfo.Name) ? String.Empty : "." + cultureInfo.Name);
+			candidate = resources.FirstOrDefault (r => String.Equals (r, key));
 			if (candidate != null) {
 				candidates.Add (candidate);
 			}
@@ -88,7 +91,7 @@ namespace Monobjc.AppKit
 			
 			using (Stream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write)) {
 				using (Stream resourceStream = assembly.GetManifestResourceStream(name)) {
-					resourceStream.CopyTo(fileStream);
+					resourceStream.CopyTo (fileStream);
 				}
 			}
 					
