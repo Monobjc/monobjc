@@ -2,7 +2,7 @@
 <project name="Monobjc Module Builder" default="build" basedir="..">
   <description>Monobjc Module Builder</description>
   
-  <property name="dev.dir" value="/Developer" unless="${property::exists('dev.dir')}"/>
+  <property name="dev.dir" value="/Applications/Xcode.app/Contents/Developer" unless="${property::exists('dev.dir')}"/>
   
   <!-- ===============================================================================
   Build the native libraries
