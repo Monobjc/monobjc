@@ -149,7 +149,7 @@ sudo ./Monobjc.sh install_msbuild
   </copy>
   
   <!-- Build the package -->
-  <exec program="/Developer/usr/bin/packagemaker">
+  <exec program="/Applications/PackageMaker.app/Contents/MacOS/PackageMaker">
     <arg value="--verbose"/>
     <arg value="--doc"/>
     <arg value="${package.dir}/${archive.prefix}.pmdoc"/>
