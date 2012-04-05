@@ -184,6 +184,13 @@ function uninstall_msbuild {
     rm -f "$MONO_DIR/Libraries/mono/4.0/Monobjc.*.targets"
 }
 
+function install_monodoc {
+	MONODOC_DIR="$MONO_DIR/Libraries/monodoc/sources"
+	cp ./dist/Monobjc.source "$MONODOC_DIR"
+	cp ./dist/Monobjc.tree "$MONODOC_DIR"
+	cp ./dist/Monobjc.zip "$MONODOC_DIR"
+}
+
 # Main entry point
 case "$COMMAND" in
 
@@ -214,8 +221,12 @@ case "$COMMAND" in
         uninstall_msbuild
         ;;
 
+    install_monodoc)
+        install_monodoc
+        ;;
+
     *)
-        echo $"Usage: $0 {install|uninstall|install-nant|uninstall-nant|install-msbuild|uninstall-msbuild}"
+        echo $"Usage: $0 {install|uninstall|install-nant|uninstall-nant|install-msbuild|uninstall-msbuild|install_monodoc}"
         exit 1
         ;;
 

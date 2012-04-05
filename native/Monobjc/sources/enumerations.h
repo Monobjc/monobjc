@@ -93,4 +93,22 @@ typedef enum OSVersion {
     MACOS_10_7 = 0x1070,
 } OSVersion;
 
+/**
+ * @brief   Specify the behavior when retrieving an instance from the cache.
+ */
+typedef enum RetrievalMode {
+    /**
+     * @brief   The retrieved instance must be assignable the expected type.
+     */
+    RetrievalModeStrict,
+    /**
+     * @brief   The retrieved instance should be assignable the expected type. If not, NULL is returned.
+     */
+    RetrievalModeFailSafe,
+    /**
+     * @brief   The retrieved instance should be assignable the expected type. If not, a new wrapper is generated.
+     */
+    RetrievalModeOverride,
+} RetrievalMode;
+
 #endif // __ENUMERATIONS_H__

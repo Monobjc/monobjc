@@ -23,6 +23,7 @@
  */
 #include "cache.h"
 #include "definitions.h"
+#include "enumerations.h"
 #include "icalls.h"
 #include "logging.h"
 #include "support-objc.h"
@@ -38,7 +39,7 @@ MonoObject *icall_Monobjc_Class_Get_intptr(void *ptr) {
     LOG_INFO(MONOBJC_DOMAIN_INSTANCES, "icall_Monobjc_Class_Get_intptr(%p)", ptr);
     
     // Try to fetch the class wrapper from the instance cache
-    return icall_Monobjc_ObjectiveCRuntime_GetInstance(monobjc_get_Monobjc_Class_type(), ptr, FALSE);
+    return icall_Monobjc_ObjectiveCRuntime_GetInstance(monobjc_get_Monobjc_Class_type(), ptr, RetrievalModeStrict);
 }
 
 /**

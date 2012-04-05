@@ -425,7 +425,7 @@ namespace Monobjc
             {
                 // Read the address of the object
                 IntPtr value = Marshal.ReadIntPtr(pointer);
-                return (T) GetInstanceInternal(type.TypeHandle.Value, value, false);
+                return (T) GetInstanceInternal(type.TypeHandle.Value, value, RetrievalMode.Override);
             }
             if (type == typeof (int))
             {

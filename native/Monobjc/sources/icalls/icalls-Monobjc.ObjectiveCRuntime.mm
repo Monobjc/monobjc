@@ -25,6 +25,7 @@
 #include "cache.h"
 #include "constants.h"
 #include "definitions.h"
+#include "enumerations.h"
 #include "domain.h"
 #include "icalls.h"
 #include "logging.h"
@@ -64,14 +65,14 @@ void icall_Monobjc_ObjectiveCRuntime_CleanUp(void) {
 
 /**
  * @brief   Internal call to retrieve a cached or created instance.
- * @param   type        The type of the instance.
- * @param   ptr         The native pointer.
- * @param   fail_safe   Whether the retrieval can return NULL.
+ * @param   type    The type of the instance.
+ * @param   ptr     The native pointer.
+ * @param   mode    The retrieval mode.
  * @return  Return the required instance by taking it from the cache or by creating it.
  *
  * @remark  TODO: Insert Graph
  */
-MonoObject *icall_Monobjc_ObjectiveCRuntime_GetInstance(MonoType *type, void *ptr, boolean_t fail_safe) {
+MonoObject *icall_Monobjc_ObjectiveCRuntime_GetInstance(MonoType *type, void *ptr, RetrievalMode mode) {
     void *args[1];
     
     // If the pointer is null, return NULL
@@ -91,30 +92,31 @@ MonoObject *icall_Monobjc_ObjectiveCRuntime_GetInstance(MonoType *type, void *pt
         if (mono_class_is_assignable_from(requested_class, wrapper_class)) {
             goto bail;
         }
-                
+        
         // The wrapper is not valid, so set it to NULL
         wrapper = NULL;
         
-        LOG_INFO(MONOBJC_DOMAIN_INSTANCES, "Requested %s but found %s for %p", mono_class_get_name(requested_class), mono_class_get_name(wrapper_class), ptr);
-        
-        // Retrieve the classname associated to the type
-        args[0] = mono_type_get_object(mono_domain_get(), type);
-        
-        MonoString *attribute_name = (MonoString *) mono_runtime_invoke(monobjc_get_Monobjc_Class_GetAttributeName_method(), NULL, args, NULL);
-        
-        // Retrieve the class associated to the type
-        char *name = mono_string_to_utf8(attribute_name);
-        Class cls = objc_lookUpClass(name);
-        g_free(name);
-        
-        // Check the native pointer can be assigned
-        if (![(id)ptr isKindOfClass:cls]) {
-            // If specified, failure can be safely ignored
-            if (fail_safe) {
-                goto bail;
+        if (mode != RetrievalModeOverride) {
+            LOG_INFO(MONOBJC_DOMAIN_INSTANCES, "Requested %s but found %s for %p", mono_class_get_name(requested_class), mono_class_get_name(wrapper_class), ptr);
+            
+            // Retrieve the classname associated to the type
+            args[0] = mono_type_get_object(mono_domain_get(), type);
+            MonoString *attribute_name = (MonoString *) mono_runtime_invoke(monobjc_get_Monobjc_Class_GetAttributeName_method(), NULL, args, NULL);
+            
+            // Retrieve the class associated to the type
+            char *name = mono_string_to_utf8(attribute_name);
+            Class cls = objc_lookUpClass(name);
+            g_free(name);
+            
+            // Check the native pointer can be assigned
+            if (![(id)ptr isKindOfClass:cls]) {
+                // If specified, failure can be safely ignored
+                if (mode == RetrievalModeFailSafe) {
+                    goto bail;
+                }
+                // Drop a message to warn the user about incompatibility
+                LOG_WARNING(MONOBJC_DOMAIN_INSTANCES, "Incompatible classes: requested %s but found %s for %p", mono_class_get_name(requested_class), mono_class_get_name(wrapper_class), ptr);
             }
-            // Drop a message to warn the user about incompatibility
-            LOG_WARNING(MONOBJC_DOMAIN_INSTANCES, "Incompatble classes: requested %s but found %s for %p", mono_class_get_name(requested_class), mono_class_get_name(wrapper_class), ptr);
         }
     }
     
@@ -123,7 +125,7 @@ MonoObject *icall_Monobjc_ObjectiveCRuntime_GetInstance(MonoType *type, void *pt
         LOG_DEBUG(MONOBJC_DOMAIN_INSTANCES, "icall_Monobjc_ObjectiveCRuntime_GetInstanceInternal - Creating new instance for %p", ptr);
         
         MonoType *wrapper_type = type;        
-
+        
         // If the requested type is an interface, we search for its wrapping type.
         if (monobjc_type_is_interface(type)) {
             wrapper_type = (MonoType *) g_hash_table_lookup(__WRAPPERS_HASHTABLE, type);
@@ -136,44 +138,8 @@ MonoObject *icall_Monobjc_ObjectiveCRuntime_GetInstance(MonoType *type, void *pt
                 
                 g_hash_table_insert(__WRAPPERS_HASHTABLE, type, wrapper_type);
             }
-        } else {
-#if 0
-            // Get the class of the target
-            Class cls = object_getClass((id)ptr);
-            
-            // Ignore the search for class object
-            if (!class_isMetaClass(cls) && ![(id)ptr isProxy]) {
-                // Search for a compatible wrapper class
-                MonoObject *obj = monobjc_cache_lookup_instance(cls);
-                if (!obj) {
-                    // Climb up the hierarchy to found a wrapper class
-                    while(cls && !obj) {
-                        cls = class_getSuperclass(cls);
-                        obj = monobjc_cache_lookup_instance(cls);
-                    }
-                    
-                    // Drop a message to warn the user about the situation
-                    if (!cls) {
-                        LOG_ERROR(MONOBJC_DOMAIN_INSTANCES, "Cannot find a compatible class for %s while wrapping %p", class_getName(object_getClass((id)ptr)), ptr);
-                    }
-                    
-                    // Fill class hierarchy to map unknown class with known wrapper
-                    cls = object_getClass((id)ptr);
-                    while(cls && !monobjc_cache_lookup_instance(cls)) {
-                        monobjc_cache_map_instance(cls, obj);
-                        cls = class_getSuperclass(cls);
-                    }
-                }
-                
-                // Extract the wrapper type from the class instance
-                if (obj) {
-                    MonoObject *result = mono_runtime_invoke(monobjc_get_Monobjc_Class_get_WrapperType_method(), obj, NULL, NULL);
-                    wrapper_type = *(MonoType **) mono_object_unbox(result);
-                }
-            }
-#endif
         }
-
+        
         // We retrieve the class from the type
         MonoClass *klass = mono_type_get_class(wrapper_type);
         
@@ -181,7 +147,6 @@ MonoObject *icall_Monobjc_ObjectiveCRuntime_GetInstance(MonoType *type, void *pt
         MonoMethod *constructor = (MonoMethod *) g_hash_table_lookup(__CONSTRUCTORS_HASHTABLE, klass);
         if (!constructor) {
             constructor = monobjc_get_wrapper_constructor(klass);
-            
             g_hash_table_insert(__CONSTRUCTORS_HASHTABLE, klass, constructor);
         }
         
@@ -191,7 +156,7 @@ MonoObject *icall_Monobjc_ObjectiveCRuntime_GetInstance(MonoType *type, void *pt
         wrapper = mono_object_new(mono_domain_get(), klass);
         mono_runtime_invoke(constructor, wrapper, args, NULL);
     }
-
+    
 bail:
     UNLOCK_INSTANCES();
     

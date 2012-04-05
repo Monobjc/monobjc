@@ -35,7 +35,7 @@ namespace Monobjc
         /// <returns>A cast instance.</returns>
         public static T CastTo<T>(Id instance) where T : class, IManagedWrapper
         {
-            return (instance != null) ? GetInstance<T>(instance.NativePointer, false) : default(T);
+            return (instance != null) ? GetInstance<T>(instance.NativePointer, RetrievalMode.Strict) : default(T);
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Monobjc
         /// <returns>A cast instance, or null if the cast is invalid.</returns>
         public static T CastAs<T>(Id instance) where T : class, IManagedWrapper
         {
-            return (instance != null) ? GetInstance<T>(instance.NativePointer, true) : default(T);
+            return (instance != null) ? GetInstance<T>(instance.NativePointer, RetrievalMode.FailSafe) : default(T);
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace Monobjc
         /// <returns>An instance of the type.</returns>
         public static T GetInstance<T>(IntPtr value) where T : class, IManagedWrapper
         {
-            return GetInstance<T>(value, false);
+            return GetInstance<T>(value, RetrievalMode.Override);
         }
 
         /// <summary>
@@ -65,12 +65,12 @@ namespace Monobjc
         /// </summary>
         /// <typeparam name = "T">The parametric type.</typeparam>
         /// <param name = "value">The value.</param>
-        /// <param name = "canFail">if set to <c>true</c> the retrieval can fail.</param>
+        /// <param name = "mode">The retrieval mode.</param>
         /// <returns>An instance of the type, or null if the type is invalid.</returns>
-        public static T GetInstance<T>(IntPtr value, bool canFail) where T : class, IManagedWrapper
+        public static T GetInstance<T>(IntPtr value, RetrievalMode mode) where T : class, IManagedWrapper
         {
             Type type = typeof (T);
-            return (T) GetInstanceInternal(type.TypeHandle.Value, value, canFail);
+            return (T) GetInstanceInternal(type.TypeHandle.Value, value, mode);
         }
 
         /// <summary>
@@ -91,6 +91,25 @@ namespace Monobjc
         ///   Internal call to retrieve a cached or created instance.
         /// </summary>
         [MethodImpl(MethodImplOptions.InternalCall)]
-        private static extern IManagedWrapper GetInstanceInternal(IntPtr returnType, IntPtr value, bool canFail);
+        private static extern IManagedWrapper GetInstanceInternal(IntPtr returnType, IntPtr value, RetrievalMode mode);
+		
+		/// <summary>
+		/// Retrieval mode used for cache access.
+		/// </summary>
+		public enum RetrievalMode
+		{
+			/// <summary>
+			/// The retrieved instance must be assignable the expected type.
+			/// </summary>
+			Strict,
+			/// <summary>
+			/// The retrieved instance should be assignable the expected type. If not, null is returned.
+			/// </summary>
+			FailSafe,
+			/// <summary>
+			/// The retrieved instance should be assignable the expected type. If not, a new wrapper is generated.
+			/// </summary>
+			Override,
+		}
     }
 }

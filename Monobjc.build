@@ -76,6 +76,13 @@
   </target>
 
   <!-- ===============================================================================
+  Build the monodoc bundle
+  ================================================================================ -->
+  <target name="build-mdoc" depends="build-libraries">
+    <nant buildfile="${doc.dir}/Modules.build" target="mdoc"/>
+  </target>
+
+  <!-- ===============================================================================
   Build an archive with the sources and the binaries
   ================================================================================ -->
   <target name="tarball" description="Builds an archive with the sources and the binaries" depends="archive">
@@ -110,6 +117,7 @@
 cd "$2"
 chmod a+x ./Monobjc.sh
 sudo ./Monobjc.sh install
+sudo ./Monobjc.sh install_mdoc
 ]]></echo>
     <echo file="${package.dir}/content/Install_NAnt.sh"><![CDATA[#!/bin/bash
 ARCHIVE="$2/NAnt.tar.gz"
@@ -181,7 +189,7 @@ sudo ./Monobjc.sh install_msbuild
   </target>
 
   <!-- Archive the files -->
-  <target name="archive" description="Archive the files" depends="build-tools,build-libraries">
+  <target name="archive" description="Archive the files" depends="build-tools,build-libraries,build-mdoc">
     <property name="archive.prefix" value="Monobjc-${monobjc.version}.${revision}.0"/>
     <exec program="strip.sh" if="${strip.sources}"/>
     

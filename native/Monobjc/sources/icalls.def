@@ -75,7 +75,7 @@ ICALL("GetTypeAlignmentInternal",       int32_t,        icall_Monobjc_ObjectiveC
 #define ICALLTYPE   "Monobjc.ObjectiveCRuntime"
 ICALL("BootstrapInternal",              void,           icall_Monobjc_ObjectiveCRuntime_Bootstrap,                  (void))
 ICALL("CleanUpInternal",                void,           icall_Monobjc_ObjectiveCRuntime_CleanUp,                    (void))
-ICALL("GetInstanceInternal",            MonoObject *,   icall_Monobjc_ObjectiveCRuntime_GetInstance,                (MonoType *type, void *ptr, boolean_t fail_safe))
+ICALL("GetInstanceInternal",            MonoObject *,   icall_Monobjc_ObjectiveCRuntime_GetInstance,                (MonoType *type, void *ptr, RetrievalMode mode))
 #undef ICALLTYPE
 
 #pragma mark ----- Internal Calls for Monobjc.Runtime.Bridge -----

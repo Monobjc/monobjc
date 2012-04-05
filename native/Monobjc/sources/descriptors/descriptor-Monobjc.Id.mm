@@ -22,6 +22,7 @@
  * @date    2009-2012
  */
 #include "definitions.h"
+#include "enumerations.h"
 #include "icalls.h"
 #include "logging.h"
 #include "marshal.h"
@@ -57,7 +58,7 @@ static MonoObject *__marshal_from_native_for_Monobjc_Id(MonobjcTypeDescriptor *d
     
     // Fetch the managed wrapper for the given pointer
     void *value = *(void **)ptr;
-    MonoObject *obj = icall_Monobjc_ObjectiveCRuntime_GetInstance(descriptor->type, value, FALSE);
+    MonoObject *obj = icall_Monobjc_ObjectiveCRuntime_GetInstance(descriptor->type, value, RetrievalModeStrict);
     
     return obj;
 }
