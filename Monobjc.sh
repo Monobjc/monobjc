@@ -226,7 +226,7 @@ case "$COMMAND" in
         ;;
 
     *)
-        echo $"Usage: $0 {install|uninstall|install-nant|uninstall-nant|install-msbuild|uninstall-msbuild|install_monodoc}"
+        echo $"Usage: $0 {install|uninstall|install_nant|uninstall_nant|install_msbuild|uninstall_msbuild|install_monodoc}"
         exit 1
         ;;
 

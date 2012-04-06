@@ -117,7 +117,7 @@
 cd "$2"
 chmod a+x ./Monobjc.sh
 sudo ./Monobjc.sh install
-sudo ./Monobjc.sh install_mdoc
+sudo ./Monobjc.sh install_monodoc
 ]]></echo>
     <echo file="${package.dir}/content/Install_NAnt.sh"><![CDATA[#!/bin/bash
 ARCHIVE="$2/NAnt.tar.gz"
@@ -208,6 +208,9 @@ sudo ./Monobjc.sh install_msbuild
         <include name="${dist.dir}/Monobjc*.dll"/>
         <include name="${dist.dir}/Monobjc*.targets"/>
         <include name="${dist.dir}/Monobjc*.tasks"/>
+        <include name="${dist.dir}/Monobjc.source"/>
+        <include name="${dist.dir}/Monobjc.tree"/>
+        <include name="${dist.dir}/Monobjc.zip"/>
         <include name="${dist.dir}/10.*/Monobjc*.dll"/>
         <include name="${dist.dir}/10.*/Monobjc*.xml"/>
         <include name="${dist.dir}/10.*/policy*.dll"/>
