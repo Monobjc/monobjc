@@ -20,199 +20,126 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-
 using Monobjc.ApplicationServices;
-
 using Monobjc.Foundation;
-
-
 
 namespace Monobjc.Foundation
 {
-    public partial struct NSInteger
-    {
-
-        public static implicit operator sbyte(NSInteger value)
-
-        {
-
-            return (sbyte)value.value;
-
-        }
-
-        public static implicit operator NSInteger(sbyte value)
-
-        {
-
-            return new NSInteger(value);
-
-        }
-
-
-
-        public static implicit operator short(NSInteger value)
-
-        {
-
-            return (short)value.value;
-
-        }
-
-        public static implicit operator NSInteger(short value)
-
-        {
-
-            return new NSInteger(value);
-
-        }
-
-
-
-        public static implicit operator int(NSInteger value)
-
-        {
-
-            return value.value;
-
-        }
-
-        public static implicit operator NSInteger(int value)
-
-        {
-
-            return new NSInteger(value);
-
-        }
-
-
-
-        public static implicit operator long(NSInteger value)
-
-        {
-
-            return value.value;
-
-        }
-
-        public static implicit operator NSInteger(long value)
-
-        {
-
-            return new NSInteger((int)value);
-
-        }
-
-
-
-        public static implicit operator byte(NSInteger value)
-
-        {
-
-            return (byte)value.value;
-
-        }
-
-        public static implicit operator NSInteger(byte value)
-
-        {
-
-            return new NSInteger(value);
-
-        }
-
-
-
-        public static implicit operator ushort(NSInteger value)
-
-        {
-
-            return (ushort)value.value;
-
-        }
-
-        public static implicit operator NSInteger(ushort value)
-
-        {
-
-            return new NSInteger(value);
-
-        }
-
-
-
-        public static implicit operator uint(NSInteger value)
-
-        {
-
-            return (uint)value.value;
-
-        }
-
-        public static implicit operator NSInteger(uint value)
-
-        {
-
-            return new NSInteger((int)value);
-
-        }
-
-
-
-        public static implicit operator ulong(NSInteger value)
-
-        {
-
-            return (ulong)value.value;
-
-        }
-
-        public static implicit operator NSInteger(ulong value)
-
-        {
-
-            return new NSInteger((int)value);
-
-        }
-
-
-
-        public static implicit operator float(NSInteger value)
-        {
-            return value.value;
-        }
-        public static implicit operator NSInteger(float value)
-        {
-            return new NSInteger((int)value);
-        }
-
-        public static implicit operator double(NSInteger value)
-        {
-            return value.value;
-        }
-        public static implicit operator NSInteger(double value)
-        {
-            return new NSInteger((int)value);
-        }
-
-
-
-
-
-        public static implicit operator CGFloat(NSInteger value)
-
-        {
-
-            return new CGFloat(value.value);
-
-        }
-
-        public static implicit operator NSUInteger(NSInteger value)
-
-        {
-
-            return new NSUInteger((uint)value.value);
-
-        }
-
-    }
+	public partial struct NSInteger
+	{
+		public static explicit operator sbyte (NSInteger value)
+		{
+			return (sbyte)value.value;
+		}
+
+		public static implicit operator NSInteger (sbyte value)
+		{
+			return new NSInteger (value);
+		}
+
+		public static explicit operator short (NSInteger value)
+		{
+			return (short)value.value;
+		}
+
+		public static implicit operator NSInteger (short value)
+		{
+			return new NSInteger (value);
+		}
+
+		public static implicit operator int (NSInteger value)
+		{
+			return value.value;
+		}
+
+		public static implicit operator NSInteger (int value)
+		{
+			return new NSInteger (value);
+		}
+
+		public static explicit operator long (NSInteger value)
+		{
+			return value.value;
+		}
+
+		public static implicit operator NSInteger (long value)
+		{
+			return new NSInteger ((int)value);
+		}
+
+		public static explicit operator byte (NSInteger value)
+		{
+			return (byte)value.value;
+		}
+
+		public static implicit operator NSInteger (byte value)
+		{
+			return new NSInteger (value);
+		}
+
+		public static explicit operator ushort (NSInteger value)
+		{
+			return (ushort)value.value;
+		}
+
+		public static implicit operator NSInteger (ushort value)
+		{
+			return new NSInteger (value);
+		}
+
+		public static explicit operator uint (NSInteger value)
+		{
+			return (uint)value.value;
+		}
+
+		public static implicit operator NSInteger (uint value)
+		{
+			return new NSInteger ((int)value);
+		}
+
+		public static explicit operator ulong (NSInteger value)
+		{
+			return (ulong)value.value;
+		}
+
+		public static implicit operator NSInteger (ulong value)
+		{
+			return new NSInteger ((int)value);
+		}
+
+		public static explicit operator float (NSInteger value)
+		{
+			return value.value;
+		}
+
+		public static explicit operator NSInteger (float value)
+		{
+			return new NSInteger ((int)value);
+		}
+
+		public static explicit operator double (NSInteger value)
+		{
+			return value.value;
+		}
+
+		public static explicit operator NSInteger (double value)
+		{
+			return new NSInteger ((int)value);
+		}
+
+		public static explicit operator NSInteger (CGFloat value)
+		{
+			return new NSInteger ((int)value.value);
+		}
+
+		public static implicit operator CGFloat (NSInteger value)
+		{
+			return new CGFloat (value.value);
+		}
+
+		public static implicit operator NSUInteger (NSInteger value)
+		{
+			return new NSUInteger ((uint)value.value);
+		}
+	}
 }

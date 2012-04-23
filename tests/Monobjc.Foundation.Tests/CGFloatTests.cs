@@ -27,42 +27,42 @@ namespace Monobjc.Foundation
         [Test]
         public void TestCasting()
         {
-            CGFloat value = 123.456f;
+            CGFloat value;
 
-            short s;
-            int i;
-            long l;
-            ushort us;
-            uint ui;
-            ulong ul;
-            float f;
-            double d;
-            NSInteger nint;
-            NSUInteger nuint;
-            CGFloat cgfloat;
-
-            s = value;
-            Assert.AreEqual((short)value, s, "Value must be equal");
-            i = value;
-            Assert.AreEqual((int)value, i, "Value must be equal");
-            l = value;
-            Assert.AreEqual((long)value, l, "Value must be equal");
-            us = value;
-            Assert.AreEqual((ushort)value, s, "Value must be equal");
-            ui = value;
-            Assert.AreEqual((uint)value, ui, "Value must be equal");
-            ul = value;
-            Assert.AreEqual((ulong)value, ul, "Value must be equal");
-            f = value;
-            Assert.AreEqual((float)value, f, "Value must be equal");
-            d = value;
-            Assert.AreEqual((double)value, d, "Value must be equal");
-            nint = value;
-            Assert.AreEqual((NSInteger)value, nint, "Value must be equal");
-            nuint = value;
-            Assert.AreEqual((NSUInteger)value, nuint, "Value must be equal");
-            cgfloat = value;
-            Assert.AreEqual((CGFloat)value, cgfloat, "Value must be equal");
+            short s = -123;
+            int i = -123456;
+            long l = -1234567890;
+            ushort us = 123;
+            uint ui = 123456;
+            ulong ul = 1234567890;
+            float f = 12345.6789f;
+            double d = 12345.6789d;
+            NSInteger nint = -123456;
+            NSUInteger nuint = 123456;
+            //CGFloat cgfloat = new CGFloat(12345.6789f);
+			
+            value = s;
+            Assert.AreEqual(value, new CGFloat(s), "Value must be equal");
+            value = i;
+            Assert.AreEqual(value, new CGFloat(i), "Value must be equal");
+            value = l;
+            Assert.AreEqual(value, new CGFloat(l), "Value must be equal");
+            value = us;
+            Assert.AreEqual(value, new CGFloat(us), "Value must be equal");
+            value = ui;
+            Assert.AreEqual(value, new CGFloat(ui), "Value must be equal");
+            value = ul;
+            Assert.AreEqual(value, new CGFloat(ul), "Value must be equal");
+            value = f;
+            Assert.AreEqual(value, new CGFloat(f), "Value must be equal");
+            value = d;
+            Assert.AreEqual(value, new CGFloat((float)d), "Value must be equal");
+            value = nint;
+            Assert.AreEqual(value, new CGFloat(nint.value), "Value must be equal");
+            value = nuint;
+            Assert.AreEqual(value, new CGFloat(nuint.value), "Value must be equal");
+            //value = cgfloat;
+            //Assert.AreEqual(value, new CGFloat(cgfloat.value), "Value must be equal");
         }
     }
 }
