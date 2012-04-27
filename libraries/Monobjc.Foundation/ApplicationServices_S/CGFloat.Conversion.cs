@@ -116,7 +116,7 @@ namespace Monobjc.ApplicationServices
 			return new CGFloat (value);
 		}
 
-		public static explicit operator double (CGFloat value)
+		public static implicit operator double (CGFloat value)
 		{
 			return value.value;
 		}

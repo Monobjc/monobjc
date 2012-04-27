@@ -57,7 +57,7 @@ namespace Monobjc.Foundation
 			return new NSInteger (value);
 		}
 
-		public static explicit operator long (NSInteger value)
+		public static implicit operator long (NSInteger value)
 		{
 			return value.value;
 		}

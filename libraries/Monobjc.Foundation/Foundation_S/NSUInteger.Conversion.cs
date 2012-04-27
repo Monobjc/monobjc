@@ -97,7 +97,7 @@ namespace Monobjc.Foundation
 			return new NSUInteger (value);
 		}
 
-		public static explicit operator ulong (NSUInteger value)
+		public static implicit operator ulong (NSUInteger value)
 		{
 			return value.value;
 		}
