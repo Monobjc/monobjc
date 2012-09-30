@@ -70,7 +70,10 @@ OSVersion icall_Monobjc_Runtime_Platform_GetOSVersion(void) {
     if (version < MACOS_10_7) {
         return MACOS_10_6;
     }
-    return MACOS_10_7;
+    if (version < MACOS_10_8) {
+        return MACOS_10_7;
+    }
+    return MACOS_10_8;
 }
 
 /**

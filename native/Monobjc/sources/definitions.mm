@@ -68,7 +68,7 @@ void monobjc_create_definitions() {
     data->Monobjc_Id_get_NativePointer_method               = monobjc_define_method(data->Monobjc_Id_class, "get_NativePointer", 0);
     data->Monobjc_ObjectiveCRuntime_GenerateWrapper_method  = monobjc_define_method(data->Monobjc_ObjectiveCRuntime_class, "GenerateWrapper", 1);
     data->Monobjc_ObjectiveCRuntime_UnWrap_method           = monobjc_define_method(data->Monobjc_ObjectiveCRuntime_class, "UnWrap", 1);
-    data->Monobjc_ObjectiveCRuntime_UnWrap_method           = monobjc_define_method(data->Monobjc_ObjectiveCRuntime_class, "Wrap", 1);
+    data->Monobjc_ObjectiveCRuntime_Wrap_method             = monobjc_define_method(data->Monobjc_ObjectiveCRuntime_class, "Wrap", 1);
     data->Monobjc_TypeHelper_GetUnderlyingTypeHandle_method = monobjc_define_method(data->Monobjc_TypeHelper_class, "GetUnderlyingTypeHandle", 2);
     data->Monobjc_TypeHelper_GetConverterHandle_method      = monobjc_define_method(data->Monobjc_TypeHelper_class, "GetConverterHandle", 2);
 }

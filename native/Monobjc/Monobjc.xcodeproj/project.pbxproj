@@ -55,8 +55,6 @@
 		4D05CA97119305EA00125045 /* unicode-data.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D05CA671193055000125045 /* unicode-data.h */; };
 		4D3D2C0C132B6E170050D86B /* libffi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D2C0B132B6E170050D86B /* libffi.dylib */; };
 		4D3D2C0D132B6E390050D86B /* libffi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D2C0B132B6E170050D86B /* libffi.dylib */; };
-		4D3D2F3A132B7D930050D86B /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D2F39132B7D930050D86B /* Mono.framework */; };
-		4D3D3229132B7DA20050D86B /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D2F39132B7D930050D86B /* Mono.framework */; };
 		4D447266115CF1AF002B810F /* lifecycle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D447265115CF1AF002B810F /* lifecycle.mm */; };
 		4D447267115CF1AF002B810F /* lifecycle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D447265115CF1AF002B810F /* lifecycle.mm */; };
 		4D447492115F7A63002B810F /* icalls-Monobjc.Block.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D447491115F7A63002B810F /* icalls-Monobjc.Block.mm */; };
@@ -227,7 +225,6 @@
 		4D22DBAF116742DE007AF714 /* fix_references.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = fix_references.sh; sourceTree = "<group>"; };
 		4D3D2C0B132B6E170050D86B /* libffi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libffi.dylib; path = usr/lib/libffi.dylib; sourceTree = SDKROOT; };
 		4D3D2F0210A737D800F9FDDE /* libobjc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.dylib; path = usr/lib/libobjc.dylib; sourceTree = SDKROOT; };
-		4D3D2F39132B7D930050D86B /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = Library/Frameworks/Mono.framework; sourceTree = SDKROOT; };
 		4D447185115BE065002B810F /* lifecycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lifecycle.h; path = sources/lifecycle.h; sourceTree = "<group>"; };
 		4D447186115BE0A2002B810F /* threading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = threading.h; path = sources/threading.h; sourceTree = "<group>"; };
 		4D447265115CF1AF002B810F /* lifecycle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = lifecycle.mm; path = sources/lifecycle.mm; sourceTree = "<group>"; };
@@ -336,7 +333,6 @@
 				4DFE570B119401E800EA3AEA /* libeglib.a in Frameworks */,
 				4D3D2C0C132B6E170050D86B /* libffi.dylib in Frameworks */,
 				87293EC71153C1A5007AFD45 /* Cocoa.framework in Frameworks */,
-				4D3D3229132B7DA20050D86B /* Mono.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +343,6 @@
 				4DFE5759119405FD00EA3AEA /* libeglib.a in Frameworks */,
 				4D3D2C0D132B6E390050D86B /* libffi.dylib in Frameworks */,
 				8794A38011525E9A00FE6172 /* Cocoa.framework in Frameworks */,
-				4D3D2F3A132B7D930050D86B /* Mono.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,7 +431,6 @@
 				4D3D2F0210A737D800F9FDDE /* libobjc.dylib */,
 				4D3D2C0B132B6E170050D86B /* libffi.dylib */,
 				4DDE79B210E8CC8700AC2646 /* Cocoa.framework */,
-				4D3D2F39132B7D930050D86B /* Mono.framework */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -717,7 +711,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = Monobjc;
 			};
 			buildConfigurationList = 1DEB914E08733D8E0010E9CD /* Build configuration list for PBXProject "Monobjc" */;
@@ -989,6 +983,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4DB8447512F42C82001C5A72 /* Debug-libeglib.xcconfig */;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 			};
 			name = Debug;
 		};
@@ -996,12 +991,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4DB8443E12F41BE5001C5A72 /* Release-libeglib.xcconfig */;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 			};
 			name = Release;
 		};
 		4DA521A7115A00AF007C19C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1012,6 +1009,7 @@
 		4DA521A8115A00AF007C19C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				PRODUCT_NAME = documentation;
@@ -1049,6 +1047,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4DB8443C12F41B96001C5A72 /* Debug-libmonobjc.xcconfig */;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 			};
 			name = Debug;
 		};
@@ -1056,6 +1055,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4DB8446512F42BED001C5A72 /* Shared-libmonobjc.xcconfig */;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 			};
 			name = Release;
 		};

@@ -1,5 +1,6 @@
 GCC_PRECOMPILE_PREFIX_HEADER = YES
 GCC_PREFIX_HEADER = sources/monobjc_Prefix.pch
 
-OTHER_CFLAGS = -D_THREAD_SAFE -I/Library/Frameworks/Mono.framework/Versions/Current/include/mono-2.0
-OTHER_LDFLAGS = -L$MONO_HOME/lib
+OTHER_CFLAGS = -D_THREAD_SAFE -I$MONO_HOME/include/mono-2.0
+OTHER_LDFLAGS = -lmono-2.0
+LIBRARY_SEARCH_PATHS = /usr/lib $MONO_HOME/lib
