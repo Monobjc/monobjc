@@ -28,62 +28,60 @@ using System.Reflection.Emit;
 
 namespace Monobjc.Generators
 {
-    /// <summary>
-    ///   Code generator that produces class proxies.
-    /// </summary>
-    internal partial class ClassGenerator : CodeGenerator
-    {
-        private const String NAME_PATTERN = "Monobjc.Dynamic.Classes.{0}";
+	/// <summary>
+	///   Code generator that produces class proxies.
+	/// </summary>
+	internal partial class ClassGenerator : CodeGenerator
+	{
+		private const String NAME_PATTERN = "Monobjc.Dynamic.Classes.{0}";
 
-        /// <summary>
-        ///   Initializes a new instance of the <see cref = "ClassGenerator" /> class.
-        /// </summary>
-        /// <param name = "assembly">The assembly.</param>
-        /// <param name = "is64Bits"></param>
-        public ClassGenerator(DynamicAssembly assembly, bool is64Bits) : base(assembly, is64Bits) {}
+		/// <summary>
+		///   Initializes a new instance of the <see cref = "ClassGenerator" /> class.
+		/// </summary>
+		/// <param name = "assembly">The assembly.</param>
+		/// <param name = "is64Bits"></param>
+		public ClassGenerator (DynamicAssembly assembly, bool is64Bits) : base(assembly, is64Bits)
+		{
+		}
 
-        /// <summary>
-        ///   TODO: Doc
-        /// </summary>
-        public Type DefineClassProxy(Type type, IEnumerable<MethodTuple> instanceMethods, IEnumerable<MethodTuple> classMethods)
-        {
-            if (type == null)
-            {
-                throw new ArgumentNullException("type");
-            }
+		/// <summary>
+		///   TODO: Doc
+		/// </summary>
+		public Type DefineClassProxy (Type type, IEnumerable<MethodTuple> instanceMethods, IEnumerable<MethodTuple> classMethods)
+		{
+			if (type == null) {
+				throw new ArgumentNullException ("type");
+			}
 
-            // Compute the name of the class proxy
-            String typeName = String.Format(CultureInfo.CurrentCulture, NAME_PATTERN, type.FullName);
-            TypeBuilder typeBuilder = this.Assembly.AddType(typeName, true);
+			// Compute the name of the class proxy
+			String typeName = String.Format (CultureInfo.CurrentCulture, NAME_PATTERN, type.FullName);
+			TypeBuilder typeBuilder = this.Assembly.AddType (typeName, true);
 
-            if (Logger.DebugEnabled)
-            {
-                Logger.Debug("ClassGenerator", "Generating Class Proxy: " + typeName);
-            }
+			if (Logger.DebugEnabled) {
+				Logger.Debug ("ClassGenerator", "Generating Class Proxy: " + typeName);
+			}
 
-            // Create call proxy for instance methods
-            foreach (MethodTuple methodTuple in instanceMethods)
-            {
-                methodTuple.ProxyDelegate = this.DefineDelegate(typeBuilder, methodTuple.MethodInfo, out methodTuple.ProxyDelegateConstructor);
-                methodTuple.ProxyMethodInfo = this.DefineProxyMethod(typeBuilder, methodTuple);
-                methodTuple.ProxyDelegateFieldInfo = DefineProxyDelegateFieldInfo(typeBuilder, methodTuple);
-            }
+			// Create call proxy for instance methods
+			foreach (MethodTuple methodTuple in instanceMethods) {
+				methodTuple.ProxyDelegate = this.DefineDelegate (typeBuilder, methodTuple.MethodInfo, out methodTuple.ProxyDelegateConstructor);
+				methodTuple.ProxyMethodInfo = this.DefineProxyMethod (typeBuilder, methodTuple);
+				methodTuple.ProxyDelegateFieldInfo = DefineProxyDelegateFieldInfo (typeBuilder, methodTuple);
+			}
 
-            // Create call proxy for class methods
-            foreach (MethodTuple methodTuple in classMethods)
-            {
-                methodTuple.ProxyDelegate = this.DefineDelegate(typeBuilder, methodTuple.MethodInfo, out methodTuple.ProxyDelegateConstructor);
-                methodTuple.ProxyMethodInfo = this.DefineProxyMethod(typeBuilder, methodTuple);
-                methodTuple.ProxyDelegateFieldInfo = DefineProxyDelegateFieldInfo(typeBuilder, methodTuple);
-            }
+			// Create call proxy for class methods
+			foreach (MethodTuple methodTuple in classMethods) {
+				methodTuple.ProxyDelegate = this.DefineDelegate (typeBuilder, methodTuple.MethodInfo, out methodTuple.ProxyDelegateConstructor);
+				methodTuple.ProxyMethodInfo = this.DefineProxyMethod (typeBuilder, methodTuple);
+				methodTuple.ProxyDelegateFieldInfo = DefineProxyDelegateFieldInfo (typeBuilder, methodTuple);
+			}
 
-            // Create static constructor
-            DefineStaticConstructor(typeBuilder, instanceMethods.Concat(classMethods));
+			// Create static constructor
+			DefineStaticConstructor (typeBuilder, instanceMethods.Concat (classMethods));
 
-            // Finish the creation
-            Type proxy = typeBuilder.CreateType();
+			// Finish the creation
+			Type proxy = typeBuilder.CreateType ();
 
-            return proxy;
-        }
-    }
+			return proxy;
+		}
+	}
 }

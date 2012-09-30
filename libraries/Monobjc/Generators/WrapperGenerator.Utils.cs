@@ -27,21 +27,19 @@ using Monobjc.Properties;
 
 namespace Monobjc.Generators
 {
-    internal partial class WrapperGenerator
-    {
-        private static String GetSelector(MemberInfo info)
-        {
-            ObjectiveCMessageAttribute attribute = Attribute.GetCustomAttribute(info, typeof (ObjectiveCMessageAttribute)) as ObjectiveCMessageAttribute;
-            if (attribute == null)
-            {
-                throw new ObjectiveCCodeGenerationException(String.Format(CultureInfo.CurrentCulture, Resources.TheMethodOfTypeHasNotObjectiveCMessageAttribute, info.Name, info.DeclaringType));
-            }
-            String message = attribute.Selector;
-            if (String.IsNullOrEmpty(message))
-            {
-                throw new ObjectiveCCodeGenerationException(String.Format(CultureInfo.CurrentCulture, Resources.TheMethodOfTypeHasAnInvalidObjectiveCMessageAttribute, info.Name, info.DeclaringType));
-            }
-            return message;
-        }
-    }
+	internal partial class WrapperGenerator
+	{
+		private static String GetSelector (MemberInfo info)
+		{
+			ObjectiveCMessageAttribute attribute = Attribute.GetCustomAttribute (info, typeof(ObjectiveCMessageAttribute)) as ObjectiveCMessageAttribute;
+			if (attribute == null) {
+				throw new ObjectiveCCodeGenerationException (String.Format (CultureInfo.CurrentCulture, Resources.TheMethodOfTypeHasNotObjectiveCMessageAttribute, info.Name, info.DeclaringType));
+			}
+			String message = attribute.Selector;
+			if (String.IsNullOrEmpty (message)) {
+				throw new ObjectiveCCodeGenerationException (String.Format (CultureInfo.CurrentCulture, Resources.TheMethodOfTypeHasAnInvalidObjectiveCMessageAttribute, info.Name, info.DeclaringType));
+			}
+			return message;
+		}
+	}
 }

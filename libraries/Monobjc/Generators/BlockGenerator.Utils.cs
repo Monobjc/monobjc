@@ -28,17 +28,17 @@ namespace Monobjc.Generators
 {
 #if MACOSX_10_6
     internal partial class BlockGenerator
-    {
-        /// <summary>
-        ///   Generate a unique name for the block proxy.
-        /// </summary>
-        private static String GetUniqueName(Type returnType, Type[] parameterTypes)
-        {
-            StringBuilder builder = new StringBuilder(NAME_PREFIX);
-            builder.AppendFormat(CultureInfo.CurrentCulture, "_{0}", returnType.Name);
-            Array.ForEach(parameterTypes, p => builder.AppendFormat(CultureInfo.CurrentCulture, "_{0}", p.Name));
-            return builder.ToString();
-        }
-    }
+	{
+		/// <summary>
+		///   Generate a unique name for the block proxy.
+		/// </summary>
+		private static String GetUniqueName (Type returnType, Type[] parameterTypes)
+		{
+			StringBuilder builder = new StringBuilder (NAME_PREFIX);
+			builder.AppendFormat (CultureInfo.CurrentCulture, "_{0}", returnType.Name);
+			Array.ForEach (parameterTypes, p => builder.AppendFormat (CultureInfo.CurrentCulture, "_{0}", p.Name));
+			return builder.ToString ();
+		}
+	}
 #endif
 }

@@ -27,35 +27,33 @@ using System.Runtime.InteropServices;
 
 namespace Monobjc.Generators
 {
-    /// <summary>
-    ///   Holds the definition of an Objective-C instance variable.
-    /// </summary>
-    internal class VariableTuple
-    {
-        public String Name;
-        public Type Type;
-    }
+	/// <summary>
+	///   Holds the definition of an Objective-C instance variable.
+	/// </summary>
+	internal class VariableTuple
+	{
+		public String Name;
+		public Type Type;
+	}
 
-    /// <summary>
-    ///   Holds the definition of a method (Mix of .NET/Objective-C).
-    /// </summary>
-    internal class MethodTuple
-    {
-        public MethodInfo MethodInfo;
-        public String Selector;
+	/// <summary>
+	///   Holds the definition of a method (Mix of .NET/Objective-C).
+	/// </summary>
+	internal class MethodTuple
+	{
+		public MethodInfo MethodInfo;
+		public String Selector;
+		public MethodInfo ProxyMethodInfo;
+		public Type ProxyDelegate;
+		public ConstructorBuilder ProxyDelegateConstructor;
+		public FieldInfo ProxyDelegateFieldInfo;
 
-        public MethodInfo ProxyMethodInfo;
-
-        public Type ProxyDelegate;
-        public ConstructorBuilder ProxyDelegateConstructor;
-        public FieldInfo ProxyDelegateFieldInfo;
-
-        public IntPtr GetFunction(Type type)
-        {
-            // As we cannot get a function pointer from a dynamic FieldInfo,
-            // we need to retrieve the defined FieldInfo.
-            FieldInfo fieldInfo = type.GetField(this.ProxyDelegateFieldInfo.Name);
-            return Marshal.GetFunctionPointerForDelegate((Delegate) fieldInfo.GetValue(null));
-        }
-    }
+		public IntPtr GetFunction (Type type)
+		{
+			// As we cannot get a function pointer from a dynamic FieldInfo,
+			// we need to retrieve the defined FieldInfo.
+			FieldInfo fieldInfo = type.GetField (this.ProxyDelegateFieldInfo.Name);
+			return Marshal.GetFunctionPointerForDelegate ((Delegate)fieldInfo.GetValue (null));
+		}
+	}
 }

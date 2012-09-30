@@ -22,85 +22,84 @@
 // 
 namespace Monobjc
 {
-    public partial class Id
-    {
-        /// <summary>
-        ///   <para>Gets the class of the underlying instance.</para>
-        /// </summary>
-        /// <value>The class.</value>
-        /// <remarks>
-        ///   Original signature is '- (Class)class'
-        /// </remarks>
-        public Class Class
-        {
-            get { return ObjectiveCRuntime.SendMessage<Class>(this, "class"); }
-        }
+	public partial class Id
+	{
+		/// <summary>
+		///   <para>Gets the class of the underlying instance.</para>
+		/// </summary>
+		/// <value>The class.</value>
+		/// <remarks>
+		///   Original signature is '- (Class)class'
+		/// </remarks>
+		public Class Class {
+			get { return ObjectiveCRuntime.SendMessage<Class> (this, "class"); }
+		}
 
-        /// <summary>
-        ///   Allocates a new native instance.
-        /// </summary>
-        public virtual Id Alloc()
-        {
-            return ObjectiveCRuntime.SendMessage<Id>(this, "alloc");
-        }
+		/// <summary>
+		///   Allocates a new native instance.
+		/// </summary>
+		public virtual Id Alloc ()
+		{
+			return ObjectiveCRuntime.SendMessage<Id> (this, "alloc");
+		}
 
-        /// <summary>
-        ///   <para>Adds the receiver to the current autorelease pool.</para>
-        ///   <para>Original signature is '- (id)autorelease'</para>
-        ///   <para>Available in Mac OS X v10.0 and later.</para>
-        /// </summary>
-        /// <returns></returns>
-        public virtual Id Autorelease()
-        {
-            this.owner = false;
-            return ObjectiveCRuntime.SendMessage<Id>(this, "autorelease");
-        }
+		/// <summary>
+		///   <para>Adds the receiver to the current autorelease pool.</para>
+		///   <para>Original signature is '- (id)autorelease'</para>
+		///   <para>Available in Mac OS X v10.0 and later.</para>
+		/// </summary>
+		/// <returns></returns>
+		public virtual Id Autorelease ()
+		{
+			this.owner = false;
+			return ObjectiveCRuntime.SendMessage<Id> (this, "autorelease");
+		}
 
-        /// <summary>
-        ///   <para>Adds the receiver to the current autorelease pool.</para>
-        ///   <para>Original signature is '- (id)autorelease'</para>
-        ///   <para>Available in Mac OS X v10.0 and later.</para>
-        /// </summary>
-        /// <returns></returns>
-        public virtual T Autorelease<T>() where T : Id
-        {
-            this.owner = false;
-            return ObjectiveCRuntime.SendMessage<T>(this, "autorelease");
-        }
+		/// <summary>
+		///   <para>Adds the receiver to the current autorelease pool.</para>
+		///   <para>Original signature is '- (id)autorelease'</para>
+		///   <para>Available in Mac OS X v10.0 and later.</para>
+		/// </summary>
+		/// <returns></returns>
+		public virtual T Autorelease<T> () where T : Id
+		{
+			this.owner = false;
+			return ObjectiveCRuntime.SendMessage<T> (this, "autorelease");
+		}
 
-        /// <summary>
-        ///   <para>Decrements the receiver’s reference count.</para>
-        ///   <para>Original signature is '- (oneway void)release'</para>
-        ///   <para>Available in Mac OS X v10.0 and later.</para>
-        /// </summary>
-        public virtual void Release()
-        {
-            this.owner = false;
-            ObjectiveCRuntime.SendMessage(this, "release");
-        }
+		/// <summary>
+		///   <para>Decrements the receiver’s reference count.</para>
+		///   <para>Original signature is '- (oneway void)release'</para>
+		///   <para>Available in Mac OS X v10.0 and later.</para>
+		/// </summary>
+		public virtual void Release ()
+		{
+			this.owner = false;
+			ObjectiveCRuntime.SendMessage (this, "release");
+		}
 
-        /// <summary>
-        ///   <para>Increments the receiver’s reference count.</para>
-        ///   <para>Original signature is '- (id)retain'</para>
-        ///   <para>Available in Mac OS X v10.0 and later.</para>
-        /// </summary>
-        /// <returns></returns>
-        public virtual Id Retain()
-        {
-            this.owner = true;
-            return ObjectiveCRuntime.SendMessage<Id>(this, "retain");
-        }
+		/// <summary>
+		///   <para>Increments the receiver’s reference count.</para>
+		///   <para>Original signature is '- (id)retain'</para>
+		///   <para>Available in Mac OS X v10.0 and later.</para>
+		/// </summary>
+		/// <returns></returns>
+		public virtual Id Retain ()
+		{
+			this.owner = true;
+			return ObjectiveCRuntime.SendMessage<Id> (this, "retain");
+		}
 
-        /// <summary>
-        ///   <para>Increments the receiver’s reference count.</para>
-        ///   <para>Original signature is '- (id)retain'</para>
-        ///   <para>Available in Mac OS X v10.0 and later.</para>
-        /// </summary>
-        /// <returns></returns>
-        public virtual T Retain<T>() where T : Id
-        {
-            this.owner = true;
-            return ObjectiveCRuntime.SendMessage<T>(this, "retain");
-        }
-    }
+		/// <summary>
+		///   <para>Increments the receiver’s reference count.</para>
+		///   <para>Original signature is '- (id)retain'</para>
+		///   <para>Available in Mac OS X v10.0 and later.</para>
+		/// </summary>
+		/// <returns></returns>
+		public virtual T Retain<T> () where T : Id
+		{
+			this.owner = true;
+			return ObjectiveCRuntime.SendMessage<T> (this, "retain");
+		}
+	}
 }

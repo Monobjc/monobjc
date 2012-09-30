@@ -25,18 +25,18 @@ using System.Runtime.CompilerServices;
 
 namespace Monobjc.Runtime
 {
-    internal static class Platform
-    {
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        public static extern MacOSVersion GetOSVersion();
+	internal static class Platform
+	{
+		[MethodImpl(MethodImplOptions.InternalCall)]
+		public static extern MacOSVersion GetOSVersion ();
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern String GetProcessor();
+		[MethodImplAttribute(MethodImplOptions.InternalCall)]
+		public static extern String GetProcessor ();
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern bool Is64Bits();
+		[MethodImplAttribute(MethodImplOptions.InternalCall)]
+		public static extern bool Is64Bits ();
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern bool IsBigEndian();
-    }
+		[MethodImplAttribute(MethodImplOptions.InternalCall)]
+		public static extern bool IsBigEndian ();
+	}
 }

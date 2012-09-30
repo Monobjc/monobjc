@@ -24,75 +24,75 @@ using System;
 
 namespace Monobjc.Utils
 {
-    /// <summary>
-    ///   Utility class to manipulate <see cref = "Array" /> instances.
-    /// </summary>
-    internal static class ArrayHelper
-    {
-        /// <summary>
-        ///   Create a new array by prepending the given element.
-        /// </summary>
-        public static T[] Prepend<T>(T[] array, T element)
-        {
-            T[] result = new T[array.Length + 1];
-            Array.Copy(array, 0, result, 1, array.Length);
-            result[0] = element;
-            return result;
-        }
+	/// <summary>
+	///   Utility class to manipulate <see cref = "Array" /> instances.
+	/// </summary>
+	internal static class ArrayHelper
+	{
+		/// <summary>
+		///   Create a new array by prepending the given element.
+		/// </summary>
+		public static T[] Prepend<T> (T[] array, T element)
+		{
+			T[] result = new T[array.Length + 1];
+			Array.Copy (array, 0, result, 1, array.Length);
+			result [0] = element;
+			return result;
+		}
 
-        /// <summary>
-        ///   Create a new array by prepending the given elements.
-        /// </summary>
-        public static T[] Prepend<T>(T[] array, T element1, T element2)
-        {
-            T[] result = new T[array.Length + 2];
-            Array.Copy(array, 0, result, 2, array.Length);
-            result[0] = element1;
-            result[1] = element2;
-            return result;
-        }
+		/// <summary>
+		///   Create a new array by prepending the given elements.
+		/// </summary>
+		public static T[] Prepend<T> (T[] array, T element1, T element2)
+		{
+			T[] result = new T[array.Length + 2];
+			Array.Copy (array, 0, result, 2, array.Length);
+			result [0] = element1;
+			result [1] = element2;
+			return result;
+		}
 
-        /// <summary>
-        ///   Create a new array by appending the given element.
-        /// </summary>
-        public static T[] Append<T>(T[] array, T element)
-        {
-            T[] result = new T[array.Length + 1];
-            Array.Copy(array, result, array.Length);
-            result[array.Length] = element;
-            return result;
-        }
+		/// <summary>
+		///   Create a new array by appending the given element.
+		/// </summary>
+		public static T[] Append<T> (T[] array, T element)
+		{
+			T[] result = new T[array.Length + 1];
+			Array.Copy (array, result, array.Length);
+			result [array.Length] = element;
+			return result;
+		}
 
-        /// <summary>
-        ///   Create a new array by appending the given elements.
-        /// </summary>
-        public static T[] Append<T>(T[] array, T element1, T element2)
-        {
-            T[] result = new T[array.Length + 2];
-            Array.Copy(array, result, array.Length);
-            result[array.Length] = element1;
-            result[array.Length + 1] = element2;
-            return result;
-        }
+		/// <summary>
+		///   Create a new array by appending the given elements.
+		/// </summary>
+		public static T[] Append<T> (T[] array, T element1, T element2)
+		{
+			T[] result = new T[array.Length + 2];
+			Array.Copy (array, result, array.Length);
+			result [array.Length] = element1;
+			result [array.Length + 1] = element2;
+			return result;
+		}
 
-        /// <summary>
-        ///   Create a new array by removing given amount of element on the left.
-        /// </summary>
-        public static T[] TrimLeft<T>(T[] array, int amount)
-        {
-            T[] result = new T[array.Length - amount];
-            Array.Copy(array, amount, result, 0, result.Length);
-            return result;
-        }
+		/// <summary>
+		///   Create a new array by removing given amount of element on the left.
+		/// </summary>
+		public static T[] TrimLeft<T> (T[] array, int amount)
+		{
+			T[] result = new T[array.Length - amount];
+			Array.Copy (array, amount, result, 0, result.Length);
+			return result;
+		}
 
-        /// <summary>
-        ///   Create a new array by removing given amount of element on the right.
-        /// </summary>
-        public static T[] TrimRight<T>(T[] array, int amount)
-        {
-            T[] result = new T[array.Length - amount];
-            Array.Copy(array, 0, result, 0, result.Length);
-            return result;
-        }
-    }
+		/// <summary>
+		///   Create a new array by removing given amount of element on the right.
+		/// </summary>
+		public static T[] TrimRight<T> (T[] array, int amount)
+		{
+			T[] result = new T[array.Length - amount];
+			Array.Copy (array, 0, result, 0, result.Length);
+			return result;
+		}
+	}
 }

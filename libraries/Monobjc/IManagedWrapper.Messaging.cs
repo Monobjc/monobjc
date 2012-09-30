@@ -24,79 +24,79 @@ using System;
 
 namespace Monobjc
 {
-    partial interface IManagedWrapper
-    {
-        /// <summary>
-        ///   <para>Sends a message to this receiver (either a Class or an object instance).</para>
-        /// </summary>
-        /// <param name = "selector">The selector.</param>
-        /// <param name = "parameters">The parameters.</param>
-        void SendMessage(String selector, params Object[] parameters);
+	partial interface IManagedWrapper
+	{
+		/// <summary>
+		///   <para>Sends a message to this receiver (either a Class or an object instance).</para>
+		/// </summary>
+		/// <param name = "selector">The selector.</param>
+		/// <param name = "parameters">The parameters.</param>
+		void SendMessage (String selector, params Object[] parameters);
 
-        /// <summary>
-        ///   <para>Sends a message to this receiver (either a Class or an object instance).</para>
-        /// </summary>
-        /// <typeparam name = "TReturnType">The type of the return type.</typeparam>
-        /// <param name = "selector">The selector.</param>
-        /// <param name = "parameters">The parameters.</param>
-        /// <returns></returns>
-        TReturnType SendMessage<TReturnType>(String selector, params Object[] parameters);
+		/// <summary>
+		///   <para>Sends a message to this receiver (either a Class or an object instance).</para>
+		/// </summary>
+		/// <typeparam name = "TReturnType">The type of the return type.</typeparam>
+		/// <param name = "selector">The selector.</param>
+		/// <param name = "parameters">The parameters.</param>
+		/// <returns></returns>
+		TReturnType SendMessage<TReturnType> (String selector, params Object[] parameters);
 
-        /// <summary>
-        ///   <para>Sends a message to the super instance of this receiver.</para>
-        /// </summary>
-        /// <param name = "cls">The class of the receiver.</param>
-        /// <param name = "selector">The selector.</param>
-        /// <param name = "parameters">The parameters.</param>
-        void SendMessageSuper(Class cls, String selector, params Object[] parameters);
+		/// <summary>
+		///   <para>Sends a message to the super instance of this receiver.</para>
+		/// </summary>
+		/// <param name = "cls">The class of the receiver.</param>
+		/// <param name = "selector">The selector.</param>
+		/// <param name = "parameters">The parameters.</param>
+		void SendMessageSuper (Class cls, String selector, params Object[] parameters);
 
-        /// <summary>
-        ///   <para>Sends a message to the super instance of this receiver.</para>
-        /// </summary>
-        /// <typeparam name = "TReturnType">The type of the return type.</typeparam>
-        /// <param name = "cls">The class of the receiver.</param>
-        /// <param name = "selector">The selector.</param>
-        /// <param name = "parameters">The parameters.</param>
-        /// <returns></returns>
-        TReturnType SendMessageSuper<TReturnType>(Class cls, String selector, params Object[] parameters);
+		/// <summary>
+		///   <para>Sends a message to the super instance of this receiver.</para>
+		/// </summary>
+		/// <typeparam name = "TReturnType">The type of the return type.</typeparam>
+		/// <param name = "cls">The class of the receiver.</param>
+		/// <param name = "selector">The selector.</param>
+		/// <param name = "parameters">The parameters.</param>
+		/// <returns></returns>
+		TReturnType SendMessageSuper<TReturnType> (Class cls, String selector, params Object[] parameters);
 
-        /// <summary>
-        ///   <para>Sends a message to this receiver (either a Class or an object instance).</para>
-        ///   <para>The last parameter passed must be an object array that contains the variable list of arguments</para>
-        /// </summary>
-        /// <param name = "selector">The selector.</param>
-        /// <param name = "parameters">The parameters.</param>
-        /// <returns></returns>
-        void SendMessageVarArgs(String selector, params Object[] parameters);
+		/// <summary>
+		///   <para>Sends a message to this receiver (either a Class or an object instance).</para>
+		///   <para>The last parameter passed must be an object array that contains the variable list of arguments</para>
+		/// </summary>
+		/// <param name = "selector">The selector.</param>
+		/// <param name = "parameters">The parameters.</param>
+		/// <returns></returns>
+		void SendMessageVarArgs (String selector, params Object[] parameters);
 
-        /// <summary>
-        ///   <para>Sends a message to this receiver (either a Class or an object instance).</para>
-        ///   <para>The last parameter passed must be an object array that contains the variable list of arguments</para>
-        /// </summary>
-        /// <typeparam name = "TReturnType">The type of the return type.</typeparam>
-        /// <param name = "selector">The selector.</param>
-        /// <param name = "parameters">The parameters.</param>
-        /// <returns></returns>
-        TReturnType SendMessageVarArgs<TReturnType>(String selector, params Object[] parameters);
+		/// <summary>
+		///   <para>Sends a message to this receiver (either a Class or an object instance).</para>
+		///   <para>The last parameter passed must be an object array that contains the variable list of arguments</para>
+		/// </summary>
+		/// <typeparam name = "TReturnType">The type of the return type.</typeparam>
+		/// <param name = "selector">The selector.</param>
+		/// <param name = "parameters">The parameters.</param>
+		/// <returns></returns>
+		TReturnType SendMessageVarArgs<TReturnType> (String selector, params Object[] parameters);
 
-        /// <summary>
-        ///   <para>Sends a message to the super instance of this receiver.</para>
-        ///   <para>The last parameter passed must be an object array that contains the variable list of arguments</para>
-        /// </summary>
-        /// <param name = "cls">The class of the receiver.</param>
-        /// <param name = "selector">The selector.</param>
-        /// <param name = "parameters">The parameters.</param>
-        void SendMessageSuperVarArgs(Class cls, String selector, params Object[] parameters);
+		/// <summary>
+		///   <para>Sends a message to the super instance of this receiver.</para>
+		///   <para>The last parameter passed must be an object array that contains the variable list of arguments</para>
+		/// </summary>
+		/// <param name = "cls">The class of the receiver.</param>
+		/// <param name = "selector">The selector.</param>
+		/// <param name = "parameters">The parameters.</param>
+		void SendMessageSuperVarArgs (Class cls, String selector, params Object[] parameters);
 
-        /// <summary>
-        ///   <para>Sends a message to the super instance of this receiver.</para>
-        ///   <para>The last parameter passed must be an object array that contains the variable list of arguments</para>
-        /// </summary>
-        /// <typeparam name = "TReturnType">The type of the return type.</typeparam>
-        /// <param name = "cls">The class of the receiver.</param>
-        /// <param name = "selector">The selector.</param>
-        /// <param name = "parameters">The parameters.</param>
-        /// <returns></returns>
-        TReturnType SendMessageSuperVarArgs<TReturnType>(Class cls, String selector, params Object[] parameters);
-    }
+		/// <summary>
+		///   <para>Sends a message to the super instance of this receiver.</para>
+		///   <para>The last parameter passed must be an object array that contains the variable list of arguments</para>
+		/// </summary>
+		/// <typeparam name = "TReturnType">The type of the return type.</typeparam>
+		/// <param name = "cls">The class of the receiver.</param>
+		/// <param name = "selector">The selector.</param>
+		/// <param name = "parameters">The parameters.</param>
+		/// <returns></returns>
+		TReturnType SendMessageSuperVarArgs<TReturnType> (Class cls, String selector, params Object[] parameters);
+	}
 }

@@ -31,42 +31,42 @@ namespace Monobjc
 {
 #if MACOSX_10_6
     /// <summary>
-    ///   <para>Managed implementation of the blocks as defined in the Language Specification for Blocks[1].
-    ///     Even if the implementation strictly follows the Block Implementation Specification[2], it is restricted to global block for the moment.</para>
-    ///   <para>The block bridging allow a delegate function or action to be marshalled as a native block.
-    ///     Its implementation points to a proxy invoker that will forward the native block invocation to the delegate function or action.</para>
-    ///   <para>Currently, any delegate can be passed to create a block. For example:</para>
-    ///   <list type = "table">
-    ///     <listheader>
-    ///       <term>Delegate</term>
-    ///       <description>Equivalent block signature</description>
-    ///     </listheader>
-    ///     <item>
-    ///       <term><see cref = "Action" /></term>
-    ///       <description>void (^)()</description>
-    ///     </item>
-    ///     <item>
-    ///       <term><see cref = "Action{T1,T2,T3}" /></term>
-    ///       <description>void (^)(T1, T2, T3)</description>
-    ///     </item>
-    ///     <item>
-    ///       <term><see cref = "Func{TResult}" /></term>
-    ///       <description>TResult (^)()</description>
-    ///     </item>
-    ///     <item>
-    ///       <term><see cref = "Func{T1,T2,TResult}" /></term>
-    ///       <description>TResult (^)(T1, T2)</description>
-    ///     </item>
-    ///   </list>
-    ///   <para>[1] Language Specification for Blocks (http://clang.llvm.org/docs/BlockLanguageSpec.txt)</para>
-    ///   <para>[2] Block Implementation Specification (http://clang.llvm.org/docs/BlockImplementation.txt)</para>
-    /// </summary>
-    public abstract class Block : IDisposable
-    {
-        /// <summary>
-        ///   Native pointer to the block layout structure
-        /// </summary>
-        private IntPtr layout;
+	///   <para>Managed implementation of the blocks as defined in the Language Specification for Blocks[1].
+	///     Even if the implementation strictly follows the Block Implementation Specification[2], it is restricted to global block for the moment.</para>
+	///   <para>The block bridging allow a delegate function or action to be marshalled as a native block.
+	///     Its implementation points to a proxy invoker that will forward the native block invocation to the delegate function or action.</para>
+	///   <para>Currently, any delegate can be passed to create a block. For example:</para>
+	///   <list type = "table">
+	///     <listheader>
+	///       <term>Delegate</term>
+	///       <description>Equivalent block signature</description>
+	///     </listheader>
+	///     <item>
+	///       <term><see cref = "Action" /></term>
+	///       <description>void (^)()</description>
+	///     </item>
+	///     <item>
+	///       <term><see cref = "Action{T1,T2,T3}" /></term>
+	///       <description>void (^)(T1, T2, T3)</description>
+	///     </item>
+	///     <item>
+	///       <term><see cref = "Func{TResult}" /></term>
+	///       <description>TResult (^)()</description>
+	///     </item>
+	///     <item>
+	///       <term><see cref = "Func{T1,T2,TResult}" /></term>
+	///       <description>TResult (^)(T1, T2)</description>
+	///     </item>
+	///   </list>
+	///   <para>[1] Language Specification for Blocks (http://clang.llvm.org/docs/BlockLanguageSpec.txt)</para>
+	///   <para>[2] Block Implementation Specification (http://clang.llvm.org/docs/BlockImplementation.txt)</para>
+	/// </summary>
+	public abstract class Block : IDisposable
+	{
+		/// <summary>
+		///   Native pointer to the block layout structure
+		/// </summary>
+		private IntPtr layout;
 		
 
 		/// <summary>
@@ -74,86 +74,82 @@ namespace Monobjc
 		/// </summary>
 		private GCHandle blockInvokerHandle;
 		
-        /// <summary>
-        ///   Initializes a new instance of the <see cref = "Block" /> class.
-        /// </summary>
-        /// <param name = "invoker">The invoker.</param>
-        protected Block(Delegate invoker)
-        {
-            this.Invoker = invoker;
-        }
+		/// <summary>
+		///   Initializes a new instance of the <see cref = "Block" /> class.
+		/// </summary>
+		/// <param name = "invoker">The invoker.</param>
+		protected Block (Delegate invoker)
+		{
+			this.Invoker = invoker;
+		}
 
-        /// <summary>
-        ///   Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        /// </summary>
-        public void Dispose()
-        {
-            this.Dispose(true);
-            GC.SuppressFinalize(this);
-        }
+		/// <summary>
+		///   Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+		/// </summary>
+		public void Dispose ()
+		{
+			this.Dispose (true);
+			GC.SuppressFinalize (this);
+		}
 
-        /// <summary>
-        ///   Releases unmanaged resources and performs other cleanup operations before the
-        ///   <see cref = "Block" /> is reclaimed by garbage collection.
-        /// </summary>
-        ~Block()
-        {
-            this.Dispose(false);
-        }
+		/// <summary>
+		///   Releases unmanaged resources and performs other cleanup operations before the
+		///   <see cref = "Block" /> is reclaimed by garbage collection.
+		/// </summary>
+		~Block ()
+		{
+			this.Dispose (false);
+		}
 
-        /// <summary>
-        ///   Releases unmanaged and - optionally - managed resources
-        /// </summary>
-        /// <param name = "disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
-        protected virtual void Dispose(bool disposing)
-        {
-            if (this.layout != IntPtr.Zero)
-            {
-                DestroyBlock(this.layout);
-                this.layout = IntPtr.Zero;
-				this.blockInvokerHandle.Free();
+		/// <summary>
+		///   Releases unmanaged and - optionally - managed resources
+		/// </summary>
+		/// <param name = "disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+		protected virtual void Dispose (bool disposing)
+		{
+			if (this.layout != IntPtr.Zero) {
+				DestroyBlock (this.layout);
+				this.layout = IntPtr.Zero;
+				this.blockInvokerHandle.Free ();
 
-            }
-        }
+			}
+		}
 
-        /// <summary>
-        ///   Gets the invoked delegate.
-        /// </summary>
-        /// <value>The invoke.</value>
-        public Delegate Invoker { get; private set; }
+		/// <summary>
+		///   Gets the invoked delegate.
+		/// </summary>
+		/// <value>The invoke.</value>
+		public Delegate Invoker { get; private set; }
 
-        /// <summary>
-        ///   Gets the block invoker.
-        /// </summary>
-        /// <value>The block invoker.</value>
-        public abstract Delegate BlockInvoker { get; }
+		/// <summary>
+		///   Gets the block invoker.
+		/// </summary>
+		/// <value>The block invoker.</value>
+		public abstract Delegate BlockInvoker { get; }
 
-        /// <summary>
-        ///   Gets the native pointer representing this block instance.
-        /// </summary>
-        /// <value>The native pointer.</value>
-        public IntPtr NativePointer
-        {
-            get
-            {
-                if (this.layout == IntPtr.Zero)
-                {
+		/// <summary>
+		///   Gets the native pointer representing this block instance.
+		/// </summary>
+		/// <value>The native pointer.</value>
+		public IntPtr NativePointer {
+			get {
+				if (this.layout == IntPtr.Zero) {
 
 					// Pin the delegate so it won't move
-					this.blockInvokerHandle = GCHandle.Alloc(this.BlockInvoker, GCHandleType.Pinned);
+					this.blockInvokerHandle = GCHandle.Alloc (this.BlockInvoker, GCHandleType.Pinned);
 
 					
 
-                    // Create a block layout for a global block, with descriptor.
+					// Create a block layout for a global block, with descriptor.
 
-                    // This block will invoke a managed method through a delegate (marhsaled as a function pointer)
+					// This block will invoke a managed method through a delegate (marhsaled as a function pointer)
 
-                    IntPtr function = Marshal.GetFunctionPointerForDelegate(this.BlockInvoker);
-                    this.layout = CreateBlock(function);
-                }
-                return this.layout;
-            }
-        }
+					IntPtr function = Marshal.GetFunctionPointerForDelegate (this.BlockInvoker);
+					this.layout = CreateBlock (function);
+				}
+				return this.layout;
+			}
+		}
 				
 		/// <summary>
 		/// Create a block around the specified delegate.
@@ -161,44 +157,44 @@ namespace Monobjc
 		/// <param name='delegate'>
 		/// The delegate to expose as a block.
 		/// </param>
-		public static Block Create(Delegate @delegate)
+		public static Block Create (Delegate @delegate)
 		{
-			return ObjectiveCRuntime.CreateBlock(@delegate);
+			return ObjectiveCRuntime.CreateBlock (@delegate);
 		}
 
-        /// <summary>
-        ///   Returns a <see cref = "String" /> that represents this instance.
-        /// </summary>
-        /// <returns>
-        ///   A <see cref = "String" /> that represents this instance.
-        /// </returns>
-        public override string ToString()
-        {
-            // Output this block instance in a Objective-C way:   ReturnType (^)(ParameterType1, ..., ParameterTypeN)
-            MethodInfo mi = this.Invoker.GetType().GetMethod("Invoke");
+		/// <summary>
+		///   Returns a <see cref = "String" /> that represents this instance.
+		/// </summary>
+		/// <returns>
+		///   A <see cref = "String" /> that represents this instance.
+		/// </returns>
+		public override string ToString ()
+		{
+			// Output this block instance in a Objective-C way:   ReturnType (^)(ParameterType1, ..., ParameterTypeN)
+			MethodInfo mi = this.Invoker.GetType ().GetMethod ("Invoke");
 
-            StringBuilder builder = new StringBuilder();
-            builder.Append(mi.ReturnType);
-            builder.Append(" (^)(");
-            builder.Append(String.Join(", ", mi.GetParameters().Select(p => p.ParameterType.ToString()).ToArray()));
-            builder.Append(")");
-            return builder.ToString();
-        }
+			StringBuilder builder = new StringBuilder ();
+			builder.Append (mi.ReturnType);
+			builder.Append (" (^)(");
+			builder.Append (String.Join (", ", mi.GetParameters ().Select (p => p.ParameterType.ToString ()).ToArray ()));
+			builder.Append (")");
+			return builder.ToString ();
+		}
 		
-        /// <summary>
-        ///   Create the native structure of the block by using the given delegate function pointer.
-        /// </summary>
-        /// <param name = "function">The delegate as function pointer.</param>
-        /// <returns>A pointer to the native block's structure.</returns>
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        private static extern IntPtr CreateBlock(IntPtr function);
+		/// <summary>
+		///   Create the native structure of the block by using the given delegate function pointer.
+		/// </summary>
+		/// <param name = "function">The delegate as function pointer.</param>
+		/// <returns>A pointer to the native block's structure.</returns>
+		[MethodImpl(MethodImplOptions.InternalCall)]
+		private static extern IntPtr CreateBlock (IntPtr function);
 
-        /// <summary>
-        ///   Destroy the native structure of the block.
-        /// </summary>
-        /// <param name = "layout">A pointer to the native block's structure to destroy.</param>
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        private static extern void DestroyBlock(IntPtr layout);
-    }
+		/// <summary>
+		///   Destroy the native structure of the block.
+		/// </summary>
+		/// <param name = "layout">A pointer to the native block's structure to destroy.</param>
+		[MethodImplAttribute(MethodImplOptions.InternalCall)]
+		private static extern void DestroyBlock (IntPtr layout);
+	}
 #endif
 }

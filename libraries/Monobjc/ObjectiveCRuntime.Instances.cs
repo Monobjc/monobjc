@@ -25,73 +25,73 @@ using System.Runtime.CompilerServices;
 
 namespace Monobjc
 {
-    public partial class ObjectiveCRuntime
-    {
-        /// <summary>
-        ///   Casts an instance to the given type.
-        /// </summary>
-        /// <typeparam name = "T">The parametric type.</typeparam>
-        /// <param name = "instance">The instance.</param>
-        /// <returns>A cast instance.</returns>
-        public static T CastTo<T>(Id instance) where T : class, IManagedWrapper
-        {
-            return (instance != null) ? GetInstance<T>(instance.NativePointer, RetrievalMode.Strict) : default(T);
-        }
+	public partial class ObjectiveCRuntime
+	{
+		/// <summary>
+		///   Casts an instance to the given type.
+		/// </summary>
+		/// <typeparam name = "T">The parametric type.</typeparam>
+		/// <param name = "instance">The instance.</param>
+		/// <returns>A cast instance.</returns>
+		public static T CastTo<T> (Id instance) where T : class, IManagedWrapper
+		{
+			return (instance != null) ? GetInstance<T> (instance.NativePointer, RetrievalMode.Strict) : default(T);
+		}
 
-        /// <summary>
-        ///   Casts an instance to the given type.
-        /// </summary>
-        /// <typeparam name = "T">The parametric type.</typeparam>
-        /// <param name = "instance">The instance.</param>
-        /// <returns>A cast instance, or null if the cast is invalid.</returns>
-        public static T CastAs<T>(Id instance) where T : class, IManagedWrapper
-        {
-            return (instance != null) ? GetInstance<T>(instance.NativePointer, RetrievalMode.FailSafe) : default(T);
-        }
+		/// <summary>
+		///   Casts an instance to the given type.
+		/// </summary>
+		/// <typeparam name = "T">The parametric type.</typeparam>
+		/// <param name = "instance">The instance.</param>
+		/// <returns>A cast instance, or null if the cast is invalid.</returns>
+		public static T CastAs<T> (Id instance) where T : class, IManagedWrapper
+		{
+			return (instance != null) ? GetInstance<T> (instance.NativePointer, RetrievalMode.FailSafe) : default(T);
+		}
 
-        /// <summary>
-        ///   Gets the instance of the given type.
-        /// </summary>
-        /// <typeparam name = "T">The parametric type.</typeparam>
-        /// <param name = "value">The value.</param>
-        /// <returns>An instance of the type.</returns>
-        public static T GetInstance<T>(IntPtr value) where T : class, IManagedWrapper
-        {
-            return GetInstance<T>(value, RetrievalMode.Override);
-        }
+		/// <summary>
+		///   Gets the instance of the given type.
+		/// </summary>
+		/// <typeparam name = "T">The parametric type.</typeparam>
+		/// <param name = "value">The value.</param>
+		/// <returns>An instance of the type.</returns>
+		public static T GetInstance<T> (IntPtr value) where T : class, IManagedWrapper
+		{
+			return GetInstance<T> (value, RetrievalMode.Override);
+		}
 
-        /// <summary>
-        ///   Gets the instance of the given type.
-        /// </summary>
-        /// <typeparam name = "T">The parametric type.</typeparam>
-        /// <param name = "value">The value.</param>
-        /// <param name = "mode">The retrieval mode.</param>
-        /// <returns>An instance of the type, or null if the type is invalid.</returns>
-        public static T GetInstance<T>(IntPtr value, RetrievalMode mode) where T : class, IManagedWrapper
-        {
-            Type type = typeof (T);
-            return (T) GetInstanceInternal(type.TypeHandle.Value, value, mode);
-        }
+		/// <summary>
+		///   Gets the instance of the given type.
+		/// </summary>
+		/// <typeparam name = "T">The parametric type.</typeparam>
+		/// <param name = "value">The value.</param>
+		/// <param name = "mode">The retrieval mode.</param>
+		/// <returns>An instance of the type, or null if the type is invalid.</returns>
+		public static T GetInstance<T> (IntPtr value, RetrievalMode mode) where T : class, IManagedWrapper
+		{
+			Type type = typeof(T);
+			return (T)GetInstanceInternal (type.TypeHandle.Value, value, mode);
+		}
 
-        /// <summary>
-        ///   Generates the wrapper for the given interface.
-        /// </summary>
-        /// <param name = "type">The type.</param>
-        /// <returns></returns>
-        internal static IntPtr GenerateWrapper(Type type)
-        {
-            Logger.Info("ObjectiveCRuntime", "Creating wrapper for " + type);
-            Type wrapperType = WrapperGenerator.DefineWrapperProxy(type);
-            Logger.Info("ObjectiveCRuntime", "Wrapper is " + wrapperType);
+		/// <summary>
+		///   Generates the wrapper for the given interface.
+		/// </summary>
+		/// <param name = "type">The type.</param>
+		/// <returns></returns>
+		internal static IntPtr GenerateWrapper (Type type)
+		{
+			Logger.Info ("ObjectiveCRuntime", "Creating wrapper for " + type);
+			Type wrapperType = WrapperGenerator.DefineWrapperProxy (type);
+			Logger.Info ("ObjectiveCRuntime", "Wrapper is " + wrapperType);
 
-            return wrapperType.TypeHandle.Value;
-        }
+			return wrapperType.TypeHandle.Value;
+		}
 
-        /// <summary>
-        ///   Internal call to retrieve a cached or created instance.
-        /// </summary>
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        private static extern IManagedWrapper GetInstanceInternal(IntPtr returnType, IntPtr value, RetrievalMode mode);
+		/// <summary>
+		///   Internal call to retrieve a cached or created instance.
+		/// </summary>
+		[MethodImpl(MethodImplOptions.InternalCall)]
+		private static extern IManagedWrapper GetInstanceInternal (IntPtr returnType, IntPtr value, RetrievalMode mode);
 		
 		/// <summary>
 		/// Retrieval mode used for cache access.
@@ -111,5 +111,5 @@ namespace Monobjc
 			/// </summary>
 			Override,
 		}
-    }
+	}
 }

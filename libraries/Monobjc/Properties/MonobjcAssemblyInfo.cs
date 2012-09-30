@@ -25,7 +25,10 @@ using System.Reflection;
 
 [assembly: AssemblyConfigurationAttribute("Release")]
 
-#if MACOSX_10_7
+#if MACOSX_10_8
+[assembly: AssemblyVersionAttribute("10.8.0.0")]
+[assembly: AssemblyFileVersionAttribute("10.8.0.0")]
+#elif MACOSX_10_7
 [assembly: AssemblyVersionAttribute("10.7.0.0")]
 [assembly: AssemblyFileVersionAttribute("10.7.0.0")]
 #elif MACOSX_10_6

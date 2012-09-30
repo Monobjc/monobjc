@@ -25,46 +25,46 @@ using Monobjc.Runtime;
 
 namespace Monobjc
 {
-    public partial class ObjectiveCRuntime
-    {
-        /// <summary>
-        ///   Bootstraps the bridge.
-        /// </summary>
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        private static void Bootstrap()
-        {
-            BootstrapInternal();
-        }
+	public partial class ObjectiveCRuntime
+	{
+		/// <summary>
+		///   Bootstraps the bridge.
+		/// </summary>
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		private static void Bootstrap ()
+		{
+			BootstrapInternal ();
+		}
 
-        /// <summary>
-        ///   Gets the bitness of the processor.
-        /// </summary>
-        /// <returns></returns>
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        private static bool Is64BitsInternal()
-        {
-            return Platform.Is64Bits();
-        }
+		/// <summary>
+		///   Gets the bitness of the processor.
+		/// </summary>
+		/// <returns></returns>
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		private static bool Is64BitsInternal ()
+		{
+			return Platform.Is64Bits ();
+		}
 
-        /// <summary>
-        ///   Cleans up the bridge.
-        /// </summary>
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        private static void CleanUp()
-        {
-            CleanUpInternal();
-        }
+		/// <summary>
+		///   Cleans up the bridge.
+		/// </summary>
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		private static void CleanUp ()
+		{
+			CleanUpInternal ();
+		}
 
-        /// <summary>
-        ///   Internal call to bootstrap the bridge.
-        /// </summary>
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        private static extern void BootstrapInternal();
+		/// <summary>
+		///   Internal call to bootstrap the bridge.
+		/// </summary>
+		[MethodImpl(MethodImplOptions.InternalCall)]
+		private static extern void BootstrapInternal ();
 
-        /// <summary>
-        ///   Internal call to cleanup the bridge.
-        /// </summary>
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        private static extern void CleanUpInternal();
-    }
+		/// <summary>
+		///   Internal call to cleanup the bridge.
+		/// </summary>
+		[MethodImplAttribute(MethodImplOptions.InternalCall)]
+		private static extern void CleanUpInternal ();
+	}
 }

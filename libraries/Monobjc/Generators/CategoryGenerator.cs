@@ -27,49 +27,48 @@ using System.Reflection.Emit;
 
 namespace Monobjc.Generators
 {
-    /// <summary>
-    ///   TODO: Doc
-    /// </summary>
-    internal partial class CategoryGenerator : CodeGenerator
-    {
-        private const String NAME_PATTERN = "Monobjc.Dynamic.Categories.{0}";
+	/// <summary>
+	///   TODO: Doc
+	/// </summary>
+	internal partial class CategoryGenerator : CodeGenerator
+	{
+		private const String NAME_PATTERN = "Monobjc.Dynamic.Categories.{0}";
 
-        public CategoryGenerator(DynamicAssembly assembly, bool is64Bits) : base(assembly, is64Bits) {}
+		public CategoryGenerator (DynamicAssembly assembly, bool is64Bits) : base(assembly, is64Bits)
+		{
+		}
 
-        /// <summary>
-        ///   TODO: Doc
-        /// </summary>
-        public Type DefineCategoryProxy(Type type, IEnumerable<MethodTuple> extensionMethods)
-        {
-            if (type == null)
-            {
-                throw new ArgumentNullException("type");
-            }
+		/// <summary>
+		///   TODO: Doc
+		/// </summary>
+		public Type DefineCategoryProxy (Type type, IEnumerable<MethodTuple> extensionMethods)
+		{
+			if (type == null) {
+				throw new ArgumentNullException ("type");
+			}
 
-            // Compute the name of the category proxy
-            String typeName = String.Format(CultureInfo.CurrentCulture, NAME_PATTERN, type.FullName);
-            TypeBuilder typeBuilder = this.Assembly.AddType(typeName, true);
+			// Compute the name of the category proxy
+			String typeName = String.Format (CultureInfo.CurrentCulture, NAME_PATTERN, type.FullName);
+			TypeBuilder typeBuilder = this.Assembly.AddType (typeName, true);
 
-            if (Logger.DebugEnabled)
-            {
-                Logger.Debug("CategoryGenerator", "Generating Category Proxy: " + typeName);
-            }
+			if (Logger.DebugEnabled) {
+				Logger.Debug ("CategoryGenerator", "Generating Category Proxy: " + typeName);
+			}
 
-            // Create call proxy for methods
-            foreach (MethodTuple methodTuple in extensionMethods)
-            {
-                methodTuple.ProxyDelegate = this.DefineDelegate(typeBuilder, methodTuple.MethodInfo, out methodTuple.ProxyDelegateConstructor);
-                methodTuple.ProxyMethodInfo = this.DefineProxyMethod(typeBuilder, methodTuple);
-                methodTuple.ProxyDelegateFieldInfo = DefineProxyDelegateFieldInfo(typeBuilder, methodTuple);
-            }
+			// Create call proxy for methods
+			foreach (MethodTuple methodTuple in extensionMethods) {
+				methodTuple.ProxyDelegate = this.DefineDelegate (typeBuilder, methodTuple.MethodInfo, out methodTuple.ProxyDelegateConstructor);
+				methodTuple.ProxyMethodInfo = this.DefineProxyMethod (typeBuilder, methodTuple);
+				methodTuple.ProxyDelegateFieldInfo = DefineProxyDelegateFieldInfo (typeBuilder, methodTuple);
+			}
 
-            // Create static constructor
-            DefineStaticConstructor(typeBuilder, extensionMethods);
+			// Create static constructor
+			DefineStaticConstructor (typeBuilder, extensionMethods);
 
-            // Finish the creation
-            Type proxy = typeBuilder.CreateType();
+			// Finish the creation
+			Type proxy = typeBuilder.CreateType ();
 
-            return proxy;
-        }
-    }
+			return proxy;
+		}
+	}
 }

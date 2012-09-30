@@ -22,58 +22,62 @@
 // 
 namespace Monobjc
 {
-    /// <summary>
-    ///   Enumeration that holds hexadecimal values for MacOS system version.
-    /// </summary>
-    public enum MacOSVersion
-    {
-        /// <summary>
-        ///   Default value
-        /// </summary>
-        MacOSUnrecognized = 0x0000,
-        /// <summary>
-        ///   Value for MacOS 10.0 (Cheetah)
-        /// </summary>
-        /// <remarks>
-        ///   Here for compatibility reasons.
-        /// </remarks>
-        MacOS100 = 0x1000,
-        /// <summary>
-        ///   Value for MacOS 10.1 (Puma)
-        /// </summary>
-        /// <remarks>
-        ///   Here for compatibility reasons.
-        /// </remarks>
-        MacOS101 = 0x1010,
-        /// <summary>
-        ///   Value for MacOS 10.2 (Jaguar)
-        /// </summary>
-        /// <remarks>
-        ///   Here for compatibility reasons.
-        /// </remarks>
-        MacOS102 = 0x1020,
-        /// <summary>
-        ///   Value for MacOS 10.3 (Panther)
-        /// </summary>
-        /// <remarks>
-        ///   Here for compatibility reasons.
-        /// </remarks>
-        MacOS103 = 0x1030,
-        /// <summary>
-        ///   Value for MacOS 10.4 (Tiger)
-        /// </summary>
-        MacOS104 = 0x1040,
-        /// <summary>
-        ///   Value for MacOS 10.5 (Leopard)
-        /// </summary>
-        MacOS105 = 0x1050,
-        /// <summary>
-        ///   Value for MacOS 10.6 (Snow Leopard)
-        /// </summary>
-        MacOS106 = 0x1060,
-        /// <summary>
-        ///   Value for MacOS 10.7 (Lion)
-        /// </summary>
-        MacOS107 = 0x1070,
-    }
+	/// <summary>
+	///   Enumeration that holds hexadecimal values for MacOS system version.
+	/// </summary>
+	public enum MacOSVersion
+	{
+		/// <summary>
+		///   Default value
+		/// </summary>
+		MacOSUnrecognized = 0x0000,
+		/// <summary>
+		///   Value for MacOS 10.0 (Cheetah)
+		/// </summary>
+		/// <remarks>
+		///   Here for compatibility reasons.
+		/// </remarks>
+		MacOS100 = 0x1000,
+		/// <summary>
+		///   Value for MacOS 10.1 (Puma)
+		/// </summary>
+		/// <remarks>
+		///   Here for compatibility reasons.
+		/// </remarks>
+		MacOS101 = 0x1010,
+		/// <summary>
+		///   Value for MacOS 10.2 (Jaguar)
+		/// </summary>
+		/// <remarks>
+		///   Here for compatibility reasons.
+		/// </remarks>
+		MacOS102 = 0x1020,
+		/// <summary>
+		///   Value for MacOS 10.3 (Panther)
+		/// </summary>
+		/// <remarks>
+		///   Here for compatibility reasons.
+		/// </remarks>
+		MacOS103 = 0x1030,
+		/// <summary>
+		///   Value for MacOS 10.4 (Tiger)
+		/// </summary>
+		MacOS104 = 0x1040,
+		/// <summary>
+		///   Value for MacOS 10.5 (Leopard)
+		/// </summary>
+		MacOS105 = 0x1050,
+		/// <summary>
+		///   Value for MacOS 10.6 (Snow Leopard)
+		/// </summary>
+		MacOS106 = 0x1060,
+		/// <summary>
+		///   Value for MacOS 10.7 (Lion)
+		/// </summary>
+		MacOS107 = 0x1070,
+		/// <summary>
+		///   Value for MacOS 10.8 (Mountain Lion)
+		/// </summary>
+		MacOS108 = 0x1080,
+	}
 }

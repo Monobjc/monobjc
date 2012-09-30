@@ -24,22 +24,22 @@ using System.Reflection.Emit;
 
 namespace Monobjc.Generators
 {
-    internal partial class CodeGenerator
-    {
-        /// <summary>
-        ///   Convenience structure when dealing with by-ref parameter.
-        /// </summary>
-        internal struct ByRefParameter
-        {
-            /// <summary>
-            ///   The local variable assigned to the by-ref parameter
-            /// </summary>
-            public LocalBuilder LocalBuilder;
+	internal partial class CodeGenerator
+	{
+		/// <summary>
+		///   Convenience structure when dealing with by-ref parameter.
+		/// </summary>
+		internal struct ByRefParameter
+		{
+			/// <summary>
+			///   The local variable assigned to the by-ref parameter
+			/// </summary>
+			public LocalBuilder LocalBuilder;
 
-            /// <summary>
-            ///   Whether the by-ref parameter is an out one
-            /// </summary>
-            public bool IsOut;
-        }
-    }
+			/// <summary>
+			///   Whether the by-ref parameter is an out one
+			/// </summary>
+			public bool IsOut;
+		}
+	}
 }

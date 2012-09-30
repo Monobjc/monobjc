@@ -26,59 +26,59 @@ using System.Reflection.Emit;
 
 namespace Monobjc.Generators
 {
-    /// <summary>
-    ///   TODO: Doc
-    /// </summary>
-    internal class DynamicAssembly
-    {
-        private readonly String assemblyName;
-        private readonly AssemblyBuilder assembly;
-        private readonly String moduleName;
-        private readonly ModuleBuilder module;
+	/// <summary>
+	///   TODO: Doc
+	/// </summary>
+	internal class DynamicAssembly
+	{
+		private readonly String assemblyName;
+		private readonly AssemblyBuilder assembly;
+		private readonly String moduleName;
+		private readonly ModuleBuilder module;
 
-        public DynamicAssembly(String assemblyName, String moduleName)
-        {
-            this.assemblyName = assemblyName;
-            this.moduleName = moduleName;
+		public DynamicAssembly (String assemblyName, String moduleName)
+		{
+			this.assemblyName = assemblyName;
+			this.moduleName = moduleName;
 
-            // Define dynamic assembly
-            AssemblyName name = new AssemblyName {Name = this.assemblyName, Version = Assembly.GetExecutingAssembly().GetName().Version};
-            this.assembly = AppDomain.CurrentDomain.DefineDynamicAssembly(name, AssemblyBuilderAccess.RunAndSave);
+			// Define dynamic assembly
+			AssemblyName name = new AssemblyName {Name = this.assemblyName, Version = Assembly.GetExecutingAssembly().GetName().Version};
+			this.assembly = AppDomain.CurrentDomain.DefineDynamicAssembly (name, AssemblyBuilderAccess.RunAndSave);
 
-            // Define dynamic module
-            this.module = this.assembly.DefineDynamicModule(this.moduleName, this.assemblyName + ".dll");
-        }
+			// Define dynamic module
+			this.module = this.assembly.DefineDynamicModule (this.moduleName, this.assemblyName + ".dll");
+		}
 
-        public String Save()
-        {
-            String file = this.assemblyName + ".dll";
-            this.assembly.Save(file);
-            return file;
-        }
+		public String Save ()
+		{
+			String file = this.assemblyName + ".dll";
+			this.assembly.Save (file);
+			return file;
+		}
 
-        public TypeBuilder AddType(String typeName)
-        {
-            return this.AddType(typeName, typeof (Object), false);
-        }
+		public TypeBuilder AddType (String typeName)
+		{
+			return this.AddType (typeName, typeof(Object), false);
+		}
 
-        public TypeBuilder AddType(String typeName, Type parentType)
-        {
-            return this.AddType(typeName, parentType, false);
-        }
+		public TypeBuilder AddType (String typeName, Type parentType)
+		{
+			return this.AddType (typeName, parentType, false);
+		}
 
-        public TypeBuilder AddType(String typeName, bool isStatic)
-        {
-            return this.AddType(typeName, typeof (Object), isStatic);
-        }
+		public TypeBuilder AddType (String typeName, bool isStatic)
+		{
+			return this.AddType (typeName, typeof(Object), isStatic);
+		}
 
-        public TypeBuilder AddType(String typeName, Type parentType, bool isStatic)
-        {
-            return EmitHelper.DefineType(this.module, typeName, parentType, isStatic);
-        }
+		public TypeBuilder AddType (String typeName, Type parentType, bool isStatic)
+		{
+			return EmitHelper.DefineType (this.module, typeName, parentType, isStatic);
+		}
 
-        public Type GetType(String typeName)
-        {
-            return this.assembly.GetType(typeName);
-        }
-    }
+		public Type GetType (String typeName)
+		{
+			return this.assembly.GetType (typeName);
+		}
+	}
 }

@@ -27,70 +27,74 @@ using System.Runtime.InteropServices;
 
 namespace Monobjc
 {
-    /// <summary>
-    ///   Custom marshaller for <see cref = "Id" /> instances. This makes interop a breeze as it cuts a lot of code.
-    /// </summary>
-    public class IdMarshaler<TInstance> : ICustomMarshaler where TInstance : Id
-    {
-        private static readonly IdMarshaler<TInstance> INSTANCE = new IdMarshaler<TInstance>();
+	/// <summary>
+	///   Custom marshaller for <see cref = "Id" /> instances. This makes interop a breeze as it cuts a lot of code.
+	/// </summary>
+	public class IdMarshaler<TInstance> : ICustomMarshaler where TInstance : Id
+	{
+		private static readonly IdMarshaler<TInstance> INSTANCE = new IdMarshaler<TInstance> ();
 
-        /// <summary>
-        ///   Returns a shared instance of the custom marshaller.
-        /// </summary>
-        /// <param name = "cookie">A cookie string from the interop layer</param>
-        /// <returns>The shared instance</returns>
-        [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
-        [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "cookie")]
-        [MethodImpl(MethodImplOptions.Synchronized)]
-        public static ICustomMarshaler GetInstance(String cookie)
-        {
-            return INSTANCE;
-        }
+		/// <summary>
+		///   Returns a shared instance of the custom marshaller.
+		/// </summary>
+		/// <param name = "cookie">A cookie string from the interop layer</param>
+		/// <returns>The shared instance</returns>
+		[SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
+		[SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "cookie")]
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		public static ICustomMarshaler GetInstance (String cookie)
+		{
+			return INSTANCE;
+		}
 
-        /// <summary>
-        ///   Converts the unmanaged data to managed data.
-        /// </summary>
-        /// <param name = "pNativeData">A pointer to the unmanaged data to be wrapped.</param>
-        /// <returns>
-        ///   Returns the managed view of the COM data.
-        /// </returns>
-        public Object MarshalNativeToManaged(IntPtr pNativeData)
-        {
-            return ObjectiveCRuntime.GetInstance<TInstance>(pNativeData);
-        }
+		/// <summary>
+		///   Converts the unmanaged data to managed data.
+		/// </summary>
+		/// <param name = "pNativeData">A pointer to the unmanaged data to be wrapped.</param>
+		/// <returns>
+		///   Returns the managed view of the COM data.
+		/// </returns>
+		public Object MarshalNativeToManaged (IntPtr pNativeData)
+		{
+			return ObjectiveCRuntime.GetInstance<TInstance> (pNativeData);
+		}
 
-        /// <summary>
-        ///   Converts the managed data to unmanaged data.
-        /// </summary>
-        /// <param name = "ManagedObj">The managed object to be converted.</param>
-        /// <returns>
-        ///   Returns the COM view of the managed object.
-        /// </returns>
-        public IntPtr MarshalManagedToNative(Object ManagedObj)
-        {
-            TInstance id = ManagedObj as TInstance;
-            return (id != null) ? id.NativePointer : IntPtr.Zero;
-        }
+		/// <summary>
+		///   Converts the managed data to unmanaged data.
+		/// </summary>
+		/// <param name = "ManagedObj">The managed object to be converted.</param>
+		/// <returns>
+		///   Returns the COM view of the managed object.
+		/// </returns>
+		public IntPtr MarshalManagedToNative (Object ManagedObj)
+		{
+			TInstance id = ManagedObj as TInstance;
+			return (id != null) ? id.NativePointer : IntPtr.Zero;
+		}
 
-        /// <summary>
-        ///   Performs necessary cleanup of the unmanaged data when it is no longer needed.
-        /// </summary>
-        /// <param name = "pNativeData">A pointer to the unmanaged data to be destroyed.</param>
-        public void CleanUpNativeData(IntPtr pNativeData) {}
+		/// <summary>
+		///   Performs necessary cleanup of the unmanaged data when it is no longer needed.
+		/// </summary>
+		/// <param name = "pNativeData">A pointer to the unmanaged data to be destroyed.</param>
+		public void CleanUpNativeData (IntPtr pNativeData)
+		{
+		}
 
-        /// <summary>
-        ///   Performs necessary cleanup of the managed data when it is no longer needed.
-        /// </summary>
-        /// <param name = "ManagedObj">The managed object to be destroyed.</param>
-        public void CleanUpManagedData(Object ManagedObj) {}
+		/// <summary>
+		///   Performs necessary cleanup of the managed data when it is no longer needed.
+		/// </summary>
+		/// <param name = "ManagedObj">The managed object to be destroyed.</param>
+		public void CleanUpManagedData (Object ManagedObj)
+		{
+		}
 
-        /// <summary>
-        ///   Returns the size of the native data to be marshaled.
-        /// </summary>
-        /// <returns>The size in bytes of the native data.</returns>
-        public int GetNativeDataSize()
-        {
-            return IntPtr.Size;
-        }
-    }
+		/// <summary>
+		///   Returns the size of the native data to be marshaled.
+		/// </summary>
+		/// <returns>The size in bytes of the native data.</returns>
+		public int GetNativeDataSize ()
+		{
+			return IntPtr.Size;
+		}
+	}
 }
