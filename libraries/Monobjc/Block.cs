@@ -111,7 +111,6 @@ namespace Monobjc
 				DestroyBlock (this.layout);
 				this.layout = IntPtr.Zero;
 				this.blockInvokerHandle.Free ();
-
 			}
 		}
 
@@ -134,23 +133,18 @@ namespace Monobjc
 		public IntPtr NativePointer {
 			get {
 				if (this.layout == IntPtr.Zero) {
-
 					// Pin the delegate so it won't move
 					this.blockInvokerHandle = GCHandle.Alloc (this.BlockInvoker, GCHandleType.Pinned);
 
-					
-
 					// Create a block layout for a global block, with descriptor.
-
 					// This block will invoke a managed method through a delegate (marhsaled as a function pointer)
-
 					IntPtr function = Marshal.GetFunctionPointerForDelegate (this.BlockInvoker);
 					this.layout = CreateBlock (function);
 				}
 				return this.layout;
 			}
 		}
-				
+
 		/// <summary>
 		/// Create a block around the specified delegate.
 		/// </summary>

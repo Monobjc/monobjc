@@ -13,9 +13,9 @@
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
+    <DebugSymbols>True</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>False</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;HAVE_BLOCK_SUPPORT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -23,7 +23,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>True</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -255,10 +255,6 @@
     <Compile Include="AVFoundation_C\NSValue_AVFoundationAdditions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
-      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
-      <Name>Monobjc.AppKit</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Monobjc.CoreMedia\Monobjc.CoreMedia.csproj">
       <Project>{1AD9281A-0897-4C58-A6B4-98E5FB469FA8}</Project>
       <Name>Monobjc.CoreMedia</Name>

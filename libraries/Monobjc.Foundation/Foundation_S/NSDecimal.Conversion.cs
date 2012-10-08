@@ -20,124 +20,123 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using Monobjc.ApplicationServices;
 using Monobjc.Foundation;
 
 namespace Monobjc.Foundation
 {
-    public partial struct NSDecimal
-    {
-        public static short ShortValue(NSDecimal value)
-        {
-            return NSDecimalNumber.DecimalNumberWithDecimal(value).ShortValue;
-        }
+	public partial struct NSDecimal
+	{
+		public static short ShortValue (NSDecimal value)
+		{
+			return NSDecimalNumber.DecimalNumberWithDecimal (value).ShortValue;
+		}
 
-        public static NSDecimal FromShort(short value)
-        {
-            return NSNumber.NumberWithShort(value).DecimalValue;
-        }
+		public static NSDecimal FromShort (short value)
+		{
+			return NSNumber.NumberWithShort (value).DecimalValue;
+		}
 
-        public static int IntValue(NSDecimal value)
-        {
-            return NSDecimalNumber.DecimalNumberWithDecimal(value).IntValue;
-        }
+		public static int IntValue (NSDecimal value)
+		{
+			return NSDecimalNumber.DecimalNumberWithDecimal (value).IntValue;
+		}
 
-        public static NSDecimal FromInt(int value)
-        {
-            return NSNumber.NumberWithInt(value).DecimalValue;
-        }
+		public static NSDecimal FromInt (int value)
+		{
+			return NSNumber.NumberWithInt (value).DecimalValue;
+		}
 
-        public static long LongLongValue(NSDecimal value)
-        {
-            return NSDecimalNumber.DecimalNumberWithDecimal(value).LongLongValue;
-        }
+		public static long LongLongValue (NSDecimal value)
+		{
+			return NSDecimalNumber.DecimalNumberWithDecimal (value).LongLongValue;
+		}
 
-        public static NSDecimal FromLongLong(long value)
-        {
-            return NSNumber.NumberWithLongLong(value).DecimalValue;
-        }
+		public static NSDecimal FromLongLong (long value)
+		{
+			return NSNumber.NumberWithLongLong (value).DecimalValue;
+		}
 
-        public static NSInteger IntegerValue(NSDecimal value)
-        {
-            return NSDecimalNumber.DecimalNumberWithDecimal(value).IntegerValue;
-        }
+		public static NSInteger IntegerValue (NSDecimal value)
+		{
+			return NSDecimalNumber.DecimalNumberWithDecimal (value).IntegerValue;
+		}
 
-        public static NSDecimal FromInteger(NSInteger value)
-        {
-            return NSNumber.NumberWithInteger(value).DecimalValue;
-        }
+		public static NSDecimal FromInteger (NSInteger value)
+		{
+			return NSNumber.NumberWithInteger (value).DecimalValue;
+		}
 
-        public static ushort UnsignedShortValue(NSDecimal value)
-        {
-            return NSDecimalNumber.DecimalNumberWithDecimal(value).UnsignedShortValue;
-        }
+		public static ushort UnsignedShortValue (NSDecimal value)
+		{
+			return NSDecimalNumber.DecimalNumberWithDecimal (value).UnsignedShortValue;
+		}
 
-        public static NSDecimal FromUnsignedShort(ushort value)
-        {
-            return NSNumber.NumberWithUnsignedShort(value).DecimalValue;
-        }
+		public static NSDecimal FromUnsignedShort (ushort value)
+		{
+			return NSNumber.NumberWithUnsignedShort (value).DecimalValue;
+		}
 
-        public static uint UnsignedIntValue(NSDecimal value)
-        {
-            return NSDecimalNumber.DecimalNumberWithDecimal(value).UnsignedIntValue;
-        }
+		public static uint UnsignedIntValue (NSDecimal value)
+		{
+			return NSDecimalNumber.DecimalNumberWithDecimal (value).UnsignedIntValue;
+		}
 
-        public static NSDecimal FromUnsignedInt(uint value)
-        {
-            return NSNumber.NumberWithUnsignedInt(value).DecimalValue;
-        }
+		public static NSDecimal FromUnsignedInt (uint value)
+		{
+			return NSNumber.NumberWithUnsignedInt (value).DecimalValue;
+		}
 
-        public static ulong UnsignedLongLongValue(NSDecimal value)
-        {
-            return NSDecimalNumber.DecimalNumberWithDecimal(value).UnsignedLongLongValue;
-        }
+		public static ulong UnsignedLongLongValue (NSDecimal value)
+		{
+			return NSDecimalNumber.DecimalNumberWithDecimal (value).UnsignedLongLongValue;
+		}
 
-        public static NSDecimal FromUnsignedLongLong(ulong value)
-        {
-            return NSNumber.NumberWithUnsignedLongLong(value).DecimalValue;
-        }
+		public static NSDecimal FromUnsignedLongLong (ulong value)
+		{
+			return NSNumber.NumberWithUnsignedLongLong (value).DecimalValue;
+		}
 
-        public static NSUInteger UnsignedIntegerValue(NSDecimal value)
-        {
-            return NSDecimalNumber.DecimalNumberWithDecimal(value).UnsignedIntegerValue;
-        }
+		public static NSUInteger UnsignedIntegerValue (NSDecimal value)
+		{
+			return NSDecimalNumber.DecimalNumberWithDecimal (value).UnsignedIntegerValue;
+		}
 
-        public static NSDecimal FromUnsignedInteger(NSUInteger value)
-        {
-            return NSNumber.NumberWithUnsignedInteger(value).DecimalValue;
-        }
+		public static NSDecimal FromUnsignedInteger (NSUInteger value)
+		{
+			return NSNumber.NumberWithUnsignedInteger (value).DecimalValue;
+		}
 
-        public static float FloatValue(NSDecimal value)
-        {
-            return NSDecimalNumber.DecimalNumberWithDecimal(value).FloatValue;
-        }
+		public static float FloatValue (NSDecimal value)
+		{
+			return NSDecimalNumber.DecimalNumberWithDecimal (value).FloatValue;
+		}
 
-        public static NSDecimal FromFloat(float value)
-        {
-            return NSNumber.NumberWithFloat(value).DecimalValue;
-        }
+		public static NSDecimal FromFloat (float value)
+		{
+			return NSNumber.NumberWithFloat (value).DecimalValue;
+		}
 
-        public static double DoubleValue(NSDecimal value)
-        {
-            return NSDecimalNumber.DecimalNumberWithDecimal(value).DoubleValue;
-        }
+		public static double DoubleValue (NSDecimal value)
+		{
+			return NSDecimalNumber.DecimalNumberWithDecimal (value).DoubleValue;
+		}
 
-        public static NSDecimal FromDouble(double value)
-        {
-            return NSNumber.NumberWithDouble(value).DecimalValue;
-        }
+		public static NSDecimal FromDouble (double value)
+		{
+			return NSNumber.NumberWithDouble (value).DecimalValue;
+		}
 
-        public static NSString StringValue(NSDecimal value)
-        {
-            return NSDecimalNumber.DecimalNumberWithDecimal(value).StringValue;
-        }
+		public static NSString StringValue (NSDecimal value)
+		{
+			return NSDecimalNumber.DecimalNumberWithDecimal (value).StringValue;
+		}
 
-        public static NSDecimal FromString(NSString value)
-        {
-            NSDecimalNumber number = new NSDecimalNumber(value);
-            NSDecimal @decimal = number.DecimalValue;
-            number.Release();
-            return @decimal;
-        }
-    }
+		public static NSDecimal FromString (NSString value)
+		{
+			NSDecimalNumber number = new NSDecimalNumber (value);
+			NSDecimal @decimal = number.DecimalValue;
+			number.Release ();
+			return @decimal;
+		}
+	}
 }

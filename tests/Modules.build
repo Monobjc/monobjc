@@ -8,12 +8,6 @@
   <target name="build">
     <fail message="Please use -D:testing=true in order to build the unit tests" unless="${testing}"/>
 
-    <if test="${version::get-minor(version::parse(min.version)) &lt;= 5}" >
-      <property name="version" value="10.5"/>
-      <property name="define" value="TESTING;MACOSX_10_5"/>
-      <call target="build-tests-intern" if="${version::get-minor(version::parse(max.version)) >= 5}"/>
-    </if>
-
     <if test="${version::get-minor(version::parse(min.version)) &lt;= 6}" >
       <property name="version" value="10.6"/>
       <property name="define" value="TESTING;MACOSX_10_5;MACOSX_10_6"/>
@@ -38,11 +32,6 @@
   ================================================================================ -->
   <target name="run">
     <fail message="Please use -D:testing=true in order to run the unit tests" unless="${testing}"/>
-
-    <if test="${version::get-minor(version::parse(min.version)) &lt;= 5}" >
-      <property name="version" value="10.5"/>
-      <call target="run-tests-intern" if="${version::get-minor(version::parse(max.version)) >= 5}"/>
-    </if>
 
     <if test="${version::get-minor(version::parse(min.version)) &lt;= 6}" >
       <property name="version" value="10.6"/>
@@ -111,7 +100,23 @@
     </assemblyfileset>
     <call target="build-test-intern"/>
 
-    <!-- Test Monobjc.AppKit -->
+    <!-- Test Monobjc.CoreLocation -->
+    <property name="test.name" value="Monobjc.CoreLocation.Tests"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${base.dir}/${test.name}/**/*.cs"/>
+      <include name="${base.dir}/Monobjc.Foundation.Tests/Common/*.cs"/>
+    </fileset>
+    <assemblyfileset id="lib.references" basedir="${output.dir}">
+      <include name="System.dll"/>
+      <include name="System.Core.dll"/>
+      <include name="${external.dir}/nunit.framework.dll"/>
+      <include name="${output.dir}/Monobjc.dll"/>
+      <include name="${output.dir}/Monobjc.Foundation.dll"/>
+      <include name="${output.dir}/Monobjc.CoreLocation.dll"/>
+    </assemblyfileset>
+    <call target="build-test-intern"/>
+
+    <!-- Test Monobjc.AppKit 
     <property name="test.name" value="Monobjc.AppKit.Tests"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${test.name}/**/*.cs"/>
@@ -126,8 +131,9 @@
       <include name="${output.dir}/Monobjc.AppKit.dll"/>
     </assemblyfileset>
     <call target="build-test-intern"/>
+    -->
 
-    <!-- Test Monobjc.CorePlot -->
+    <!-- Test Monobjc.CorePlot 
     <property name="test.name" value="Monobjc.CorePlot.Tests"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${test.name}/**/*.cs"/>
@@ -143,8 +149,9 @@
       <include name="${output.dir}/Monobjc.CorePlot.dll"/>
     </assemblyfileset>
     <call target="build-test-intern"/>
+    -->
 
-    <!-- Test Monobjc.OpenGL -->
+    <!-- Test Monobjc.OpenGL 
     <property name="test.name" value="Monobjc.OpenGL.Tests"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${test.name}/**/*.cs"/>
@@ -160,8 +167,9 @@
       <include name="${output.dir}/Monobjc.OpenGL.dll"/>
     </assemblyfileset>
     <call target="build-test-intern"/>
+    -->
 
-    <!-- Test Monobjc.Security -->
+    <!-- Test Monobjc.Security 
     <property name="test.name" value="Monobjc.Security.Tests"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${test.name}/**/*.cs"/>
@@ -177,8 +185,9 @@
       <include name="${output.dir}/Monobjc.Security.dll"/>
     </assemblyfileset>
     <call target="build-test-intern"/>
+    -->
 
-    <!-- Test Monobjc.WebKit -->
+    <!-- Test Monobjc.WebKit 
     <property name="test.name" value="Monobjc.WebKit.Tests"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${test.name}/**/*.cs"/>
@@ -194,6 +203,7 @@
       <include name="${output.dir}/Monobjc.WebKit.dll"/>
     </assemblyfileset>
     <call target="build-test-intern"/>
+    -->
 
   </target>
 
@@ -240,40 +250,57 @@
       <arg value="${output.dir}/${test.name}.dll"/>
     </exec>
 
+    <property name="test.name" value="Monobjc.CoreLocation.Tests"/>
+    <exec program="${output.dir}/nunit-${version}" failonerror="false">
+      <arg value="-labels"/>
+      <arg value="-xml=${dist.dir}/Tests/${test.name}-${version}.xml"/>
+      <arg value="${output.dir}/${test.name}.dll"/>
+    </exec>
+
+	<!--
     <property name="test.name" value="Monobjc.AppKit.Tests"/>
     <exec program="${output.dir}/nunit-${version}" failonerror="false">
       <arg value="-labels"/>
       <arg value="-xml=${dist.dir}/Tests/${test.name}-${version}.xml"/>
       <arg value="${output.dir}/${test.name}.dll"/>
     </exec>
+    -->
 
+	<!--
     <property name="test.name" value="Monobjc.CorePlot.Tests"/>
     <exec program="${output.dir}/nunit-${version}" failonerror="false">
       <arg value="-labels"/>
       <arg value="-xml=${dist.dir}/Tests/${test.name}-${version}.xml"/>
       <arg value="${output.dir}/${test.name}.dll"/>
     </exec>
+    -->
 
+	<!--
     <property name="test.name" value="Monobjc.OpenGL.Tests"/>
     <exec program="${output.dir}/nunit-${version}" failonerror="false">
       <arg value="-labels"/>
       <arg value="-xml=${dist.dir}/Tests/${test.name}-${version}.xml"/>
       <arg value="${output.dir}/${test.name}.dll"/>
     </exec>
+    -->
 
+	<!--
     <property name="test.name" value="Monobjc.Security.Tests"/>
     <exec program="${output.dir}/nunit-${version}" failonerror="false">
       <arg value="-labels"/>
       <arg value="-xml=${dist.dir}/Tests/${test.name}-${version}.xml"/>
       <arg value="${output.dir}/${test.name}.dll"/>
     </exec>
+    -->
 
+	<!--
     <property name="test.name" value="Monobjc.WebKit.Tests"/>
     <exec program="${output.dir}/nunit-${version}" failonerror="false">
       <arg value="-labels"/>
       <arg value="-xml=${dist.dir}/Tests/${test.name}-${version}.xml"/>
       <arg value="${output.dir}/${test.name}.dll"/>
     </exec>
+    -->
 
   </target>
 

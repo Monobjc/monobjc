@@ -18,10 +18,11 @@
 using System;
 using Monobjc;
 using Monobjc.Types;
+using System.Runtime.InteropServices;
 
 namespace Monobjc.Generators
 {
-#if MACOSX_10_6 && HAVE_BLOCK_SUPPORT
+#if MACOSX_10_6
     /// <summary>
     ///   Block: void (^)()
     /// </summary>
@@ -155,6 +156,33 @@ namespace Monobjc.Generators
         public delegate void ExecuteInvoker(IntPtr layout, IntPtr arg1, IntPtr arg2, IntPtr arg3, string arg4);
     }
 
+	/// <summary>
+	///   Block: void (^)(Id, BOOL *stop)
+	/// </summary>
+	public class Block_CustomEnumerator : Block
+	{
+		public readonly ExecuteInvoker blockInvoker;
+		
+		public Block_CustomEnumerator(Delegate block)
+			: base(block)
+		{
+			this.blockInvoker = new ExecuteInvoker(this.Execute);
+		}
+		
+		public void Execute(IntPtr layout, Id id, IntPtr stop)
+		{
+			bool value1 = Marshal.ReadByte(stop) != 0;
+			((CustomEnumerator) this.Invoker)(null, ref value1);
+			Marshal.WriteByte(stop, (byte)(value1 ? 1 : 0));
+		}
+		
+		public override Delegate BlockInvoker
+		{
+			get { return this.blockInvoker; }
+		}
+		
+		public delegate void ExecuteInvoker(IntPtr layout, Id id, IntPtr stop);
+	}
 
     /// <summary>
     ///   Block: void (^)(int)

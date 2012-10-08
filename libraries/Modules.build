@@ -6,49 +6,24 @@
   Extract and generate classes from Apple documentation
   ================================================================================ -->
   <target name="generate">
-    <!-- Builds the doxygenator -->
-    <exec workingdir="${tools.dir}"
-          program="xbuild"
-          failonerror="true"
-          commandline="/property:Configuration=Release Monobjc.Doxygenator/Monobjc.Doxygenator.csproj"
-          unless="${file::exists(marker.file)}">
-    </exec>
-
     <!-- Builds the generator -->
     <exec workingdir="${tools.dir}"
           program="xbuild"
           failonerror="true"
-          commandline="/property:Configuration=Release Monobjc.Generator/Monobjc.Generator.csproj"
-          unless="${file::exists(marker.file)}">
+          commandline="/property:Configuration=Release Monobjc.Generator.NAnt/Monobjc.Generator.NAnt.csproj"
+          unless="${file::exists(marker.file)}"
+          >
+          <!--
+          -->
     </exec>
-
-    <!-- Execute the doxygenator -->
-    <exec workingdir="${tools.dir}/Monobjc.Doxygenator/bin/Release"
-          program="${tools.dir}/Monobjc.Doxygenator/bin/Release/doxygen.sh"
-          failonerror="false"
-          unless="${file::exists(marker.file)}">
-    </exec>
-
-    <!-- Copy extracted frameworks -->
-    <copy todir="${tools.dir}/Monobjc.Generator/bin/Release/Xhtml"
-          unless="${file::exists(marker.file)}">
-      <fileset basedir="${tools.dir}/Monobjc.Doxygenator/bin/Release">
-        <include name="WebKit.DOM/**"/>
-        <include name="JavaScriptCore/**"/>
-        <include name="CorePlot/**"/>
-        <include name="Growl/**"/>
-        <include name="SM2DGraphView/**"/>
-        <include name="Sparkle/**"/>
-      </fileset>
-    </copy>
     
-    <!-- Execute the generator -->
-    <exec workingdir="${tools.dir}/Monobjc.Generator/bin/Release"
-          program="${tools.dir}/Monobjc.Generator/bin/Release/MonobjcGenerator.exe"
-          failonerror="true"
-          commandline="-s=Lion -t=retrieve,extract,generate,copy -d=${libraries.dir}"
-          unless="${file::exists(marker.file)}">
-    </exec>
+    <nant buildfile="${tools.dir}/Monobjc.Generator.NAnt/bin/Release/Generate.build"
+          target="copy-in-place"
+          unless="${file::exists(marker.file)}"
+          >
+          <!--
+          -->
+    </nant>
 
     <touch file="${marker.file}"/>
   </target>
@@ -57,12 +32,6 @@
   Build all the sets of libraries
   ================================================================================ -->
   <target name="build" depends="generate">
-    <if test="${version::get-minor(version::parse(min.version)) &lt;= 5}" >
-      <property name="version" value="10.5"/>
-      <property name="define" value="MACOSX_10_5" unless="${testing}"/>
-      <property name="define" value="TESTING;MACOSX_10_5" if="${testing}"/>
-      <call target="build-libraries-intern" if="${version::get-minor(version::parse(max.version)) >= 5}"/>
-    </if>
 
     <if test="${version::get-minor(version::parse(min.version)) &lt;= 6}" >
       <property name="version" value="10.6"/>
@@ -84,6 +53,7 @@
       <property name="define" value="TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8" if="${testing}"/>
       <call target="build-libraries-intern" if="${version::get-minor(version::parse(max.version)) >= 8}"/>
     </if>
+
   </target>
 
   <!-- ===============================================================================
@@ -121,15 +91,15 @@
     <property name="lib.name" value="Monobjc.Foundation"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
-      <include name="${base.dir}/${lib.name}/ApplicationServices_E/*.cs"/>
+      <include name="${base.dir}/${lib.name}/ApplicationServices_E/CG*.cs"/>
       <include name="${base.dir}/${lib.name}/ApplicationServices_Extensions/*.cs"/>
       <include name="${base.dir}/${lib.name}/ApplicationServices_S/*.cs"/>
       <include name="${base.dir}/${lib.name}/CoreFoundation_T/CFType.cs"/>
       <include name="${base.dir}/${lib.name}/Foundation_C/*.cs"/>
       <include name="${base.dir}/${lib.name}/Foundation_Collections/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Foundation_E/*.cs"/>
       <include name="${base.dir}/${lib.name}/Foundation_Extensions/*.cs"/>
       <include name="${base.dir}/${lib.name}/Foundation_P/*.cs"/>
-      <exclude name="${base.dir}/${lib.name}/Foundation_P/*.Deprecated.Protocol.cs"/>
       <include name="${base.dir}/${lib.name}/Foundation_S/*.cs"/>
       <include name="${base.dir}/${lib.name}/Foundation_T/*.cs"/>
       <include name="${base.dir}/${lib.name}/Kernel_Extensions/*.cs"/>
@@ -158,7 +128,7 @@
     </fileset>
     <call target="build-library-intern"/>
 
-    <!-- Library Monobjc.DiscRecording -->
+    <!-- Library Monobjc.DiscRecording 
     <property name="lib.name" value="Monobjc.DiscRecording"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -171,8 +141,9 @@
       <include name="${base.dir}/${lib.name}/DiscRecording_P/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
+    -->
 
-    <!-- Library Monobjc.OpenGL -->
+    <!-- Library Monobjc.OpenGL 
     <property name="lib.name" value="Monobjc.OpenGL"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -183,8 +154,9 @@
       <include name="${base.dir}/${lib.name}/OpenGL_T/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
+    -->
 
-    <!-- Library Monobjc.Security -->
+    <!-- Library Monobjc.Security 
     <property name="lib.name" value="Monobjc.Security"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -194,8 +166,9 @@
       <include name="${base.dir}/${lib.name}/Security_T/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
+    -->
 
-    <!-- Library Monobjc.ScriptingBridge -->
+    <!-- Library Monobjc.ScriptingBridge 
     <property name="lib.name" value="Monobjc.ScriptingBridge"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -205,8 +178,9 @@
       <include name="${base.dir}/${lib.name}/ScriptingBridge_P/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
+    -->
 
-    <!-- Library Monobjc.StoreKit -->
+    <!-- Library Monobjc.StoreKit 
     <property name="lib.name" value="Monobjc.StoreKit"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -216,6 +190,7 @@
       <include name="${base.dir}/${lib.name}/StoreKit_T/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
+    -->
 
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
@@ -225,7 +200,7 @@
       <include name="Monobjc.Security.dll"/>
     </assemblyfileset>
     
-    <!-- Library Monobjc.SecurityFoundation -->
+    <!-- Library Monobjc.SecurityFoundation 
     <property name="lib.name" value="Monobjc.SecurityFoundation"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -236,6 +211,7 @@
       <exclude name="${base.dir}/${lib.name}/SecurityFoundation_T/KeyChainServices.cs"/>
     </fileset>
     <call target="build-library-intern"/>
+    -->
 
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
@@ -246,7 +222,7 @@
       <include name="Monobjc.SecurityFoundation.dll"/>
     </assemblyfileset>
     
-    <!-- Library Monobjc.CoreWLAN -->
+    <!-- Library Monobjc.CoreWLAN 
     <property name="lib.name" value="Monobjc.CoreWLAN"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -255,6 +231,7 @@
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
+    -->
 
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
@@ -263,7 +240,7 @@
       <include name="Monobjc.Foundation.dll"/>
     </assemblyfileset>
     
-    <!-- Library Monobjc.AppKit -->
+    <!-- Library Monobjc.AppKit 
     <property name="lib.name" value="Monobjc.AppKit"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -293,6 +270,7 @@
       <include name="${base.dir}/${lib.name}/QuartzCore_T/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
+    -->
 
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
@@ -302,7 +280,7 @@
       <include name="Monobjc.AppKit.dll"/>
     </assemblyfileset>
 
-    <!-- Library Monobjc.AddressBook -->
+    <!-- Library Monobjc.AddressBook 
     <property name="lib.name" value="Monobjc.AddressBook"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -312,8 +290,9 @@
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
+    -->
 
-    <!-- Library Monobjc.CoreMedia -->
+    <!-- Library Monobjc.CoreMedia 
     <property name="lib.name" value="Monobjc.CoreMedia"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -323,8 +302,9 @@
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
+    -->
 
-    <!-- Library Monobjc.CorePlot -->
+    <!-- Library Monobjc.CorePlot 
     <property name="lib.name" value="Monobjc.CorePlot"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -335,8 +315,9 @@
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
     </fileset>
     <call target="build-library-intern" if="${directory::exists('/Library/Frameworks/CorePlot.framework')}"/>
+    -->
 
-    <!-- Library Monobjc.Growl -->
+    <!-- Library Monobjc.Growl 
     <property name="lib.name" value="Monobjc.Growl"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -345,8 +326,9 @@
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
     </fileset>
     <call target="build-library-intern" if="${directory::exists('/Library/Frameworks/Growl.framework')}"/>
+    -->
 
-    <!-- Library Monobjc.InputMethodKit -->
+    <!-- Library Monobjc.InputMethodKit 
     <property name="lib.name" value="Monobjc.InputMethodKit"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -356,8 +338,9 @@
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
+    -->
 
-    <!-- Library Monobjc.QTKit -->
+    <!-- Library Monobjc.QTKit 
     <property name="lib.name" value="Monobjc.QTKit"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -368,8 +351,9 @@
       <include name="${base.dir}/${lib.name}/QTKit_T/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
+    -->
 
-    <!-- Library Monobjc.Quartz -->
+    <!-- Library Monobjc.Quartz 
     <property name="lib.name" value="Monobjc.Quartz"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -379,18 +363,9 @@
       <include name="${base.dir}/${lib.name}/Quartz_P/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
+    -->
 
-    <!-- Library Monobjc.SM2DGraphView -->
-    <property name="lib.name" value="Monobjc.SM2DGraphView"/>
-    <fileset id="src.references" basedir="${output.dir}">
-      <include name="${base.dir}/${lib.name}/*.cs"/>
-      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
-      <include name="${base.dir}/${lib.name}/SM2DGraphView_C/*.cs"/>
-      <include name="${base.dir}/${lib.name}/SM2DGraphView_P/*.cs"/>
-    </fileset>
-    <call target="build-library-intern" if="${directory::exists('/Library/Frameworks/SM2DGraphView.framework')}"/>
-
-    <!-- Library Monobjc.Sparkle -->
+    <!-- Library Monobjc.Sparkle 
     <property name="lib.name" value="Monobjc.Sparkle"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -399,8 +374,9 @@
       <include name="${base.dir}/${lib.name}/Sparkle_P/*.cs"/>
     </fileset>
     <call target="build-library-intern" if="${directory::exists('/Library/Frameworks/Growl.framework')}"/>
+    -->
 
-    <!-- Library Monobjc.WebKit -->
+    <!-- Library Monobjc.WebKit 
     <property name="lib.name" value="Monobjc.WebKit"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -414,6 +390,7 @@
       <include name="${base.dir}/${lib.name}/WebKit_T/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
+    -->
 
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
@@ -424,7 +401,7 @@
       <include name="Monobjc.AppKit.dll"/>
     </assemblyfileset>
     
-    <!-- Library Monobjc.AVFoundation -->
+    <!-- Library Monobjc.AVFoundation 
     <property name="lib.name" value="Monobjc.AVFoundation"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -434,6 +411,7 @@
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
+    -->
 
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
@@ -444,7 +422,7 @@
       <include name="Monobjc.AppKit.dll"/>
     </assemblyfileset>
     
-    <!-- Library Monobjc.DiscRecordingUI -->
+    <!-- Library Monobjc.DiscRecordingUI
     <property name="lib.name" value="Monobjc.DiscRecordingUI"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -456,6 +434,7 @@
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
+    -->
 
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
@@ -467,7 +446,7 @@
       <include name="Monobjc.AppKit.dll"/>
     </assemblyfileset>
     
-    <!-- Library Monobjc.SecurityInterface -->
+    <!-- Library Monobjc.SecurityInterface
     <property name="lib.name" value="Monobjc.SecurityInterface"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -478,6 +457,7 @@
       <include name="${base.dir}/${lib.name}/SecurityInterface_T/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
+    -->
 
   </target>
 

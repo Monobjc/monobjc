@@ -26,19 +26,27 @@ using System.Runtime.InteropServices;
 namespace Monobjc.Foundation
 {
 	/// <summary>
-	/// Used to describe a decimal number.
+	/// The UUID structure defines Universally Unique Identifiers (UUIDs). UUIDs provide unique designations of objects such as interfaces, manager entry-point vectors, and client objects.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
-	public partial struct NSDecimal
+	public partial struct UUID
 	{
 		/// <summary>
-		/// <para>A 32 bit field that contains: the exponent (8 bits), the length (4 bits), whether this instance is negative (1 bit), whether this instance is compact (1 bit) and 18 bits reserved for future use.</para>
+		/// <para>Specifies the first 8 hexadecimal digits of the UUID.</para>
 		/// </summary>
-		public int fields;
+		public uint a;
 		/// <summary>
-		/// The mantissa
+		/// <para>Specifies the first group of 4 hexadecimal digits of the UUID.</para>
 		/// </summary>
-		public ushort mantissa1, mantissa2, mantissa3, mantissa4, mantissa5, mantissa6, mantissa7, mantissa8;
+		public ushort b;
+		/// <summary>
+		/// <para>Specifies the second group of 4 hexadecimal digits of the UUID.</para>
+		/// </summary>
+		public ushort c;
+		/// <summary>
+		/// <para>Array of eight elements. The first two elements contain the third group of 4 hexadecimal digits of the UUID. The remaining six elements contain the final 12 hexadecimal digits of the UUID.</para>
+		/// </summary>
+		public byte d, e, f, g, h, i, j, k;
 		
 		/// <summary>
 		/// Returns the a string representation of this instance.
@@ -48,7 +56,7 @@ namespace Monobjc.Foundation
 		/// </returns>
 		public override String ToString ()
 		{
-			return StringValue (this);
+			return ToGuid(this).ToString();
 		}
 	}
 }

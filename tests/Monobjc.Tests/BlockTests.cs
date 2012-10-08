@@ -79,57 +79,60 @@ namespace Monobjc
             int lastValue = 0;
             uint zeroIndex = 0;
 
-            // Enumerate wit a block: void (^)(id, NSUInteger, BOOL *)
-            Block block1 = this.GetBlock((Action<IntPtr, uint, IntPtr>) delegate(IntPtr ptr1, uint ui1, IntPtr ptr2)
-                                                                            {
-                                                                                int v = objc_sendMsg_int(ptr1, this.sel_intValue);
-                                                                                if (v == 0)
-                                                                                {
-                                                                                    // Store the index of the zero value and stop enumeration
-                                                                                    zeroIndex = ui1;
-                                                                                    Marshal.WriteInt32(ptr2, 1);
-                                                                                    return;
-                                                                                }
-                                                                                // Store value if non-zero. On exit, contains the last non-zero value
-                                                                                lastValue = v;
-                                                                            });
-            {
-                // Enumerate in forward order
-                Assert.AreNotEqual(IntPtr.Zero, block1.NativePointer, "Block native structure is nil");
-                objc_sendMsg_void_IntPtr(array, this.sel_enumerateObjectsUsingBlock, block1.NativePointer);
-                int index = Array.FindIndex(values, (v) => (v == 0));
-                Assert.AreEqual(index, zeroIndex, "Index of zero value is wrong");
-                Assert.AreEqual(values[index - 1], lastValue, "Last non-zero value is wrong");
-            }
-            block1.Dispose();
+//			// Enumerate wit a block: void (^)(id, NSUInteger, BOOL *)
+//			// TODO: Adapt to 64 bits
+//            Block block1 = this.GetBlock((Action<IntPtr, uint, IntPtr>) delegate(IntPtr ptr1, uint ui1, IntPtr ptr2)
+//                                                                            {
+//                                                                                int v = objc_sendMsg_int(ptr1, this.sel_intValue);
+//                                                                                if (v == 0)
+//                                                                                {
+//                                                                                    // Store the index of the zero value and stop enumeration
+//                                                                                    zeroIndex = ui1;
+//                                                                                    Marshal.WriteInt32(ptr2, 1);
+//                                                                                    return;
+//                                                                                }
+//                                                                                // Store value if non-zero. On exit, contains the last non-zero value
+//                                                                                lastValue = v;
+//                                                                            });
+//            {
+//                // Enumerate in forward order
+//                Assert.AreNotEqual(IntPtr.Zero, block1.NativePointer, "Block native structure is nil");
+//                objc_sendMsg_void_IntPtr(array, this.sel_enumerateObjectsUsingBlock, block1.NativePointer);
+//                int index = Array.FindIndex(values, (v) => (v == 0));
+//                Assert.AreEqual(index, zeroIndex, "Index of zero value is wrong");
+//                Assert.AreEqual(values[index - 1], lastValue, "Last non-zero value is wrong");
+//            }
+//            block1.Dispose();
 
-            // Enumerate wit a block: void (^)(id, NSUInteger, BOOL *)
-            Block block2 = this.GetBlock((Action<IntPtr, uint, IntPtr>) delegate(IntPtr ptr1, uint ui1, IntPtr ptr2)
-                                                                            {
-                                                                                int v = objc_sendMsg_int(ptr1, this.sel_intValue);
-                                                                                if (v == 0)
-                                                                                {
-                                                                                    // Store the index of the zero value and stop enumeration
-                                                                                    zeroIndex = ui1;
-                                                                                    Marshal.WriteInt32(ptr2, 1);
-                                                                                    return;
-                                                                                }
-                                                                                // Store value if non-zero. On exit, contains the last non-zero value
-                                                                                lastValue = v;
-                                                                            });
-            {
-                // Enumerate in backward order
-                Assert.AreNotEqual(IntPtr.Zero, block2.NativePointer, "Block native structure is nil");
-                objc_sendMsg_void_uint_IntPtr(array, this.sel_enumerateObjectsWithOptionsusingBlock, 2 /* NSEnumerateReverse */, block2.NativePointer);
-                int index = Array.FindIndex(values, (v) => (v == 0));
-                Assert.AreEqual(index, zeroIndex, "Index of zero value is wrong");
-                Assert.AreEqual(values[index + 1], lastValue, "Last non-zero value is wrong");
-            }
-            block2.Dispose();
+//          // Enumerate wit a block: void (^)(id, NSUInteger, BOOL *)
+//			// TODO: Adapt to 64 bits
+//			Block block2 = this.GetBlock((Action<IntPtr, uint, IntPtr>) delegate(IntPtr ptr1, uint ui1, IntPtr ptr2)
+//                                                                            {
+//                                                                                int v = objc_sendMsg_int(ptr1, this.sel_intValue);
+//                                                                                if (v == 0)
+//                                                                                {
+//                                                                                    // Store the index of the zero value and stop enumeration
+//                                                                                    zeroIndex = ui1;
+//                                                                                    Marshal.WriteInt32(ptr2, 1);
+//                                                                                    return;
+//                                                                                }
+//                                                                                // Store value if non-zero. On exit, contains the last non-zero value
+//                                                                                lastValue = v;
+//                                                                            });
+//            {
+//                // Enumerate in backward order
+//                Assert.AreNotEqual(IntPtr.Zero, block2.NativePointer, "Block native structure is nil");
+//				// TODO: Adapt to 64 bits
+//				objc_sendMsg_void_uint_IntPtr(array, this.sel_enumerateObjectsWithOptionsusingBlock, 2 /* NSEnumerateReverse */, block2.NativePointer);
+//                int index = Array.FindIndex(values, (v) => (v == 0));
+//                Assert.AreEqual(index, zeroIndex, "Index of zero value is wrong");
+//                Assert.AreEqual(values[index + 1], lastValue, "Last non-zero value is wrong");
+//            }
+//            block2.Dispose();
 
             // Release the array
             objc_sendMsg_void(array, this.sel_release);
-        }
+		}
 
         [Test]
         public void TestBlock02()

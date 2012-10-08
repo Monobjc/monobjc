@@ -15,15 +15,18 @@
 // You should have received a copy of the GNU General Public License
 // along with Monobjc.  If not, see <http://www.gnu.org/licenses/>.
 //
-using System.Reflection;
-using System.Resources;
-using System.Runtime.InteropServices;
+using System.Collections.Generic;
+using Monobjc.Foundation.Common;
+using NUnit.Framework;
 
-[assembly: AssemblyTitle("Monobjc Bridge - Unit Test Library")]
-[assembly: AssemblyDescription("Monobjc Bridge Unit Test Library")]
-[assembly: AssemblyCompany("Monobjc Project")]
-[assembly: AssemblyProduct("Monobjc Bridge Project")]
-[assembly: AssemblyCopyright("Copyright (c) Monobjc Project 2007-2012 - Licensed under Lesser General Public License")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-[assembly: NeutralResourcesLanguage("en-US")]
+namespace Monobjc.CoreLocation
+{
+	[TestFixture]
+    public class WrapperTests: AbstractWrapperTests
+    {
+        protected override IEnumerable<string> Frameworks
+        {
+			get { return new[] { "Foundation", "AppKit", "CoreLocation" }; }
+        }
+    }
+}

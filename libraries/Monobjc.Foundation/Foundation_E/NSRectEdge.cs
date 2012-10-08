@@ -20,52 +20,42 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-
-using Monobjc;
-using Monobjc.Foundation;
 using System;
 using System.CodeDom.Compiler;
 using System.Globalization;
 using System.Runtime.InteropServices;
 
-namespace Monobjc.CoreLocation
+using Monobjc;
+
+namespace Monobjc.Foundation
 {
-#if MACOSX_10_7
     /// <summary>
-    /// <para>Represents the current authorization state of the application.</para>
-    /// <para>Available in Mac OS X v10.7 and later.</para>
+	/// <para>Identifiers used by NSDivideRect to specify the edge of the input rectangle from which the division is measured.</para>
+    /// <para>Available in Mac OS X v10.0 and later.</para>
     /// </summary>
-    [GeneratedCodeAttribute("MonobjcGenerator", "4.0.0.0")]
-    public enum CLAuthorizationStatus : int
+    [ObjectiveCUnderlyingTypeAttribute(typeof(uint), Is64Bits = false)]
+    [ObjectiveCUnderlyingTypeAttribute(typeof(ulong), Is64Bits = true)]
+    public enum NSRectEdge : uint
     {
-#if MACOSX_10_7
         /// <summary>
-        /// <para>User has not yet made a choice with regards to this application</para>
-        /// <para>Available in Mac OS X v10.7 and later.</para>
+		/// <para>Specifies the left edge of the input rectangle. The input rectangle is divided vertically, and the leftmost rectangle with the width of amount is placed in slice.</para>
+        /// <para>Available in Mac OS X v10.0 and later.</para>
         /// </summary>
-        kCLAuthorizationStatusNotDetermined = 0,
-#endif
-#if MACOSX_10_7
+		NSMinXEdge = 0,
         /// <summary>
-        /// <para>This application is not authorized to use location services.  Due to active restrictions on location services, the user cannot change this status, and may not have personally denied authorization</para>
-        /// <para>Available in Mac OS X v10.7 and later.</para>
+		/// <para>Specifies the bottom edge of the input rectangle. The input rectangle is divided horizontally, and the bottom rectangle with the height of amount is placed in slice.</para>
+        /// <para>Available in Mac OS X v10.0 and later.</para>
         /// </summary>
-        kCLAuthorizationStatusRestricted,
-#endif
-#if MACOSX_10_7
+		NSMinYEdge = 1,
         /// <summary>
-        /// <para>User has explicitly denied authorization for this application, or location services are disabled in Settings</para>
-        /// <para>Available in Mac OS X v10.7 and later.</para>
+		/// <para>Specifies the right edge of the input rectangle. The input rectangle is divided vertically, and the rightmost rectangle with the width of amount is placed in slice.</para>
+        /// <para>Available in Mac OS X v10.0 and later.</para>
         /// </summary>
-        kCLAuthorizationStatusDenied,
-#endif
-#if MACOSX_10_7
+		NSMaxXEdge = 2,
         /// <summary>
-        /// <para>User has authorized this application to use location services</para>
-        /// <para>Available in Mac OS X v10.7 and later.</para>
+		/// <para>Specifies the top edge of the input rectangle. The input rectangle is divided horizontally, and the top rectangle with the height of amount is placed in slice.</para>
+        /// <para>Available in Mac OS X v10.0 and later.</para>
         /// </summary>
-        kCLAuthorizationStatusAuthorized,
-#endif
+		NSMaxYEdge = 3,
     }
-#endif
 }

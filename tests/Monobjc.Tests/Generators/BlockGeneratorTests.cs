@@ -22,8 +22,10 @@ using NUnit.Framework;
 
 namespace Monobjc.Generators
 {
-#if MACOSX_10_6 && HAVE_BLOCK_SUPPORT
-    [TestFixture]
+#if MACOSX_10_6
+	public delegate void CustomEnumerator (Id obj, ref bool stop);
+		
+	[TestFixture]
     [Category("Blocks")]
     [Category("Generators")]
     [Description("Test block proxies creation")]
@@ -70,6 +72,9 @@ namespace Monobjc.Generators
             this.TestBlock(typeof (Action<byte, ushort, uint, ulong>), typeof (Block_Void_Byte_UInt16_UInt32_UInt64), false);
             this.TestBlock(typeof (Action<TSWindingRule>), typeof (Block_Void_TSWindingRule), false);
             this.TestBlock(typeof (Action<IntPtr, Id, Class, String>), typeof (Block_Void_IntPtr_Id_Class_String), false);
+
+			// TODO: Handle custom delegate
+			//this.TestBlock(typeof(CustomEnumerator), typeof(Block_CustomEnumerator), false);
         }
 
         [Test]
@@ -115,7 +120,7 @@ namespace Monobjc.Generators
             counter = 70;
 
             // Test different type of parameter
-        }
+		}
 
         [Test]
         public void TestBlockGenerationForFuncVariableTypes32bits()
