@@ -34,7 +34,4 @@ using System.Reflection;
 #elif MACOSX_10_6
 [assembly: AssemblyVersionAttribute("10.6.0.0")]
 [assembly: AssemblyFileVersionAttribute("10.6.0.0")]
-#elif MACOSX_10_5
-[assembly: AssemblyVersionAttribute("10.5.0.0")]
-[assembly: AssemblyFileVersionAttribute("10.5.0.0")]
 #endif

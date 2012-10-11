@@ -11,17 +11,17 @@
           program="xbuild"
           failonerror="true"
           commandline="/property:Configuration=Release Monobjc.Generator.NAnt/Monobjc.Generator.NAnt.csproj"
-          unless="${file::exists(marker.file)}"
           >
           <!--
+          unless="${file::exists(marker.file)}"
           -->
     </exec>
     
     <nant buildfile="${tools.dir}/Monobjc.Generator.NAnt/bin/Release/Generate.build"
           target="copy-in-place"
-          unless="${file::exists(marker.file)}"
           >
           <!--
+          unless="${file::exists(marker.file)}"
           -->
     </nant>
 
@@ -128,20 +128,18 @@
     </fileset>
     <call target="build-library-intern"/>
 
-    <!-- Library Monobjc.DiscRecording 
+    <!-- Library Monobjc.DiscRecording -->
     <property name="lib.name" value="Monobjc.DiscRecording"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
-      <include name="${base.dir}/${lib.name}/DiscRecording_C/DR*.cs"/>
-      <exclude name="${base.dir}/${lib.name}/DiscRecording_C/DRContent*.cs"/>
-      <exclude name="${base.dir}/${lib.name}/DiscRecording_C/DRCore*.cs"/>
+      <include name="${base.dir}/${lib.name}/DiscRecording_C/*.cs"/>
       <include name="${base.dir}/${lib.name}/DiscRecording_E/*.cs"/>
       <include name="${base.dir}/${lib.name}/DiscRecording_Extensions/*.cs"/>
       <include name="${base.dir}/${lib.name}/DiscRecording_P/*.cs"/>
+      <include name="${base.dir}/${lib.name}/DiscRecording_T/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
-    -->
 
     <!-- Library Monobjc.OpenGL 
     <property name="lib.name" value="Monobjc.OpenGL"/>
