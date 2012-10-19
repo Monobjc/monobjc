@@ -154,7 +154,7 @@
     <call target="build-library-intern"/>
     -->
 
-    <!-- Library Monobjc.Security 
+    <!-- Library Monobjc.Security -->
     <property name="lib.name" value="Monobjc.Security"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -164,9 +164,8 @@
       <include name="${base.dir}/${lib.name}/Security_T/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
-    -->
 
-    <!-- Library Monobjc.ScriptingBridge 
+    <!-- Library Monobjc.ScriptingBridge -->
     <property name="lib.name" value="Monobjc.ScriptingBridge"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -176,9 +175,8 @@
       <include name="${base.dir}/${lib.name}/ScriptingBridge_P/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
-    -->
 
-    <!-- Library Monobjc.StoreKit 
+    <!-- Library Monobjc.StoreKit -->
     <property name="lib.name" value="Monobjc.StoreKit"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -188,7 +186,6 @@
       <include name="${base.dir}/${lib.name}/StoreKit_T/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
-    -->
 
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>

@@ -26,8 +26,8 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Monobjc Bridge - DiscRecordingUI Library")]
-[assembly: AssemblyDescription("Monobjc Bridge DiscRecordingUI Library")]
+[assembly: AssemblyTitle("Monobjc Bridge - GLKit Library")]
+[assembly: AssemblyDescription("Monobjc Bridge GLKit Library")]
 [assembly: AssemblyCompany("Monobjc Project")]
 [assembly: AssemblyProduct("Monobjc Bridge Project")]
 [assembly: AssemblyCopyright("Copyright (c) Monobjc Project 2007-2012 - Licensed under MIT License")]
@@ -35,8 +35,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en-US")]
 [assembly: ComVisible(false)]
-[assembly: Guid("a215c794-9cc4-81c8-ba4b-a3caf3c8bbeb")]
+[assembly: Guid("db5e8d3a-927d-7147-e6de-0f8a6d90ab69")]
 
 #if TESTING
-[assembly: InternalsVisibleTo("Monobjc.DiscRecordingUI.Tests")]
+[assembly: InternalsVisibleTo("Monobjc.GLKit.Tests")]
 #endif
