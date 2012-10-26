@@ -12,12 +12,11 @@
     <AssemblyName>Monobjc.CoreMidi</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
+    <DebugSymbols>True</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>False</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -25,7 +24,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>True</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -57,7 +56,7 @@
       <Name>Monobjc.Foundation</Name>
     </ProjectReference>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">
-      <Project>{4DD0F95F-370D-4890-A4CC-CE77D1399817}</Project>
+      <Project>{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}</Project>
       <Name>Monobjc</Name>
     </ProjectReference>
   </ItemGroup>

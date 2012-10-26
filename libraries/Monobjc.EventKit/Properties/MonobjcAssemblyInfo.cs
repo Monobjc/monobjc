@@ -20,23 +20,19 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using System;
+using Monobjc;
 using System.Reflection;
-using System.Resources;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Monobjc Bridge - Sparkle Library")]
-[assembly: AssemblyDescription("Monobjc Bridge Sparkle Library")]
-[assembly: AssemblyCompany("Monobjc Project")]
-[assembly: AssemblyProduct("Monobjc Bridge Project")]
-[assembly: AssemblyCopyright("Copyright (c) Monobjc Project 2007-2012 - Licensed under MIT License")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-[assembly: NeutralResourcesLanguage("en-US")]
-[assembly: ComVisible(false)]
-[assembly: Guid("777d49e5-aa9a-5ac4-8a61-2311ba24d404")]
+[assembly: ObjectiveCFramework("DiscRecording", true)]
+[assembly: AssemblyConfigurationAttribute("Release")]
 
-#if TESTING
-[assembly: InternalsVisibleTo("Monobjc.Sparkle.Tests")]
+#if MACOSX_10_8
+[assembly: AssemblyVersionAttribute("10.8.0.0")]
+[assembly: AssemblyFileVersionAttribute("10.8.0.0")]
+#elif MACOSX_10_7
+[assembly: AssemblyVersionAttribute("10.7.0.0")]
+[assembly: AssemblyFileVersionAttribute("10.7.0.0")]
+#elif MACOSX_10_6
+[assembly: AssemblyVersionAttribute("10.6.0.0")]
+[assembly: AssemblyFileVersionAttribute("10.6.0.0")]
 #endif
