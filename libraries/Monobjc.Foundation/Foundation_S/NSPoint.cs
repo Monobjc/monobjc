@@ -23,6 +23,7 @@
 using System;
 using System.Globalization;
 using System.Runtime.InteropServices;
+using Monobjc.ApplicationServices;
 
 namespace Monobjc.Foundation
 {
@@ -49,7 +50,7 @@ namespace Monobjc.Foundation
         /// </summary>
         /// <param name="x">The x coordinate.</param>
         /// <param name="y">The y coordinate.</param>
-        public NSPoint(float x, float y)
+		public NSPoint(CGFloat x, CGFloat y)
         {
             this.x = x;
             this.y = y;

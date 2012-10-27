@@ -46,7 +46,7 @@ namespace Monobjc.Foundation
         /// </summary>
         /// <param name="location">The location.</param>
         /// <param name="length">The length.</param>
-        public NSRange64(ulong location, ulong length)
+		public NSRange64(NSUInteger location, NSUInteger length)
         {
             this.location = location;
             this.length = length;

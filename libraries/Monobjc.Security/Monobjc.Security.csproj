@@ -54,6 +54,9 @@
     <Compile Include="Security_T\KeyChain.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Security_Extensions\Delegates.cs" />
+    <Compile Include="Security_S\SecItemImportExportKeyParameters.cs" />
+    <Compile Include="Security_S\SecKeyImportExportParameters.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">

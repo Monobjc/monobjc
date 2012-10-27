@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 // 
 using System.Runtime.InteropServices;
+using Monobjc.ApplicationServices;
 
 namespace Monobjc.Foundation
 {
@@ -46,7 +47,7 @@ namespace Monobjc.Foundation
         /// </summary>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        public NSSize64(double width, double height)
+		public NSSize64(CGFloat width, CGFloat height)
         {
             this.width = width;
             this.height = height;

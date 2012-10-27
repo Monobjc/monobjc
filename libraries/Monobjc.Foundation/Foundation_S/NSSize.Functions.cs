@@ -66,8 +66,8 @@ namespace Monobjc.Foundation
         /// Creates a new NSSize from the specified values.
         /// </summary>
         /// <remarks>Original declaration is : NSSize NSMakeSize(float width, float height)</remarks>
-        public static NSSize NSMakeSize(float width,
-                                        float height)
+		public static NSSize NSMakeSize(CGFloat width,
+		                                CGFloat height)
         {
             return new NSSize(width, height);
         }

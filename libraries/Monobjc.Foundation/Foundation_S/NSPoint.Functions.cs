@@ -66,8 +66,8 @@ namespace Monobjc.Foundation
         /// Creates a new NSPoint from the specified values.
         /// </summary>
         /// <remarks>Original declaration is : NSPoint NSMakePoint(float x, float y)</remarks>
-        public static NSPoint NSMakePoint(float x,
-                                          float y)
+		public static NSPoint NSMakePoint(CGFloat x,
+		                                  CGFloat y)
         {
             return new NSPoint(x, y);
         }

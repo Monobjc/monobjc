@@ -20,35 +20,43 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using System;
-using System.Runtime.InteropServices;
+using Monobjc.ApplicationServices;
 
 namespace Monobjc.Foundation
 {
 	/// <summary>
-	/// Used to describe a decimal number.
+	/// Extension method to go back and forth between NSXXX and CGXXX structures.
 	/// </summary>
-	[StructLayout(LayoutKind.Sequential)]
-	public partial struct NSDecimal
+	public static class GeometryExtensions
 	{
-		/// <summary>
-		/// <para>A 32 bit field that contains: the exponent (8 bits), the length (4 bits), whether this instance is negative (1 bit), whether this instance is compact (1 bit) and 18 bits reserved for future use.</para>
-		/// </summary>
-		public int fields;
-		/// <summary>
-		/// The mantissa
-		/// </summary>
-		public ushort mantissa1, mantissa2, mantissa3, mantissa4, mantissa5, mantissa6, mantissa7, mantissa8;
-		
-		/// <summary>
-		/// Returns the a string representation of this instance.
-		/// </summary>
-		/// <returns>
-		/// A <see cref="T:System.String"></see> containing a representation of this instance.
-		/// </returns>
-		public override String ToString ()
+		public static NSPoint ToNSPoint (this CGPoint origin)
 		{
-			return StringValue (this);
+			return new NSPoint (origin.x, origin.y);
+		}
+		
+		public static CGPoint ToCGPoint (this NSPoint origin)
+		{
+			return new CGPoint (origin.x, origin.y);
+		}
+
+		public static NSSize ToNSSize (this CGSize size)
+		{
+			return new NSSize (size.width, size.height);
+		}
+		
+		public static CGSize ToCGSize (this NSSize size)
+		{
+			return new CGSize (size.width, size.height);
+		}
+
+		public static NSRect ToNSRect (this CGRect rect)
+		{
+			return new NSRect (rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
+		}
+
+		public static CGRect ToCGRect (this NSRect rect)
+		{
+			return new CGRect (rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
 		}
 	}
 }

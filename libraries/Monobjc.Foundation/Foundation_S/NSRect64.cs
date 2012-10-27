@@ -22,6 +22,7 @@
 // 
 using System;
 using System.Runtime.InteropServices;
+using Monobjc.ApplicationServices;
 
 namespace Monobjc.Foundation
 {
@@ -60,7 +61,7 @@ namespace Monobjc.Foundation
         /// <param name="y">The y.</param>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        public NSRect64(double x, double y, double width, double height)
+		public NSRect64(CGFloat x, CGFloat y, CGFloat width, CGFloat height)
         {
             this.origin.x = x;
             this.origin.y = y;

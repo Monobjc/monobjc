@@ -38,6 +38,7 @@ namespace Monobjc.Foundation
 		/// </summary>
 		/// <param name="cgrect">The <see cref="CGRect"/> to convert.</param>
 		/// <returns>A new <see cref="NSRect"/> instance.</returns>
+		[Obsolete("Use ToNSRect extension method instead.")]
 		public static NSRect NSRectFromCGRect(CGRect cgrect)
 		{
 			return NSMakeRect(cgrect.origin.x, cgrect.origin.y, cgrect.size.width, cgrect.size.height);
@@ -48,6 +49,7 @@ namespace Monobjc.Foundation
 		/// </summary>
 		/// <param name="nsrect">The <see cref="NSRect"/> to convert.</param>
 		/// <returns>A new <see cref="CGRect"/> instance.</returns>
+		[Obsolete("Use ToCGRect extension method instead.")]
 		public static CGRect NSRectToCGRect(NSRect nsrect)
 		{
 			return CGRect.CGRectMake(nsrect.origin.x, nsrect.origin.y, nsrect.size.width, nsrect.size.height);
@@ -71,10 +73,10 @@ namespace Monobjc.Foundation
         /// </summary>
         /// <remarks>Original declaration is : void NSDivideRect(NSRect inRect, NSRect *slice, NSRect *remainder, float amount, NSRectEdge edge)</remarks>
         public static void NSDivideRect(NSRect inRect,
-                                               ref NSRect slice,
-                                               ref NSRect remainder,
-                                               float amount,
-                                               NSRectEdge edge)
+		                                ref NSRect slice,
+		                                ref NSRect remainder,
+		                                CGFloat amount,
+		                                NSRectEdge edge)
         {
             if (NSIsEmptyRect(inRect))
             {
@@ -265,7 +267,7 @@ namespace Monobjc.Foundation
         /// Returns the largest x coordinate of a given rectangle.
         /// </summary>
         /// <remarks>Original declaration is : float NSMaxX(NSRect aRect)</remarks>
-        public static float NSMaxX(NSRect aRect)
+        public static CGFloat NSMaxX(NSRect aRect)
         {
             return (aRect.origin.x + aRect.size.width);
         }
@@ -274,7 +276,7 @@ namespace Monobjc.Foundation
         /// Returns the largest y coordinate of a given rectangle.
         /// </summary>
         /// <remarks>Original declaration is : float NSMaxY(NSRect aRect)</remarks>
-        public static float NSMaxY(NSRect aRect)
+		public static CGFloat NSMaxY(NSRect aRect)
         {
             return (aRect.origin.y + aRect.size.height);
         }
@@ -283,7 +285,7 @@ namespace Monobjc.Foundation
         /// Returns the x coordinate of a given rectangle’s midpoint.
         /// </summary>
         /// <remarks>Original declaration is : float NSMidX(NSRect aRect)</remarks>
-        public static float NSMidX(NSRect aRect)
+		public static CGFloat NSMidX(NSRect aRect)
         {
             return (aRect.origin.x + aRect.size.width / 2.0f);
         }
@@ -292,7 +294,7 @@ namespace Monobjc.Foundation
         /// Returns the y coordinate of a given rectangle’s midpoint.
         /// </summary>
         /// <remarks>Original declaration is : float NSMidY(NSRect aRect)</remarks>
-        public static float NSMidY(NSRect aRect)
+		public static CGFloat NSMidY(NSRect aRect)
         {
             return (aRect.origin.y + aRect.size.height / 2.0f);
         }
@@ -301,7 +303,7 @@ namespace Monobjc.Foundation
         /// Returns the smallest x coordinate of a given rectangle.
         /// </summary>
         /// <remarks>Original declaration is : float NSMinX(NSRect aRect)</remarks>
-        public static float NSMinX(NSRect aRect)
+		public static CGFloat NSMinX(NSRect aRect)
         {
             return (aRect.origin.x);
         }
@@ -310,7 +312,7 @@ namespace Monobjc.Foundation
         /// Returns the smallest y coordinate of a given rectangle.
         /// </summary>
         /// <remarks>Original declaration is : float NSMinY(NSRect aRect)</remarks>
-        public static float NSMinY(NSRect aRect)
+		public static CGFloat NSMinY(NSRect aRect)
         {
             return (aRect.origin.y);
         }
@@ -336,7 +338,7 @@ namespace Monobjc.Foundation
         /// Offsets the rectangle by the specified amount.
         /// </summary>
         /// <remarks>Original declaration is : NSRect NSOffsetRect(NSRect aRect, float dX, float dY)</remarks>
-        public static NSRect NSOffsetRect(NSRect aRect, float dX, float dY)
+		public static NSRect NSOffsetRect(NSRect aRect, CGFloat dX, CGFloat dY)
         {
             NSRect result = aRect;
             result.origin.x += dX;

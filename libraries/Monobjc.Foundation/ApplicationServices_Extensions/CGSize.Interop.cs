@@ -52,7 +52,7 @@ namespace Monobjc.ApplicationServices
         /// <param name="size">The size.</param>
         /// <param name="factor">The factor.</param>
         /// <returns></returns>
-        public static CGSize Multiply(CGSize size, float factor)
+		public static CGSize Multiply(CGSize size, CGFloat factor)
         {
             return new CGSize(size.width*factor, size.height*factor);
         }
@@ -63,7 +63,7 @@ namespace Monobjc.ApplicationServices
         /// <param name="size">The size.</param>
         /// <param name="factor">The factor.</param>
         /// <returns></returns>
-        public static CGSize Divide(CGSize size, float factor)
+		public static CGSize Divide(CGSize size, CGFloat factor)
         {
             return new CGSize(size.width/factor, size.height/factor);
         }
@@ -96,7 +96,7 @@ namespace Monobjc.ApplicationServices
         /// <param name="size">The size.</param>
         /// <param name="factor">The factor.</param>
         /// <returns>The result of the operator.</returns>
-        public static CGSize operator *(CGSize size, float factor)
+		public static CGSize operator *(CGSize size, CGFloat factor)
         {
             return Multiply(size, factor);
         }
@@ -107,7 +107,7 @@ namespace Monobjc.ApplicationServices
         /// <param name="size">The size.</param>
         /// <param name="factor">The factor.</param>
         /// <returns>The result of the operator.</returns>
-        public static CGSize operator /(CGSize size, float factor)
+		public static CGSize operator /(CGSize size, CGFloat factor)
         {
             return Divide(size, factor);
         }
