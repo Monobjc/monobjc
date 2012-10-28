@@ -32,6 +32,12 @@ namespace Monobjc.Foundation
 	public partial struct NSInteger
 	{
 		/// <summary>
+		/// <para>Defines a value that indicates that an item requested couldn’t be found or doesn’t exist.</para>
+		/// <para>Available in Mac OS X v10.0 and later.</para>
+		/// </summary>
+		public static readonly NSInteger NSIntegerMax = ObjectiveCRuntime.Is64Bits ? UInt32.MaxValue : Int32.MaxValue;
+
+		/// <summary>
 		/// The wrapped value.
 		/// </summary>
 		public int value;

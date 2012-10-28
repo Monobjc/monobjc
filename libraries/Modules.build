@@ -160,6 +160,7 @@
       <include name="${base.dir}/${lib.name}/*.cs"/>
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
       <include name="${base.dir}/${lib.name}/Security_E/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Security_Extensions/*.cs"/>
       <include name="${base.dir}/${lib.name}/Security_S/*.cs"/>
       <include name="${base.dir}/${lib.name}/Security_T/*.cs"/>
     </fileset>
@@ -195,7 +196,7 @@
       <include name="Monobjc.Security.dll"/>
     </assemblyfileset>
     
-    <!-- Library Monobjc.SecurityFoundation 
+    <!-- Library Monobjc.SecurityFoundation -->
     <property name="lib.name" value="Monobjc.SecurityFoundation"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -206,7 +207,6 @@
       <exclude name="${base.dir}/${lib.name}/SecurityFoundation_T/KeyChainServices.cs"/>
     </fileset>
     <call target="build-library-intern"/>
-    -->
 
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
@@ -217,7 +217,7 @@
       <include name="Monobjc.SecurityFoundation.dll"/>
     </assemblyfileset>
     
-    <!-- Library Monobjc.CoreWLAN 
+    <!-- Library Monobjc.CoreWLAN -->
     <property name="lib.name" value="Monobjc.CoreWLAN"/>
     <fileset id="src.references" basedir="${output.dir}">
       <include name="${base.dir}/${lib.name}/*.cs"/>
@@ -226,7 +226,6 @@
       <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
     </fileset>
     <call target="build-library-intern"/>
-    -->
 
     <assemblyfileset id="lib.references" basedir="${output.dir}">
       <include name="System.dll"/>
