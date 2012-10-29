@@ -128,6 +128,17 @@
     </fileset>
     <call target="build-library-intern"/>
 
+    <!-- Library Monobjc.Accounts -->
+    <property name="lib.name" value="Monobjc.Accounts"/>
+    <fileset id="src.references" basedir="${output.dir}">
+      <include name="${base.dir}/${lib.name}/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Properties/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Accounts_C/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Accounts_Extensions/*.cs"/>
+      <include name="${base.dir}/${lib.name}/Accounts_T/*.cs"/>
+    </fileset>
+    <call target="build-library-intern"/>
+
     <!-- Library Monobjc.DiscRecording -->
     <property name="lib.name" value="Monobjc.DiscRecording"/>
     <fileset id="src.references" basedir="${output.dir}">

@@ -33,4 +33,103 @@
     <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="GameKit_C\GKAchievement.Class.cs" />
+    <Compile Include="GameKit_C\GKAchievement.Constructors.cs" />
+    <Compile Include="GameKit_C\GKAchievement.cs" />
+    <Compile Include="GameKit_C\GKAchievement.Protocols.cs" />
+    <Compile Include="GameKit_C\GKAchievementDescription.Class.cs" />
+    <Compile Include="GameKit_C\GKAchievementDescription.Constructors.cs" />
+    <Compile Include="GameKit_C\GKAchievementDescription.cs" />
+    <Compile Include="GameKit_C\GKAchievementDescription.Protocols.cs" />
+    <Compile Include="GameKit_C\GKAchievementViewController.Class.cs" />
+    <Compile Include="GameKit_C\GKAchievementViewController.Constructors.cs" />
+    <Compile Include="GameKit_C\GKAchievementViewController.cs" />
+    <Compile Include="GameKit_C\GKAchievementViewController.Protocols.cs" />
+    <Compile Include="GameKit_C\GKDialogController.Class.cs" />
+    <Compile Include="GameKit_C\GKDialogController.Constants.cs" />
+    <Compile Include="GameKit_C\GKDialogController.Constructors.cs" />
+    <Compile Include="GameKit_C\GKDialogController.cs" />
+    <Compile Include="GameKit_C\GKDialogController.Protocols.cs" />
+    <Compile Include="GameKit_C\GKFriendRequestComposeViewController.Class.cs" />
+    <Compile Include="GameKit_C\GKFriendRequestComposeViewController.Constructors.cs" />
+    <Compile Include="GameKit_C\GKFriendRequestComposeViewController.cs" />
+    <Compile Include="GameKit_C\GKFriendRequestComposeViewController.Protocols.cs" />
+    <Compile Include="GameKit_C\GKInvite.Class.cs" />
+    <Compile Include="GameKit_C\GKInvite.cs" />
+    <Compile Include="GameKit_C\GKLeaderboard.Class.cs" />
+    <Compile Include="GameKit_C\GKLeaderboard.Constants.cs" />
+    <Compile Include="GameKit_C\GKLeaderboard.Constructors.cs" />
+    <Compile Include="GameKit_C\GKLeaderboard.cs" />
+    <Compile Include="GameKit_C\GKLeaderboardViewController.Class.cs" />
+    <Compile Include="GameKit_C\GKLeaderboardViewController.Constructors.cs" />
+    <Compile Include="GameKit_C\GKLeaderboardViewController.cs" />
+    <Compile Include="GameKit_C\GKLeaderboardViewController.Protocols.cs" />
+    <Compile Include="GameKit_C\GKLocalPlayer.Class.cs" />
+    <Compile Include="GameKit_C\GKLocalPlayer.Constants.cs" />
+    <Compile Include="GameKit_C\GKLocalPlayer.cs" />
+    <Compile Include="GameKit_C\GKMatch.Class.cs" />
+    <Compile Include="GameKit_C\GKMatch.Constants.cs" />
+    <Compile Include="GameKit_C\GKMatch.cs" />
+    <Compile Include="GameKit_C\GKMatchmaker.Class.cs" />
+    <Compile Include="GameKit_C\GKMatchmaker.cs" />
+    <Compile Include="GameKit_C\GKMatchmakerViewController.Class.cs" />
+    <Compile Include="GameKit_C\GKMatchmakerViewController.Constructors.cs" />
+    <Compile Include="GameKit_C\GKMatchmakerViewController.cs" />
+    <Compile Include="GameKit_C\GKMatchmakerViewController.Protocols.cs" />
+    <Compile Include="GameKit_C\GKMatchRequest.Class.cs" />
+    <Compile Include="GameKit_C\GKMatchRequest.cs" />
+    <Compile Include="GameKit_C\GKNotificationBanner.Class.cs" />
+    <Compile Include="GameKit_C\GKNotificationBanner.cs" />
+    <Compile Include="GameKit_C\GKPlayer.Class.cs" />
+    <Compile Include="GameKit_C\GKPlayer.Constants.cs" />
+    <Compile Include="GameKit_C\GKPlayer.cs" />
+    <Compile Include="GameKit_C\GKScore.Class.cs" />
+    <Compile Include="GameKit_C\GKScore.Constructors.cs" />
+    <Compile Include="GameKit_C\GKScore.cs" />
+    <Compile Include="GameKit_C\GKScore.Protocols.cs" />
+    <Compile Include="GameKit_C\GKTurnBasedEventHandler.Class.cs" />
+    <Compile Include="GameKit_C\GKTurnBasedEventHandler.cs" />
+    <Compile Include="GameKit_C\GKTurnBasedMatch.Class.cs" />
+    <Compile Include="GameKit_C\GKTurnBasedMatch.Constants.cs" />
+    <Compile Include="GameKit_C\GKTurnBasedMatch.cs" />
+    <Compile Include="GameKit_C\GKTurnBasedMatchmakerViewController.Class.cs" />
+    <Compile Include="GameKit_C\GKTurnBasedMatchmakerViewController.Constructors.cs" />
+    <Compile Include="GameKit_C\GKTurnBasedMatchmakerViewController.cs" />
+    <Compile Include="GameKit_C\GKTurnBasedMatchmakerViewController.Protocols.cs" />
+    <Compile Include="GameKit_C\GKTurnBasedParticipant.Class.cs" />
+    <Compile Include="GameKit_C\GKTurnBasedParticipant.Constants.cs" />
+    <Compile Include="GameKit_C\GKTurnBasedParticipant.cs" />
+    <Compile Include="GameKit_C\GKVoiceChat.Class.cs" />
+    <Compile Include="GameKit_C\GKVoiceChat.Constants.cs" />
+    <Compile Include="GameKit_C\GKVoiceChat.cs" />
+    <Compile Include="GameKit_P\GKAchievementViewController.Delegate.cs" />
+    <Compile Include="GameKit_P\GKAchievementViewControllerDelegate.Protocol.cs" />
+    <Compile Include="GameKit_P\GKFriendRequestComposeViewController.Delegate.cs" />
+    <Compile Include="GameKit_P\GKFriendRequestComposeViewControllerDelegate.Protocol.cs" />
+    <Compile Include="GameKit_P\GKLeaderboardViewController.Delegate.cs" />
+    <Compile Include="GameKit_P\GKLeaderboardViewControllerDelegate.Protocol.cs" />
+    <Compile Include="GameKit_P\GKMatch.Delegate.cs" />
+    <Compile Include="GameKit_P\GKMatchDelegate.Constants.cs" />
+    <Compile Include="GameKit_P\GKMatchDelegate.Protocol.cs" />
+    <Compile Include="GameKit_P\GKMatchmakerViewController.Delegate.cs" />
+    <Compile Include="GameKit_P\GKMatchmakerViewControllerDelegate.Protocol.cs" />
+    <Compile Include="GameKit_P\GKTurnBasedEventHandler.Delegate.cs" />
+    <Compile Include="GameKit_P\GKTurnBasedEventHandlerDelegate.Protocol.cs" />
+    <Compile Include="GameKit_P\GKTurnBasedMatchmakerViewController.Delegate.cs" />
+    <Compile Include="GameKit_P\GKTurnBasedMatchmakerViewControllerDelegate.Protocol.cs" />
+    <Compile Include="GameKit_T\GameKitFramework.Constants.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Monobjc\Monobjc.csproj">
+      <Project>{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}</Project>
+      <Name>Monobjc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
+      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
+      <Name>Monobjc.Foundation</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

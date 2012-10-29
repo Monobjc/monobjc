@@ -23,7 +23,7 @@
 using Monobjc;
 using System.Reflection;
 
-[assembly: ObjectiveCFramework("WebKit", true)]
+[assembly: ObjectiveCFramework("Social", true)]
 [assembly: AssemblyConfigurationAttribute("Release")]
 
 #if MACOSX_10_8

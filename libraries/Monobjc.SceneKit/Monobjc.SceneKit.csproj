@@ -33,4 +33,108 @@
     <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SceneKit_C\SCNBox.Class.cs" />
+    <Compile Include="SceneKit_C\SCNBox.cs" />
+    <Compile Include="SceneKit_C\SCNBox.Protocols.cs" />
+    <Compile Include="SceneKit_C\SCNCamera.Class.cs" />
+    <Compile Include="SceneKit_C\SCNCamera.cs" />
+    <Compile Include="SceneKit_C\SCNCamera.Protocols.cs" />
+    <Compile Include="SceneKit_C\SCNCapsule.Class.cs" />
+    <Compile Include="SceneKit_C\SCNCapsule.cs" />
+    <Compile Include="SceneKit_C\SCNCapsule.Protocols.cs" />
+    <Compile Include="SceneKit_C\SCNCone.Class.cs" />
+    <Compile Include="SceneKit_C\SCNCone.cs" />
+    <Compile Include="SceneKit_C\SCNCone.Protocols.cs" />
+    <Compile Include="SceneKit_C\SCNCylinder.Class.cs" />
+    <Compile Include="SceneKit_C\SCNCylinder.cs" />
+    <Compile Include="SceneKit_C\SCNCylinder.Protocols.cs" />
+    <Compile Include="SceneKit_C\SCNFloor.Class.cs" />
+    <Compile Include="SceneKit_C\SCNFloor.cs" />
+    <Compile Include="SceneKit_C\SCNFloor.Protocols.cs" />
+    <Compile Include="SceneKit_C\SCNGeometry.Class.cs" />
+    <Compile Include="SceneKit_C\SCNGeometry.cs" />
+    <Compile Include="SceneKit_C\SCNGeometry.Protocols.cs" />
+    <Compile Include="SceneKit_C\SCNGeometryElement.Class.cs" />
+    <Compile Include="SceneKit_C\SCNGeometryElement.Constants.cs" />
+    <Compile Include="SceneKit_C\SCNGeometryElement.cs" />
+    <Compile Include="SceneKit_C\SCNGeometrySource.Class.cs" />
+    <Compile Include="SceneKit_C\SCNGeometrySource.cs" />
+    <Compile Include="SceneKit_C\SCNHitTestResult.Class.cs" />
+    <Compile Include="SceneKit_C\SCNHitTestResult.cs" />
+    <Compile Include="SceneKit_C\SCNLayer.Class.cs" />
+    <Compile Include="SceneKit_C\SCNLayer.Constructors.cs" />
+    <Compile Include="SceneKit_C\SCNLayer.cs" />
+    <Compile Include="SceneKit_C\SCNLayer.Protocols.cs" />
+    <Compile Include="SceneKit_C\SCNLight.Class.cs" />
+    <Compile Include="SceneKit_C\SCNLight.Constants.cs" />
+    <Compile Include="SceneKit_C\SCNLight.cs" />
+    <Compile Include="SceneKit_C\SCNLight.Protocols.cs" />
+    <Compile Include="SceneKit_C\SCNMaterial.Class.cs" />
+    <Compile Include="SceneKit_C\SCNMaterial.Constants.cs" />
+    <Compile Include="SceneKit_C\SCNMaterial.cs" />
+    <Compile Include="SceneKit_C\SCNMaterial.Protocols.cs" />
+    <Compile Include="SceneKit_C\SCNMaterialProperty.Class.cs" />
+    <Compile Include="SceneKit_C\SCNMaterialProperty.Constants.cs" />
+    <Compile Include="SceneKit_C\SCNMaterialProperty.cs" />
+    <Compile Include="SceneKit_C\SCNMaterialProperty.Protocols.cs" />
+    <Compile Include="SceneKit_C\SCNNode.Class.cs" />
+    <Compile Include="SceneKit_C\SCNNode.cs" />
+    <Compile Include="SceneKit_C\SCNNode.Protocols.cs" />
+    <Compile Include="SceneKit_C\SCNPlane.Class.cs" />
+    <Compile Include="SceneKit_C\SCNPlane.cs" />
+    <Compile Include="SceneKit_C\SCNPlane.Protocols.cs" />
+    <Compile Include="SceneKit_C\SCNProgram.Class.cs" />
+    <Compile Include="SceneKit_C\SCNProgram.Constants.cs" />
+    <Compile Include="SceneKit_C\SCNProgram.cs" />
+    <Compile Include="SceneKit_C\SCNProgram.Protocols.cs" />
+    <Compile Include="SceneKit_C\SCNPyramid.Class.cs" />
+    <Compile Include="SceneKit_C\SCNPyramid.cs" />
+    <Compile Include="SceneKit_C\SCNPyramid.Protocols.cs" />
+    <Compile Include="SceneKit_C\SCNScene.Class.cs" />
+    <Compile Include="SceneKit_C\SCNScene.Constants.cs" />
+    <Compile Include="SceneKit_C\SCNScene.cs" />
+    <Compile Include="SceneKit_C\SCNSceneSource.Class.cs" />
+    <Compile Include="SceneKit_C\SCNSceneSource.Constants.cs" />
+    <Compile Include="SceneKit_C\SCNSceneSource.Constructors.cs" />
+    <Compile Include="SceneKit_C\SCNSceneSource.cs" />
+    <Compile Include="SceneKit_C\SCNSphere.Class.cs" />
+    <Compile Include="SceneKit_C\SCNSphere.cs" />
+    <Compile Include="SceneKit_C\SCNSphere.Protocols.cs" />
+    <Compile Include="SceneKit_C\SCNText.Class.cs" />
+    <Compile Include="SceneKit_C\SCNText.cs" />
+    <Compile Include="SceneKit_C\SCNText.Protocols.cs" />
+    <Compile Include="SceneKit_C\SCNTorus.Class.cs" />
+    <Compile Include="SceneKit_C\SCNTorus.cs" />
+    <Compile Include="SceneKit_C\SCNTorus.Protocols.cs" />
+    <Compile Include="SceneKit_C\SCNTransaction.Class.cs" />
+    <Compile Include="SceneKit_C\SCNTransaction.cs" />
+    <Compile Include="SceneKit_C\SCNTube.Class.cs" />
+    <Compile Include="SceneKit_C\SCNTube.cs" />
+    <Compile Include="SceneKit_C\SCNTube.Protocols.cs" />
+    <Compile Include="SceneKit_C\SCNView.Class.cs" />
+    <Compile Include="SceneKit_C\SCNView.Constructors.cs" />
+    <Compile Include="SceneKit_C\SCNView.cs" />
+    <Compile Include="SceneKit_C\SCNView.Protocols.cs" />
+    <Compile Include="SceneKit_P\SCNAnimatable.Protocol.cs" />
+    <Compile Include="SceneKit_P\SCNBoundingVolume.Protocol.cs" />
+    <Compile Include="SceneKit_P\SCNNodeRendererDelegate.Protocol.cs" />
+    <Compile Include="SceneKit_P\SCNProgram.Delegate.cs" />
+    <Compile Include="SceneKit_P\SCNProgramDelegate.Protocol.cs" />
+    <Compile Include="SceneKit_P\SCNSceneRenderer.Constants.cs" />
+    <Compile Include="SceneKit_P\SCNSceneRenderer.Protocol.cs" />
+    <Compile Include="SceneKit_P\SCNSceneRendererDelegate.Protocol.cs" />
+    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Monobjc\Monobjc.csproj">
+      <Project>{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}</Project>
+      <Name>Monobjc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
+      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
+      <Name>Monobjc.Foundation</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

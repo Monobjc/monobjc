@@ -23,7 +23,7 @@
 using Monobjc;
 using System.Reflection;
 
-[assembly: ObjectiveCFramework("DiscRecording", true)]
+[assembly: ObjectiveCFramework("EventKit", true)]
 [assembly: AssemblyConfigurationAttribute("Release")]
 
 #if MACOSX_10_8

@@ -20,19 +20,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using Monobjc;
-using System.Reflection;
+using System;
+using Monobjc.Foundation;
 
-[assembly: ObjectiveCFramework("WebKit", true)]
-[assembly: AssemblyConfigurationAttribute("Release")]
-
-#if MACOSX_10_8
-[assembly: AssemblyVersionAttribute("10.8.0.0")]
-[assembly: AssemblyFileVersionAttribute("10.8.0.0")]
-#elif MACOSX_10_7
-[assembly: AssemblyVersionAttribute("10.7.0.0")]
-[assembly: AssemblyFileVersionAttribute("10.7.0.0")]
-#elif MACOSX_10_6
-[assembly: AssemblyVersionAttribute("10.6.0.0")]
-[assembly: AssemblyFileVersionAttribute("10.6.0.0")]
-#endif
+namespace Monobjc.Social
+{
+	public delegate void SLRequestHandler(NSData responseData, NSHTTPURLResponse urlResponse, NSError error);
+}

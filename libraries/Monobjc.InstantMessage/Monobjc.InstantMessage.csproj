@@ -33,4 +33,34 @@
     <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="InstantMessage_C\IMAVButton.Class.cs" />
+    <Compile Include="InstantMessage_C\IMAVButton.cs" />
+    <Compile Include="InstantMessage_C\IMAVControl.Class.cs" />
+    <Compile Include="InstantMessage_C\IMAVControl.cs" />
+    <Compile Include="InstantMessage_C\IMAVControlBar.Class.cs" />
+    <Compile Include="InstantMessage_C\IMAVControlBar.cs" />
+    <Compile Include="InstantMessage_C\IMAVManager.Class.cs" />
+    <Compile Include="InstantMessage_C\IMAVManager.Constants.cs" />
+    <Compile Include="InstantMessage_C\IMAVManager.cs" />
+    <Compile Include="InstantMessage_C\IMAVSlider.Class.cs" />
+    <Compile Include="InstantMessage_C\IMAVSlider.cs" />
+    <Compile Include="InstantMessage_C\IMService.Class.cs" />
+    <Compile Include="InstantMessage_C\IMService.Constants.cs" />
+    <Compile Include="InstantMessage_C\IMService.cs" />
+    <Compile Include="InstantMessage_P\IMVideoDataSource.Protocol.cs" />
+    <Compile Include="InstantMessage_T\InstantMessageFramework.Functions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Monobjc\Monobjc.csproj">
+      <Project>{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}</Project>
+      <Name>Monobjc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
+      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
+      <Name>Monobjc.Foundation</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
