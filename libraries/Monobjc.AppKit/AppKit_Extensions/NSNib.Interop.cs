@@ -32,7 +32,7 @@ using System.Collections.Generic;
 
 namespace Monobjc.AppKit
 {
-	public static class NSNib_MonobjcAdditions
+	public partial class NSNib
 	{
 		public static bool InstantiateNibWithOwnerTopLevelObjects (NSString resourceName, Id owner)
 		{
@@ -97,7 +97,11 @@ namespace Monobjc.AppKit
 					
 			NSNib nib = new NSNib (NSURL.FileURLWithPath (fileName));
 			NSArray topLevelObjects;
+#if MACOSX_10_8
+			result = nib.InstantiateWithOwnerTopLevelObjects(owner, out topLevelObjects);
+#else
 			result = nib.InstantiateNibWithOwnerTopLevelObjects (owner, out topLevelObjects);
+#endif
 			nib.Release ();
 	
 			File.Delete (fileName);

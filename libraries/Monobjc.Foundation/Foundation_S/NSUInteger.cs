@@ -31,7 +31,13 @@ namespace Monobjc.Foundation
     [ObjectiveCUnderlyingType(typeof(ulong), Is64Bits = true)]
     public partial struct NSUInteger
     {
-        /// <summary>
+		/// <summary>
+		/// <para>The maximum value for an NSUInteger.</para>
+		/// <para>Available in Mac OS X v10.5 and later.</para>
+		/// </summary>
+		public static readonly NSUInteger NSUIntegerMax = UInt32.MaxValue;
+		
+		/// <summary>
         /// <para>Defines a value that indicates that an item requested couldn’t be found or doesn’t exist.</para>
         /// <para>Available in Mac OS X v10.0 and later.</para>
         /// </summary>

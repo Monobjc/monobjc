@@ -74,10 +74,18 @@ namespace Monobjc.AppKit
                 Logger.Info("NSApplication", "Loading NIB " + filename);
             }
 
-            if (!NSBundle.LoadNibNamedOwner(filename, SharedApplication))
-            {
-                Logger.Error("NSApplication", "Error while loading the NIB file");
-            }
+#if MACOSX_10_8
+			NSArray topLevelObjets;
+			if (!NSBundle.MainBundle.LoadNibNamedOwnerTopLevelObjects(filename, SharedApplication, out topLevelObjets))
+			{
+				Logger.Error("NSApplication", "Error while loading the NIB file");
+			}
+#else
+			if (!NSBundle_AppKitAdditions.LoadNibNamedOwner(filename, SharedApplication))
+			{
+				Logger.Error("NSApplication", "Error while loading the NIB file");
+			}
+#endif
         }
 
         /// <summary>
