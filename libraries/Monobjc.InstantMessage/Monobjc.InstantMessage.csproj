@@ -62,5 +62,17 @@
       <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
       <Name>Monobjc.Foundation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
+      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
+      <Name>Monobjc.AppKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.AddressBook\Monobjc.AddressBook.csproj">
+      <Project>{C9491B50-85B9-48B1-8DAD-7316948CC907}</Project>
+      <Name>Monobjc.AddressBook</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.Quartz\Monobjc.Quartz.csproj">
+      <Project>{7227F9E4-CBA7-4A71-959D-B7DE7C5060C6}</Project>
+      <Name>Monobjc.Quartz</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

@@ -24,7 +24,6 @@ using System.Runtime.InteropServices;
 
 namespace Monobjc.ApplicationServices
 {
-#if MACOSX_10_5
     /// <summary>
     /// <para>Defines a structure containing pointers to client-defined callback functions that manage the sending of data for a sequential-access data provider.</para>
     /// <para>Available in Mac OS X v10.5 and later.</para>
@@ -57,5 +56,4 @@ namespace Monobjc.ApplicationServices
         /// </summary>
         public CGDataProviderReleaseInfoCallback releaseInfo;
     }
-#endif
 }

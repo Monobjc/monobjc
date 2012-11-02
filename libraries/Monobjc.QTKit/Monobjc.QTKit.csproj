@@ -35,6 +35,33 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QTKit_E\QTMovieOperationPhase.cs" />
+    <Compile Include="QTKit_E\QTSampleBufferAudioBufferListOptions.cs" />
+    <Compile Include="QTKit_P\QTCaptureDecompressedAudioOutput.Delegate.cs" />
+    <Compile Include="QTKit_P\QTCaptureDecompressedAudioOutputDelegate.Protocol.cs" />
+    <Compile Include="QTKit_P\QTCaptureDecompressedVideoOutput.Delegate.cs" />
+    <Compile Include="QTKit_P\QTCaptureDecompressedVideoOutputDelegate.Protocol.cs" />
+    <Compile Include="QTKit_P\QTCaptureFileOutput.Delegate.cs" />
+    <Compile Include="QTKit_P\QTCaptureFileOutputDelegate.Protocol.cs" />
+    <Compile Include="QTKit_P\QTCaptureVideoPreviewOutput.Delegate.cs" />
+    <Compile Include="QTKit_P\QTCaptureVideoPreviewOutputDelegate.Protocol.cs" />
+    <Compile Include="QTKit_P\QTCaptureView.Delegate.cs" />
+    <Compile Include="QTKit_P\QTCaptureViewDelegate.Protocol.cs" />
+    <Compile Include="QTKit_P\QTMovie.Delegate.cs" />
+    <Compile Include="QTKit_P\QTMovieDelegate.Protocol.cs" />
+    <Compile Include="QTKit_S\AudioBuffer.cs" />
+    <Compile Include="QTKit_S\AudioBufferList.cs" />
+    <Compile Include="QTKit_S\QTTime.cs" />
+    <Compile Include="QTKit_S\QTTime64.cs" />
+    <Compile Include="QTKit_S\QTTimeRange.cs" />
+    <Compile Include="QTKit_S\QTTimeRange64.cs" />
+    <Compile Include="QTKit_S\SMPTETime.cs" />
+    <Compile Include="QTKit_S\TimeRecord.cs" />
+    <Compile Include="QTKit_S\TimeRecord64.cs" />
+    <Compile Include="QTKit_T\QTKitFramework.Constants.cs" />
+    <Compile Include="QTKit_T\QTKitFramework.DataTypes.cs" />
+    <Compile Include="QTKit_T\QTKitFramework.Functions.cs" />
+    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
     <Compile Include="QTKit_C\NSCoder_QTKitAdditions.cs" />
     <Compile Include="QTKit_C\NSValue_QTKitAdditions.cs" />
     <Compile Include="QTKit_C\QTCaptureAudioPreviewOutput.Class.cs" />
@@ -77,7 +104,6 @@
     <Compile Include="QTKit_C\QTCaptureView.cs" />
     <Compile Include="QTKit_C\QTCaptureView.Protocols.cs" />
     <Compile Include="QTKit_C\QTCompressionOptions.Class.cs" />
-    <Compile Include="QTKit_C\QTCompressionOptions.Constants.cs" />
     <Compile Include="QTKit_C\QTCompressionOptions.cs" />
     <Compile Include="QTKit_C\QTDataReference.Class.cs" />
     <Compile Include="QTKit_C\QTDataReference.Constants.cs" />
@@ -104,7 +130,6 @@
     <Compile Include="QTKit_C\QTMovieView.Constants.cs" />
     <Compile Include="QTKit_C\QTMovieView.Constructors.cs" />
     <Compile Include="QTKit_C\QTMovieView.cs" />
-    <Compile Include="QTKit_C\QTMovieView.Deprecated.cs" />
     <Compile Include="QTKit_C\QTMovieView.Protocols.cs" />
     <Compile Include="QTKit_C\QTSampleBuffer.Class.cs" />
     <Compile Include="QTKit_C\QTSampleBuffer.Constants.cs" />
@@ -113,33 +138,6 @@
     <Compile Include="QTKit_C\QTTrack.Constants.cs" />
     <Compile Include="QTKit_C\QTTrack.Constructors.cs" />
     <Compile Include="QTKit_C\QTTrack.cs" />
-    <Compile Include="QTKit_E\QTMovieOperationPhase.cs" />
-    <Compile Include="QTKit_E\QTSampleBufferAudioBufferListOptions.cs" />
-    <Compile Include="QTKit_P\QTCaptureDecompressedAudioOutput.Delegate.cs" />
-    <Compile Include="QTKit_P\QTCaptureDecompressedAudioOutputDelegate.Protocol.cs" />
-    <Compile Include="QTKit_P\QTCaptureDecompressedVideoOutput.Delegate.cs" />
-    <Compile Include="QTKit_P\QTCaptureDecompressedVideoOutputDelegate.Protocol.cs" />
-    <Compile Include="QTKit_P\QTCaptureFileOutput.Delegate.cs" />
-    <Compile Include="QTKit_P\QTCaptureFileOutputDelegate.Protocol.cs" />
-    <Compile Include="QTKit_P\QTCaptureVideoPreviewOutput.Delegate.cs" />
-    <Compile Include="QTKit_P\QTCaptureVideoPreviewOutputDelegate.Protocol.cs" />
-    <Compile Include="QTKit_P\QTCaptureView.Delegate.cs" />
-    <Compile Include="QTKit_P\QTCaptureViewDelegate.Protocol.cs" />
-    <Compile Include="QTKit_P\QTMovie.Delegate.cs" />
-    <Compile Include="QTKit_P\QTMovieDelegate.Protocol.cs" />
-    <Compile Include="QTKit_S\AudioBuffer.cs" />
-    <Compile Include="QTKit_S\AudioBufferList.cs" />
-    <Compile Include="QTKit_S\QTTime.cs" />
-    <Compile Include="QTKit_S\QTTime64.cs" />
-    <Compile Include="QTKit_S\QTTimeRange.cs" />
-    <Compile Include="QTKit_S\QTTimeRange64.cs" />
-    <Compile Include="QTKit_S\SMPTETime.cs" />
-    <Compile Include="QTKit_S\TimeRecord.cs" />
-    <Compile Include="QTKit_S\TimeRecord64.cs" />
-    <Compile Include="QTKit_T\QTKitFramework.Constants.cs" />
-    <Compile Include="QTKit_T\QTKitFramework.DataTypes.cs" />
-    <Compile Include="QTKit_T\QTKitFramework.Functions.cs" />
-    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -150,6 +148,14 @@
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">
       <Project>{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}</Project>
       <Name>Monobjc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
+      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
+      <Name>Monobjc.AppKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.Quartz\Monobjc.Quartz.csproj">
+      <Project>{7227F9E4-CBA7-4A71-959D-B7DE7C5060C6}</Project>
+      <Name>Monobjc.Quartz</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

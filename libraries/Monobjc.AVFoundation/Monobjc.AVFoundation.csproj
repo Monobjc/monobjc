@@ -253,6 +253,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
     <Compile Include="AVFoundation_C\NSValue_AVFoundationAdditions.cs" />
+    <Compile Include="AVFoundation_P\AVAudioPlayer.Delegate.cs" />
+    <Compile Include="AVFoundation_P\AVAudioRecorder.Delegate.cs" />
+    <Compile Include="AVFoundation_P\AVCaptureFileOutput.Delegate.cs" />
+    <Compile Include="AVFoundation_P\AVVideoCompositionValidationHandling.Protocol.cs" />
+    <Compile Include="AVFoundation_C\AVMediaSelectionGroup.Class.cs" />
+    <Compile Include="AVFoundation_C\AVMediaSelectionGroup.cs" />
+    <Compile Include="AVFoundation_C\AVMediaSelectionGroup.Protocols.cs" />
+    <Compile Include="AVFoundation_C\AVMediaSelectionOption.Class.cs" />
+    <Compile Include="AVFoundation_C\AVMediaSelectionOption.cs" />
+    <Compile Include="AVFoundation_C\AVMediaSelectionOption.Protocols.cs" />
+    <Compile Include="AVFoundation_C\AVPlayerItemOutput.Class.cs" />
+    <Compile Include="AVFoundation_C\AVPlayerItemOutput.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
@@ -266,6 +278,10 @@
     <ProjectReference Include="..\Monobjc.CoreMedia\Monobjc.CoreMedia.csproj">
       <Project>{1AD9281A-0897-4C58-A6B4-98E5FB469FA8}</Project>
       <Name>Monobjc.CoreMedia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
+      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
+      <Name>Monobjc.AppKit</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

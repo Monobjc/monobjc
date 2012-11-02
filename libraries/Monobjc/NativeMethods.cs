@@ -87,7 +87,6 @@ namespace Monobjc
 		[DllImport("libobjc", CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
 		public static extern IntPtr sel_registerName ([MarshalAs(UnmanagedType.LPStr)] String str);
 
-#if MACOSX_10_5
         /// <summary>
         ///   <para>Returns a the name of a protocol.</para>
         ///   <para>The original declaration is :
@@ -106,6 +105,5 @@ namespace Monobjc
         /// </remarks>
         [DllImport("libobjc", CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern IntPtr protocol_getName(IntPtr protocol);
-#endif
 	}
 }

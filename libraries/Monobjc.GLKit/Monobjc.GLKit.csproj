@@ -33,4 +33,48 @@
     <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="GLKit_C\GLKBaseEffect.Class.cs" />
+    <Compile Include="GLKit_C\GLKBaseEffect.cs" />
+    <Compile Include="GLKit_C\GLKBaseEffect.Protocols.cs" />
+    <Compile Include="GLKit_C\GLKEffectProperty.Class.cs" />
+    <Compile Include="GLKit_C\GLKEffectProperty.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyFog.Class.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyFog.Constants.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyFog.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyLight.Class.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyLight.Constants.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyLight.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyMaterial.Class.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyMaterial.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyTexture.Class.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyTexture.Constants.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyTexture.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyTransform.Class.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyTransform.cs" />
+    <Compile Include="GLKit_C\GLKReflectionMapEffect.Class.cs" />
+    <Compile Include="GLKit_C\GLKReflectionMapEffect.cs" />
+    <Compile Include="GLKit_C\GLKReflectionMapEffect.Protocols.cs" />
+    <Compile Include="GLKit_C\GLKSkyboxEffect.Class.cs" />
+    <Compile Include="GLKit_C\GLKSkyboxEffect.cs" />
+    <Compile Include="GLKit_C\GLKSkyboxEffect.Protocols.cs" />
+    <Compile Include="GLKit_C\GLKTextureInfo.Class.cs" />
+    <Compile Include="GLKit_C\GLKTextureInfo.Constants.cs" />
+    <Compile Include="GLKit_C\GLKTextureInfo.cs" />
+    <Compile Include="GLKit_C\GLKTextureInfo.Protocols.cs" />
+    <Compile Include="GLKit_C\GLKTextureLoader.Class.cs" />
+    <Compile Include="GLKit_C\GLKTextureLoader.Constants.cs" />
+    <Compile Include="GLKit_C\GLKTextureLoader.Constructors.cs" />
+    <Compile Include="GLKit_C\GLKTextureLoader.cs" />
+    <Compile Include="GLKit_P\GLKNamedEffect.Protocol.cs" />
+    <Compile Include="GLKit_T\GLKitFramework.EffectsConstants.cs" />
+    <Compile Include="GLKit_T\GLKitFramework.MathUtilities.cs" />
+    <Compile Include="GLKit_T\GLKMatrix3.cs" />
+    <Compile Include="GLKit_T\GLKMatrix4.cs" />
+    <Compile Include="GLKit_T\GLKMatrixStack.cs" />
+    <Compile Include="GLKit_T\GLKQuaternion.cs" />
+    <Compile Include="GLKit_T\GLKVector2.cs" />
+    <Compile Include="GLKit_T\GLKVector3.cs" />
+    <Compile Include="GLKit_T\GLKVector4.cs" />
+  </ItemGroup>
 </Project>

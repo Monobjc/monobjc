@@ -44,7 +44,6 @@
     <Compile Include="OpenGL_Parsed\GL.Methods.cs" />
     <Compile Include="OpenGL_E\GLError.cs" />
     <Compile Include="OpenGL_T\CGL.cs" />
-    <Compile Include="OpenGL_T\CGL.Deprecated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
     <Compile Include="OpenGL_Parsed\GLU.Constants.cs" />
@@ -54,6 +53,10 @@
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">
       <Project>{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}</Project>
       <Name>Monobjc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
+      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
+      <Name>Monobjc.Foundation</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

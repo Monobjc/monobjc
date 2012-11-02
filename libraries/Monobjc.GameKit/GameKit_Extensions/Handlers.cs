@@ -20,24 +20,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-
 using System;
-using System.Reflection;
-using System.Resources;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Monobjc Bridge - SM2DGraphView Library")]
-[assembly: AssemblyDescription("Monobjc Bridge SM2DGraphView Library")]
-[assembly: AssemblyCompany("Monobjc Project")]
-[assembly: AssemblyProduct("Monobjc Bridge Project")]
-[assembly: AssemblyCopyright("Copyright (c) Monobjc Project 2007-2012 - Licensed under MIT License")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-[assembly: NeutralResourcesLanguage("en-US")]
-[assembly: ComVisible(false)]
-[assembly: Guid("ebe120bb-28f6-6b37-3597-23d87d90e5c8")]
-
-#if TESTING
-[assembly: InternalsVisibleTo("Monobjc.SM2DGraphView.Tests")]
+namespace Monobjc.GameKit
+{
+#if MACOSX_10_8
 #endif
+}
+

@@ -36,10 +36,8 @@ namespace Monobjc.AppKit
 
     public partial class NSResponder : ISynchronizeInvoke
     {
-#if MACOSX_10_5
         // Assumption is made that Objective-C controls have been created on the Main Thread.
         private readonly NSThread ownerThread = NSThread.MainThread;
-#endif
 
         ///<summary>
         /// <para>Executes the delegate on the main thread that this object executes on.</para>
@@ -56,11 +54,7 @@ namespace Monobjc.AppKit
             try
             {
                 invoker = new NSResponderThreadInvoker(method, args);
-#if MACOSX_10_5
                 invoker.PerformSelectorOnThreadWithObjectWaitUntilDone(ObjectiveCRuntime.Selector("asyncInvoke:"), this.ownerThread, invoker, false);
-#else
-                invoker.PerformSelectorOnMainThreadWithObjectWaitUntilDone(ObjectiveCRuntime.Selector("asyncInvoke:"), invoker, false);
-#endif
                 return invoker.AsyncResult;
             }
             finally
@@ -102,11 +96,7 @@ namespace Monobjc.AppKit
             try
             {
                 invoker = new NSResponderThreadInvoker(method, args);
-#if MACOSX_10_5
                 invoker.PerformSelectorOnThreadWithObjectWaitUntilDone(ObjectiveCRuntime.Selector("syncInvoke:"), this.ownerThread, invoker, true);
-#else
-                invoker.PerformSelectorOnMainThreadWithObjectWaitUntilDone(ObjectiveCRuntime.Selector("asyncInvoke:"), invoker, true);
-#endif
                 return invoker.ReturnValue;
             }
             finally
@@ -124,11 +114,7 @@ namespace Monobjc.AppKit
         ///</returns>
         public bool InvokeRequired
         {
-#if MACOSX_10_5
             get { return (!NSThread.CurrentThread.Equals(this.ownerThread)); }
-#else
-            get { throw new NotSupportedException(Resources.InvokeRequiredNotSupported); }
-#endif
         }
 
         /// <summary>

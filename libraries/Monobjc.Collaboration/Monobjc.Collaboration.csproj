@@ -65,5 +65,9 @@
       <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
       <Name>Monobjc.Foundation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
+      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
+      <Name>Monobjc.AppKit</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

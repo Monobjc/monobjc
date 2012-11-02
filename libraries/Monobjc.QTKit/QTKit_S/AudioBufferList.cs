@@ -25,7 +25,6 @@ using System.Runtime.InteropServices;
 
 namespace Monobjc.QTKit
 {
-#if MACOSX_10_5
     /// <summary>
     /// Keeps track of multiple buffers.
     /// </summary>
@@ -43,5 +42,4 @@ namespace Monobjc.QTKit
         [MarshalAs(UnmanagedType.LPArray, SizeConst = 1)]
         public AudioBuffer[] mBuffers;
     }
-#endif
 }

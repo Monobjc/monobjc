@@ -33,7 +33,6 @@ using System.Runtime.InteropServices;
 
 namespace Monobjc.AppKit
 {
-#if MACOSX_10_5
 #if !MACOSX_10_6
     public partial class NSCollectionViewItem
     {
@@ -128,6 +127,5 @@ namespace Monobjc.AppKit
         #endregion
 
     }
-#endif
 #endif
 }

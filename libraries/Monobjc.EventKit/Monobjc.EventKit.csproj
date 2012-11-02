@@ -78,6 +78,7 @@
     <Compile Include="EventKit_C\EKStructuredLocation.Class.cs" />
     <Compile Include="EventKit_C\EKStructuredLocation.cs" />
     <Compile Include="EventKit_C\EKStructuredLocation.Protocols.cs" />
+    <Compile Include="EventKit_Extensions\Handlers.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">
@@ -92,5 +93,16 @@
       <Project>{7B60D5F2-5029-4EC5-BD78-4B2E6A60CDF3}</Project>
       <Name>Monobjc.CoreLocation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
+      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
+      <Name>Monobjc.AppKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.AddressBook\Monobjc.AddressBook.csproj">
+      <Project>{C9491B50-85B9-48B1-8DAD-7316948CC907}</Project>
+      <Name>Monobjc.AddressBook</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EventKit_Extensions\" />
   </ItemGroup>
 </Project>

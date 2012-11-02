@@ -32,7 +32,6 @@ using System.Runtime.InteropServices;
 
 namespace Monobjc.QuartzCore
 {
-#if MACOSX_10_5
     public partial class CAEmitterCell
     {
 #if MACOSX_10_6
@@ -48,5 +47,4 @@ namespace Monobjc.QuartzCore
         }
 #endif
     }
-#endif
 }

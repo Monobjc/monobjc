@@ -373,7 +373,6 @@ namespace Monobjc
 			return Marshal.PtrToStringAnsi (NativeMethods.sel_getName (value));
 		}
 
-#if MACOSX_10_5
         /// <summary>
         ///   Returns the name of the native protocol.
         /// </summary>
@@ -383,7 +382,6 @@ namespace Monobjc
         {
             return Marshal.PtrToStringAnsi(NativeMethods.protocol_getName(value));
         }
-#endif
 
 		/// <summary>
 		///   Gets the symbol.
