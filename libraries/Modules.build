@@ -263,31 +263,6 @@
 		<call target="build-library-intern" />
 		-->
 		
-		<!-- Library Monobjc.CoreWLAN
-		<property name="lib.name" value="Monobjc.CoreWLAN" />
-		<assemblyfileset id="lib.references" basedir="${output.dir}">
-			<include name="System.dll" />
-			<include name="System.Core.dll" />
-			<include name="Monobjc.dll" />
-			<include name="Monobjc.Foundation.dll" />
-			<include name="Monobjc.Security.dll" />
-		</assemblyfileset>
-		<assemblyfileset id="lib.references" basedir="${output.dir}">
-			<include name="System.dll" />
-			<include name="System.Core.dll" />
-			<include name="Monobjc.dll" />
-			<include name="Monobjc.Foundation.dll" />
-			<include name="Monobjc.AppKit.dll" />
-		</assemblyfileset>
-		<fileset id="src.references" basedir="${output.dir}">
-			<include name="${base.dir}/${lib.name}/*.cs" />
-			<include name="${base.dir}/${lib.name}/CoreWLAN_C/*.cs" />
-			<include name="${base.dir}/${lib.name}/CoreWLAN_T/*.cs" />
-			<include name="${base.dir}/${lib.name}/Properties/*.cs" />
-		</fileset>
-		<call target="build-library-intern" />
-		-->
-		
 		<!-- Library Monobjc.DiscRecording -->
 		<property name="lib.name" value="Monobjc.DiscRecording" />
 		<assemblyfileset id="lib.references" basedir="${output.dir}">
@@ -366,25 +341,6 @@
 		</fileset>
 		<call target="build-library-intern" />
 		
-		<!-- Library Monobjc.GLKit
-		<property name="lib.name" value="Monobjc.GLKit" />
-		<assemblyfileset id="lib.references" basedir="${output.dir}">
-			<include name="System.dll" />
-			<include name="System.Core.dll" />
-			<include name="Monobjc.dll" />
-			<include name="Monobjc.Foundation.dll" />
-			<include name="Monobjc.AppKit.dll" />
-		</assemblyfileset>
-		<fileset id="src.references" basedir="${output.dir}">
-			<include name="${base.dir}/${lib.name}/*.cs" />
-			<include name="${base.dir}/${lib.name}/GLKit_C/*.cs" />
-			<include name="${base.dir}/${lib.name}/GLKit_P/*.cs" />
-			<include name="${base.dir}/${lib.name}/GLKit_T/*.cs" />
-			<include name="${base.dir}/${lib.name}/Properties/*.cs" />
-		</fileset>
-		<call target="build-library-intern" />
-		-->
-		
 		<!-- Library Monobjc.InputMethodKit -->
 		<property name="lib.name" value="Monobjc.InputMethodKit" />
 		<assemblyfileset id="lib.references" basedir="${output.dir}">
@@ -403,14 +359,15 @@
 		</fileset>
 		<call target="build-library-intern" />
 		
-		<!-- Library Monobjc.InstantMessage
+		<!-- Library Monobjc.InstantMessage -->
 		<property name="lib.name" value="Monobjc.InstantMessage" />
 		<assemblyfileset id="lib.references" basedir="${output.dir}">
 			<include name="System.dll" />
 			<include name="System.Core.dll" />
 			<include name="Monobjc.dll" />
-			<include name="Monobjc.Foundation.dll" />
+			<include name="Monobjc.AddressBook.dll" />
 			<include name="Monobjc.AppKit.dll" />
+			<include name="Monobjc.Foundation.dll" />
 		</assemblyfileset>
 		<fileset id="src.references" basedir="${output.dir}">
 			<include name="${base.dir}/${lib.name}/*.cs" />
@@ -420,7 +377,6 @@
 			<include name="${base.dir}/${lib.name}/Properties/*.cs" />
 		</fileset>
 		<call target="build-library-intern" />
-		-->
 		
 		<!-- Library Monobjc.OpenGL -->
 		<property name="lib.name" value="Monobjc.OpenGL" />
@@ -437,6 +393,27 @@
 			<include name="${base.dir}/${lib.name}/OpenGL_Extensions/*.cs" />
 			<include name="${base.dir}/${lib.name}/OpenGL_Parsed/*.cs" />
 			<include name="${base.dir}/${lib.name}/OpenGL_T/*.cs" />
+		</fileset>
+		<call target="build-library-intern" />
+		
+		<!-- Library Monobjc.GLKit -->
+		<property name="lib.name" value="Monobjc.GLKit" />
+		<assemblyfileset id="lib.references" basedir="${output.dir}">
+			<include name="System.dll" />
+			<include name="System.Core.dll" />
+			<include name="Monobjc.dll" />
+			<include name="Monobjc.AppKit.dll" />
+			<include name="Monobjc.Foundation.dll" />
+			<include name="Monobjc.OpenGL.dll" />
+		</assemblyfileset>
+		<fileset id="src.references" basedir="${output.dir}">
+			<include name="${base.dir}/${lib.name}/*.cs" />
+			<include name="${base.dir}/${lib.name}/GLKit_C/*.cs" />
+			<include name="${base.dir}/${lib.name}/GLKit_Extensions/*.cs" />
+			<include name="${base.dir}/${lib.name}/GLKit_P/*.cs" />
+			<include name="${base.dir}/${lib.name}/GLKit_S/*.cs" />
+			<include name="${base.dir}/${lib.name}/GLKit_T/*.cs" />
+			<include name="${base.dir}/${lib.name}/Properties/*.cs" />
 		</fileset>
 		<call target="build-library-intern" />
 		
@@ -531,7 +508,7 @@
 			<include name="${base.dir}/${lib.name}/Security_T/*.cs" />
 		</fileset>
 		<call target="build-library-intern" />
-		
+
 		<!-- Library Monobjc.SecurityFoundation -->
 		<property name="lib.name" value="Monobjc.SecurityFoundation" />
 		<assemblyfileset id="lib.references" basedir="${output.dir}">
@@ -571,7 +548,7 @@
 			<include name="${base.dir}/${lib.name}/SecurityInterface_T/*.cs" />
 		</fileset>
 		<call target="build-library-intern" />
-
+		
 		<!-- Library Monobjc.Social -->
 		<property name="lib.name" value="Monobjc.Social" />
 		<assemblyfileset id="lib.references" basedir="${output.dir}">
@@ -625,6 +602,24 @@
 			<exclude name="${base.dir}/${lib.name}/WebKit_P/*Deprecated*.cs" />
 			<exclude name="${base.dir}/${lib.name}/WebKit_P/WebJavaPlugIn*.cs" />
 			<include name="${base.dir}/${lib.name}/WebKit_T/*.cs" />
+		</fileset>
+		<call target="build-library-intern" />
+		
+		<!-- Library Monobjc.CoreWLAN -->
+		<property name="lib.name" value="Monobjc.CoreWLAN" />
+		<assemblyfileset id="lib.references" basedir="${output.dir}">
+			<include name="System.dll" />
+			<include name="System.Core.dll" />
+			<include name="Monobjc.dll" />
+			<include name="Monobjc.Foundation.dll" />
+			<include name="Monobjc.Security.dll" />
+			<include name="Monobjc.SecurityFoundation.dll" />
+		</assemblyfileset>
+		<fileset id="src.references" basedir="${output.dir}">
+			<include name="${base.dir}/${lib.name}/*.cs" />
+			<include name="${base.dir}/${lib.name}/CoreWLAN_C/*.cs" />
+			<include name="${base.dir}/${lib.name}/CoreWLAN_T/*.cs" />
+			<include name="${base.dir}/${lib.name}/Properties/*.cs" />
 		</fileset>
 		<call target="build-library-intern" />
 		
