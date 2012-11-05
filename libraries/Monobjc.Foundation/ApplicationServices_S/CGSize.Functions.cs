@@ -48,7 +48,7 @@ namespace Monobjc.ApplicationServices
         /// <param name="height">A height value.</param>
         /// <returns>Returns a CGSize structure with the specified width and height.</returns>
         /// <remarks>Original declaration is : CGSize CGSizeMake ( float width, float height );</remarks>
-        public static CGSize CGSizeMake(float width, float height)
+		public static CGSize CGSizeMake(CGFloat width, CGFloat height)
         {
             return new CGSize(width, height);
         }

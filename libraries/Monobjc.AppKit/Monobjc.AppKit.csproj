@@ -1358,6 +1358,7 @@
     <Compile Include="AppKit_C\NSWorkspace.Class.cs" />
     <Compile Include="AppKit_C\NSWorkspace.Constants.cs" />
     <Compile Include="AppKit_C\NSWorkspace.cs" />
+    <Compile Include="QuartzCore_S\CATransform3D64.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">

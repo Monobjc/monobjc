@@ -71,7 +71,7 @@ namespace Monobjc.ApplicationServices
         /// <param name="d">The d.</param>
         /// <param name="tx">The tx.</param>
         /// <param name="ty">The ty.</param>
-        public CGAffineTransform64(double a, double b, double c, double d, double tx, double ty)
+		public CGAffineTransform64(CGFloat a, CGFloat b, CGFloat c, CGFloat d, CGFloat tx, CGFloat ty)
         {
             this.a = a;
             this.b = b;
@@ -88,7 +88,7 @@ namespace Monobjc.ApplicationServices
         /// <returns>The result of the conversion.</returns>
         public static implicit operator CGAffineTransform(CGAffineTransform64 value)
         {
-            return new CGAffineTransform((float)value.a, (float)value.b, (float)value.c, (float)value.d, (float)value.tx, (float)value.ty);
+            return new CGAffineTransform(value.a, value.b, value.c, value.d, value.tx, value.ty);
         }
 
         /// <summary>

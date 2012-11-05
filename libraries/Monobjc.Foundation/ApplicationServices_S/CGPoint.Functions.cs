@@ -48,7 +48,7 @@ namespace Monobjc.ApplicationServices
         /// <param name="y">The y-coordinate of the point to construct.</param>
         /// <returns>Returns a CGPoint structure, representing a single (x,y) coordinate pair.</returns>
         /// <remarks>Original declaration is : CGPoint CGPointMake ( float x, float y );</remarks>
-        public static CGPoint CGPointMake(float x, float y)
+		public static CGPoint CGPointMake(CGFloat x, CGFloat y)
         {
             return new CGPoint(x, y);
         }

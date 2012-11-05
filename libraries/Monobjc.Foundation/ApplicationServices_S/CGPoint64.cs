@@ -46,7 +46,7 @@ namespace Monobjc.ApplicationServices
         /// </summary>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
-        public CGPoint64(double x, double y)
+		public CGPoint64(CGFloat x, CGFloat y)
         {
             this.x = x;
             this.y = y;
@@ -59,7 +59,7 @@ namespace Monobjc.ApplicationServices
         /// <returns>The result of the conversion.</returns>
         public static implicit operator CGPoint(CGPoint64 value)
         {
-            return new CGPoint((float)value.x, (float)value.y);
+            return new CGPoint(value.x, value.y);
         }
 
         /// <summary>

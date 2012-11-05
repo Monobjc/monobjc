@@ -417,14 +417,14 @@
 		</fileset>
 		<call target="build-library-intern" />
 		
-		<!-- Library Monobjc.QTKit
+		<!-- Library Monobjc.QTKit -->
 		<property name="lib.name" value="Monobjc.QTKit" />
 		<assemblyfileset id="lib.references" basedir="${output.dir}">
 			<include name="System.dll" />
 			<include name="System.Core.dll" />
 			<include name="Monobjc.dll" />
-			<include name="Monobjc.Foundation.dll" />
 			<include name="Monobjc.AppKit.dll" />
+			<include name="Monobjc.Foundation.dll" />
 		</assemblyfileset>
 		<fileset id="src.references" basedir="${output.dir}">
 			<include name="${base.dir}/${lib.name}/*.cs" />
@@ -435,7 +435,6 @@
 			<include name="${base.dir}/${lib.name}/QTKit_T/*.cs" />
 		</fileset>
 		<call target="build-library-intern" />
-		-->
 		
 		<!-- Library Monobjc.Quartz -->
 		<property name="lib.name" value="Monobjc.Quartz" />

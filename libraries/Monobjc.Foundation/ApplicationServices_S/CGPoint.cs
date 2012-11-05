@@ -51,7 +51,7 @@ namespace Monobjc.ApplicationServices
         /// </summary>
         /// <param name="x">The x coordinate.</param>
         /// <param name="y">The y coordinate.</param>
-        public CGPoint(float x, float y)
+		public CGPoint(CGFloat x, CGFloat y)
         {
             this.x = x;
             this.y = y;

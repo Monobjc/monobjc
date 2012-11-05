@@ -72,7 +72,7 @@ namespace Monobjc.ApplicationServices
         /// <param name="edge">A CGRectEdge value (CGRectMinXEdge, CGRectMinYEdge, CGRectMaxXEdge, or CGRectMaxYEdge) that specifies the side of the rectangle from which the distance passed in the amount parameter is measured. CGRectDivide produces a “slice” rectangle that contains the specified edge and extends amount distance beyond it.</param>
         /// <returns>Returns 1 if the two specified rectangles have equal size and origin values, or are both null. Otherwise, returns 0.</returns>
         /// <remarks>Original declaration is : void CGRectDivide ( CGRect rect, CGRect *slice, CGRect *remainder, float amount, CGRectEdge edge );</remarks>
-        public static void CGRectDivide(CGRect rect, ref CGRect slice, ref CGRect remainder, float amount, CGRectEdge edge)
+		public static void CGRectDivide(CGRect rect, ref CGRect slice, ref CGRect remainder, CGFloat amount, CGRectEdge edge)
         {
             if (CGRectIsEmpty(rect) == 1)
             {
@@ -267,7 +267,7 @@ namespace Monobjc.ApplicationServices
         /// <param name="dy">The value by which to adjust the y-coordinates of the source rectangle. To create an inset rectangle, specify a positive value. To create a larger, encompassing rectangle, specify a negative value.</param>
         /// <returns>A rectangle with its origin offset in the x-axis by the distance specified by the dx parameter and in the y-axis by the distance specified by the dy parameter, and its size adjusted by (2*dx,2*dy), relative to the source rectangle. If dx and dy are positive values, then the rectangle’s size is decreased. If dx and dy are negative values, the rectangle’s size is increased.</returns>
         /// <remarks>Original declaration is : CGRect CGRectInset ( CGRect rect, float dx, float dy );</remarks>
-        public static CGRect CGRectInset(CGRect rect, float dx, float dy)
+		public static CGRect CGRectInset(CGRect rect, CGFloat dx, CGFloat dy)
         {
             return CGRectMake(rect.origin.x + dx,
                               rect.origin.y + dy,
@@ -374,7 +374,7 @@ namespace Monobjc.ApplicationServices
         /// <param name="height">The height of the rectangle.</param>
         /// <returns>Returns a rectangle with the specified location and dimensions.</returns>
         /// <remarks>Original declaration is : CGRect CGRectMake ( float x, float y, float width, float height );</remarks>
-        public static CGRect CGRectMake(float x, float y, float width, float height)
+		public static CGRect CGRectMake(CGFloat x, CGFloat y, CGFloat width, CGFloat height)
         {
             return new CGRect(x, y, width, height);
         }
@@ -387,7 +387,7 @@ namespace Monobjc.ApplicationServices
         /// <param name="dy">The value by which to move the y-coordinate of the source rectangle’s origin.</param>
         /// <returns>A rectangle with the same size as the source, but with its origin offset by dx units along the x-axis and dy units along the y-axis with respect to the source.</returns>
         /// <remarks>Original declaration is : CGRect CGRectOffset ( CGRect rect, float dx, float dy );</remarks>
-        public static CGRect CGRectOffset(CGRect rect, float dx, float dy)
+		public static CGRect CGRectOffset(CGRect rect, CGFloat dx, CGFloat dy)
         {
             return CGRectMake(rect.origin.x + dx,
                               rect.origin.y + dy,

@@ -22,6 +22,7 @@
 // 
 using System;
 using System.Runtime.InteropServices;
+using Monobjc.ApplicationServices;
 
 namespace Monobjc.QuartzCore
 {
@@ -30,6 +31,8 @@ namespace Monobjc.QuartzCore
 	/// <para>The transform matrix is used to rotate, scale, translate, skew, and project the layer content. Functions are provided for creating, concatenating, and modifying CATransform3D data.</para>
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
+	[ObjectiveCUnderlyingType(typeof(CATransform3D), Is64Bits = false)]
+	[ObjectiveCUnderlyingType(typeof(CATransform3D64), Is64Bits = true)]
 	public partial struct CATransform3D : IEquatable<CATransform3D>
 	{
 		/// <summary>
@@ -120,7 +123,10 @@ namespace Monobjc.QuartzCore
 		/// <summary>
 		/// Initializes a new instance of the <see cref="CATransform3D"/> struct.
 		/// </summary>
-		public CATransform3D (float m11, float m12, float m13, float m14, float m21, float m22, float m23, float m24, float m31, float m32, float m33, float m34, float m41, float m42, float m43, float m44)
+		public CATransform3D (CGFloat m11, CGFloat m12, CGFloat m13, CGFloat m14, 
+		                      CGFloat m21, CGFloat m22, CGFloat m23, CGFloat m24, 
+		                      CGFloat m31, CGFloat m32, CGFloat m33, CGFloat m34, 
+		                      CGFloat m41, CGFloat m42, CGFloat m43, CGFloat m44)
 		{
 			this.m11 = m11;
 			this.m12 = m12;

@@ -71,7 +71,7 @@ namespace Monobjc.ApplicationServices
         /// <param name="d">The d.</param>
         /// <param name="tx">The tx.</param>
         /// <param name="ty">The ty.</param>
-        public CGAffineTransform(float a, float b, float c, float d, float tx, float ty)
+		public CGAffineTransform(CGFloat a, CGFloat b, CGFloat c, CGFloat d, CGFloat tx, CGFloat ty)
         {
             this.a = a;
             this.b = b;

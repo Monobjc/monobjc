@@ -153,10 +153,6 @@
       <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
       <Name>Monobjc.AppKit</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Monobjc.Quartz\Monobjc.Quartz.csproj">
-      <Project>{7227F9E4-CBA7-4A71-959D-B7DE7C5060C6}</Project>
-      <Name>Monobjc.Quartz</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

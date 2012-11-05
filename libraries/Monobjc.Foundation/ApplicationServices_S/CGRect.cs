@@ -51,7 +51,7 @@ namespace Monobjc.ApplicationServices
         /// <param name="y">The y.</param>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        public CGRect(float x, float y, float width, float height)
+		public CGRect(CGFloat x, CGFloat y, CGFloat width, CGFloat height)
         {
             this.origin.x = x;
             this.origin.y = y;
