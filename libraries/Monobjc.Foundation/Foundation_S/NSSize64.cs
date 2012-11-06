@@ -60,7 +60,7 @@ namespace Monobjc.Foundation
         /// <returns>The result of the conversion.</returns>
         public static implicit operator NSSize(NSSize64 value)
         {
-            return new NSSize((float)value.width, (float)value.height);
+            return new NSSize(value.width, value.height);
         }
 
         /// <summary>

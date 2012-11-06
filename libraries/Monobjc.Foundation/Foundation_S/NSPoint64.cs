@@ -60,7 +60,7 @@ namespace Monobjc.Foundation
         /// <returns>The result of the conversion.</returns>
         public static implicit operator NSPoint(NSPoint64 value)
         {
-            return new NSPoint((float)value.x, (float)value.y);
+            return new NSPoint(value.x, value.y);
         }
 
         /// <summary>

@@ -35,6 +35,7 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
     <Compile Include="SceneKit_C\SCNBox.Class.cs" />
     <Compile Include="SceneKit_C\SCNBox.cs" />
     <Compile Include="SceneKit_C\SCNBox.Protocols.cs" />
@@ -125,7 +126,14 @@
     <Compile Include="SceneKit_P\SCNSceneRenderer.Constants.cs" />
     <Compile Include="SceneKit_P\SCNSceneRenderer.Protocol.cs" />
     <Compile Include="SceneKit_P\SCNSceneRendererDelegate.Protocol.cs" />
-    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
+    <Compile Include="SceneKit_C\SCNRenderer.Class.cs" />
+    <Compile Include="SceneKit_C\SCNRenderer.cs" />
+    <Compile Include="SceneKit_C\SCNRenderer.Protocols.cs" />
+    <Compile Include="SceneKit_Extensions\Handlers.cs" />
+    <Compile Include="SceneKit_S\SCNVector3.cs" />
+    <Compile Include="SceneKit_S\SCNVector3_64.cs" />
+    <Compile Include="SceneKit_S\SCNVector4.cs" />
+    <Compile Include="SceneKit_S\SCNVector4_64.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">
@@ -140,5 +148,9 @@
       <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
       <Name>Monobjc.AppKit</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SceneKit_Extensions\" />
+    <Folder Include="SceneKit_S\" />
   </ItemGroup>
 </Project>

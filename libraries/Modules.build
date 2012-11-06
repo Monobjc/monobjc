@@ -454,7 +454,7 @@
 		</fileset>
 		<call target="build-library-intern" />
 		
-		<!-- Library Monobjc.SceneKit
+		<!-- Library Monobjc.SceneKit -->
 		<property name="lib.name" value="Monobjc.SceneKit" />
 		<assemblyfileset id="lib.references" basedir="${output.dir}">
 			<include name="System.dll" />
@@ -467,10 +467,11 @@
 			<include name="${base.dir}/${lib.name}/*.cs" />
 			<include name="${base.dir}/${lib.name}/Properties/*.cs" />
 			<include name="${base.dir}/${lib.name}/SceneKit_C/*.cs" />
+			<include name="${base.dir}/${lib.name}/SceneKit_Extensions/*.cs" />
 			<include name="${base.dir}/${lib.name}/SceneKit_P/*.cs" />
+			<include name="${base.dir}/${lib.name}/SceneKit_S/*.cs" />
 		</fileset>
 		<call target="build-library-intern" />
-		-->
 		
 		<!-- Library Monobjc.ScriptingBridge -->
 		<property name="lib.name" value="Monobjc.ScriptingBridge" />

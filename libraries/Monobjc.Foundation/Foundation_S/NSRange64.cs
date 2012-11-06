@@ -59,7 +59,7 @@ namespace Monobjc.Foundation
         /// <returns>The result of the conversion.</returns>
         public static implicit operator NSRange(NSRange64 value)
         {
-            return new NSRange((uint)value.location, (uint)value.length);
+            return new NSRange(value.location, value.length);
         }
 
         /// <summary>
