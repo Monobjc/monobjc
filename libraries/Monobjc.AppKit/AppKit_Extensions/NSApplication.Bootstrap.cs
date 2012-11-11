@@ -58,7 +58,7 @@ namespace Monobjc.AppKit
 			// }
 			
 			ProcessSerialNumber psn;
-			ProcessManager.GetCurrentProcess(ref psn);
+			ProcessManager.GetCurrentProcess(out psn);
 			ProcessManager.TransformProcessType(ref psn, ProcessApplicationTransformState.kProcessTransformToForegroundApplication);
 			ProcessManager.SetFrontProcess(ref psn);
         }
