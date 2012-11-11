@@ -76,7 +76,7 @@ namespace Monobjc.Foundation
         /// Returns a point from a text-based representation.
         /// </summary>
         /// <remarks>Original declaration is : NSPoint NSPointFromString(NSString *aString)</remarks>
-        [DllImport("/System/Libraries/Frameworks/Foundation.framework/Foundation")]
+        [DllImport("/System/Library/Frameworks/Foundation.framework/Foundation")]
         [return : MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (IdMarshaler<NSString>))]
         public static extern NSPoint NSPointFromString([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (IdMarshaler<NSString>))] NSString aString);
 
@@ -84,7 +84,7 @@ namespace Monobjc.Foundation
         /// Returns a string representation of a point.
         /// </summary>
         /// <remarks>Original declaration is : NSString *NSStringFromPoint(NSPoint aPoint)</remarks>
-        [DllImport("/System/Libraries/Frameworks/Foundation.framework/Foundation")]
+        [DllImport("/System/Library/Frameworks/Foundation.framework/Foundation")]
         [return : MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (IdMarshaler<NSString>))]
         public static extern NSString NSStringFromPoint(NSPoint aPoint);
     }

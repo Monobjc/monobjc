@@ -282,7 +282,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Returns the x coordinate of a given rectangle’s midpoint.
+        /// Returns the x coordinate of a given rectangleï¿½s midpoint.
         /// </summary>
         /// <remarks>Original declaration is : float NSMidX(NSRect aRect)</remarks>
 		public static CGFloat NSMidX(NSRect aRect)
@@ -291,7 +291,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Returns the y coordinate of a given rectangle’s midpoint.
+        /// Returns the y coordinate of a given rectangleï¿½s midpoint.
         /// </summary>
         /// <remarks>Original declaration is : float NSMidY(NSRect aRect)</remarks>
 		public static CGFloat NSMidY(NSRect aRect)
@@ -359,14 +359,14 @@ namespace Monobjc.Foundation
         /// Returns a rectangle from a text-based representation.
         /// </summary>
         /// <remarks>Original declaration is : NSRect NSRectFromString(NSString *aString)</remarks>
-        [DllImport("/System/Libraries/Frameworks/Foundation.framework/Foundation")]
+        [DllImport("/System/Library/Frameworks/Foundation.framework/Foundation")]
         public static extern NSRect NSRectFromString([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(IdMarshaler<NSString>))] NSString aString);
 
         /// <summary>
         /// Returns a string representation of a rectangle.
         /// </summary>
         /// <remarks>Original declaration is : NSString *NSStringFromRect(NSRect aRect)</remarks>
-        [DllImport("/System/Libraries/Frameworks/Foundation.framework/Foundation")]
+        [DllImport("/System/Library/Frameworks/Foundation.framework/Foundation")]
         [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(IdMarshaler<NSString>))]
         public static extern NSString NSStringFromRect(NSRect aRect);
 
