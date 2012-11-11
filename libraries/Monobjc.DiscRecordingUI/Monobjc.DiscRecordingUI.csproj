@@ -84,6 +84,10 @@
       <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
       <Name>Monobjc.AppKit</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Monobjc.DiscRecording\Monobjc.DiscRecording.csproj">
+      <Project>{27AC818E-E237-4E0D-BAB7-7EA578F6AD32}</Project>
+      <Name>Monobjc.DiscRecording</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

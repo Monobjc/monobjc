@@ -35,1213 +35,447 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebKit.DOM_C\DOMAbstractView.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMAbstractView.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMAbstractView_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMAttr.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMAttr.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMAttr_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMBlob.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMBlob.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMBlob_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCDATASection.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCDATASection.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCDATASection_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCharacterData.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCharacterData.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCharacterData_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
+    <Compile Include="WebKit.DOM_C\DOM_Definitions.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOM_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMAbstractView.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMAbstractView.cs" />
+    <Compile Include="WebKit.DOM_C\DOMAbstractView_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMAttr.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMAttr.cs" />
+    <Compile Include="WebKit.DOM_C\DOMAttr_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMBlob.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMBlob.cs" />
+    <Compile Include="WebKit.DOM_C\DOMBlob_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCDATASection.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCDATASection.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCDATASection_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCharacterData.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCharacterData.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCharacterData_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMCharacterData_DOMCharacterDataDeprecated.cs" />
-    <Compile Include="WebKit.DOM_C\DOMComment.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMComment.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMComment_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCore_Definitions.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCore_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCounter.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCounter.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCounter_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSCharsetRule.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSCharsetRule.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSCharsetRule_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSFontFaceRule.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSFontFaceRule.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSFontFaceRule_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSImportRule.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSImportRule.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSImportRule_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSMediaRule.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSMediaRule.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSMediaRule_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMComment.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMComment.cs" />
+    <Compile Include="WebKit.DOM_C\DOMComment_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCore_Definitions.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCore_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCounter.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCounter.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCounter_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSS_Definitions.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSS_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSCharsetRule.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSCharsetRule.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSCharsetRule_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSFontFaceRule.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSFontFaceRule.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSFontFaceRule_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSImportRule.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSImportRule.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSImportRule_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSMediaRule.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSMediaRule.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSMediaRule_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMCSSMediaRule_DOMCSSMediaRuleDeprecated.cs" />
-    <Compile Include="WebKit.DOM_C\DOMCSSPageRule.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSPageRule.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSPageRule_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSPrimitiveValue.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSPrimitiveValue.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSPrimitiveValue_Definitions.Constants.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSPrimitiveValue_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMCSSPageRule.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSPageRule.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSPageRule_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSPrimitiveValue.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSPrimitiveValue.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSPrimitiveValue_Definitions.Constants.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSPrimitiveValue_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMCSSPrimitiveValue_DOMCSSPrimitiveValueDeprecated.cs" />
-    <Compile Include="WebKit.DOM_C\DOMCSSRule.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSRule.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSRuleList.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSRuleList.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSRuleList_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSRule_Definitions.Constants.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSRule_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSStyleDeclaration.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSStyleDeclaration.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSStyleDeclaration_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMCSSRule.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSRule.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSRule_Definitions.Constants.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSRule_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSRuleList.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSRuleList.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSRuleList_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSStyleDeclaration.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSStyleDeclaration.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSStyleDeclaration_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMCSSStyleDeclaration_DOMCSS2Properties.cs" />
     <Compile Include="WebKit.DOM_C\DOMCSSStyleDeclaration_DOMCSSStyleDeclarationDeprecated.cs" />
-    <Compile Include="WebKit.DOM_C\DOMCSSStyleRule.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSStyleRule.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSStyleRule_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSStyleSheet.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSStyleSheet.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSStyleSheet_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMCSSStyleRule.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSStyleRule.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSStyleRule_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSStyleSheet.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSStyleSheet.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSStyleSheet_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMCSSStyleSheet_DOMCSSStyleSheetDeprecated.cs" />
-    <Compile Include="WebKit.DOM_C\DOMCSSUnknownRule.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSUnknownRule.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSUnknownRule_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSValue.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSValue.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSValueList.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSValueList.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSValueList_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSValue_Definitions.Constants.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSSValue_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSS_Definitions.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMCSS_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMDocument.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMDocument.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMDocumentFragment.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMDocumentFragment.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMDocumentFragment_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMDocumentType.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMDocumentType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMDocumentType_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMDocument_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMCSSUnknownRule.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSUnknownRule.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSUnknownRule_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSValue.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSValue.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSValue_Definitions.Constants.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSValue_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSValueList.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSValueList.cs" />
+    <Compile Include="WebKit.DOM_C\DOMCSSValueList_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMDocument.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMDocument.cs" />
+    <Compile Include="WebKit.DOM_C\DOMDocument_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMDocument_DOMDocumentDeprecated.cs" />
     <Compile Include="WebKit.DOM_C\DOMDocument_WebDOMDocumentOperations.cs" />
-    <Compile Include="WebKit.DOM_C\DOMElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMDocumentFragment.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMDocumentFragment.cs" />
+    <Compile Include="WebKit.DOM_C\DOMDocumentFragment_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMDocumentType.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMDocumentType.cs" />
+    <Compile Include="WebKit.DOM_C\DOMDocumentType_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMElement_Definitions.Constants.cs" />
+    <Compile Include="WebKit.DOM_C\DOMElement_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMElement_DOMElementAppKitExtensions.cs" />
     <Compile Include="WebKit.DOM_C\DOMElement_DOMElementDeprecated.cs" />
-    <Compile Include="WebKit.DOM_C\DOMEntity.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMEntity.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMEntityReference.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMEntityReference.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMEntityReference_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMEntity_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMEvent.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMEvent.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMEventException_Definitions.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMEventException_Definitions.Constants.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMEventException_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMEventListener_Definitions.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMEventListener_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMEvents_Definitions.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMEvents_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMEventTarget_Definitions.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMEventTarget_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMEvent_Definitions.Constants.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMEvent_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMEntity.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMEntity.cs" />
+    <Compile Include="WebKit.DOM_C\DOMEntity_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMEntityReference.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMEntityReference.cs" />
+    <Compile Include="WebKit.DOM_C\DOMEntityReference_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMEvent.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMEvent.Constructors.cs" />
+    <Compile Include="WebKit.DOM_C\DOMEvent.cs" />
+    <Compile Include="WebKit.DOM_C\DOMEvent_Definitions.Constants.cs" />
+    <Compile Include="WebKit.DOM_C\DOMEvent_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMEvent_DOMEventDeprecated.cs" />
-    <Compile Include="WebKit.DOM_C\DOMException_Definitions.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMException_Definitions.Constants.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMException_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMExtensions_Definitions.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMExtensions_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMFile.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMFile.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMFileList.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMFileList.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMFileList_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMFile_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLAnchorElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLAnchorElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLAnchorElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLAppletElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLAppletElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLAppletElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLAreaElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLAreaElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLAreaElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLBaseElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLBaseElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLBaseElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLBaseFontElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLBaseFontElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLBaseFontElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLBodyElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLBodyElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLBodyElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLBRElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLBRElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLBRElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLButtonElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLButtonElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLButtonElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLCollection.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLCollection_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLDirectoryElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLDirectoryElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLDirectoryElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLDivElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLDivElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLDivElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLDListElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLDListElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLDListElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLDocument.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLDocument.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLDocument_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMEventException_Definitions.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMEventException_Definitions.Constants.cs" />
+    <Compile Include="WebKit.DOM_C\DOMEventException_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMEventListener_Definitions.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMEventListener_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMEvents_Definitions.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMEvents_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMEventTarget_Definitions.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMEventTarget_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMException_Definitions.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMException_Definitions.Constants.cs" />
+    <Compile Include="WebKit.DOM_C\DOMException_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMExtensions_Definitions.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMExtensions_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMFile.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMFile.cs" />
+    <Compile Include="WebKit.DOM_C\DOMFile_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMFileList.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMFileList.cs" />
+    <Compile Include="WebKit.DOM_C\DOMFileList_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTML_Definitions.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTML_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLAnchorElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLAnchorElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLAnchorElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLAppletElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLAppletElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLAppletElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLAreaElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLAreaElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLAreaElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLBaseElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLBaseElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLBaseElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLBaseFontElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLBaseFontElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLBaseFontElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLBodyElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLBodyElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLBodyElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLBRElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLBRElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLBRElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLButtonElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLButtonElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLButtonElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLCollection.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLCollection.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLCollection_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLDirectoryElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLDirectoryElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLDirectoryElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLDivElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLDivElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLDivElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLDListElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLDListElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLDListElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLDocument.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLDocument.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLDocument_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMHTMLDocument_DOMHTMLDocumentExtensions.cs" />
-    <Compile Include="WebKit.DOM_C\DOMHTMLElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLEmbedElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLEmbedElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLEmbedElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLFieldSetElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLFieldSetElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLFieldSetElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLFontElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLFontElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLFontElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLFormElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLFormElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLFormElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLFrameElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLFrameElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLFrameElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMHTMLElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLEmbedElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLEmbedElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLEmbedElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLFieldSetElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLFieldSetElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLFieldSetElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLFontElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLFontElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLFontElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLFormElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLFormElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLFormElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLFrameElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLFrameElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLFrameElement_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMHTMLFrameElement_WebDOMHTMLFrameElementOperations.cs" />
-    <Compile Include="WebKit.DOM_C\DOMHTMLFrameSetElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLFrameSetElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLFrameSetElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLHeadElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLHeadElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLHeadElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLHeadingElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLHeadingElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLHeadingElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLHRElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLHRElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLHRElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLHtmlElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLHtmlElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLHtmlElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLIFrameElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLIFrameElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLIFrameElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMHTMLFrameSetElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLFrameSetElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLFrameSetElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLHeadElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLHeadElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLHeadElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLHeadingElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLHeadingElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLHeadingElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLHRElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLHRElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLHRElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLHtmlElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLHtmlElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLHtmlElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLIFrameElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLIFrameElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLIFrameElement_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMHTMLIFrameElement_WebDOMHTMLIFrameElementOperations.cs" />
-    <Compile Include="WebKit.DOM_C\DOMHTMLImageElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLImageElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLImageElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLInputElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLInputElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLInputElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLIsIndexElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLIsIndexElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLIsIndexElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLLabelElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLLabelElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLLabelElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLLegendElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLLegendElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLLegendElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLLIElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLLIElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLLIElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLLinkElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLLinkElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLLinkElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLMapElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLMapElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLMapElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLMarqueeElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLMarqueeElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLMarqueeElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLMenuElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLMenuElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLMenuElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLMetaElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLMetaElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLMetaElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLModElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLModElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLModElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLObjectElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLObjectElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLObjectElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMHTMLImageElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLImageElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLImageElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLInputElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLInputElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLInputElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLLabelElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLLabelElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLLabelElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLLegendElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLLegendElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLLegendElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLLIElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLLIElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLLIElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLLinkElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLLinkElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLLinkElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLMapElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLMapElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLMapElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLMarqueeElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLMarqueeElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLMarqueeElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLMenuElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLMenuElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLMenuElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLMetaElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLMetaElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLMetaElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLModElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLModElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLModElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLObjectElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLObjectElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLObjectElement_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMHTMLObjectElement_WebDOMHTMLObjectElementOperations.cs" />
-    <Compile Include="WebKit.DOM_C\DOMHTMLOListElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLOListElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLOListElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLOptGroupElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLOptGroupElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLOptGroupElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLOptionElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLOptionElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLOptionElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLOptionsCollection.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLOptionsCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLOptionsCollection_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLParagraphElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLParagraphElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLParagraphElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLParamElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLParamElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLParamElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLPreElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLPreElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLPreElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLQuoteElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLQuoteElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLQuoteElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLScriptElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLScriptElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLScriptElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLSelectElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLSelectElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLSelectElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMHTMLOListElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLOListElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLOListElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLOptGroupElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLOptGroupElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLOptGroupElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLOptionElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLOptionElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLOptionElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLOptionsCollection.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLOptionsCollection.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLOptionsCollection_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLParagraphElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLParagraphElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLParagraphElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLParamElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLParamElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLParamElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLPreElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLPreElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLPreElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLQuoteElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLQuoteElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLQuoteElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLScriptElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLScriptElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLScriptElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLSelectElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLSelectElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLSelectElement_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMHTMLSelectElement_DOMHTMLSelectElementDeprecated.cs" />
-    <Compile Include="WebKit.DOM_C\DOMHTMLStyleElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLStyleElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLStyleElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTableCaptionElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTableCaptionElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTableCaptionElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTableCellElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTableCellElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTableCellElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTableColElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTableColElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTableColElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTableElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTableElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTableElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTableRowElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTableRowElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTableRowElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTableSectionElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTableSectionElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTableSectionElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTextAreaElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTextAreaElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTextAreaElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTitleElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTitleElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLTitleElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLUListElement.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLUListElement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTMLUListElement_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTML_Definitions.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMHTML_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMImplementation.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMImplementation.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMImplementation_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMHTMLStyleElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLStyleElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLStyleElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTableCaptionElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTableCaptionElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTableCaptionElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTableCellElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTableCellElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTableCellElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTableColElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTableColElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTableColElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTableElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTableElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTableElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTableRowElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTableRowElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTableRowElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTableSectionElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTableSectionElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTableSectionElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTextAreaElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTextAreaElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTextAreaElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTitleElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTitleElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLTitleElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLUListElement.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLUListElement.cs" />
+    <Compile Include="WebKit.DOM_C\DOMHTMLUListElement_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMImplementation.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMImplementation.cs" />
+    <Compile Include="WebKit.DOM_C\DOMImplementation_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMImplementation_DOMImplementationDeprecated.cs" />
-    <Compile Include="WebKit.DOM_C\DOMKeyboardEvent.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMKeyboardEvent.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMKeyboardEvent_Definitions.Constants.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMKeyboardEvent_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMMediaList.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMMediaList.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMMediaList_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMMouseEvent.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMMouseEvent.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMMouseEvent_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMKeyboardEvent.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMKeyboardEvent.Constructors.cs" />
+    <Compile Include="WebKit.DOM_C\DOMKeyboardEvent.cs" />
+    <Compile Include="WebKit.DOM_C\DOMKeyboardEvent_Definitions.Constants.cs" />
+    <Compile Include="WebKit.DOM_C\DOMKeyboardEvent_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMMediaList.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMMediaList.cs" />
+    <Compile Include="WebKit.DOM_C\DOMMediaList_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMMouseEvent.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMMouseEvent.Constructors.cs" />
+    <Compile Include="WebKit.DOM_C\DOMMouseEvent.cs" />
+    <Compile Include="WebKit.DOM_C\DOMMouseEvent_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMMouseEvent_DOMMouseEventDeprecated.cs" />
-    <Compile Include="WebKit.DOM_C\DOMMutationEvent.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMMutationEvent.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMMutationEvent_Definitions.Constants.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMMutationEvent_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMMutationEvent.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMMutationEvent.Constructors.cs" />
+    <Compile Include="WebKit.DOM_C\DOMMutationEvent.cs" />
+    <Compile Include="WebKit.DOM_C\DOMMutationEvent_Definitions.Constants.cs" />
+    <Compile Include="WebKit.DOM_C\DOMMutationEvent_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMMutationEvent_DOMMutationEventDeprecated.cs" />
-    <Compile Include="WebKit.DOM_C\DOMNamedNodeMap.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMNamedNodeMap.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMNamedNodeMap_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMNamedNodeMap.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMNamedNodeMap.cs" />
+    <Compile Include="WebKit.DOM_C\DOMNamedNodeMap_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMNamedNodeMap_DOMNamedNodeMapDeprecated.cs" />
-    <Compile Include="WebKit.DOM_C\DOMNode.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMNode.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMNode.Protocols.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMNodeFilter_Definitions.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMNodeFilter_Definitions.Constants.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMNodeFilter_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMNodeIterator.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMNodeIterator.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMNodeIterator_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMNodeList.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMNodeList.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMNodeList_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMNode_Definitions.Constants.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMNode_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMNode.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMNode.cs" />
+    <Compile Include="WebKit.DOM_C\DOMNode.Protocols.cs" />
+    <Compile Include="WebKit.DOM_C\DOMNode_Definitions.Constants.cs" />
+    <Compile Include="WebKit.DOM_C\DOMNode_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMNode_DOMNodeDeprecated.cs" />
     <Compile Include="WebKit.DOM_C\DOMNode_DOMNodeExtensions.cs" />
     <Compile Include="WebKit.DOM_C\DOMNode_WebDOMNodeOperations.cs" />
-    <Compile Include="WebKit.DOM_C\DOMNotation.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMNotation.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMNotation_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMObject.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMObject.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMObject_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMNodeFilter_Definitions.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMNodeFilter_Definitions.Constants.cs" />
+    <Compile Include="WebKit.DOM_C\DOMNodeFilter_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMNodeIterator.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMNodeIterator.cs" />
+    <Compile Include="WebKit.DOM_C\DOMNodeIterator_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMNodeList.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMNodeList.cs" />
+    <Compile Include="WebKit.DOM_C\DOMNodeList_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMNotation.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMNotation.cs" />
+    <Compile Include="WebKit.DOM_C\DOMNotation_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMObject.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMObject.Constants.cs" />
+    <Compile Include="WebKit.DOM_C\DOMObject.cs" />
+    <Compile Include="WebKit.DOM_C\DOMObject_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMObject_DOMLinkStyle.cs" />
-    <Compile Include="WebKit.DOM_C\DOMOverflowEvent.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMOverflowEvent.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMOverflowEvent_Definitions.Constants.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMOverflowEvent_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMProcessingInstruction.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMProcessingInstruction.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMProcessingInstruction_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMProgressEvent.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMProgressEvent.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMProgressEvent_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMRange.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMRange.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMRangeException_Definitions.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMRangeException_Definitions.Constants.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMRangeException_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMRanges_Definitions.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMRanges_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMRange_Definitions.Constants.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMRange_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMOverflowEvent.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMOverflowEvent.Constructors.cs" />
+    <Compile Include="WebKit.DOM_C\DOMOverflowEvent.cs" />
+    <Compile Include="WebKit.DOM_C\DOMOverflowEvent_Definitions.Constants.cs" />
+    <Compile Include="WebKit.DOM_C\DOMOverflowEvent_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMProcessingInstruction.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMProcessingInstruction.cs" />
+    <Compile Include="WebKit.DOM_C\DOMProcessingInstruction_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMProgressEvent.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMProgressEvent.Constructors.cs" />
+    <Compile Include="WebKit.DOM_C\DOMProgressEvent.cs" />
+    <Compile Include="WebKit.DOM_C\DOMProgressEvent_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMRange.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMRange.cs" />
+    <Compile Include="WebKit.DOM_C\DOMRange_Definitions.Constants.cs" />
+    <Compile Include="WebKit.DOM_C\DOMRange_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMRange_DOMRangeDeprecated.cs" />
     <Compile Include="WebKit.DOM_C\DOMRange_WebDOMRangeOperations.cs" />
-    <Compile Include="WebKit.DOM_C\DOMRect.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMRect.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMRect_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMRGBColor.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMRGBColor.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMRGBColor_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMStyleSheet.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMStyleSheet.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMStyleSheetList.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMStyleSheetList.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMStyleSheetList_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMStylesheets_Definitions.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMStylesheets_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMStyleSheet_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMText.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMText.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMText_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMTraversal_Definitions.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMTraversal_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMTreeWalker.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMTreeWalker.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMTreeWalker_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMUIEvent.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMUIEvent.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMUIEvent_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMRangeException_Definitions.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMRangeException_Definitions.Constants.cs" />
+    <Compile Include="WebKit.DOM_C\DOMRangeException_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMRanges_Definitions.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMRanges_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMRect.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMRect.cs" />
+    <Compile Include="WebKit.DOM_C\DOMRect_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMRGBColor.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMRGBColor.cs" />
+    <Compile Include="WebKit.DOM_C\DOMRGBColor_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMStyleSheet.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMStyleSheet.cs" />
+    <Compile Include="WebKit.DOM_C\DOMStyleSheet_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMStyleSheetList.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMStyleSheetList.cs" />
+    <Compile Include="WebKit.DOM_C\DOMStyleSheetList_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMStylesheets_Definitions.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMStylesheets_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMText.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMText.cs" />
+    <Compile Include="WebKit.DOM_C\DOMText_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMTraversal_Definitions.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMTraversal_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMTreeWalker.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMTreeWalker.cs" />
+    <Compile Include="WebKit.DOM_C\DOMTreeWalker_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMUIEvent.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMUIEvent.Constructors.cs" />
+    <Compile Include="WebKit.DOM_C\DOMUIEvent.cs" />
+    <Compile Include="WebKit.DOM_C\DOMUIEvent_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMUIEvent_DOMUIEventDeprecated.cs" />
-    <Compile Include="WebKit.DOM_C\DOMViews_Definitions.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMViews_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMWheelEvent.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMWheelEvent.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMWheelEvent_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMXPathException_Definitions.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMXPathException_Definitions.Constants.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMXPathException_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMXPathExpression.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMXPathExpression.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMXPathExpression_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMViews_Definitions.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMViews_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMWheelEvent.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMWheelEvent.Constructors.cs" />
+    <Compile Include="WebKit.DOM_C\DOMWheelEvent.cs" />
+    <Compile Include="WebKit.DOM_C\DOMWheelEvent_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMXPath_Definitions.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMXPath_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMXPathException_Definitions.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMXPathException_Definitions.Constants.cs" />
+    <Compile Include="WebKit.DOM_C\DOMXPathException_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMXPathExpression.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMXPathExpression.cs" />
+    <Compile Include="WebKit.DOM_C\DOMXPathExpression_Definitions.cs" />
     <Compile Include="WebKit.DOM_C\DOMXPathExpression_DOMXPathExpressionDeprecated.cs" />
-    <Compile Include="WebKit.DOM_C\DOMXPathNSResolver_Definitions.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMXPathNSResolver_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMXPathResult.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMXPathResult.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMXPathResult_Definitions.Constants.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMXPathResult_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMXPath_Definitions.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOMXPath_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOM_Definitions.Class.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebKit.DOM_C\DOM_Definitions.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="WebKit.DOM_C\DOMXPathNSResolver_Definitions.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMXPathNSResolver_Definitions.cs" />
+    <Compile Include="WebKit.DOM_C\DOMXPathResult.Class.cs" />
+    <Compile Include="WebKit.DOM_C\DOMXPathResult.cs" />
+    <Compile Include="WebKit.DOM_C\DOMXPathResult_Definitions.Constants.cs" />
+    <Compile Include="WebKit.DOM_C\DOMXPathResult_Definitions.cs" />
+    <Compile Include="WebKit.DOM_P\DOMEventListener.Protocol.cs" />
+    <Compile Include="WebKit.DOM_P\DOMEventTarget.Protocol.cs" />
+    <Compile Include="WebKit.DOM_P\DOMNodeFilter.Protocol.cs" />
+    <Compile Include="WebKit.DOM_P\DOMXPathNSResolver.Protocol.cs" />
+    <Compile Include="WebKit_C\DOMDocument_WebKitAdditions.cs" />
+    <Compile Include="WebKit_C\DOMElement_WebKitAdditions.cs" />
+    <Compile Include="WebKit_C\DOMHTMLDocument_WebkitAdditions.cs" />
+    <Compile Include="WebKit_C\DOMHTMLFrameElement_WebkitAdditions.cs" />
+    <Compile Include="WebKit_C\DOMHTMLIFrameElement_WebkitAdditions.cs" />
+    <Compile Include="WebKit_C\DOMHTMLObjectElement_WebkitAdditions.cs" />
+    <Compile Include="WebKit_C\DOMNode_WebkitAdditions.cs" />
+    <Compile Include="WebKit_C\DOMRange_WebkitAdditions.cs" />
     <Compile Include="WebKit_C\WebArchive.Class.cs" />
     <Compile Include="WebKit_C\WebArchive.Constants.cs" />
     <Compile Include="WebKit_C\WebArchive.Constructors.cs" />
@@ -1249,7 +483,6 @@
     <Compile Include="WebKit_C\WebArchive.Protocols.cs" />
     <Compile Include="WebKit_C\WebBackForwardList.Class.cs" />
     <Compile Include="WebKit_C\WebBackForwardList.cs" />
-    <Compile Include="WebKit_C\WebBackForwardList.Deprecated.cs" />
     <Compile Include="WebKit_C\WebDataSource.Class.cs" />
     <Compile Include="WebKit_C\WebDataSource.Constructors.cs" />
     <Compile Include="WebKit_C\WebDataSource.cs" />
@@ -1313,12 +546,10 @@
     <Compile Include="WebKit_P\WebUIDelegate.Constants.cs" />
     <Compile Include="WebKit_P\WebUIDelegate.Protocol.cs" />
     <Compile Include="WebKit_T\WebKitFramework.Constants.cs" />
-    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
-    <Compile Include="WebKit.DOM_P\DOMEventListener.Protocol.cs" />
-    <Compile Include="WebKit.DOM_P\DOMEventTarget.Protocol.cs" />
-    <Compile Include="WebKit.DOM_P\DOMNodeFilter.Protocol.cs" />
-    <Compile Include="WebKit.DOM_P\DOMXPathNSResolver.Protocol.cs" />
-    <Compile Include="WebKit.DOM_C\DOMElement_Definitions.Constants.cs" />
+    <Compile Include="WebKit_P\WebView.FrameLoadDelegate.cs" />
+    <Compile Include="WebKit_P\WebView.PolicyDelegate.cs" />
+    <Compile Include="WebKit_P\WebView.ResourceLoadDelegate.cs" />
+    <Compile Include="WebKit_P\WebView.UIDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">
@@ -1328,6 +559,10 @@
     <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
       <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
       <Name>Monobjc.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
+      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
+      <Name>Monobjc.AppKit</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
@@ -1339,4 +574,9 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <None Include="WebKit_C\.DS_Store" />
+    <None Include="WebKit_P\.DS_Store" />
+    <None Include="WebKit_T\.DS_Store" />
+  </ItemGroup>
 </Project>

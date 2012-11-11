@@ -282,7 +282,7 @@
 		</fileset>
 		<call target="build-library-intern" />
 		
-		<!-- Library Monobjc.DiscRecordingUI 
+		<!-- Library Monobjc.DiscRecordingUI -->
 		<property name="lib.name" value="Monobjc.DiscRecordingUI" />
 		<assemblyfileset id="lib.references" basedir="${output.dir}">
 			<include name="System.dll" />
@@ -290,6 +290,7 @@
 			<include name="Monobjc.dll" />
 			<include name="Monobjc.Foundation.dll" />
 			<include name="Monobjc.AppKit.dll" />
+			<include name="Monobjc.DiscRecording.dll" />
 		</assemblyfileset>
 		<fileset id="src.references" basedir="${output.dir}">
 			<include name="${base.dir}/${lib.name}/*.cs" />
@@ -301,7 +302,6 @@
 			<include name="${base.dir}/${lib.name}/Properties/*.cs" />
 		</fileset>
 		<call target="build-library-intern" />
-		-->
 		
 		<!-- Library Monobjc.EventKit -->
 		<property name="lib.name" value="Monobjc.EventKit" />
@@ -595,11 +595,10 @@
 		<fileset id="src.references" basedir="${output.dir}">
 			<include name="${base.dir}/${lib.name}/*.cs" />
 			<include name="${base.dir}/${lib.name}/Properties/*.cs" />
-			<include name="${base.dir}/${lib.name}/WebKit.DOM_C/*.cs" />
-			<include name="${base.dir}/${lib.name}/WebKit.DOM_P/*.cs" />
+			<include name="${base.dir}/${lib.name}/WebKit.DOM_C/DOM*.cs" />
+			<include name="${base.dir}/${lib.name}/WebKit.DOM_P/DOM*.cs" />
 			<include name="${base.dir}/${lib.name}/WebKit_C/*.cs" />
 			<include name="${base.dir}/${lib.name}/WebKit_P/*.cs" />
-			<exclude name="${base.dir}/${lib.name}/WebKit_P/*Deprecated*.cs" />
 			<exclude name="${base.dir}/${lib.name}/WebKit_P/WebJavaPlugIn*.cs" />
 			<include name="${base.dir}/${lib.name}/WebKit_T/*.cs" />
 		</fileset>
