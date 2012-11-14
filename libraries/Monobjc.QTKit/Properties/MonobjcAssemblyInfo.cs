@@ -32,7 +32,7 @@ using System.Reflection;
 #elif MACOSX_10_7
 [assembly: AssemblyVersionAttribute("10.7.0.0")]
 [assembly: AssemblyFileVersionAttribute("10.7.0.0")]
-#elif MACOSX_10_6
+#else
 [assembly: AssemblyVersionAttribute("10.6.0.0")]
 [assembly: AssemblyFileVersionAttribute("10.6.0.0")]
 #endif

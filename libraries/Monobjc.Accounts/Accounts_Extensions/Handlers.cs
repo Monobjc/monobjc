@@ -30,6 +30,7 @@ using Monobjc.Foundation;
 
 namespace Monobjc.Accounts
 {
+#if MACOSX_10_8
 	/// <summary>
 	/// <para>Specifies a handler to call when an Accounts database operation is complete.</para>
 	/// </summary>
@@ -57,4 +58,5 @@ namespace Monobjc.Accounts
 	/// <param name="renewResult">The result of the renewal request.</param>
 	/// <param name="error">An error, if one occurred.</param>
 	public delegate void ACAccountStoreCredentialRenewalHandler(ACAccountCredentialRenewResult renewResult, NSError error);
+#endif
 }

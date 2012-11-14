@@ -52,9 +52,8 @@ namespace Monobjc
 
 		private static DynamicAssembly DynamicAssembly { get; set; }
 
-#if MACOSX_10_6
-        private static BlockGenerator BlockGenerator { get; set; }
-#endif
+		private static BlockGenerator BlockGenerator { get; set; }
+
 		private static CategoryGenerator CategoryGenerator { get; set; }
 
 		private static ClassGenerator ClassGenerator { get; set; }
@@ -125,9 +124,7 @@ namespace Monobjc
 			DynamicAssembly = new DynamicAssembly ("Monobjc.Dynamic", "GeneratedTypes");
 
 			// Create the dynamic code generators
-#if MACOSX_10_6
             BlockGenerator = new BlockGenerator(DynamicAssembly, Is64Bits);
-#endif
 			CategoryGenerator = new CategoryGenerator (DynamicAssembly, Is64Bits);
 			ClassGenerator = new ClassGenerator (DynamicAssembly, Is64Bits);
 			WrapperGenerator = new WrapperGenerator (DynamicAssembly, Is64Bits);
@@ -373,15 +370,15 @@ namespace Monobjc
 			return Marshal.PtrToStringAnsi (NativeMethods.sel_getName (value));
 		}
 
-        /// <summary>
-        ///   Returns the name of the native protocol.
-        /// </summary>
-        /// <param name = "value">The bative protocol.</param>
-        /// <returns>The name of the protocol</returns>
-        public static String GetProtocolName(IntPtr value)
-        {
-            return Marshal.PtrToStringAnsi(NativeMethods.protocol_getName(value));
-        }
+		/// <summary>
+		///   Returns the name of the native protocol.
+		/// </summary>
+		/// <param name = "value">The bative protocol.</param>
+		/// <returns>The name of the protocol</returns>
+		public static String GetProtocolName (IntPtr value)
+		{
+			return Marshal.PtrToStringAnsi (NativeMethods.protocol_getName (value));
+		}
 
 		/// <summary>
 		///   Gets the symbol.

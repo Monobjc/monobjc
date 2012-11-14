@@ -44,7 +44,6 @@ namespace Monobjc.Foundation
 			listener.Release();
 		}
 		
-#if MACOSX_10_6
         [Test]
         public void TestNotificationByBlock()
         {
@@ -66,8 +65,7 @@ namespace Monobjc.Foundation
 			NSNotificationCenter.DefaultCenter.RemoveObserver(listener);
 			block.Dispose();
 		}
-#endif
-		
+
 		private void Notify()
 		{
 			using(NSAutoreleasePool pool = new NSAutoreleasePool())

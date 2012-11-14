@@ -28,7 +28,6 @@ using Monobjc.Properties;
 
 namespace Monobjc
 {
-#if MACOSX_10_6
     /// <summary>
 	///   Custom marshaller for <see cref = "Block" /> instances. This makes interop a breeze as it cuts a lot of code.
 	/// </summary>
@@ -99,5 +98,4 @@ namespace Monobjc
 			return IntPtr.Size;
 		}
 	}
-#endif
 }

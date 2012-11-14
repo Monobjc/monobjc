@@ -156,7 +156,6 @@ namespace Monobjc
             Assert.IsTrue(test, "String should be of the right class.");
         }
 
-#if MACOSX_10_6
         [Test]
         public void TestBlockMessaging()
         {
@@ -176,7 +175,6 @@ namespace Monobjc
                 Assert.AreEqual(1, count, "Array must have 1 element");
             }
         }
-#endif
 
         [Test]
         public void TestMessagingException()

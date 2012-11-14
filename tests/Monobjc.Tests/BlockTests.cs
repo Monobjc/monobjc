@@ -23,7 +23,6 @@ using NUnit.Framework;
 
 namespace Monobjc
 {
-#if MACOSX_10_6
     [TestFixture]
     [Category("Blocks")]
     [Category("Runtime")]
@@ -230,5 +229,4 @@ namespace Monobjc
             return (Block) Activator.CreateInstance(blockProxyType, block);
         }
     }
-#endif
 }

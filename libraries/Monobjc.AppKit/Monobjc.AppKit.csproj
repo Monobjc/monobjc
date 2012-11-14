@@ -25,7 +25,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>True</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <DefineConstants>TRACE;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -34,99 +34,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGBitmapContext.cs">
-      <Link>ApplicationServices_T\CGBitmapContext.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGColor.cs">
-      <Link>ApplicationServices_T\CGColor.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGColorSpace.cs">
-      <Link>ApplicationServices_T\CGColorSpace.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGContext.cs">
-      <Link>ApplicationServices_T\CGContext.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGDataConsumer.cs">
-      <Link>ApplicationServices_T\CGDataConsumer.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGDataProvider.cs">
-      <Link>ApplicationServices_T\CGDataProvider.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGFont.cs">
-      <Link>ApplicationServices_T\CGFont.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGFunction.cs">
-      <Link>ApplicationServices_T\CGFunction.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGGeometry.cs">
-      <Link>ApplicationServices_T\CGGeometry.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGGLContext.cs">
-      <Link>ApplicationServices_T\CGGLContext.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGGradient.cs">
-      <Link>ApplicationServices_T\CGGradient.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGImage.cs">
-      <Link>ApplicationServices_T\CGImage.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGImageDestination.cs">
-      <Link>ApplicationServices_T\CGImageDestination.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGImageProperties.cs">
-      <Link>ApplicationServices_T\CGImageProperties.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGImageSource.cs">
-      <Link>ApplicationServices_T\CGImageSource.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGLayer.cs">
-      <Link>ApplicationServices_T\CGLayer.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPath.cs">
-      <Link>ApplicationServices_T\CGPath.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPattern.cs">
-      <Link>ApplicationServices_T\CGPattern.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFArray.cs">
-      <Link>ApplicationServices_T\CGPDFArray.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFContentStream.cs">
-      <Link>ApplicationServices_T\CGPDFContentStream.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFContext.cs">
-      <Link>ApplicationServices_T\CGPDFContext.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFDictionary.cs">
-      <Link>ApplicationServices_T\CGPDFDictionary.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFDocument.cs">
-      <Link>ApplicationServices_T\CGPDFDocument.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFObject.cs">
-      <Link>ApplicationServices_T\CGPDFObject.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFOperatorTable.cs">
-      <Link>ApplicationServices_T\CGPDFOperatorTable.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFPage.cs">
-      <Link>ApplicationServices_T\CGPDFPage.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFScanner.cs">
-      <Link>ApplicationServices_T\CGPDFScanner.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFStream.cs">
-      <Link>ApplicationServices_T\CGPDFStream.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFString.cs">
-      <Link>ApplicationServices_T\CGPDFString.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPSConverter.cs">
-      <Link>ApplicationServices_T\CGPSConverter.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGShading.cs">
-      <Link>ApplicationServices_T\CGShading.cs</Link>
-    </Compile>
     <Compile Include="AppKit_Extensions\NSWindow.Interop.cs" />
     <Compile Include="AppKit_Extensions\NSScreen.Interop.cs" />
     <Compile Include="AppKit_Extensions\NSActionCell.Action.cs" />
@@ -159,25 +66,6 @@
     <Compile Include="AppKit_T\AppKitFramework.DataTypes.cs" />
     <Compile Include="AppKit_T\AppKitFramework.Functions.cs" />
     <Compile Include="ApplicationServices_Extensions\CTFontCollectionSortDescriptorsCallback.cs" />
-    <Compile Include="ApplicationServices_Functions\CGBitmapContextReleaseDataCallback.cs" />
-    <Compile Include="ApplicationServices_Functions\CGDataConsumerCallbacks.cs" />
-    <Compile Include="ApplicationServices_Functions\CGDataConsumerPutBytesCallback.cs" />
-    <Compile Include="ApplicationServices_Functions\CGDataConsumerReleaseInfoCallback.cs" />
-    <Compile Include="ApplicationServices_Functions\CGDataProviderCallbacks.cs" />
-    <Compile Include="ApplicationServices_Functions\CGDataProviderDirectAccessCallbacks.cs" />
-    <Compile Include="ApplicationServices_Functions\CGDataProviderDirectCallbacks.cs" />
-    <Compile Include="ApplicationServices_Functions\CGDataProviderGetBytePointerCallback.cs" />
-    <Compile Include="ApplicationServices_Functions\CGDataProviderGetBytesAtOffsetCallback.cs" />
-    <Compile Include="ApplicationServices_Functions\CGDataProviderGetBytesAtPositionCallback.cs" />
-    <Compile Include="ApplicationServices_Functions\CGDataProviderGetBytesCallback.cs" />
-    <Compile Include="ApplicationServices_Functions\CGDataProviderReleaseBytePointerCallback.cs" />
-    <Compile Include="ApplicationServices_Functions\CGDataProviderReleaseDataCallback.cs" />
-    <Compile Include="ApplicationServices_Functions\CGDataProviderReleaseInfoCallback.cs" />
-    <Compile Include="ApplicationServices_Functions\CGDataProviderRewindCallback.cs" />
-    <Compile Include="ApplicationServices_Functions\CGDataProviderSequentialCallbacks.cs" />
-    <Compile Include="ApplicationServices_Functions\CGDataProviderSkipBytesCallback.cs" />
-    <Compile Include="ApplicationServices_Functions\CGDataProviderSkipForwardCallback.cs" />
-    <Compile Include="ApplicationServices_Functions\CGPDFOperatorCallback.cs" />
     <Compile Include="ApplicationServices_S\CTParagraphStyleSetting.cs" />
     <Compile Include="CoreData_C\NSAtomicStore.Class.cs" />
     <Compile Include="CoreData_C\NSAtomicStore.Constructors.cs" />
@@ -1359,6 +1247,123 @@
     <Compile Include="AppKit_C\NSWorkspace.Constants.cs" />
     <Compile Include="AppKit_C\NSWorkspace.cs" />
     <Compile Include="QuartzCore_S\CATransform3D64.cs" />
+    <Compile Include="AppKit_P\NSControl.Delegate.cs" />
+    <Compile Include="ApplicationServices_Extensions\CGBitmapContextReleaseDataCallback.cs" />
+    <Compile Include="ApplicationServices_Extensions\CGDataConsumerCallbacks.cs" />
+    <Compile Include="ApplicationServices_Extensions\CGDataConsumerPutBytesCallback.cs" />
+    <Compile Include="ApplicationServices_Extensions\CGDataConsumerReleaseInfoCallback.cs" />
+    <Compile Include="ApplicationServices_Extensions\CGDataProviderCallbacks.cs" />
+    <Compile Include="ApplicationServices_Extensions\CGDataProviderDirectAccessCallbacks.cs" />
+    <Compile Include="ApplicationServices_Extensions\CGDataProviderDirectCallbacks.cs" />
+    <Compile Include="ApplicationServices_Extensions\CGDataProviderGetBytePointerCallback.cs" />
+    <Compile Include="ApplicationServices_Extensions\CGDataProviderGetBytesAtOffsetCallback.cs" />
+    <Compile Include="ApplicationServices_Extensions\CGDataProviderGetBytesAtPositionCallback.cs" />
+    <Compile Include="ApplicationServices_Extensions\CGDataProviderGetBytesCallback.cs" />
+    <Compile Include="ApplicationServices_Extensions\CGDataProviderReleaseBytePointerCallback.cs" />
+    <Compile Include="ApplicationServices_Extensions\CGDataProviderReleaseDataCallback.cs" />
+    <Compile Include="ApplicationServices_Extensions\CGDataProviderReleaseInfoCallback.cs" />
+    <Compile Include="ApplicationServices_Extensions\CGDataProviderRewindCallback.cs" />
+    <Compile Include="ApplicationServices_Extensions\CGDataProviderSequentialCallbacks.cs" />
+    <Compile Include="ApplicationServices_Extensions\CGDataProviderSkipBytesCallback.cs" />
+    <Compile Include="ApplicationServices_Extensions\CGDataProviderSkipForwardCallback.cs" />
+    <Compile Include="ApplicationServices_Extensions\CGPDFOperatorCallback.cs" />
+    <Compile Include="ApplicationServices_E\CTFontManagerError.cs" />
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGAffineTransform.cs">
+      <Link>ApplicationServices_T\CGAffineTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGBitmapContext.cs">
+      <Link>ApplicationServices_T\CGBitmapContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGColor.cs">
+      <Link>ApplicationServices_T\CGColor.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGColorSpace.cs">
+      <Link>ApplicationServices_T\CGColorSpace.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGContext.cs">
+      <Link>ApplicationServices_T\CGContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGDataConsumer.cs">
+      <Link>ApplicationServices_T\CGDataConsumer.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGDataProvider.cs">
+      <Link>ApplicationServices_T\CGDataProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGFont.cs">
+      <Link>ApplicationServices_T\CGFont.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGFunction.cs">
+      <Link>ApplicationServices_T\CGFunction.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGGeometry.cs">
+      <Link>ApplicationServices_T\CGGeometry.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGGLContext.cs">
+      <Link>ApplicationServices_T\CGGLContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGGradient.cs">
+      <Link>ApplicationServices_T\CGGradient.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGImage.cs">
+      <Link>ApplicationServices_T\CGImage.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGImageDestination.cs">
+      <Link>ApplicationServices_T\CGImageDestination.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGImageProperties.cs">
+      <Link>ApplicationServices_T\CGImageProperties.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGImageSource.cs">
+      <Link>ApplicationServices_T\CGImageSource.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGLayer.cs">
+      <Link>ApplicationServices_T\CGLayer.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPath.cs">
+      <Link>ApplicationServices_T\CGPath.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPattern.cs">
+      <Link>ApplicationServices_T\CGPattern.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFArray.cs">
+      <Link>ApplicationServices_T\CGPDFArray.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFContentStream.cs">
+      <Link>ApplicationServices_T\CGPDFContentStream.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFContext.cs">
+      <Link>ApplicationServices_T\CGPDFContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFDictionary.cs">
+      <Link>ApplicationServices_T\CGPDFDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFDocument.cs">
+      <Link>ApplicationServices_T\CGPDFDocument.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFObject.cs">
+      <Link>ApplicationServices_T\CGPDFObject.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFOperatorTable.cs">
+      <Link>ApplicationServices_T\CGPDFOperatorTable.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFPage.cs">
+      <Link>ApplicationServices_T\CGPDFPage.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFScanner.cs">
+      <Link>ApplicationServices_T\CGPDFScanner.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFStream.cs">
+      <Link>ApplicationServices_T\CGPDFStream.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFString.cs">
+      <Link>ApplicationServices_T\CGPDFString.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPSConverter.cs">
+      <Link>ApplicationServices_T\CGPSConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGShading.cs">
+      <Link>ApplicationServices_T\CGShading.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">
@@ -1385,4 +1390,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <None Include="ApplicationServices_Functions\.DS_Store" />
+  </ItemGroup>
 </Project>

@@ -81,7 +81,6 @@ namespace Monobjc.Foundation
 			}
 		}
 		
-#if MACOSX_10_6
         [Test]
         public void TestBlock1()
         {
@@ -118,6 +117,5 @@ namespace Monobjc.Foundation
 			Assert.True(sorted.ObjectAtIndex<NSString>(1).IsEqualToString(str2), "Elements must be sorted");
 			Assert.True(sorted.ObjectAtIndex<NSString>(2).IsEqualToString(str3), "Elements must be sorted");
 		}
-#endif
 	}
 }

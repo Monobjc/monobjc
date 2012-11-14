@@ -28,7 +28,6 @@ using Monobjc.Utils;
 
 namespace Monobjc.Generators
 {
-#if MACOSX_10_6
     /// <summary>
 	///   Code generator that produces block proxies.
 	/// </summary>
@@ -180,5 +179,4 @@ namespace Monobjc.Generators
 			return typeBuilder.CreateType ();
 		}
 	}
-#endif
 }

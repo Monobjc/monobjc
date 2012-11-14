@@ -29,7 +29,6 @@ using System.Text;
 
 namespace Monobjc
 {
-#if MACOSX_10_6
     /// <summary>
 	///   <para>Managed implementation of the blocks as defined in the Language Specification for Blocks[1].
 	///     Even if the implementation strictly follows the Block Implementation Specification[2], it is restricted to global block for the moment.</para>
@@ -190,5 +189,4 @@ namespace Monobjc
 		[MethodImplAttribute(MethodImplOptions.InternalCall)]
 		private static extern void DestroyBlock (IntPtr layout);
 	}
-#endif
 }

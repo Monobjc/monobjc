@@ -26,7 +26,6 @@ using System.Text;
 
 namespace Monobjc.Generators
 {
-#if MACOSX_10_6
     internal partial class BlockGenerator
 	{
 		/// <summary>
@@ -40,5 +39,4 @@ namespace Monobjc.Generators
 			return builder.ToString ();
 		}
 	}
-#endif
 }

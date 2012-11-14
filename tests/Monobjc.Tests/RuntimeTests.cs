@@ -97,10 +97,8 @@ namespace Monobjc
             this.sel_compare = GetSelector("compare:");
             this.sel_count = GetSelector("count");
             this.sel_doubleValue = GetSelector("doubleValue");
-#if MACOSX_10_6
             this.sel_enumerateObjectsUsingBlock = GetSelector("enumerateObjectsUsingBlock:");
             this.sel_enumerateObjectsWithOptionsusingBlock = GetSelector("enumerateObjectsWithOptions:usingBlock:");
-#endif
             this.sel_floatValue = GetSelector("floatValue");
             this.sel_frame = GetSelector("frame");
             this.sel_init = GetSelector("init");
@@ -113,9 +111,7 @@ namespace Monobjc
             this.sel_numberWithFloat = GetSelector("numberWithFloat:");
             this.sel_numberWithInt = GetSelector("numberWithInt:");
             this.sel_numberWithShort = GetSelector("numberWithShort:");
-#if MACOSX_10_6
             this.sel_sortedArrayUsingComparator = GetSelector("sortedArrayUsingComparator:");
-#endif
             this.sel_objectAtIndex = GetSelector("objectAtIndex:");
             this.sel_pointValue = GetSelector("pointValue");
             this.sel_rangeValue = GetSelector("rangeValue");

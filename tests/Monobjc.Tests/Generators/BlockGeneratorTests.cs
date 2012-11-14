@@ -22,7 +22,6 @@ using NUnit.Framework;
 
 namespace Monobjc.Generators
 {
-#if MACOSX_10_6
 	public delegate void CustomEnumerator (Id obj, ref bool stop);
 		
 	[TestFixture]
@@ -177,5 +176,4 @@ namespace Monobjc.Generators
             }
         }
     }
-#endif
 }

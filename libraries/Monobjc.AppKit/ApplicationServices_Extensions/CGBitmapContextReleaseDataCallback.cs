@@ -24,12 +24,10 @@ using System;
 
 namespace Monobjc.ApplicationServices
 {
-#if MACOSX_10_6
     /// <summary>
     /// <para>A callback function used to release data associate with the bitmap context.</para>
     /// <para>Original signature is : 'typedef void (*CGBitmapContextReleaseDataCallback)(void *releaseInfo,   void *data);'</para>
     /// <para>Available in Mac OS X v10.6 and later.</para>
     /// </summary>
     public delegate void CGBitmapContextReleaseDataCallback(IntPtr releaseInfo, IntPtr data);
-#endif
 }

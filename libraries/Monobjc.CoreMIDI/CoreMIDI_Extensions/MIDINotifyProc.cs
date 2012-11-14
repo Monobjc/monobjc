@@ -1,4 +1,4 @@
-//
+﻿//
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2012 - Laurent Etiemble
 //
@@ -21,33 +21,14 @@
 // THE SOFTWARE.
 // 
 using System;
-using System.Collections.Generic;
 
-namespace Monobjc
+namespace Monobjc.CoreMIDI
 {
-    partial class ObjectiveCRuntime
-	{
-		// Map that store block classes, according to the delegate that they wrap.
-		private static readonly IDictionary<Type, Type> BLOCK_TYPES = new Dictionary<Type, Type> (16);
-
-		/// <summary>
-		///   Creates a block with the given delegate.
-		/// </summary>
-		/// <param name = "delegate">The @delegate to wrap in the block.</param>
-		/// <returns>A new <see cref = "Block" /> instance that wraps the delegate.</returns>
-		public static Block CreateBlock (Delegate @delegate)
-		{
-			Type delegateType = @delegate.GetType ();
-			Type blockProxyType;
-			// Search for an existing block proxy
-			lock (BLOCK_TYPES) {
-				if (!BLOCK_TYPES.TryGetValue (delegateType, out blockProxyType)) {
-					blockProxyType = BlockGenerator.DefineBlockProxy (delegateType);
-					BLOCK_TYPES [delegateType] = blockProxyType;
-				}
-			}
-			// Create a new instance of the block proxy
-			return (Block)Activator.CreateInstance (blockProxyType,  @delegate);
-		}
-	}
+    /// <summary>
+    /// <para>A callback function for notifying clients of state changes.</para>
+    /// <para>This callback function is called when some aspect of the current MIDI setup changes. It is called on the runloop (thread) on which MIDIClientCreate was first called.</para>
+    /// </summary>
+    /// <param name="message">A structure containing information about what changed.</param>
+    /// <param name="refCon">The client's refCon passed to MIDIClientCreate.</param>
+    public delegate void MIDINotifyProc(ref MIDINotification message, IntPtr refCon);
 }

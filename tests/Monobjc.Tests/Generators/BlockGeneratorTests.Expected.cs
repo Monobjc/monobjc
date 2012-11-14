@@ -22,7 +22,6 @@ using System.Runtime.InteropServices;
 
 namespace Monobjc.Generators
 {
-#if MACOSX_10_6
     /// <summary>
     ///   Block: void (^)()
     /// </summary>
@@ -1041,5 +1040,4 @@ namespace Monobjc.Generators
 
         public delegate TSRect64 ExecuteInvoker(IntPtr layout);
     }
-#endif
 }

@@ -60,9 +60,7 @@ namespace Monobjc
         {
             ObjectiveCRuntime.LoadFramework("Foundation");
             ObjectiveCRuntime.LoadFramework("AppKit");
-#if MACOSX_10_6
             ObjectiveCRuntime.LoadFramework("CoreLocation");
-#endif
             ObjectiveCRuntime.LoadFramework("DiscRecording");
             ObjectiveCRuntime.LoadFramework("WebKit");
             ObjectiveCRuntime.Initialize();
@@ -76,21 +74,17 @@ namespace Monobjc
             String s = Marshal.PtrToStringAuto(str);
             Assert.AreEqual("WebViewDidChangeNotification", s, "Symbol must have the right value");
 
-#if MACOSX_10_6
             int @int = ObjectiveCRuntime.GetExtern<int>("QuartzCore", "kCIFormatARGB8");
             Assert.AreNotEqual(Int32.MinValue, @int, "Symbol must be found");
             Assert.AreEqual(23, @int, "Symbol must have the right value");
-#endif
 
             float @float = ObjectiveCRuntime.GetExtern<float>("DiscRecording", "DRDeviceBurnSpeedMax");
             Assert.AreNotEqual(Single.NaN, @float, "Symbol must be found");
             Assert.AreEqual(65535.0f, @float, "Symbol must have the right value");
 
-#if MACOSX_10_6
             double @double = ObjectiveCRuntime.GetExtern<double>("CoreLocation", "kCLLocationAccuracyNearestTenMeters");
             Assert.AreNotEqual(Double.NaN, @double, "Symbol must be found");
             Assert.AreEqual(10.0d, @double, "Symbol must have the right value");
-#endif
         }
     }
 }

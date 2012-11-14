@@ -20,34 +20,25 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using System;
-using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
-namespace Monobjc
+namespace Monobjc.CoreMIDI
 {
-    partial class ObjectiveCRuntime
+	/// <summary>
+	/// <para>Describes a source or destination in a MIDIThruConnection.</para>
+	/// <para>When creating one of these, you can leave uniqueID 0 if the endpoint exists and you are passing its MIDIEndpointRef.</para>
+	/// <para>When obtaining one of these from CoreMIDI, endpointRef may be NULL if it doesn't exist, but the uniqueID will always be non-zero.</para>
+	/// </summary>
+	[StructLayout(LayoutKind.Sequential)]
+	public struct MIDIThruConnectionEndpoint
 	{
-		// Map that store block classes, according to the delegate that they wrap.
-		private static readonly IDictionary<Type, Type> BLOCK_TYPES = new Dictionary<Type, Type> (16);
-
 		/// <summary>
-		///   Creates a block with the given delegate.
+		/// <para>The endpoint specified as a MIDIEndpointRef.</para>
 		/// </summary>
-		/// <param name = "delegate">The @delegate to wrap in the block.</param>
-		/// <returns>A new <see cref = "Block" /> instance that wraps the delegate.</returns>
-		public static Block CreateBlock (Delegate @delegate)
-		{
-			Type delegateType = @delegate.GetType ();
-			Type blockProxyType;
-			// Search for an existing block proxy
-			lock (BLOCK_TYPES) {
-				if (!BLOCK_TYPES.TryGetValue (delegateType, out blockProxyType)) {
-					blockProxyType = BlockGenerator.DefineBlockProxy (delegateType);
-					BLOCK_TYPES [delegateType] = blockProxyType;
-				}
-			}
-			// Create a new instance of the block proxy
-			return (Block)Activator.CreateInstance (blockProxyType,  @delegate);
-		}
+		uint endpointRef;
+		/// <summary>
+		/// <para>The endpoint specified by its uniqueID.</para>
+		/// </summary>
+		int uniqueID;
 	}
 }

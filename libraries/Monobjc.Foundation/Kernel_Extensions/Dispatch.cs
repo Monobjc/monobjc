@@ -30,12 +30,11 @@ using Monobjc.Foundation;
 
 namespace Monobjc.Kernel
 {
-#if MACOSX_10_6
     public static partial class Dispatch
     {
 #if MACOSX_10_7
 		public const String DISPATCH_LIBRARY = "/usr/lib/system/libdispatch";
-#elif MACOSX_10_6
+#else
 		public const String DISPATCH_LIBRARY = "/usr/lib/libSystem";
 #endif
 	
@@ -58,9 +57,7 @@ namespace Monobjc.Kernel
 		public const short DISPATCH_QUEUE_PRIORITY_BACKGROUND = Int16.MinValue;
 #endif
 	}
-#endif
-	
-#if MACOSX_10_6
+
     /// <summary>
     /// <para></para>
     /// <para>Original signature is 'typedef void (*dispatch_function_t)(void *);'</para>
@@ -74,5 +71,4 @@ namespace Monobjc.Kernel
     /// <para>Available in Mac OS X v10.6 and later.</para>
     /// </summary>
 	public delegate void dispatch_function_tc(IntPtr context, NSUInteger count);
-#endif
 }
