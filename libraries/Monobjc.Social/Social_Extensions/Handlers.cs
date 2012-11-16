@@ -25,5 +25,7 @@ using Monobjc.Foundation;
 
 namespace Monobjc.Social
 {
+#if MACOSX_10_8
 	public delegate void SLRequestHandler(NSData responseData, NSHTTPURLResponse urlResponse, NSError error);
+#endif
 }

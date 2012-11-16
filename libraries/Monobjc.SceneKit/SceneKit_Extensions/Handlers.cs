@@ -25,5 +25,7 @@ using Monobjc.Foundation;
 
 namespace Monobjc.SceneKit
 {
+#if MACOSX_10_8
 	public delegate void SCNSceneSourceStatusHandler(float totalProgress, SCNSceneSourceStatus status, NSError error, ref bool stopLoading); 
+#endif
 }

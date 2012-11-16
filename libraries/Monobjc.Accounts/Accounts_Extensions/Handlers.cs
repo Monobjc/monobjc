@@ -30,6 +30,10 @@ using Monobjc.Foundation;
 
 namespace Monobjc.Accounts
 {
+	public struct __StructureToMakeNamespaceVisible
+	{
+	}
+
 #if MACOSX_10_8
 	/// <summary>
 	/// <para>Specifies a handler to call when an Accounts database operation is complete.</para>
