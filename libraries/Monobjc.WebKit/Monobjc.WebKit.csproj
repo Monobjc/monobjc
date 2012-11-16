@@ -528,7 +528,6 @@
     <Compile Include="WebKit_P\WebDocumentSearching.Protocol.cs" />
     <Compile Include="WebKit_P\WebDocumentText.Protocol.cs" />
     <Compile Include="WebKit_P\WebDocumentView.Protocol.cs" />
-    <Compile Include="WebKit_P\WebDownload.Delegate.cs" />
     <Compile Include="WebKit_P\WebDownloadDelegate.Protocol.cs" />
     <Compile Include="WebKit_P\WebEditingDelegate.Constants.cs" />
     <Compile Include="WebKit_P\WebEditingDelegate.Protocol.cs" />
@@ -550,6 +549,8 @@
     <Compile Include="WebKit_P\WebView.PolicyDelegate.cs" />
     <Compile Include="WebKit_P\WebView.ResourceLoadDelegate.cs" />
     <Compile Include="WebKit_P\WebView.UIDelegate.cs" />
+    <Compile Include="WebKit_P\WebDownload.DownloadDelegate.cs" />
+    <Compile Include="WebKit_P\WebView.EditingDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">
@@ -575,8 +576,6 @@
   </Target>
   -->
   <ItemGroup>
-    <None Include="WebKit_C\.DS_Store" />
-    <None Include="WebKit_P\.DS_Store" />
     <None Include="WebKit_T\.DS_Store" />
   </ItemGroup>
 </Project>
