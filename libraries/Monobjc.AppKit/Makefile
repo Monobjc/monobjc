@@ -37,7 +37,7 @@ SOURCES= \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/QuartzCore_P/*.cs) \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/QuartzCore_S/*.cs) \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/QuartzCore_T/*.cs) \
-	$(filterout $(LIBRARIES_DIR)/Monobjc.Foundation/ApplicationServices_T/CGAffineTransform.cs,$(wildcard $(LIBRARIES_DIR)/Monobjc.Foundation/ApplicationServices_T/*.cs))
+	$(filter-out $(LIBRARIES_DIR)/Monobjc.Foundation/ApplicationServices_T/CGAffineTransform.cs,$(wildcard $(LIBRARIES_DIR)/Monobjc.Foundation/ApplicationServices_T/*.cs))
 
 # ----------------------------------------
 # Targets

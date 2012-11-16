@@ -14,38 +14,39 @@ FOUNDATION_LIBRARIES= \
 	Monobjc.Accounts \
 	Monobjc.Collaboration \
 	Monobjc.CoreMIDI \
-	Monobjc.CoreWLAN \
 	Monobjc.DiscRecording \
 	Monobjc.OpenGL \
 	Monobjc.ScriptingBridge \
 	Monobjc.Security \
 	Monobjc.SecurityFoundation \
-	Monobjc.StoreKit
-	
+	Monobjc.Social \
+	Monobjc.StoreKit \
+	Monobjc.CoreWLAN
+
 UI_LIBRARIES= \
 	Monobjc.AppKit \
 	Monobjc.AddressBook \
-	Monobjc.AVFoundation \
 	Monobjc.CoreLocation \
 	Monobjc.CoreMedia \
-	Monobjc.CorePlot \
 	Monobjc.DiscRecordingUI \
 	Monobjc.EventKit \
 	Monobjc.GameKit \
 	Monobjc.GLKit \
-	Monobjc.Growl \
 	Monobjc.InputMethodKit \
 	Monobjc.InstantMessage \
 	Monobjc.QTKit \
 	Monobjc.Quartz \
 	Monobjc.SceneKit \
 	Monobjc.SecurityInterface \
-	Monobjc.Social \
-	Monobjc.Sparkle \
-	Monobjc.WebKit
+	Monobjc.WebKit \
+	Monobjc.AVFoundation
 
-LIBRARIES = $(FOUNDATION_LIBRARIES)
-#$(UI_LIBRARIES) 
+THIRDPARTY_LIBRARIES= \
+	Monobjc.CorePlot \
+	Monobjc.Growl \
+	Monobjc.Sparkle
+
+LIBRARIES = $(FOUNDATION_LIBRARIES) $(UI_LIBRARIES) $(THIRDPARTY_LIBRARIES)
 
 DEFINES_COMMON=DUMMY
 ifeq ($(DEBUG_MODE),true)
@@ -60,6 +61,8 @@ endif
 # ----------------------------------------
 
 all:
+	(cd ../tools; make generate);
+
 	if [ $(BUILD_FOR_OSX_10_6) = 1 ]; then \
 		for i in $(LIBRARIES); do \
 			echo "# ----------------------------------------"; \

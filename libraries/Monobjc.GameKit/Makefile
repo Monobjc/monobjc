@@ -1,5 +1,5 @@
 ## =======================================
-## Monobjc.GLKit Library Makefile
+## Monobjc.GameKit Library Makefile
 ## =======================================
 
 include ../../Monobjc.mk
@@ -8,10 +8,10 @@ include ../../Monobjc.mk
 # Variables
 # ----------------------------------------
 
-NAME=Monobjc.GLKit
+NAME=Monobjc.GameKit
 DEFINES?=DEBUG
 TARGET=$(DEST_DIR)/$(NAME).dll
-REFERENCES=-r:"$(DEST_DIR)/Monobjc.dll" -r:"$(DEST_DIR)/Monobjc.Foundation.dll"
+REFERENCES=-r:"$(DEST_DIR)/Monobjc.dll" -r:"$(DEST_DIR)/Monobjc.Foundation.dll" -r:"$(DEST_DIR)/Monobjc.AppKit.dll"
 RESX=
 RESOURCES=
 SOURCES= \

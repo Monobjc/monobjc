@@ -1,10 +1,4 @@
 ## =======================================
-##  __  __                   _     _
-## |  \/  | ___  _ __   ___ | |__ (_) ___ 
-## | |\/| |/ _ \| '_ \ / _ \| '_ \| |/ __|
-## | |  | | (_) | | | | (_) | |_) | | (__ 
-## |_|  |_|\___/|_| |_|\___/|_.__// |\___|
-##                              |__/
 ## Runtime makefile
 ## =======================================
 
@@ -27,6 +21,15 @@ ARGUMENTS_VERSION=DYLIB_COMPATIBILITY_VERSION='$(MAJOR_NUMBER).0.0' DYLIB_CURREN
 ARGUMENTS_DIRS=CONFIGURATION_BUILD_DIR='$(BUILD_DIR)/$(VERSION_NUMBER)' CONFIGURATION_TEMP_DIR='$(BUILD_DIR)/$(VERSION_NUMBER)/tmp'
 
 BINARY_DIR=$(BUILD_DIR)/$(VERSION_NUMBER)/
+
+# ----------------------------------------
+# Functions
+# ----------------------------------------
+
+copy_files_conditional= \
+	if [ $(1) = 1 ]; then \
+		$(CPC) --exclude="tmp" --exclude="*.a" --exclude="*.dSYM" "$(2)" "$(3)"; \
+	fi
 
 # ----------------------------------------
 # Targets
