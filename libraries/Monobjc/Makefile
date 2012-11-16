@@ -11,6 +11,7 @@ include ../../Monobjc.mk
 NAME=Monobjc
 DEFINES?=DEBUG
 TARGET=$(DEST_DIR)/$(NAME).dll
+XML_DOC=$(DEST_DIR)/$(NAME).xml
 REFERENCES=
 RESX=$(wildcard $(LIBRARIES_DIR)/$(NAME)/Properties/*.resx)
 RESOURCES=$(patsubst %.resx,%.resources,$(RESX))
@@ -33,4 +34,4 @@ $(RESOURCES): $(RESX)
 	$(RESGEN) $(RESX) $(RESOURCES)
 
 $(TARGET): $(SOURCES) $(RESOURCES)
-	$(MCS) -target:library -out:"$(TARGET)" -define:"$(DEFINES)" $(REFERENCES) -resource:$(RESOURCES) $(SOURCES)
+	$(MCS) -target:library -out:"$(TARGET)" -define:"$(DEFINES)" $(REFERENCES) -resource:$(RESOURCES) $(SOURCES) -doc:$(XML_DOC)

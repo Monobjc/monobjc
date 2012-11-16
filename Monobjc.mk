@@ -17,20 +17,25 @@ export DIST_DIR?=$(CURDIR)/dist
 export KEY_FILE?=$(CURDIR)/Monobjc.snk
 
 # Set the build parameters
-export DEBUG_VALUE=false
-export TESTING_VALUE=false
+export DEBUG_VALUE?=false
+export TESTING_VALUE?=false
 export NATIVE_ARCHS=i386
+ifneq (,$(findstring x86_64,$(shell file /usr/bin/mono)))
+	NATIVE_ARCHS+= x86_64
+endif
 
 # Set the tools
 export CPC=rsync -a
 export MCS=dmcs
-ifeq ($(TESTING_VALUE),false )
+ifeq ($(TESTING_VALUE),false)
 	MCS+= -keyfile:$(KEY_FILE)
 endif
+export MDASSEMBLER=mdassembler -f ecma
 export MKDIR=mkdir -p
+export MONODOCER=monodocer -pretty
 export RESGEN=resgen
-export RMF=rm -Rf
-export XBUILD=xbuild /p:Configuration=Release /verbosity:quiet
+export RMRF=rm -Rf
+export XBUILD=xbuild /p:Configuration=Release /verbosity:minimal
 
 # Compute the version parts
 export MONOBJC_VERSION=5.0

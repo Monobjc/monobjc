@@ -56,12 +56,17 @@ ifeq ($(TESTING_MODE),true)
 	DEFINES_COMMON+=,TESTING
 endif
 
+DOC_XML_DIR=$(DIST_DIR)/10.8
+DOC_XML_FILES=$(wildcard $(DOC_XML_DIR)/Monobjc*.xml)
+DOC_XML_NAMES=$(basename $(notdir $(DOC_XML_FILES)))
+DOC_BUILD_DIR=$(BUILD_DIR)/monodoc
+
 # ----------------------------------------
 # Targets
 # ----------------------------------------
 
 all:
-	(cd ../tools; make generate);
+	(cd ../tools; make generate-wrappers);
 
 	if [ $(BUILD_FOR_OSX_10_6) = 1 ]; then \
 		for i in $(LIBRARIES); do \
@@ -90,3 +95,20 @@ all:
 
 clean:
 	for i in $(LIBRARIES); do (cd $$i; make clean); done
+
+generate-doc:
+	$(MKDIR) $(DOC_BUILD_DIR)
+	# First pass
+	for i in $(DOC_XML_NAMES); do \
+		($(MONODOCER) -importslashdoc:$(DOC_XML_DIR)/$$i.xml -assembly:$(DOC_XML_DIR)/$$i.dll -path:$(DOC_BUILD_DIR)/$$i); \
+	done;
+	# Second pass
+	$(MDASSEMBLER) -o $(DIST_DIR)/Monobjc $(addprefix $(DOC_BUILD_DIR)/,$(DOC_XML_NAMES))
+	# Third pass
+	$(CPC) $(LIBRARIES_DIR)/Monobjc.source $(DIST_DIR)
+
+generate-archive:
+
+generate-package:
+
+strip-sources:

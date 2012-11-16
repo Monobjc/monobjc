@@ -46,5 +46,16 @@ clean:
 	for i in $(DIRS); do \
 		(cd $$i; make clean); \
 	done;
-	$(RMF) "$(BUILD_DIR)"
-	$(RMF) "$(DIST_DIR)"
+	$(RMRF) "$(BUILD_DIR)"
+	$(RMRF) "$(DIST_DIR)"
+
+generate-doc:
+	for i in $(DIRS); do \
+		(cd $$i; make generate-doc); \
+	done;
+
+archive:
+
+
+package:
+

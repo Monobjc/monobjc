@@ -9,6 +9,8 @@ include ../Monobjc.mk
 # ----------------------------------------
 
 DEV_DIR=/Applications/Xcode.app/Contents/Developer
+XCODEBUILD=$(DEV_DIR)/usr/bin/xcodebuild
+DOXYGEN=/Applications/Doxygen.app/Contents/Resources/doxygen
 
 MAJOR_NUMBER=$(shell echo "$(MONOBJC_VERSION_MAJOR) * 10 + $(MONOBJC_VERSION_MINOR)" | bc)
 MINOR_NUMBER=$(shell echo "$(REVISION_NUMBER) / 100" | bc)
@@ -35,17 +37,15 @@ copy_files_conditional= \
 # Targets
 # ----------------------------------------
 
-all: check build-runtime copy-runtime
-
-clean:
-
-check:
-	if test ! -d $(DEV_DIR); then echo "Xcode not found. Please check your installation." && exit -1; fi
-
-build-runtime:
-	"$(DEV_DIR)/usr/bin/xcodebuild" $(ARGUMENTS_PROJECT) $(ARGUMENTS_ARCHS) $(ARGUMENTS_VERSION) $(ARGUMENTS_DIRS)
-
-copy-runtime:
+all:
+	if [ ! -d $(DEV_DIR) ]; then echo "Xcode application was not found. Please check your installation." && exit -1; fi
+	$(XCODEBUILD) $(ARGUMENTS_PROJECT) $(ARGUMENTS_ARCHS) $(ARGUMENTS_VERSION) $(ARGUMENTS_DIRS)
 	$(call copy_files_conditional,$(BUILD_FOR_OSX_10_6),$(BINARY_DIR),$(DIST_DIR)/10.6)
 	$(call copy_files_conditional,$(BUILD_FOR_OSX_10_7),$(BINARY_DIR),$(DIST_DIR)/10.7)
 	$(call copy_files_conditional,$(BUILD_FOR_OSX_10_8),$(BINARY_DIR),$(DIST_DIR)/10.8)
+
+clean:
+
+generate-doc:
+	if [ ! -f $(DOXYGEN) ]; then echo "Doxygen application was not found. Please check your installation." && exit -1; fi
+	(cd $(NATIVE_DIR)/Monobjc; $(DOXYGEN) Doxyfile;)
