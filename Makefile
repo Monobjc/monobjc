@@ -61,7 +61,7 @@ generate-doc: all
 		(cd $$i; make generate-doc); \
 	done;
 
-generate-archive:
+generate-archive: generate-doc
 	$(MKDIR) $(ARCHIVE_DIR)
 		
 	$(CPC) *.rtf $(ARCHIVE_DIR)
