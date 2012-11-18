@@ -10,6 +10,9 @@ export DOC_DIR?=$(CURDIR)/doc
 export EXTERNAL_DIR?=$(CURDIR)/external
 export LIBRARIES_DIR?=$(CURDIR)/libraries
 export NATIVE_DIR?=$(CURDIR)/native
+export PACKAGE_DIR?=$(CURDIR)/package
+export SAMPLES_DIR?=$(CURDIR)/samples
+export TESTS_DIR?=$(CURDIR)/tests
 export BUILD_DIR?=$(CURDIR)/build
 export DIST_DIR?=$(CURDIR)/dist
 
@@ -25,16 +28,21 @@ ifneq (,$(findstring x86_64,$(shell file /usr/bin/mono)))
 endif
 
 # Set the tools
+export CHMOD=chmod
 export CPC=rsync -a
-export MCS=dmcs
+export LNS=ln -sf
+export MCS=dmcs -nowarn:"1574,1584,1591"
 ifeq ($(TESTING_VALUE),false)
 	MCS+= -keyfile:$(KEY_FILE)
 endif
 export MDASSEMBLER=mdassembler -f ecma
 export MKDIR=mkdir -p
 export MONODOCER=monodocer -pretty
+export PACKAGE_MAKER=/Developer/Applications/PackageMaker.app/Contents/MacOS/PackageMaker --verbose
 export RESGEN=resgen
 export RMRF=rm -Rf
+export SED=sed
+export TAR=tar
 export XBUILD=xbuild /p:Configuration=Release /verbosity:minimal
 
 # Compute the version parts

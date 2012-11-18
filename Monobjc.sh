@@ -34,7 +34,7 @@ fi
 #
 function install {
 
-    VERSIONS="10.5 10.6 10.7"
+    VERSIONS="10.6 10.7 10.8"
 
     # Perform the installation for each version
     for version in $VERSIONS; do
@@ -124,7 +124,7 @@ EOF
 #
 function uninstall {
 
-    VERSIONS="10.5 10.6 10.7"
+    VERSIONS="10.6 10.7 10.8"
     ASSEMBLIES=`gacutil -l | grep Monobjc | awk -F"," '{ print $1 }' | sort -u`
 
     # Remove assemblies from the GAC
@@ -187,9 +187,9 @@ function uninstall_msbuild {
 
 function install_monodoc {
 	MONODOC_DIR="$MONO_DIR/lib/monodoc/sources"
-	cp ./dist/Monobjc.source "$MONODOC_DIR"
-	cp ./dist/Monobjc.tree "$MONODOC_DIR"
-	cp ./dist/Monobjc.zip "$MONODOC_DIR"
+	cp ./dist/monodoc/Monobjc.source "$MONODOC_DIR"
+	cp ./dist/monodoc/Monobjc.tree "$MONODOC_DIR"
+	cp ./dist/monodoc/Monobjc.zip "$MONODOC_DIR"
 }
 
 # Main entry point

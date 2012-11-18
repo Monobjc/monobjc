@@ -11,6 +11,7 @@ include ../../Monobjc.mk
 NAME=Monobjc.ScriptingBridge
 DEFINES?=DEBUG
 TARGET=$(DEST_DIR)/$(NAME).dll
+XML_DOC=$(DEST_DIR)/$(NAME).xml
 REFERENCES=-r:"$(DEST_DIR)/Monobjc.dll" -r:"$(DEST_DIR)/Monobjc.Foundation.dll"
 RESX=
 RESOURCES=
@@ -30,4 +31,4 @@ all: $(TARGET)
 clean:
 
 $(TARGET): $(SOURCES)
-	$(MCS) -target:library -out:"$(TARGET)" -define:"$(DEFINES)" $(REFERENCES) $(SOURCES)
+	$(MCS) -target:library -out:"$(TARGET)" -define:"$(DEFINES)" $(REFERENCES) $(SOURCES) -doc:$(XML_DOC)
