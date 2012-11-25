@@ -9,11 +9,8 @@ include ../../Monobjc.mk
 # ----------------------------------------
 
 NAME=Monobjc.CoreMIDI
-DEFINES?=DEBUG
-TARGET=$(DEST_DIR)/$(NAME).dll
 REFERENCES=-r:"$(DEST_DIR)/Monobjc.dll" -r:"$(DEST_DIR)/Monobjc.Foundation.dll"
-RESX=
-RESOURCES=
+HAS_RESX=0
 SOURCES= \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/*.cs) \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/CoreMIDI_E/*.cs) \
@@ -23,12 +20,7 @@ SOURCES= \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/Properties/*.cs)
 
 # ----------------------------------------
-# Targets
+# Common
 # ----------------------------------------
 
-all: $(TARGET)
-
-clean:
-
-$(TARGET): $(SOURCES)
-	$(MCS) -target:library -out:"$(TARGET)" -define:"$(DEFINES)" $(REFERENCES) $(SOURCES)
+include ../common.mk

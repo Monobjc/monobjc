@@ -23,7 +23,9 @@
 using Monobjc;
 using System.Reflection;
 
+#if MACOSX_10_7
 [assembly: ObjectiveCFramework("StoreKit", true)]
+#endif
 [assembly: AssemblyConfigurationAttribute("Release")]
 
 #if MACOSX_10_8

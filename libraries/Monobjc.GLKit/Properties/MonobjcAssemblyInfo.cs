@@ -24,7 +24,7 @@ using Monobjc;
 using System.Reflection;
 
 #if MACOSX_10_8
-[assembly: ObjectiveCFramework("EventKit", true)]
+[assembly: ObjectiveCFramework("GLKit", true)]
 #endif
 [assembly: AssemblyConfigurationAttribute("Release")]
 

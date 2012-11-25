@@ -9,12 +9,8 @@ include ../../Monobjc.mk
 # ----------------------------------------
 
 NAME=Monobjc.Foundation
-DEFINES?=DEBUG
-TARGET=$(DEST_DIR)/$(NAME).dll
-XML_DOC=$(DEST_DIR)/$(NAME).xml
 REFERENCES=-r:"$(DEST_DIR)/Monobjc.dll"
-RESX=$(wildcard $(LIBRARIES_DIR)/$(NAME)/Properties/*.resx)
-RESOURCES=$(patsubst %.resx,%.resources,$(RESX))
+HAS_RESX=1
 SOURCES= \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/*.cs) \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/ApplicationServices_E/CG*.cs) \
@@ -33,15 +29,7 @@ SOURCES= \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/Properties/*.cs)
 
 # ----------------------------------------
-# Targets
+# Common
 # ----------------------------------------
 
-all: $(TARGET)
-
-clean:
-
-$(RESOURCES): $(RESX)
-	$(RESGEN) $(RESX) $(RESOURCES)
-
-$(TARGET): $(SOURCES) $(RESOURCES)
-	$(MCS) -target:library -out:"$(TARGET)" -define:"$(DEFINES)" $(REFERENCES) -resource:$(RESOURCES) $(SOURCES) -doc:$(XML_DOC)
+include ../common.mk

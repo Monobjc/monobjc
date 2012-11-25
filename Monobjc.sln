@@ -4,6 +4,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{84E05B26-2C67-4D75-A6F1-449EB4DDE85F}"
 	ProjectSection(SolutionItems) = preProject
 		libraries\Modules.build = libraries\Modules.build
+		libraries\common.mk = libraries\common.mk
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc", "libraries\Monobjc\Monobjc.csproj", "{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}"

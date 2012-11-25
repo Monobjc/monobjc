@@ -9,12 +9,8 @@ include ../../Monobjc.mk
 # ----------------------------------------
 
 NAME=Monobjc.GLKit
-DEFINES?=DEBUG
-TARGET=$(DEST_DIR)/$(NAME).dll
-XML_DOC=$(DEST_DIR)/$(NAME).xml
 REFERENCES=-r:"$(DEST_DIR)/Monobjc.dll" -r:"$(DEST_DIR)/Monobjc.Foundation.dll" -r:"$(DEST_DIR)/Monobjc.AppKit.dll" -r:"$(DEST_DIR)/Monobjc.OpenGL.dll"
-RESX=
-RESOURCES=
+HAS_RESX=0
 SOURCES= \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/*.cs) \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/GLKit_C/*.cs) \
@@ -25,12 +21,7 @@ SOURCES= \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/Properties/*.cs)
 
 # ----------------------------------------
-# Targets
+# Common
 # ----------------------------------------
 
-all: $(TARGET)
-
-clean:
-
-$(TARGET): $(SOURCES)
-	$(MCS) -target:library -out:"$(TARGET)" -define:"$(DEFINES)" $(REFERENCES) $(SOURCES) -doc:$(XML_DOC)
+include ../common.mk

@@ -23,7 +23,9 @@
 using Monobjc;
 using System.Reflection;
 
+#if MACOSX_10_8
 [assembly: ObjectiveCFramework("Accounts", true)]
+#endif
 [assembly: AssemblyConfigurationAttribute("Release")]
 
 #if MACOSX_10_8

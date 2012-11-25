@@ -9,12 +9,8 @@ include ../../Monobjc.mk
 # ----------------------------------------
 
 NAME=Monobjc.SecurityInterface
-DEFINES?=DEBUG
-TARGET=$(DEST_DIR)/$(NAME).dll
-XML_DOC=$(DEST_DIR)/$(NAME).xml
 REFERENCES=-r:"$(DEST_DIR)/Monobjc.dll" -r:"$(DEST_DIR)/Monobjc.Foundation.dll" -r:"$(DEST_DIR)/Monobjc.AppKit.dll" -r:"$(DEST_DIR)/Monobjc.Security.dll" -r:"$(DEST_DIR)/Monobjc.SecurityFoundation.dll"
-RESX=
-RESOURCES=
+HAS_RESX=0
 SOURCES= \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/*.cs) \
 	$(filter-out $(wildcard $(LIBRARIES_DIR)/$(NAME)/SecurityInterface_C/SFAuthorizationPluginView*.cs),$(wildcard $(LIBRARIES_DIR)/$(NAME)/SecurityInterface_C/*.cs)) \
@@ -24,14 +20,7 @@ SOURCES= \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/Properties/*.cs)
 
 # ----------------------------------------
-# Targets
+# Common
 # ----------------------------------------
 
-all: $(TARGET)
-
-clean:
-
-$(TARGET): $(SOURCES)
-	echo $(EXCLUDED_SOURCES)
-	echo $(INCLUDED_SOURCES)
-	$(MCS) -target:library -out:"$(TARGET)" -define:"$(DEFINES)" $(REFERENCES) $(SOURCES) -doc:$(XML_DOC)
+include ../common.mk
