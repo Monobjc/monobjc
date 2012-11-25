@@ -9,7 +9,7 @@ include ../../Monobjc.mk
 # ----------------------------------------
 
 NAME=Monobjc.AppKit
-REFERENCES=-r:"$(DEST_DIR)/Monobjc.dll" -r:"$(DEST_DIR)/Monobjc.Foundation.dll"
+REFERENCES=$(DEST_DIR)/Monobjc.dll $(DEST_DIR)/Monobjc.Foundation.dll
 HAS_RESX=1
 SOURCES= \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/*.cs) \

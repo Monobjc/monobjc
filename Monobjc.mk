@@ -13,6 +13,7 @@ export NATIVE_DIR?=$(CURDIR)/native
 export PACKAGE_DIR?=$(CURDIR)/package
 export SAMPLES_DIR?=$(CURDIR)/samples
 export TESTS_DIR?=$(CURDIR)/tests
+export TOOLS_DIR?=$(CURDIR)/tools
 export BUILD_DIR?=$(CURDIR)/build
 export DIST_DIR?=$(CURDIR)/dist
 
@@ -20,8 +21,8 @@ export DIST_DIR?=$(CURDIR)/dist
 export KEY_FILE?=$(CURDIR)/Monobjc.snk
 
 # Set the build parameters
-export DEBUG_VALUE?=false
-export TESTING_VALUE?=false
+export DEBUG_MODE?=false
+export TESTING_MODE?=false
 export NATIVE_ARCHS=i386
 ifneq (,$(findstring x86_64,$(shell file /usr/bin/mono)))
 	NATIVE_ARCHS+= x86_64
@@ -32,7 +33,12 @@ export CHMOD=chmod
 export CPC=rsync -a
 export LNS=ln -sf
 export MCS=dmcs -nowarn:"1574,1584,1591"
-ifeq ($(TESTING_VALUE),false)
+ifeq ($(DEBUG_MODE),true)
+	MCS+= -debug+ -optimize-
+else
+	MCS+= -debug- -optimize+
+endif
+ifeq ($(TESTING_MODE),false)
 	MCS+= -keyfile:$(KEY_FILE)
 endif
 export MDASSEMBLER=mdassembler -f ecma

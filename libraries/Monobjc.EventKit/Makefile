@@ -9,7 +9,7 @@ include ../../Monobjc.mk
 # ----------------------------------------
 
 NAME=Monobjc.EventKit
-REFERENCES=-r:"$(DEST_DIR)/Monobjc.dll" -r:"$(DEST_DIR)/Monobjc.Foundation.dll" -r:"$(DEST_DIR)/Monobjc.AppKit.dll" -r:"$(DEST_DIR)/Monobjc.AddressBook.dll" -r:"$(DEST_DIR)/Monobjc.CoreLocation.dll"
+REFERENCES=$(DEST_DIR)/Monobjc.dll $(DEST_DIR)/Monobjc.Foundation.dll $(DEST_DIR)/Monobjc.AppKit.dll $(DEST_DIR)/Monobjc.AddressBook.dll $(DEST_DIR)/Monobjc.CoreLocation.dll
 HAS_RESX=0
 SOURCES= \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/*.cs) \

@@ -67,7 +67,7 @@ DOC_DIST_DIR=$(DIST_DIR)/monodoc
 # ----------------------------------------
 
 all:
-	(cd ../tools; make generate-wrappers);
+	(cd $(TOOLS_DIR); make generate-wrappers);
 
 	if [ $(BUILD_FOR_OSX_10_6) = 1 ]; then \
 		for i in $(LIBRARIES); do \

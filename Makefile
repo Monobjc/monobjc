@@ -18,6 +18,9 @@ DIRS= \
 	native \
 	tools \
 	libraries
+ifeq ($(TESTING_MODE),true)
+	DIRS+= tests
+endif
 
 ARCHIVE_PREFIX=Monobjc-$(MONOBJC_VERSION).$(REVISION_NUMBER).0
 ARCHIVE_DIR=$(ARCHIVE_PREFIX)
@@ -77,6 +80,7 @@ generate-archive: generate-doc
 	$(CPC) --exclude="bin" --exclude="obj" --exclude="*.user*" --exclude="*.pidb" $(LIBRARIES_DIR) $(ARCHIVE_DIR)
 	$(CPC) --exclude="build/" --exclude="eglib/" --exclude="xcuserdata/" --exclude="*.xcworkspace" $(NATIVE_DIR) $(ARCHIVE_DIR)
 	$(CPC) --exclude="bin" --exclude="obj" --exclude="*.user*" --exclude="*.pidb" $(SAMPLES_DIR) $(ARCHIVE_DIR)
+	$(CPC) --exclude="bin" --exclude="obj" --exclude="*.user*" --exclude="*.pidb" $(TOOLS_DIR) $(ARCHIVE_DIR)
 	$(CPC) --exclude="bin" --exclude="obj" --exclude="*.user*" --exclude="*.pidb" $(TESTS_DIR) $(ARCHIVE_DIR)
 
 generate-tar: generate-archive

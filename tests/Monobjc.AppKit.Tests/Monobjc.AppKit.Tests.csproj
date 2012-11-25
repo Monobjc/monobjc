@@ -10,7 +10,6 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Monobjc.AppKit</RootNamespace>
     <AssemblyName>Monobjc.AppKit.Tests</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -39,7 +38,6 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Xml" />
     <Reference Include="nunit.framework">
       <HintPath>..\..\external\nunit.framework.dll</HintPath>
     </Reference>
@@ -74,6 +72,10 @@
     <ProjectReference Include="..\..\libraries\Monobjc.Foundation\Monobjc.Foundation.csproj">
       <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
       <Name>Monobjc.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\libraries\Monobjc.AppKit\Monobjc.AppKit.csproj">
+      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
+      <Name>Monobjc.AppKit</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
