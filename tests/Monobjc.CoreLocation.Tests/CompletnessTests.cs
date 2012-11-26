@@ -41,7 +41,7 @@ namespace Monobjc.CoreLocation
 
         protected override void EnsureAssemblyIsReferenced()
         {
-            CLRegion dummy = null;
+            CLLocation dummy = null;
         }
     }
 }

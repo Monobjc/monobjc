@@ -22,6 +22,10 @@ ifeq ($(TESTING_MODE),true)
 	DIRS+= tests
 endif
 
+DIRS_ALL=$(DIRS:%=all-%)
+DIRS_CLEAN=$(DIRS:%=clean-%)
+DIRS_DOC=$(DIRS:%=doc-%)
+
 ARCHIVE_PREFIX=Monobjc-$(MONOBJC_VERSION).$(REVISION_NUMBER).0
 ARCHIVE_DIR=$(ARCHIVE_PREFIX)
 PACKAGE_CONTENT=$(PACKAGE_DIR)/content
@@ -42,27 +46,22 @@ make_dir_conditional= \
 # Targets
 # ----------------------------------------
 
-all:
-	$(MKDIR) "$(BUILD_DIR)"
-	$(MKDIR) "$(DIST_DIR)"
-	$(call make_dir_conditional,$(BUILD_FOR_OSX_10_6),$(DIST_DIR)/10.6)
-	$(call make_dir_conditional,$(BUILD_FOR_OSX_10_7),$(DIST_DIR)/10.7)
-	$(call make_dir_conditional,$(BUILD_FOR_OSX_10_8),$(DIST_DIR)/10.8)
-	for i in $(DIRS); do \
-		(cd $$i; make all); \
-	done;
+all: $(BUILD_DIR) $(DIST_DIR) $(DIRS_ALL)
 
-clean:
-	for i in $(DIRS); do \
-		(cd $$i; make clean); \
-	done;
+$(BUILD_DIR):
+	$(MKDIR) $@
+
+$(DIST_DIR):
+	$(MKDIR) $@
+	$(MKDIR) $@/10.6
+	$(MKDIR) $@/10.7
+	$(MKDIR) $@/10.8
+
+clean: $(DIRS_CLEAN)
 	$(RMRF) "$(BUILD_DIR)"
 	$(RMRF) "$(DIST_DIR)"
 
-generate-doc: all
-	for i in $(DIRS); do \
-		(cd $$i; make generate-doc); \
-	done;
+generate-doc: all $(DIRS_DOC)
 
 generate-archive: generate-doc
 	$(MKDIR) $(ARCHIVE_DIR)
@@ -103,4 +102,29 @@ generate-package: generate-archive
 	echo 'sudo ./Monobjc.sh install_monodoc' >> $(PACKAGE_SCRIPT)
 
 	$(CHMOD) a+rx $(PACKAGE_CONTENT)/*.sh
-	#$(PACKAGE_MAKER) --doc $(PACKAGE_DESCRIPTOR) --out $(ARCHIVE_PREFIX).pkg
+	$(PACKAGE_MAKER) --doc $(PACKAGE_DESCRIPTOR) --out $(ARCHIVE_PREFIX).pkg
+
+$(DIRS_ALL):
+	$(MAKE) -C $(@:all-%=%) all
+
+$(DIRS_CLEAN):
+	$(MAKE) -C $(@:clean-%=%) clean
+
+$(DIRS_DOC):
+	$(MAKE) -C $(@:doc-%=%) generate-doc
+
+# ----------------------------------------
+# Phony Targets
+# ----------------------------------------
+
+.PHONY: subdirs $(DIRS_ALL)
+.PHONY: subdirs $(DIRS_CLEAN)
+.PHONY: subdirs $(DIRS_DOC)
+
+.PHONY: \
+	all \
+	clean \
+	generate-doc \
+	generate-archive \
+	generate-tar \
+	generate-package

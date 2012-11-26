@@ -42,8 +42,7 @@ copy_files_conditional= \
 # Targets
 # ----------------------------------------
 
-all:
-	if [ ! -d $(DEV_DIR) ]; then echo "Xcode application was not found. Please check your installation." && exit -1; fi
+all: $(DEV_DIR)
 	$(XCODEBUILD) $(ARGUMENTS_PROJECT) $(ARGUMENTS_CONFIGURATION) $(ARGUMENTS_ARCHS) $(ARGUMENTS_VERSION) $(ARGUMENTS_DIRS)
 	$(call copy_files_conditional,$(BUILD_FOR_OSX_10_6),$(BINARY_DIR),$(DIST_DIR)/10.6)
 	$(call copy_files_conditional,$(BUILD_FOR_OSX_10_7),$(BINARY_DIR),$(DIST_DIR)/10.7)
@@ -54,3 +53,15 @@ clean:
 generate-doc:
 	if [ ! -f $(DOXYGEN) ]; then echo "Doxygen application was not found. Please check your installation." && exit -1; fi
 	(cd $(NATIVE_DIR)/Monobjc; $(DOXYGEN) Doxyfile;)
+
+$(DEV_DIR):
+	$(error Xcode application was not found. Please check your installation)
+
+# ----------------------------------------
+# Phony Targets
+# ----------------------------------------
+
+.PHONY: \
+	all \
+	clean \
+	generate-doc

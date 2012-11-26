@@ -8,10 +8,16 @@ include ../Monobjc.mk
 # Variables
 # ----------------------------------------
 
-FOUNDATION_TESTS_10_6= \
+DIRS_10_6= \
 	Monobjc.Tests \
 	Monobjc.Foundation.Tests \
+	\
+	Monobjc.AppKit.Tests \
+	Monobjc.AddressBook.Tests \
 	Monobjc.Collaboration.Tests \
+	Monobjc.CoreLocation.Tests \
+	\
+	Monobjc.CorePlot.Tests \
 
 #	Monobjc.CoreMIDI.Tests \
 #	Monobjc.DiscRecording.Tests \
@@ -19,97 +25,96 @@ FOUNDATION_TESTS_10_6= \
 #	Monobjc.ScriptingBridge.Tests \
 #	Monobjc.Security.Tests \
 #	Monobjc.SecurityFoundation.Tests \
-#	Monobjc.Social.Tests \
-#	Monobjc.CoreWLAN.Tests
+#	Monobjc.CoreWLAN.Tests \
 
-FOUNDATION_TESTS_10_7= \
-	$(FOUNDATION_TESTS_10_6) \
-#	Monobjc.StoreKit.Tests
-
-FOUNDATION_TESTS_10_8= \
-	$(FOUNDATION_TESTS_10_7) \
-	Monobjc.Accounts.Tests
-
-UI_TESTS_10_6= \
-	Monobjc.AppKit.Tests \
-	Monobjc.AddressBook.Tests \
-
-#	Monobjc.CoreLocation.Tests \
 #	Monobjc.CoreMedia.Tests \
 #	Monobjc.DiscRecordingUI.Tests \
-#	Monobjc.EventKit.Tests \
 #	Monobjc.InputMethodKit.Tests \
 #	Monobjc.InstantMessage.Tests \
 #	Monobjc.QTKit.Tests \
 #	Monobjc.Quartz.Tests \
 #	Monobjc.SecurityInterface.Tests \
 #	Monobjc.WebKit.Tests \
-#	Monobjc.AVFoundation.Tests
+#	Monobjc.AVFoundation.Tests \
 
-UI_TESTS_10_7= \
-	$(UI_TESTS_10_6)
-
-UI_TESTS_10_8= \
-	$(UI_TESTS_10_7) \
-	
-#	Monobjc.EventKit.Tests \
-#	Monobjc.GameKit.Tests \
-#	Monobjc.GLKit.Tests \
-#	Monobjc.SceneKit.Tests \
-
-THIRDPARTY_TESTS= \
-	Monobjc.CorePlot.Tests \
-	
 #	Monobjc.Growl.Tests \
 #	Monobjc.Sparkle.Tests
 
-TESTS_10_6=$(FOUNDATION_TESTS_10_6) $(UI_TESTS_10_6) $(THIRDPARTY_TESTS)
-TESTS_10_7=$(FOUNDATION_TESTS_10_7) $(UI_TESTS_10_7) $(THIRDPARTY_TESTS)
-TESTS_10_8=$(FOUNDATION_TESTS_10_8) $(UI_TESTS_10_8) $(THIRDPARTY_TESTS)
+DIRS_10_7= \
+	$(DIRS_10_6) \
 
-DEFINES_COMMON=DEBUG,TESTING
+#	Monobjc.StoreKit.Tests
+
+DIRS_10_8= \
+	$(DIRS_10_7) \
+	Monobjc.Accounts.Tests \
+
+#	Monobjc.Social \
+#	\
+#	Monobjc.EventKit \
+#	Monobjc.GameKit \
+#	Monobjc.GLKit \
+#	Monobjc.SceneKit
+
+ifeq ($(BUILD_FOR_OSX_10_6),1)
+	DIRS_10_6_ALL=$(DIRS_10_6:%=%-10_6-all)
+	DIRS_10_6_CLEAN=$(DIRS_10_6:%=%-10-6-clean)
+endif
+
+ifeq ($(BUILD_FOR_OSX_10_7),1)
+	DIRS_10_7_ALL=$(DIRS_10_7:%=%-10_7-all)
+	DIRS_10_7_CLEAN=$(DIRS_10_7:%=%-10-7-clean)
+endif
+
+ifeq ($(BUILD_FOR_OSX_10_8),1)
+	DIRS_10_8_ALL=$(DIRS_10_8:%=%-10_8-all)
+	DIRS_10_8_CLEAN=$(DIRS_10_8:%=%-10-8-clean)
+endif
+
+DEFINES_COMMON=DUMMY
+ifeq ($(DEBUG_MODE),true)
+	DEFINES_COMMON+=,DEBUG
+endif
+ifeq ($(TESTING_MODE),true)
+	DEFINES_COMMON+=,TESTING
+endif
+
+DEFINES_10_6=$(DEFINES_COMMON),MACOSX_10_6
+DEFINES_10_7=$(DEFINES_10_6),MACOSX_10_7
+DEFINES_10_8=$(DEFINES_10_7),MACOSX_10_8
 
 # ----------------------------------------
 # Targets
 # ----------------------------------------
 
-all:
-	if [ $(BUILD_FOR_OSX_10_6) = 1 ]; then \
-		for i in $(TESTS_10_6); do \
-			echo "# ----------------------------------------"; \
-			echo "# Building $$i for 10.6"; \
-			echo "# ----------------------------------------"; \
-			(cd $$i; make DEST_DIR="$(DIST_DIR)/10.6" DEFINES="$(DEFINES_COMMON),MACOSX_10_6" all); \
-		done; \
-	fi
-	
-	if [ $(BUILD_FOR_OSX_10_7) = 1 ]; then \
-		for i in $(TESTS_10_7); do \
-			echo "# ----------------------------------------"; \
-			echo "# Building $$i for 10.7"; \
-			echo "# ----------------------------------------"; \
-			(cd $$i; make DEST_DIR="$(DIST_DIR)/10.7" DEFINES="$(DEFINES_COMMON),MACOSX_10_6,MACOSX_10_7" all); \
-		done; \
-	fi
+all: $(DIRS_10_6_ALL) $(DIRS_10_7_ALL) $(DIRS_10_8_ALL)
+	$(CPC) $(TESTS_DIR)/nunit-* $(DIST_DIR)
 
-	if [ $(BUILD_FOR_OSX_10_8) = 1 ]; then \
-		for i in $(TESTS_10_8); do \
-			echo "# ----------------------------------------"; \
-			echo "# Building $$i for 10.8"; \
-			echo "# ----------------------------------------"; \
-			(cd $$i; make DEST_DIR="$(DIST_DIR)/10.8" DEFINES="$(DEFINES_COMMON),MACOSX_10_6,MACOSX_10_7,MACOSX_10_8" all); \
-		done; \
-	fi
+clean: $(DIRS_10_6_CLEAN) $(DIRS_10_7_CLEAN) $(DIRS_10_8_CLEAN)
 
-clean:
-	if [ $(BUILD_FOR_OSX_10_6) = 1 ]; then \
-		for i in $(TESTS_10_6); do (cd $$i; make clean); done \
-	fi
-	
-	if [ $(BUILD_FOR_OSX_10_7) = 1 ]; then \
-		for i in $(TESTS_10_7); do (cd $$i; make clean); done \
-	fi
-	
-	if [ $(BUILD_FOR_OSX_10_8) = 1 ]; then \
-		for i in $(TESTS_10_8); do (cd $$i; make clean); done \
-	fi
+#
+# Composite target have the following form: <LIBRARY>-<VERSION>-<ACTION>
+#
+# $(word 1,$(subst -, ,$@)) returns the <LIBRARY> (i.e. Monobjc)
+# $(word 2,$(subst -, ,$@)) returns the <VERSION> (i.e. 10_8)
+#
+$(DIRS_10_6_ALL) $(DIRS_10_7_ALL) $(DIRS_10_8_ALL):
+	$(MAKE) -C $(word 1,$(subst -, ,$@)) DEST_DIR="$(DIST_DIR)/$(subst _,.,$(word 2,$(subst -, ,$@)))" DEFINES="$(DEFINES_$(word 2,$(subst -, ,$@)))" all
+
+$(DIRS_10_6_CLEAN) $(DIRS_10_7_CLEAN) $(DIRS_10_8_CLEAN):
+	$(MAKE) -C $(word 1,$(subst -, ,$@)) clean
+
+# ----------------------------------------
+# Phony Targets
+# ----------------------------------------
+
+.PHONY: subdirs $(DIRS_10_6_ALL)
+.PHONY: subdirs $(DIRS_10_7_ALL)
+.PHONY: subdirs $(DIRS_10_8_ALL)
+.PHONY: subdirs $(DIRS_10_6_CLEAN)
+.PHONY: subdirs $(DIRS_10_7_CLEAN)
+.PHONY: subdirs $(DIRS_10_8_CLEAN)
+
+.PHONY: \
+	all \
+	clean

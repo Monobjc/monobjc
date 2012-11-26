@@ -32,5 +32,16 @@ all: $(TARGET)
 
 clean:
 
+$(REFERENCES):
+	$(error Missing dependency $@)
+
 $(TARGET): $(REFERENCES) $(SOURCES) $(RESOURCES)
 	$(MCS) -target:library -out:"$(TARGET)" -define:"$(DEFINES)" $(REFERENCES_ARGUMENT) $(RESOURCES_ARGUMENT) $(SOURCES)
+
+# ----------------------------------------
+# Phony Targets
+# ----------------------------------------
+
+.PHONY: \
+	all \
+	clean

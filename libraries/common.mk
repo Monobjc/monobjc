@@ -35,8 +35,19 @@ all: $(TARGET)
 
 clean:
 
+$(REFERENCES):
+	$(error Missing dependency $@)
+
 $(RESOURCES): $(RESX)
 	$(RESGEN) $(RESX) $(RESOURCES)
 
 $(TARGET): $(REFERENCES) $(SOURCES) $(RESOURCES)
 	$(MCS) -target:library -out:"$(TARGET)" -define:"$(DEFINES)" $(REFERENCES_ARGUMENT) $(RESOURCES_ARGUMENT) $(SOURCES) -doc:$(XML_DOC)
+
+# ----------------------------------------
+# Phony Targets
+# ----------------------------------------
+
+.PHONY: \
+	all \
+	clean
