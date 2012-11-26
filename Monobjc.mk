@@ -32,7 +32,7 @@ endif
 export CHMOD=chmod
 export CPC=rsync -a
 export LNS=ln -sf
-export MCS=dmcs -nowarn:"1574,1584,1591"
+export MCS=dmcs -sdk:4 -nowarn:"1574,1584,1591"
 ifeq ($(DEBUG_MODE),true)
 	MCS+= -debug+ -optimize-
 else

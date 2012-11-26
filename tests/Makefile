@@ -11,8 +11,8 @@ include ../Monobjc.mk
 FOUNDATION_TESTS_10_6= \
 	Monobjc.Tests \
 	Monobjc.Foundation.Tests \
+	Monobjc.Collaboration.Tests \
 
-#	Monobjc.Collaboration.Tests \
 #	Monobjc.CoreMIDI.Tests \
 #	Monobjc.DiscRecording.Tests \
 #	Monobjc.OpenGL.Tests \
