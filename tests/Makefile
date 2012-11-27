@@ -88,6 +88,9 @@ DEFINES_10_8=$(DEFINES_10_7),MACOSX_10_8
 # ----------------------------------------
 
 all: $(DIRS_10_6_ALL) $(DIRS_10_7_ALL) $(DIRS_10_8_ALL)
+	$(CPC) $(EXTERNAL_DIR)/nunit.framework.dll $(DIST_DIR)/10.6
+	$(CPC) $(EXTERNAL_DIR)/nunit.framework.dll $(DIST_DIR)/10.7
+	$(CPC) $(EXTERNAL_DIR)/nunit.framework.dll $(DIST_DIR)/10.8
 	$(CPC) $(TESTS_DIR)/nunit-* $(DIST_DIR)
 
 clean: $(DIRS_10_6_CLEAN) $(DIRS_10_7_CLEAN) $(DIRS_10_8_CLEAN)

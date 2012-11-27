@@ -20,7 +20,7 @@ endif
 ifeq ($(HAS_RESX),1)
 	RESX=$(wildcard $(LIBRARIES_DIR)/$(NAME)/Properties/*.resx)
 	RESOURCES=$(patsubst %.resx,%.resources,$(RESX))
-	RESOURCES_ARGUMENT=$(foreach r,$(RESOURCES),-resource:$r,$(NAME).Properties.$(basename $(notdir $r)))
+	RESOURCES_ARGUMENT=$(foreach r,$(RESOURCES),-resource:$r,$(NAME).Properties.$(notdir $r))
 else
 	RESX=
 	RESOURCES=
