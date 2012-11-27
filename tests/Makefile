@@ -58,17 +58,17 @@ DIRS_10_8= \
 
 ifeq ($(BUILD_FOR_OSX_10_6),1)
 	DIRS_10_6_ALL=$(DIRS_10_6:%=%-10_6-all)
-	DIRS_10_6_CLEAN=$(DIRS_10_6:%=%-10-6-clean)
+	DIRS_10_6_CLEAN=$(DIRS_10_6:%=%-10_6-clean)
 endif
 
 ifeq ($(BUILD_FOR_OSX_10_7),1)
 	DIRS_10_7_ALL=$(DIRS_10_7:%=%-10_7-all)
-	DIRS_10_7_CLEAN=$(DIRS_10_7:%=%-10-7-clean)
+	DIRS_10_7_CLEAN=$(DIRS_10_7:%=%-10_7-clean)
 endif
 
 ifeq ($(BUILD_FOR_OSX_10_8),1)
 	DIRS_10_8_ALL=$(DIRS_10_8:%=%-10_8-all)
-	DIRS_10_8_CLEAN=$(DIRS_10_8:%=%-10-8-clean)
+	DIRS_10_8_CLEAN=$(DIRS_10_8:%=%-10_8-clean)
 endif
 
 DEFINES_COMMON=DUMMY
