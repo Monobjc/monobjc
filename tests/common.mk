@@ -21,7 +21,7 @@ REFERENCES_ARGUMENT+=-r:"$(EXTERNAL_DIR)/nunit.framework.dll"
 ifeq ($(RESOURCES), )
 	RESOURCES_ARGUMENT=
 else
-	RESOURCES_ARGUMENT=$(addprefix -resource:,$(RESOURCES))
+	RESOURCES_ARGUMENT=$(foreach r,$(RESOURCES),-resource:$r,$(NAME).$(notdir $r))
 endif
 
 # ----------------------------------------
