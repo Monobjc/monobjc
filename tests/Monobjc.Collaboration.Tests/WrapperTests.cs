@@ -1,4 +1,4 @@
-﻿//
+//
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2012 - Laurent Etiemble
 //
@@ -24,34 +24,14 @@ using System.Collections.Generic;
 using Monobjc.Foundation.Common;
 using NUnit.Framework;
 
-namespace Monobjc.Accounts
+namespace Monobjc.Collaboration
 {
 	[TestFixture]
-    public class FrameworkTests : AbstractFrameworkTests
+    public class WrapperTests: AbstractWrapperTests
     {
-		protected override bool IsAvailable {
-			get {
-#if MACOSX_10_8
-				return ObjectiveCRuntime.Is64Bits;
-#else
-				return false;
-#endif
-			}
-		}
-		
 		protected override IEnumerable<string> Frameworks
-		{
-			get { return new[] { "Foundation", "AppKit", "Accounts" }; }
-		}
-		
-		protected override string AssemblyName
-		{
-			get { return "Monobjc.Accounts"; }
-		}
-		
-		protected override void EnsureAssemblyIsReferenced()
-		{
-			ACAccount dummy = null;
-		}
-	}
+        {
+			get { return new[] { "Foundation", "AppKit", "Collaboration" }; }
+        }
+    }
 }

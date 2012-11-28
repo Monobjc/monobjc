@@ -33,7 +33,7 @@ namespace Monobjc.Accounts
 		protected override bool IsAvailable {
 			get {
 #if MACOSX_10_8
-				return true;
+				return ObjectiveCRuntime.Is64Bits;
 #else
 				return false;
 #endif

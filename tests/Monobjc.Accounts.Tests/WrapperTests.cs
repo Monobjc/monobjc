@@ -1,4 +1,4 @@
-﻿//
+//
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2012 - Laurent Etiemble
 //
@@ -27,7 +27,7 @@ using NUnit.Framework;
 namespace Monobjc.Accounts
 {
 	[TestFixture]
-    public class FrameworkTests : AbstractFrameworkTests
+    public class WrapperTests: AbstractWrapperTests
     {
 		protected override bool IsAvailable {
 			get {
@@ -38,20 +38,10 @@ namespace Monobjc.Accounts
 #endif
 			}
 		}
-		
+
 		protected override IEnumerable<string> Frameworks
-		{
+        {
 			get { return new[] { "Foundation", "AppKit", "Accounts" }; }
-		}
-		
-		protected override string AssemblyName
-		{
-			get { return "Monobjc.Accounts"; }
-		}
-		
-		protected override void EnsureAssemblyIsReferenced()
-		{
-			ACAccount dummy = null;
-		}
-	}
+        }
+    }
 }

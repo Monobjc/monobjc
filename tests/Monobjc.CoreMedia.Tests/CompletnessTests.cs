@@ -24,15 +24,15 @@ using System.Collections.Generic;
 using Monobjc.Foundation.Common;
 using NUnit.Framework;
 
-namespace Monobjc.Accounts
+namespace Monobjc.CoreMedia
 {
 	[TestFixture]
-    public class FrameworkTests : AbstractFrameworkTests
+    public class CompletnessTests : AbstractCompletnessTests
     {
 		protected override bool IsAvailable {
 			get {
-#if MACOSX_10_8
-				return ObjectiveCRuntime.Is64Bits;
+#if MACOSX_10_7
+				return true;
 #else
 				return false;
 #endif
@@ -40,18 +40,18 @@ namespace Monobjc.Accounts
 		}
 		
 		protected override IEnumerable<string> Frameworks
-		{
-			get { return new[] { "Foundation", "AppKit", "Accounts" }; }
-		}
-		
-		protected override string AssemblyName
-		{
-			get { return "Monobjc.Accounts"; }
-		}
-		
-		protected override void EnsureAssemblyIsReferenced()
-		{
-			ACAccount dummy = null;
-		}
-	}
+        {
+			get { return new[] { "Foundation", "AppKit", "CoreMedia" }; }
+        }
+
+        protected override string AssemblyName
+        {
+			get { return "Monobjc.CoreMedia"; }
+        }
+
+        protected override void EnsureAssemblyIsReferenced()
+        {
+			CMSampleBuffer dummy = null;
+        }
+    }
 }

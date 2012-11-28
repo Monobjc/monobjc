@@ -27,7 +27,6 @@ DIRS_10_6= \
 #	Monobjc.SecurityFoundation.Tests \
 #	Monobjc.CoreWLAN.Tests \
 
-#	Monobjc.CoreMedia.Tests \
 #	Monobjc.DiscRecordingUI.Tests \
 #	Monobjc.InputMethodKit.Tests \
 #	Monobjc.InstantMessage.Tests \
@@ -35,26 +34,28 @@ DIRS_10_6= \
 #	Monobjc.Quartz.Tests \
 #	Monobjc.SecurityInterface.Tests \
 #	Monobjc.WebKit.Tests \
-#	Monobjc.AVFoundation.Tests \
 
 #	Monobjc.Growl.Tests \
-#	Monobjc.Sparkle.Tests
+#	Monobjc.Sparkle.Tests \
 
 DIRS_10_7= \
 	$(DIRS_10_6) \
+	\
+	Monobjc.CoreMedia.Tests \
+	Monobjc.AVFoundation.Tests \
 
-#	Monobjc.StoreKit.Tests
+#	Monobjc.StoreKit.Tests \
 
 DIRS_10_8= \
 	$(DIRS_10_7) \
 	Monobjc.Accounts.Tests \
 
-#	Monobjc.Social \
+#	Monobjc.Social.Tests \
 #	\
-#	Monobjc.EventKit \
-#	Monobjc.GameKit \
-#	Monobjc.GLKit \
-#	Monobjc.SceneKit
+#	Monobjc.EventKit.Tests \
+#	Monobjc.GameKit.Tests \
+#	Monobjc.GLKit.Tests \
+#	Monobjc.SceneKit.Tests \
 
 ifeq ($(BUILD_FOR_OSX_10_6),1)
 	DIRS_10_6_ALL=$(DIRS_10_6:%=%-10_6-all)

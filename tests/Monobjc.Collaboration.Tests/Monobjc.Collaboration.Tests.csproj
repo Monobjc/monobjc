@@ -52,6 +52,7 @@
     <Compile Include="CompletnessTests.cs" />
     <Compile Include="FrameworkTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WrapperTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
