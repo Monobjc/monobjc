@@ -23,7 +23,6 @@ DIRS_10_6= \
 	Monobjc.AddressBook \
 	Monobjc.Collaboration \
 	Monobjc.CoreLocation \
-	Monobjc.CoreMedia \
 	Monobjc.DiscRecordingUI \
 	Monobjc.InputMethodKit \
 	Monobjc.InstantMessage \
@@ -31,15 +30,17 @@ DIRS_10_6= \
 	Monobjc.Quartz \
 	Monobjc.SecurityInterface \
 	Monobjc.WebKit \
-	Monobjc.AVFoundation \
 	\
 	Monobjc.CorePlot \
 	Monobjc.Growl \
-	Monobjc.Sparkle
+	Monobjc.Sparkle \
 
 DIRS_10_7= \
 	$(DIRS_10_6) \
-	Monobjc.StoreKit
+	Monobjc.StoreKit \
+	\
+	Monobjc.CoreMedia \
+	Monobjc.AVFoundation \
 
 DIRS_10_8= \
 	$(DIRS_10_7) \
@@ -49,7 +50,7 @@ DIRS_10_8= \
 	Monobjc.EventKit \
 	Monobjc.GameKit \
 	Monobjc.GLKit \
-	Monobjc.SceneKit
+	Monobjc.SceneKit \
 
 ifeq ($(BUILD_FOR_OSX_10_6),1)
 	DIRS_10_6_ALL=$(DIRS_10_6:%=%-10_6-all)
