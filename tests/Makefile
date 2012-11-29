@@ -11,16 +11,18 @@ include ../Monobjc.mk
 DIRS_10_6= \
 	Monobjc.Tests \
 	Monobjc.Foundation.Tests \
+	Monobjc.DiscRecording.Tests \
+	Monobjc.CoreWLAN.Tests \
 	\
 	Monobjc.AppKit.Tests \
 	Monobjc.AddressBook.Tests \
 	Monobjc.Collaboration.Tests \
 	Monobjc.CoreLocation.Tests \
+	Monobjc.DiscRecordingUI.Tests \
 	\
 	Monobjc.CorePlot.Tests \
 
 #	Monobjc.CoreMIDI.Tests \
-#	Monobjc.DiscRecording.Tests \
 #	Monobjc.OpenGL.Tests \
 #	Monobjc.ScriptingBridge.Tests \
 #	Monobjc.Security.Tests \
@@ -49,10 +51,11 @@ DIRS_10_7= \
 DIRS_10_8= \
 	$(DIRS_10_7) \
 	Monobjc.Accounts.Tests \
+	\
+	Monobjc.EventKit.Tests \
 
 #	Monobjc.Social.Tests \
 #	\
-#	Monobjc.EventKit.Tests \
 #	Monobjc.GameKit.Tests \
 #	Monobjc.GLKit.Tests \
 #	Monobjc.SceneKit.Tests \
