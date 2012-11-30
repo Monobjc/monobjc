@@ -1,4 +1,4 @@
-//
+﻿//
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2012 - Laurent Etiemble
 //
@@ -20,14 +20,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using NUnit.Framework;
+using System.Reflection;
+using System.Resources;
 
-namespace Monobjc.CorePlot
-{
-	[TestFixture]
-	[Category("CPTColor")]
-	[Description("Test with CPTColor wrapper")]
-	public class CPTColorTests : WrapperTests
-	{
-	}
-}
+[assembly: AssemblyTitle("Monobjc Bridge - Unit Test Library")]
+[assembly: AssemblyDescription("Monobjc Bridge Unit Test Library")]
+[assembly: AssemblyCompany("Monobjc Project")]
+[assembly: AssemblyProduct("Monobjc Bridge Project")]
+[assembly: AssemblyCopyright("Copyright (c) Monobjc Project 2007-2012 - Licensed under MIT License")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+[assembly: NeutralResourcesLanguage("en-US")]

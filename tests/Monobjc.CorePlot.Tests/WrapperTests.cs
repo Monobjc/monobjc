@@ -27,11 +27,10 @@ using NUnit.Framework;
 namespace Monobjc.CorePlot
 {
 	[TestFixture]
-    public class WrapperTests: AbstractWrapperTests
-    {
-        protected override IEnumerable<string> Frameworks
-        {
-            get { return new[] { "Foundation", "AppKit", "CorePlot" }; }
-        }
-    }
+	public class WrapperTests: AbstractWrapperTests
+	{
+		protected override IEnumerable<string> Frameworks {
+			get { return new[] { "Foundation", "AppKit", "CorePlot" }; }
+		}
+	}
 }

@@ -21,7 +21,6 @@
 // THE SOFTWARE.
 // 
 using System.Collections.Generic;
-using Monobjc.AppKit;
 using Monobjc.Foundation.Common;
 
 using NUnit.Framework;
@@ -29,21 +28,19 @@ using NUnit.Framework;
 namespace Monobjc.CorePlot
 {
 	[TestFixture]
-    public class CompletnessTests : AbstractCompletnessTests
-    {
-        protected override IEnumerable<string> Frameworks
-        {
-            get { return new[] { "Foundation", "AppKit", "CorePlot" }; }
-        }
+	public class CompletnessTests : AbstractCompletnessTests
+	{
+		protected override IEnumerable<string> Frameworks {
+			get { return new[] { "Foundation", "AppKit", "CorePlot" }; }
+		}
 
-        protected override string AssemblyName
-        {
-            get { return "Monobjc.CorePlot"; }
-        }
+		protected override string AssemblyName {
+			get { return "Monobjc.CorePlot"; }
+		}
 
-        protected override void EnsureAssemblyIsReferenced()
-        {
-            CPTColor dummy = null;
-        }
-    }
+		protected override void EnsureAssemblyIsReferenced ()
+		{
+			CPTColor dummy = null;
+		}
+	}
 }

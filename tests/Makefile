@@ -11,8 +11,9 @@ include ../Monobjc.mk
 DIRS_10_6= \
 	Monobjc.Tests \
 	Monobjc.Foundation.Tests \
-	Monobjc.DiscRecording.Tests \
+	Monobjc.CoreMIDI.Tests \
 	Monobjc.CoreWLAN.Tests \
+	Monobjc.DiscRecording.Tests \
 	\
 	Monobjc.AppKit.Tests \
 	Monobjc.AddressBook.Tests \
@@ -22,7 +23,6 @@ DIRS_10_6= \
 	\
 	Monobjc.CorePlot.Tests \
 
-#	Monobjc.CoreMIDI.Tests \
 #	Monobjc.OpenGL.Tests \
 #	Monobjc.ScriptingBridge.Tests \
 #	Monobjc.Security.Tests \

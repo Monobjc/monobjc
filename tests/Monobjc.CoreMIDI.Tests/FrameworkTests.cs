@@ -20,14 +20,28 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
+using System.Collections.Generic;
+using Monobjc.Foundation.Common;
 using NUnit.Framework;
 
-namespace Monobjc.CorePlot
+namespace Monobjc.CoreMIDI
 {
 	[TestFixture]
-	[Category("CPTColor")]
-	[Description("Test with CPTColor wrapper")]
-	public class CPTColorTests : WrapperTests
-	{
-	}
+    public class FrameworkTests : AbstractFrameworkTests
+    {
+        protected override IEnumerable<string> Frameworks
+        {
+			get { return new[] { "Foundation", "CoreMIDI" }; }
+        }
+
+        protected override string AssemblyName
+        {
+			get { return "Monobjc.CoreMIDI"; }
+        }
+
+        protected override void EnsureAssemblyIsReferenced()
+        {
+            MIDIDriver dummy = null;
+        }
+    }
 }
