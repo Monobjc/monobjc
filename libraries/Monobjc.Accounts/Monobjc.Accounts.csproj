@@ -64,4 +64,7 @@
   <ItemGroup>
     <Folder Include="Accounts_Extensions\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
 </Project>

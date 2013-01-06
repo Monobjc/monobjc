@@ -79,4 +79,7 @@
   <ItemGroup>
     <Folder Include="CoreMedia_Extensions\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
 </Project>

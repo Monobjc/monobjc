@@ -123,4 +123,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
 </Project>

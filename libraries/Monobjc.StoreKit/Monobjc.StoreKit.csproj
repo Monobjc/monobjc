@@ -71,4 +71,7 @@
       <Name>Monobjc.Foundation</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
 </Project>

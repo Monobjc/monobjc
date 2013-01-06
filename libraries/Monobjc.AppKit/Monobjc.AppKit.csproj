@@ -1389,5 +1389,6 @@
   -->
   <ItemGroup>
     <None Include="ApplicationServices_Functions\.DS_Store" />
+    <None Include="Makefile" />
   </ItemGroup>
 </Project>

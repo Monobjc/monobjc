@@ -140,4 +140,7 @@
   <ItemGroup>
     <Folder Include="GameKit_Extensions\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
 </Project>

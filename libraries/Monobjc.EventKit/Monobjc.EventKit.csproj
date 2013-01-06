@@ -105,4 +105,7 @@
   <ItemGroup>
     <Folder Include="EventKit_Extensions\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
 </Project>

@@ -109,4 +109,7 @@
     <Folder Include="GLKit_S\" />
     <Folder Include="GLKit_Extensions\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
 </Project>

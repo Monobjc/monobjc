@@ -933,4 +933,7 @@
     <Folder Include="Kernel_Extensions\" />
     <Folder Include="Foundation_E\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
 </Project>
