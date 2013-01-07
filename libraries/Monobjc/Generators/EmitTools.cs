@@ -58,6 +58,7 @@ namespace Monobjc.Generators
 
         public const MethodAttributes PRIVATE_STATIC_CONSTRUCTOR = MethodAttributes.Private |
                                                                    MethodAttributes.Static |
+																   MethodAttributes.HideBySig |
                                                                    MethodAttributes.SpecialName |
                                                                    MethodAttributes.RTSpecialName;
 
