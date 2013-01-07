@@ -172,12 +172,6 @@ namespace Monobjc
 				Logger.Info ("ObjectiveCRuntime", "Processing assembly '" + name + "'");
 			}
 
-			// If the assembly wraps a framework, then load it
-			ObjectiveCFrameworkAttribute attribute = Attribute.GetCustomAttribute (assembly, typeof(ObjectiveCFrameworkAttribute)) as ObjectiveCFrameworkAttribute;
-			if (attribute != null) {
-				LoadFramework (attribute.Name);
-			}
-
 			try {
 				List<Type> classes = new List<Type> ();
 				List<Type> categories = new List<Type> ();

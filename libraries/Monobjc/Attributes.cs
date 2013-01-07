@@ -51,19 +51,11 @@ namespace Monobjc
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Monobjc.ObjectiveCFrameworkAttribute"/> class.
 		/// </summary>
-		/// <param name="name">The framework binary name.</param>
 		/// <param name = "system">The value is <code>true</code> if the framework is a system one; <code>false</code> otherwise.</param>
-		public ObjectiveCFrameworkAttribute (String name, bool system)
+		public ObjectiveCFrameworkAttribute (bool system)
 		{
-			this.Name = name;
 			this.IsSystem = system;
 		}
-
-		/// <summary>
-		/// Returns the framework binary name.
-		/// </summary>
-		/// <value>The binary name of the framework.</value>
-		public String Name { get; private set; } 
 
 		/// <summary>
 		///   Returns if the framework is a system one.
@@ -81,7 +73,6 @@ namespace Monobjc
 		{
 			return String.Format (CultureInfo.CurrentCulture,
                                  Resources.ObjectiveCFrameworkString,
-			                     this.Name,
                                  this.IsSystem);
 		}
 	}

@@ -23,7 +23,7 @@
 using Monobjc;
 using System.Reflection;
 
-[assembly: ObjectiveCFramework("InstantMessage", true)]
+[assembly: ObjectiveCFramework(true)]
 [assembly: AssemblyConfigurationAttribute("Release")]
 
 #if MACOSX_10_8

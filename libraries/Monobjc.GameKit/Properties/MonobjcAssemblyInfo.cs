@@ -23,9 +23,7 @@
 using Monobjc;
 using System.Reflection;
 
-#if MACOSX_10_8
-[assembly: ObjectiveCFramework("GameKit", true)]
-#endif
+[assembly: ObjectiveCFramework(true)]
 [assembly: AssemblyConfigurationAttribute("Release")]
 
 #if MACOSX_10_8
