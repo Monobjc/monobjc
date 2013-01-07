@@ -7,6 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{5FEAC384-EB17-4E59-B71F-83C66AE3262C}</ProjectGuid>
     <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Monobjc.CoreMIDI</RootNamespace>
     <AssemblyName>Monobjc.CoreMIDI.Tests</AssemblyName>
   </PropertyGroup>
@@ -15,7 +16,7 @@
     <DebugType>full</DebugType>
     <Optimize>False</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
@@ -24,6 +25,7 @@
     <DebugType>none</DebugType>
     <Optimize>True</Optimize>
     <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
@@ -34,6 +36,31 @@
     <Reference Include="nunit.framework">
       <HintPath>..\..\external\nunit.framework.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractCompletnessTests.cs">
+      <Link>AbstractCompletnessTests.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractFrameworkTests.cs">
+      <Link>AbstractFrameworkTests.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractObjectiveCTests.cs">
+      <Link>AbstractObjectiveCTests.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractWrapperTests.cs">
+      <Link>AbstractWrapperTests.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation.Tests\Common\TestEnvironment.cs">
+      <Link>TestEnvironment.cs</Link>
+    </Compile>
+    <Compile Include="CompletnessTests.cs" />
+    <Compile Include="Environment.cs" />
+    <Compile Include="FrameworkTests.cs" />
+    <Compile Include="WrapperTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -49,23 +76,5 @@
       <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
       <Name>Monobjc.Foundation</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractCompletnessTests.cs">
-      <Link>AbstractCompletnessTests.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractFrameworkTests.cs">
-      <Link>AbstractFrameworkTests.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractObjectiveCTests.cs">
-      <Link>AbstractObjectiveCTests.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractWrapperTests.cs">
-      <Link>AbstractWrapperTests.cs</Link>
-    </Compile>
-    <Compile Include="CompletnessTests.cs" />
-    <Compile Include="FrameworkTests.cs" />
-    <Compile Include="WrapperTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
 </Project>

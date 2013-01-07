@@ -20,18 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using System.Collections.Generic;
 using Monobjc.Foundation.Common;
 using NUnit.Framework;
 
 namespace Monobjc.CoreMIDI
 {
 	[TestFixture]
-    public class WrapperTests: AbstractWrapperTests
-    {
-        protected override IEnumerable<string> Frameworks
-        {
-			get { return new[] { "Foundation", "CoreMIDI" }; }
-        }
-    }
+	public class WrapperTests : AbstractWrapperTests
+	{
+		public WrapperTests () : base(new Environment())
+		{
+		}
+	}
 }

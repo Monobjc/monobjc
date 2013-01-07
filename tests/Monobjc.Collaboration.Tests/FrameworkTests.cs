@@ -20,28 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using System.Collections.Generic;
 using Monobjc.Foundation.Common;
 using NUnit.Framework;
 
 namespace Monobjc.Collaboration
 {
 	[TestFixture]
-    public class FrameworkTests : AbstractFrameworkTests
-    {
-		protected override IEnumerable<string> Frameworks
+	public class FrameworkTests : AbstractFrameworkTests
+	{
+		public FrameworkTests () : base(new Environment())
 		{
-			get { return new[] { "Foundation", "AppKit", "Collaboration" }; }
-		}
-		
-		protected override string AssemblyName
-		{
-			get { return "Monobjc.Collaboration"; }
-		}
-		
-		protected override void EnsureAssemblyIsReferenced()
-		{
-			CBIdentity dummy = null;
 		}
 	}
 }

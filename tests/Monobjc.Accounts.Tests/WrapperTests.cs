@@ -20,28 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using System.Collections.Generic;
 using Monobjc.Foundation.Common;
 using NUnit.Framework;
 
 namespace Monobjc.Accounts
 {
 	[TestFixture]
-    public class WrapperTests: AbstractWrapperTests
-    {
-		protected override bool IsAvailable {
-			get {
-#if MACOSX_10_8
-				return ObjectiveCRuntime.Is64Bits;
-#else
-				return false;
-#endif
-			}
+	public class WrapperTests : AbstractWrapperTests
+	{
+		public WrapperTests () : base(new Environment())
+		{
 		}
-
-		protected override IEnumerable<string> Frameworks
-        {
-			get { return new[] { "Foundation", "AppKit", "Accounts" }; }
-        }
-    }
+	}
 }

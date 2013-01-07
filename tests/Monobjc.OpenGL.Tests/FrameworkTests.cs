@@ -20,29 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using System;
-using System.Collections.Generic;
 using Monobjc.Foundation.Common;
 using NUnit.Framework;
 
 namespace Monobjc.OpenGL
 {
 	[TestFixture]
-    public class FrameworkTests : AbstractFrameworkTests
-    {
-        protected override IEnumerable<string> Frameworks
-        {
-            get { return new[] { "Foundation", "AppKit", "OpenGL" }; }
-        }
-
-        protected override string AssemblyName
-        {
-            get { return "Monobjc.OpenGL"; }
-        }
-
-        protected override void EnsureAssemblyIsReferenced()
-        {
-            AppDomain.CurrentDomain.Load(this.AssemblyName);
-        }
-    }
+	public class FrameworkTests : AbstractFrameworkTests
+	{
+		public FrameworkTests () : base(new Environment())
+		{
+		}
+	}
 }

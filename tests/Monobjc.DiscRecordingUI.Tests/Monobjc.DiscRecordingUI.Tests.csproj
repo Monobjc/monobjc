@@ -49,7 +49,11 @@
     <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractWrapperTests.cs">
       <Link>AbstractWrapperTests.cs</Link>
     </Compile>
+    <Compile Include="..\Monobjc.Foundation.Tests\Common\TestEnvironment.cs">
+      <Link>TestEnvironment.cs</Link>
+    </Compile>
     <Compile Include="CompletnessTests.cs" />
+    <Compile Include="Environment.cs" />
     <Compile Include="FrameworkTests.cs" />
     <Compile Include="WrapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,5 +79,8 @@
       <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
       <Name>Monobjc.AppKit</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
   </ItemGroup>
 </Project>

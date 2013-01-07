@@ -21,38 +21,36 @@
 // THE SOFTWARE.
 // 
 using System;
-using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace Monobjc.Foundation.Common
 {
-    [Category("Wrapper")]
-    [Description("Test the wrappers")]
-    public abstract class AbstractObjectiveCTests
-    {
-		protected virtual bool IsAvailable { get { return true; } }
+	[Category("Wrapper")]
+	[Description("Test the wrappers")]
+	public abstract class AbstractObjectiveCTests
+	{
+		protected AbstractObjectiveCTests (TestEnvironment env)
+		{
+			this.Env = env;
+		}
 
-		protected abstract IEnumerable<string> Frameworks { get; }
-
-        [TestFixtureSetUp]
-        public void TestFixtureSetUp()
-        {
-			if (!this.IsAvailable) {
+		protected TestEnvironment Env { get; private set; }
+		
+		[TestFixtureSetUp]
+		public void TestFixtureSetUp ()
+		{
+			if (!this.Env.IsAvailable) {
 				return;
 			}
 			
-			try
-            {
-                foreach (String framework in this.Frameworks)
-                {
-                    ObjectiveCRuntime.LoadFramework(framework);
-                }
-                ObjectiveCRuntime.Initialize();
-            }
-            catch (Exception ex)
-            {
-                Assert.Ignore("Cannot initialize runtime:\n{0}", ex);
-            }
-        }
-    }
+			try {
+				foreach (String framework in this.Env.Frameworks) {
+					ObjectiveCRuntime.LoadFramework (framework);
+				}
+				ObjectiveCRuntime.Initialize ();
+			} catch (Exception ex) {
+				Assert.Ignore ("Cannot initialize runtime:\n{0}", ex);
+			}
+		}
+	}
 }

@@ -9,7 +9,7 @@ include ../../Monobjc.mk
 # ----------------------------------------
 
 NAME=Monobjc.DiscRecordingUI.Tests
-REFERENCES=$(DEST_DIR)/Monobjc.dll $(DEST_DIR)/Monobjc.Foundation.dll $(DEST_DIR)/Monobjc.DiscRecording.dll $(DEST_DIR)/Monobjc.DiscRecordingUI.dll
+REFERENCES=$(DEST_DIR)/Monobjc.dll $(DEST_DIR)/Monobjc.Foundation.dll $(DEST_DIR)/Monobjc.AppKit.dll $(DEST_DIR)/Monobjc.DiscRecording.dll $(DEST_DIR)/Monobjc.DiscRecordingUI.dll
 SOURCES= \
 	$(wildcard $(TESTS_DIR)/Monobjc.Foundation.Tests/Common/*.cs) \
 	$(wildcard $(TESTS_DIR)/$(NAME)/*.cs) \

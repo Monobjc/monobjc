@@ -20,28 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using System.Collections.Generic;
 using Monobjc.Foundation.Common;
 using NUnit.Framework;
 
 namespace Monobjc.CoreWLAN
 {
 	[TestFixture]
-    public class CompletnessTests : AbstractCompletnessTests
-    {
-		protected override IEnumerable<string> Frameworks
-        {
-			get { return new[] { "Foundation", "CoreWLAN" }; }
-        }
-
-        protected override string AssemblyName
-        {
-			get { return "Monobjc.CoreWLAN"; }
-        }
-
-        protected override void EnsureAssemblyIsReferenced()
-        {
-			CWInterface dummy = null;
-        }
-    }
+	public class CompletnessTests : AbstractCompletnessTests
+	{
+		public CompletnessTests () : base(new Environment())
+		{
+		}
+	}
 }

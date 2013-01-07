@@ -7,6 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9E74AAE6-99AA-4A0F-80C7-C85CF0AB9799}</ProjectGuid>
     <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Monobjc.Collaboration</RootNamespace>
     <AssemblyName>Monobjc.Collaboration.Tests</AssemblyName>
   </PropertyGroup>
@@ -49,10 +50,17 @@
     <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractWrapperTests.cs">
       <Link>AbstractWrapperTests.cs</Link>
     </Compile>
+    <Compile Include="..\Monobjc.Foundation.Tests\Common\TestEnvironment.cs">
+      <Link>TestEnvironment.cs</Link>
+    </Compile>
     <Compile Include="CompletnessTests.cs" />
+    <Compile Include="Environment.cs" />
     <Compile Include="FrameworkTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WrapperTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -67,6 +75,10 @@
     <ProjectReference Include="..\..\libraries\Monobjc.Collaboration\Monobjc.Collaboration.csproj">
       <Project>{192E6C58-32D7-46E8-8281-9B73F28A4857}</Project>
       <Name>Monobjc.Collaboration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\libraries\Monobjc.Foundation\Monobjc.Foundation.csproj">
+      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
+      <Name>Monobjc.Foundation</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

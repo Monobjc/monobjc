@@ -55,11 +55,15 @@
     <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractWrapperTests.cs">
       <Link>AbstractWrapperTests.cs</Link>
     </Compile>
-    <Compile Include="CPTColorTests.cs" />
-    <Compile Include="FrameworkTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WrapperTests.cs" />
+    <Compile Include="..\Monobjc.Foundation.Tests\Common\TestEnvironment.cs">
+      <Link>TestEnvironment.cs</Link>
+    </Compile>
     <Compile Include="CompletnessTests.cs" />
+    <Compile Include="Environment.cs" />
+    <Compile Include="FrameworkTests.cs" />
+    <Compile Include="WrapperTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CPTColorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\libraries\Monobjc\Monobjc.csproj">
@@ -87,4 +91,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
 </Project>

@@ -20,28 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using System.Collections.Generic;
 using Monobjc.Foundation.Common;
 using NUnit.Framework;
 
 namespace Monobjc.DiscRecording
 {
 	[TestFixture]
-    public class CompletnessTests : AbstractCompletnessTests
-    {
-		protected override IEnumerable<string> Frameworks
-        {
-			get { return new[] { "Foundation", "DiscRecording" }; }
+	public class CompletnessTests : AbstractCompletnessTests
+	{
+		public CompletnessTests () : base(new Environment())
+		{
 		}
-
-        protected override string AssemblyName
-        {
-			get { return "Monobjc.DiscRecording"; }
-        }
-
-        protected override void EnsureAssemblyIsReferenced()
-        {
-			DRBurn dummy = null;
-        }
-    }
+	}
 }

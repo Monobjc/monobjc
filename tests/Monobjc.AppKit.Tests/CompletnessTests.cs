@@ -20,29 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using System.Collections.Generic;
 using Monobjc.Foundation.Common;
-
 using NUnit.Framework;
 
 namespace Monobjc.AppKit
 {
 	[TestFixture]
-    public class CompletnessTests : AbstractCompletnessTests
-    {
-        protected override IEnumerable<string> Frameworks
-        {
-            get { return new[] { "Foundation", "AppKit" }; }
-        }
-
-        protected override string AssemblyName
-        {
-            get { return "Monobjc.AppKit"; }
-        }
-
-        protected override void EnsureAssemblyIsReferenced()
-        {
-            NSView dummy = null;
-        }
-    }
+	public class CompletnessTests : AbstractCompletnessTests
+	{
+		public CompletnessTests () : base(new Environment())
+		{
+		}
+	}
 }

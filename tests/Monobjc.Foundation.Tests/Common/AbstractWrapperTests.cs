@@ -24,22 +24,26 @@ using NUnit.Framework;
 
 namespace Monobjc.Foundation.Common
 {
-    [Category("Wrapper")]
-    [Description("Test the wrappers")]
-    public abstract class AbstractWrapperTests : AbstractObjectiveCTests
-    {
-        private NSAutoreleasePool pool;
+	[Category("Wrapper")]
+	[Description("Test the wrappers")]
+	public abstract class AbstractWrapperTests : AbstractObjectiveCTests
+	{
+		private NSAutoreleasePool pool;
 
-        [SetUp]
-        public void SetUp()
-        {
-            this.pool = new NSAutoreleasePool();
-        }
+		protected AbstractWrapperTests (TestEnvironment env) : base(env)
+		{
+		}
 
-        [TearDown]
-        public void TearDown()
-        {
-            this.pool.Release();
-        }
-    }
+		[SetUp]
+		public void SetUp ()
+		{
+			this.pool = new NSAutoreleasePool ();
+		}
+
+		[TearDown]
+		public void TearDown ()
+		{
+			this.pool.Release ();
+		}
+	}
 }

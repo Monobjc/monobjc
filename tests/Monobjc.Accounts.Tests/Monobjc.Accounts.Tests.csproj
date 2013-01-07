@@ -7,7 +7,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C3BD083F-4729-4892-B0C0-E2672C935139}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Monobjc.Accounts.Tests</RootNamespace>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Monobjc.Accounts</RootNamespace>
     <AssemblyName>Monobjc.Accounts.Tests</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -49,10 +50,17 @@
     <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractWrapperTests.cs">
       <Link>AbstractWrapperTests.cs</Link>
     </Compile>
+    <Compile Include="..\Monobjc.Foundation.Tests\Common\TestEnvironment.cs">
+      <Link>TestEnvironment.cs</Link>
+    </Compile>
     <Compile Include="CompletnessTests.cs" />
+    <Compile Include="Environment.cs" />
     <Compile Include="FrameworkTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WrapperTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -63,6 +71,10 @@
     <ProjectReference Include="..\..\libraries\Monobjc.Accounts\Monobjc.Accounts.csproj">
       <Project>{2DF17648-B0F1-4D80-A91D-54ADA66D73EF}</Project>
       <Name>Monobjc.Accounts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\libraries\Monobjc.Foundation\Monobjc.Foundation.csproj">
+      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
+      <Name>Monobjc.Foundation</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

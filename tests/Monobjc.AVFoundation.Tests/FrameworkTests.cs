@@ -1,4 +1,4 @@
-//
+﻿//
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2012 - Laurent Etiemble
 //
@@ -20,38 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using System.Collections.Generic;
 using Monobjc.Foundation.Common;
 using NUnit.Framework;
 
 namespace Monobjc.AVFoundation
 {
 	[TestFixture]
-    public class FrameworkTests : AbstractFrameworkTests
-    {
-		protected override bool IsAvailable {
-			get {
-#if MACOSX_10_7
-				return true;
-#else
-				return false;
-#endif
-			}
+	public class FrameworkTests : AbstractFrameworkTests
+	{
+		public FrameworkTests () : base(new Environment())
+		{
 		}
-
-		protected override IEnumerable<string> Frameworks
-        {
-			get { return new[] { "Foundation", "AppKit", "AVFoundation" }; }
-        }
-
-        protected override string AssemblyName
-        {
-			get { return "Monobjc.AVFoundation"; }
-        }
-
-        protected override void EnsureAssemblyIsReferenced()
-        {
-            AVAsset dummy = null;
-        }
-    }
+	}
 }

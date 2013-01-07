@@ -7,6 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{11FD247F-6A97-4B8A-90E2-C9D69100A174}</ProjectGuid>
     <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Monobjc.AddressBook</RootNamespace>
     <AssemblyName>Monobjc.AddressBook.Tests</AssemblyName>
   </PropertyGroup>
@@ -31,10 +32,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Core" />
     <Reference Include="nunit.framework">
       <HintPath>..\..\external\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractCompletnessTests.cs">
@@ -49,10 +50,17 @@
     <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractWrapperTests.cs">
       <Link>AbstractWrapperTests.cs</Link>
     </Compile>
+    <Compile Include="..\Monobjc.Foundation.Tests\Common\TestEnvironment.cs">
+      <Link>TestEnvironment.cs</Link>
+    </Compile>
     <Compile Include="CompletnessTests.cs" />
+    <Compile Include="Environment.cs" />
     <Compile Include="FrameworkTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WrapperTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -68,9 +76,9 @@
       <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
       <Name>Monobjc.AppKit</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Monobjc.AppKit.Tests\Monobjc.AppKit.Tests.csproj">
-      <Project>{7D8FACFC-443D-4D7A-9E06-DE2D3E8A34C1}</Project>
-      <Name>Monobjc.AppKit.Tests</Name>
+    <ProjectReference Include="..\..\libraries\Monobjc.Foundation\Monobjc.Foundation.csproj">
+      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
+      <Name>Monobjc.Foundation</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

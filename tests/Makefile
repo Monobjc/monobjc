@@ -14,51 +14,44 @@ DIRS_10_6= \
 	Monobjc.CoreMIDI.Tests \
 	Monobjc.CoreWLAN.Tests \
 	Monobjc.DiscRecording.Tests \
+	Monobjc.OpenGL.Tests \
+	Monobjc.ScriptingBridge.Tests \
+	Monobjc.Security.Tests \
+	Monobjc.SecurityFoundation.Tests \
 	\
 	Monobjc.AppKit.Tests \
 	Monobjc.AddressBook.Tests \
 	Monobjc.Collaboration.Tests \
 	Monobjc.CoreLocation.Tests \
 	Monobjc.DiscRecordingUI.Tests \
+	Monobjc.InputMethodKit.Tests \
+	Monobjc.InstantMessage.Tests \
+	Monobjc.QTKit.Tests \
+	Monobjc.Quartz.Tests \
+	Monobjc.SecurityInterface.Tests \
+	Monobjc.WebKit.Tests \
 	\
 	Monobjc.CorePlot.Tests \
-
-#	Monobjc.OpenGL.Tests \
-#	Monobjc.ScriptingBridge.Tests \
-#	Monobjc.Security.Tests \
-#	Monobjc.SecurityFoundation.Tests \
-#	Monobjc.CoreWLAN.Tests \
-
-#	Monobjc.DiscRecordingUI.Tests \
-#	Monobjc.InputMethodKit.Tests \
-#	Monobjc.InstantMessage.Tests \
-#	Monobjc.QTKit.Tests \
-#	Monobjc.Quartz.Tests \
-#	Monobjc.SecurityInterface.Tests \
-#	Monobjc.WebKit.Tests \
-
-#	Monobjc.Growl.Tests \
-#	Monobjc.Sparkle.Tests \
+	Monobjc.Growl.Tests \
+	Monobjc.Sparkle.Tests \
 
 DIRS_10_7= \
 	$(DIRS_10_6) \
 	\
 	Monobjc.CoreMedia.Tests \
 	Monobjc.AVFoundation.Tests \
-
-#	Monobjc.StoreKit.Tests \
+	Monobjc.StoreKit.Tests \
 
 DIRS_10_8= \
 	$(DIRS_10_7) \
+	\
 	Monobjc.Accounts.Tests \
 	\
 	Monobjc.EventKit.Tests \
-
-#	Monobjc.Social.Tests \
-#	\
-#	Monobjc.GameKit.Tests \
-#	Monobjc.GLKit.Tests \
-#	Monobjc.SceneKit.Tests \
+	Monobjc.Social.Tests \
+	Monobjc.GameKit.Tests \
+	Monobjc.GLKit.Tests \
+	Monobjc.SceneKit.Tests \
 
 ifeq ($(BUILD_FOR_OSX_10_6),1)
 	DIRS_10_6_ALL=$(DIRS_10_6:%=%-10_6-all)

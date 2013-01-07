@@ -30,110 +30,98 @@ using NUnit.Framework;
 
 namespace Monobjc.Foundation.Common
 {
-    [Category("Wrapper")]
-    [Description("Test the completness of the wrappers")]
-    public abstract class AbstractCompletnessTests : AbstractObjectiveCTests
-    {
-		protected abstract string AssemblyName { get; }
+	[Category("Wrapper")]
+	[Description("Test the completness of the wrappers")]
+	public abstract class AbstractCompletnessTests : AbstractObjectiveCTests
+	{
+		protected AbstractCompletnessTests (TestEnvironment env) : base(env)
+		{
+		}
+		
+		private Assembly Assembly {
+			get {
+				this.Env.EnsureAssemblyIsReferenced ();
+				Assembly assembly = AppDomain.CurrentDomain.GetAssemblies ().FirstOrDefault (a => a.GetName ().Name == this.Env.AssemblyName);
+				Assert.NotNull (assembly, "Assembly " + this.Env.AssemblyName + " must be found");
+				return assembly;
+			}
+		}
 
-        protected abstract void EnsureAssemblyIsReferenced();
-
-        private Assembly Assembly
-        {
-            get
-            {
-                this.EnsureAssemblyIsReferenced();
-                Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.GetName().Name == this.AssemblyName);
-                Assert.NotNull(assembly, "Assembly " + this.AssemblyName + " must be found");
-                return assembly;
-            }
-        }
-
-        [Test]
-        public void TestClassCompletness()
-        {
-			if (!this.IsAvailable) {
-				Assert.True(true);
+		[Test]
+		public void TestClassCompletness ()
+		{
+			if (!this.Env.IsAvailable) {
+				Assert.True (true);
 				return;
 			}
 			
-            foreach (Type type in this.Assembly.GetTypes())
-            {
-                // Type must be an Id subclass
-                if (!typeof(Id).IsAssignableFrom(type))
-                {
-                    continue;
-                }
-
-                // Test for the class attribute
-                ObjectiveCClassAttribute objectiveCClassAttribute = Attribute.GetCustomAttribute(type, typeof(ObjectiveCClassAttribute), false) as ObjectiveCClassAttribute;
-                if (objectiveCClassAttribute == null)
-                {
-                    continue;
-                }
-
-                Class cls = Class.Get(type);
-				if (cls.Name.EndsWith("Dispatcher")) {
+			foreach (Type type in this.Assembly.GetTypes()) {
+				// Type must be an Id subclass
+				if (!typeof(Id).IsAssignableFrom (type)) {
 					continue;
 				}
 
-				MethodInfo[] methodInfos = type.GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance);
-				IList<String> methodNames = new List<String>(methodInfos.Select(m => m.Name));
-				PropertyInfo[] propertyInfos = type.GetProperties(BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance);
-				IList<String> propertyNames = new List<String>(propertyInfos.Select(p => p.Name));
+				// Test for the class attribute
+				ObjectiveCClassAttribute objectiveCClassAttribute = Attribute.GetCustomAttribute (type, typeof(ObjectiveCClassAttribute), false) as ObjectiveCClassAttribute;
+				if (objectiveCClassAttribute == null) {
+					continue;
+				}
+
+				Class cls = Class.Get (type);
+				if (cls.Name.EndsWith ("Dispatcher")) {
+					continue;
+				}
+
+				MethodInfo[] methodInfos = type.GetMethods (BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance);
+				IList<String> methodNames = new List<String> (methodInfos.Select (m => m.Name));
+				PropertyInfo[] propertyInfos = type.GetProperties (BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance);
+				IList<String> propertyNames = new List<String> (propertyInfos.Select (p => p.Name));
 				
-                int count;
-                IntPtr listPtr = class_copyMethodList(cls.NativePointer, out count);
-                //Console.WriteLine("Class=" + cls.Name);
+				int count;
+				IntPtr listPtr = class_copyMethodList (cls.NativePointer, out count);
+				//Console.WriteLine("Class=" + cls.Name);
 				double matches = 0;
-                for (int i = 0; i < count; i++)
-                {
-                    IntPtr ptr = new IntPtr(listPtr.ToInt64() + i * IntPtr.Size);
-                    IntPtr method = Marshal.ReadIntPtr(ptr);
-                    IntPtr selectorPtr = method_getName(method);
-                    String selector = ObjectiveCRuntime.Selector(selectorPtr);
-					if (selector.StartsWith("_"))
-					{
+				for (int i = 0; i < count; i++) {
+					IntPtr ptr = new IntPtr (listPtr.ToInt64 () + i * IntPtr.Size);
+					IntPtr method = Marshal.ReadIntPtr (ptr);
+					IntPtr selectorPtr = method_getName (method);
+					String selector = ObjectiveCRuntime.Selector (selectorPtr);
+					if (selector.StartsWith ("_")) {
 						matches++;
 						continue;
 					}
-					if (selector.EndsWith("_"))
-					{
+					if (selector.EndsWith ("_")) {
 						matches++;
 						continue;
 					}
 					
-					String methodName = GetMethodName(selector);
+					String methodName = GetMethodName (selector);
 					
 					bool found = false;
-					found |= methodNames.Contains(methodName);
-					found |= propertyNames.Contains(methodName);
-					found |= propertyNames.Contains("Is" + methodName);
-					found |= propertyNames.Contains("Has" + methodName);
-					if (methodName.StartsWith("Set")) {
-						found |= propertyNames.Contains(methodName.Substring(3));
+					found |= methodNames.Contains (methodName);
+					found |= propertyNames.Contains (methodName);
+					found |= propertyNames.Contains ("Is" + methodName);
+					found |= propertyNames.Contains ("Has" + methodName);
+					if (methodName.StartsWith ("Set")) {
+						found |= propertyNames.Contains (methodName.Substring (3));
 					}
 					
-					if (found)
-					{
+					if (found) {
 						matches++;
-					}
-					else
-					{
+					} else {
 						//Console.WriteLine("MISSING: '{0}' => '{1}'", selector, methodName);
 					}
-                }
-                free(listPtr);
+				}
+				free (listPtr);
 				
 				double ratio = matches / count;
 				//Console.WriteLine("R;{0};{1}", cls.Name, ratio);
-				if (ratio < 0.25)
-				{
+				if (ratio < 0.25) {
 					//Console.WriteLine("{0}: {1}/{2} -> BAD", cls.Name, matches, count);
 					//Assert.Fail("Less than 25% of members are wrapped for {0}", cls.Name);
 				}
 
-                /*
+				/*
                 else if (ratio < 0.5)
                 {
                     Console.WriteLine("{0}: {1}/{2} -> LOW", cls.Name, matches, count);
@@ -151,39 +139,37 @@ namespace Monobjc.Foundation.Common
                 }
                 Console.WriteLine();
                 */
-            }
-        }
+			}
+		}
 
-        private static String GetMethodName(String selector)
-        {
-            String[] parts = selector.Split(new[] {':'}, StringSplitOptions.RemoveEmptyEntries);
-            StringBuilder builder = new StringBuilder();
-            foreach (String part in parts)
-            {
-                String token = UpperCaseFirstLetter(part);
-                builder.Append(token);
-            }
-            return builder.ToString();
-        }
+		private static String GetMethodName (String selector)
+		{
+			String[] parts = selector.Split (new[] {':'}, StringSplitOptions.RemoveEmptyEntries);
+			StringBuilder builder = new StringBuilder ();
+			foreach (String part in parts) {
+				String token = UpperCaseFirstLetter (part);
+				builder.Append (token);
+			}
+			return builder.ToString ();
+		}
 		
-        private static String UpperCaseFirstLetter(String str)
-        {
-            if (str.Length < 2)
-            {
-                return str;
-            }
-            str = str.Trim();
-            str = str.Substring(0, 1).ToUpperInvariant() + str.Substring(1);
-            return str;
-        }
+		private static String UpperCaseFirstLetter (String str)
+		{
+			if (str.Length < 2) {
+				return str;
+			}
+			str = str.Trim ();
+			str = str.Substring (0, 1).ToUpperInvariant () + str.Substring (1);
+			return str;
+		}
 		
-        [DllImport("libobjc")]
-        private static extern IntPtr class_copyMethodList(IntPtr cls, out int outCount);
+		[DllImport("libobjc")]
+		private static extern IntPtr class_copyMethodList (IntPtr cls, out int outCount);
 
-        [DllImport("libobjc")]
-        private static extern IntPtr method_getName(IntPtr method);
+		[DllImport("libobjc")]
+		private static extern IntPtr method_getName (IntPtr method);
 
-        [DllImport("libSystem")]
-        private static extern void free(IntPtr mem);
-    }
+		[DllImport("libSystem")]
+		private static extern void free (IntPtr mem);
+	}
 }
