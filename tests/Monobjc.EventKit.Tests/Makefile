@@ -8,7 +8,7 @@ include ../../Monobjc.mk
 # Variables
 # ----------------------------------------
 
-NAME=Monobjc.CoreEventKit.Tests
+NAME=Monobjc.EventKit.Tests
 REFERENCES=$(DEST_DIR)/Monobjc.dll $(DEST_DIR)/Monobjc.Foundation.dll $(DEST_DIR)/Monobjc.EventKit.dll
 SOURCES= \
 	$(wildcard $(TESTS_DIR)/Monobjc.Foundation.Tests/Common/*.cs) \

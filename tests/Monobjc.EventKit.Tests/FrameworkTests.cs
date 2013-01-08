@@ -23,7 +23,7 @@
 using Monobjc.Foundation.Common;
 using NUnit.Framework;
 
-namespace Monobjc.Accounts
+namespace Monobjc.EventKit
 {
 	[TestFixture]
 	public class FrameworkTests : AbstractFrameworkTests

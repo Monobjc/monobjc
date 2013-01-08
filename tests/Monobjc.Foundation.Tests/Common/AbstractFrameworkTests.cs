@@ -49,7 +49,7 @@ namespace Monobjc.Foundation.Common
 		public void TestClassHierarchy ()
 		{
 			if (!this.Env.IsAvailable) {
-				Assert.True (true);
+				Assert.Ignore("Framework not available");
 				return;
 			}
 
@@ -91,7 +91,7 @@ namespace Monobjc.Foundation.Common
 		public void TestEventDispatcherHierarchy ()
 		{
 			if (!this.Env.IsAvailable) {
-				Assert.True (true);
+				Assert.Ignore("Framework not available");
 				return;
 			}
 
@@ -135,7 +135,7 @@ namespace Monobjc.Foundation.Common
 		public void TestConstructors ()
 		{
 			if (!this.Env.IsAvailable) {
-				Assert.True (true);
+				Assert.Ignore("Framework not available");
 				return;
 			}
 
@@ -191,7 +191,7 @@ namespace Monobjc.Foundation.Common
 		public void TestNativeInteropEntryPoints ()
 		{
 			if (!this.Env.IsAvailable) {
-				Assert.True (true);
+				Assert.Ignore("Framework not available");
 				return;
 			}
 
@@ -231,7 +231,7 @@ namespace Monobjc.Foundation.Common
 		public void TestNativeInteropAttributes ()
 		{
 			if (!this.Env.IsAvailable) {
-				Assert.True (true);
+				Assert.Ignore("Framework not available");
 				return;
 			}
 

@@ -51,7 +51,7 @@ namespace Monobjc.Foundation.Common
 		public void TestClassCompletness ()
 		{
 			if (!this.Env.IsAvailable) {
-				Assert.True (true);
+				Assert.Ignore("Framework not available");
 				return;
 			}
 			
