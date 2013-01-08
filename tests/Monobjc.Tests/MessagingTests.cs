@@ -77,10 +77,10 @@ namespace Monobjc
         [Test]
         public void TestIntegerMessaging()
         {
-            int value1 = new Random().Next(-65000, 65000);
+            TSInteger value1 = new Random().Next(-65000, 65000);
             Id number = ObjectiveCRuntime.SendMessage<Id>(this.cls_NSNumber, "numberWithInteger:", value1);
             Assert.AreNotEqual(IntPtr.Zero, number, "Number creation cannot failed");
-            int value2 = ObjectiveCRuntime.SendMessage<int>(number, "integerValue");
+			TSInteger value2 = ObjectiveCRuntime.SendMessage<TSInteger>(number, "integerValue");
             Assert.AreEqual(value1, value2, "Int values must be equal");
         }
 
