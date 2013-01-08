@@ -111,9 +111,6 @@ namespace Monobjc
 			// Create the domain-data
 			Bootstrap ();
 
-			// Cache the value
-			Is64Bits = Is64BitsInternal ();
-
 			Logger.Info ("ObjectiveCRuntime", "Platform detected:");
 			Logger.Info ("ObjectiveCRuntime", "    System      : " + MacOSVersion);
 			Logger.Info ("ObjectiveCRuntime", "    Processor   : " + Processor);
@@ -124,7 +121,7 @@ namespace Monobjc
 			DynamicAssembly = new DynamicAssembly ("Monobjc.Dynamic", "GeneratedTypes");
 
 			// Create the dynamic code generators
-            BlockGenerator = new BlockGenerator(DynamicAssembly, Is64Bits);
+			BlockGenerator = new BlockGenerator (DynamicAssembly, Is64Bits);
 			CategoryGenerator = new CategoryGenerator (DynamicAssembly, Is64Bits);
 			ClassGenerator = new ClassGenerator (DynamicAssembly, Is64Bits);
 			WrapperGenerator = new WrapperGenerator (DynamicAssembly, Is64Bits);
@@ -318,7 +315,10 @@ namespace Monobjc
 		///   Gets a value indicating whether the platform is 32 or 64 bits.
 		/// </summary>
 		/// <value><c>true</c> if the platform is 64 bits; otherwise, <c>false</c>.</value>
-		public static bool Is64Bits { get; private set; }
+		public static bool Is64Bits {
+			[MethodImpl(MethodImplOptions.NoInlining)]
+			get { return Platform.Is64Bits (); }
+		}
 
 		/// <summary>
 		///   Gets a value indicating whether the platform uses big-endianness.
