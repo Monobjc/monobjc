@@ -34,11 +34,19 @@ namespace Monobjc.GLKit
 		/// <summary>
 		/// <para>The first element.</para>
 		/// </summary>
-		public float v1;
+		public float x;
 		/// <summary>
 		/// <para>The second element.</para>
 		/// </summary>
-		public float v2;
+		public float y;
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Monobjc.GLKit.GLKVector2"/> struct.
+		/// </summary>
+		public GLKVector2(float x, float y) {
+			this.x = x;
+			this.y = y;
+		}
 	}
 #endif
 }

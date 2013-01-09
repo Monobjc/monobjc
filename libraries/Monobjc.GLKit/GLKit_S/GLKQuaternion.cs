@@ -32,21 +32,31 @@ namespace Monobjc.GLKit
 	public partial struct GLKQuaternion
 	{
 		/// <summary>
-		/// <para>The first element.</para>
+		/// <para>The x component of the vector portion of the quaternion.</para>
 		/// </summary>
-		public float q1;
+		public float x;
 		/// <summary>
-		/// <para>The second element.</para>
+		/// <para>The y component of the vector portion of the quaternion.</para>
 		/// </summary>
-		public float q2;
+		public float y;
 		/// <summary>
-		/// <para>The third element.</para>
+		/// <para>The z component of the vector portion of the quaternion.</para>
 		/// </summary>
-		public float q3;
+		public float z;
 		/// <summary>
-		/// <para>The fourth element.</para>
+		/// <para>The scalar component of the quaternion.</para>
 		/// </summary>
-		public float q4;
+		public float w;
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Monobjc.GLKit.GLKQuaternion"/> struct.
+		/// </summary>
+		public GLKQuaternion(float x, float y, float z, float w) {
+			this.x = x;
+			this.y = y;
+			this.z = z;
+			this.w = w;
+		}
 	}
 #endif
 }

@@ -33,6 +33,54 @@ namespace Monobjc.GLKit
 	{
 		public float m00, m01;
 		public float m10, m11;
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Monobjc.GLKit.GLKMatrix2"/> struct.
+		/// </summary>
+		public GLKMatrix2(float m00, float m01, float m10, float m11){
+			this.m00 = m00;
+			this.m01 = m01;
+			this.m10 = m10;
+			this.m11 = m11;
+		}
+
+		/// <summary>
+		/// Gets or sets the value at the specified index.
+		/// </summary>
+		public float this [int index] {
+			get {
+				switch (index) {
+				case 0:
+					return this.m00;
+				case 1:
+					return this.m01;
+				case 2:
+					return this.m10;
+				case 3:
+					return this.m11;
+				default:
+					throw new System.IndexOutOfRangeException ();
+				}
+			}
+			set {
+				switch (index) {
+				case 0:
+					this.m00 = value;
+					break;
+				case 1:
+					this.m01 = value;
+					break;
+				case 2:
+					this.m10 = value;
+					break;
+				case 3:
+					this.m11 = value;
+					break;
+				default:
+					throw new System.IndexOutOfRangeException ();
+				}
+			}
+		}
 	}
 #endif
 }
