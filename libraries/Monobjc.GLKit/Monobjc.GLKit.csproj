@@ -73,7 +73,6 @@
     <Compile Include="GLKit_T\GLKMatrix4.cs" />
     <Compile Include="GLKit_T\GLKMatrixStack.cs" />
     <Compile Include="GLKit_T\GLKQuaternion.cs" />
-    <Compile Include="GLKit_T\GLKVector2.cs" />
     <Compile Include="GLKit_T\GLKVector3.cs" />
     <Compile Include="GLKit_T\GLKVector4.cs" />
     <Compile Include="GLKit_S\GLKVector2.cs" />
@@ -89,6 +88,7 @@
     <Compile Include="GLKit_Extensions\GLKMatrix3.cs" />
     <Compile Include="GLKit_Extensions\GLKQuaternion.cs" />
     <Compile Include="GLKit_Extensions\GLKMatrix4.cs" />
+    <Compile Include="GLKit_Extensions\GLKVector2.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">

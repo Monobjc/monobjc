@@ -26,7 +26,6 @@ using Monobjc.Foundation;
 namespace Monobjc.GLKit
 {
 #if MACOSX_10_8
-#endif
 	public partial struct GLKMatrix4
 	{
 		/// <summary>
@@ -908,5 +907,5 @@ namespace Monobjc.GLKit
 			return m;
 		}
 	}
-
+#endif
 }
