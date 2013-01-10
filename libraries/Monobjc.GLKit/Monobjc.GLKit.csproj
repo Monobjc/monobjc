@@ -88,6 +88,7 @@
     <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
     <Compile Include="GLKit_Extensions\GLKMatrix3.cs" />
     <Compile Include="GLKit_Extensions\GLKQuaternion.cs" />
+    <Compile Include="GLKit_Extensions\GLKMatrix4.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">
