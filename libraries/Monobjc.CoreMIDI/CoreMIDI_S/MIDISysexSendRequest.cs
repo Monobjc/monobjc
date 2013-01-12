@@ -35,30 +35,30 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>The endpoint to which the event is to be sent.</para>
         /// </summary>
-        uint destination;
+		public uint destination;
         /// <summary>
         /// <para>Initially, a pointer to the sys-ex event to be sent. MIDISendSysex will advance this pointer as bytes are sent.</para>
         /// </summary>
-        IntPtr data;
+		public IntPtr data;
         /// <summary>
         /// <para>Initially, the number of bytes to be sent. MIDISendSysex will decrement this counter as bytes are sent.</para>
         /// </summary>
-        uint bytesToSend;
+		public uint bytesToSend;
         /// <summary>
         /// <para>The client may set this to true at any time to abort transmission. The implementation sets this to true when all bytes have been sent.</para>
         /// </summary>
-        Boolean complete;
+		public Boolean complete;
         /// <summary>
         /// <para>Reserved.</para>
         /// </summary>
-        uint reserved;
+		public uint reserved;
         /// <summary>
         /// <para>Called when all bytes have been sent, or after the client has set complete to true.</para>
         /// </summary>
-        MIDICompletionProc completionProc;
+		public MIDICompletionProc completionProc;
         /// <summary>
         /// <para>Passed as a refCon to completionProc.</para>
         /// </summary>
-        IntPtr completionRefCon;
+		public IntPtr completionRefCon;
     }
 }

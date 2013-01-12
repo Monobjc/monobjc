@@ -35,10 +35,10 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>type of message</para>
         /// </summary>
-        MIDINotificationMessageID messageID;
+		public MIDINotificationMessageID messageID;
         /// <summary>
         /// <para>size of the entire message, including messageID and messageSize</para>
         /// </summary>
-        UInt32 messageSize;
+		public UInt32 messageSize;
     }
 }

@@ -35,10 +35,10 @@ namespace Monobjc.CoreMIDI
 		/// <summary>
 		/// <para>The endpoint specified as a MIDIEndpointRef.</para>
 		/// </summary>
-		uint endpointRef;
+		public uint endpointRef;
 		/// <summary>
 		/// <para>The endpoint specified by its uniqueID.</para>
 		/// </summary>
-		int uniqueID;
+		public int uniqueID;
 	}
 }

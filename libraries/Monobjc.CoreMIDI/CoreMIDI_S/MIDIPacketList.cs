@@ -34,10 +34,10 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>The number of MIDIPackets in the list.</para>
         /// </summary>
-        UInt32 numPackets;
+		public UInt32 numPackets;
         /// <summary>
         /// <para>An open-ended array of variable-length MIDIPackets.</para>
         /// </summary>
-        IntPtr packet;
+		public IntPtr packet;
     }
 }

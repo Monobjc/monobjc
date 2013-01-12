@@ -34,10 +34,10 @@ namespace Monobjc.CoreMIDI
 		/// <summary>
 		/// <para>The type of transformation to be applied to the event values.</para>
 		/// </summary>
-		MIDITransformType transform;
+		public MIDITransformType transform;
 		/// <summary>
 		/// <para>An argument to the transformation method (see description of MIDITransformType).</para>
 		/// </summary>
-		short param; 
+		public short param; 
 	}
 }

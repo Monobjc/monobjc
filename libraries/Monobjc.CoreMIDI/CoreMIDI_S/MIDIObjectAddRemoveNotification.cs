@@ -34,26 +34,26 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// type of message
         /// </summary>
-        MIDINotificationMessageID messageID;
+		public MIDINotificationMessageID messageID;
         /// <summary>
         /// size of the entire message, including messageID and messageSize
         /// </summary>
-        UInt32 messageSize;
+		public UInt32 messageSize;
         /// <summary>
         /// the parent of the added or removed object (possibly NULL)
         /// </summary>
-        uint parent;
+		public uint parent;
         /// <summary>
         /// the type of the parent object (undefined if parent is NULL)
         /// </summary>
-        MIDIObjectType parentType;
+		public MIDIObjectType parentType;
         /// <summary>
         /// the added or removed object
         /// </summary>
-        uint child;
+		public uint child;
         /// <summary>
         /// the type of the added or removed object
         /// </summary>
-        MIDIObjectType childType;
+		public MIDIObjectType childType;
     }
 }

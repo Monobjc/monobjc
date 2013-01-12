@@ -34,22 +34,22 @@ namespace Monobjc.CoreMIDI
         /// <summary>
         /// <para>type of message</para>
         /// </summary>
-        MIDINotificationMessageID messageID;
+		public MIDINotificationMessageID messageID;
         /// <summary>
         /// <para>size of the entire message, including messageID and messageSize</para>
         /// </summary>
-        uint messageSize;
+		public uint messageSize;
         /// <summary>
         /// <para>the object whose property has changed</para>
         /// </summary>
-        uint @object;
+		public uint @object;
         /// <summary>
         /// <para>the type of the object whose property has changed</para>
         /// </summary>
-        MIDIObjectType objectType;
+		public MIDIObjectType objectType;
         /// <summary>
         /// <para>the name of the changed property</para>
         /// </summary>
-        NSString propertyName;
+		public NSString propertyName;
     }
 }
