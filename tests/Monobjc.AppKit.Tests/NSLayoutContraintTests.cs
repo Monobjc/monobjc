@@ -35,7 +35,6 @@ namespace Monobjc.AppKit
         [Test]
         public void TestStaticCreation()
         {
-			NSLayoutConstraint constraint;
 			NSArray constraints;
 			NSDictionary views;
 			
@@ -99,8 +98,6 @@ namespace Monobjc.AppKit
         [Test]
         public void TestExceptions()
         {
-			NSLayoutConstraint constraint;
-			NSArray constraints;
 			NSDictionary views;
 			
 			NSView view = new NSView(new NSRect(0, 0, 512, 512));
@@ -113,22 +110,22 @@ namespace Monobjc.AppKit
 			
             Assert.Throws<ObjectiveCMessagingException>(() =>
 			{
-				constraints = NSLayoutConstraint.ConstraintsWithVisualFormatOptionsMetricsViews("[button1]-[button2]", 0, null, null);
+				NSLayoutConstraint.ConstraintsWithVisualFormatOptionsMetricsViews("[button1]-[button2]", 0, null, null);
 			});
             Assert.Throws<ObjectiveCMessagingException>(() =>
 			{
 				views = NSDictionary.DictionaryWithObjectsAndKeys(button1, (NSString)"button1", null);
-				constraints = NSLayoutConstraint.ConstraintsWithVisualFormatOptionsMetricsViews("[button1]-[button2]", 0, null, views);
+				NSLayoutConstraint.ConstraintsWithVisualFormatOptionsMetricsViews("[button1]-[button2]", 0, null, views);
 			});
             Assert.Throws<ObjectiveCMessagingException>(() =>
 			{
 				views = NSDictionary.DictionaryWithObjectsAndKeys(button1, (NSString)"button1", button2, (NSString)"dummy", null);
-				constraints = NSLayoutConstraint.ConstraintsWithVisualFormatOptionsMetricsViews("V|[button1]-[button2]|", 0, null, views);
+				NSLayoutConstraint.ConstraintsWithVisualFormatOptionsMetricsViews("V|[button1]-[button2]|", 0, null, views);
 			});
             Assert.Throws<ObjectiveCMessagingException>(() =>
 			{
 				views = NSDictionary.DictionaryWithObjectsAndKeys(button1, (NSString)"button1", button2, (NSString)"dummy", null);
-				constraints = NSLayoutConstraint.ConstraintsWithVisualFormatOptionsMetricsViews("V:|[button1(>30)]|", 0, null, views);
+				NSLayoutConstraint.ConstraintsWithVisualFormatOptionsMetricsViews("V:|[button1(>30)]|", 0, null, views);
 			});
 			
 			view.Release();

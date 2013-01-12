@@ -80,9 +80,9 @@ namespace Monobjc
                 Assert.AreEqual(values[i], value, "Object at index " + i + " is wrong");
             }
 
-            int lastValue = 0;
-            uint zeroIndex = 0;
-
+//            int lastValue = 0;
+//            uint zeroIndex = 0;
+//
 //			// Enumerate wit a block: void (^)(id, NSUInteger, BOOL *)
 //			// TODO: Adapt to 64 bits
 //            Block block1 = this.GetBlock((Action<IntPtr, uint, IntPtr>) delegate(IntPtr ptr1, uint ui1, IntPtr ptr2)

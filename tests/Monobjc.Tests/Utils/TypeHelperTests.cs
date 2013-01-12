@@ -64,10 +64,6 @@ namespace Monobjc.Utils
         public void TestTypeConverterForMixedTypes()
         {
             MethodInfo converter;
-            TSIntegerEnumeration tsIntegerEnumeration = TSIntegerEnumeration.NSEvenOddWindingRule;
-            TSUIntegerEnumeration tsuIntegerEnumeration = TSUIntegerEnumeration.NSEvenOddWindingRule;
-            int i;
-            long l;
 
             converter = TypeHelper.GetConverter(typeof (TSIntegerEnumeration), typeof (int));
             Assert.Null(converter, String.Format(METHOD_MUST_NOT_EXIST, typeof (TSIntegerEnumeration), typeof (int)));
