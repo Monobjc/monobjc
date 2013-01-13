@@ -205,10 +205,13 @@ namespace Monobjc
         [DllImport("libobjc", EntryPoint = "objc_msgSend")]
         public static extern int objc_sendMsg_int_IntPtr(IntPtr theReceiver, IntPtr theSelector, IntPtr ptr1);
 
-        [DllImport("libobjc", EntryPoint = "objc_msgSend")]
-        public static extern uint objc_sendMsg_uint(IntPtr theReceiver, IntPtr theSelector);
-
-        [DllImport("libobjc", EntryPoint = "objc_msgSend")]
+		[DllImport("libobjc", EntryPoint = "objc_msgSend")]
+		public static extern uint objc_sendMsg_uint(IntPtr theReceiver, IntPtr theSelector);
+		
+		[DllImport("libobjc", EntryPoint = "objc_msgSend")]
+		public static extern ulong objc_sendMsg_ulong(IntPtr theReceiver, IntPtr theSelector);
+		
+		[DllImport("libobjc", EntryPoint = "objc_msgSend")]
         public static extern uint objc_sendMsg_uint_IntPtr(IntPtr theReceiver, IntPtr theSelector, IntPtr ptr1);
 
         [DllImport("libobjc", CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]

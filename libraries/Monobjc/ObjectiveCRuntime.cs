@@ -66,8 +66,9 @@ namespace Monobjc
 		[SuppressMessage("Microsoft.Performance", "CA1810:InitializeReferenceTypeStaticFieldsInline")]
 		static ObjectiveCRuntime ()
 		{
-			// TODO: Move elsewhere
+			// Cache the value to avoid superflous calls to runtime
 			NativeMethods.InstallBridge ();
+			Is64Bits = Is64BitsInternal();
 		}
 
 		///<summary>
@@ -315,10 +316,7 @@ namespace Monobjc
 		///   Gets a value indicating whether the platform is 32 or 64 bits.
 		/// </summary>
 		/// <value><c>true</c> if the platform is 64 bits; otherwise, <c>false</c>.</value>
-		public static bool Is64Bits {
-			[MethodImpl(MethodImplOptions.NoInlining)]
-			get { return Platform.Is64Bits (); }
-		}
+		public static bool Is64Bits { get; private set; }
 
 		/// <summary>
 		///   Gets a value indicating whether the platform uses big-endianness.

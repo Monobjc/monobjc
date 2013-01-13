@@ -46,6 +46,16 @@ namespace Monobjc
 		}
 
 		/// <summary>
+		///   Gets the bitness of the processor.
+		/// </summary>
+		/// <returns></returns>
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		private static bool Is64BitsInternal ()
+		{
+			return Platform.Is64Bits ();
+		}
+
+		/// <summary>
 		///   Internal call to bootstrap the bridge.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.InternalCall)]
