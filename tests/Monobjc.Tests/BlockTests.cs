@@ -68,7 +68,12 @@ namespace Monobjc
             }
 
             // Checking the count
-            uint count = objc_sendMsg_uint(array, this.sel_count);
+			uint count;
+			if (ObjectiveCRuntime.Is64Bits) {
+				count = (uint) objc_sendMsg_ulong (array, this.sel_count);
+			} else {
+				count = objc_sendMsg_uint (array, this.sel_count);
+			}
             Assert.AreEqual(values.Length, count, "Array's count is wrong");
 
             // Checking elements
@@ -166,8 +171,13 @@ namespace Monobjc
             }
 
             // Checking the count
-            uint count = objc_sendMsg_uint(array, this.sel_count);
-            Assert.AreEqual(values.Length, count, "Array's count is wrong");
+			uint count;
+			if (ObjectiveCRuntime.Is64Bits) {
+				count = (uint) objc_sendMsg_ulong (array, this.sel_count);
+			} else {
+				count = objc_sendMsg_uint (array, this.sel_count);
+			}
+			Assert.AreEqual(values.Length, count, "Array's count is wrong");
 
             // Checking elements
             for (int i = 0; i < values.Length; i++)
@@ -191,8 +201,12 @@ namespace Monobjc
             block.Dispose();
 
             // Checking the count
-            count = objc_sendMsg_uint(sorted, this.sel_count);
-            Assert.AreEqual(values.Length, count, "Array's count is wrong");
+			if (ObjectiveCRuntime.Is64Bits) {
+				count = (uint) objc_sendMsg_ulong (array, this.sel_count);
+			} else {
+				count = objc_sendMsg_uint (array, this.sel_count);
+			}
+			Assert.AreEqual(values.Length, count, "Array's count is wrong");
 
             // Checking elements
             Array.Sort(values);

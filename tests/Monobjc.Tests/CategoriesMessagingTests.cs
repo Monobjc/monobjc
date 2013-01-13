@@ -60,7 +60,12 @@ namespace Monobjc
 			}
 
 			// Checking the count
-			uint count = objc_sendMsg_uint (array, this.sel_count);
+			uint count;
+			if (ObjectiveCRuntime.Is64Bits) {
+				count = (uint) objc_sendMsg_ulong (array, this.sel_count);
+			} else {
+				count = objc_sendMsg_uint (array, this.sel_count);
+			}
 			Assert.AreEqual (values.Length, count, "Array's count is wrong");
 
 			// Checking elements
@@ -73,9 +78,9 @@ namespace Monobjc
 
 			// Use the category
 			if (ObjectiveCRuntime.Is64Bits) {
-				count = objc_sendMsg_uint (array, sel_registerName ("retrieveCount"));
-			} else {
 				count = (uint) objc_sendMsg_ulong (array, sel_registerName ("retrieveCount"));
+			} else {
+				count = objc_sendMsg_uint (array, sel_registerName ("retrieveCount"));
 			}
 			Assert.AreEqual (values.Length, count, "Array's count is wrong");
 
@@ -145,7 +150,7 @@ namespace Monobjc
 		[ObjectiveCMessage("retrieveRetainCount")]
 		public static uint RetrieveRetainCount (this TSObject target)
 		{
-			return ObjectiveCRuntime.SendMessage<uint> (target, "retainCount");
+			return ObjectiveCRuntime.SendMessage<TSUInteger> (target, "retainCount");
 		}
 	}
 
@@ -155,7 +160,7 @@ namespace Monobjc
 		[ObjectiveCMessage("retrieveCount")]
 		public static uint RetrieveCount (this TSArray target)
 		{
-			return ObjectiveCRuntime.SendMessage<uint> (target, "count");
+			return ObjectiveCRuntime.SendMessage<TSUInteger> (target, "count");
 		}
 	}
 
@@ -165,7 +170,7 @@ namespace Monobjc
 		[ObjectiveCMessage("retrieveLength")]
 		public static uint RetrieveLength (this TSString target)
 		{
-			return ObjectiveCRuntime.SendMessage<uint> (target, "length");
+			return ObjectiveCRuntime.SendMessage<TSUInteger> (target, "length");
 		}
 	}
 

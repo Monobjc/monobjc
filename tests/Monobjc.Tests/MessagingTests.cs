@@ -148,7 +148,12 @@ namespace Monobjc
             Assert.AreNotEqual(IntPtr.Zero, str, "String creation cannot failed");
             Id array = ObjectiveCRuntime.SendMessage<Id>(this.cls_NSArray, "arrayWithObject:", str);
             Assert.AreNotEqual(IntPtr.Zero, array, "Array creation cannot failed");
-            uint count = ObjectiveCRuntime.SendMessage<uint>(array, "count");
+			uint count;
+			if (ObjectiveCRuntime.Is64Bits) {
+				count = (uint) ObjectiveCRuntime.SendMessage<ulong>(array, "count");
+			} else {
+				count = ObjectiveCRuntime.SendMessage<uint>(array, "count");
+			}
             Assert.AreEqual(1, count, "Array must have 1 element");
         }
 
@@ -168,7 +173,12 @@ namespace Monobjc
             Assert.AreNotEqual(IntPtr.Zero, str, "String creation cannot failed");
             Id array = ObjectiveCRuntime.SendMessage<Id>(this.cls_NSArray, "arrayWithObject:", str);
             Assert.AreNotEqual(IntPtr.Zero, array, "Array creation cannot failed");
-            uint count = ObjectiveCRuntime.SendMessage<uint>(array, "count");
+			uint count;
+			if (ObjectiveCRuntime.Is64Bits) {
+				count = (uint) ObjectiveCRuntime.SendMessage<ulong>(array, "count");
+			} else {
+				count = ObjectiveCRuntime.SendMessage<uint>(array, "count");
+			}
             Assert.AreEqual(1, count, "Array must have 1 element");
 
             Func<Id, Id, int> comparator = delegate { return 0; };
@@ -176,7 +186,11 @@ namespace Monobjc
             {
                 Id sortedArray = ObjectiveCRuntime.SendMessage<Id>(array, "sortedArrayUsingComparator:", block);
                 Assert.AreNotEqual(IntPtr.Zero, sortedArray, "Array sort cannot failed");
-                count = ObjectiveCRuntime.SendMessage<uint>(sortedArray, "count");
+				if (ObjectiveCRuntime.Is64Bits) {
+					count = (uint) ObjectiveCRuntime.SendMessage<ulong>(array, "count");
+				} else {
+					count = ObjectiveCRuntime.SendMessage<uint>(array, "count");
+				}
                 Assert.AreEqual(1, count, "Array must have 1 element");
             }
         }
