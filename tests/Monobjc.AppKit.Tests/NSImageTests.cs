@@ -43,6 +43,17 @@ namespace Monobjc.AppKit
             Check(img);
         }
 
+		[Test]
+		public void TestImageSize()
+		{
+			NSImage img;
+			
+			img = NSImage.ImageFromResource(typeof(NSImageTests), "Monobjc.AppKit.Tests.Sample.png");
+			Check(img);
+
+			Assert.AreEqual(new NSSize(180, 180), img.Size);
+		}
+
         private static void Check(Id @object)
         {
             Assert.IsNotNull(@object, "Instance cannot be null");

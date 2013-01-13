@@ -43,8 +43,9 @@ namespace Monobjc.Foundation
 		}
 		
 		/// <summary>
-		/// Convert a <see cref="Monobjc.AppKit.NSLocale"/> instance into a <see cref="System.Globalization.CultureInfo"/> one.
+		/// Convert a <see cref="Monobjc.Foundation.NSLocale"/> instance into a <see cref="System.Globalization.CultureInfo"/> one.
 		/// </summary>
+		/// <seealso cref="https://developer.apple.com/library/mac/#documentation/MacOSX/Conceptual/BPInternational/Articles/LanguageDesignations.html"/>
 		public CultureInfo ToCultureInfo ()
 		{
 			String language = this.ObjectForKey<NSString> (NSLocale.NSLocaleLanguageCode);
@@ -72,7 +73,7 @@ namespace Monobjc.Foundation
 	public static class NSLocale_Extensions
 	{
 		/// <summary>
-		/// Convert a <see cref="System.Globalization.CultureInfo"/> instance into a <see cref="Monobjc.AppKit.NSLocale"/> one.
+		/// Convert a <see cref="System.Globalization.CultureInfo"/> instance into a <see cref="Monobjc.Foundation.NSLocale"/> one.
 		/// </summary>
 		public static NSLocale ToLocale (this CultureInfo cultureInfo)
 		{

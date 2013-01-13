@@ -65,6 +65,7 @@
     <Compile Include="ProcessManagerTests.cs" />
     <Compile Include="WrapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="NSLocaleTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\libraries\Monobjc\Monobjc.csproj">
