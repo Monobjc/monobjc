@@ -48,12 +48,18 @@ namespace Monobjc.Foundation
 		public void TestConversion ()
 		{
 			NSLocale locale;
+			NSString canonical;
 			CultureInfo info;
 			
 			locale = new NSLocale("en");
 			Assert.AreEqual("en", locale.LocaleIdentifier.ToString(), "Identifier should be equal");
 			Check (locale);
-			
+
+			canonical = NSLocale.CanonicalLanguageIdentifierFromString("en");
+			Assert.AreEqual("en", canonical.ToString(), "Canonical languages should be equal");
+			canonical = NSLocale.CanonicalLocaleIdentifierFromString("en");
+			Assert.AreEqual("en", canonical.ToString(), "Canonical locales should be equal");
+
 			info = locale.ToCultureInfo ();
 			Assert.AreEqual("en", info.Name, "Display name should be equal");
 
@@ -62,7 +68,12 @@ namespace Monobjc.Foundation
 			Assert.AreEqual("en", locale.ObjectForKey<NSString>(NSLocale.NSLocaleLanguageCode).ToString(), "Language values should be equal");
 			Assert.AreEqual("US", locale.ObjectForKey<NSString>(NSLocale.NSLocaleCountryCode).ToString(), "Country values should be equal");
 			Check (locale);
-			
+
+			canonical = NSLocale.CanonicalLanguageIdentifierFromString("en-US");
+			Assert.AreEqual("en-US", canonical.ToString(), "Canonical languages should be equal");
+			canonical = NSLocale.CanonicalLocaleIdentifierFromString("en-US");
+			Assert.AreEqual("en-US", canonical.ToString(), "Canonical locales should be equal");
+
 			info = locale.ToCultureInfo ();
 			Assert.AreEqual("en-US", info.Name, "Display name should be equal");
 
@@ -71,6 +82,11 @@ namespace Monobjc.Foundation
 			Assert.AreEqual("fr", locale.ObjectForKey<NSString>(NSLocale.NSLocaleLanguageCode).ToString(), "Language values should be equal");
 			Assert.AreEqual("FR", locale.ObjectForKey<NSString>(NSLocale.NSLocaleCountryCode).ToString(), "Country values should be equal");
 			Check (locale);
+			
+			canonical = NSLocale.CanonicalLanguageIdentifierFromString("fr_FR");
+			Assert.AreEqual("fr-FR", canonical.ToString(), "Canonical languages should be equal");
+			canonical = NSLocale.CanonicalLocaleIdentifierFromString("fr_FR");
+			Assert.AreEqual("fr_FR", canonical.ToString(), "Canonical locales should be equal");
 			
 			info = locale.ToCultureInfo ();
 			Assert.AreEqual("fr-FR", info.Name, "Display name should be equal");
@@ -87,7 +103,6 @@ namespace Monobjc.Foundation
 
 		[Test]
 		public void TestEnumeration() {
-			CultureInfo info;
 			NSArray list;
 
 			list = NSLocale.AvailableLocaleIdentifiers;
