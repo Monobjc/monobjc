@@ -2,19 +2,24 @@
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2012 - Laurent Etiemble
 //
-// Monobjc is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// any later version.
-//
-// Monobjc is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Monobjc.  If not, see <http://www.gnu.org/licenses/>.
-//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+// 
 using System;
 using System.Reflection;
 using Monobjc.Types;
@@ -22,8 +27,9 @@ using NUnit.Framework;
 
 namespace Monobjc.Generators
 {
-#if MACOSX_10_6 && HAVE_BLOCK_SUPPORT
-    [TestFixture]
+	public delegate void CustomEnumerator (Id obj, ref bool stop);
+		
+	[TestFixture]
     [Category("Blocks")]
     [Category("Generators")]
     [Description("Test block proxies creation")]
@@ -70,6 +76,9 @@ namespace Monobjc.Generators
             this.TestBlock(typeof (Action<byte, ushort, uint, ulong>), typeof (Block_Void_Byte_UInt16_UInt32_UInt64), false);
             this.TestBlock(typeof (Action<TSWindingRule>), typeof (Block_Void_TSWindingRule), false);
             this.TestBlock(typeof (Action<IntPtr, Id, Class, String>), typeof (Block_Void_IntPtr_Id_Class_String), false);
+
+			// TODO: Handle custom delegate
+			//this.TestBlock(typeof(CustomEnumerator), typeof(Block_CustomEnumerator), false);
         }
 
         [Test]
@@ -115,7 +124,7 @@ namespace Monobjc.Generators
             counter = 70;
 
             // Test different type of parameter
-        }
+		}
 
         [Test]
         public void TestBlockGenerationForFuncVariableTypes32bits()
@@ -172,5 +181,4 @@ namespace Monobjc.Generators
             }
         }
     }
-#endif
 }

@@ -2,26 +2,31 @@
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2012 - Laurent Etiemble
 //
-// Monobjc is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// any later version.
-//
-// Monobjc is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Monobjc.  If not, see <http://www.gnu.org/licenses/>.
-//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+// 
 using System;
 using Monobjc;
 using Monobjc.Types;
+using System.Runtime.InteropServices;
 
 namespace Monobjc.Generators
 {
-#if MACOSX_10_6 && HAVE_BLOCK_SUPPORT
     /// <summary>
     ///   Block: void (^)()
     /// </summary>
@@ -155,6 +160,33 @@ namespace Monobjc.Generators
         public delegate void ExecuteInvoker(IntPtr layout, IntPtr arg1, IntPtr arg2, IntPtr arg3, string arg4);
     }
 
+	/// <summary>
+	///   Block: void (^)(Id, BOOL *stop)
+	/// </summary>
+	public class Block_CustomEnumerator : Block
+	{
+		public readonly ExecuteInvoker blockInvoker;
+		
+		public Block_CustomEnumerator(Delegate block)
+			: base(block)
+		{
+			this.blockInvoker = new ExecuteInvoker(this.Execute);
+		}
+		
+		public void Execute(IntPtr layout, Id id, IntPtr stop)
+		{
+			bool value1 = Marshal.ReadByte(stop) != 0;
+			((CustomEnumerator) this.Invoker)(null, ref value1);
+			Marshal.WriteByte(stop, (byte)(value1 ? 1 : 0));
+		}
+		
+		public override Delegate BlockInvoker
+		{
+			get { return this.blockInvoker; }
+		}
+		
+		public delegate void ExecuteInvoker(IntPtr layout, Id id, IntPtr stop);
+	}
 
     /// <summary>
     ///   Block: void (^)(int)
@@ -1013,5 +1045,4 @@ namespace Monobjc.Generators
 
         public delegate TSRect64 ExecuteInvoker(IntPtr layout);
     }
-#endif
 }

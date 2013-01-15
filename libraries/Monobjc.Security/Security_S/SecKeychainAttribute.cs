@@ -23,16 +23,13 @@
 using System;
 using System.Runtime.InteropServices;
 
-
-
 namespace Monobjc.Security
-
 {
-    [StructLayout(LayoutKind.Sequential)]
-    public struct SecKeychainAttribute
-    {
-        public uint tag;
-        public UInt32 length;
-        public IntPtr data;
-    }
+	[StructLayout(LayoutKind.Sequential)]
+	public struct SecKeychainAttribute
+	{
+		public uint tag;
+		public UInt32 length;
+		public IntPtr data;
+	}
 }

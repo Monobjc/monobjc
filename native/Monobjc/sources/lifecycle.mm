@@ -39,7 +39,7 @@ static void __dealloc_interceptor(id target, SEL name) {
     LOG_DEBUG(MONOBJC_DOMAIN_INSTANCES, "Intercepting dealloc for target=0x%lx", target);
     
     // Get the root meta class of the target
-    Class root_meta_class = target->isa->isa->isa;
+    Class root_meta_class = object_getClass(object_getClass(object_getClass(target)));
     
     LOG_DEBUG(MONOBJC_DOMAIN_INSTANCES, "Target Root Meta Class is %s", class_getName(root_meta_class));
     

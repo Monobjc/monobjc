@@ -24,8 +24,8 @@ using System;
 
 namespace Monobjc.Foundation
 {
-    /// <summary>
-    /// The method should return NSOrderedAscending if the receiver is smaller than the argument, NSOrderedDescending if the receiver is larger than the argument, and NSOrderedSame if they are equal.
-    /// </summary>
-    public delegate int IdComparator(Id obj1, Id obj2, IntPtr context);
+	/// <summary>
+	/// The method should return NSOrderedAscending if the receiver is smaller than the argument, NSOrderedDescending if the receiver is larger than the argument, and NSOrderedSame if they are equal.
+	/// </summary>
+	public delegate int IdComparator (Id obj1,Id obj2,IntPtr context);
 }

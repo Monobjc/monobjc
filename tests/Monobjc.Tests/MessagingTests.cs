@@ -2,19 +2,24 @@
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2012 - Laurent Etiemble
 //
-// Monobjc is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// any later version.
-//
-// Monobjc is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Monobjc.  If not, see <http://www.gnu.org/licenses/>.
-//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+// 
 using System;
 using Monobjc.Types;
 using NUnit.Framework;
@@ -72,10 +77,10 @@ namespace Monobjc
         [Test]
         public void TestIntegerMessaging()
         {
-            int value1 = new Random().Next(-65000, 65000);
+            TSInteger value1 = new Random().Next(-65000, 65000);
             Id number = ObjectiveCRuntime.SendMessage<Id>(this.cls_NSNumber, "numberWithInteger:", value1);
             Assert.AreNotEqual(IntPtr.Zero, number, "Number creation cannot failed");
-            int value2 = ObjectiveCRuntime.SendMessage<int>(number, "integerValue");
+			TSInteger value2 = ObjectiveCRuntime.SendMessage<TSInteger>(number, "integerValue");
             Assert.AreEqual(value1, value2, "Int values must be equal");
         }
 
@@ -143,7 +148,12 @@ namespace Monobjc
             Assert.AreNotEqual(IntPtr.Zero, str, "String creation cannot failed");
             Id array = ObjectiveCRuntime.SendMessage<Id>(this.cls_NSArray, "arrayWithObject:", str);
             Assert.AreNotEqual(IntPtr.Zero, array, "Array creation cannot failed");
-            uint count = ObjectiveCRuntime.SendMessage<uint>(array, "count");
+			uint count;
+			if (ObjectiveCRuntime.Is64Bits) {
+				count = (uint) ObjectiveCRuntime.SendMessage<ulong>(array, "count");
+			} else {
+				count = ObjectiveCRuntime.SendMessage<uint>(array, "count");
+			}
             Assert.AreEqual(1, count, "Array must have 1 element");
         }
 
@@ -156,7 +166,6 @@ namespace Monobjc
             Assert.IsTrue(test, "String should be of the right class.");
         }
 
-#if MACOSX_10_6
         [Test]
         public void TestBlockMessaging()
         {
@@ -164,7 +173,12 @@ namespace Monobjc
             Assert.AreNotEqual(IntPtr.Zero, str, "String creation cannot failed");
             Id array = ObjectiveCRuntime.SendMessage<Id>(this.cls_NSArray, "arrayWithObject:", str);
             Assert.AreNotEqual(IntPtr.Zero, array, "Array creation cannot failed");
-            uint count = ObjectiveCRuntime.SendMessage<uint>(array, "count");
+			uint count;
+			if (ObjectiveCRuntime.Is64Bits) {
+				count = (uint) ObjectiveCRuntime.SendMessage<ulong>(array, "count");
+			} else {
+				count = ObjectiveCRuntime.SendMessage<uint>(array, "count");
+			}
             Assert.AreEqual(1, count, "Array must have 1 element");
 
             Func<Id, Id, int> comparator = delegate { return 0; };
@@ -172,11 +186,14 @@ namespace Monobjc
             {
                 Id sortedArray = ObjectiveCRuntime.SendMessage<Id>(array, "sortedArrayUsingComparator:", block);
                 Assert.AreNotEqual(IntPtr.Zero, sortedArray, "Array sort cannot failed");
-                count = ObjectiveCRuntime.SendMessage<uint>(sortedArray, "count");
+				if (ObjectiveCRuntime.Is64Bits) {
+					count = (uint) ObjectiveCRuntime.SendMessage<ulong>(array, "count");
+				} else {
+					count = ObjectiveCRuntime.SendMessage<uint>(array, "count");
+				}
                 Assert.AreEqual(1, count, "Array must have 1 element");
             }
         }
-#endif
 
         [Test]
         public void TestMessagingException()

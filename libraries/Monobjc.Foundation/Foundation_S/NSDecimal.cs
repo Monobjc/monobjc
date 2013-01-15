@@ -25,30 +25,30 @@ using System.Runtime.InteropServices;
 
 namespace Monobjc.Foundation
 {
-    /// <summary>
-    /// Used to describe a decimal number.
-    /// </summary>
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct NSDecimal
-    {
-        /// <summary>
-        /// <para>A 32 bit field that contains: the exponent (8 bits), the length (4 bits), whether this instance is negative (1 bit), whether this instance is compact (1 bit) and 18 bits reserved for future use.</para>
-        /// </summary>
+	/// <summary>
+	/// Used to describe a decimal number.
+	/// </summary>
+	[StructLayout(LayoutKind.Sequential)]
+	public partial struct NSDecimal
+	{
+		/// <summary>
+		/// <para>A 32 bit field that contains: the exponent (8 bits), the length (4 bits), whether this instance is negative (1 bit), whether this instance is compact (1 bit) and 18 bits reserved for future use.</para>
+		/// </summary>
 		public int fields;
-        /// <summary>
-        /// The mantissa
-        /// </summary>
+		/// <summary>
+		/// The mantissa
+		/// </summary>
 		public ushort mantissa1, mantissa2, mantissa3, mantissa4, mantissa5, mantissa6, mantissa7, mantissa8;
 		
-        /// <summary>
-        /// Returns the a string representation of this instance.
-        /// </summary>
-        /// <returns>
-        /// A <see cref="T:System.String"></see> containing a representation of this instance.
-        /// </returns>
-		public override String ToString()
+		/// <summary>
+		/// Returns the a string representation of this instance.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:System.String"></see> containing a representation of this instance.
+		/// </returns>
+		public override String ToString ()
 		{
-			return StringValue(this);
+			return StringValue (this);
 		}
-    }
+	}
 }

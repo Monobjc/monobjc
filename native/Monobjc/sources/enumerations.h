@@ -73,7 +73,7 @@ typedef enum OSVersion {
     MACOS_10_3 = 0x1030,
     /**
      * @brief   Value for MacOS 10.4 (Tiger).
-     * @remark  This is a supported platform.
+     * @remark  This is no longer a supported platform.
      */
     MACOS_10_4 = 0x1040,
     /**
@@ -91,6 +91,11 @@ typedef enum OSVersion {
      * @remark  This is a supported platform.
      */
     MACOS_10_7 = 0x1070,
+    /**
+     * @brief   Value for MacOS 10.8 (Mountain Lion).
+     * @remark  This is a supported platform.
+     */
+    MACOS_10_8 = 0x1080,
 } OSVersion;
 
 /**

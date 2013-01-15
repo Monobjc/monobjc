@@ -25,12 +25,12 @@ using System.Runtime.CompilerServices;
 
 namespace Monobjc.Runtime
 {
-    internal static class Messaging
-    {
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        public static extern Object Call(IntPtr returnType, IntPtr receiver, String selectorName, Object[] parameters);
+	internal static class Messaging
+	{
+		[MethodImpl(MethodImplOptions.InternalCall)]
+		public static extern Object Call (IntPtr returnType, IntPtr receiver, String selectorName, Object[] parameters);
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern Object CallSuper(IntPtr returnType, IntPtr receiver, IntPtr cls, String selectorName, Object[] parameters);
-    }
+		[MethodImplAttribute(MethodImplOptions.InternalCall)]
+		public static extern Object CallSuper (IntPtr returnType, IntPtr receiver, IntPtr cls, String selectorName, Object[] parameters);
+	}
 }

@@ -32,18 +32,14 @@ using System.Runtime.InteropServices;
 
 namespace Monobjc.QuartzCore
 {
-#if MACOSX_10_5
     public partial class CALayer
     {
-#if MACOSX_10_5
         /// <summary>
         /// <para>The identity transform: [1 0 0 0; 0 1 0 0; 0 0 1 0; 0 0 0 1].</para>
         /// <para>Available in Mac OS X v10.5 and later.</para>
         /// </summary>
         public static readonly CATransform3D CATransform3DIdentity = CATransform3D.Identity;
-#endif
 
-#if MACOSX_10_5
         /// <summary>
         /// <para>An object that provides the contents of the layer. Animatable.</para>
         /// <para>Original signature is '@property(retain) id contents'</para>
@@ -54,7 +50,5 @@ namespace Monobjc.QuartzCore
             get { return ObjectiveCRuntime.SendMessage<IntPtr>(this, "contents"); }
             set { ObjectiveCRuntime.SendMessage(this, "setContents:", value); }
         }
-#endif
     }
-#endif
 }

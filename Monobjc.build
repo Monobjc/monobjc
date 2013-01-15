@@ -25,9 +25,9 @@
   <property name="debug" value="false"/>
   <property name="testing" value="false"/>
 
-  <property name="monobjc.version" value="4.0"/>
-  <property name="min.version" value="10.5"/>
-  <property name="max.version" value="10.7"/>
+  <property name="monobjc.version" value="5.0"/>
+  <property name="min.version" value="10.6"/>
+  <property name="max.version" value="10.8"/>
   
   <property name="native.archs" value="i386" unless="${property::exists('native.archs')}"/>
 

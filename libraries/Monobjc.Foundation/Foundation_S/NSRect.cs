@@ -23,6 +23,7 @@
 using System;
 using System.Globalization;
 using System.Runtime.InteropServices;
+using Monobjc.ApplicationServices;
 
 namespace Monobjc.Foundation
 {
@@ -51,7 +52,7 @@ namespace Monobjc.Foundation
         /// <param name="y">The y.</param>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        public NSRect(float x, float y, float width, float height)
+		public NSRect(CGFloat x, CGFloat y, CGFloat width, CGFloat height)
         {
             this.origin.x = x;
             this.origin.y = y;
@@ -59,7 +60,7 @@ namespace Monobjc.Foundation
             this.size.height = height;
         }
 
-        /// <summary>
+		/// <summary>
         /// Initializes a new instance of the <see cref="NSRect"/> class.
         /// </summary>
         /// <param name="origin">The origin.</param>

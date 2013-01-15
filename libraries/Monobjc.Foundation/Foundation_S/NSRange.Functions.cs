@@ -65,7 +65,7 @@ namespace Monobjc.Foundation
         /// Returns a Boolean value that indicates whether a specified position is in a given range.
         /// </summary>
         /// <remarks>Original declaration is : BOOL NSLocationInRange(unsigned int index, NSRange aRange)</remarks>
-        public static bool NSLocationInRange(uint index, NSRange aRange)
+		public static bool NSLocationInRange(NSUInteger index, NSRange aRange)
         {
             return ((index >= aRange.location) && (index < (aRange.location + aRange.length)));
         }
@@ -74,8 +74,8 @@ namespace Monobjc.Foundation
         /// Creates a new NSRange from the specified values.
         /// </summary>
         /// <remarks>Original declaration is : NSRange NSMakeRange(unsigned int location, unsigned int length)</remarks>
-        public static NSRange NSMakeRange(uint location,
-                                          uint length)
+		public static NSRange NSMakeRange(NSUInteger location,
+		                                  NSUInteger length)
         {
             return new NSRange(location, length);
         }
@@ -93,14 +93,14 @@ namespace Monobjc.Foundation
         /// Returns a range from a text-based representation.
         /// </summary>
         /// <remarks>Original declaration is : NSRange NSRangeFromString(NSString *aString)</remarks>
-        [DllImport("/System/Libraries/Frameworks/Foundation.framework/Foundation")]
+        [DllImport("/System/Library/Frameworks/Foundation.framework/Foundation")]
         public static extern NSRange NSRangeFromString([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (IdMarshaler<NSString>))] NSString aString);
 
         /// <summary>
         /// Returns a string representation of a range.
         /// </summary>
         /// <remarks>Original declaration is : NSString *NSStringFromRange(NSRange aRange)</remarks>
-        [DllImport("/System/Libraries/Frameworks/Foundation.framework/Foundation")]
+        [DllImport("/System/Library/Frameworks/Foundation.framework/Foundation")]
         [return : MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (IdMarshaler<NSString>))]
         public static extern NSString NSStringFromRange(NSRange aRange);
 

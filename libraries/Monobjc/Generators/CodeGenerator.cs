@@ -22,30 +22,30 @@
 // 
 namespace Monobjc.Generators
 {
-    /// <summary>
-    ///   Base class for .NET code generator.
-    /// </summary>
-    internal partial class CodeGenerator
-    {
-        /// <summary>
-        ///   Initializes a new instance of the <see cref = "CodeGenerator" /> class.
-        /// </summary>
-        /// <param name = "assembly">The assembly.</param>
-        /// <param name = "is64Bits"></param>
-        protected CodeGenerator(DynamicAssembly assembly, bool is64Bits)
-        {
-            this.Assembly = assembly;
-            this.Is64Bits = is64Bits;
-        }
+	/// <summary>
+	///   Base class for .NET code generator.
+	/// </summary>
+	internal partial class CodeGenerator
+	{
+		/// <summary>
+		///   Initializes a new instance of the <see cref = "CodeGenerator" /> class.
+		/// </summary>
+		/// <param name = "assembly">The assembly.</param>
+		/// <param name = "is64Bits"></param>
+		protected CodeGenerator (DynamicAssembly assembly, bool is64Bits)
+		{
+			this.Assembly = assembly;
+			this.Is64Bits = is64Bits;
+		}
 
-        /// <summary>
-        ///   Dynamic assembly that will hold the dynamic .NET code emitted.
-        /// </summary>
-        protected DynamicAssembly Assembly { get; private set; }
+		/// <summary>
+		///   Dynamic assembly that will hold the dynamic .NET code emitted.
+		/// </summary>
+		protected DynamicAssembly Assembly { get; private set; }
 
-        /// <summary>
-        ///   Whether the current platform is 64 bits or not.
-        /// </summary>
-        protected bool Is64Bits { get; private set; }
-    }
+		/// <summary>
+		///   Whether the current platform is 64 bits or not.
+		/// </summary>
+		protected bool Is64Bits { get; private set; }
+	}
 }

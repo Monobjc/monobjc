@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
+using Monobjc.ApplicationServices;
+
 namespace Monobjc.Foundation
 {
     public partial struct NSSize
@@ -52,7 +54,7 @@ namespace Monobjc.Foundation
         /// <param name="size">The size.</param>
         /// <param name="factor">The factor.</param>
         /// <returns></returns>
-        public static NSSize Multiply(NSSize size, float factor)
+        public static NSSize Multiply(NSSize size, CGFloat factor)
         {
             return new NSSize(size.width*factor, size.height*factor);
         }
@@ -63,7 +65,7 @@ namespace Monobjc.Foundation
         /// <param name="size">The size.</param>
         /// <param name="factor">The factor.</param>
         /// <returns></returns>
-        public static NSSize Divide(NSSize size, float factor)
+		public static NSSize Divide(NSSize size, CGFloat factor)
         {
             return new NSSize(size.width/factor, size.height/factor);
         }
@@ -96,7 +98,7 @@ namespace Monobjc.Foundation
         /// <param name="size">The size.</param>
         /// <param name="factor">The factor.</param>
         /// <returns>The result of the operator.</returns>
-        public static NSSize operator *(NSSize size, float factor)
+		public static NSSize operator *(NSSize size, CGFloat factor)
         {
             return Multiply(size, factor);
         }
@@ -107,7 +109,7 @@ namespace Monobjc.Foundation
         /// <param name="size">The size.</param>
         /// <param name="factor">The factor.</param>
         /// <returns>The result of the operator.</returns>
-        public static NSSize operator /(NSSize size, float factor)
+		public static NSSize operator /(NSSize size, CGFloat factor)
         {
             return Divide(size, factor);
         }

@@ -71,34 +71,28 @@ void *monobjc_load_framework(const char *framework) {
     // Convert the name to ease formatting
     NSString *framework_name = [NSString stringWithUTF8String:framework];
     
-    // Probing in system scope
-    NSString *path = [NSString stringWithFormat:@"/System/Library/Frameworks/%@.framework/%@", framework_name, framework_name];
-    handle = dlopen([path UTF8String], RTLD_LAZY);
-    if (handle) {
-        goto bail;
-    }
+    NSArray *paths = [NSArray arrayWithObjects:
+                      // Probing in system scope
+                      [NSString stringWithFormat:@"/System/Library/Frameworks/%@.framework/%@", framework_name, framework_name],
+                      // Probing in library scope
+                      [NSString stringWithFormat:@"/Library/Frameworks/%@.framework/%@", framework_name, framework_name],
+                      // Probing in user scope
+                      [NSString stringWithFormat:@"~/Library/Frameworks/%@.framework/%@", framework_name, framework_name],
+                      // Probing in private scope
+                      [NSString stringWithFormat:@"%@/Frameworks/%@.framework/%@", [[NSBundle mainBundle] bundlePath], framework_name, framework_name],
+                      nil];
     
-    // Probing in library scope
-    path = [NSString stringWithFormat:@"/Library/Frameworks/%@.framework/%@", framework_name, framework_name];
-    if (handle) {
-        goto bail;
-    }
-    
-    // Probing in user scope
-    path = [NSString stringWithFormat:@"~/Library/Frameworks/%@.framework/%@", framework_name, framework_name];
-    path = [path stringByExpandingTildeInPath];
-    if (handle) {
-        goto bail;
-    }
-    
-    // Probing in private scope
-    path = [NSString stringWithFormat:@"%@/Frameworks/%@.framework/%@", [[NSBundle mainBundle] bundlePath], framework_name, framework_name];
-    if (handle) {
-        goto bail;
-    }
-    
-    if (!handle) {
-        LOG_WARNING(MONOBJC_DOMAIN_GENERAL, "Failed to load '%s' framework", framework);
+    // Iterate over each path
+    for(NSUInteger i = 0; i < [paths count]; i++) {
+        NSString *path = [paths objectAtIndex:i];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+            handle = dlopen([path UTF8String], RTLD_LAZY);
+            if (handle) {
+                break;
+            }
+            char *error_message = dlerror();
+            LOG_WARNING(MONOBJC_DOMAIN_GENERAL, "Failed to load '%s' framework\n%s", framework, error_message);
+        }
     }
     
 bail:

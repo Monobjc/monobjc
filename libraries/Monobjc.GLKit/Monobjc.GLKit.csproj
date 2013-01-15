@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9AD626DC-9DA3-4970-844C-D4B499A0D915}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Monobjc.GLKit</RootNamespace>
+    <AssemblyName>Monobjc.GLKit</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <DefineConstants>TRACE;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="GLKit_C\GLKBaseEffect.Class.cs" />
+    <Compile Include="GLKit_C\GLKBaseEffect.cs" />
+    <Compile Include="GLKit_C\GLKBaseEffect.Protocols.cs" />
+    <Compile Include="GLKit_C\GLKEffectProperty.Class.cs" />
+    <Compile Include="GLKit_C\GLKEffectProperty.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyFog.Class.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyFog.Constants.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyFog.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyLight.Class.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyLight.Constants.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyLight.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyMaterial.Class.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyMaterial.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyTexture.Class.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyTexture.Constants.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyTexture.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyTransform.Class.cs" />
+    <Compile Include="GLKit_C\GLKEffectPropertyTransform.cs" />
+    <Compile Include="GLKit_C\GLKReflectionMapEffect.Class.cs" />
+    <Compile Include="GLKit_C\GLKReflectionMapEffect.cs" />
+    <Compile Include="GLKit_C\GLKReflectionMapEffect.Protocols.cs" />
+    <Compile Include="GLKit_C\GLKSkyboxEffect.Class.cs" />
+    <Compile Include="GLKit_C\GLKSkyboxEffect.cs" />
+    <Compile Include="GLKit_C\GLKSkyboxEffect.Protocols.cs" />
+    <Compile Include="GLKit_C\GLKTextureInfo.Class.cs" />
+    <Compile Include="GLKit_C\GLKTextureInfo.Constants.cs" />
+    <Compile Include="GLKit_C\GLKTextureInfo.cs" />
+    <Compile Include="GLKit_C\GLKTextureInfo.Protocols.cs" />
+    <Compile Include="GLKit_C\GLKTextureLoader.Class.cs" />
+    <Compile Include="GLKit_C\GLKTextureLoader.Constants.cs" />
+    <Compile Include="GLKit_C\GLKTextureLoader.Constructors.cs" />
+    <Compile Include="GLKit_C\GLKTextureLoader.cs" />
+    <Compile Include="GLKit_P\GLKNamedEffect.Protocol.cs" />
+    <Compile Include="GLKit_T\GLKitFramework.EffectsConstants.cs" />
+    <Compile Include="GLKit_T\GLKitFramework.MathUtilities.cs" />
+    <Compile Include="GLKit_T\GLKMatrix3.cs" />
+    <Compile Include="GLKit_T\GLKMatrix4.cs" />
+    <Compile Include="GLKit_T\GLKMatrixStack.cs" />
+    <Compile Include="GLKit_T\GLKQuaternion.cs" />
+    <Compile Include="GLKit_S\GLKVector2.cs" />
+    <Compile Include="GLKit_S\GLKVector3.cs" />
+    <Compile Include="GLKit_S\GLKVector4.cs" />
+    <Compile Include="GLKit_S\GLKMatrix4.cs" />
+    <Compile Include="GLKit_S\GLKMatrix2.cs" />
+    <Compile Include="GLKit_S\GLKMatrix3.cs" />
+    <Compile Include="GLKit_S\GLKQuaternion.cs" />
+    <Compile Include="GLKit_Extensions\Handlers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
+    <Compile Include="GLKit_Extensions\GLKMatrix3.cs" />
+    <Compile Include="GLKit_Extensions\GLKQuaternion.cs" />
+    <Compile Include="GLKit_Extensions\GLKMatrix4.cs" />
+    <Compile Include="GLKit_Extensions\GLKVector2.cs" />
+    <Compile Include="GLKit_Extensions\GLKVector3.cs" />
+    <Compile Include="GLKit_Extensions\GLKVector4.cs" />
+    <Compile Include="GLKit_Extensions\GLKitFramework.MathUtilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Monobjc\Monobjc.csproj">
+      <Project>{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}</Project>
+      <Name>Monobjc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
+      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
+      <Name>Monobjc.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.OpenGL\Monobjc.OpenGL.csproj">
+      <Project>{7D2F874C-9C0E-4CD5-8763-D71972F68325}</Project>
+      <Name>Monobjc.OpenGL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
+      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
+      <Name>Monobjc.AppKit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GLKit_S\" />
+    <Folder Include="GLKit_Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
+</Project>

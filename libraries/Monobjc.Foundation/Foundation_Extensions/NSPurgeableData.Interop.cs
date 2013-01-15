@@ -25,7 +25,6 @@ using System.Runtime.InteropServices;
 
 namespace Monobjc.Foundation
 {
-#if MACOSX_10_6
     public partial class NSPurgeableData
     {
         /// <summary>
@@ -43,5 +42,4 @@ namespace Monobjc.Foundation
         public NSPurgeableData(byte[] bytes, NSUInteger length)
             : base(bytes, length) {}
     }
-#endif
 }

@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 // 
 using System.Runtime.InteropServices;
+using Monobjc.ApplicationServices;
 
 namespace Monobjc.Foundation
 {
@@ -46,7 +47,7 @@ namespace Monobjc.Foundation
         /// </summary>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
-        public NSPoint64(double x, double y)
+		public NSPoint64(CGFloat x, CGFloat y)
         {
             this.x = x;
             this.y = y;
@@ -59,7 +60,7 @@ namespace Monobjc.Foundation
         /// <returns>The result of the conversion.</returns>
         public static implicit operator NSPoint(NSPoint64 value)
         {
-            return new NSPoint((float)value.x, (float)value.y);
+            return new NSPoint(value.x, value.y);
         }
 
         /// <summary>

@@ -32,10 +32,8 @@ using System.Runtime.InteropServices;
 
 namespace Monobjc.QuartzCore
 {
-#if MACOSX_10_5
     public partial class CAEmitterCell
     {
-#if MACOSX_10_6
         /// <summary>
         /// <para>An object that provides the contents of the layer. Animatable.</para>
         /// <para>Original signature is '@property(retain) id contents'</para>
@@ -46,7 +44,5 @@ namespace Monobjc.QuartzCore
             get { return ObjectiveCRuntime.SendMessage<IntPtr>(this, "contents"); }
             set { ObjectiveCRuntime.SendMessage(this, "setContents:", value); }
         }
-#endif
     }
-#endif
 }

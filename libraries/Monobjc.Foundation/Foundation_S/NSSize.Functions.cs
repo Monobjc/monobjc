@@ -66,8 +66,8 @@ namespace Monobjc.Foundation
         /// Creates a new NSSize from the specified values.
         /// </summary>
         /// <remarks>Original declaration is : NSSize NSMakeSize(float width, float height)</remarks>
-        public static NSSize NSMakeSize(float width,
-                                        float height)
+		public static NSSize NSMakeSize(CGFloat width,
+		                                CGFloat height)
         {
             return new NSSize(width, height);
         }
@@ -76,14 +76,14 @@ namespace Monobjc.Foundation
         /// Returns an NSSize from a text-based representation.
         /// </summary>
         /// <remarks>Original declaration is : NSSize NSSizeFromString(NSString *aString)</remarks>
-        [DllImport("/System/Libraries/Frameworks/Foundation.framework/Foundation")]
+        [DllImport("/System/Library/Frameworks/Foundation.framework/Foundation")]
         public static extern NSSize NSSizeFromString([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (IdMarshaler<NSString>))] NSString aString);
 
         /// <summary>
         /// Returns a string representation of a size.
         /// </summary>
         /// <remarks>Original declaration is : NSString *NSStringFromSize(NSSize aSize)</remarks>
-        [DllImport("/System/Libraries/Frameworks/Foundation.framework/Foundation")]
+        [DllImport("/System/Library/Frameworks/Foundation.framework/Foundation")]
         [return : MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof (IdMarshaler<NSString>))]
         public static extern NSString NSStringFromSize(NSSize aSize);
     }

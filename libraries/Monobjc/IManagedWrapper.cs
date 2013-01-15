@@ -24,30 +24,30 @@ using System;
 
 namespace Monobjc
 {
-    /// <summary>
-    ///   Interface to identity classes or interfaces that can act as a managed wrapper.
-    /// </summary>
-    public partial interface IManagedWrapper
-    {
-        /// <summary>
-        ///   Cast the current instance to the given type. The cast is dynamically tested for safety.
-        /// </summary>
-        /// <typeparam name = "T">The type of the instance.</typeparam>
-        /// <returns>The cast instance</returns>
-        /// <exception cref = "ObjectiveCClassCastException">If an error occured during the cast</exception>
-        T CastTo<T>() where T : class, IManagedWrapper;
+	/// <summary>
+	///   Interface to identity classes or interfaces that can act as a managed wrapper.
+	/// </summary>
+	public partial interface IManagedWrapper
+	{
+		/// <summary>
+		///   Cast the current instance to the given type. The cast is dynamically tested for safety.
+		/// </summary>
+		/// <typeparam name = "T">The type of the instance.</typeparam>
+		/// <returns>The cast instance</returns>
+		/// <exception cref = "ObjectiveCClassCastException">If an error occured during the cast</exception>
+		T CastTo<T> () where T : class, IManagedWrapper;
 
-        /// <summary>
-        ///   Try to cast the current instance to the given type. The cast is dynamically tested for safety.
-        /// </summary>
-        /// <typeparam name = "T">The type of the instance.</typeparam>
-        /// <returns>The cast instance or null if the cast is not valid</returns>
-        T CastAs<T>() where T : class, IManagedWrapper;
+		/// <summary>
+		///   Try to cast the current instance to the given type. The cast is dynamically tested for safety.
+		/// </summary>
+		/// <typeparam name = "T">The type of the instance.</typeparam>
+		/// <returns>The cast instance or null if the cast is not valid</returns>
+		T CastAs<T> () where T : class, IManagedWrapper;
 
-        /// <summary>
-        ///   <para>Gets the underlying native pointer.</para>
-        /// </summary>
-        /// <value>The native pointer.</value>
-        IntPtr NativePointer { get; }
-    }
+		/// <summary>
+		///   <para>Gets the underlying native pointer.</para>
+		/// </summary>
+		/// <value>The native pointer.</value>
+		IntPtr NativePointer { get; }
+	}
 }

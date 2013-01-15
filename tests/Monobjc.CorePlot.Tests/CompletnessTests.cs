@@ -2,43 +2,34 @@
 // This file is part of Monobjc, a .NET/Objective-C bridge
 // Copyright (C) 2007-2012 - Laurent Etiemble
 //
-// Monobjc is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// any later version.
-//
-// Monobjc is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Monobjc.  If not, see <http://www.gnu.org/licenses/>.
-//
-using System.Collections.Generic;
-using Monobjc.AppKit;
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+// 
 using Monobjc.Foundation.Common;
-
 using NUnit.Framework;
 
 namespace Monobjc.CorePlot
 {
 	[TestFixture]
-    public class CompletnessTests : AbstractCompletnessTests
-    {
-        protected override IEnumerable<string> Frameworks
-        {
-            get { return new[] { "Foundation", "AppKit", "CorePlot" }; }
-        }
-
-        protected override string AssemblyName
-        {
-            get { return "Monobjc.CorePlot"; }
-        }
-
-        protected override void EnsureAssemblyIsReferenced()
-        {
-            CPTColor dummy = null;
-        }
-    }
+	public class CompletnessTests : AbstractCompletnessTests
+	{
+		public CompletnessTests () : base(new Environment())
+		{
+		}
+	}
 }

@@ -25,7 +25,6 @@ using System.Runtime.InteropServices;
 
 namespace Monobjc.QTKit
 {
-#if MACOSX_10_5
     /// <summary>
     /// A single buffer and the associated data.
     /// </summary>
@@ -47,5 +46,4 @@ namespace Monobjc.QTKit
         /// </summary>
         public IntPtr mData;
     }
-#endif
 }

@@ -20,6 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
+using System;
 using Monobjc.ApplicationServices;
 
 namespace Monobjc.Foundation
@@ -30,6 +31,7 @@ namespace Monobjc.Foundation
         /// Converts this instance to a <see cref="CGRect"/>
         /// </summary>
         /// <value>A new <see cref="CGRect"/> instance.</value>
+		[Obsolete("Use ToCGRect extension method instead.")]
         public CGRect CGRect
         {
             get { return NSRectToCGRect(this); }
@@ -48,7 +50,7 @@ namespace Monobjc.Foundation
         /// </summary>
         public void DivideRect(ref NSRect slice,
                                ref NSRect remainder,
-                               float amount,
+		                       CGFloat amount,
                                NSRectEdge edge)
         {
             NSDivideRect(this, ref slice, ref remainder, amount, edge);
@@ -57,7 +59,7 @@ namespace Monobjc.Foundation
         /// <summary>
         /// Returns the height of this rectangle.
         /// </summary>
-        public float Height
+		public CGFloat Height
         {
             get { return NSHeight(this); }
         }
@@ -105,7 +107,7 @@ namespace Monobjc.Foundation
         /// <summary>
         /// Returns the largest x coordinate of the rectangle.
         /// </summary>
-        public float MaxX
+		public CGFloat MaxX
         {
             get { return NSMaxX(this); }
         }
@@ -113,7 +115,7 @@ namespace Monobjc.Foundation
         /// <summary>
         /// Returns the largest y coordinate of the rectangle.
         /// </summary>
-        public float MaxY
+		public CGFloat MaxY
         {
             get { return NSMaxY(this); }
         }
@@ -121,7 +123,7 @@ namespace Monobjc.Foundation
         /// <summary>
         /// Returns the x coordinate of the rectangle’s midpoint.
         /// </summary>
-        public float MidX
+		public CGFloat MidX
         {
             get { return NSMidX(this); }
         }
@@ -129,7 +131,7 @@ namespace Monobjc.Foundation
         /// <summary>
         /// Returns the y coordinate of the rectangle’s midpoint.
         /// </summary>
-        public float MidY
+		public CGFloat MidY
         {
             get { return NSMidY(this); }
         }
@@ -137,7 +139,7 @@ namespace Monobjc.Foundation
         /// <summary>
         /// Returns the smallest x coordinate of the rectangle.
         /// </summary>
-        public float MinX
+		public CGFloat MinX
         {
             get { return NSMinX(this); }
         }
@@ -145,7 +147,7 @@ namespace Monobjc.Foundation
         /// <summary>
         /// Returns the smallest y coordinate of the rectangle.
         /// </summary>
-        public float MinY
+		public CGFloat MinY
         {
             get { return NSMinY(this); }
         }
@@ -161,7 +163,7 @@ namespace Monobjc.Foundation
         /// <summary>
         /// Creates a rectangle that offsets this rectangle by the specified amount.
         /// </summary>
-        public NSRect OffsetRect(float dX, float dY)
+		public NSRect OffsetRect(CGFloat dX, CGFloat dY)
         {
             return NSOffsetRect(this, dX, dY);
         }
@@ -185,7 +187,7 @@ namespace Monobjc.Foundation
         /// <summary>
         /// Returns the width of the rectangle.
         /// </summary>
-        public float Width
+		public CGFloat Width
         {
             get { return NSWidth(this); }
         }

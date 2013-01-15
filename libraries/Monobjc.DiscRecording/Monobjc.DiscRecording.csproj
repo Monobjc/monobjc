@@ -13,19 +13,19 @@
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
+    <DebugSymbols>True</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>False</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>True</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <DefineConstants>TRACE;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -34,55 +34,44 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
     <Compile Include="DiscRecording_C\DRBurn.Class.cs" />
     <Compile Include="DiscRecording_C\DRBurn.Constructors.cs" />
     <Compile Include="DiscRecording_C\DRBurn.cs" />
-    <Compile Include="DiscRecording_C\DRBurn_Header.Constants.cs" />
-    <Compile Include="DiscRecording_C\DRBurn_Header.cs" />
     <Compile Include="DiscRecording_C\DRBurn_ImageContentCreation.cs" />
     <Compile Include="DiscRecording_C\DRBurn_PropertyConvenienceMethods.cs" />
     <Compile Include="DiscRecording_C\DRCDTextBlock.Class.cs" />
     <Compile Include="DiscRecording_C\DRCDTextBlock.Constructors.cs" />
     <Compile Include="DiscRecording_C\DRCDTextBlock.cs" />
     <Compile Include="DiscRecording_C\DRCDTextBlock_PropertyConvenienceMethods.cs" />
-    <Compile Include="DiscRecording_C\DRCDText_Header.Constants.cs" />
-    <Compile Include="DiscRecording_C\DRCDText_Header.cs" />
     <Compile Include="DiscRecording_C\DRDevice.Class.cs" />
     <Compile Include="DiscRecording_C\DRDevice.cs" />
-    <Compile Include="DiscRecording_C\DRDevice_Header.Constants.cs" />
-    <Compile Include="DiscRecording_C\DRDevice_Header.cs" />
     <Compile Include="DiscRecording_C\DRDevice_InfoConvenience.cs" />
     <Compile Include="DiscRecording_C\DRDevice_StatusConvenience.cs" />
     <Compile Include="DiscRecording_C\DRErase.Class.cs" />
     <Compile Include="DiscRecording_C\DRErase.Constructors.cs" />
     <Compile Include="DiscRecording_C\DRErase.cs" />
-    <Compile Include="DiscRecording_C\DRErase_Header.Constants.cs" />
-    <Compile Include="DiscRecording_C\DRErase_Header.cs" />
     <Compile Include="DiscRecording_C\DRErase_PropertyConvenienceMethods.cs" />
     <Compile Include="DiscRecording_C\DRFile.Class.cs" />
     <Compile Include="DiscRecording_C\DRFile.Constructors.cs" />
     <Compile Include="DiscRecording_C\DRFile.cs" />
-    <Compile Include="DiscRecording_C\DRFile_Header.Constants.cs" />
-    <Compile Include="DiscRecording_C\DRFile_Header.cs" />
     <Compile Include="DiscRecording_C\DRFile_VirtualFiles.cs" />
     <Compile Include="DiscRecording_C\DRFile_VirtualLinks.cs" />
     <Compile Include="DiscRecording_C\DRFolder.Class.cs" />
     <Compile Include="DiscRecording_C\DRFolder.Constructors.cs" />
     <Compile Include="DiscRecording_C\DRFolder.cs" />
-    <Compile Include="DiscRecording_C\DRFolder_Header.cs" />
     <Compile Include="DiscRecording_C\DRFolder_VirtualFolders.cs" />
     <Compile Include="DiscRecording_C\DRFSObject.Class.cs" />
     <Compile Include="DiscRecording_C\DRFSObject.cs" />
-    <Compile Include="DiscRecording_C\DRFSObject_Header.Constants.cs" />
-    <Compile Include="DiscRecording_C\DRFSObject_Header.cs" />
     <Compile Include="DiscRecording_C\DRMSF.Class.cs" />
     <Compile Include="DiscRecording_C\DRMSF.Constructors.cs" />
     <Compile Include="DiscRecording_C\DRMSF.cs" />
+    <Compile Include="DiscRecording_C\DRMSF.Protocols.cs" />
     <Compile Include="DiscRecording_C\DRMSFFormatter.Class.cs" />
     <Compile Include="DiscRecording_C\DRMSFFormatter.Constructors.cs" />
     <Compile Include="DiscRecording_C\DRMSFFormatter.cs" />
-    <Compile Include="DiscRecording_C\DRMSFFormatter_Header.cs" />
-    <Compile Include="DiscRecording_C\DRMSF_Header.cs" />
+    <Compile Include="DiscRecording_C\DRMSFFormatter.Protocols.cs" />
     <Compile Include="DiscRecording_C\DRNotificationCenter.Class.cs" />
     <Compile Include="DiscRecording_C\DRNotificationCenter.cs" />
     <Compile Include="DiscRecording_C\DRTrack.Class.cs" />
@@ -90,16 +79,31 @@
     <Compile Include="DiscRecording_C\DRTrack.cs" />
     <Compile Include="DiscRecording_C\DRTrack_AudioContentCreation.cs" />
     <Compile Include="DiscRecording_C\DRTrack_DataContentCreation.cs" />
-    <Compile Include="DiscRecording_C\DRTrack_Header.Constants.cs" />
-    <Compile Include="DiscRecording_C\DRTrack_Header.cs" />
     <Compile Include="DiscRecording_C\DRTrack_PropertyConvenience.cs" />
     <Compile Include="DiscRecording_P\DRFileDataProduction.Protocol.cs" />
     <Compile Include="DiscRecording_P\DRTrackDataProduction.Protocol.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DiscRecording_Extensions\" />
+    <Compile Include="DiscRecording_T\DRBurn_Header.cs" />
+    <Compile Include="DiscRecording_T\DRCDText_Header.cs" />
+    <Compile Include="DiscRecording_T\DRContentFile_Header.cs" />
+    <Compile Include="DiscRecording_T\DRContentFolder_Header.cs" />
+    <Compile Include="DiscRecording_T\DRContentObject_Header.cs" />
+    <Compile Include="DiscRecording_T\DRContentProperties_Header.cs" />
+    <Compile Include="DiscRecording_T\DRContentTrack_Header.cs" />
+    <Compile Include="DiscRecording_T\DRCoreBurn_Header.cs" />
+    <Compile Include="DiscRecording_T\DRCoreCDText_Header.cs" />
+    <Compile Include="DiscRecording_T\DRCoreDevice_Header.cs" />
+    <Compile Include="DiscRecording_T\DRCoreErase_Header.cs" />
+    <Compile Include="DiscRecording_T\DRCoreErrors_Header.cs" />
+    <Compile Include="DiscRecording_T\DRCoreNotifications_Header.cs" />
+    <Compile Include="DiscRecording_T\DRCoreObject_Header.cs" />
+    <Compile Include="DiscRecording_T\DRCoreStatus_Header.cs" />
+    <Compile Include="DiscRecording_T\DRCoreTrack_Header.cs" />
+    <Compile Include="DiscRecording_T\DRDevice_Header.cs" />
+    <Compile Include="DiscRecording_T\DRErase_Header.cs" />
+    <Compile Include="DiscRecording_T\DRFile_Header.cs" />
+    <Compile Include="DiscRecording_T\DRFSObject_Header.cs" />
+    <Compile Include="DiscRecording_T\DRStatus_Header.cs" />
+    <Compile Include="DiscRecording_T\DRTrack_Header.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
@@ -119,4 +123,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
 </Project>

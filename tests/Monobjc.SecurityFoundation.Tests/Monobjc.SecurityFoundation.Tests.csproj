@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{936A610A-786A-4885-AFCA-465FBBC3A9B3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Monobjc.SecurityFoundation</RootNamespace>
+    <AssemblyName>Monobjc.SecurityFoundation.Tests</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\external\nunit.framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractCompletnessTests.cs">
+      <Link>AbstractCompletnessTests.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractFrameworkTests.cs">
+      <Link>AbstractFrameworkTests.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractObjectiveCTests.cs">
+      <Link>AbstractObjectiveCTests.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation.Tests\Common\AbstractWrapperTests.cs">
+      <Link>AbstractWrapperTests.cs</Link>
+    </Compile>
+    <Compile Include="..\Monobjc.Foundation.Tests\Common\TestEnvironment.cs">
+      <Link>TestEnvironment.cs</Link>
+    </Compile>
+    <Compile Include="CompletnessTests.cs" />
+    <Compile Include="Environment.cs" />
+    <Compile Include="FrameworkTests.cs" />
+    <Compile Include="WrapperTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\libraries\Monobjc\Monobjc.csproj">
+      <Project>{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}</Project>
+      <Name>Monobjc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\libraries\Monobjc.Foundation\Monobjc.Foundation.csproj">
+      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
+      <Name>Monobjc.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\libraries\Monobjc.Security\Monobjc.Security.csproj">
+      <Project>{D8948503-4D3A-4AE2-8C90-897C5AE18884}</Project>
+      <Name>Monobjc.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\libraries\Monobjc.SecurityFoundation\Monobjc.SecurityFoundation.csproj">
+      <Project>{B49863BB-D088-4AAC-8D2F-D8726F27A930}</Project>
+      <Name>Monobjc.SecurityFoundation</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

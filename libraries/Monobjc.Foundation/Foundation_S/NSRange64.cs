@@ -46,7 +46,7 @@ namespace Monobjc.Foundation
         /// </summary>
         /// <param name="location">The location.</param>
         /// <param name="length">The length.</param>
-        public NSRange64(ulong location, ulong length)
+		public NSRange64(NSUInteger location, NSUInteger length)
         {
             this.location = location;
             this.length = length;
@@ -59,7 +59,7 @@ namespace Monobjc.Foundation
         /// <returns>The result of the conversion.</returns>
         public static implicit operator NSRange(NSRange64 value)
         {
-            return new NSRange((uint)value.location, (uint)value.length);
+            return new NSRange(value.location, value.length);
         }
 
         /// <summary>

@@ -25,7 +25,6 @@ using CLLocationDegrees = System.Double;
 
 namespace Monobjc.CoreLocation
 {
-#if MACOSX_10_6
     /// <summary>
     /// <para>A structure that contains a geographical coordinate using the WGS 84 reference frame.</para>
     /// <para>Available in Mac OS X v10.6 and later.</para>
@@ -45,5 +44,4 @@ namespace Monobjc.CoreLocation
         /// </summary>
         public CLLocationDegrees longitude;
     }
-#endif
 }

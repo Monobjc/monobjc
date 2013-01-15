@@ -50,7 +50,7 @@ namespace Monobjc.ApplicationServices
         /// </summary>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        public CGSize(float width, float height)
+		public CGSize(CGFloat width, CGFloat height)
         {
             this.width = width;
             this.height = height;

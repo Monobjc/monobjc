@@ -46,7 +46,7 @@ namespace Monobjc.ApplicationServices
         /// </summary>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        public CGSize64(double width, double height)
+		public CGSize64(CGFloat width, CGFloat height)
         {
             this.width = width;
             this.height = height;
@@ -59,7 +59,7 @@ namespace Monobjc.ApplicationServices
         /// <returns>The result of the conversion.</returns>
         public static implicit operator CGSize(CGSize64 value)
         {
-            return new CGSize((float)value.width, (float)value.height);
+            return new CGSize(value.width, value.height);
         }
 
         /// <summary>

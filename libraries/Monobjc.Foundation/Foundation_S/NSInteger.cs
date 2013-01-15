@@ -24,32 +24,44 @@ using System;
 
 namespace Monobjc.Foundation
 {
-    /// <summary>
-    /// Structure that wraps an signed integer value and is mapped to the NSInteger native type.
-    /// </summary>
-    [ObjectiveCUnderlyingType(typeof(int), Is64Bits = false)]
-    [ObjectiveCUnderlyingType(typeof(long), Is64Bits = true)]
-    public partial struct NSInteger
-    {
-        /// <summary>
-        /// The wrapped value.
-        /// </summary>
-        public int value;
+	/// <summary>
+	/// Structure that wraps an signed integer value and is mapped to the NSInteger native type.
+	/// </summary>
+	[ObjectiveCUnderlyingType(typeof(int), Is64Bits = false)]
+	[ObjectiveCUnderlyingType(typeof(long), Is64Bits = true)]
+	public partial struct NSInteger
+	{
+		/// <summary>
+		/// <para>The maximum value for an NSInteger.</para>
+		/// <para>Available in Mac OS X v10.5 and later.</para>
+		/// </summary>
+		public static readonly NSInteger NSIntegerMax = ObjectiveCRuntime.Is64Bits ? UInt32.MaxValue : Int32.MaxValue;
+		
+		/// <summary>
+		/// <para>The minimum value for an NSInteger.</para>
+		/// <para>Available in Mac OS X v10.5 and later.</para>
+		/// </summary>
+		public static readonly NSInteger NSIntegerMin = ObjectiveCRuntime.Is64Bits ? -UInt32.MaxValue : Int32.MinValue;
+		
+		/// <summary>
+		/// The wrapped value.
+		/// </summary>
+		public int value;
 
-        public NSInteger(int value)
-        {
-            this.value = value;
-        }
-
-        /// <summary>
-        /// Returns the a string representation of this instance.
-        /// </summary>
-        /// <returns>
-        /// A <see cref="T:System.String"></see> containing a representation of this instance.
-        /// </returns>
-		public override string ToString()
+		public NSInteger (int value)
 		{
-			return this.value.ToString();
+			this.value = value;
 		}
-    }
+
+		/// <summary>
+		/// Returns the a string representation of this instance.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:System.String"></see> containing a representation of this instance.
+		/// </returns>
+		public override string ToString ()
+		{
+			return this.value.ToString ();
+		}
+	}
 }

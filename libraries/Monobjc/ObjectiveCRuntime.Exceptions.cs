@@ -26,46 +26,44 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Monobjc
 {
-    partial class ObjectiveCRuntime
-    {
-        /// <summary>
-        ///   Convert a native exception into a managed one.
-        ///   If a managed exception has been previously wrapped, then use it as inner exception.
-        /// </summary>
-        /// <param name = "data">The serialized inner exception.</param>
-        internal static Exception UnWrap(byte[] data)
-        {
-            Logger.Debug("ObjectiveCRuntime", "Unwrapping exception");
+	partial class ObjectiveCRuntime
+	{
+		/// <summary>
+		///   Convert a native exception into a managed one.
+		///   If a managed exception has been previously wrapped, then use it as inner exception.
+		/// </summary>
+		/// <param name = "data">The serialized inner exception.</param>
+		internal static Exception UnWrap (byte[] data)
+		{
+			Logger.Debug ("ObjectiveCRuntime", "Unwrapping exception");
 
-            Exception ex;
+			Exception ex;
 
-            // De-serialize the wrapped exception
-            using (MemoryStream stream = new MemoryStream(data))
-            {
-                BinaryFormatter formatter = new BinaryFormatter();
-                ex = (Exception) formatter.Deserialize(stream);
-            }
+			// De-serialize the wrapped exception
+			using (MemoryStream stream = new MemoryStream(data)) {
+				BinaryFormatter formatter = new BinaryFormatter ();
+				ex = (Exception)formatter.Deserialize (stream);
+			}
 
-            return ex;
-        }
+			return ex;
+		}
 
-        /// <summary>
-        ///   Wraps the given exception.
-        /// </summary>
-        /// <param name = "exception">The exception.</param>
-        public static byte[] Wrap(Exception exception)
-        {
-            byte[] data;
+		/// <summary>
+		///   Wraps the given exception.
+		/// </summary>
+		/// <param name = "exception">The exception.</param>
+		public static byte[] Wrap (Exception exception)
+		{
+			byte[] data;
 
-            // Serialize the exception using a binary format
-            using (MemoryStream stream = new MemoryStream())
-            {
-                BinaryFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(stream, exception);
-                data = stream.ToArray();
-            }
+			// Serialize the exception using a binary format
+			using (MemoryStream stream = new MemoryStream()) {
+				BinaryFormatter formatter = new BinaryFormatter ();
+				formatter.Serialize (stream, exception);
+				data = stream.ToArray ();
+			}
 
-            return data;
-        }
-    }
+			return data;
+		}
+	}
 }

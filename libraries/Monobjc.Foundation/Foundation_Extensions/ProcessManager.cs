@@ -38,7 +38,7 @@ namespace Monobjc.Foundation
         /// <param name="psn">On output, a pointer to the process serial number of the current process, that is, the one currently accessing the CPU. This application can be running in either the foreground or the background.</param>
         /// <returns>A result code.</returns>
         [DllImport("/System/Library/Frameworks/AppKit.framework/AppKit")]
-        public static extern int GetCurrentProcess(ref ProcessSerialNumber psn);
+        public static extern int GetCurrentProcess(out ProcessSerialNumber psn);
 
         /// <summary>
         /// Changes the type of the specified process.

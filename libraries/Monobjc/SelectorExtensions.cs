@@ -24,29 +24,29 @@ using System;
 
 namespace Monobjc
 {
-    /// <summary>
-    ///   <para>Contains extension methods to ease the selector transformations.</para>
-    /// </summary>
-    public static class SelectorExtensions
-    {
-        /// <summary>
-        ///   Convert the selector into its string representation.
-        /// </summary>
-        /// <param name = "selector">The selector.</param>
-        /// <returns>The string representation</returns>
-        public static String ToSelector(this IntPtr selector)
-        {
-            return ObjectiveCRuntime.Selector(selector);
-        }
+	/// <summary>
+	///   <para>Contains extension methods to ease the selector transformations.</para>
+	/// </summary>
+	public static class SelectorExtensions
+	{
+		/// <summary>
+		///   Convert the selector into its string representation.
+		/// </summary>
+		/// <param name = "selector">The selector.</param>
+		/// <returns>The string representation</returns>
+		public static String ToSelector (this IntPtr selector)
+		{
+			return ObjectiveCRuntime.Selector (selector);
+		}
 
-        /// <summary>
-        ///   Convert the selector into its pointer representation.
-        /// </summary>
-        /// <param name = "selector">The selector.</param>
-        /// <returns>The pointer representation</returns>
-        public static IntPtr ToSelector(this String selector)
-        {
-            return ObjectiveCRuntime.Selector(selector);
-        }
-    }
+		/// <summary>
+		///   Convert the selector into its pointer representation.
+		/// </summary>
+		/// <param name = "selector">The selector.</param>
+		/// <returns>The pointer representation</returns>
+		public static IntPtr ToSelector (this String selector)
+		{
+			return ObjectiveCRuntime.Selector (selector);
+		}
+	}
 }

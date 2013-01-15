@@ -20,7 +20,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-
 using System;
 
 using System.Runtime.InteropServices;
@@ -28,85 +27,48 @@ using System.Runtime.InteropServices;
 namespace Monobjc.CoreMedia
 {
 #if MACOSX_10_7
-
     /// <summary>
-
     /// <para>The function to allocate memory.</para>
-
     /// <para>Available in Mac OS X v10.7 and later.</para>
-
     /// </summary>
-
     public delegate IntPtr AllocateBlock(IntPtr refCon, IntPtr sizeInBytes);
 
-
-
     /// <summary>
-
     /// <para>A function to call once when the CMBlockBuffer is disposed.</para>
-
     /// <para>Available in Mac OS X v10.7 and later.</para>
-
     /// </summary>
-
     public delegate void FreeBlock(IntPtr refCon, IntPtr doomedMemoryBlock, IntPtr sizeInBytes);
 
-
-
     /// <summary>
-    /// <para>Structure to support custom memory allocation for the block used in a CMBlockBuffer.</para>
-    /// <para>Available in Mac OS X v10.7 and later.</para>
+	/// <para>Structure to support custom memory allocation for the block used in a CMBlockBuffer.</para>
+	/// <para>Available in Mac OS X v10.7 and later.</para>
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-
     public struct CMBlockBufferCustomBlockSource
     {
-
         /// <summary>
-
         /// <para>The version.</para>
-
         /// <para>Available in Mac OS X v10.7 and later.</para>
-
         /// </summary>
-
         public uint version;
 
-
-
         /// <summary>
-
         /// <para>The function to allocate memory.</para>
-
         /// <para>Available in Mac OS X v10.7 and later.</para>
-
         /// </summary>
-
         public AllocateBlock AllocateBlock;
 
-
-
         /// <summary>
-
         /// <para>A function to call once when the CMBlockBuffer is disposed.</para>
-
         /// <para>Available in Mac OS X v10.7 and later.</para>
-
         /// </summary>
-
         public FreeBlock FreeBlock;
 
-
-
         /// <summary>
-
         /// <para></para>
-
         /// <para>Available in Mac OS X v10.7 and later.</para>
-
         /// </summary>
-
         public IntPtr refCon;
-    }
+   }
 #endif
 }

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7BEB7DF9-14C5-4D69-9B99-E3418F0E9C48}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Monobjc.EventKit</RootNamespace>
+    <AssemblyName>Monobjc.EventKit</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <DefineConstants>TRACE;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EventKit_C\EKAlarm.Class.cs" />
+    <Compile Include="EventKit_C\EKAlarm.Constants.cs" />
+    <Compile Include="EventKit_C\EKAlarm.cs" />
+    <Compile Include="EventKit_C\EKAlarm.Protocols.cs" />
+    <Compile Include="EventKit_C\EKCalendar.Class.cs" />
+    <Compile Include="EventKit_C\EKCalendar.Constants.cs" />
+    <Compile Include="EventKit_C\EKCalendar.cs" />
+    <Compile Include="EventKit_C\EKCalendarItem.Class.cs" />
+    <Compile Include="EventKit_C\EKCalendarItem.cs" />
+    <Compile Include="EventKit_C\EKEvent.Class.cs" />
+    <Compile Include="EventKit_C\EKEvent.Constants.cs" />
+    <Compile Include="EventKit_C\EKEvent.cs" />
+    <Compile Include="EventKit_C\EKEventStore.Class.cs" />
+    <Compile Include="EventKit_C\EKEventStore.Constants.cs" />
+    <Compile Include="EventKit_C\EKEventStore.Constructors.cs" />
+    <Compile Include="EventKit_C\EKEventStore.cs" />
+    <Compile Include="EventKit_C\EKObject.Class.cs" />
+    <Compile Include="EventKit_C\EKObject.cs" />
+    <Compile Include="EventKit_C\EKParticipant.Class.cs" />
+    <Compile Include="EventKit_C\EKParticipant.Constants.cs" />
+    <Compile Include="EventKit_C\EKParticipant.cs" />
+    <Compile Include="EventKit_C\EKParticipant.Protocols.cs" />
+    <Compile Include="EventKit_C\EKRecurrenceDayOfWeek.Class.cs" />
+    <Compile Include="EventKit_C\EKRecurrenceDayOfWeek.Constructors.cs" />
+    <Compile Include="EventKit_C\EKRecurrenceDayOfWeek.cs" />
+    <Compile Include="EventKit_C\EKRecurrenceDayOfWeek.Protocols.cs" />
+    <Compile Include="EventKit_C\EKRecurrenceEnd.Class.cs" />
+    <Compile Include="EventKit_C\EKRecurrenceEnd.cs" />
+    <Compile Include="EventKit_C\EKRecurrenceEnd.Protocols.cs" />
+    <Compile Include="EventKit_C\EKRecurrenceRule.Class.cs" />
+    <Compile Include="EventKit_C\EKRecurrenceRule.Constants.cs" />
+    <Compile Include="EventKit_C\EKRecurrenceRule.Constructors.cs" />
+    <Compile Include="EventKit_C\EKRecurrenceRule.cs" />
+    <Compile Include="EventKit_C\EKRecurrenceRule.Protocols.cs" />
+    <Compile Include="EventKit_C\EKReminder.Class.cs" />
+    <Compile Include="EventKit_C\EKReminder.cs" />
+    <Compile Include="EventKit_C\EKSource.Class.cs" />
+    <Compile Include="EventKit_C\EKSource.Constants.cs" />
+    <Compile Include="EventKit_C\EKSource.cs" />
+    <Compile Include="EventKit_C\EKStructuredLocation.Class.cs" />
+    <Compile Include="EventKit_C\EKStructuredLocation.cs" />
+    <Compile Include="EventKit_C\EKStructuredLocation.Protocols.cs" />
+    <Compile Include="EventKit_Extensions\Handlers.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Monobjc\Monobjc.csproj">
+      <Project>{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}</Project>
+      <Name>Monobjc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
+      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
+      <Name>Monobjc.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.CoreLocation\Monobjc.CoreLocation.csproj">
+      <Project>{7B60D5F2-5029-4EC5-BD78-4B2E6A60CDF3}</Project>
+      <Name>Monobjc.CoreLocation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
+      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
+      <Name>Monobjc.AppKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.AddressBook\Monobjc.AddressBook.csproj">
+      <Project>{C9491B50-85B9-48B1-8DAD-7316948CC907}</Project>
+      <Name>Monobjc.AddressBook</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EventKit_Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
+</Project>

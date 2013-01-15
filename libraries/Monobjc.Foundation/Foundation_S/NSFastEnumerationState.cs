@@ -25,7 +25,6 @@ using System.Runtime.InteropServices;
 
 namespace Monobjc.Foundation
 {
-#if MACOSX_10_5
     /// <summary>
     /// This defines the structure used as contextual information in the NSFastEnumeration protocol.
     /// </summary>
@@ -53,5 +52,4 @@ namespace Monobjc.Foundation
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
         public uint[] extra;
     }
-#endif
 }

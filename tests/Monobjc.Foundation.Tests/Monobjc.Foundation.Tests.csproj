@@ -10,50 +10,47 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Monobjc.Foundation</RootNamespace>
     <AssemblyName>Monobjc.Foundation.Tests</AssemblyName>
-    <FileAlignment>512</FileAlignment>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
+    <DebugSymbols>True</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;HAVE_BLOCK_SUPPORT</DefineConstants>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml" />
     <Reference Include="nunit.framework">
       <HintPath>..\..\external\nunit.framework.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CGFloatTests.cs" />
+    <Compile Include="Common\AbstractFrameworkTests.cs" />
     <Compile Include="Common\AbstractObjectiveCTests.cs" />
     <Compile Include="Common\AbstractWrapperTests.cs" />
     <Compile Include="Common\AbstractCompletnessTests.cs" />
+    <Compile Include="Common\TestEnvironment.cs" />
+    <Compile Include="CGFloatTests.cs" />
     <Compile Include="CompletnessTests.cs" />
+    <Compile Include="Environment.cs" />
     <Compile Include="FrameworkTests.cs" />
     <Compile Include="NSArrayTests.cs" />
     <Compile Include="NSDecimalNumberTests.cs" />
     <Compile Include="NSUIntegerTests.cs" />
-    <Compile Include="WrapperTests.cs" />
     <Compile Include="DebuggerTests.cs" />
-    <Compile Include="Common\AbstractFrameworkTests.cs" />
     <Compile Include="NSIntegerTests.cs" />
     <Compile Include="NSBundleTests.cs" />
     <Compile Include="NSDictionaryTests.cs" />
@@ -63,10 +60,12 @@
     <Compile Include="NSSetTests.cs" />
     <Compile Include="NSStringTests.cs" />
     <Compile Include="NSThreadTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NSNumberTests.cs" />
     <Compile Include="NSValueTests.cs" />
     <Compile Include="ProcessManagerTests.cs" />
+    <Compile Include="WrapperTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="NSLocaleTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\libraries\Monobjc\Monobjc.csproj">
@@ -86,4 +85,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
 </Project>

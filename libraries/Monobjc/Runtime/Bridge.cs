@@ -28,77 +28,70 @@ using Monobjc.Properties;
 
 namespace Monobjc.Runtime
 {
-    internal static partial class Bridge
-    {
-        /// <summary>
-        ///   Defines the given class by installing a proxy, that will forward native calls to the corresponding instance.
-        /// </summary>
-        /// <param name = "classGenerator">The class generator.</param>
-        /// <param name = "type">The type.</param>
-        public static void DefineClass(ClassGenerator classGenerator, Type type)
-        {
-            if (type == null)
-            {
-                throw new ArgumentNullException("type", Resources.CannotDefineObjectiveCClassFromNullType);
-            }
+	internal static partial class Bridge
+	{
+		/// <summary>
+		///   Defines the given class by installing a proxy, that will forward native calls to the corresponding instance.
+		/// </summary>
+		/// <param name = "classGenerator">The class generator.</param>
+		/// <param name = "type">The type.</param>
+		public static void DefineClass (ClassGenerator classGenerator, Type type)
+		{
+			if (type == null) {
+				throw new ArgumentNullException ("type", Resources.CannotDefineObjectiveCClassFromNullType);
+			}
 
-            // Check if the class is already mapped
-            if (Class.IsMapped(type))
-            {
-                return;
-            }
+			// Check if the class is already mapped
+			if (Class.IsMapped (type)) {
+				return;
+			}
 
-            // Extract class name from attributes
-            String className = ExtractClassName(type);
+			// Extract class name from attributes
+			String className = ExtractClassName (type);
 
-            // Check for class existence
-            Class cls = Class.Get(className);
-            if (cls != null)
-            {
-                // Associate the type to the class
-                cls.WrapperType = type.TypeHandle.Value;
+			// Check for class existence
+			Class cls = Class.Get (className);
+			if (cls != null) {
+				// Associate the type to the class
+				cls.WrapperType = type.TypeHandle.Value;
 
-                // Check to see if the class must be intercepted
-                if (NeedInterception(type))
-                {
-                    if (Logger.InfoEnabled)
-                    {
-                        Logger.Info("Bridge", "Intercepting 'dealloc' messages for class " + className);
-                    }
-                    InterceptDeallocFor(cls);
-                }
-                return;
-            }
+				// Check to see if the class must be intercepted
+				if (NeedInterception (type)) {
+					if (Logger.InfoEnabled) {
+						Logger.Info ("Bridge", "Intercepting 'dealloc' messages for class " + className);
+					}
+					InterceptDeallocFor (cls);
+				}
+				return;
+			}
 
-            // Extract class name from attributes
-            String superClassName = ExtractSuperClassName(type);
+			// Extract class name from attributes
+			String superClassName = ExtractSuperClassName (type);
 
-            // Get the superclass
-            Class superCls = Class.Get(superClassName);
-            if (superCls == null)
-            {
-                throw new ObjectiveCException(String.Format(CultureInfo.CurrentCulture, Resources.CannotDefineClassBecauseSuperclassDoesNotExists, type, superClassName));
-            }
+			// Get the superclass
+			Class superCls = Class.Get (superClassName);
+			if (superCls == null) {
+				throw new ObjectiveCException (String.Format (CultureInfo.CurrentCulture, Resources.CannotDefineClassBecauseSuperclassDoesNotExists, type, superClassName));
+			}
 
-            if (Logger.DebugEnabled)
-            {
-                Logger.Debug("Bridge", "Defining class " + type + " <-> " + className + " : " + superClassName);
-            }
+			if (Logger.DebugEnabled) {
+				Logger.Debug ("Bridge", "Defining class " + type + " <-> " + className + " : " + superClassName);
+			}
 
-            // Collects the informations needed for class generation
-            VariableTuple[] variableTuples = CollectInstanceVariables(type);
-            MethodTuple[] instanceMethods = CollectInstanceMethods(type);
-            MethodTuple[] classMethods = CollectStaticMethods(type);
+			// Collects the informations needed for class generation
+			VariableTuple[] variableTuples = CollectInstanceVariables (type);
+			MethodTuple[] instanceMethods = CollectInstanceMethods (type);
+			MethodTuple[] classMethods = CollectStaticMethods (type);
 
-            // Generates the class proxy with the associated structures
-            Type proxyType = classGenerator.DefineClassProxy(type, instanceMethods, classMethods);
+			// Generates the class proxy with the associated structures
+			Type proxyType = classGenerator.DefineClassProxy (type, instanceMethods, classMethods);
 
-            // Create the peer native class
-            String[] ivarNames = Array.ConvertAll(variableTuples, tuple => tuple.Name);
-            IntPtr[] ivarTypes = Array.ConvertAll(variableTuples, tuple => tuple.Type.TypeHandle.Value);
-            cls = CreateClass(className, superClassName, ivarNames, ivarTypes);
+			// Create the peer native class
+			String[] ivarNames = Array.ConvertAll (variableTuples, tuple => tuple.Name);
+			IntPtr[] ivarTypes = Array.ConvertAll (variableTuples, tuple => tuple.Type.TypeHandle.Value);
+			cls = CreateClass (className, superClassName, ivarNames, ivarTypes);
 
-            // Add instance methods
+			// Add instance methods
 #if USE_CLOSURES
             foreach (MethodTuple tuple in instanceMethods)
             {
@@ -107,13 +100,13 @@ namespace Monobjc.Runtime
                 AddMethod(cls.pointer, false, handle, tuple.Selector, ObjectiveCEncoding.GetSignature(methodInfo));
             }
 #else
-            String[] methodNames = Array.ConvertAll(instanceMethods, tuple => tuple.Selector);
-            IntPtr[] methodImplementations = Array.ConvertAll(instanceMethods, tuple => tuple.GetFunction(proxyType));
-            String[] methodEncoding = Array.ConvertAll(instanceMethods, tuple => ObjectiveCEncoding.GetSignature(tuple.MethodInfo));
-            AddMethods(cls.pointer, false, methodNames, methodImplementations, methodEncoding);
+			String[] methodNames = Array.ConvertAll (instanceMethods, tuple => tuple.Selector);
+			IntPtr[] methodImplementations = Array.ConvertAll (instanceMethods, tuple => tuple.GetFunction (proxyType));
+			String[] methodEncoding = Array.ConvertAll (instanceMethods, tuple => ObjectiveCEncoding.GetSignature (tuple.MethodInfo));
+			AddMethods (cls.pointer, false, methodNames, methodImplementations, methodEncoding);
 #endif
 
-            // Add class methods
+			// Add class methods
 #if USE_CLOSURES
             foreach (MethodTuple tuple in classMethods)
             {
@@ -122,47 +115,44 @@ namespace Monobjc.Runtime
                 AddMethod(cls.pointer, true, handle, tuple.Selector, ObjectiveCEncoding.GetSignature(methodInfo, 0));
             }
 #else
-            methodNames = Array.ConvertAll(classMethods, tuple => tuple.Selector);
-            methodImplementations = Array.ConvertAll(classMethods, tuple => tuple.GetFunction(proxyType));
-            methodEncoding = Array.ConvertAll(classMethods, tuple => ObjectiveCEncoding.GetSignature(tuple.MethodInfo, 0));
-            AddMethods(cls.pointer, true, methodNames, methodImplementations, methodEncoding);
+			methodNames = Array.ConvertAll (classMethods, tuple => tuple.Selector);
+			methodImplementations = Array.ConvertAll (classMethods, tuple => tuple.GetFunction (proxyType));
+			methodEncoding = Array.ConvertAll (classMethods, tuple => ObjectiveCEncoding.GetSignature (tuple.MethodInfo, 0));
+			AddMethods (cls.pointer, true, methodNames, methodImplementations, methodEncoding);
 #endif
-        }
+		}
 
-        /// <summary>
-        ///   Defines a category, by using various attributes.
-        /// </summary>
-        /// <param name = "categoryGenerator">The category generator to use.</param>
-        /// <param name = "type">The type that contains the definition attibutes.</param>
-        public static void DefineCategory(CategoryGenerator categoryGenerator, Type type)
-        {
-            if (type == null)
-            {
-                throw new ArgumentNullException("type", Resources.CannotDefineObjectiveCCategroyFromNullType);
-            }
+		/// <summary>
+		///   Defines a category, by using various attributes.
+		/// </summary>
+		/// <param name = "categoryGenerator">The category generator to use.</param>
+		/// <param name = "type">The type that contains the definition attibutes.</param>
+		public static void DefineCategory (CategoryGenerator categoryGenerator, Type type)
+		{
+			if (type == null) {
+				throw new ArgumentNullException ("type", Resources.CannotDefineObjectiveCCategroyFromNullType);
+			}
 
-            // Extract the category's class
-            String className = ExtractCategoryClassName(type);
+			// Extract the category's class
+			String className = ExtractCategoryClassName (type);
 
-            // Check that the category's class exists
-            Class cls = Class.Get(className);
-            if (cls == null)
-            {
-                throw new ObjectiveCCategoryMappingException(String.Format(CultureInfo.CurrentCulture, Resources.ClassNotFoundForCategory, className, type));
-            }
+			// Check that the category's class exists
+			Class cls = Class.Get (className);
+			if (cls == null) {
+				throw new ObjectiveCCategoryMappingException (String.Format (CultureInfo.CurrentCulture, Resources.ClassNotFoundForCategory, className, type));
+			}
 
-            if (Logger.DebugEnabled)
-            {
-                Logger.Debug("Bridge", "Defining category " + type + " <-> " + className + "(" + type.Name + ")");
-            }
+			if (Logger.DebugEnabled) {
+				Logger.Debug ("Bridge", "Defining category " + type + " <-> " + className + "(" + type.Name + ")");
+			}
 
-            // Collects the informations needed for class generation
-            MethodTuple[] extensionMethods = CollectStaticMethods(type);
+			// Collects the informations needed for class generation
+			MethodTuple[] extensionMethods = CollectStaticMethods (type);
 
-            // Generates the class proxy with the associated structures
-            Type proxyType = categoryGenerator.DefineCategoryProxy(type, extensionMethods);
+			// Generates the class proxy with the associated structures
+			Type proxyType = categoryGenerator.DefineCategoryProxy (type, extensionMethods);
 
-            // Add class methods
+			// Add class methods
 #if USE_CLOSURES
             foreach (MethodTuple tuple in extensionMethods)
             {
@@ -171,23 +161,23 @@ namespace Monobjc.Runtime
                 AddMethod(cls.pointer, false, handle, tuple.Selector, ObjectiveCEncoding.GetSignature(methodInfo, 1));
             }
 #else
-            String[] methodNames = Array.ConvertAll(extensionMethods, tuple => tuple.Selector);
-            IntPtr[] methodImplementations = Array.ConvertAll(extensionMethods, tuple => tuple.GetFunction(proxyType));
-            String[] methodEncoding = Array.ConvertAll(extensionMethods, tuple => ObjectiveCEncoding.GetSignature(tuple.MethodInfo, 1));
-            AddMethods(cls.pointer, false, methodNames, methodImplementations, methodEncoding);
+			String[] methodNames = Array.ConvertAll (extensionMethods, tuple => tuple.Selector);
+			IntPtr[] methodImplementations = Array.ConvertAll (extensionMethods, tuple => tuple.GetFunction (proxyType));
+			String[] methodEncoding = Array.ConvertAll (extensionMethods, tuple => ObjectiveCEncoding.GetSignature (tuple.MethodInfo, 1));
+			AddMethods (cls.pointer, false, methodNames, methodImplementations, methodEncoding);
 #endif
-        }
+		}
 
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        private static extern void InterceptDeallocFor(Class cls);
+		[MethodImpl(MethodImplOptions.InternalCall)]
+		private static extern void InterceptDeallocFor (Class cls);
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        private static extern Class CreateClass(String className, String superClassName, String[] ivarNames, IntPtr[] ivarTypes);
+		[MethodImplAttribute(MethodImplOptions.InternalCall)]
+		private static extern Class CreateClass (String className, String superClassName, String[] ivarNames, IntPtr[] ivarTypes);
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        private static extern void AddMethods(IntPtr cls, bool meta, String[] methodNames, IntPtr[] methodImplementations, String[] methodEncodings);
+		[MethodImplAttribute(MethodImplOptions.InternalCall)]
+		private static extern void AddMethods (IntPtr cls, bool meta, String[] methodNames, IntPtr[] methodImplementations, String[] methodEncodings);
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        private static extern void AddMethod(IntPtr cls, bool meta, IntPtr handle, String methodName, String methodEncoding);
-    }
+		[MethodImplAttribute(MethodImplOptions.InternalCall)]
+		private static extern void AddMethod (IntPtr cls, bool meta, IntPtr handle, String methodName, String methodEncoding);
+	}
 }

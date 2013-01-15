@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 namespace Monobjc.Foundation
 {
     /// <summary>
-    /// A structure used to describe a portion of a series—such as characters in a string or objects in an NSArray object.
+    /// A structure used to describe a portion of a seriesï¿½such as characters in a string or objects in an NSArray object.
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     [ObjectiveCUnderlyingType(typeof(NSRange), Is64Bits = false)]
@@ -49,7 +49,7 @@ namespace Monobjc.Foundation
         /// </summary>
         /// <param name="location">The location.</param>
         /// <param name="length">The length.</param>
-        public NSRange(uint location, uint length)
+		public NSRange(NSUInteger location, NSUInteger length)
         {
             this.location = location;
             this.length = length;

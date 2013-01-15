@@ -22,7 +22,6 @@
 // 
 namespace Monobjc.ScriptingBridge
 {
-#if MACOSX_10_5
 	/// <summary>
 	/// <para>Specify how to launch an application.</para>
 	/// <para>Available in Mac OS X v10.5 and later.</para>
@@ -90,5 +89,4 @@ namespace Monobjc.ScriptingBridge
 		/// </summary>
 		kLSLaunchHasUntrustedContents = 0x00400000
 	}
-#endif
 }

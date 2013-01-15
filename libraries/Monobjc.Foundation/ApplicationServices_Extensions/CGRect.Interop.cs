@@ -37,7 +37,7 @@ namespace Monobjc.ApplicationServices
         /// </summary>
         public void DivideRect(ref CGRect slice,
                                ref CGRect remainder,
-                               float amount,
+                               CGFloat amount,
                                CGRectEdge edge)
         {
             CGRectDivide(this, ref slice, ref remainder, amount, edge);
@@ -46,7 +46,7 @@ namespace Monobjc.ApplicationServices
         /// <summary>
         /// Returns the height of this rectangle.
         /// </summary>
-        public float Height
+		public CGFloat Height
         {
             get { return CGRectGetHeight(this); }
         }
@@ -54,7 +54,7 @@ namespace Monobjc.ApplicationServices
         /// <summary>
         /// Creates a rectangle that insets this rectangle by a specified amount.
         /// </summary>
-        public CGRect InsetRect(float dX, float dY)
+		public CGRect InsetRect(CGFloat dX, CGFloat dY)
         {
             return CGRectInset(this, dX, dY);
         }
@@ -94,7 +94,7 @@ namespace Monobjc.ApplicationServices
         /// <summary>
         /// Returns the largest x coordinate of the rectangle.
         /// </summary>
-        public float MaxX
+		public CGFloat MaxX
         {
             get { return CGRectGetMaxX(this); }
         }
@@ -102,7 +102,7 @@ namespace Monobjc.ApplicationServices
         /// <summary>
         /// Returns the largest y coordinate of the rectangle.
         /// </summary>
-        public float MaxY
+		public CGFloat MaxY
         {
             get { return CGRectGetMaxY(this); }
         }
@@ -110,7 +110,7 @@ namespace Monobjc.ApplicationServices
         /// <summary>
         /// Returns the x coordinate of the rectangle’s midpoint.
         /// </summary>
-        public float MidX
+		public CGFloat MidX
         {
             get { return CGRectGetMidX(this); }
         }
@@ -118,7 +118,7 @@ namespace Monobjc.ApplicationServices
         /// <summary>
         /// Returns the y coordinate of the rectangle’s midpoint.
         /// </summary>
-        public float MidY
+		public CGFloat MidY
         {
             get { return CGRectGetMidY(this); }
         }
@@ -126,7 +126,7 @@ namespace Monobjc.ApplicationServices
         /// <summary>
         /// Returns the smallest x coordinate of the rectangle.
         /// </summary>
-        public float MinX
+		public CGFloat MinX
         {
             get { return CGRectGetMinX(this); }
         }
@@ -134,7 +134,7 @@ namespace Monobjc.ApplicationServices
         /// <summary>
         /// Returns the smallest y coordinate of the rectangle.
         /// </summary>
-        public float MinY
+		public CGFloat MinY
         {
             get { return CGRectGetMinY(this); }
         }
@@ -142,7 +142,7 @@ namespace Monobjc.ApplicationServices
         /// <summary>
         /// Creates a rectangle that offsets this rectangle by the specified amount.
         /// </summary>
-        public CGRect OffsetRect(float dX, float dY)
+		public CGRect OffsetRect(CGFloat dX, CGFloat dY)
         {
             return CGRectOffset(this, dX, dY);
         }
@@ -166,7 +166,7 @@ namespace Monobjc.ApplicationServices
         /// <summary>
         /// Returns the width of the rectangle.
         /// </summary>
-        public float Width
+		public CGFloat Width
         {
             get { return CGRectGetWidth(this); }
         }

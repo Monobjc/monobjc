@@ -22,7 +22,6 @@
 // 
 namespace Monobjc.ScriptingBridge
 {
-#if MACOSX_10_5
 	/// <summary>
 	/// <para>Specify the mode for sending evetns to an application.</para>
 	/// <para>Available in Mac OS X v10.5 and later.</para>
@@ -78,5 +77,4 @@ namespace Monobjc.ScriptingBridge
 		/// </summary>
 		kAEProcessNonReplyEvents = 0x00008000
 	}
-#endif
 }

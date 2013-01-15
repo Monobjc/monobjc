@@ -24,103 +24,103 @@ using System;
 
 namespace Monobjc
 {
-    partial class Id
-    {
-        /// <summary>
-        ///   Sends a message to this receiver (either a Class or an object instance).
-        /// </summary>
-        /// <param name = "selector">The selector.</param>
-        /// <param name = "parameters">The parameters.</param>
-        public void SendMessage(String selector, params Object[] parameters)
-        {
-            ObjectiveCRuntime.SendMessage(this, selector, parameters);
-        }
+	partial class Id
+	{
+		/// <summary>
+		///   Sends a message to this receiver (either a Class or an object instance).
+		/// </summary>
+		/// <param name = "selector">The selector.</param>
+		/// <param name = "parameters">The parameters.</param>
+		public void SendMessage (String selector, params Object[] parameters)
+		{
+			ObjectiveCRuntime.SendMessage (this, selector, parameters);
+		}
 
-        /// <summary>
-        ///   Sends a message to this receiver (either a Class or an object instance).
-        /// </summary>
-        /// <typeparam name = "TReturnType">The type of the return type.</typeparam>
-        /// <param name = "selector">The selector.</param>
-        /// <param name = "parameters">The parameters.</param>
-        /// <returns></returns>
-        public TReturnType SendMessage<TReturnType>(String selector, params Object[] parameters)
-        {
-            return ObjectiveCRuntime.SendMessage<TReturnType>(this, selector, parameters);
-        }
+		/// <summary>
+		///   Sends a message to this receiver (either a Class or an object instance).
+		/// </summary>
+		/// <typeparam name = "TReturnType">The type of the return type.</typeparam>
+		/// <param name = "selector">The selector.</param>
+		/// <param name = "parameters">The parameters.</param>
+		/// <returns></returns>
+		public TReturnType SendMessage<TReturnType> (String selector, params Object[] parameters)
+		{
+			return ObjectiveCRuntime.SendMessage<TReturnType> (this, selector, parameters);
+		}
 
-        /// <summary>
-        ///   <para>Sends a message to the super instance of this receiver.</para>
-        /// </summary>
-        /// <param name = "cls">The class of the receiver.</param>
-        /// <param name = "selector">The selector.</param>
-        /// <param name = "parameters">The parameters.</param>
-        public void SendMessageSuper(Class cls, string selector, params object[] parameters)
-        {
-            ObjectiveCRuntime.SendMessageSuper(this, cls, selector, parameters);
-        }
+		/// <summary>
+		///   <para>Sends a message to the super instance of this receiver.</para>
+		/// </summary>
+		/// <param name = "cls">The class of the receiver.</param>
+		/// <param name = "selector">The selector.</param>
+		/// <param name = "parameters">The parameters.</param>
+		public void SendMessageSuper (Class cls, string selector, params object[] parameters)
+		{
+			ObjectiveCRuntime.SendMessageSuper (this, cls, selector, parameters);
+		}
 
-        /// <summary>
-        ///   <para>Sends a message to the super instance of this receiver.</para>
-        /// </summary>
-        /// <typeparam name = "TReturnType">The type of the return type.</typeparam>
-        /// <param name = "cls">The class of the receiver.</param>
-        /// <param name = "selector">The selector.</param>
-        /// <param name = "parameters">The parameters.</param>
-        /// <returns></returns>
-        public TReturnType SendMessageSuper<TReturnType>(Class cls, string selector, params object[] parameters)
-        {
-            return ObjectiveCRuntime.SendMessageSuper<TReturnType>(this, cls, selector, parameters);
-        }
+		/// <summary>
+		///   <para>Sends a message to the super instance of this receiver.</para>
+		/// </summary>
+		/// <typeparam name = "TReturnType">The type of the return type.</typeparam>
+		/// <param name = "cls">The class of the receiver.</param>
+		/// <param name = "selector">The selector.</param>
+		/// <param name = "parameters">The parameters.</param>
+		/// <returns></returns>
+		public TReturnType SendMessageSuper<TReturnType> (Class cls, string selector, params object[] parameters)
+		{
+			return ObjectiveCRuntime.SendMessageSuper<TReturnType> (this, cls, selector, parameters);
+		}
 
-        /// <summary>
-        ///   <para>Sends a message to this receiver (either a Class or an object instance).</para>
-        ///   <para>The last parameter passed must be an object array that contains the variable list of arguments</para>
-        /// </summary>
-        /// <param name = "selector">The selector.</param>
-        /// <param name = "parameters">The parameters.</param>
-        /// <returns></returns>
-        public void SendMessageVarArgs(String selector, params Object[] parameters)
-        {
-            ObjectiveCRuntime.SendMessageVarArgs(this, selector, parameters);
-        }
+		/// <summary>
+		///   <para>Sends a message to this receiver (either a Class or an object instance).</para>
+		///   <para>The last parameter passed must be an object array that contains the variable list of arguments</para>
+		/// </summary>
+		/// <param name = "selector">The selector.</param>
+		/// <param name = "parameters">The parameters.</param>
+		/// <returns></returns>
+		public void SendMessageVarArgs (String selector, params Object[] parameters)
+		{
+			ObjectiveCRuntime.SendMessageVarArgs (this, selector, parameters);
+		}
 
-        /// <summary>
-        ///   <para>Sends a message to this receiver (either a Class or an object instance).</para>
-        ///   <para>The last parameter passed must be an object array that contains the variable list of arguments</para>
-        /// </summary>
-        /// <typeparam name = "TReturnType">The type of the return type.</typeparam>
-        /// <param name = "selector">The selector.</param>
-        /// <param name = "parameters">The parameters.</param>
-        /// <returns></returns>
-        public TReturnType SendMessageVarArgs<TReturnType>(String selector, params Object[] parameters)
-        {
-            return ObjectiveCRuntime.SendMessageVarArgs<TReturnType>(this, selector, parameters);
-        }
+		/// <summary>
+		///   <para>Sends a message to this receiver (either a Class or an object instance).</para>
+		///   <para>The last parameter passed must be an object array that contains the variable list of arguments</para>
+		/// </summary>
+		/// <typeparam name = "TReturnType">The type of the return type.</typeparam>
+		/// <param name = "selector">The selector.</param>
+		/// <param name = "parameters">The parameters.</param>
+		/// <returns></returns>
+		public TReturnType SendMessageVarArgs<TReturnType> (String selector, params Object[] parameters)
+		{
+			return ObjectiveCRuntime.SendMessageVarArgs<TReturnType> (this, selector, parameters);
+		}
 
-        /// <summary>
-        ///   <para>Sends a message to the super instance of this receiver.</para>
-        ///   <para>The last parameter passed must be an object array that contains the variable list of arguments</para>
-        /// </summary>
-        /// <param name = "cls">The class of the receiver.</param>
-        /// <param name = "selector">The selector.</param>
-        /// <param name = "parameters">The parameters.</param>
-        public void SendMessageSuperVarArgs(Class cls, string selector, params object[] parameters)
-        {
-            ObjectiveCRuntime.SendMessageSuperVarArgs(this, cls, selector, parameters);
-        }
+		/// <summary>
+		///   <para>Sends a message to the super instance of this receiver.</para>
+		///   <para>The last parameter passed must be an object array that contains the variable list of arguments</para>
+		/// </summary>
+		/// <param name = "cls">The class of the receiver.</param>
+		/// <param name = "selector">The selector.</param>
+		/// <param name = "parameters">The parameters.</param>
+		public void SendMessageSuperVarArgs (Class cls, string selector, params object[] parameters)
+		{
+			ObjectiveCRuntime.SendMessageSuperVarArgs (this, cls, selector, parameters);
+		}
 
-        /// <summary>
-        ///   <para>Sends a message to the super instance of this receiver.</para>
-        ///   <para>The last parameter passed must be an object array that contains the variable list of arguments</para>
-        /// </summary>
-        /// <typeparam name = "TReturnType">The type of the return type.</typeparam>
-        /// <param name = "cls">The class of the receiver.</param>
-        /// <param name = "selector">The selector.</param>
-        /// <param name = "parameters">The parameters.</param>
-        /// <returns></returns>
-        public TReturnType SendMessageSuperVarArgs<TReturnType>(Class cls, string selector, params object[] parameters)
-        {
-            return ObjectiveCRuntime.SendMessageSuperVarArgs<TReturnType>(this, cls, selector, parameters);
-        }
-    }
+		/// <summary>
+		///   <para>Sends a message to the super instance of this receiver.</para>
+		///   <para>The last parameter passed must be an object array that contains the variable list of arguments</para>
+		/// </summary>
+		/// <typeparam name = "TReturnType">The type of the return type.</typeparam>
+		/// <param name = "cls">The class of the receiver.</param>
+		/// <param name = "selector">The selector.</param>
+		/// <param name = "parameters">The parameters.</param>
+		/// <returns></returns>
+		public TReturnType SendMessageSuperVarArgs<TReturnType> (Class cls, string selector, params object[] parameters)
+		{
+			return ObjectiveCRuntime.SendMessageSuperVarArgs<TReturnType> (this, cls, selector, parameters);
+		}
+	}
 }

@@ -21,26 +21,13 @@
 // THE SOFTWARE.
 // 
 using System;
-using System.Runtime.InteropServices;
-
 using Monobjc.Foundation;
-
-
 
 namespace Monobjc.ApplicationServices
 {
-#if MACOSX_10_5
-
-    /// <summary>
-
-    /// <para>This callback can be specified to obtain the matching font descriptors of a collection in sorted order. The callback function should return the comparison result of the first descriptor to the second descriptor.</para>
-
-    /// <para>Available in Mac OS X v10.5 and later.</para>
-
-    /// </summary>
-
-    public delegate NSComparisonResult CTFontCollectionSortDescriptorsCallback(IntPtr first, IntPtr second, IntPtr refCon);
-
-#endif
-
+	/// <summary>
+	/// <para>This callback can be specified to obtain the matching font descriptors of a collection in sorted order. The callback function should return the comparison result of the first descriptor to the second descriptor.</para>
+	/// <para>Available in Mac OS X v10.5 and later.</para>
+	/// </summary>
+	public delegate NSComparisonResult CTFontCollectionSortDescriptorsCallback (IntPtr first,IntPtr second,IntPtr refCon);
 }
