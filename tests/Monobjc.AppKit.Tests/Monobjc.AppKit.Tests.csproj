@@ -62,6 +62,7 @@
     <Compile Include="NSColorTests.cs" />
     <Compile Include="NSImageTests.cs" />
     <Compile Include="NSLayoutContraintTests.cs" />
+    <Compile Include="NSNibTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\libraries\Monobjc\Monobjc.csproj">
@@ -91,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.nib">
       <LogicalName>Monobjc.AppKit.Tests.MainMenu.nib</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu2.nib.en">
+      <LogicalName>Monobjc.AppKit.Tests.MainMenu2.nib.en</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

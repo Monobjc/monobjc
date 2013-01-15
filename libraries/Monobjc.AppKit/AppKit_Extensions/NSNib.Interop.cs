@@ -34,19 +34,38 @@ namespace Monobjc.AppKit
 	{
 		public static bool InstantiateNibWithOwnerTopLevelObjects (NSString resourceName, Id owner)
 		{
+			if (resourceName == null) {
+				throw new ArgumentNullException("resourceName");
+			}
+			if (owner == null) {
+				throw new ArgumentNullException("owner");
+			}
 			return InstantiateNibWithOwnerTopLevelObjects (owner.GetType (), resourceName, owner);
 		}
 		
 		public static bool InstantiateNibWithOwnerTopLevelObjects (Type type, NSString resourceName, Id owner)
 		{
+			if (resourceName == null) {
+				throw new ArgumentNullException("resourceName");
+			}
+
 			Assembly assembly = type.Assembly;
-			
+			Logger.Info("NSNib", "Searching for '" + resourceName + "' resource in " + assembly.FullName);
+
 			// Lookup the resource name
-			String[] resources = assembly.GetManifestResourceNames ();
+			IEnumerable<String> resources = assembly.GetManifestResourceNames ().Where(r => r.StartsWith(resourceName));
+			if (resources.Count() == 0) {
+				return false;
+			}
+			foreach(String r in resources) {
+				Logger.Info("NSNib", "Found '" + r + "'");
+			}
+
 			IList<String> candidates = new List<String> ();
 
 			// Check the invariant culture
 			String key = resourceName;
+			Logger.Info("NSNib", "Probing '" + key + "'...");
 			String candidate = resources.FirstOrDefault (r => String.Equals (r, key));
 			if (candidate != null) {
 				candidates.Add (candidate);
@@ -56,6 +75,7 @@ namespace Monobjc.AppKit
 			NSArray languages = NSLocale.PreferredLanguages;
 			foreach(NSString language in languages.GetEnumerator<NSString>()) {
 				key = resourceName + "." + language;
+				Logger.Info("NSNib", "Probing '" + key + "'...");
 				candidate = resources.FirstOrDefault (r => String.Equals (r, key));
 				if (candidate != null) {
 					candidates.Add (candidate);
