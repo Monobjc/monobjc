@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2012 - Laurent Etiemble
+// Copyright (C) 2007-2013 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -33,7 +33,7 @@ namespace Monobjc.ApplicationServices
 		/// </summary>
 		/// <param name="t1">The first affine transform.</param>
 		/// <param name="t2">The second affine transform. This affine transform is concatenated to the first affine transform.</param>
-		/// <returns>A new affine transformation matrix. That is, t’ = t1*t2.</returns>
+		/// <returns>A new affine transformation matrix. That is, t' = t1*t2.</returns>
 		public static CGAffineTransform Concat (CGAffineTransform t1, CGAffineTransform t2)
 		{
 			// TODO : To implement

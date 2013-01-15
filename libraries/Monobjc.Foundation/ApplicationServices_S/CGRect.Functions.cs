@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2012 - Laurent Etiemble
+// Copyright (C) 2007-2013 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -67,9 +67,9 @@ namespace Monobjc.ApplicationServices
         /// </summary>
         /// <param name="rect">The source rectangle.</param>
         /// <param name="slice">On input, a pointer to an uninitialized rectangle. On return, a rectangle that contains the specified edge and extends the distance beyond it specified by the amount parameter.</param>
-        /// <param name="remainder">On input, a pointer to an uninitialized rectangle. On return, the rectangle contains the portion of the source rectangle that remains after CGRectEdge produces the “slice” rectangle.</param>
-        /// <param name="amount">A distance from the rectangle’s side that is specified in the edge parameter. This distance defines the line, parallel to the specified side, that Quartz uses to divide the source rectangle.</param>
-        /// <param name="edge">A CGRectEdge value (CGRectMinXEdge, CGRectMinYEdge, CGRectMaxXEdge, or CGRectMaxYEdge) that specifies the side of the rectangle from which the distance passed in the amount parameter is measured. CGRectDivide produces a “slice” rectangle that contains the specified edge and extends amount distance beyond it.</param>
+        /// <param name="remainder">On input, a pointer to an uninitialized rectangle. On return, the rectangle contains the portion of the source rectangle that remains after CGRectEdge produces the 'slice' rectangle.</param>
+        /// <param name="amount">A distance from the rectangle's side that is specified in the edge parameter. This distance defines the line, parallel to the specified side, that Quartz uses to divide the source rectangle.</param>
+        /// <param name="edge">A CGRectEdge value (CGRectMinXEdge, CGRectMinYEdge, CGRectMaxXEdge, or CGRectMaxYEdge) that specifies the side of the rectangle from which the distance passed in the amount parameter is measured. CGRectDivide produces a 'slice' rectangle that contains the specified edge and extends amount distance beyond it.</param>
         /// <returns>Returns 1 if the two specified rectangles have equal size and origin values, or are both null. Otherwise, returns 0.</returns>
         /// <remarks>Original declaration is : void CGRectDivide ( CGRect rect, CGRect *slice, CGRect *remainder, float amount, CGRectEdge edge );</remarks>
 		public static void CGRectDivide(CGRect rect, ref CGRect slice, ref CGRect remainder, CGFloat amount, CGRectEdge edge)
@@ -265,7 +265,7 @@ namespace Monobjc.ApplicationServices
         /// <param name="rect">The source rectangle.</param>
         /// <param name="dx">The value by which to adjust the x-coordinates of the source rectangle. To create an inset rectangle, specify a positive value. To create a larger, encompassing rectangle, specify a negative value.</param>
         /// <param name="dy">The value by which to adjust the y-coordinates of the source rectangle. To create an inset rectangle, specify a positive value. To create a larger, encompassing rectangle, specify a negative value.</param>
-        /// <returns>A rectangle with its origin offset in the x-axis by the distance specified by the dx parameter and in the y-axis by the distance specified by the dy parameter, and its size adjusted by (2*dx,2*dy), relative to the source rectangle. If dx and dy are positive values, then the rectangle’s size is decreased. If dx and dy are negative values, the rectangle’s size is increased.</returns>
+        /// <returns>A rectangle with its origin offset in the x-axis by the distance specified by the dx parameter and in the y-axis by the distance specified by the dy parameter, and its size adjusted by (2*dx,2*dy), relative to the source rectangle. If dx and dy are positive values, then the rectangle's size is decreased. If dx and dy are negative values, the rectangle's size is increased.</returns>
         /// <remarks>Original declaration is : CGRect CGRectInset ( CGRect rect, float dx, float dy );</remarks>
 		public static CGRect CGRectInset(CGRect rect, CGFloat dx, CGFloat dy)
         {
@@ -279,7 +279,7 @@ namespace Monobjc.ApplicationServices
         /// Returns a rectangle with integer values for its origin and size.
         /// </summary>
         /// <param name="rect">The source rectangle.</param>
-        /// <returns>The rectangle with smallest integer values for its origin and size that contains the source rectangle. That is, given a rectangle with fractional origin or size values, CGRectIntegral rounds the rectangle’s origin downward and its size upward to the nearest whole integers, such that the result contains the original rectangle.</returns>
+        /// <returns>The rectangle with smallest integer values for its origin and size that contains the source rectangle. That is, given a rectangle with fractional origin or size values, CGRectIntegral rounds the rectangle's origin downward and its size upward to the nearest whole integers, such that the result contains the original rectangle.</returns>
         /// <remarks>Original declaration is : CGRect CGRectIntegral ( CGRect rect );</remarks>
         public static CGRect CGRectIntegral(CGRect rect)
         {
@@ -368,8 +368,8 @@ namespace Monobjc.ApplicationServices
         /// <summary>
         /// Returns a rectangle structure constructed from coordinate and dimension values you provide.
         /// </summary>
-        /// <param name="x">The x-coordinate of the rectangle’s origin point.</param>
-        /// <param name="y">The y-coordinate of the rectangle’s origin point.</param>
+        /// <param name="x">The x-coordinate of the rectangle's origin point.</param>
+        /// <param name="y">The y-coordinate of the rectangle's origin point.</param>
         /// <param name="width">The width of the rectangle.</param>
         /// <param name="height">The height of the rectangle.</param>
         /// <returns>Returns a rectangle with the specified location and dimensions.</returns>
@@ -383,8 +383,8 @@ namespace Monobjc.ApplicationServices
         /// Returns a rectangle with an origin offset from that of the source rectangle.
         /// </summary>
         /// <param name="rect">The source rectangle.</param>
-        /// <param name="dx">The value by which to move the x-coordinate of the source rectangle’s origin.</param>
-        /// <param name="dy">The value by which to move the y-coordinate of the source rectangle’s origin.</param>
+        /// <param name="dx">The value by which to move the x-coordinate of the source rectangle's origin.</param>
+        /// <param name="dy">The value by which to move the y-coordinate of the source rectangle's origin.</param>
         /// <returns>A rectangle with the same size as the source, but with its origin offset by dx units along the x-axis and dy units along the y-axis with respect to the source.</returns>
         /// <remarks>Original declaration is : CGRect CGRectOffset ( CGRect rect, float dx, float dy );</remarks>
 		public static CGRect CGRectOffset(CGRect rect, CGFloat dx, CGFloat dy)

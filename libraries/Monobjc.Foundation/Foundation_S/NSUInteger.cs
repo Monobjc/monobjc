@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2012 - Laurent Etiemble
+// Copyright (C) 2007-2013 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -38,7 +38,7 @@ namespace Monobjc.Foundation
 		public static readonly NSUInteger NSUIntegerMax = UInt32.MaxValue;
 		
 		/// <summary>
-        /// <para>Defines a value that indicates that an item requested couldn’t be found or doesn’t exist.</para>
+        /// <para>Defines a value that indicates that an item requested couldn't be found or doesn't exist.</para>
         /// <para>Available in Mac OS X v10.0 and later.</para>
         /// </summary>
         public static readonly NSUInteger NSNotFound = ObjectiveCRuntime.Is64Bits ? UInt32.MaxValue : Int32.MaxValue;

@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2012 - Laurent Etiemble
+// Copyright (C) 2007-2013 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -132,7 +132,7 @@ namespace Monobjc.Foundation
         /// <param name="startIndex">The zero-based starting index of the search.</param>
         /// <param name="count">The number of elements in the section to search.</param>
         /// <param name="match">The <see cref="Predicate{T}"/> delegate that defines the conditions of the element to search for.</param>
-        /// <returns>The zero-based index of the first occurrence of an element that matches the conditions defined by match, if found; otherwise, –1.</returns>
+        /// <returns>The zero-based index of the first occurrence of an element that matches the conditions defined by match, if found; otherwise, '1.</returns>
         public int FindIndex<T>(int startIndex, int count, Predicate<T> match) where T : class, IManagedWrapper
         {
             if (startIndex >= this.Count)
@@ -165,7 +165,7 @@ namespace Monobjc.Foundation
         /// <typeparam name="T">The parametric type</typeparam>
         /// <param name="startIndex">The zero-based starting index of the search.</param>
         /// <param name="match">The <see cref="Predicate{T}"/> delegate that defines the conditions of the element to search for.</param>
-        /// <returns>The zero-based index of the first occurrence of an element that matches the conditions defined by match, if found; otherwise, –1.</returns>
+        /// <returns>The zero-based index of the first occurrence of an element that matches the conditions defined by match, if found; otherwise, '1.</returns>
         public int FindIndex<T>(int startIndex, Predicate<T> match) where T : class, IManagedWrapper
         {
             return this.FindIndex(startIndex, (int) (uint)this.Count, match);
@@ -176,7 +176,7 @@ namespace Monobjc.Foundation
         /// </summary>
         /// <typeparam name="T">The parametric type</typeparam>
         /// <param name="match">The <see cref="Predicate{T}"/> delegate that defines the conditions of the element to search for.</param>
-        /// <returns>The zero-based index of the first occurrence of an element that matches the conditions defined by match, if found; otherwise, –1.</returns>
+        /// <returns>The zero-based index of the first occurrence of an element that matches the conditions defined by match, if found; otherwise, '1.</returns>
         public int FindIndex<T>(Predicate<T> match) where T : class, IManagedWrapper
         {
             return this.FindIndex(0, match);
@@ -208,7 +208,7 @@ namespace Monobjc.Foundation
         /// <param name="startIndex">The zero-based starting index of the backward search.</param>
         /// <param name="count">The number of elements in the section to search.</param>
         /// <param name="match">The <see cref="Predicate{T}"/> delegate that defines the conditions of the element to search for.</param>
-        /// <returns>The zero-based index of the last occurrence of an element that matches the conditions defined by match, if found; otherwise, –1.</returns>
+        /// <returns>The zero-based index of the last occurrence of an element that matches the conditions defined by match, if found; otherwise, '1.</returns>
         public int FindLastIndex<T>(int startIndex, int count, Predicate<T> match) where T : class, IManagedWrapper
         {
             if (startIndex < 0)
@@ -241,7 +241,7 @@ namespace Monobjc.Foundation
         /// <typeparam name="T">The parametric type</typeparam>
         /// <param name="startIndex">The zero-based starting index of the backward search.</param>
         /// <param name="match">The <see cref="Predicate{T}"/> delegate that defines the conditions of the element to search for.</param>
-        /// <returns>The zero-based index of the last occurrence of an element that matches the conditions defined by match, if found; otherwise, –1.</returns>
+        /// <returns>The zero-based index of the last occurrence of an element that matches the conditions defined by match, if found; otherwise, '1.</returns>
         public int FindLastIndex<T>(int startIndex, Predicate<T> match) where T : class, IManagedWrapper
         {
             return this.FindLastIndex(startIndex, (int) (uint)this.Count, match);
@@ -252,7 +252,7 @@ namespace Monobjc.Foundation
         /// </summary>
         /// <typeparam name="T">The parametric type</typeparam>
         /// <param name="match">The <see cref="Predicate{T}"/> delegate that defines the conditions of the element to search for.</param>
-        /// <returns>The zero-based index of the last occurrence of an element that matches the conditions defined by match, if found; otherwise, –1.</returns>
+        /// <returns>The zero-based index of the last occurrence of an element that matches the conditions defined by match, if found; otherwise, '1.</returns>
         public int FindLastIndex<T>(Predicate<T> match) where T : class, IManagedWrapper
         {
             return this.FindLastIndex(0, match);

@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2012 - Laurent Etiemble
+// Copyright (C) 2007-2013 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,7 @@ namespace Monobjc.AppKit
     public partial class NSApplication
     {
         /// <summary>
-        ///   <para>Returns the NSApplication instance (the global variable NSApp), creating it if it doesn’t exist yet.</para>
+        ///   <para>Returns the NSApplication instance (the global variable NSApp), creating it if it doesnï¿½t exist yet.</para>
         ///   <para>Original signature is '+ (NSApplication *)sharedApplication'</para>
         ///   <para>Available in Mac OS X v10.0 and later.</para>
         /// </summary>
@@ -56,7 +56,7 @@ namespace Monobjc.AppKit
         /// <param name = "sheet">The window object representing the sheet you want to display.</param>
         /// <param name = "docWindow">The window object to which you want to attach the sheet.</param>
         /// <param name = "modalDelegate">The delegate object that defines your didEndSelector method. If nil, the method in didEndSelector is not called.</param>
-        /// <param name = "contextInfo">A pointer to the context info you want passed to the didEndSelector method when the sheet’s modal session ends.</param>
+        /// <param name = "contextInfo">A pointer to the context info you want passed to the didEndSelector method when the sheetï¿½s modal session ends.</param>
         public void BeginSheetModalForWindowModalDelegateDidEndSelectorContextInfo(NSWindow sheet, NSWindow docWindow, SheetDidEndReturnCodeContextInfoEventHandler<NSWindow> modalDelegate, IntPtr contextInfo)
         {
             NSApplicationSheetDispatcher sheetDispatcher = new NSApplicationSheetDispatcher(modalDelegate);

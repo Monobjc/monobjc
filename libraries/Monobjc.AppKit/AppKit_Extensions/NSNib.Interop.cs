@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2012 - Laurent Etiemble
+// Copyright (C) 2007-2013 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,9 +25,7 @@ using System.IO;
 using System.Reflection;
 using Monobjc.AppKit;
 using Monobjc.Foundation;
-using System.Collections;
 using System.Linq;
-using System.Globalization;
 using System.Collections.Generic;
 
 namespace Monobjc.AppKit
@@ -36,57 +34,40 @@ namespace Monobjc.AppKit
 	{
 		public static bool InstantiateNibWithOwnerTopLevelObjects (NSString resourceName, Id owner)
 		{
-			return InstantiateNibWithOwnerTopLevelObjects (owner.GetType (), resourceName, NSLocale.CurrentLocale, owner);
+			return InstantiateNibWithOwnerTopLevelObjects (owner.GetType (), resourceName, owner);
 		}
 		
-		public static bool InstantiateNibWithOwnerTopLevelObjects (NSString resourceName, NSLocale locale, Id owner)
-		{
-			return InstantiateNibWithOwnerTopLevelObjects (owner.GetType (), resourceName, locale, owner);
-		}
-
 		public static bool InstantiateNibWithOwnerTopLevelObjects (Type type, NSString resourceName, Id owner)
-		{
-			return InstantiateNibWithOwnerTopLevelObjects (type, resourceName, NSLocale.CurrentLocale, owner);
-		}
-		
-		public static bool InstantiateNibWithOwnerTopLevelObjects (Type type, NSString resourceName, NSLocale locale, Id owner)
 		{
 			Assembly assembly = type.Assembly;
 			
 			// Lookup the resource name
 			String[] resources = assembly.GetManifestResourceNames ();
 			IList<String> candidates = new List<String> ();
-			
-			// Check with full locale
-			CultureInfo cultureInfo = locale.ToCultureInfo ();
-			String key = resourceName + (String.IsNullOrEmpty (cultureInfo.Name) ? String.Empty : "." + cultureInfo.Name);
+
+			// Check the invariant culture
+			String key = resourceName;
 			String candidate = resources.FirstOrDefault (r => String.Equals (r, key));
 			if (candidate != null) {
 				candidates.Add (candidate);
 			}
-			
-			// Check with language
-			cultureInfo = cultureInfo.Parent;
-			key = resourceName + (String.IsNullOrEmpty (cultureInfo.Name) ? String.Empty : "." + cultureInfo.Name);
-			candidate = resources.FirstOrDefault (r => String.Equals (r, key));
-			if (candidate != null) {
-				candidates.Add (candidate);
+
+			// Check preferred cultures
+			NSArray languages = NSLocale.PreferredLanguages;
+			foreach(NSString language in languages.GetEnumerator<NSString>()) {
+				key = resourceName + "." + language;
+				candidate = resources.FirstOrDefault (r => String.Equals (r, key));
+				if (candidate != null) {
+					candidates.Add (candidate);
+				}
 			}
-			
-			// Check invariant
-			cultureInfo = cultureInfo.Parent;
-			key = resourceName + (String.IsNullOrEmpty (cultureInfo.Name) ? String.Empty : "." + cultureInfo.Name);
-			candidate = resources.FirstOrDefault (r => String.Equals (r, key));
-			if (candidate != null) {
-				candidates.Add (candidate);
-			}
-			
+
 			if (candidates.Count == 0) {
 				return false;
 			}
 			
 			bool result = false;
-			String name = candidates [0];
+			String name = candidates.First();
 			String fileName = Path.Combine (Path.GetTempPath (), Path.GetTempFileName ());
 			
 			using (Stream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write)) {

@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2012 - Laurent Etiemble
+// Copyright (C) 2007-2013 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -183,7 +183,7 @@ namespace Monobjc.AppKit
         public static readonly NSInteger NSTornOffMenuWindowLevel = kCGTornOffMenuWindowLevel;
 
         /// <summary>
-        ///   <para>Reserved for the applicationís main menu.</para>
+        ///   <para>Reserved for the application's main menu.</para>
         ///   <para>Available in Mac OS X v10.0 and later.</para>
         /// </summary>
         public static readonly NSInteger NSMainMenuWindowLevel = kCGMainMenuWindowLevel;

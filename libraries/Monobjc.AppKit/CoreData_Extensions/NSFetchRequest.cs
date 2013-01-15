@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2012 - Laurent Etiemble
+// Copyright (C) 2007-2013 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -38,7 +38,7 @@ namespace Monobjc.CoreData
         #region ----- NSCopying -----
 
         /// <summary>
-        /// <para>Returns a new instance that’s a copy of the receiver. (required)</para>
+        /// <para>Returns a new instance that's a copy of the receiver. (required)</para>
         /// <para>Original signature is '- (id)copyWithZone:(NSZone *)zone'</para>
         /// <para>Available in Mac OS X v10.0 and later.</para>
         /// </summary>

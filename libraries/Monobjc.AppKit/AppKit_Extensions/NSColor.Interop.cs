@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2012 - Laurent Etiemble
+// Copyright (C) 2007-2013 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -32,7 +32,7 @@ namespace Monobjc.AppKit
         /// <param name="color">The color.</param>
         /// <param name="highlightLevel">The amount of the highlight color that is blended with the receiver's color. This should be a number from 0.0 through 1.0. A highlightLevel below 0.0 is interpreted as 0.0; a highlightLevel above 1.0 is interpreted as 1.0.</param>
         /// <returns>
-        /// The new NSColor object. Returns nil if the colors can’t be converted.
+        /// The new NSColor object. Returns nil if the colors canï¿½t be converted.
         /// </returns>
         public static NSColor operator *(NSColor color, float highlightLevel)
         {
@@ -47,7 +47,7 @@ namespace Monobjc.AppKit
         /// <param name="color">The color.</param>
         /// <param name="shadowLevel">The amount of the shadow color used for the blend. This should be a number from 0.0 through 1.0. A shadowLevel below 0.0 is interpreted as 0.0; a shadowLevel above 1.0 is interpreted as 1.0.</param>
         /// <returns>
-        /// The new NSColor object. Returns nil if the colors can’t be converted.
+        /// The new NSColor object. Returns nil if the colors canï¿½t be converted.
         /// </returns>
         public static NSColor operator /(NSColor color, float shadowLevel)
         {

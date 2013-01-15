@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2012 - Laurent Etiemble
+// Copyright (C) 2007-2013 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -121,7 +121,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Returns the x coordinate of the rectangle’s midpoint.
+        /// Returns the x coordinate of the rectangle's midpoint.
         /// </summary>
 		public CGFloat MidX
         {
@@ -129,7 +129,7 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Returns the y coordinate of the rectangle’s midpoint.
+        /// Returns the y coordinate of the rectangle's midpoint.
         /// </summary>
 		public CGFloat MidY
         {
