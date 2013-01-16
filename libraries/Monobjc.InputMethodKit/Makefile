@@ -14,6 +14,7 @@ HAS_RESX=0
 SOURCES= \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/*.cs) \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/InputMethodKit_C/*.cs) \
+	$(wildcard $(LIBRARIES_DIR)/$(NAME)/InputMethodKit_Extensions/*.cs) \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/InputMethodKit_P/*.cs) \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/Properties/*.cs)
 
