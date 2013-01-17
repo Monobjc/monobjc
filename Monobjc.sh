@@ -100,23 +100,23 @@ EOF
 
     # Make sure that pkg-config has its soft-link
     # because the Mono CSDK doesn't create it
-    ln -s "$MONO_ROOT/Commands/pkg-config" "/usr/bin/pkg-config"
+    ln -s "$MONO_DIR/bin/pkg-config" "/usr/bin/pkg-config"
 
     # Copy the helper tools
-    cp "./dist/Monobjc.Sdp.exe" "$MONO_DIR/lib/mono/4.0/Monobjc.Sdp.exe"
+    cp "./dist/Monobjc.Tools.Sdp.exe" "$MONO_DIR/lib/mono/4.0/Monobjc.Tools.Sdp.exe"
     
     # Copy the runtime binary
-    cp "./dist/monobjc" "$MONO_ROOT/Commands/monobjc"
+    cp "./dist/monobjc" "$MONO_DIR/bin/monobjc"
 
     # Copy the runtime wrappers and soft-link them
-    cp "./dist/monobjc-sdp" "$MONO_ROOT/Commands/monobjc-sdp"
-    cp "./dist/monobjc-nunit" "$MONO_ROOT/Commands/monobjc-nunit"
-    chmod a+rx "$MONO_ROOT/Commands/monobjc"
-    chmod a+rx "$MONO_ROOT/Commands/monobjc-sdp"
-    chmod a+rx "$MONO_ROOT/Commands/monobjc-nunit"
-    ln -s "$MONO_ROOT/Commands/monobjc" "/usr/bin/monobjc"
-    ln -s "$MONO_ROOT/Commands/monobjc-sdp" "/usr/bin/monobjc-sdp"
-    ln -s "$MONO_ROOT/Commands/monobjc-nunit" "/usr/bin/monobjc-nunit"
+    cp "./dist/monobjc-sdp" "$MONO_DIR/bin/monobjc-sdp"
+    cp "./dist/monobjc-nunit" "$MONO_DIR/bin/monobjc-nunit"
+    chmod a+rx "$MONO_DIR/bin/monobjc"
+    chmod a+rx "$MONO_DIR/bin/monobjc-sdp"
+    chmod a+rx "$MONO_DIR/bin/monobjc-nunit"
+    ln -s "$MONO_DIR/bin/monobjc" "/usr/bin/monobjc"
+    ln -s "$MONO_DIR/bin/monobjc-sdp" "/usr/bin/monobjc-sdp"
+    ln -s "$MONO_DIR/bin/monobjc-nunit" "/usr/bin/monobjc-nunit"
 }
 
 #
@@ -146,11 +146,11 @@ function uninstall {
     # Remove executables
     rm -f "/usr/bin/monobjc"
     rm -f "/usr/bin/monobjc-nunit"
-    rm -f "$MONO_DIR/Commands/monobjc"
-    rm -f "$MONO_DIR/Commands/monobjc-nunit"
+    rm -f "$MONO_DIR/bin/monobjc"
+    rm -f "$MONO_DIR/bin/monobjc-nunit"
     
     # Remove the helper tools
-    rm -f "$MONO_DIR/Libraries/mono/4.0/Monobjc.Sdp.exe"
+    rm -f "$MONO_DIR/lib/mono/4.0/Monobjc.Tools.Sdp.exe"
 }
 
 function install_nant {

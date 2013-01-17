@@ -111,7 +111,7 @@ generate-doc:
 	$(MDASSEMBLER) -o $(DOC_DIST_DIR)/Monobjc $(addprefix $(DOC_BUILD_DIR)/,$(DOC_XML_NAMES))
 
 	# Third pass
-	$(CPC) $(DIRS_DIR)/Monobjc.source $(DOC_DIST_DIR)
+	$(CPC) $(LIBRARIES_DIR)/Monobjc.source $(DOC_DIST_DIR)
 
 #
 # Composite target have the following form: <LIBRARY>-<VERSION>-<ACTION>

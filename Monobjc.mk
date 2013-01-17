@@ -44,7 +44,7 @@ endif
 export MDASSEMBLER=mdassembler -f ecma
 export MKDIR=mkdir -p
 export MONODOCER=monodocer -pretty
-export PACKAGE_MAKER=/Developer/Applications/PackageMaker.app/Contents/MacOS/PackageMaker --verbose
+export PACKAGE_MAKER=/Developer/Applications/Utilities/PackageMaker.app/Contents/MacOS/PackageMaker --verbose
 export RESGEN=resgen
 export RMRF=rm -Rf
 export SED=sed

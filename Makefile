@@ -61,6 +61,8 @@ clean: $(DIRS_CLEAN)
 	$(RMRF) "$(BUILD_DIR)"
 	$(RMRF) "$(DIST_DIR)"
 
+distribute: generate-tar generate-package
+
 generate-doc: all $(DIRS_DOC)
 
 generate-archive: generate-doc
@@ -124,6 +126,7 @@ $(DIRS_DOC):
 .PHONY: \
 	all \
 	clean \
+	distribute \
 	generate-doc \
 	generate-archive \
 	generate-tar \
