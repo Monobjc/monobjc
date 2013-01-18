@@ -60,6 +60,7 @@ $(DIST_DIR):
 clean: $(DIRS_CLEAN)
 	$(RMRF) "$(BUILD_DIR)"
 	$(RMRF) "$(DIST_DIR)"
+	$(RMRF) "Monobjc-*"
 
 distribute: generate-tar generate-package
 
