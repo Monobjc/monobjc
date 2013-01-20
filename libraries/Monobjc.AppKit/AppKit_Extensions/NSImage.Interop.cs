@@ -27,76 +27,108 @@ using Monobjc.Foundation;
 
 namespace Monobjc.AppKit
 {
-    public partial class NSImage
-    {
-        /// <summary>
-        /// Create a <see cref="NSImage"/> from a file.
-        /// </summary>
-        /// <param name="filename">The filename.</param>
-        /// <returns>An autoreleased <see cref="NSImage"/> instance</returns>
-        public static NSImage ImageFromFile(NSString filename)
-        {
-            NSImage result = null;
-            if (filename != null)
-            {
-                NSData data = NSData.DataWithContentsOfFile(filename);
-                result = new NSImage(data);
-                result.Autorelease();
-            }
-            return result;
-        }
+	public partial class NSImage
+	{
+		/// <summary>
+		/// Create a <see cref="NSImage"/> from a file.
+		/// </summary>
+		/// <param name="filename">The filename.</param>
+		/// <returns>An autoreleased <see cref="NSImage"/> instance</returns>
+		public static NSImage ImageFromFile (NSString filename)
+		{
+			NSImage result = null;
+			if (filename != null) {
+				NSData data = NSData.DataWithContentsOfFile (filename);
+				result = new NSImage (data);
+				result.Autorelease ();
+			}
+			return result;
+		}
 
-        /// <summary>
-        /// Create a <see cref="NSImage"/> from a stream.
-        /// </summary>
-        /// <param name="stream">The stream.</param>
-        /// <returns>An autoreleased <see cref="NSImage"/> instance</returns>
-        public static NSImage ImageFromStream(Stream stream)
-        {
-            NSImage result = null;
-            if (stream != null)
-            {
-                byte[] buffer = new byte[stream.Length];
-                stream.Read(buffer, 0, (int)stream.Length);
+		/// <summary>
+		/// Create a <see cref="NSImage"/> from a stream.
+		/// </summary>
+		/// <param name="stream">The stream.</param>
+		/// <returns>An autoreleased <see cref="NSImage"/> instance</returns>
+		public static NSImage ImageFromStream (Stream stream)
+		{
+			NSImage result = null;
+			if (stream != null) {
+				byte[] buffer = new byte[stream.Length];
+				stream.Read (buffer, 0, (int)stream.Length);
 
-                NSData data = new NSData(buffer);
-                result = new NSImage(data);
-                data.Release();
+				NSData data = new NSData (buffer);
+				result = new NSImage (data);
+				data.Release ();
 
-                result.Autorelease();
-            }
-            return result;
-        }
+				result.Autorelease ();
+			}
+			return result;
+		}
 
-        /// <summary>
-        /// <para>Create a <see cref="NSImage"/> from a manifest resource stream.</para>
-        /// <para>Once retrieved, the instance is named and cached.</para>
-        /// </summary>
-        /// <param name="type">The type whose assembly contains the manifest resource.</param>
-        /// <param name="resourceName">Name of the resource.</param>
-        /// <returns>An autoreleased <see cref="NSImage"/> instance</returns>
-        public static NSImage ImageFromResource(Type type, String resourceName)
-        {
-            Assembly assembly = type.Assembly;
+		/// <summary>
+		/// <para>Create a <see cref="NSImage"/> from a manifest resource stream.</para>
+		/// <para>Once retrieved, the instance is named and cached.</para>
+		/// </summary>
+		/// <param name="type">The type whose assembly contains the manifest resource.</param>
+		/// <param name="resourceName">Name of the resource.</param>
+		/// <returns>An autoreleased <see cref="NSImage"/> instance</returns>
+		public static NSImage ImageFromResource (Type type, String resourceName)
+		{
+			Assembly assembly = type.Assembly;
 
-            String imageName = assembly.GetName().Name + "." + resourceName;
-            NSImage image = ImageNamed(imageName);
-            if (image != null)
-            {
+			String imageName = assembly.GetName ().Name + "." + resourceName;
+			NSImage image = ImageNamed (imageName);
+			if (image != null) {
 				return image;
 			}
 			
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            {
-                if (stream != null)
-                {
-                    image = ImageFromStream(stream);
-                    image.SetName(imageName);
-                    stream.Close();
-                }
-            }
+			using (Stream stream = assembly.GetManifestResourceStream(resourceName)) {
+				if (stream != null) {
+					image = ImageFromStream (stream);
+					image.SetName (imageName);
+					stream.Close ();
+				}
+			}
 
-            return image;
-        }
-    }
+			return image;
+		}
+
+		/// <summary>
+		/// Decrypts the given data and return an image.
+		/// </summary>
+		/// <param name="encryptedData">The encrypted artwork data.</param>
+		/// <param name="encryptionSeed">The encryption seed to use.</param>
+		/// <returns>The decrypted artwork image.</returns>
+		public static NSImage ImageFromArtworkEncrypedData (NSData encryptedData, NSString encryptionSeed)
+		{
+			NSData decryptedData = NSData.DecryptArtworkData (encryptedData, encryptionSeed);
+			NSImage image = new NSImage (decryptedData);
+			return image.Autorelease<NSImage> ();
+		}
+		
+		/// <summary>
+		/// Decrypts the given resource and return an image.
+		/// </summary>
+		/// <param name="path">The image resource path.</param>
+		/// <param name="encryptionSeed">The encryption seed to use.</param>
+		/// <returns>The decrypted artwork image.</returns>
+		public static NSImage ImageFromArtworkEncryptedPath (NSString path, NSString encryptionSeed)
+		{
+			NSData encryptedData = NSData.DataWithContentsOfFile (path);
+			return ImageFromArtworkEncrypedData (encryptedData, encryptionSeed);
+		}
+		
+		/// <summary>
+		/// Decrypts the given resource and return an image.
+		/// </summary>
+		/// <param name="name">The image resource name.</param>
+		/// <param name="encryptionSeed">The encryption seed to use.</param>
+		/// <returns>The decrypted artwork image.</returns>
+		public static NSImage ImageFromArtworkEncryptedResource (NSString name, NSString encryptionSeed)
+		{
+			NSString path = NSBundle.MainBundle.PathForImageResource (name);
+			return ImageFromArtworkEncryptedPath (path, encryptionSeed);
+		}
+	}
 }

@@ -25,100 +25,113 @@ using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
+using Monobjc.Tools.Generators;
 
 namespace Monobjc.Foundation
 {
-    public partial class NSData
-    {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NSData"/> class.
-        /// </summary>
-        /// <param name="bytes">The bytes.</param>
-        public NSData(byte[] bytes)
-            : this(bytes, (NSUInteger) bytes.Length) {}
+	public partial class NSData
+	{
+		/// <summary>
+		/// Initializes a new instance of the <see cref="NSData"/> class.
+		/// </summary>
+		/// <param name="bytes">The bytes.</param>
+		public NSData (byte[] bytes)
+            : this(bytes, (NSUInteger) bytes.Length)
+		{
+		}
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NSData"/> class.
-        /// </summary>
-        /// <param name="bytes">The bytes.</param>
-        /// <param name="length">The length.</param>
-        public NSData(byte[] bytes, NSUInteger length)
+		/// <summary>
+		/// Initializes a new instance of the <see cref="NSData"/> class.
+		/// </summary>
+		/// <param name="bytes">The bytes.</param>
+		/// <param name="length">The length.</param>
+		public NSData (byte[] bytes, NSUInteger length)
             : this(ObjectiveCRuntime.SendMessage<IntPtr>(NSDataClass, "alloc"))
-        {
-            IntPtr pointer = Marshal.AllocHGlobal((int) length);
-            Marshal.Copy(bytes, 0, pointer, (int) length);
+		{
+			IntPtr pointer = Marshal.AllocHGlobal ((int)length);
+			Marshal.Copy (bytes, 0, pointer, (int)length);
 			
-            if (ObjectiveCRuntime.Is64Bits)
-            {
-                this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr>(this, "initWithBytes:length:", pointer, (ulong) length);
-            }
-            else
-            {
-                this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr>(this, "initWithBytes:length:", pointer, (uint) length);
-            }
+			if (ObjectiveCRuntime.Is64Bits) {
+				this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr> (this, "initWithBytes:length:", pointer, (ulong)length);
+			} else {
+				this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr> (this, "initWithBytes:length:", pointer, (uint)length);
+			}
 			
-            Marshal.FreeHGlobal(pointer);
-        }
+			Marshal.FreeHGlobal (pointer);
+		}
 
-        /// <summary>
-        /// Gets a managed byte buffer from this instance.
-        /// </summary>
-        /// <value>The byte buffer.</value>
-        public byte[] GetBuffer()
-        {
-            byte[] buffer = new byte[(int)this.Length];
-            Marshal.Copy(this.Bytes, buffer, 0, (int)this.Length);
-            return buffer;
-        }
+		/// <summary>
+		/// Gets a managed byte buffer from this instance.
+		/// </summary>
+		/// <value>The byte buffer.</value>
+		public byte[] GetBuffer ()
+		{
+			byte[] buffer = new byte[(int)this.Length];
+			Marshal.Copy (this.Bytes, buffer, 0, (int)this.Length);
+			return buffer;
+		}
 
-        /// <summary>
-        /// Create a <see cref="NSData"/> from a stream.
-        /// </summary>
-        /// <param name="stream">The stream.</param>
-        /// <returns>A autoreleased <see cref="NSData"/> instance</returns>
-        public static NSData DataFromStream(Stream stream)
-        {
-            NSData data = null;
-            if (stream != null)
-            {
-                byte[] buffer = new byte[stream.Length];
-                stream.Read(buffer, 0, (int) stream.Length);
-                data = new NSData(buffer);
-                data.Autorelease();
-            }
-            return data;
-        }
+		/// <summary>
+		/// Create a <see cref="NSData"/> from a stream.
+		/// </summary>
+		/// <param name="stream">The stream.</param>
+		/// <returns>A autoreleased <see cref="NSData"/> instance</returns>
+		public static NSData DataFromStream (Stream stream)
+		{
+			NSData data = null;
+			if (stream != null) {
+				byte[] buffer = new byte[stream.Length];
+				stream.Read (buffer, 0, (int)stream.Length);
+				data = new NSData (buffer);
+				data.Autorelease ();
+			}
+			return data;
+		}
 
-        /// <summary>
-        /// Create a <see cref="NSData"/> from a manifest resource stream.
-        /// </summary>
-        /// <param name="type">The type whose assembly contains the manifest resource.</param>
-        /// <param name="resourceName">Name of the resource.</param>
-        /// <returns>A autoreleased <see cref="NSData"/> instance</returns>
-        public static NSData DataFromResource(Type type, String resourceName)
-        {
-            Assembly assembly = type.Assembly;
-            NSData data = null;
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            {
-                if (stream != null)
-                {
-                    data = DataFromStream(stream);
-                    stream.Close();
-                }
-            }
-            return data;
-        }
+		/// <summary>
+		/// Create a <see cref="NSData"/> from a manifest resource stream.
+		/// </summary>
+		/// <param name="type">The type whose assembly contains the manifest resource.</param>
+		/// <param name="resourceName">Name of the resource.</param>
+		/// <returns>A autoreleased <see cref="NSData"/> instance</returns>
+		public static NSData DataFromResource (Type type, String resourceName)
+		{
+			Assembly assembly = type.Assembly;
+			NSData data = null;
+			using (Stream stream = assembly.GetManifestResourceStream(resourceName)) {
+				if (stream != null) {
+					data = DataFromStream (stream);
+					stream.Close ();
+				}
+			}
+			return data;
+		}
 
-        /// <summary>
-        ///   Returns a <see cref = "System.String" /> that represents this instance.
-        /// </summary>
-        /// <returns>
-        ///   A <see cref = "System.String" /> that represents this instance.
-        /// </returns>
-        public override string ToString()
-        {
-            return String.Format(CultureInfo.CurrentCulture, "Length = {0:x}", this.Length);
-        }
-    }
+		/// <summary>
+		///   Returns a <see cref = "System.String" /> that represents this instance.
+		/// </summary>
+		/// <returns>
+		///   A <see cref = "System.String" /> that represents this instance.
+		/// </returns>
+		public override string ToString ()
+		{
+			return String.Format (CultureInfo.CurrentCulture, "Length = {0:x}", this.Length);
+		}
+
+		/// <summary>
+		/// Decrypts the given data by using the <see cref="ArtworkEncrypter"/> tool.
+		/// </summary>
+		/// <param name="encryptedData">The encrypted artwork data.</param>
+		/// <param name="encryptionSeed">The encryption seed to use.</param>
+		/// <returns>The decrypted artwork data.</returns>
+		public static NSData DecryptArtworkData (NSData encryptedData, NSString encryptionSeed)
+		{
+			Aes aes = ArtworkEncrypter.GetProvider (encryptionSeed);
+			byte[] encryptedBytes = encryptedData.GetBuffer ();
+			byte[] decryptedBytes = ArtworkEncrypter.Decrypt (encryptedBytes, aes);
+			NSData result = new NSData (decryptedBytes);
+			return result.Autorelease<NSData> ();
+		}
+	}
 }

@@ -76,7 +76,8 @@ namespace Monobjc.AppKit
 
 #if MACOSX_10_8
 			NSArray topLevelObjets;
-			if (!NSBundle.MainBundle.LoadNibNamedOwnerTopLevelObjects(filename, SharedApplication, out topLevelObjets))
+			NSNib nib = new NSNib (filename, NSBundle.MainBundle);
+			if (!nib.InstantiateWithOwnerTopLevelObjects (NSApplication.SharedApplication, out topLevelObjets))
 			{
 				Logger.Error("NSApplication", "Error while loading the NIB file");
 			}

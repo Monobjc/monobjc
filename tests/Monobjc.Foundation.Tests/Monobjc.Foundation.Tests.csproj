@@ -66,6 +66,7 @@
     <Compile Include="WrapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NSLocaleTests.cs" />
+    <Compile Include="NSDataTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\libraries\Monobjc\Monobjc.csproj">
@@ -87,5 +88,10 @@
   -->
   <ItemGroup>
     <None Include="Makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Encrypted.png">
+      <LogicalName>Monobjc.Foundation.Tests.Encrypted.png</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

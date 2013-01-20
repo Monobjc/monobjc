@@ -14,6 +14,8 @@ SOURCES= \
 	$(wildcard $(TESTS_DIR)/$(NAME)/*.cs) \
 	$(wildcard $(TESTS_DIR)/$(NAME)/Common/*.cs) \
 	$(wildcard $(TESTS_DIR)/$(NAME)/Properties/*.cs)
+RESOURCES= \
+	$(TESTS_DIR)/$(NAME)/Encrypted.png
 
 # ----------------------------------------
 # Common

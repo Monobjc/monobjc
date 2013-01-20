@@ -96,6 +96,9 @@
     <EmbeddedResource Include="MainMenu2.nib.en">
       <LogicalName>Monobjc.AppKit.Tests.MainMenu2.nib.en</LogicalName>
     </EmbeddedResource>
+    <EmbeddedResource Include="Encrypted.png">
+      <LogicalName>Monobjc.AppKit.Tests.Encrypted.png</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />

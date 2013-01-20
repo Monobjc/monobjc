@@ -15,6 +15,7 @@ SOURCES= \
 	$(wildcard $(TESTS_DIR)/$(NAME)/*.cs) \
 	$(wildcard $(TESTS_DIR)/$(NAME)/Properties/*.cs)
 RESOURCES= \
+	$(TESTS_DIR)/$(NAME)/Encrypted.png \
 	$(TESTS_DIR)/$(NAME)/MainMenu.nib \
 	$(TESTS_DIR)/$(NAME)/MainMenu2.nib.en \
 	$(TESTS_DIR)/$(NAME)/Sample.png

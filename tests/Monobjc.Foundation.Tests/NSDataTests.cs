@@ -21,36 +21,26 @@
 // THE SOFTWARE.
 // 
 using System;
-using Monobjc.Foundation;
 using NUnit.Framework;
 
-namespace Monobjc.AppKit
+namespace Monobjc.Foundation
 {
-    [TestFixture]
-    [Category("NSImage")]
-    [Description("Test with NSImage wrapper")]
-    public class NSImageTests : WrapperTests
+	[TestFixture]
+	[Category("NSData")]
+	public class NSDataTests : WrapperTests
 	{
-        [Test]
-        public void TestStaticCreation()
-        {
-			NSImage img;
-		
-            img = NSImage.ImageNamed(NSImage.NSImageNameComputer);
-            Check(img);
-
-			img = NSImage.ImageFromResource(typeof(NSImageTests), "Monobjc.AppKit.Tests.Sample.png");
-            Check(img);
-        }
-
 		[Test]
-		public void TestImageSize()
+		public void TestStaticCreation ()
 		{
-			NSImage img;
-			
-			img = NSImage.ImageFromResource(typeof(NSImageTests), "Monobjc.AppKit.Tests.Sample.png");
-			Check(img);
-			Assert.AreEqual(new NSSize(180, 180), img.Size, "Size should be equal");
+			NSData data;
+
+			data = NSData.Data;
+			Check(data);
+			Assert.AreEqual(0, data.Length, "Length should be equal");
+
+			data = NSData.DataFromResource(typeof(NSDataTests), "Monobjc.Foundation.Tests.Encrypted.png");
+			Check(data);
+			Assert.AreEqual(1092, data.Length, "Length should be equal");
 		}
 
 		[Test]
@@ -58,19 +48,19 @@ namespace Monobjc.AppKit
 		{
 			NSData data;
 			
-			data = NSData.DataFromResource(typeof(NSImageTests), "Monobjc.AppKit.Tests.Encrypted.png");
+			data = NSData.DataFromResource(typeof(NSDataTests), "Monobjc.Foundation.Tests.Encrypted.png");
 			Check(data);
 			Assert.AreEqual(1092, data.Length, "Length should be equal");
 
-			NSImage img = NSImage.ImageFromArtworkEncrypedData(data, "123");
-			Check(img);
-			Assert.AreEqual(new NSSize(32, 32), img.Size, "Size should be equal");
+			data = NSData.DecryptArtworkData(data, "123");
+			Check(data);
+			Assert.AreEqual(1037, data.Length, "Length should be equal");
 		}
-		
-		private static void Check(Id @object)
-        {
-            Assert.IsNotNull(@object, "Instance cannot be null");
-            Assert.AreNotEqual(IntPtr.Zero, @object.NativePointer, "Native pointer cannot be null");
-        }
+
+		private static void Check (Id @object)
+		{
+			Assert.IsNotNull (@object, "Instance cannot be null");
+			Assert.AreNotEqual (IntPtr.Zero,  @object.NativePointer, "Native pointer cannot be null");
+		}
 	}
 }
