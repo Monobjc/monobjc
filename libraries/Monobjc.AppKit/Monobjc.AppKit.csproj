@@ -1360,6 +1360,9 @@
     <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGShading.cs">
       <Link>ApplicationServices_T\CGShading.cs</Link>
     </Compile>
+    <Compile Include="QuartzCore_C\CIImage_AutoAdjustmentAdditions.Constants.cs" />
+    <Compile Include="QuartzCore_C\CIImage_AutoAdjustmentAdditions.cs" />
+    <Compile Include="AppKit_P\NSTextStorage.Delegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">
