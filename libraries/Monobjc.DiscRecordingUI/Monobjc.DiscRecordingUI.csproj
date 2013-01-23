@@ -62,13 +62,13 @@
     <Compile Include="DiscRecordingUI_P\DREraseProgressPanelDelegate.Protocol.cs" />
     <Compile Include="DiscRecordingUI_P\DRSetupPanel.Delegate.cs" />
     <Compile Include="DiscRecordingUI_P\DRSetupPanelDelegate.Protocol.cs" />
-    <Compile Include="DiscRecordingUI_T\DiscRecordingUIResources_Header.cs" />
-    <Compile Include="DiscRecordingUI_T\DRBurnProgressPanel_Header.cs" />
-    <Compile Include="DiscRecordingUI_T\DRBurnSession_Header.cs" />
-    <Compile Include="DiscRecordingUI_T\DRBurnSetupPanel_Header.cs" />
-    <Compile Include="DiscRecordingUI_T\DREraseProgressPanel_Header.cs" />
-    <Compile Include="DiscRecordingUI_T\DREraseSession_Header.cs" />
-    <Compile Include="DiscRecordingUI_T\DRSetupPanel_Header.cs" />
+    <Compile Include="DiscRecordingUI_T\DiscRecordingUIFramework.cs" />
+    <Compile Include="DiscRecordingUI_T\DRBurnProgressPanel.cs" />
+    <Compile Include="DiscRecordingUI_T\DRBurnSession.cs" />
+    <Compile Include="DiscRecordingUI_T\DRBurnSetupPanel.cs" />
+    <Compile Include="DiscRecordingUI_T\DREraseProgressPanel.cs" />
+    <Compile Include="DiscRecordingUI_T\DREraseSession.cs" />
+    <Compile Include="DiscRecordingUI_T\DRSetupPanel.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
