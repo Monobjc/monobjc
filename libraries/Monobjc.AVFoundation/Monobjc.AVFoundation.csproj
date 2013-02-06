@@ -265,6 +265,7 @@
     <Compile Include="AVFoundation_C\AVMediaSelectionOption.Protocols.cs" />
     <Compile Include="AVFoundation_C\AVPlayerItemOutput.Class.cs" />
     <Compile Include="AVFoundation_C\AVPlayerItemOutput.cs" />
+    <Compile Include="AVFoundation_Extensions\Handlers.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
@@ -294,5 +295,8 @@
   -->
   <ItemGroup>
     <None Include="Makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AVFoundation_Extensions\" />
   </ItemGroup>
 </Project>
