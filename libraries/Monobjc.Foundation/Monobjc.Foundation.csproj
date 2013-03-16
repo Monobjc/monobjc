@@ -907,7 +907,7 @@
     <Compile Include="Foundation_P\NSXPCListenerDelegate.Protocol.cs" />
     <Compile Include="Foundation_S\UUID.cs" />
     <Compile Include="Foundation_S\UUID.Conversion.cs" />
-    <Compile Include="..\..\tools\Monobjc.Tools\Generators\ArtworkEncrypter.Public.cs">
+    <Compile Include="..\..\tools\Monobjc.Tools\Generators\FileEncrypter.Public.cs">
       <Link>ArtworkEncrypter.Public.cs</Link>
     </Compile>
   </ItemGroup>

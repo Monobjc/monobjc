@@ -11,7 +11,6 @@ _ReSharper*
 *.pbxuser
 *.perspectivev3
 *.pidb
-*.resources
 *.suo
 *.user
 *.userprefs

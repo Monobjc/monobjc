@@ -112,7 +112,6 @@
     <Compile Include="AVFoundation_C\AVCaptureFileOutput.Class.cs" />
     <Compile Include="AVFoundation_C\AVCaptureFileOutput.cs" />
     <Compile Include="AVFoundation_C\AVCaptureInput.Class.cs" />
-    <Compile Include="AVFoundation_C\AVCaptureInput.Constants.cs" />
     <Compile Include="AVFoundation_C\AVCaptureInput.cs" />
     <Compile Include="AVFoundation_C\AVCaptureInputPort.Class.cs" />
     <Compile Include="AVFoundation_C\AVCaptureInputPort.cs" />

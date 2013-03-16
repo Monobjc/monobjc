@@ -1,1 +1,66 @@
-<pkmkdoc spec="1.12"><properties><title>Monobjc Bridge</title><build>/Users/laurent/Desktop/Monobjc Bridge.pkg</build><certificate>Developer ID Installer: Laurent Etiemble</certificate><organization>net.monobjc</organization><userSees ui="easy"/><min-target os="3"/><domain system="true"/></properties><distribution><versions min-spec="1.000000"/><scripts></scripts></distribution><description>Monobjc Bridge</description><contents><choice title="Monobjc Bridge" id="monobjc" tooltip="Monobjc Bridge" description="Provides all the necessary files of the Monobjc bridge." starts_selected="true" starts_enabled="false" starts_hidden="false"><pkgref id="net.monobjc.bridge.dist.pkg"/><pkgref id="net.monobjc.bridge.external.pkg"/><pkgref id="net.monobjc.bridge.libraries.pkg"/><pkgref id="net.monobjc.bridge.native.pkg"/><pkgref id="net.monobjc.bridge.samples.pkg"/><pkgref id="net.monobjc.bridge.tests.pkg"/><pkgref id="net.monobjc.bridge.GPL-rtf.pkg"/><pkgref id="net.monobjc.bridge.LGPL-rtf.pkg"/><pkgref id="net.monobjc.bridge.MIT-rtf.pkg"/><pkgref id="net.monobjc.bridge.Makefile.pkg"/><pkgref id="net.monobjc.bridge.Monobjc-mk.pkg"/><pkgref id="net.monobjc.bridge.Monobjc-sh.pkg"/><pkgref id="net.monobjc.bridge.Monobjc-sln.pkg"/><pkgref id="net.monobjc.bridge.Monobjc-snk.pkg"/><pkgref id="net.monobjc.monobjcBridge.README.pkg"/></choice></contents><resources bg-scale="proportional" bg-align="left"><locale lang="en"><resource relative="true" mod="true" type="background">../../monobjc-resources/images/Dice1024.png</resource></locale><locale lang="fr"><resource type="background">/Users/laurent/Projects/Monobjc/GitHub/monobjc-resources/images/Dice512.png</resource></locale></resources><flags/><extra-files/><item type="file">01dist.xml</item><item type="file">02external.xml</item><item type="file">03libraries.xml</item><item type="file">04native.xml</item><item type="file">05samples.xml</item><item type="file">06tests.xml</item><item type="file">07gpl.xml</item><item type="file">08lgpl.xml</item><item type="file">09mit.xml</item><item type="file">10makefile.xml</item><item type="file">11monobjc.xml</item><item type="file">12monobjc.xml</item><item type="file">13monobjc.xml</item><item type="file">14monobjc.xml</item><item type="file">15readme.xml</item><mod>description</mod><mod>properties.title</mod><mod>properties.anywhereDomain</mod><mod>properties.userDomain</mod><mod>postinstallActions.actions</mod><mod>extraFiles</mod><mod>properties.customizeOption</mod><mod>properties.systemDomain</mod></pkmkdoc>
+<?xml version="1.0"?>
+<pkmkdoc spec="1.12">
+  <properties>
+    <title>Monobjc Bridge</title>
+    <build>/Users/laurent/Desktop/Monobjc Bridge.pkg</build>
+    <certificate>Developer ID Installer: Laurent Etiemble</certificate>
+    <organization>net.monobjc</organization>
+    <userSees ui="easy"/>
+    <min-target os="3"/>
+    <domain system="true"/>
+  </properties>
+  <distribution>
+    <versions min-spec="1.000000"/>
+    <scripts/>
+  </distribution>
+  <description>Monobjc Bridge</description>
+  <contents>
+    <choice title="Monobjc Bridge" id="monobjc" tooltip="Monobjc Bridge" description="Provides all the necessary files of the Monobjc bridge." starts_selected="true" starts_enabled="false" starts_hidden="false">
+      <pkgref id="net.monobjc.bridge.dist.pkg"/>
+      <pkgref id="net.monobjc.bridge.external.pkg"/>
+      <pkgref id="net.monobjc.bridge.libraries.pkg"/>
+      <pkgref id="net.monobjc.bridge.native.pkg"/>
+      <pkgref id="net.monobjc.bridge.samples.pkg"/>
+      <pkgref id="net.monobjc.bridge.tests.pkg"/>
+      <pkgref id="net.monobjc.bridge.GPL-rtf.pkg"/>
+      <pkgref id="net.monobjc.bridge.LGPL-rtf.pkg"/>
+      <pkgref id="net.monobjc.bridge.MIT-rtf.pkg"/>
+      <pkgref id="net.monobjc.bridge.Makefile.pkg"/>
+      <pkgref id="net.monobjc.bridge.Monobjc-mk.pkg"/>
+      <pkgref id="net.monobjc.bridge.Monobjc-sh.pkg"/>
+      <pkgref id="net.monobjc.bridge.Monobjc-sln.pkg"/>
+      <pkgref id="net.monobjc.bridge.Monobjc-snk.pkg"/>
+      <pkgref id="net.monobjc.monobjcBridge.README.pkg"/>
+    </choice>
+  </contents>
+  <resources bg-scale="proportional" bg-align="left">
+    <locale lang="en">
+      <resource relative="true" mod="true" type="background">../../monobjc-resources/images/Dice1024.png</resource>
+    </locale>
+  </resources>
+  <flags/>
+  <extra-files/>
+  <item type="file">01dist.xml</item>
+  <item type="file">02external.xml</item>
+  <item type="file">03libraries.xml</item>
+  <item type="file">04native.xml</item>
+  <item type="file">05samples.xml</item>
+  <item type="file">06tests.xml</item>
+  <item type="file">07gpl.xml</item>
+  <item type="file">08lgpl.xml</item>
+  <item type="file">09mit.xml</item>
+  <item type="file">10makefile.xml</item>
+  <item type="file">11monobjc.xml</item>
+  <item type="file">12monobjc.xml</item>
+  <item type="file">13monobjc.xml</item>
+  <item type="file">14monobjc.xml</item>
+  <item type="file">15readme.xml</item>
+  <mod>description</mod>
+  <mod>properties.title</mod>
+  <mod>properties.anywhereDomain</mod>
+  <mod>properties.userDomain</mod>
+  <mod>postinstallActions.actions</mod>
+  <mod>extraFiles</mod>
+  <mod>properties.customizeOption</mod>
+  <mod>properties.systemDomain</mod>
+</pkmkdoc>

@@ -27,7 +27,7 @@ SOURCES= \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/Kernel_Extensions/*.cs) \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/Kernel_T/*.cs) \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/Properties/*.cs) \
-	$(wildcard $(TOOLS_DIR)/Monobjc.Tools/Generators/ArtworkEncrypter.Public.cs)
+	$(wildcard $(TOOLS_DIR)/Monobjc.Tools/Generators/FileEncrypter.Public.cs)
 
 # ----------------------------------------
 # Common

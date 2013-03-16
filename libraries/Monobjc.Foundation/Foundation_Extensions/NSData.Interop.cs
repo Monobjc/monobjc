@@ -127,9 +127,9 @@ namespace Monobjc.Foundation
 		/// <returns>The decrypted artwork data.</returns>
 		public static NSData DecryptArtworkData (NSData encryptedData, NSString encryptionSeed)
 		{
-			Aes aes = ArtworkEncrypter.GetProvider (encryptionSeed);
+			Aes aes = FileEncrypter.GetProvider (encryptionSeed);
 			byte[] encryptedBytes = encryptedData.GetBuffer ();
-			byte[] decryptedBytes = ArtworkEncrypter.Decrypt (encryptedBytes, aes);
+			byte[] decryptedBytes = FileEncrypter.Decrypt (encryptedBytes, aes);
 			NSData result = new NSData (decryptedBytes);
 			return result.Autorelease<NSData> ();
 		}
