@@ -28,6 +28,7 @@ DIRS_DOC=$(DIRS:%=doc-%)
 
 ARCHIVE_PREFIX=Monobjc-$(MONOBJC_VERSION).$(REVISION_NUMBER).0
 ARCHIVE_DIR=$(ARCHIVE_PREFIX)
+ARCHIVE_EXCLUDES=--exclude="bin" --exclude="obj" --exclude="*.user*" --exclude="*.pidb" --exclude="*.git*" --exclude="build/" --exclude="eglib/" --exclude="xcuserdata/" --exclude="*.xcworkspace"
 PACKAGE_CONTENT=$(PACKAGE_DIR)/content
 PACKAGE_SCRIPT=$(PACKAGE_CONTENT)/post_install.sh
 PACKAGE_TEMPLATE=$(PACKAGE_DIR)/Monobjc.pmdoc
@@ -79,11 +80,11 @@ generate-archive: generate-doc
 	
 	$(CPC) $(DIST_DIR) $(ARCHIVE_DIR)
 	$(CPC) $(EXTERNAL_DIR) $(ARCHIVE_DIR)
-	$(CPC) --exclude="bin" --exclude="obj" --exclude="*.user*" --exclude="*.pidb" $(LIBRARIES_DIR) $(ARCHIVE_DIR)
-	$(CPC) --exclude="build/" --exclude="eglib/" --exclude="xcuserdata/" --exclude="*.xcworkspace" $(NATIVE_DIR) $(ARCHIVE_DIR)
-	$(CPC) --exclude="bin" --exclude="obj" --exclude="*.user*" --exclude="*.pidb" $(SAMPLES_DIR) $(ARCHIVE_DIR)
-	$(CPC) --exclude="bin" --exclude="obj" --exclude="*.user*" --exclude="*.pidb" $(TOOLS_DIR) $(ARCHIVE_DIR)
-	$(CPC) --exclude="bin" --exclude="obj" --exclude="*.user*" --exclude="*.pidb" $(TESTS_DIR) $(ARCHIVE_DIR)
+	$(CPC) $(ARCHIVE_EXCLUDES) $(NATIVE_DIR) $(ARCHIVE_DIR)
+	$(CPC) $(ARCHIVE_EXCLUDES) $(LIBRARIES_DIR) $(ARCHIVE_DIR)
+	$(CPC) $(ARCHIVE_EXCLUDES) $(SAMPLES_DIR) $(ARCHIVE_DIR)
+	$(CPC) $(ARCHIVE_EXCLUDES) $(TOOLS_DIR) $(ARCHIVE_DIR)
+	$(CPC) $(ARCHIVE_EXCLUDES) $(TESTS_DIR) $(ARCHIVE_DIR)
 
 generate-tar: generate-archive
 	$(TAR) -zcf $(ARCHIVE_PREFIX).tar.gz $(ARCHIVE_DIR)
