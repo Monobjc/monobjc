@@ -100,11 +100,11 @@ namespace Monobjc.AppKit
 		/// <param name="encryptedData">The encrypted artwork data.</param>
 		/// <param name="encryptionSeed">The encryption seed to use.</param>
 		/// <returns>The decrypted artwork image.</returns>
-		public static NSImage ImageFromArtworkEncrypedData (NSData encryptedData, NSString encryptionSeed)
+		public static NSImage ImageFromEncryptedData (NSData encryptedData, NSString encryptionSeed)
 		{
-			NSData decryptedData = NSData.DecryptArtworkData (encryptedData, encryptionSeed);
+			NSData decryptedData = NSData.DecryptData (encryptedData, encryptionSeed);
 			NSImage image = new NSImage (decryptedData);
-			return image.Autorelease<NSImage> ();
+			return image.SafeAutorelease<NSImage> ();
 		}
 		
 		/// <summary>
@@ -113,10 +113,10 @@ namespace Monobjc.AppKit
 		/// <param name="path">The image resource path.</param>
 		/// <param name="encryptionSeed">The encryption seed to use.</param>
 		/// <returns>The decrypted artwork image.</returns>
-		public static NSImage ImageFromArtworkEncryptedPath (NSString path, NSString encryptionSeed)
+		public static NSImage ImageFromEncryptedPath (NSString path, NSString encryptionSeed)
 		{
 			NSData encryptedData = NSData.DataWithContentsOfFile (path);
-			return ImageFromArtworkEncrypedData (encryptedData, encryptionSeed);
+			return ImageFromEncryptedData (encryptedData, encryptionSeed);
 		}
 		
 		/// <summary>
@@ -128,7 +128,7 @@ namespace Monobjc.AppKit
 		public static NSImage ImageFromArtworkEncryptedResource (NSString name, NSString encryptionSeed)
 		{
 			NSString path = NSBundle.MainBundle.PathForImageResource (name);
-			return ImageFromArtworkEncryptedPath (path, encryptionSeed);
+			return ImageFromEncryptedPath (path, encryptionSeed);
 		}
 	}
 }

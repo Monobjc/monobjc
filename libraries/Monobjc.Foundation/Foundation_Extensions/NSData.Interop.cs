@@ -125,13 +125,19 @@ namespace Monobjc.Foundation
 		/// <param name="encryptedData">The encrypted artwork data.</param>
 		/// <param name="encryptionSeed">The encryption seed to use.</param>
 		/// <returns>The decrypted artwork data.</returns>
-		public static NSData DecryptArtworkData (NSData encryptedData, NSString encryptionSeed)
+		public static NSData DecryptData (NSData encryptedData, NSString encryptionSeed)
 		{
-			Aes aes = FileEncrypter.GetProvider (encryptionSeed);
-			byte[] encryptedBytes = encryptedData.GetBuffer ();
-			byte[] decryptedBytes = FileEncrypter.Decrypt (encryptedBytes, aes);
-			NSData result = new NSData (decryptedBytes);
-			return result.Autorelease<NSData> ();
+			NSData result;
+			try {
+				Aes aes = FileEncrypter.GetProvider (encryptionSeed);
+				byte[] encryptedBytes = encryptedData.GetBuffer ();
+				byte[] decryptedBytes = FileEncrypter.Decrypt (encryptedBytes, aes);
+				result = new NSData (decryptedBytes);
+			} catch(Exception e) {
+				Logger.Warn("NSData", "Cannot decrypt encrypted data: " + e);
+				result = NSData.Data.Copy<NSData>();
+			}
+			return result.SafeAutorelease<NSData> ();
 		}
 	}
 }

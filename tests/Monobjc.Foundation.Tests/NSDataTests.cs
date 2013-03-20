@@ -52,7 +52,7 @@ namespace Monobjc.Foundation
 			Check(data);
 			Assert.AreEqual(1092, data.Length, "Length should be equal");
 
-			data = NSData.DecryptArtworkData(data, "123");
+			data = NSData.DecryptData(data, "123");
 			Check(data);
 			Assert.AreEqual(1037, data.Length, "Length should be equal");
 		}

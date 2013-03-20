@@ -62,7 +62,7 @@ namespace Monobjc.AppKit
 			Check(data);
 			Assert.AreEqual(1092, data.Length, "Length should be equal");
 
-			NSImage img = NSImage.ImageFromArtworkEncrypedData(data, "123");
+			NSImage img = NSImage.ImageFromEncryptedData(data, "123");
 			Check(img);
 			Assert.AreEqual(new NSSize(32, 32), img.Size, "Size should be equal");
 		}
