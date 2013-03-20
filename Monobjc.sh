@@ -98,10 +98,6 @@ $LIB_REFERENCES
 EOF
     done
 
-    # Make sure that pkg-config has its soft-link
-    # because the Mono CSDK doesn't create it
-    ln -s "$MONO_DIR/bin/pkg-config" "/usr/bin/pkg-config"
-
     # Copy the helper tools
     cp "./dist/Monobjc.Tools.Sdp.exe" "$MONO_DIR/lib/mono/4.0/Monobjc.Tools.Sdp.exe"
     
