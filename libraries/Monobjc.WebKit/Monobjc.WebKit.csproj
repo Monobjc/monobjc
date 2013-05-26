@@ -576,7 +576,6 @@
   </Target>
   -->
   <ItemGroup>
-    <None Include="WebKit_T\.DS_Store" />
     <None Include="Makefile" />
   </ItemGroup>
 </Project>

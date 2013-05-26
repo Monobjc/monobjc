@@ -20,23 +20,27 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-using System.Runtime.InteropServices;
+using System;
+using System.Linq;
 
-namespace Monobjc.CorePlot
+namespace Monobjc.AppKit
 {
-    /// <summary>
-    /// Constraints for a relative position.
-    /// </summary>
-    [StructLayout(LayoutKind.Sequential)]
-    public struct CPTConstraints
+    public static class NSCellStateValueExtensions
     {
         /// <summary>
-        /// The constraint on the lower range.
+        /// Convert a <see cref="NSCellStateValue"/> value to a boolean.
         /// </summary>
-        public CPTConstraint lower;
+        public static bool ToBool(this NSCellStateValue value)
+        {
+            return (value != NSCellStateValue.NSOffState);
+        }
+
         /// <summary>
-        /// The constraint on the upper range.
+        /// Convert a boolean to a <see cref="NSCellStateValue"/> value.
         /// </summary>
-        public CPTConstraint upper;
+        public static NSCellStateValue ToNSCellStateValue(this bool value)
+        {
+            return value ? NSCellStateValue.NSOnState : NSCellStateValue.NSOffState;
+        }
     }
 }

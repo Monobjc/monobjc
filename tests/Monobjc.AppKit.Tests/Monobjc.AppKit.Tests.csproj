@@ -63,6 +63,7 @@
     <Compile Include="NSImageTests.cs" />
     <Compile Include="NSLayoutContraintTests.cs" />
     <Compile Include="NSNibTests.cs" />
+    <Compile Include="NSCellTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\libraries\Monobjc\Monobjc.csproj">
