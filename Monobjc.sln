@@ -173,6 +173,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.NAnt", "tools\Monob
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.Generator.NAnt", "tools\Monobjc.Generator.NAnt\Monobjc.Generator.NAnt.csproj", "{5940F79E-6395-4D7D-A393-14CC40A71D42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobjc.MSBuild.Tests", "tools\Monobjc.MSBuild.Tests\Monobjc.MSBuild.Tests.csproj", "{F97A503F-4DC0-41D0-ABCD-D2660ECE9E7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -451,6 +453,10 @@ Global
 		{F0B65148-1657-4B4A-AB29-53D2625E5550}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0B65148-1657-4B4A-AB29-53D2625E5550}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0B65148-1657-4B4A-AB29-53D2625E5550}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F97A503F-4DC0-41D0-ABCD-D2660ECE9E7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F97A503F-4DC0-41D0-ABCD-D2660ECE9E7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F97A503F-4DC0-41D0-ABCD-D2660ECE9E7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F97A503F-4DC0-41D0-ABCD-D2660ECE9E7D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FE5AC771-83D4-4C9F-87D0-A15B66BA9B09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FE5AC771-83D4-4C9F-87D0-A15B66BA9B09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE5AC771-83D4-4C9F-87D0-A15B66BA9B09}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -536,6 +542,7 @@ Global
 		{4426C325-ED0D-4FEF-86E7-24EE923D0374} = {98F78E3F-8433-4062-9B99-1E45B6F67A06}
 		{7CE7AE40-3942-4849-93F9-A18F3A4D1D8A} = {98F78E3F-8433-4062-9B99-1E45B6F67A06}
 		{5940F79E-6395-4D7D-A393-14CC40A71D42} = {98F78E3F-8433-4062-9B99-1E45B6F67A06}
+		{F97A503F-4DC0-41D0-ABCD-D2660ECE9E7D} = {98F78E3F-8433-4062-9B99-1E45B6F67A06}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = libraries\Monobjc\Monobjc.csproj
