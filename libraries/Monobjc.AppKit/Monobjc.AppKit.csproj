@@ -1364,6 +1364,7 @@
     <Compile Include="QuartzCore_C\CIImage_AutoAdjustmentAdditions.cs" />
     <Compile Include="AppKit_P\NSTextStorage.Delegate.cs" />
     <Compile Include="AppKit_Extensions\NSCellStateValueExtensions.cs" />
+    <Compile Include="AppKit_Extensions\NSImage.Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">
