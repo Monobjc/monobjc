@@ -34,8 +34,28 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
+    <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
+      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
+      <Name>Monobjc.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc\Monobjc.csproj">
+      <Project>{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}</Project>
+      <Name>Monobjc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
+      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
+      <Name>Monobjc.AppKit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
     <Compile Include="CorePlot_C\CPTAnimation.Class.cs" />
     <Compile Include="CorePlot_C\CPTAnimation.Constants.cs" />
     <Compile Include="CorePlot_C\CPTAnimation.cs" />
@@ -150,11 +170,9 @@
     <Compile Include="CorePlot_C\CPTGridLineGroup.Class.cs" />
     <Compile Include="CorePlot_C\CPTGridLineGroup.Constructors.cs" />
     <Compile Include="CorePlot_C\CPTGridLineGroup.cs" />
-    <Compile Include="CorePlot_C\CPTGridLineGroup_Definitions.cs" />
     <Compile Include="CorePlot_C\CPTGridLines.Class.cs" />
     <Compile Include="CorePlot_C\CPTGridLines.Constructors.cs" />
     <Compile Include="CorePlot_C\CPTGridLines.cs" />
-    <Compile Include="CorePlot_C\CPTGridLines_Definitions.cs" />
     <Compile Include="CorePlot_C\CPTImage.Class.cs" />
     <Compile Include="CorePlot_C\CPTImage.Constructors.cs" />
     <Compile Include="CorePlot_C\CPTImage.cs" />
@@ -173,12 +191,6 @@
     <Compile Include="CorePlot_C\CPTLayerAnnotation.Constructors.cs" />
     <Compile Include="CorePlot_C\CPTLayerAnnotation.cs" />
     <Compile Include="CorePlot_C\CPTLayerAnnotation_Definitions.cs" />
-    <Compile Include="CorePlot_C\CPTLayerHostingView.Class.cs" />
-    <Compile Include="CorePlot_C\CPTLayerHostingView.Constructors.cs" />
-    <Compile Include="CorePlot_C\CPTLayerHostingView.cs" />
-    <Compile Include="CorePlot_C\CPTLayerHostingView_Definitions.cs" />
-    <Compile Include="CorePlot_C\CPTLayoutManager_Definitions.Class.cs" />
-    <Compile Include="CorePlot_C\CPTLayoutManager_Definitions.cs" />
     <Compile Include="CorePlot_C\CPTLegend.Class.cs" />
     <Compile Include="CorePlot_C\CPTLegend.Constants.cs" />
     <Compile Include="CorePlot_C\CPTLegend.Constructors.cs" />
@@ -246,12 +258,6 @@
     <Compile Include="CorePlot_C\CPTPieChart.cs" />
     <Compile Include="CorePlot_C\CPTPieChart_Definitions.Constants.cs" />
     <Compile Include="CorePlot_C\CPTPieChart_Definitions.cs" />
-    <Compile Include="CorePlot_C\CPTPlainBlackTheme.Class.cs" />
-    <Compile Include="CorePlot_C\CPTPlainBlackTheme.cs" />
-    <Compile Include="CorePlot_C\CPTPlainBlackTheme_Definitions.cs" />
-    <Compile Include="CorePlot_C\CPTPlainWhiteTheme.Class.cs" />
-    <Compile Include="CorePlot_C\CPTPlainWhiteTheme.cs" />
-    <Compile Include="CorePlot_C\CPTPlainWhiteTheme_Definitions.cs" />
     <Compile Include="CorePlot_C\CPTPlatformSpecificCategories_Definitions.Class.cs" />
     <Compile Include="CorePlot_C\CPTPlatformSpecificCategories_Definitions.cs" />
     <Compile Include="CorePlot_C\CPTPlatformSpecificDefines_Definitions.Class.cs" />
@@ -277,7 +283,6 @@
     <Compile Include="CorePlot_C\CPTPlotGroup.Class.cs" />
     <Compile Include="CorePlot_C\CPTPlotGroup.Constructors.cs" />
     <Compile Include="CorePlot_C\CPTPlotGroup.cs" />
-    <Compile Include="CorePlot_C\CPTPlotGroup_Definitions.cs" />
     <Compile Include="CorePlot_C\CPTPlotRange.Class.cs" />
     <Compile Include="CorePlot_C\CPTPlotRange.Constructors.cs" />
     <Compile Include="CorePlot_C\CPTPlotRange.cs" />
@@ -302,9 +307,6 @@
     <Compile Include="CorePlot_C\CPTPlotSymbol.Protocols.cs" />
     <Compile Include="CorePlot_C\CPTPlotSymbol_Definitions.Constants.cs" />
     <Compile Include="CorePlot_C\CPTPlotSymbol_Definitions.cs" />
-    <Compile Include="CorePlot_C\CPTPolarPlotSpace.Class.cs" />
-    <Compile Include="CorePlot_C\CPTPolarPlotSpace.cs" />
-    <Compile Include="CorePlot_C\CPTPolarPlotSpace_Definitions.cs" />
     <Compile Include="CorePlot_C\CPTRangePlot.Class.cs" />
     <Compile Include="CorePlot_C\CPTRangePlot.Constructors.cs" />
     <Compile Include="CorePlot_C\CPTRangePlot.cs" />
@@ -313,7 +315,6 @@
     <Compile Include="CorePlot_C\CPTResponder_Definitions.Class.cs" />
     <Compile Include="CorePlot_C\CPTResponder_Definitions.cs" />
     <Compile Include="CorePlot_C\CPTScatterPlot.Class.cs" />
-    <Compile Include="CorePlot_C\CPTScatterPlot.Constants.cs" />
     <Compile Include="CorePlot_C\CPTScatterPlot.Constructors.cs" />
     <Compile Include="CorePlot_C\CPTScatterPlot.cs" />
     <Compile Include="CorePlot_C\CPTScatterPlot_Definitions.Constants.cs" />
@@ -323,12 +324,6 @@
     <Compile Include="CorePlot_C\CPTShadow.cs" />
     <Compile Include="CorePlot_C\CPTShadow.Protocols.cs" />
     <Compile Include="CorePlot_C\CPTShadow_Definitions.cs" />
-    <Compile Include="CorePlot_C\CPTSlateTheme.Class.cs" />
-    <Compile Include="CorePlot_C\CPTSlateTheme.cs" />
-    <Compile Include="CorePlot_C\CPTSlateTheme_Definitions.cs" />
-    <Compile Include="CorePlot_C\CPTStocksTheme.Class.cs" />
-    <Compile Include="CorePlot_C\CPTStocksTheme.cs" />
-    <Compile Include="CorePlot_C\CPTStocksTheme_Definitions.cs" />
     <Compile Include="CorePlot_C\CPTTextLayer.Class.cs" />
     <Compile Include="CorePlot_C\CPTTextLayer.Constructors.cs" />
     <Compile Include="CorePlot_C\CPTTextLayer.cs" />
@@ -359,7 +354,6 @@
     <Compile Include="CorePlot_C\CPTUtilities_Definitions.Class.cs" />
     <Compile Include="CorePlot_C\CPTUtilities_Definitions.cs" />
     <Compile Include="CorePlot_C\CPTXYAxis.Class.cs" />
-    <Compile Include="CorePlot_C\CPTXYAxis.Constants.cs" />
     <Compile Include="CorePlot_C\CPTXYAxis.Constructors.cs" />
     <Compile Include="CorePlot_C\CPTXYAxis.cs" />
     <Compile Include="CorePlot_C\CPTXYAxis_Definitions.cs" />
@@ -377,18 +371,6 @@
     <Compile Include="CorePlot_C\CPTXYPlotSpace.Constructors.cs" />
     <Compile Include="CorePlot_C\CPTXYPlotSpace.cs" />
     <Compile Include="CorePlot_C\CPTXYPlotSpace_Definitions.cs" />
-    <Compile Include="CorePlot_C\CPTXYTheme.Class.cs" />
-    <Compile Include="CorePlot_C\CPTXYTheme.cs" />
-    <Compile Include="CorePlot_C\CPTXYTheme_Definitions.cs" />
-    <Compile Include="CorePlot_C\NSDecimalNumber_CPTExtensions.cs" />
-    <Compile Include="CorePlot_C\NSDecimalNumberExtensions_Definitions.Class.cs" />
-    <Compile Include="CorePlot_C\NSDecimalNumberExtensions_Definitions.cs" />
-    <Compile Include="CorePlot_C\NSException_CPTExtensions.cs" />
-    <Compile Include="CorePlot_C\NSExceptionExtensions_Definitions.Class.cs" />
-    <Compile Include="CorePlot_C\NSExceptionExtensions_Definitions.cs" />
-    <Compile Include="CorePlot_C\NSNumber_CPTExtensions.cs" />
-    <Compile Include="CorePlot_C\NSNumberExtensions_Definitions.Class.cs" />
-    <Compile Include="CorePlot_C\NSNumberExtensions_Definitions.cs" />
     <Compile Include="CorePlot_C\NSString_CPTTextStyleExtensions.cs" />
     <Compile Include="CorePlot_Extensions\CPTBarPlot.cs" />
     <Compile Include="CorePlot_Extensions\CPTPieChart.cs" />
@@ -420,29 +402,9 @@
     <Compile Include="CorePlot_P\CPTTradingRangePlotDelegate.Protocol.cs" />
     <Compile Include="CorePlot_S\CPTNumericDataType.cs" />
     <Compile Include="CorePlot_S\CPTNumericDataType64.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
-      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
-      <Name>Monobjc.Foundation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Monobjc\Monobjc.csproj">
-      <Project>{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}</Project>
-      <Name>Monobjc</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
-      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
-      <Name>Monobjc.AppKit</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
   <ItemGroup>
     <None Include="Makefile" />
   </ItemGroup>

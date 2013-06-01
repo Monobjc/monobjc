@@ -910,6 +910,7 @@
     <Compile Include="..\..\tools\Monobjc.Tools\Generators\FileEncrypter.Public.cs">
       <Link>ArtworkEncrypter.Public.cs</Link>
     </Compile>
+    <Compile Include="Foundation_Extensions\GeometryExtensions.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
