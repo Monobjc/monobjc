@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Try 4.0 profile (Mono 2.10+)
+PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/4.0/nunit-console.exe
+if [ -f $PATH ]; then
+	exec /usr/bin/monobjc $PATH $@
+else
+	# Try 4.5 profile (Mono 3.0+)
+	PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/4.5/nunit-console.exe
+	if [ -f $PATH ]; then
+		exec /usr/bin/monobjc $PATH $@
+	fi
+fi

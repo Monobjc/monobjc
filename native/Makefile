@@ -46,8 +46,8 @@ all: $(DEV_DIR)
 	$(call copy_files_conditional,$(BUILD_FOR_OSX_10_6),$(BINARY_DIR),$(DIST_DIR)/10.6)
 	$(call copy_files_conditional,$(BUILD_FOR_OSX_10_7),$(BINARY_DIR),$(DIST_DIR)/10.7)
 	$(call copy_files_conditional,$(BUILD_FOR_OSX_10_8),$(BINARY_DIR),$(DIST_DIR)/10.8)
-	$(CPC) monobjc $(DIST_DIR)
-	$(CPC) monobjc-nunit $(DIST_DIR)
+	$(CPC) monobjc-wrapper $(DIST_DIR)/monobjc
+	$(CPC) monobjc-nunit-wrapper $(DIST_DIR)/monobjc-nunit
 
 clean:
 
