@@ -18,7 +18,7 @@ BUILD_NUMBER=$(shell echo "$(REVISION_NUMBER) % 100" | bc)
 VERSION_NUMBER=$(MAJOR_NUMBER).$(MINOR_NUMBER).$(BUILD_NUMBER)
 BINARY_DIR=$(BUILD_DIR)/$(VERSION_NUMBER)/
 
-ARGUMENTS_PROJECT=-project '$(NATIVE_DIR)/Monobjc/Monobjc.xcodeproj' -target runtime
+ARGUMENTS_PROJECT=-project '$(NATIVE_DIR)/Monobjc/Monobjc.xcodeproj' -target everything
 ifeq ($(DEBUG_MODE),true)
 	ARGUMENTS_CONFIGURATION=-configuration Debug
 else

@@ -1,5 +1,6 @@
-#include "Shared-runtime"
+#include "Shared-libmonobjc-sgen"
 
 COPY_PHASE_STRIP = NO
 GCC_ENABLE_FIX_AND_CONTINUE = YES
 GCC_DYNAMIC_NO_PIC = NO
+

@@ -1,4 +1,4 @@
-#include "Shared-runtime"
+#include "Shared-libmonobjc-sgen"
 
 DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
 COPY_PHASE_STRIP = YES

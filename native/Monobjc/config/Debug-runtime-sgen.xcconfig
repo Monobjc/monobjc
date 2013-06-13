@@ -1,4 +1,4 @@
-#include "Shared-runtime"
+#include "Shared-runtime-sgen"
 
 COPY_PHASE_STRIP = NO
 GCC_ENABLE_FIX_AND_CONTINUE = YES

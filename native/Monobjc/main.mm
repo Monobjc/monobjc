@@ -31,13 +31,13 @@
 
 int main(int argc, char *argv[]) {
     int i, index = 1, debug = 0;
-	
+    
     // Flag to debug command line arguments
-	char *options = getenv("MONOBJC_ARGS");
-	if (options && strlen(options) > 0) {
+    char *options = getenv("MONOBJC_ARGS");
+    if (options && strlen(options) > 0) {
         debug = 1;
     }
-    
+
     // Create a pool, for the processing
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
@@ -50,32 +50,32 @@ int main(int argc, char *argv[]) {
         if (debug) NSLog(@"%@", str);
     }
 
-	// Get the full name of the current executable and extract the last part
+    // Get the full name of the current executable and extract the last part
     NSString *fullname = [arguments objectAtIndex:0];
     NSString *execname = [[fullname pathComponents] lastObject];
-	
+
     // Scan all the arguments until a "*.exe" is found (or not)
-	NSString *argument = nil;
-	for(i = 0; i < [arguments count]; i++) {
-		NSString *part = [arguments objectAtIndex:i];
-		if ([[part pathExtension] isEqualToString:@"exe"]) {
-			argument = part;
-			break;
-		}
-	}
-	
-	// Insert options in the argument array
-	options = getenv("MONO_OPTIONS");
-	if (options && strlen(options) > 0) {
+    NSString *argument = nil;
+    for(i = 0; i < [arguments count]; i++) {
+        NSString *part = [arguments objectAtIndex:i];
+        if ([[part pathExtension] isEqualToString:@"exe"]) {
+            argument = part;
+            break;
+        }
+    }
+
+    // Insert options in the argument array
+    options = getenv("MONO_OPTIONS");
+    if (options && strlen(options) > 0) {
         if (debug) NSLog(@"Parsing MONO_OPTIONS");
         NSString *str = [NSString stringWithCString:options encoding:[NSString defaultCStringEncoding]];
-		NSArray *parts = [str componentsSeparatedByString:@" "];
-		for(i = 0; i < [parts count]; i++) {
-			str = [parts objectAtIndex:i];
-			[arguments insertObject:str atIndex:index];
-			index++;
-		}
-	}
+        NSArray *parts = [str componentsSeparatedByString:@" "];
+        for(i = 0; i < [parts count]; i++) {
+            str = [parts objectAtIndex:i];
+            [arguments insertObject:str atIndex:index];
+            index++;
+        }
+    }
 
     if (!argument) {
         if (debug) NSLog(@"Adding the main assembly");
@@ -83,25 +83,28 @@ int main(int argc, char *argv[]) {
         // - For command line applications, this is the current folder
         // - For bundled applications, this is the "Contents/Resources" folder.
         NSString *assemblyArgument = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[execname stringByAppendingString:@".exe"]];
-		[arguments insertObject:assemblyArgument atIndex:index];
+        [arguments insertObject:assemblyArgument atIndex:index];
     }
-	
-	// Build a new argument array
-	argc = [arguments count];
-	char **newargv = (char **) malloc(sizeof(char *) * (argc + 1));
+
+    // Disabled shared area
+    setenv("MONO_DISABLE_SHARED_AREA", "true", 1);
+    
+    // Build a new argument array
+    argc = [arguments count];
+    char **newargv = (char **) malloc(sizeof(char *) * (argc + 1));
     if (debug) NSLog(@"Final arguments");
-	for (i = 0; i < argc; i++)
-	{
+    for (i = 0; i < argc; i++)
+    {
         NSString *str = [arguments objectAtIndex:i];
         if (debug) NSLog(@"%@", str);
-		newargv[i] = (char *) [str UTF8String];
-	}
-	newargv[i++] = NULL;
-		
+        newargv[i] = (char *) [str UTF8String];
+    }
+    newargv[i++] = NULL;
+
     // Call the Mono runtime
-	int ret = mono_main(argc, newargv);
-    
+    int ret = mono_main(argc, newargv);
+
     [pool release];
-    
+
     return ret;
 }
