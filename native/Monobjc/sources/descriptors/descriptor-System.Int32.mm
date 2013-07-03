@@ -1,37 +1,43 @@
-// 
+//
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2012 - Laurent Etiemble
-// 
-// Monobjc is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Lesser General Public License as published
-// by the Free Software Foundation, either version 3 of the License, or
-// any later version.
-// 
-// Monobjc is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-// 
-// You should have received a copy of the GNU Lesser General Public License
-// along with Monobjc. If not, see <http://www.gnu.org/licenses/>.
-// 
-/*!
+// Copyright (C) 2007-2013 - Laurent Etiemble
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+/**
  * \file    descriptor-System.Int32.mm
- * \brief   Contains the descriptor code to handle the System.Int32 type.
+ * @brief   Contains the descriptor code to handle the System.Int32 type.
  * \author  Laurent Etiemble
  * \date    2009-2010
  */
 #include "logging.h"
 #include "marshal.h"
 
-/*!
- * \brief   Allocates a storage zone large enough to hold a marshalled System.Int32.
- * \param   descriptor  The descriptor.
- * \param   native      TRUE if the storage zone has the native type width (direct access)
+/**
+ * @brief   Allocates a storage zone large enough to hold a marshalled System.Int32.
+ * @param   descriptor  The descriptor.
+ * @param   native      TRUE if the storage zone has the native type width (direct access)
  *                      or FALSE if the zone is at least the size of pointer storage (as FFI requires it).
- * \return  A pointer to the allocated storage.
+ * @return  A pointer to the allocated storage.
  *
- * \remark  The storage zone is at least the size of pointer storage, due to libffi requirement.
+ * @remark  The storage zone is at least the size of pointer storage, due to libffi requirement.
  */
 static void *__alloc_native_storage_for_System_Int32(MonobjcTypeDescriptor *descriptor, boolean_t native) {
     //LOG_DEBUG(MONOBJC_DOMAIN_MARSHALLING, "__alloc_native_storage_for_System_Int32()");
@@ -41,15 +47,15 @@ static void *__alloc_native_storage_for_System_Int32(MonobjcTypeDescriptor *desc
     return ptr;
 }
 
-/*!
- * \brief   Marshal a native value into a System.Int32 object.
- * \param   descriptor  The descriptor.
- * \param   ptr         The pointer to the storage zone that contains the native object.
- * \param   native      TRUE if the storage zone has the native type width (direct access)
+/**
+ * @brief   Marshal a native value into a System.Int32 object.
+ * @param   descriptor  The descriptor.
+ * @param   ptr         The pointer to the storage zone that contains the native object.
+ * @param   native      TRUE if the storage zone has the native type width (direct access)
  *                      or FALSE if the zone is at least the size of pointer storage (as FFI requires it).
- * \return  A fully initialized System.Int32 object.
+ * @return  A fully initialized System.Int32 object.
  *
- * \remark  This function only use the storage zone. It is up to the caller to free it.
+ * @remark  This function only use the storage zone. It is up to the caller to free it.
  *          Due to libffi requirement, the storage zone used is at least the size of pointer storage.
  *          This mean that smaller types are promoted before being boxed.
  */
@@ -61,15 +67,15 @@ static MonoObject *__marshal_from_native_for_System_Int32(MonobjcTypeDescriptor 
     return obj;
 }
 
-/*!
- * \brief   Marshal a System.Int32 object to its native value.
- * \param   descriptor  The descriptor.
- * \param   obj         The managed object.
- * \param   ptr         The pointer to the storage zone that will contain the native object.
- * \param   native      TRUE if the storage zone has the native type width (direct access)
+/**
+ * @brief   Marshal a System.Int32 object to its native value.
+ * @param   descriptor  The descriptor.
+ * @param   obj         The managed object.
+ * @param   ptr         The pointer to the storage zone that will contain the native object.
+ * @param   native      TRUE if the storage zone has the native type width (direct access)
  *                      or FALSE if the zone is at least the size of pointer storage (as FFI requires it).
  *
- * \remark  This function does not allocate the storage zone. It is up to the caller to allocate it and free it.
+ * @remark  This function does not allocate the storage zone. It is up to the caller to allocate it and free it.
  */
 static void __marshal_to_native_for_System_Int32(MonobjcTypeDescriptor *descriptor, MonoObject *obj, void *ptr, boolean_t native) {
     //LOG_DEBUG(MONOBJC_DOMAIN_MARSHALLING, "__marshal_to_native_for_System_Int32()");
@@ -79,9 +85,9 @@ static void __marshal_to_native_for_System_Int32(MonobjcTypeDescriptor *descript
     *(int32_t *)ptr = value;
 }
 
-/*!
- * \brief   Free the previously allocated storage zone.
- * \param   ptr         The pointer to the storage zone.
+/**
+ * @brief   Free the previously allocated storage zone.
+ * @param   ptr         The pointer to the storage zone.
  */
 static void __free_native_storage_for_System_Int32(void *ptr) {
     //LOG_DEBUG(MONOBJC_DOMAIN_MARSHALLING, "__free_native_storage_for_System_Int32(%p)", ptr);
