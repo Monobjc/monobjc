@@ -21,7 +21,7 @@ if [ ! -d $MONO_ROOT ]; then
 	echo "Cannot find Mono.framework. Is it installed ?"
 	exit 1
 fi
-MONO_DIR=`readlink "$MONO_ROOT/Versions/Current"`
+MONO_DIR="$MONO_ROOT/Versions/Current"
 
 # Probe the Mono runtime to check if it is universal (i386/x86_64)
 UNIVERSAL=0
