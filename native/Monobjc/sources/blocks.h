@@ -44,7 +44,7 @@ enum {
 /** @brief  The block descriptor. */
 struct Block_descriptor {
     unsigned long int reserved;             /**< @brief  Reserved. */
-    unsigned long int size;                 /**< @brief  The size of the block (layout and variables. */
+    unsigned long int size;                 /**< @brief  The size of the block (layout and variables). */
     void (*copy)(void *dst, void *src);     /**< @brief  The copy helper function. */
     void (*dispose)(void *);                /**< @brief  The dispose helper function. */
 };

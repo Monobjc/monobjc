@@ -24,6 +24,7 @@
 #include "blocks.h"
 #include "icalls.h"
 #include "logging.h"
+#include "support-mono.h"
 #include "support-os.h"
 
 #pragma mark ----- Internal Calls -----
@@ -33,8 +34,8 @@
  * @param   function    The function to invoke.
  *
  * @remark  The Block ABI is described in the following references:
- *          @li Language Specification for Blocks (http://clang.llvm.org/docs/BlockLanguageSpec.txt).
- *          @li Block Implementation Specification (http://clang.llvm.org/docs/BlockImplementation.txt).
+ *          @li Language Specification for Blocks http://clang.llvm.org/docs/BlockLanguageSpec.html
+ *          @li Block Implementation Specification http://clang.llvm.org/docs/Block-ABI-Apple.html
  */
 void *icall_Monobjc_Block_CreateBlock(void *function) {
     if (monobjc_are_blocks_available()) {
