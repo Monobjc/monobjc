@@ -56,7 +56,9 @@ struct Block_layout {
     int reserved;                           /**< @brief  Reserved. */
     void (*invoke)(void *, ...);            /**< @brief  The block's function. */
     struct Block_descriptor *descriptor;    /**< @brief  The block's descriptor. */
-    /* Imported variables. */
+    /* Imported Variables */
+    uint32_t gchandle_thunk;                /**< @brief  The thunk delegate pinned pointer. */
+    uint32_t gchandle_target;               /**< @brief  The target delegate pinned pointer. */
 };
 
 #endif // __BLOCKS_H__

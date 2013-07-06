@@ -33,7 +33,7 @@ ICALL(<SIGNATURE>,                      <RETURN TYPE>,  <FUNCTION>,             
 #pragma mark ----- Internal Calls for Monobjc.Block -----
 
 #define ICALLTYPE   "Monobjc.Block"
-ICALL("CreateBlock",                    void *,         icall_Monobjc_Block_CreateBlock,                            (void *function))
+ICALL("CreateBlock",                    void *,         icall_Monobjc_Block_CreateBlock,                            (MonoObject *thunk_delegate, MonoObject *target_delegate, void *thunk_function))
 ICALL("DestroyBlock",                   void,           icall_Monobjc_Block_DestroyBlock,                           (void *block))
 #undef ICALLTYPE
 

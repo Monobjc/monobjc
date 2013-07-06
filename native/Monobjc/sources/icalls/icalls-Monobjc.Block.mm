@@ -1,20 +1,26 @@
-// 
+//
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2012 - Laurent Etiemble
-// 
-// Monobjc is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Lesser General Public License as published
-// by the Free Software Foundation, either version 3 of the License, or
-// any later version.
-// 
-// Monobjc is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-// 
-// You should have received a copy of the GNU Lesser General Public License
-// along with Monobjc. If not, see <http://www.gnu.org/licenses/>.
-// 
+// Copyright (C) 2007-2013 - Laurent Etiemble
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
 /**
  * @file    icalls-Monobjc.Block.mm
  * @brief   Contains the internal calls for the Monobjc.Block type.
@@ -30,29 +36,82 @@
 #pragma mark ----- Internal Calls -----
 
 /**
+ * @brief   Block copy helper that copies the GC handles when a block copy is performed.
+ * @param   dst     The destination layout.
+ * @param   src     The source layout.
+ *
+ * @remark  When copying GC handles, we assume that the objects are never collected since they were pinned.
+ *          So we create new GC handles on them without testing for NULL.
+ */
+static void __Block_copy_helper(void *dst, void *src) {
+    MonoObject *obj;
+    Block_layout *dst_layout = (Block_layout *) dst;
+    Block_layout *src_layout = (Block_layout *) src;
+    
+    if (src_layout->gchandle_thunk != 0) {
+        obj = mono_gchandle_get_target(src_layout->gchandle_thunk);
+        dst_layout->gchandle_thunk = mono_gchandle_new(obj, true);
+    } else {
+        dst_layout->gchandle_thunk = 0;
+    }
+    
+    if (src_layout->gchandle_target != 0) {
+        obj = mono_gchandle_get_target(src_layout->gchandle_target);
+        dst_layout->gchandle_target = mono_gchandle_new(obj, true);
+    } else {
+        dst_layout->gchandle_target = 0;
+    }
+}
+
+/**
+ * @brief   Block copy helper that frees the GC handles when a block disposal is performed.
+ * @param   src     The source layout.
+ */
+static void __Block_dispose_helper(void *src) {
+    Block_layout *src_layout = (Block_layout *) src;
+    
+    if (src_layout->gchandle_thunk != 0) {
+        mono_gchandle_free(src_layout->gchandle_thunk);
+    }
+    if (src_layout->gchandle_target != 0) {
+        mono_gchandle_free(src_layout->gchandle_target);
+    }
+}
+
+/**
+ * @brief   Helper function to create the shared block descriptor.
+ */
+static Block_descriptor *__Block_create_shared_descriptor() {
+    Block_descriptor *descriptor = g_new(Block_descriptor, 1);
+    descriptor->reserved = 0;
+    descriptor->size = sizeof(Block_layout);
+    descriptor->copy = __Block_copy_helper;
+    descriptor->dispose = __Block_dispose_helper;
+    return descriptor;
+}
+
+/**
  * @brief   Create an Objective-C block (layout and descriptor) according to the block ABI.
  * @param   function    The function to invoke.
  *
- * @remark  The Block ABI is described in the following references:
+ * @remark  The Block API/ABI are described in the following references:
  *          @li Language Specification for Blocks http://clang.llvm.org/docs/BlockLanguageSpec.html
  *          @li Block Implementation Specification http://clang.llvm.org/docs/Block-ABI-Apple.html
  */
-void *icall_Monobjc_Block_CreateBlock(void *function) {
+void *icall_Monobjc_Block_CreateBlock(MonoObject *thunk_delegate, MonoObject *target_delegate, void *thunk_function) {
     if (monobjc_are_blocks_available()) {
-        // Create the descriptor first
-        Block_descriptor *descriptor = g_new(Block_descriptor, 1);
-        descriptor->reserved = 0;
-        descriptor->size = sizeof(Block_layout);
-        descriptor->copy = NULL;
-        descriptor->dispose = NULL;
+        // Initialize the shared descriptor once
+        static Block_descriptor *shared_descriptor = __Block_create_shared_descriptor();
         
         // Create the layout then
         Block_layout *layout = g_new(Block_layout, 1);
-        layout->isa = objc_lookUpClass("__NSGlobalBlock");
-        layout->flags = BLOCK_IS_GLOBAL | BLOCK_HAS_DESCRIPTOR;
+        layout->isa = objc_lookUpClass("__NSStackBlock");
+        layout->flags = BLOCK_HAS_COPY_DISPOSE | BLOCK_HAS_DESCRIPTOR;
         layout->reserved = 0;
-        layout->invoke = (void (*)(void *, ...)) function;
-        layout->descriptor = descriptor;
+        layout->invoke = (void (*)(void *, ...)) thunk_function;
+        layout->descriptor = shared_descriptor;
+        layout->gchandle_thunk = (thunk_delegate != NULL) ? mono_gchandle_new(thunk_delegate, true) : 0;
+        layout->gchandle_target = (target_delegate != NULL) ? mono_gchandle_new(target_delegate, true) : 0;
         
         return layout;
     } else {
@@ -62,19 +121,13 @@ void *icall_Monobjc_Block_CreateBlock(void *function) {
 }
 
 /**
- * @brief   Destroy an Objective-C block (layout and descriptor).
+ * @brief   Destroy an Objective-C block layout.
  * @param   block   The Objective-C block to destroy.
  */
 void icall_Monobjc_Block_DestroyBlock(void *block) {
     if (monobjc_are_blocks_available()) {
         // Cast the pointer to access the structure
         Block_layout *layout = (Block_layout *)block;
-        if (layout->descriptor &&
-            (layout->flags & BLOCK_HAS_DESCRIPTOR) == BLOCK_HAS_DESCRIPTOR) {
-            // Destroy the descriptor if present
-            g_free(layout->descriptor);
-        }
-        
         g_free(layout);
     } else {
         LOG_ERROR(MONOBJC_DOMAIN_GENERAL, "Blocks are not supported !!!");

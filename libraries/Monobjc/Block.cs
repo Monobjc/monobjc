@@ -57,8 +57,8 @@ namespace Monobjc
 	///       <description>TResult (^)(T1, T2)</description>
 	///     </item>
 	///   </list>
-	///   <para>[1] Language Specification for Blocks (http://clang.llvm.org/docs/BlockLanguageSpec.txt)</para>
-	///   <para>[2] Block Implementation Specification (http://clang.llvm.org/docs/BlockImplementation.txt)</para>
+    ///   <para>[1] Language Specification for Blocks (http://clang.llvm.org/docs/BlockLanguageSpec.html)</para>
+    ///   <para>[2] Block Implementation Specification (http://clang.llvm.org/docs/Block-ABI-Apple.html)</para>
 	/// </summary>
 	public abstract class Block : IDisposable
 	{
@@ -66,12 +66,6 @@ namespace Monobjc
 		///   Native pointer to the block layout structure
 		/// </summary>
 		private IntPtr layout;
-		
-
-		/// <summary>
-		///   GC handle to the exposed delegate.
-		/// </summary>
-		private GCHandle blockInvokerHandle;
 		
 		/// <summary>
 		///   Initializes a new instance of the <see cref = "Block" /> class.
@@ -109,7 +103,6 @@ namespace Monobjc
 			if (this.layout != IntPtr.Zero) {
 				DestroyBlock (this.layout);
 				this.layout = IntPtr.Zero;
-				this.blockInvokerHandle.Free ();
 			}
 		}
 
@@ -132,13 +125,10 @@ namespace Monobjc
 		public IntPtr NativePointer {
 			get {
 				if (this.layout == IntPtr.Zero) {
-					// Pin the delegate so it won't move
-					this.blockInvokerHandle = GCHandle.Alloc (this.BlockInvoker, GCHandleType.Pinned);
-
-					// Create a block layout for a global block, with descriptor.
+					// Create a block layout.
 					// This block will invoke a managed method through a delegate (marhsaled as a function pointer)
 					IntPtr function = Marshal.GetFunctionPointerForDelegate (this.BlockInvoker);
-					this.layout = CreateBlock (function);
+					this.layout = CreateBlock (this.BlockInvoker, this.Invoker, function);
 				}
 				return this.layout;
 			}
@@ -180,7 +170,7 @@ namespace Monobjc
 		/// <param name = "function">The delegate as function pointer.</param>
 		/// <returns>A pointer to the native block's structure.</returns>
 		[MethodImpl(MethodImplOptions.InternalCall)]
-		private static extern IntPtr CreateBlock (IntPtr function);
+		private static extern IntPtr CreateBlock (Object thunk, Object invoker, IntPtr function);
 
 		/// <summary>
 		///   Destroy the native structure of the block.
