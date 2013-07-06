@@ -1,5 +1,17 @@
 #!/bin/sh
+
 if [ "x$ARCH" == "x" ]; then
     ARCH=i386
 fi
-arch -$ARCH ./dist/10.6/runtime /Library/Frameworks/Mono.framework/Versions/Current/lib/mono/4.5/nunit-console.exe "$@"
+
+# Try 4.0 profile (Mono 2.10+)
+PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/4.0/nunit-console.exe
+if [ -f $PATH ]; then
+	arch -$ARCH ./dist/10.6/runtime $PATH $@
+else
+	# Try 4.5 profile (Mono 3.0+)
+	PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/4.5/nunit-console.exe
+	if [ -f $PATH ]; then
+		arch -$ARCH ./dist/10.6/runtime $PATH $@
+	fi
+fi
