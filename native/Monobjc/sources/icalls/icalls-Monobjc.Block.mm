@@ -92,7 +92,13 @@ static Block_descriptor *__Block_create_shared_descriptor() {
 
 /**
  * @brief   Create an Objective-C block (layout and descriptor) according to the block ABI.
- * @param   function    The function to invoke.
+ * @param   thunk_delegate  The Mono object (a System.Delegate instance) that will be called when the block is evaluated.
+ * @param   target_delegate The Mono object (a System.Delegate instance) that will be executed when the block is evaluated.
+ * @param   thunk_function  The function pointer derived from the thunk delegate.
+ *
+ * @remark  Blocks are typed as stack block even if they are created on the heap. By doing this:
+ *          @li we ensure that the block is copied if it needs to be retained during a method call.
+ *          @li we can safely destroy the block after the method call, even when the block is used in an asynchronous way.
  *
  * @remark  The Block API/ABI are described in the following references:
  *          @li Language Specification for Blocks http://clang.llvm.org/docs/BlockLanguageSpec.html
@@ -100,13 +106,14 @@ static Block_descriptor *__Block_create_shared_descriptor() {
  */
 void *icall_Monobjc_Block_CreateBlock(MonoObject *thunk_delegate, MonoObject *target_delegate, void *thunk_function) {
     if (monobjc_are_blocks_available()) {
-        // Initialize the shared descriptor once
+        // Initialize the shared descriptor once.
+        // This descriptor will be used by all the block instances.
         static Block_descriptor *shared_descriptor = __Block_create_shared_descriptor();
         
         // Create the layout then
         Block_layout *layout = g_new(Block_layout, 1);
         layout->isa = objc_lookUpClass("__NSStackBlock");
-        layout->flags = BLOCK_HAS_COPY_DISPOSE | BLOCK_HAS_DESCRIPTOR;
+        layout->flags = BLOCK_HAS_DESCRIPTOR | BLOCK_HAS_COPY_DISPOSE;
         layout->reserved = 0;
         layout->invoke = (void (*)(void *, ...)) thunk_function;
         layout->descriptor = shared_descriptor;

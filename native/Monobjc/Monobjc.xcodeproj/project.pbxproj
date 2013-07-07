@@ -167,6 +167,10 @@
 		4D7C2B32141D69CE008CF2AD /* support-os.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C2B30141D69CE008CF2AD /* support-os.mm */; };
 		4D9CC07D11568E090027FF52 /* icalls-Monobjc.ObjectiveCEncoding.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D9CC07C11568E090027FF52 /* icalls-Monobjc.ObjectiveCEncoding.mm */; };
 		4D9CC07E11568E090027FF52 /* icalls-Monobjc.ObjectiveCEncoding.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D9CC07C11568E090027FF52 /* icalls-Monobjc.ObjectiveCEncoding.mm */; };
+		4D9E554617898AB400D7C497 /* blocks.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E554517898AB400D7C497 /* blocks.mm */; };
+		4D9E554717898AB400D7C497 /* blocks.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E554517898AB400D7C497 /* blocks.mm */; };
+		4D9E554817898AB400D7C497 /* blocks.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E554517898AB400D7C497 /* blocks.mm */; };
+		4D9E554917898AB400D7C497 /* blocks.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E554517898AB400D7C497 /* blocks.mm */; };
 		4DA521C7115A069F007C19C3 /* descriptor-System.Boolean.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DA521BC115A069F007C19C3 /* descriptor-System.Boolean.mm */; };
 		4DA521C8115A069F007C19C3 /* descriptor-System.Byte.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DA521BD115A069F007C19C3 /* descriptor-System.Byte.mm */; };
 		4DA521C9115A069F007C19C3 /* descriptor-System.Char.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DA521BE115A069F007C19C3 /* descriptor-System.Char.mm */; };
@@ -387,6 +391,7 @@
 		4D7C2B2E141D69C1008CF2AD /* support-os.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "support-os.h"; path = "sources/support-os.h"; sourceTree = "<group>"; };
 		4D7C2B30141D69CE008CF2AD /* support-os.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "support-os.mm"; path = "sources/support-os.mm"; sourceTree = "<group>"; };
 		4D9CC07C11568E090027FF52 /* icalls-Monobjc.ObjectiveCEncoding.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "icalls-Monobjc.ObjectiveCEncoding.mm"; path = "sources/icalls/icalls-Monobjc.ObjectiveCEncoding.mm"; sourceTree = "<group>"; };
+		4D9E554517898AB400D7C497 /* blocks.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = blocks.mm; path = sources/blocks.mm; sourceTree = "<group>"; };
 		4DA5213F1159690A007C19C3 /* descriptor.def */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = descriptor.def; path = sources/descriptors/descriptor.def; sourceTree = "<group>"; };
 		4DA521A1115A0032007C19C3 /* generate_descriptors.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = generate_descriptors.sh; sourceTree = "<group>"; };
 		4DA521BC115A069F007C19C3 /* descriptor-System.Boolean.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "descriptor-System.Boolean.mm"; path = "sources/descriptors/descriptor-System.Boolean.mm"; sourceTree = "<group>"; };
@@ -612,6 +617,7 @@
 			children = (
 				4DA5213E115968FA007C19C3 /* descriptors */,
 				4DED6A781154C81700AF687B /* icalls */,
+				4D9E554517898AB400D7C497 /* blocks.mm */,
 				4DED6AE71154CFE600AF687B /* cache.mm */,
 				4DED6AAD1154C9CC00AF687B /* definitions.mm */,
 				4DFDB0F0115BB40B00F345DA /* domain.mm */,
@@ -1150,6 +1156,7 @@
 				4D6781B21769980E00B8BBE7 /* support-objc.mm in Sources */,
 				4D6781B31769980E00B8BBE7 /* support-ffi.mm in Sources */,
 				4D6781B41769980E00B8BBE7 /* support-os.mm in Sources */,
+				4D9E554717898AB400D7C497 /* blocks.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1196,6 +1203,7 @@
 				4D6781EA1769981900B8BBE7 /* support-objc.mm in Sources */,
 				4D6781EB1769981900B8BBE7 /* support-ffi.mm in Sources */,
 				4D6781EC1769981900B8BBE7 /* support-os.mm in Sources */,
+				4D9E554917898AB400D7C497 /* blocks.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1249,6 +1257,7 @@
 				4D78F3871185B4CC00103C6C /* support-objc.mm in Sources */,
 				4D5AE8AC118DB2C100226780 /* support-ffi.mm in Sources */,
 				4D7C2B31141D69CE008CF2AD /* support-os.mm in Sources */,
+				4D9E554617898AB400D7C497 /* blocks.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1295,6 +1304,7 @@
 				4D78F3881185B4CC00103C6C /* support-objc.mm in Sources */,
 				4D5AE8AB118DB2C100226780 /* support-ffi.mm in Sources */,
 				4D7C2B32141D69CE008CF2AD /* support-os.mm in Sources */,
+				4D9E554817898AB400D7C497 /* blocks.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1541,6 +1551,7 @@
 				4D6781F91769983200B8BBE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4DA521AE115A00ED007C19C3 /* Build configuration list for PBXAggregateTarget "documentation" */ = {
 			isa = XCConfigurationList;

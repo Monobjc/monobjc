@@ -57,8 +57,14 @@ struct Block_layout {
     void (*invoke)(void *, ...);            /**< @brief  The block's function. */
     struct Block_descriptor *descriptor;    /**< @brief  The block's descriptor. */
     /* Imported Variables */
-    uint32_t gchandle_thunk;                /**< @brief  The thunk delegate pinned pointer. */
-    uint32_t gchandle_target;               /**< @brief  The target delegate pinned pointer. */
+    uint32_t gchandle_thunk;                /**< @brief  The thunk delegate pinned GC handle. */
+    uint32_t gchandle_target;               /**< @brief  The target delegate pinned GC handle. */
 };
+
+/**
+ * @brief   Dump the block layout. Useful for debugging purpose.
+ * @param   block   The block to dump.
+ */
+const char *monobjc_block_dump(const void *block);
 
 #endif // __BLOCKS_H__
