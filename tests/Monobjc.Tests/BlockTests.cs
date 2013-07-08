@@ -85,33 +85,35 @@ namespace Monobjc
                 Assert.AreEqual(values[i], value, "Object at index " + i + " is wrong");
             }
 
-//            int lastValue = 0;
-//            uint zeroIndex = 0;
-//
-//			// Enumerate wit a block: void (^)(id, NSUInteger, BOOL *)
-//			// TODO: Adapt to 64 bits
-//            Block block1 = this.GetBlock((Action<IntPtr, uint, IntPtr>) delegate(IntPtr ptr1, uint ui1, IntPtr ptr2)
-//                                                                            {
-//                                                                                int v = objc_sendMsg_int(ptr1, this.sel_intValue);
-//                                                                                if (v == 0)
-//                                                                                {
-//                                                                                    // Store the index of the zero value and stop enumeration
-//                                                                                    zeroIndex = ui1;
-//                                                                                    Marshal.WriteInt32(ptr2, 1);
-//                                                                                    return;
-//                                                                                }
-//                                                                                // Store value if non-zero. On exit, contains the last non-zero value
-//                                                                                lastValue = v;
-//                                                                            });
-//            {
-//                // Enumerate in forward order
-//                Assert.AreNotEqual(IntPtr.Zero, block1.NativePointer, "Block native structure is nil");
-//                objc_sendMsg_void_IntPtr(array, this.sel_enumerateObjectsUsingBlock, block1.NativePointer);
-//                int index = Array.FindIndex(values, (v) => (v == 0));
-//                Assert.AreEqual(index, zeroIndex, "Index of zero value is wrong");
-//                Assert.AreEqual(values[index - 1], lastValue, "Last non-zero value is wrong");
+            int lastValue = 0;
+            uint zeroIndex = 0;
+
+//			// Enumerate with a block: void (^)(id, NSUInteger, BOOL *)
+//            if (ObjectiveCRuntime.Is64Bits) {
+//                // TODO
+//            } else {
+//                Block block1 = this.GetBlock((Action<IntPtr, uint, IntPtr>) delegate(IntPtr ptr1, uint ui1, IntPtr ptr2) {
+//                    int v = objc_sendMsg_int(ptr1, this.sel_intValue);
+//                    if (v == 0)
+//                    {
+//                        // Store the index of the zero value and stop enumeration
+//                        zeroIndex = ui1;
+//                        Marshal.WriteInt32(ptr2, 1);
+//                        return;
+//                    }
+//                    // Store value if non-zero. On exit, contains the last non-zero value
+//                    lastValue = v;
+//                });
+//                {
+//                    // Enumerate in forward order
+//                    Assert.AreNotEqual(IntPtr.Zero, block1.NativePointer, "Block native structure is nil");
+//                    objc_sendMsg_void_IntPtr(array, this.sel_enumerateObjectsUsingBlock, block1.NativePointer);
+//                    int index = Array.FindIndex(values, (v) => (v == 0));
+//                    Assert.AreEqual(index, zeroIndex, "Index of zero value is wrong");
+//                    Assert.AreEqual(values[index - 1], lastValue, "Last non-zero value is wrong");
+//                }
+//                block1.Dispose();
 //            }
-//            block1.Dispose();
 
 //          // Enumerate wit a block: void (^)(id, NSUInteger, BOOL *)
 //			// TODO: Adapt to 64 bits

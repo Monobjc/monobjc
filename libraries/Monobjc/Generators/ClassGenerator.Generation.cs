@@ -93,8 +93,6 @@ namespace Monobjc.Generators
 			methodBuilder.DefineParameter (1, ParameterAttributes.None, "receiver");
 			methodBuilder.DefineParameter (2, ParameterAttributes.None, "selector");
 			String[] parameterNames = TypeHelper.GetParameterNames (methodTuple.MethodInfo);
-
-
 			for (int i = 0; i < parameterNames.Length; i++) {
 				if (!String.IsNullOrEmpty (parameterNames [i])) {
 					methodBuilder.DefineParameter (i + 3, ParameterAttributes.None, parameterNames [i]);
@@ -128,16 +126,7 @@ namespace Monobjc.Generators
 			bool hasByRef = byRefLocalVariables.Any (p => p.LocalBuilder != null && !p.IsOut);
 
 			// To store result before return
-			LocalBuilder result = null;
-			if (isNotVoid && hasByRef) {
-				if (TypeHelper.NeedWrapping (returnType)) {
-					result = generator.DeclareLocal (typeof(IntPtr));
-				} else if (!nativeReturnType.Equals (returnType)) {
-					result = generator.DeclareLocal (nativeReturnType);
-				} else {
-					result = generator.DeclareLocal (returnType);
-				}
-			}
+            LocalBuilder result = (isNotVoid && hasByRef) ? CreateLocalBuilderForInvocationResult(generator, returnType, nativeReturnType) : null;
 
 			// For by-ref parameters passed as reference (without [out] attribute), we first set the value of local variables
 			this.EmitNativeToManagedMarshallingForByRefParameters (generator, nativeParameterTypes, byRefLocalVariables);
@@ -145,52 +134,15 @@ namespace Monobjc.Generators
 			// Loads the parameters on the stack.
 			// - For regular parameter, values are directly loaded on the stack
 			// - For by-ref parameters, local variables are loaded instead.
-			EmitParametersLoadingOnStack (generator, parameterTypes, nativeParameterTypes, byRefLocalVariables);
+			EmitParametersLoadingOnStack (generator, parameterTypes, nativeParameterTypes, byRefLocalVariables, 2);
 
 			// Make the call on the receiver (direct call as the method is static)
 			generator.Emit (OpCodes.Call, methodTuple.MethodInfo);
 
 			// Unwrap result if needed
-			if (isNotVoid) {
-				// Unwraps the result if not null
-				if (TypeHelper.NeedWrapping (returnType)) {
-					Label notNullValueLabel = generator.DefineLabel ();
-					Label continueLabel = generator.DefineLabel ();
-
-					// Store result
-					LocalBuilder managedInstance = generator.DeclareLocal (returnType);
-					generator.Emit (OpCodes.Stloc, managedInstance);
-
-					// Test to see if instance is null
-					generator.Emit (OpCodes.Ldloc, managedInstance);
-
-					if (returnType.IsInterface) {
-						generator.Emit (OpCodes.Brtrue, notNullValueLabel);
-					} else {
-						generator.Emit (OpCodes.Ldnull);
-						generator.Emit (OpCodes.Call, EmitInfos.ID_OP_EQUALITY);
-						generator.Emit (OpCodes.Brfalse, notNullValueLabel);
-					}
-
-					// If null, load a zero pointer
-					generator.Emit (OpCodes.Ldsfld, EmitInfos.INTPTR_ZERO);
-					generator.Emit (OpCodes.Br, continueLabel);
-
-					// If not null, extract the pointer 
-					generator.MarkLabel (notNullValueLabel);
-					generator.Emit (OpCodes.Ldloc, managedInstance);
-					generator.Emit (OpCodes.Callvirt, EmitInfos.IMANAGEDWRAPPER_GETNATIVEPOINTER);
-
-					generator.MarkLabel (continueLabel);
-				} else if (!nativeReturnType.Equals (returnType)) {
-					EmitHelper.CastValueType (generator, returnType, nativeReturnType);
-				}
-
-				if (hasByRef) {
-					// Store the final result into the local
-					generator.Emit (OpCodes.Stloc, result);
-				}
-			}
+            if (isNotVoid) {
+                UnwrapResultOfInvocation(generator, result, returnType, nativeReturnType, hasByRef);
+            }
 
 			// Marshal by-ref local variables to their corresponding parameters
 			this.EmitManagedToNativeMarshallingForByRefParameters (generator, nativeParameterTypes, byRefLocalVariables);
@@ -209,87 +161,28 @@ namespace Monobjc.Generators
 			ByRefParameter[] byRefLocalVariables = CreateLocalVariableForByRefParameters (generator, methodTuple.MethodInfo.GetParameters ());
 			bool hasByRef = byRefLocalVariables.Any (p => p.LocalBuilder != null && !p.IsOut);
 
-			// To store translated receiver
-			LocalBuilder target = null;
-			if (hasByRef) {
-				target = generator.DeclareLocal (methodTuple.MethodInfo.DeclaringType);
-			}
-
 			// To store result before return
-			LocalBuilder result = null;
-			if (isNotVoid && hasByRef) {
-				if (TypeHelper.NeedWrapping (returnType)) {
-					result = generator.DeclareLocal (typeof(IntPtr));
-				} else if (!nativeReturnType.Equals (returnType)) {
-					result = generator.DeclareLocal (nativeReturnType);
-				} else {
-					result = generator.DeclareLocal (returnType);
-				}
-			}
+            LocalBuilder result = (isNotVoid && hasByRef) ? CreateLocalBuilderForInvocationResult(generator, returnType, nativeReturnType) : null;
 
-			// Retrieve the MethodInfo from the generic call
-			MethodInfo retrieveInstance = EmitInfos.OBJECTIVECRUNTIME_GETINSTANCE.MakeGenericMethod (new[] {methodTuple.MethodInfo.DeclaringType});
-
-			// Load the receiver on the stack
-			generator.Emit (OpCodes.Ldarg_0);
-			generator.Emit (OpCodes.Call, retrieveInstance);
-			if (hasByRef) {
-				generator.Emit (OpCodes.Stloc, target);
-			}
 			// For by-ref parameters passed as reference (without [out] attribute), we first set the value of local variables
 			this.EmitNativeToManagedMarshallingForByRefParameters (generator, nativeParameterTypes, byRefLocalVariables);
+
+            // Load the receiver on the stack
+            generator.Emit (OpCodes.Ldarg_0);
+            MethodInfo wrapInstance = EmitInfos.OBJECTIVECRUNTIME_GETINSTANCE.MakeGenericMethod (new[] {methodTuple.MethodInfo.DeclaringType});
+            generator.Emit (OpCodes.Call, wrapInstance);
 
 			// Loads the parameters on the stack.
 			// - For regular parameter, values are directly loaded on the stack
 			// - For by-ref parameters, local variables are loaded instead.
-			if (hasByRef) {
-				generator.Emit (OpCodes.Ldloc, target);
-			}
-			EmitParametersLoadingOnStack (generator, parameterTypes, nativeParameterTypes, byRefLocalVariables);
+			EmitParametersLoadingOnStack (generator, parameterTypes, nativeParameterTypes, byRefLocalVariables, 2);
 
 			// Make the call on the receiver
 			generator.Emit (OpCodes.Call, methodTuple.MethodInfo);
 
 			// Unwrap result if needed
 			if (isNotVoid) {
-				// Unwraps the result if not null
-				if (TypeHelper.NeedWrapping (returnType)) {
-					Label notNullValueLabel = generator.DefineLabel ();
-					Label continueLabel = generator.DefineLabel ();
-
-					// Store result
-					LocalBuilder managedInstance = generator.DeclareLocal (returnType);
-					generator.Emit (OpCodes.Stloc, managedInstance);
-
-					// Test to see if instance is null
-					generator.Emit (OpCodes.Ldloc, managedInstance);
-
-					if (returnType.IsInterface) {
-						generator.Emit (OpCodes.Brtrue, notNullValueLabel);
-					} else {
-						generator.Emit (OpCodes.Ldnull);
-						generator.Emit (OpCodes.Call, EmitInfos.ID_OP_EQUALITY);
-						generator.Emit (OpCodes.Brfalse, notNullValueLabel);
-					}
-
-					// If null, load a zero pointer
-					generator.Emit (OpCodes.Ldsfld, EmitInfos.INTPTR_ZERO);
-					generator.Emit (OpCodes.Br, continueLabel);
-
-					// If not null, extract the pointer 
-					generator.MarkLabel (notNullValueLabel);
-					generator.Emit (OpCodes.Ldloc, managedInstance);
-					generator.Emit (OpCodes.Callvirt, EmitInfos.IMANAGEDWRAPPER_GETNATIVEPOINTER);
-
-					generator.MarkLabel (continueLabel);
-				} else if (!nativeReturnType.Equals (returnType)) {
-					EmitHelper.CastValueType (generator, returnType, nativeReturnType);
-				}
-
-				if (hasByRef) {
-					// Store the final result into the local
-					generator.Emit (OpCodes.Stloc, result);
-				}
+                UnwrapResultOfInvocation(generator, result, returnType, nativeReturnType, hasByRef);
 			}
 
 			// Marshal by-ref local variables to their corresponding parameters

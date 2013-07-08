@@ -160,34 +160,6 @@ namespace Monobjc.Generators
         public delegate void ExecuteInvoker(IntPtr layout, IntPtr arg1, IntPtr arg2, IntPtr arg3, string arg4);
     }
 
-	/// <summary>
-	///   Block: void (^)(Id, BOOL *stop)
-	/// </summary>
-	public class Block_CustomEnumerator : Block
-	{
-		public readonly ExecuteInvoker blockInvoker;
-		
-		public Block_CustomEnumerator(Delegate block)
-			: base(block)
-		{
-			this.blockInvoker = new ExecuteInvoker(this.Execute);
-		}
-		
-		public void Execute(IntPtr layout, Id id, IntPtr stop)
-		{
-			bool value1 = Marshal.ReadByte(stop) != 0;
-			((CustomEnumerator) this.Invoker)(null, ref value1);
-			Marshal.WriteByte(stop, (byte)(value1 ? 1 : 0));
-		}
-		
-		public override Delegate BlockInvoker
-		{
-			get { return this.blockInvoker; }
-		}
-		
-		public delegate void ExecuteInvoker(IntPtr layout, Id id, IntPtr stop);
-	}
-
     /// <summary>
     ///   Block: void (^)(int)
     /// </summary>
@@ -620,6 +592,32 @@ namespace Monobjc.Generators
     }
 
     /// <summary>
+    ///   Block: int (^)(IntPtr, IntPtr)
+    /// </summary>
+    public class Func_IntPtr_IntPtr_Int32 : Block
+    {
+        public readonly ExecuteInvoker blockInvoker;
+
+        public Func_IntPtr_IntPtr_Int32(Delegate block)
+            : base(block)
+        {
+            this.blockInvoker = new ExecuteInvoker(this.Execute);
+        }
+
+        public int Execute(IntPtr layout, IntPtr num1, IntPtr num2)
+        {
+            return ((Func<IntPtr, IntPtr, int>) base.Invoker)(num1, num2);
+        }
+
+        public override Delegate BlockInvoker
+        {
+            get { return this.blockInvoker; }
+        }
+
+        public delegate int ExecuteInvoker(IntPtr layout, IntPtr num1, IntPtr num2);
+    }
+
+    /// <summary>
     ///   Block: TSIntegerEnumeration (^)()
     /// </summary>
     public class Block_TSIntegerEnumeration32 : Block
@@ -1044,5 +1042,86 @@ namespace Monobjc.Generators
         }
 
         public delegate TSRect64 ExecuteInvoker(IntPtr layout);
+    }
+    
+    /// <summary>
+    ///   Block: void (^)(TSObject, TSInteger, bool)
+    /// </summary>
+    public class Block_ArbitraryDelegate1 : Block
+    {
+        public readonly ExecuteInvoker blockInvoker;
+
+        public Block_ArbitraryDelegate1(Delegate block)
+            : base(block)
+        {
+            this.blockInvoker = new ExecuteInvoker(this.Execute);
+        }
+
+        public void Execute(IntPtr layout, IntPtr obj, int index, bool stop)
+        {
+            ((ArbitraryDelegate1) base.Invoker)(ObjectiveCRuntime.GetInstance<TSObject>(obj), index, stop);
+        }
+
+        public override Delegate BlockInvoker
+        {
+            get { return this.blockInvoker; }
+        }
+
+        public delegate void ExecuteInvoker(IntPtr layout, IntPtr obj, int index, bool stop);
+    }
+    
+    /// <summary>
+    ///   Block: void (^)(TSObject, TSInteger, bool)
+    /// </summary>
+    public class Block_ArbitraryDelegate2 : Block
+    {
+        public readonly ExecuteInvoker blockInvoker;
+
+        public Block_ArbitraryDelegate2(Delegate block)
+            : base(block)
+        {
+            this.blockInvoker = new ExecuteInvoker(this.Execute);
+        }
+
+        public void Execute(IntPtr layout, IntPtr obj, int index, IntPtr stop)
+        {
+            bool flag = Marshal.ReadInt32(stop) != 0;
+            ((ArbitraryDelegate2) base.Invoker)(ObjectiveCRuntime.GetInstance<TSObject>(obj), index, ref flag);
+            Marshal.WriteInt32(stop, (!flag) ? 0 : 1);
+        }
+
+        public override Delegate BlockInvoker
+        {
+            get { return this.blockInvoker; }
+        }
+
+        public delegate void ExecuteInvoker(IntPtr layout, IntPtr obj, int index, IntPtr stop);
+    }
+    
+    /// <summary>
+    ///   Block: void (^)(TSObject, TSInteger, out TSObject)
+    /// </summary>
+    public class Block_ArbitraryDelegate3 : Block
+    {
+        public readonly ExecuteInvoker blockInvoker;
+
+        public Block_ArbitraryDelegate3(Delegate block)
+            : base(block)
+        {
+            this.blockInvoker = new ExecuteInvoker(this.Execute);
+        }
+
+        public void Execute(IntPtr layout, IntPtr obj, int index, IntPtr outObj)
+        {
+            TSObject v = null;
+            ((ArbitraryDelegate3) base.Invoker)(ObjectiveCRuntime.GetInstance<TSObject>(obj), index, out v);
+        }
+
+        public override Delegate BlockInvoker
+        {
+            get { return this.blockInvoker; }
+        }
+
+        public delegate void ExecuteInvoker(IntPtr layout, IntPtr obj, int index, IntPtr outObj);
     }
 }

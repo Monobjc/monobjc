@@ -107,49 +107,13 @@ namespace Monobjc.Generators
 			ILGenerator generator = methodBuilder.GetILGenerator ();
 
 			// Retrieve the invoker field
+            // Cast it to the delegate
 			generator.Emit (OpCodes.Ldarg_0);
 			generator.Emit (OpCodes.Call, EmitInfos.BLOCK_GET_INVOKER);
-
-			// Cast it to the delegate
 			generator.Emit (OpCodes.Castclass, delegateType);
 
-			// Load the  parameter on the stack.
-			// We skip the first and second parameters
-			// - parameter (1) is implicit 'this'
-			// - parameter (2) is the block layout that we don't use
-			for (int i = 0; i < parameterTypes.Length; i++) {
-				Type parameterType = parameterTypes [i];
-				switch (i) {
-				case 0:
-					generator.Emit (OpCodes.Ldarg_2);
-					break;
-				case 1:
-					generator.Emit (OpCodes.Ldarg_3);
-					break;
-				default:
-					generator.Emit (OpCodes.Ldarg_S, i + 2);
-					break;
-				}
-
-				// If the parameter is a pointer, retrieve a wrapper
-				if (TypeHelper.NeedWrapping (parameterType)) {
-					MethodInfo mi = EmitInfos.OBJECTIVECRUNTIME_GETINSTANCE.MakeGenericMethod (parameterType);
-					generator.Emit (OpCodes.Call, mi);
-				} else {
-					EmitHelper.CastValueType (generator, nativeParameterTypes [i], parameterTypes [i]);
-				}
-			}
-
-			// Make the actual call
-			generator.Emit (OpCodes.Callvirt, delegateMethodInfo);
-
-			// If the result is wrapped, extract the native pointer
-			if (TypeHelper.NeedWrapping (returnType)) {
-				generator.Emit (OpCodes.Call, EmitInfos.IMANAGEDWRAPPER_GETNATIVEPOINTER);
-			} else {
-				EmitHelper.CastValueType (generator, returnType, nativeReturnType);
-			}
-			generator.Emit (OpCodes.Ret);
+            EmitInvokerBody(generator, delegateMethodInfo, returnType, nativeReturnType, parameterTypes, nativeParameterTypes);
+            generator.Emit (OpCodes.Ret);
 
 			// Constructor
 			ConstructorBuilder constructorBuilder = EmitHelper.DefineConstructor (typeBuilder, new[] {typeof(Delegate)});

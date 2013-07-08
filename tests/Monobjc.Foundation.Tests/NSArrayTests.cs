@@ -78,41 +78,53 @@ namespace Monobjc.Foundation
 				}
 			}
 		}
-		
-		[Test]
-		public void TestBlock1 ()
-		{
-			NSString str1 = NSString.StringWithUTF8String ("ABC");
-			NSString str2 = NSString.StringWithUTF8String ("DEF");
-			NSString str3 = NSString.StringWithUTF8String ("GHI");
-			
-			NSArray array = NSArray.ArrayWithObjects (str2, str3, str1, null);
-			Check (array);
+        
+        [Test]
+        public void TestBlock1 ()
+        {
+            NSString str1 = NSString.StringWithUTF8String ("ABC");
+            NSString str2 = NSString.StringWithUTF8String ("DEF");
+            NSString str3 = NSString.StringWithUTF8String ("GHI");
 
-			/*
-			foreach(NSString slot in array.GetEnumerator<NSString>()) {
-			Console.WriteLine(slot.SendMessage<NSString>("description"));
-			}
-			*/
-		
-			Func<Id, Id, NSComparisonResult> sorter = delegate(Id id1, Id id2) {
-				//Console.WriteLine(id1.SendMessage<NSString>("description") + " <-> " + id2.SendMessage<NSString>("description"));
-				return id1.SendMessage<NSComparisonResult> ("compare:", id2);
-			};
-			
-			NSArray sorted = array.SortedArrayUsingComparator (sorter);
-			Check (sorted);
+            NSArray array = NSArray.ArrayWithObjects (str2, str3, str1, null);
+            Check (array);
 
-			/*
-			foreach(NSString slot in sorted.GetEnumerator<NSString>()) {
-			Console.WriteLine(slot.SendMessage<NSString>("description"));
-			}
-			*/
-			
-			Assert.True (sorted.ObjectAtIndex<NSString> (0).IsEqualToString (str1), "Elements must be sorted");
-			Assert.True (sorted.ObjectAtIndex<NSString> (1).IsEqualToString (str2), "Elements must be sorted");
-			Assert.True (sorted.ObjectAtIndex<NSString> (2).IsEqualToString (str3), "Elements must be sorted");
-		}
+            Func<Id, Id, NSComparisonResult> sorter = delegate(Id id1, Id id2) {
+                //Console.WriteLine(id1.SendMessage<NSString>("description") + " <-> " + id2.SendMessage<NSString>("description"));
+                return id1.SendMessage<NSComparisonResult> ("compare:", id2);
+            };
+
+            NSArray sorted = array.SortedArrayUsingComparator (sorter);
+            Check (sorted);
+
+            Assert.True (sorted.ObjectAtIndex<NSString> (0).IsEqualToString (str1), "Elements must be sorted");
+            Assert.True (sorted.ObjectAtIndex<NSString> (1).IsEqualToString (str2), "Elements must be sorted");
+            Assert.True (sorted.ObjectAtIndex<NSString> (2).IsEqualToString (str3), "Elements must be sorted");
+        }
+
+        private delegate void NSArray_EnumerateObjectsUsingBlock(Id obj, NSUInteger idx, ref bool stop);
+
+//        [Test]
+//        public void TestBlock2 ()
+//        {
+//            NSString str1 = NSString.StringWithUTF8String ("ABC");
+//            NSString str2 = NSString.StringWithUTF8String ("DEF");
+//            NSString str3 = NSString.StringWithUTF8String ("GHI");
+//
+//            NSArray array = NSArray.ArrayWithObjects (str2, str3, str1, null);
+//            Check (array);
+//
+//            int count = 0;
+//            NSArray_EnumerateObjectsUsingBlock enumerator = delegate(Id obj, NSUInteger idx, ref bool stop) {
+//                count++;
+//            };
+//
+//            Block block = Block.Create(enumerator);
+//            array.SendMessage("enumerateObjectsUsingBlock:", block);
+//            block.Dispose();
+//
+//            Assert.AreEqual(3, count);
+//        }
 
 		private static void Check (Id @object)
 		{

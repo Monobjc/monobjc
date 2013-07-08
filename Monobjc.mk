@@ -52,7 +52,7 @@ export TAR=tar
 export XBUILD=xbuild /p:Configuration=Release /verbosity:minimal
 
 # Compute the version parts
-export MONOBJC_VERSION=5.0
+export MONOBJC_VERSION=5.1
 export MONOBJC_VERSION_MAJOR=$(shell echo $(MONOBJC_VERSION) | cut -d "." -f1)
 export MONOBJC_VERSION_MINOR=$(shell echo $(MONOBJC_VERSION) | cut -d "." -f2)
 

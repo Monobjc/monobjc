@@ -58,8 +58,8 @@ namespace Monobjc.Foundation
 				notified = true;
 			};
 			block = Block.Create(action);
-			
 			Id listener = NSNotificationCenter.DefaultCenter.AddObserverForNameObjectQueueUsingBlock(MyListener.SELECTOR_NOTIFICATION, null, null, block);
+            block.Dispose();
 			
 			mre = new ManualResetEvent(false);
 			new Thread(this.Notify).Start();
@@ -68,7 +68,6 @@ namespace Monobjc.Foundation
 			Assert.IsTrue(notified, "Listener must be notified");
 			
 			NSNotificationCenter.DefaultCenter.RemoveObserver(listener);
-			block.Dispose();
 		}
 
 		private void Notify()

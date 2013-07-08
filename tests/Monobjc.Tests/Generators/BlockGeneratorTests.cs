@@ -24,10 +24,15 @@ using System;
 using System.Reflection;
 using Monobjc.Types;
 using NUnit.Framework;
+using System.Linq;
 
 namespace Monobjc.Generators
 {
-	public delegate void CustomEnumerator (Id obj, ref bool stop);
+    public delegate void ArbitraryDelegate1(TSObject obj, TSInteger index, bool stop); 
+
+    public delegate void ArbitraryDelegate2(TSObject obj, TSInteger index, ref bool stop); 
+
+    public delegate void ArbitraryDelegate3(TSObject obj, TSInteger index, out TSObject outObj); 
 		
 	[TestFixture]
     [Category("Blocks")]
@@ -76,9 +81,6 @@ namespace Monobjc.Generators
             this.TestBlock(typeof (Action<byte, ushort, uint, ulong>), typeof (Block_Void_Byte_UInt16_UInt32_UInt64), false);
             this.TestBlock(typeof (Action<TSWindingRule>), typeof (Block_Void_TSWindingRule), false);
             this.TestBlock(typeof (Action<IntPtr, Id, Class, String>), typeof (Block_Void_IntPtr_Id_Class_String), false);
-
-			// TODO: Handle custom delegate
-			//this.TestBlock(typeof(CustomEnumerator), typeof(Block_CustomEnumerator), false);
         }
 
         [Test]
@@ -124,6 +126,7 @@ namespace Monobjc.Generators
             counter = 70;
 
             // Test different type of parameter
+            this.TestBlock(typeof (Func<IntPtr, IntPtr, int>), typeof (Func_IntPtr_IntPtr_Int32), false);
 		}
 
         [Test]
@@ -158,6 +161,16 @@ namespace Monobjc.Generators
             this.TestBlock(typeof (Func<TSRect>), typeof (Block_TSRect64), true);
         }
 
+        [Test]
+        public void TestBlockGenerationForArbitratyDelegate()
+        {
+            counter = 100;
+
+            this.TestBlock(typeof (ArbitraryDelegate1), typeof (Block_ArbitraryDelegate1), false);
+            this.TestBlock(typeof (ArbitraryDelegate2), typeof (Block_ArbitraryDelegate2), false);
+            this.TestBlock(typeof (ArbitraryDelegate3), typeof (Block_ArbitraryDelegate3), false);
+        }
+
         private void TestBlock(Type delegateType, Type referenceType, bool is64Bits)
         {
             counter++;
@@ -172,7 +185,7 @@ namespace Monobjc.Generators
                 String file = dynamicAssembly.Save();
 
                 Assembly assembly = Assembly.LoadFile(file);
-                Type type = assembly.GetType(proxyType.FullName);
+                Type type = assembly.GetTypes().Single(t => t.FullName == proxyType.FullName);
                 DynamicAssemblyHelper.Compare(referenceType, type);
             }
             catch (Exception ex)

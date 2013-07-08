@@ -87,6 +87,7 @@
     <Compile Include="Utils\TypeHelper.cs" />
     <Compile Include="ObjectiveCRuntime.Extensions.cs" />
     <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
+    <Compile Include="Generators\BlockGenerator.Generation.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

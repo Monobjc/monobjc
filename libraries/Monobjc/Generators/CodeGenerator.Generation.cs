@@ -74,6 +74,77 @@ namespace Monobjc.Generators
 			}
 		}
 
+        /// <summary>
+        /// Creates a local builder to store the result of the invocation.
+        /// </summary>
+        /// <returns>The local builder for result.</returns>
+        /// <param name="generator">The IL generator.</param>
+        /// <param name="returnType">The return type.</param>
+        /// <param name="nativeReturnType">The native return type.</param>
+        /// <param name="hasByRef">If set to <c>true</c>, the local is needed.</param>
+        protected static LocalBuilder CreateLocalBuilderForInvocationResult(ILGenerator generator, Type returnType, Type nativeReturnType)
+        {
+            LocalBuilder result = null;
+            if (TypeHelper.NeedWrapping (returnType)) {
+                result = generator.DeclareLocal (typeof(IntPtr));
+            } else if (!nativeReturnType.Equals (returnType)) {
+                result = generator.DeclareLocal (nativeReturnType);
+            } else {
+                result = generator.DeclareLocal (returnType);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Unwraps the result of invocation.
+        /// </summary>
+        /// <param name="generator">Generator.</param>
+        /// <param name="result">Result.</param>
+        /// <param name="returnType">Return type.</param>
+        /// <param name="nativeReturnType">Native return type.</param>
+        /// <param name="hasByRef">If set to <c>true</c> has by reference.</param>
+        protected static void UnwrapResultOfInvocation(ILGenerator generator, LocalBuilder result, Type returnType, Type nativeReturnType, bool hasByRef)
+        {
+            // Unwraps the result if not null
+            if (TypeHelper.NeedWrapping (returnType)) {
+                Label notNullValueLabel = generator.DefineLabel ();
+                Label continueLabel = generator.DefineLabel ();
+
+                // Store result
+                LocalBuilder managedInstance = generator.DeclareLocal (returnType);
+                generator.Emit (OpCodes.Stloc, managedInstance);
+
+                // Test to see if instance is null
+                generator.Emit (OpCodes.Ldloc, managedInstance);
+
+                if (returnType.IsInterface) {
+                    generator.Emit (OpCodes.Brtrue, notNullValueLabel);
+                } else {
+                    generator.Emit (OpCodes.Ldnull);
+                    generator.Emit (OpCodes.Call, EmitInfos.ID_OP_EQUALITY);
+                    generator.Emit (OpCodes.Brfalse, notNullValueLabel);
+                }
+
+                // If null, load a zero pointer
+                generator.Emit (OpCodes.Ldsfld, EmitInfos.INTPTR_ZERO);
+                generator.Emit (OpCodes.Br, continueLabel);
+
+                // If not null, extract the pointer 
+                generator.MarkLabel (notNullValueLabel);
+                generator.Emit (OpCodes.Ldloc, managedInstance);
+                generator.Emit (OpCodes.Callvirt, EmitInfos.IMANAGEDWRAPPER_GETNATIVEPOINTER);
+
+                generator.MarkLabel (continueLabel);
+            } else if (!nativeReturnType.Equals (returnType)) {
+                EmitHelper.CastValueType (generator, returnType, nativeReturnType);
+            }
+
+            if (hasByRef) {
+                // Store the final result into the local
+                generator.Emit (OpCodes.Stloc, result);
+            }
+        }
+
 		/// <summary>
 		///   Emit local variable for each by-ref parameters. These variables will hold the result until the marshalling occurs.
 		/// </summary>
@@ -194,7 +265,7 @@ namespace Monobjc.Generators
 		///   - For the third or fourth parameter, use the short OpCode
 		///   - For all the parameters left, use the long OpCode
 		/// </summary>
-		protected static void EmitParametersLoadingOnStack (ILGenerator generator, Type[] parameterTypes, Type[] nativeParameterTypes, ByRefParameter[] byRefLocalVariables)
+		protected static void EmitParametersLoadingOnStack (ILGenerator generator, Type[] parameterTypes, Type[] nativeParameterTypes, ByRefParameter[] byRefLocalVariables, int parameterOffset)
 		{
 			for (int i = 0; i < parameterTypes.Length; i++) {
 				// For by-ref type, loads the local variable
@@ -203,7 +274,7 @@ namespace Monobjc.Generators
 				if (parameterType.IsByRef) {
 					generator.Emit (OpCodes.Ldloca, byRefLocalVariables [i].LocalBuilder);
 				} else {
-					EmitLoadArgument (generator, i + 2);
+                    EmitLoadArgument (generator, i + parameterOffset);
 
 					// For wrapped type (interface or Id subclass)
 					if (TypeHelper.NeedWrapping (parameterType)) {
