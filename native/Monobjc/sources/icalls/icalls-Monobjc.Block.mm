@@ -133,9 +133,8 @@ void *icall_Monobjc_Block_CreateBlock(MonoObject *thunk_delegate, MonoObject *ta
  */
 void icall_Monobjc_Block_DestroyBlock(void *block) {
     if (monobjc_are_blocks_available()) {
-        // Cast the pointer to access the structure
-        Block_layout *layout = (Block_layout *)block;
-        g_free(layout);
+        __Block_dispose_helper(block);
+        g_free(block);
     } else {
         LOG_ERROR(MONOBJC_DOMAIN_GENERAL, "Blocks are not supported !!!");
     }
