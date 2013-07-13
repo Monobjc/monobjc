@@ -21,11 +21,15 @@
 // THE SOFTWARE.
 // 
 using System;
+using Monobjc;
+using Monobjc.ApplicationServices;
 using Monobjc.Foundation;
 
-namespace Monobjc.SceneKit
+namespace Monobjc.AppKit
 {
-#if MACOSX_10_8
-	public delegate void SCNSceneSourceStatusHandler(float totalProgress, SCNSceneSourceStatus status, NSError error, ref bool stopLoading); 
+#if MACOSX_10_7
+    public delegate void Action_NSDraggingItem_NSInteger_ref_bool(NSDraggingItem draggingItem, NSInteger idx, ref bool stop);
+
+    public delegate void Action_CGFloat_NSEventPhase_bool_ref_bool(CGFloat gestureAmount, NSEventPhase phase, bool isComplete, ref bool stop);
 #endif
 }

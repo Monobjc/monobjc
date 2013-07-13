@@ -62,6 +62,7 @@
     <Compile Include="CoreLocation_C\CLRegion.cs" />
     <Compile Include="CoreLocation_C\CLRegion.Protocols.cs" />
     <Compile Include="CoreLocation_T\CoreLocationFramework.DataTypes.cs" />
+    <Compile Include="CoreLocation_Extensions\Blocks.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -88,5 +89,8 @@
   -->
   <ItemGroup>
     <None Include="Makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CoreLocation_Extensions\" />
   </ItemGroup>
 </Project>

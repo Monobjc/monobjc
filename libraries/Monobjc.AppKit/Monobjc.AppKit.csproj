@@ -1365,6 +1365,7 @@
     <Compile Include="AppKit_P\NSTextStorage.Delegate.cs" />
     <Compile Include="AppKit_Extensions\NSCellStateValueExtensions.cs" />
     <Compile Include="AppKit_Extensions\NSImage.Extensions.cs" />
+    <Compile Include="AppKit_Extensions\Blocks.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">

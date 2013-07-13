@@ -129,11 +129,11 @@
     <Compile Include="SceneKit_C\SCNRenderer.Class.cs" />
     <Compile Include="SceneKit_C\SCNRenderer.cs" />
     <Compile Include="SceneKit_C\SCNRenderer.Protocols.cs" />
-    <Compile Include="SceneKit_Extensions\Handlers.cs" />
     <Compile Include="SceneKit_S\SCNVector3.cs" />
     <Compile Include="SceneKit_S\SCNVector3_64.cs" />
     <Compile Include="SceneKit_S\SCNVector4.cs" />
     <Compile Include="SceneKit_S\SCNVector4_64.cs" />
+    <Compile Include="SceneKit_Extensions\Blocks.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">

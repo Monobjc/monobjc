@@ -911,6 +911,7 @@
       <Link>ArtworkEncrypter.Public.cs</Link>
     </Compile>
     <Compile Include="Foundation_Extensions\GeometryExtensions.cs" />
+    <Compile Include="Foundation_Extensions\Blocks.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

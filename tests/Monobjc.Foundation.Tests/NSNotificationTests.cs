@@ -53,13 +53,10 @@ namespace Monobjc.Foundation
         public void TestNotificationByBlock()
         {
 			bool notified = false;
-			Block block = null;
 			Action<NSNotification> action = delegate(NSNotification notification) { 
 				notified = true;
 			};
-			block = Block.Create(action);
-			Id listener = NSNotificationCenter.DefaultCenter.AddObserverForNameObjectQueueUsingBlock(MyListener.SELECTOR_NOTIFICATION, null, null, block);
-            block.Dispose();
+			Id listener = NSNotificationCenter.DefaultCenter.AddObserverForNameObjectQueueUsingBlock(MyListener.SELECTOR_NOTIFICATION, null, null, action);
 			
 			mre = new ManualResetEvent(false);
 			new Thread(this.Notify).Start();

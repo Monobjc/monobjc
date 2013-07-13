@@ -89,7 +89,7 @@ namespace Monobjc.Foundation
             NSArray array = NSArray.ArrayWithObjects (str2, str3, str1, null);
             Check (array);
 
-            Func<Id, Id, NSComparisonResult> sorter = delegate(Id id1, Id id2) {
+            NSComparator sorter = delegate(Id id1, Id id2) {
                 //Console.WriteLine(id1.SendMessage<NSString>("description") + " <-> " + id2.SendMessage<NSString>("description"));
                 return id1.SendMessage<NSComparisonResult> ("compare:", id2);
             };
@@ -102,8 +102,6 @@ namespace Monobjc.Foundation
             Assert.True (sorted.ObjectAtIndex<NSString> (2).IsEqualToString (str3), "Elements must be sorted");
         }
 
-        private delegate void NSArray_EnumerateObjectsUsingBlock(Id obj, NSUInteger idx, ref bool stop);
-
 //        [Test]
 //        public void TestBlock2 ()
 //        {
@@ -115,13 +113,11 @@ namespace Monobjc.Foundation
 //            Check (array);
 //
 //            int count = 0;
-//            NSArray_EnumerateObjectsUsingBlock enumerator = delegate(Id obj, NSUInteger idx, ref bool stop) {
+//            Action_Id_NSUInteger_ref_bool enumerator = delegate(Id obj, NSUInteger idx, ref bool stop) {
 //                count++;
 //            };
 //
-//            Block block = Block.Create(enumerator);
-//            array.SendMessage("enumerateObjectsUsingBlock:", block);
-//            block.Dispose();
+//            array.EnumerateObjectsUsingBlock(enumerator);
 //
 //            Assert.AreEqual(3, count);
 //        }
