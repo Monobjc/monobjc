@@ -55,9 +55,12 @@ void icall_Monobjc_Runtime_Bridge_AddMethod(void *target, boolean_t meta, MonoMe
     MonoType *return_type = mono_signature_get_return_type(sig);
     MonoType **parameter_types = g_new(MonoType *, nargs);
     MonoType **current = parameter_types;
-    void *iter = NULL;
-    while ((*current = mono_signature_get_params(sig, &iter))) {
-        current++;
+    if (nargs > 0) {
+        void *iter = NULL;
+        MonoType *param_type;
+        while ((param_type = mono_signature_get_params(sig, &iter))) {
+            *current++ = param_type;
+        }
     }
     
     // The implementation is a closure that will perform the actual call
@@ -75,6 +78,10 @@ void icall_Monobjc_Runtime_Bridge_AddMethod(void *target, boolean_t meta, MonoMe
     
     // Add the method list to the class or the meta-class
     class_addMethod(cls, sel_registerName(name), implementation, encoding);
+    
+    // Free
+    g_free(name);
+    g_free(encoding);
 }
 
 /**
@@ -107,6 +114,10 @@ void icall_Monobjc_Runtime_Bridge_AddMethods(void *target, boolean_t meta, MonoA
         
         // Add the method list to the class or the meta-class
         class_addMethod(cls, sel_registerName(name), implementation, encoding);
+        
+        // Free
+        g_free(name);
+        g_free(encoding);
     }
 }
 

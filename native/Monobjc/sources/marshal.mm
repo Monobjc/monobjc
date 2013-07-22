@@ -66,6 +66,12 @@ static void __destroy_descriptor(void *value) {
  * @param   descriptor  The associated descriptor.
  */
 void __map_descriptor(MonoType *type, MonobjcTypeDescriptor *descriptor) {
+    if (type == NULL)
+        [NSException raise:NSInvalidArgumentException format:@"type was NULL"];
+    
+    if (descriptor == NULL)
+        [NSException raise:NSInvalidArgumentException format:@"descriptor was NULL"];
+    
     char *name = mono_type_get_name(type);
     LOG_DEBUG(MONOBJC_DOMAIN_MARSHALLING, "Mapping descriptor for %s", name);
     g_hash_table_insert(__DESCRIPTORS_HASHTABLE, strdup(name), descriptor);
@@ -364,7 +370,7 @@ MonobjcTypeDescriptor *monobjc_get_descriptor(MonoType *type, char *encoding, bo
     }
     
     // Check if encodings are matching
-    if (encoding && monobjc_compare_encoding(descriptor->encoding, encoding)) {
+    if (encoding && descriptor && monobjc_compare_encoding(descriptor->encoding, encoding)) {
         LOG_WARNING(MONOBJC_DOMAIN_MARSHALLING, "Mismatch between encoding '%s' and '%s'.", descriptor->encoding, encoding);
     }
 
