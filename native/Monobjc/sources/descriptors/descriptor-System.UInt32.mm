@@ -22,10 +22,10 @@
 //
 
 /**
- * \file    descriptor-System.UInt32.mm
+ * @file    descriptor-System.UInt32.mm
  * @brief   Contains the descriptor code to handle the System.UInt32 type.
- * \author  Laurent Etiemble
- * \date    2009-2010
+ * @author  Laurent Etiemble
+ * @date    2009-2010
  */
 #include "logging.h"
 #include "marshal.h"

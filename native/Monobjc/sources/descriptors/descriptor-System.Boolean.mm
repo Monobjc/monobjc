@@ -22,10 +22,10 @@
 //
 
 /**
- * \file    descriptor-System.Boolean.mm
+ * @file    descriptor-System.Boolean.mm
  * @brief   Contains the descriptor code to handle the System.Boolean type.
- * \author  Laurent Etiemble
- * \date    2009-2010
+ * @author  Laurent Etiemble
+ * @date    2009-2010
  */
 #include "logging.h"
 #include "marshal.h"

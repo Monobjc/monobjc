@@ -22,10 +22,10 @@
 //
 
 /**
- * \file    descriptor-System.Int64.mm
+ * @file    descriptor-System.Int64.mm
  * @brief   Contains the descriptor code to handle the System.Int64 type.
- * \author  Laurent Etiemble
- * \date    2009-2010
+ * @author  Laurent Etiemble
+ * @date    2009-2010
  */
 #include "logging.h"
 #include "marshal.h"

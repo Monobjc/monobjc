@@ -22,10 +22,10 @@
 //
 
 /**
- * \file    descriptor-System.IntPtr.mm
+ * @file    descriptor-System.IntPtr.mm
  * @brief   Contains the descriptor code to handle the System.IntPtr type.
- * \author  Laurent Etiemble
- * \date    2009-2010
+ * @author  Laurent Etiemble
+ * @date    2009-2010
  */
 #include "logging.h"
 #include "marshal.h"
