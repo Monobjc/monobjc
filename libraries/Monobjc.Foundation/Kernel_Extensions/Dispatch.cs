@@ -71,4 +71,25 @@ namespace Monobjc.Kernel
     /// <para>Available in Mac OS X v10.6 and later.</para>
     /// </summary>
 	public delegate void dispatch_function_tc(IntPtr context, NSUInteger count);
+    
+    /// <summary>
+    /// <para></para>
+    /// <para>Original signature is 'typedef void (^dispatch_block_t)(void);'</para>
+    /// <para>Available in Mac OS X v10.6 and later.</para>
+    /// </summary>
+    public delegate void dispatch_block_t();
+
+    /// <summary>
+    /// <para></para>
+    /// <para>Original signature is 'typedef bool (^dispatch_data_applier_t)(dispatch_data_t region, size_t offset, const void *buffer, size_t size);'</para>
+    /// <para>Available in Mac OS X v10.6 and later.</para>
+    /// </summary>
+    public delegate bool dispatch_data_applier_t(IntPtr region, NSUInteger offset, IntPtr buffer, NSUInteger size);
+    
+    /// <summary>
+    /// <para></para>
+    /// <para>Original signature is 'typedef void (^dispatch_io_handler_t)(bool done, dispatch_data_t data, int error);'</para>
+    /// <para>Available in Mac OS X v10.6 and later.</para>
+    /// </summary>
+    public delegate void dispatch_io_handler_t(bool done, IntPtr data, int error);
 }
