@@ -92,8 +92,11 @@ namespace Monobjc.Generators
             // TODO: Missing comparison
 
             // Fields comparison
-            FieldInfo[] fieldInfos = referenceType.GetFields(ALL);
-            Assert.AreEqual(fieldInfos.Length, testedType.GetFields(ALL).Length, prefix + "Number of Fields are different");
+            FieldInfo[] fieldInfos = referenceType.GetFields(ALL).Where(
+				f => !f.IsDefined(typeof(CompilerGeneratedAttribute), false)).ToArray();
+			FieldInfo[] testedFieldInfos = testedType.GetFields(ALL).Where(
+				f => !f.IsDefined(typeof(CompilerGeneratedAttribute), false)).ToArray();
+            Assert.AreEqual(fieldInfos.Length, testedFieldInfos.Length, prefix + "Number of Fields are different");
             foreach (FieldInfo fieldInfo in fieldInfos)
             {
                 String fieldPrefix = "Field_" + fieldInfo.Name;
