@@ -63,6 +63,13 @@ clean: $(DIRS_CLEAN)
 	$(RMRF) "$(DIST_DIR)"
 	$(RMRF) "Monobjc-*"
 
+clean-code-gen:
+	$(RMRF) "$(TOOLS_DIR)/.generated"
+	$(RMRF) "$(TOOLS_DIR)/Monobjc.Generator.NAnt/bin/Release"	
+	git clean -fdx
+
+clean-all: clean clean-code-gen
+
 distribute: generate-tar generate-package
 
 generate-doc: all $(DIRS_DOC)
@@ -128,6 +135,8 @@ $(DIRS_DOC):
 .PHONY: \
 	all \
 	clean \
+	clean-code-gen \
+	clean-all \
 	distribute \
 	generate-doc \
 	generate-archive \
