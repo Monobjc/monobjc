@@ -342,7 +342,7 @@ MonoObject *monobjc_call_invoke(MonobjcNativeCall *call, void *target, SEL selec
         }
     }
     @catch (NSException *ex) {
-        LOG_DEBUG(MONOBJC_DOMAIN_MESSAGING, "Native exception catched: %s", [[ex description] UTF8String]);
+        LOG_DEBUG(MONOBJC_DOMAIN_MESSAGING, "Native exception caught: %s", [[ex description] UTF8String]);
         
         // Encapsulate the native exception
         exc = mono_exception_from_name_msg(monobjc_get_Monobjc_image(), MONOBJC, OBJECTIVE_C_MESSAGING_EXCEPTION, [[ex description] UTF8String]);
