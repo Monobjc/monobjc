@@ -24,8 +24,8 @@
 /**
  * @file    descriptor-System.SByte.mm
  * @brief   Contains the descriptor code to handle the System.SByte type.
- * @author  Laurent Etiemble
- * @date    2009-2010
+ * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
+ * @date    2009-2013
  */
 #include "logging.h"
 #include "marshal.h"
