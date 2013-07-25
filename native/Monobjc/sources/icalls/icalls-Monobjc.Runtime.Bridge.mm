@@ -79,7 +79,7 @@ void icall_Monobjc_Runtime_Bridge_AddMethod(void *target, boolean_t meta, MonoMe
     // Add the method list to the class or the meta-class
     class_addMethod(cls, sel_registerName(name), implementation, encoding);
     
-    // Free
+    // Free strings
     g_free(name);
     g_free(encoding);
 }
@@ -115,7 +115,7 @@ void icall_Monobjc_Runtime_Bridge_AddMethods(void *target, boolean_t meta, MonoA
         // Add the method list to the class or the meta-class
         class_addMethod(cls, sel_registerName(name), implementation, encoding);
         
-        // Free
+        // Free strings
         g_free(name);
         g_free(encoding);
     }
