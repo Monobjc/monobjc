@@ -82,7 +82,7 @@ namespace Monobjc.Generators
                     {
                         //Console.WriteLine(">"+customAttributes[i]);
                         //Console.WriteLine("<"+testedCustomAttributes[i]);
-                        CompareAttributes(constructorPrefix, (Attribute) customAttributes[i], (Attribute) testedCustomAttributes[i]);
+                        CompareAttributes(constructorPrefix, (Attribute)customAttributes[i], (Attribute)testedCustomAttributes[i]);
                     }
                 }
             }
@@ -92,10 +92,8 @@ namespace Monobjc.Generators
             // TODO: Missing comparison
 
             // Fields comparison
-            FieldInfo[] fieldInfos = referenceType.GetFields(ALL).Where(
-				f => !f.IsDefined(typeof(CompilerGeneratedAttribute), false)).ToArray();
-			FieldInfo[] testedFieldInfos = testedType.GetFields(ALL).Where(
-				f => !f.IsDefined(typeof(CompilerGeneratedAttribute), false)).ToArray();
+            FieldInfo[] fieldInfos = referenceType.GetFields(ALL).Where(f => !f.IsDefined(typeof(CompilerGeneratedAttribute), false)).ToArray();
+            FieldInfo[] testedFieldInfos = testedType.GetFields(ALL).Where(f => !f.IsDefined(typeof(CompilerGeneratedAttribute), false)).ToArray();
             Assert.AreEqual(fieldInfos.Length, testedFieldInfos.Length, prefix + "Number of Fields are different");
             foreach (FieldInfo fieldInfo in fieldInfos)
             {
@@ -152,7 +150,7 @@ namespace Monobjc.Generators
                     {
                         //Console.WriteLine(">"+customAttributes[i]);
                         //Console.WriteLine("<"+testedCustomAttributes[i]);
-                        CompareAttributes(methodPrefix, (Attribute) customAttributes[i], (Attribute) testedCustomAttributes[i]);
+                        CompareAttributes(methodPrefix, (Attribute)customAttributes[i], (Attribute)testedCustomAttributes[i]);
                     }
                 }
 
@@ -244,10 +242,10 @@ namespace Monobjc.Generators
         private static void CompareAttributes(String methodPrefix, Attribute referenceAttribute, Attribute testedAttribute)
         {
             Type type = referenceAttribute.GetType();
-            if (type.Equals(typeof (DllImportAttribute)))
+            if (type.Equals(typeof(DllImportAttribute)))
             {
-                DllImportAttribute a1 = (DllImportAttribute) referenceAttribute;
-                DllImportAttribute a2 = (DllImportAttribute) testedAttribute;
+                DllImportAttribute a1 = (DllImportAttribute)referenceAttribute;
+                DllImportAttribute a2 = (DllImportAttribute)testedAttribute;
                 Assert.AreEqual(a1.BestFitMapping, a2.BestFitMapping, methodPrefix + " has wrong DllImportAttribute");
                 Assert.AreEqual(a1.CallingConvention, a2.CallingConvention, methodPrefix + " has wrong DllImportAttribute");
                 Assert.AreEqual(a1.CharSet, a2.CharSet, methodPrefix + " has wrong DllImportAttribute");
@@ -258,10 +256,10 @@ namespace Monobjc.Generators
                 Assert.AreEqual(a1.ThrowOnUnmappableChar, a2.ThrowOnUnmappableChar, methodPrefix + " has wrong DllImportAttribute");
                 Assert.AreEqual(a1.Value, a2.Value, methodPrefix + " has wrong DllImportAttribute");
             }
-            else if (type.Equals(typeof (MethodImplAttribute)))
+            else if (type.Equals(typeof(MethodImplAttribute)))
             {
-                MethodImplAttribute a1 = (MethodImplAttribute) referenceAttribute;
-                MethodImplAttribute a2 = (MethodImplAttribute) testedAttribute;
+                MethodImplAttribute a1 = (MethodImplAttribute)referenceAttribute;
+                MethodImplAttribute a2 = (MethodImplAttribute)testedAttribute;
                 Assert.AreEqual(a1.Value, a2.Value, methodPrefix + " has wrong MethodImplAttribute");
             }
         }
