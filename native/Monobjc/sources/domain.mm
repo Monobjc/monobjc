@@ -55,9 +55,11 @@ void monobjc_destroy_domain_data() {
     if (!data) {
         LOG_ERROR(MONOBJC_DOMAIN_GENERAL, "Cannot call monobjc_destroy_domain_data on NULL data.");
     }
-    LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Destroying Monobjc domain data for domain #%d", data->identifier);
-    __DOMAINS_DATA = g_slist_remove(__DOMAINS_DATA, data);
-    g_free(data);
+    else {
+        LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Destroying Monobjc domain data for domain #%d", data->identifier);
+        __DOMAINS_DATA = g_slist_remove(__DOMAINS_DATA, data);
+        g_free(data);
+    }
 }
 
 MonobjcDomainData *monobjc_get_domain_data(MonoDomain *domain) {
