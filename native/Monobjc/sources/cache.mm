@@ -51,9 +51,9 @@ void monobjc_create_caches() {
     LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Create cache for instances");
     __INSTANCES_HASHTABLE = g_hash_table_new_full(g_direct_hash, g_direct_equal, NULL, __destroy_instance);
     LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Create cache for wrappers");
-    __WRAPPERS_HASHTABLE = g_hash_table_new_full(g_str_hash, g_str_equal, NULL, NULL);
+    __WRAPPERS_HASHTABLE = g_hash_table_new_full(g_direct_hash, g_direct_equal, NULL, NULL);
     LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Create cache for constructors");
-    __CONSTRUCTORS_HASHTABLE = g_hash_table_new_full(g_str_hash, g_str_equal, NULL, NULL);
+    __CONSTRUCTORS_HASHTABLE = g_hash_table_new_full(g_direct_hash, g_direct_equal, NULL, NULL);
 }
 
 void monobjc_destroy_caches() {
