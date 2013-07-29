@@ -81,7 +81,6 @@ namespace Monobjc.Generators
         /// <param name="generator">The IL generator.</param>
         /// <param name="returnType">The return type.</param>
         /// <param name="nativeReturnType">The native return type.</param>
-        /// <param name="hasByRef">If set to <c>true</c>, the local is needed.</param>
         protected static LocalBuilder CreateLocalBuilderForInvocationResult(ILGenerator generator, Type returnType, Type nativeReturnType)
         {
             LocalBuilder result = null;
