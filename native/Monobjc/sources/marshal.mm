@@ -66,12 +66,12 @@ static void __destroy_descriptor(void *value) {
  * @param   descriptor  The associated descriptor.
  */
 void __map_descriptor(MonoType *type, MonobjcTypeDescriptor *descriptor) {
-    if (type == NULL)
+    if (type == NULL) {
         [NSException raise:NSInvalidArgumentException format:@"type was NULL"];
-    
-    if (descriptor == NULL)
+    }
+    if (descriptor == NULL) {
         [NSException raise:NSInvalidArgumentException format:@"descriptor was NULL"];
-    
+    }
     char *name = mono_type_get_name(type);
     LOG_DEBUG(MONOBJC_DOMAIN_MARSHALLING, "Mapping descriptor for %s", name);
     g_hash_table_insert(__DESCRIPTORS_HASHTABLE, strdup(name), descriptor);
