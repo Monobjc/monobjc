@@ -24,6 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Monobjc.Generators;
+using Monobjc.Types;
 using NUnit.Framework;
 
 namespace Monobjc
@@ -68,18 +69,21 @@ namespace Monobjc
             }
 
             // Checking the count
-			uint count;
-			if (ObjectiveCRuntime.Is64Bits) {
-				count = (uint) objc_sendMsg_ulong (array, this.sel_count);
-			} else {
-				count = objc_sendMsg_uint (array, this.sel_count);
-			}
+            uint count;
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                count = (uint)objc_sendMsg_ulong(array, this.sel_count);
+            }
+            else
+            {
+                count = objc_sendMsg_uint(array, this.sel_count);
+            }
             Assert.AreEqual(values.Length, count, "Array's count is wrong");
 
             // Checking elements
             for (int i = 0; i < values.Length; i++)
             {
-                number = objc_sendMsg_IntPtr_uint(array, this.sel_objectAtIndex, (uint) i);
+                number = objc_sendMsg_IntPtr_uint(array, this.sel_objectAtIndex, (uint)i);
                 Assert.AreNotEqual(IntPtr.Zero, number, "Object at index " + i + " is nil");
                 value = objc_sendMsg_int(number, this.sel_intValue);
                 Assert.AreEqual(values[i], value, "Object at index " + i + " is wrong");
@@ -88,31 +92,28 @@ namespace Monobjc
             int lastValue = 0;
             uint zeroIndex = 0;
 
-//			// Enumerate with a block: void (^)(id, NSUInteger, BOOL *)
-//            if (ObjectiveCRuntime.Is64Bits) {
-//                // TODO
-//            } else {
-//                Block block1 = this.GetBlock((Action<IntPtr, uint, IntPtr>) delegate(IntPtr ptr1, uint ui1, IntPtr ptr2) {
-//                    int v = objc_sendMsg_int(ptr1, this.sel_intValue);
-//                    if (v == 0)
-//                    {
-//                        // Store the index of the zero value and stop enumeration
-//                        zeroIndex = ui1;
-//                        Marshal.WriteInt32(ptr2, 1);
-//                        return;
-//                    }
-//                    // Store value if non-zero. On exit, contains the last non-zero value
-//                    lastValue = v;
-//                });
+//            // Enumerate with a block: void (^)(id, NSUInteger, BOOL *)
+//            Action<IntPtr, TSUInteger, IntPtr> dlgt = delegate(IntPtr ptr1, TSUInteger ui1, IntPtr ptr2)
+//            {
+//                int v = objc_sendMsg_int(ptr1, this.sel_intValue);
+//                if (v == 0)
 //                {
-//                    // Enumerate in forward order
-//                    Assert.AreNotEqual(IntPtr.Zero, block1.NativePointer, "Block native structure is nil");
-//                    objc_sendMsg_void_IntPtr(array, this.sel_enumerateObjectsUsingBlock, block1.NativePointer);
-//                    int index = Array.FindIndex(values, (v) => (v == 0));
-//                    Assert.AreEqual(index, zeroIndex, "Index of zero value is wrong");
-//                    Assert.AreEqual(values[index - 1], lastValue, "Last non-zero value is wrong");
+//                    // Store the index of the zero value and stop enumeration
+//                    zeroIndex = ui1;
+//                    Marshal.WriteInt32(ptr2, 1);
+//                    return;
 //                }
-//                block1.Dispose();
+//                // Store value if non-zero. On exit, contains the last non-zero value
+//                lastValue = v;
+//            };
+//            using (Block block1 = this.GetBlock(dlgt))
+//            {
+//                // Enumerate in forward order
+//                Assert.AreNotEqual(IntPtr.Zero, block1.NativePointer, "Block native structure is nil");
+//                objc_sendMsg_void_IntPtr(array, this.sel_enumerateObjectsUsingBlock, block1.NativePointer);
+//                int index = Array.FindIndex(values, (v) => (v == 0));
+//                Assert.AreEqual(index, zeroIndex, "Index of zero value is wrong");
+//                Assert.AreEqual(values[index - 1], lastValue, "Last non-zero value is wrong");
 //            }
 
 //          // Enumerate wit a block: void (^)(id, NSUInteger, BOOL *)
@@ -143,7 +144,7 @@ namespace Monobjc
 
             // Release the array
             objc_sendMsg_void(array, this.sel_release);
-		}
+        }
 
         [Test]
         public void TestBlock02()
@@ -173,18 +174,21 @@ namespace Monobjc
             }
 
             // Checking the count
-			uint count;
-			if (ObjectiveCRuntime.Is64Bits) {
-				count = (uint) objc_sendMsg_ulong (array, this.sel_count);
-			} else {
-				count = objc_sendMsg_uint (array, this.sel_count);
-			}
-			Assert.AreEqual(values.Length, count, "Array's count is wrong");
+            uint count;
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                count = (uint)objc_sendMsg_ulong(array, this.sel_count);
+            }
+            else
+            {
+                count = objc_sendMsg_uint(array, this.sel_count);
+            }
+            Assert.AreEqual(values.Length, count, "Array's count is wrong");
 
             // Checking elements
             for (int i = 0; i < values.Length; i++)
             {
-                number = objc_sendMsg_IntPtr_uint(array, this.sel_objectAtIndex, (uint) i);
+                number = objc_sendMsg_IntPtr_uint(array, this.sel_objectAtIndex, (uint)i);
                 Assert.AreNotEqual(IntPtr.Zero, number, "Object at index " + i + " is nil");
                 value = objc_sendMsg_int(number, this.sel_intValue);
                 Assert.AreEqual(values[i], value, "Object at index " + i + " is wrong");
@@ -192,7 +196,10 @@ namespace Monobjc
 
             // Sort with a block: NSComparisonResult (^)(id, id)
             IntPtr sorted;
-            Block block = this.GetBlock((Func<IntPtr, IntPtr, int>) delegate(IntPtr ptr1, IntPtr ptr2) { return objc_sendMsg_int_IntPtr(ptr1, this.sel_compare, ptr2); });
+            Block block = this.GetBlock((Func<IntPtr, IntPtr, int>)delegate(IntPtr ptr1, IntPtr ptr2)
+            {
+                return objc_sendMsg_int_IntPtr(ptr1, this.sel_compare, ptr2);
+            });
             {
                 Assert.AreNotEqual(IntPtr.Zero, block.NativePointer, "Block native structure is nil");
                 sorted = objc_sendMsg_IntPtr_IntPtr(array, this.sel_sortedArrayUsingComparator, block.NativePointer);
@@ -203,18 +210,21 @@ namespace Monobjc
             block.Dispose();
 
             // Checking the count
-			if (ObjectiveCRuntime.Is64Bits) {
-				count = (uint) objc_sendMsg_ulong (array, this.sel_count);
-			} else {
-				count = objc_sendMsg_uint (array, this.sel_count);
-			}
-			Assert.AreEqual(values.Length, count, "Array's count is wrong");
+            if (ObjectiveCRuntime.Is64Bits)
+            {
+                count = (uint)objc_sendMsg_ulong(array, this.sel_count);
+            }
+            else
+            {
+                count = objc_sendMsg_uint(array, this.sel_count);
+            }
+            Assert.AreEqual(values.Length, count, "Array's count is wrong");
 
             // Checking elements
             Array.Sort(values);
             for (int i = 0; i < values.Length; i++)
             {
-                number = objc_sendMsg_IntPtr_uint(sorted, this.sel_objectAtIndex, (uint) i);
+                number = objc_sendMsg_IntPtr_uint(sorted, this.sel_objectAtIndex, (uint)i);
                 Assert.AreNotEqual(IntPtr.Zero, number, "Object at index " + i + " is nil");
                 value = objc_sendMsg_int(number, this.sel_intValue);
                 Assert.AreEqual(values[i], value, "Object at index " + i + " is wrong");
@@ -247,7 +257,7 @@ namespace Monobjc
                 }
             }
 
-            return (Block) Activator.CreateInstance(blockProxyType, block);
+            return (Block)Activator.CreateInstance(blockProxyType, block);
         }
     }
 }

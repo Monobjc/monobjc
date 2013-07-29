@@ -52,21 +52,21 @@ namespace Monobjc.Foundation
     public delegate void NSUserUnixTaskCompletionHandler(NSError error);
 #endif
 
-    public delegate bool Func_Id_Id_ref_bool_bool(Id key, Id obj, ref bool stop);
-    public delegate bool Func_Id_NSUInteger_ref_bool_bool(Id obj, NSUInteger idx, ref bool stop);
-    public delegate bool Func_Id_ref_bool_bool(Id obj, ref bool stop);
-    public delegate bool Func_NSUInteger_ref_bool_bool(NSUInteger idx, ref bool stop);
+    public delegate bool Func_Id_Id_out_bool_bool(Id key, Id obj, out bool stop);
+    public delegate bool Func_Id_NSUInteger_out_bool_bool(Id obj, NSUInteger idx, out bool stop);
+    public delegate bool Func_Id_out_bool_bool(Id obj, out bool stop);
+    public delegate bool Func_NSUInteger_out_bool_bool(NSUInteger idx, out bool stop);
     public delegate Id Func_Id_NSArray_NSMutableDictionary_Id(Id evaluatedObject, NSArray expressions, NSMutableDictionary context);
-    public delegate void Action_Id_Id_ref_bool(Id key, Id obj, ref bool stop);
-    public delegate void Action_Id_NSRange_ref_bool(Id obj, NSRange range, ref bool stop);
-    public delegate void Action_Id_NSUInteger_ref_bool(Id obj, NSUInteger idx, ref bool stop);
-    public delegate void Action_Id_ref_bool(Id obj, ref bool stop);
-    public delegate void Action_NSDictionary_NSRange_ref_bool(NSDictionary attr, NSRange range, ref bool stop);
-    public delegate void Action_NSRange_ref_bool(NSRange range, ref bool stop);
-    public delegate void Action_NSString_NSRange_NSRange_ref_bool(NSString tag, NSRange tokenRange, NSRange sentenceRange, ref bool stop);
-    public delegate void Action_NSString_ref_bool(NSString line, ref bool stop);
+    public delegate void Action_Id_Id_out_bool(Id key, Id obj, out bool stop);
+    public delegate void Action_Id_NSRange_out_bool(Id obj, NSRange range, out bool stop);
+    public delegate void Action_Id_NSUInteger_out_bool(Id obj, NSUInteger idx, out bool stop);
+    public delegate void Action_Id_out_bool(Id obj, out bool stop);
+    public delegate void Action_NSDictionary_NSRange_out_bool(NSDictionary attr, NSRange range, out bool stop);
+    public delegate void Action_NSRange_out_bool(NSRange range, out bool stop);
+    public delegate void Action_NSString_NSRange_NSRange_out_bool(NSString tag, NSRange tokenRange, NSRange sentenceRange, out bool stop);
+    public delegate void Action_NSString_out_bool(NSString line, out bool stop);
 #if MACOSX_10_7
-    public delegate void Action_NSTextCheckingResult_NSMatchingFlags_ref_bool(NSTextCheckingResult result, NSMatchingFlags flags, ref bool stop);
+    public delegate void Action_NSTextCheckingResult_NSMatchingFlags_out_bool(NSTextCheckingResult result, NSMatchingFlags flags, out bool stop);
 #endif
-    public delegate void Action_NSUInteger_ref_bool(NSUInteger idx, ref bool stop);
+    public delegate void Action_NSUInteger_out_bool(NSUInteger idx, out bool stop);
 }

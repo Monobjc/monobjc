@@ -50,14 +50,14 @@ static void __Block_copy_helper(void *dst, void *src) {
     
     if (src_layout->gchandle_thunk != 0) {
         obj = mono_gchandle_get_target(src_layout->gchandle_thunk);
-        dst_layout->gchandle_thunk = mono_gchandle_new(obj, true);
+        dst_layout->gchandle_thunk = mono_gchandle_new(obj, TRUE);
     } else {
         dst_layout->gchandle_thunk = 0;
     }
     
     if (src_layout->gchandle_target != 0) {
         obj = mono_gchandle_get_target(src_layout->gchandle_target);
-        dst_layout->gchandle_target = mono_gchandle_new(obj, true);
+        dst_layout->gchandle_target = mono_gchandle_new(obj, TRUE);
     } else {
         dst_layout->gchandle_target = 0;
     }
@@ -117,8 +117,8 @@ void *icall_Monobjc_Block_CreateBlock(MonoObject *thunk_delegate, MonoObject *ta
         layout->reserved = 0;
         layout->invoke = (void (*)(void *, ...)) thunk_function;
         layout->descriptor = shared_descriptor;
-        layout->gchandle_thunk = (thunk_delegate != NULL) ? mono_gchandle_new(thunk_delegate, true) : 0;
-        layout->gchandle_target = (target_delegate != NULL) ? mono_gchandle_new(target_delegate, true) : 0;
+        layout->gchandle_thunk = (thunk_delegate != NULL) ? mono_gchandle_new(thunk_delegate, TRUE) : 0;
+        layout->gchandle_target = (target_delegate != NULL) ? mono_gchandle_new(target_delegate, TRUE) : 0;
         
         return layout;
     } else {

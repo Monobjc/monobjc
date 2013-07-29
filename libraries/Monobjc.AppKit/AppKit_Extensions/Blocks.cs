@@ -28,8 +28,8 @@ using Monobjc.Foundation;
 namespace Monobjc.AppKit
 {
 #if MACOSX_10_7
-    public delegate void Action_NSDraggingItem_NSInteger_ref_bool(NSDraggingItem draggingItem, NSInteger idx, ref bool stop);
+    public delegate void Action_NSDraggingItem_NSInteger_out_bool(NSDraggingItem draggingItem, NSInteger idx, out bool stop);
 
-    public delegate void Action_CGFloat_NSEventPhase_bool_ref_bool(CGFloat gestureAmount, NSEventPhase phase, bool isComplete, ref bool stop);
+    public delegate void Action_CGFloat_NSEventPhase_bool_out_bool(CGFloat gestureAmount, NSEventPhase phase, bool isComplete, out bool stop);
 #endif
 }
