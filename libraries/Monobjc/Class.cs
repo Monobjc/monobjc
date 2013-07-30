@@ -58,6 +58,15 @@ namespace Monobjc
 			get { return GetSuperClass (this.pointer); }
 		}
 
+        /// <summary>
+        /// Returns a <see cref="System.String"/> that represents the current <see cref="Monobjc.Class"/>.
+        /// </summary>
+        /// <returns>A <see cref="System.String"/> that represents the current <see cref="Monobjc.Class"/>.</returns>
+        public override string ToString()
+        {
+            return String.Format("Class[{0}]", this.Name);
+        }
+
 		/// <summary>
 		///   Gets the a <see cref = "Class" /> for the specified id.
 		/// </summary>
