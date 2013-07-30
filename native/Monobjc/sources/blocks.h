@@ -64,6 +64,8 @@ struct Block_layout {
 /**
  * @brief   Dump the block layout. Useful for debugging purpose.
  * @param   block   The block to dump.
+ *
+ * @remark  This function is for debug purpose.
  */
 const char *monobjc_block_dump(const void *block);
 

@@ -67,6 +67,36 @@ void monobjc_destroy_caches() {
     MONOBJC_MUTEX_FREE(&__INSTANCES_MUTEX);
 }
 
+static void __INSTANCES_HASHTABLE__GHFunc(gpointer key, gpointer value, gpointer user_data) {
+    uint32_t gchandle = (uint32_t) ((intptr_t) value);
+    MonoObject *wrapper = mono_gchandle_get_target(gchandle);
+    printf("  %p => %s\n", key, mono_string_to_utf8(mono_object_to_string(wrapper, NULL)));
+}
+
+static void __WRAPPERS_HASHTABLE__GHFunc(gpointer key, gpointer value, gpointer user_data) {
+    MonoType *type = (MonoType *) key;
+    MonoType *wrapper_type = (MonoType *)value;
+    printf("  %s => %s\n", mono_type_get_name(type), mono_type_get_name(wrapper_type));
+}
+
+static void __CONSTRUCTORS_HASHTABLE__GHFunc(gpointer key, gpointer value, gpointer user_data) {
+    MonoClass *klass = (MonoClass *) key;
+    MonoMethod *constructor = (MonoMethod *) value;
+    printf("  %s => %s\n", mono_class_get_name(klass), mono_method_full_name(constructor, TRUE));
+}
+
+void monobjc_dump_caches() {
+    printf("Dump cache for instances\n");
+    g_hash_table_foreach(__INSTANCES_HASHTABLE, __INSTANCES_HASHTABLE__GHFunc, NULL);
+    printf("\n");
+    printf("Dump cache for wrappers\n");
+    g_hash_table_foreach(__WRAPPERS_HASHTABLE, __WRAPPERS_HASHTABLE__GHFunc, NULL);
+    printf("\n");
+    printf("Dump cache for constructors\n");
+    g_hash_table_foreach(__CONSTRUCTORS_HASHTABLE, __CONSTRUCTORS_HASHTABLE__GHFunc, NULL);
+    printf("\n");
+}
+
 void monobjc_cache_map_instance(void *ptr, MonoObject *wrapper) {
     LOG_DEBUG(MONOBJC_DOMAIN_INSTANCES, "Map instance %p", ptr);
     uint32_t gchandle = mono_gchandle_new(wrapper, FALSE);

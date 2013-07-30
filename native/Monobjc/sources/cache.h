@@ -33,14 +33,21 @@
 #include "domain.h"
 
 /**
- * @brief   Create the instance related caches used by the bridge.
+ * @brief   Create the caches used by the bridge.
  */
 void monobjc_create_caches();
 
 /**
- * @brief   Destroy the instance related cache used by the bridge.
+ * @brief   Destroy the caches used by the bridge.
  */
 void monobjc_destroy_caches();
+
+/**
+ * @brief   Dump the caches used by the bridge.
+ *
+ * @remark  This function is for debug purpose.
+ */
+void monobjc_dump_caches();
 
 #pragma mark ----- Instances functions -----
 
