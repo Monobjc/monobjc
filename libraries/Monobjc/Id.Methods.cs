@@ -35,13 +35,21 @@ namespace Monobjc
 			get { return ObjectiveCRuntime.SendMessage<Class> (this, "class"); }
 		}
 
-		/// <summary>
-		///   Allocates a new native instance.
-		/// </summary>
-		public virtual Id Alloc ()
-		{
-			return ObjectiveCRuntime.SendMessage<Id> (this, "alloc");
-		}
+        /// <summary>
+        ///   Allocates a new native instance.
+        /// </summary>
+        public virtual Id Alloc ()
+        {
+            return ObjectiveCRuntime.SendMessage<Id> (this, "alloc");
+        }
+
+        /// <summary>
+        ///   Allocates a new native instance.
+        /// </summary>
+        public virtual T Alloc<T>() where T : Id
+        {
+            return ObjectiveCRuntime.SendMessage<T> (this, "alloc");
+        }
 
 		/// <summary>
 		///   <para>Adds the receiver to the current autorelease pool.</para>
