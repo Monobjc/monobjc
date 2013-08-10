@@ -65,106 +65,6 @@
     <Compile Include="AppKit_T\AppKitFramework.Constants.cs" />
     <Compile Include="AppKit_T\AppKitFramework.DataTypes.cs" />
     <Compile Include="AppKit_T\AppKitFramework.Functions.cs" />
-    <Compile Include="ApplicationServices_Extensions\CTFontCollectionSortDescriptorsCallback.cs" />
-    <Compile Include="ApplicationServices_S\CTParagraphStyleSetting.cs" />
-    <Compile Include="CoreData_C\NSAtomicStore.Class.cs" />
-    <Compile Include="CoreData_C\NSAtomicStore.Constructors.cs" />
-    <Compile Include="CoreData_C\NSAtomicStore.cs" />
-    <Compile Include="CoreData_C\NSAtomicStoreCacheNode.Class.cs" />
-    <Compile Include="CoreData_C\NSAtomicStoreCacheNode.Constructors.cs" />
-    <Compile Include="CoreData_C\NSAtomicStoreCacheNode.cs" />
-    <Compile Include="CoreData_C\NSAttributeDescription.Class.cs" />
-    <Compile Include="CoreData_C\NSAttributeDescription.Constants.cs" />
-    <Compile Include="CoreData_C\NSAttributeDescription.Constructors.cs" />
-    <Compile Include="CoreData_C\NSAttributeDescription.cs" />
-    <Compile Include="CoreData_C\NSAttributeDescription.Protocols.cs" />
-    <Compile Include="CoreData_C\NSEntityDescription.Class.cs" />
-    <Compile Include="CoreData_C\NSEntityDescription.Constructors.cs" />
-    <Compile Include="CoreData_C\NSEntityDescription.cs" />
-    <Compile Include="CoreData_C\NSEntityDescription.Protocols.cs" />
-    <Compile Include="CoreData_C\NSEntityMapping.Class.cs" />
-    <Compile Include="CoreData_C\NSEntityMapping.Constants.cs" />
-    <Compile Include="CoreData_C\NSEntityMapping.cs" />
-    <Compile Include="CoreData_C\NSEntityMigrationPolicy.Class.cs" />
-    <Compile Include="CoreData_C\NSEntityMigrationPolicy.Constants.cs" />
-    <Compile Include="CoreData_C\NSEntityMigrationPolicy.cs" />
-    <Compile Include="CoreData_C\NSExpressionDescription.Class.cs" />
-    <Compile Include="CoreData_C\NSExpressionDescription.Constructors.cs" />
-    <Compile Include="CoreData_C\NSExpressionDescription.cs" />
-    <Compile Include="CoreData_C\NSExpressionDescription.Protocols.cs" />
-    <Compile Include="CoreData_C\NSFetchedPropertyDescription.Class.cs" />
-    <Compile Include="CoreData_C\NSFetchedPropertyDescription.Constructors.cs" />
-    <Compile Include="CoreData_C\NSFetchedPropertyDescription.cs" />
-    <Compile Include="CoreData_C\NSFetchedPropertyDescription.Protocols.cs" />
-    <Compile Include="CoreData_C\NSFetchRequest.Class.cs" />
-    <Compile Include="CoreData_C\NSFetchRequest.Constants.cs" />
-    <Compile Include="CoreData_C\NSFetchRequest.Constructors.cs" />
-    <Compile Include="CoreData_C\NSFetchRequest.cs" />
-    <Compile Include="CoreData_C\NSFetchRequest.Protocols.cs" />
-    <Compile Include="CoreData_C\NSFetchRequestExpression.Class.cs" />
-    <Compile Include="CoreData_C\NSFetchRequestExpression.Constants.cs" />
-    <Compile Include="CoreData_C\NSFetchRequestExpression.Constructors.cs" />
-    <Compile Include="CoreData_C\NSFetchRequestExpression.cs" />
-    <Compile Include="CoreData_C\NSFetchRequestExpression.Protocols.cs" />
-    <Compile Include="CoreData_C\NSIncrementalStore.Class.cs" />
-    <Compile Include="CoreData_C\NSIncrementalStore.Constructors.cs" />
-    <Compile Include="CoreData_C\NSIncrementalStore.cs" />
-    <Compile Include="CoreData_C\NSIncrementalStoreNode.Class.cs" />
-    <Compile Include="CoreData_C\NSIncrementalStoreNode.Constructors.cs" />
-    <Compile Include="CoreData_C\NSIncrementalStoreNode.cs" />
-    <Compile Include="CoreData_C\NSManagedObject.Class.cs" />
-    <Compile Include="CoreData_C\NSManagedObject.Constants.cs" />
-    <Compile Include="CoreData_C\NSManagedObject.Constructors.cs" />
-    <Compile Include="CoreData_C\NSManagedObject.cs" />
-    <Compile Include="CoreData_C\NSManagedObjectContext.Class.cs" />
-    <Compile Include="CoreData_C\NSManagedObjectContext.Constants.cs" />
-    <Compile Include="CoreData_C\NSManagedObjectContext.Constructors.cs" />
-    <Compile Include="CoreData_C\NSManagedObjectContext.cs" />
-    <Compile Include="CoreData_C\NSManagedObjectContext.Protocols.cs" />
-    <Compile Include="CoreData_C\NSManagedObjectID.Class.cs" />
-    <Compile Include="CoreData_C\NSManagedObjectID.cs" />
-    <Compile Include="CoreData_C\NSManagedObjectID.Protocols.cs" />
-    <Compile Include="CoreData_C\NSManagedObjectModel.Class.cs" />
-    <Compile Include="CoreData_C\NSManagedObjectModel.Constructors.cs" />
-    <Compile Include="CoreData_C\NSManagedObjectModel.cs" />
-    <Compile Include="CoreData_C\NSManagedObjectModel.Protocols.cs" />
-    <Compile Include="CoreData_C\NSMappingModel.Class.cs" />
-    <Compile Include="CoreData_C\NSMappingModel.Constructors.cs" />
-    <Compile Include="CoreData_C\NSMappingModel.cs" />
-    <Compile Include="CoreData_C\NSMergeConflict.Class.cs" />
-    <Compile Include="CoreData_C\NSMergeConflict.Constructors.cs" />
-    <Compile Include="CoreData_C\NSMergeConflict.cs" />
-    <Compile Include="CoreData_C\NSMergePolicy.Class.cs" />
-    <Compile Include="CoreData_C\NSMergePolicy.Constants.cs" />
-    <Compile Include="CoreData_C\NSMergePolicy.Constructors.cs" />
-    <Compile Include="CoreData_C\NSMergePolicy.cs" />
-    <Compile Include="CoreData_C\NSMigrationManager.Class.cs" />
-    <Compile Include="CoreData_C\NSMigrationManager.Constructors.cs" />
-    <Compile Include="CoreData_C\NSMigrationManager.cs" />
-    <Compile Include="CoreData_C\NSPersistentStore.Class.cs" />
-    <Compile Include="CoreData_C\NSPersistentStore.Constructors.cs" />
-    <Compile Include="CoreData_C\NSPersistentStore.cs" />
-    <Compile Include="CoreData_C\NSPersistentStoreCoordinator.Class.cs" />
-    <Compile Include="CoreData_C\NSPersistentStoreCoordinator.Constants.cs" />
-    <Compile Include="CoreData_C\NSPersistentStoreCoordinator.Constructors.cs" />
-    <Compile Include="CoreData_C\NSPersistentStoreCoordinator.cs" />
-    <Compile Include="CoreData_C\NSPersistentStoreCoordinator.Protocols.cs" />
-    <Compile Include="CoreData_C\NSPersistentStoreRequest.Class.cs" />
-    <Compile Include="CoreData_C\NSPersistentStoreRequest.Constants.cs" />
-    <Compile Include="CoreData_C\NSPersistentStoreRequest.cs" />
-    <Compile Include="CoreData_C\NSPersistentStoreRequest.Protocols.cs" />
-    <Compile Include="CoreData_C\NSPropertyDescription.Class.cs" />
-    <Compile Include="CoreData_C\NSPropertyDescription.Constructors.cs" />
-    <Compile Include="CoreData_C\NSPropertyDescription.cs" />
-    <Compile Include="CoreData_C\NSPropertyDescription.Protocols.cs" />
-    <Compile Include="CoreData_C\NSPropertyMapping.Class.cs" />
-    <Compile Include="CoreData_C\NSPropertyMapping.cs" />
-    <Compile Include="CoreData_C\NSRelationshipDescription.Class.cs" />
-    <Compile Include="CoreData_C\NSRelationshipDescription.Constants.cs" />
-    <Compile Include="CoreData_C\NSRelationshipDescription.Constructors.cs" />
-    <Compile Include="CoreData_C\NSRelationshipDescription.cs" />
-    <Compile Include="CoreData_C\NSRelationshipDescription.Protocols.cs" />
-    <Compile Include="CoreData_T\CoreDataFramework.Constants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -333,7 +233,6 @@
     <Compile Include="QuartzCore_Extensions\CALayer.Extensions.cs" />
     <Compile Include="AppKit_Extensions\NSSearchFieldCell.Extensions.cs" />
     <Compile Include="AppKit_Extensions\NSOpenGLPixelFormat.Extensions.cs" />
-    <Compile Include="CoreServices_T\UTType.cs" />
     <Compile Include="AppKit_Extensions\NSOpenGLContext.Extensions.cs" />
     <Compile Include="QuartzCore_Extensions\CAEmitterCell.Extensions.cs" />
     <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
@@ -348,25 +247,10 @@
     <Compile Include="QuartzCore_T\CVPixelFormatDescription.cs" />
     <Compile Include="QuartzCore_T\CVTime.cs" />
     <Compile Include="QuartzCore_Extensions\CVDisplayLink.Extensions.cs" />
-    <Compile Include="CoreData_Extensions\NSFetchRequest.cs" />
     <Compile Include="AppKit_Extensions\NSScrollView.Extensions.cs" />
     <Compile Include="AppKit_Extensions\NSNib.Interop.cs" />
     <Compile Include="QuartzCore_T\CoreAnimationFramework.Functions.cs" />
     <Compile Include="QuartzCore_T\CoreVideoFramework.Constants.cs" />
-    <Compile Include="ApplicationServices_T\CoreTextStringAttributes.cs" />
-    <Compile Include="ApplicationServices_T\CoreTextUtilities.cs" />
-    <Compile Include="ApplicationServices_T\CTFont.cs" />
-    <Compile Include="ApplicationServices_T\CTFontCollection.cs" />
-    <Compile Include="ApplicationServices_T\CTFontDescriptor.cs" />
-    <Compile Include="ApplicationServices_T\CTFontManager.cs" />
-    <Compile Include="ApplicationServices_T\CTFrame.cs" />
-    <Compile Include="ApplicationServices_T\CTFramesetter.cs" />
-    <Compile Include="ApplicationServices_T\CTGlyphInfo.cs" />
-    <Compile Include="ApplicationServices_T\CTLine.cs" />
-    <Compile Include="ApplicationServices_T\CTParagraphStyle.cs" />
-    <Compile Include="ApplicationServices_T\CTRun.cs" />
-    <Compile Include="ApplicationServices_T\CTTextTab.cs" />
-    <Compile Include="ApplicationServices_T\CTTypesetter.cs" />
     <Compile Include="AppKit_P\NSAccessibility.Constants.cs" />
     <Compile Include="AppKit_P\NSAccessibility.Protocol.cs" />
     <Compile Include="AppKit_P\NSAlert.Delegate.cs" />
@@ -1247,119 +1131,6 @@
     <Compile Include="AppKit_C\NSWorkspace.cs" />
     <Compile Include="QuartzCore_S\CATransform3D64.cs" />
     <Compile Include="AppKit_P\NSControl.Delegate.cs" />
-    <Compile Include="ApplicationServices_Extensions\CGBitmapContextReleaseDataCallback.cs" />
-    <Compile Include="ApplicationServices_Extensions\CGDataConsumerCallbacks.cs" />
-    <Compile Include="ApplicationServices_Extensions\CGDataConsumerPutBytesCallback.cs" />
-    <Compile Include="ApplicationServices_Extensions\CGDataConsumerReleaseInfoCallback.cs" />
-    <Compile Include="ApplicationServices_Extensions\CGDataProviderCallbacks.cs" />
-    <Compile Include="ApplicationServices_Extensions\CGDataProviderDirectAccessCallbacks.cs" />
-    <Compile Include="ApplicationServices_Extensions\CGDataProviderDirectCallbacks.cs" />
-    <Compile Include="ApplicationServices_Extensions\CGDataProviderGetBytePointerCallback.cs" />
-    <Compile Include="ApplicationServices_Extensions\CGDataProviderGetBytesAtOffsetCallback.cs" />
-    <Compile Include="ApplicationServices_Extensions\CGDataProviderGetBytesAtPositionCallback.cs" />
-    <Compile Include="ApplicationServices_Extensions\CGDataProviderGetBytesCallback.cs" />
-    <Compile Include="ApplicationServices_Extensions\CGDataProviderReleaseBytePointerCallback.cs" />
-    <Compile Include="ApplicationServices_Extensions\CGDataProviderReleaseDataCallback.cs" />
-    <Compile Include="ApplicationServices_Extensions\CGDataProviderReleaseInfoCallback.cs" />
-    <Compile Include="ApplicationServices_Extensions\CGDataProviderRewindCallback.cs" />
-    <Compile Include="ApplicationServices_Extensions\CGDataProviderSequentialCallbacks.cs" />
-    <Compile Include="ApplicationServices_Extensions\CGDataProviderSkipBytesCallback.cs" />
-    <Compile Include="ApplicationServices_Extensions\CGDataProviderSkipForwardCallback.cs" />
-    <Compile Include="ApplicationServices_Extensions\CGPDFOperatorCallback.cs" />
-    <Compile Include="ApplicationServices_E\CTFontManagerError.cs" />
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGBitmapContext.cs">
-      <Link>ApplicationServices_T\CGBitmapContext.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGColor.cs">
-      <Link>ApplicationServices_T\CGColor.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGColorSpace.cs">
-      <Link>ApplicationServices_T\CGColorSpace.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGContext.cs">
-      <Link>ApplicationServices_T\CGContext.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGDataConsumer.cs">
-      <Link>ApplicationServices_T\CGDataConsumer.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGDataProvider.cs">
-      <Link>ApplicationServices_T\CGDataProvider.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGFont.cs">
-      <Link>ApplicationServices_T\CGFont.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGFunction.cs">
-      <Link>ApplicationServices_T\CGFunction.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGGeometry.cs">
-      <Link>ApplicationServices_T\CGGeometry.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGGLContext.cs">
-      <Link>ApplicationServices_T\CGGLContext.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGGradient.cs">
-      <Link>ApplicationServices_T\CGGradient.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGImage.cs">
-      <Link>ApplicationServices_T\CGImage.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGImageDestination.cs">
-      <Link>ApplicationServices_T\CGImageDestination.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGImageProperties.cs">
-      <Link>ApplicationServices_T\CGImageProperties.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGImageSource.cs">
-      <Link>ApplicationServices_T\CGImageSource.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGLayer.cs">
-      <Link>ApplicationServices_T\CGLayer.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPath.cs">
-      <Link>ApplicationServices_T\CGPath.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPattern.cs">
-      <Link>ApplicationServices_T\CGPattern.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFArray.cs">
-      <Link>ApplicationServices_T\CGPDFArray.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFContentStream.cs">
-      <Link>ApplicationServices_T\CGPDFContentStream.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFContext.cs">
-      <Link>ApplicationServices_T\CGPDFContext.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFDictionary.cs">
-      <Link>ApplicationServices_T\CGPDFDictionary.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFDocument.cs">
-      <Link>ApplicationServices_T\CGPDFDocument.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFObject.cs">
-      <Link>ApplicationServices_T\CGPDFObject.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFOperatorTable.cs">
-      <Link>ApplicationServices_T\CGPDFOperatorTable.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFPage.cs">
-      <Link>ApplicationServices_T\CGPDFPage.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFScanner.cs">
-      <Link>ApplicationServices_T\CGPDFScanner.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFStream.cs">
-      <Link>ApplicationServices_T\CGPDFStream.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPDFString.cs">
-      <Link>ApplicationServices_T\CGPDFString.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGPSConverter.cs">
-      <Link>ApplicationServices_T\CGPSConverter.cs</Link>
-    </Compile>
-    <Compile Include="..\Monobjc.Foundation\ApplicationServices_T\CGShading.cs">
-      <Link>ApplicationServices_T\CGShading.cs</Link>
-    </Compile>
     <Compile Include="QuartzCore_C\CIImage_AutoAdjustmentAdditions.Constants.cs" />
     <Compile Include="QuartzCore_C\CIImage_AutoAdjustmentAdditions.cs" />
     <Compile Include="AppKit_P\NSTextStorage.Delegate.cs" />
