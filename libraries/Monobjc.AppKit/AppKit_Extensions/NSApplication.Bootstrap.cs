@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 // 
 using System;
+using System.Threading;
 using Monobjc.Foundation;
 
 namespace Monobjc.AppKit
@@ -98,6 +99,11 @@ namespace Monobjc.AppKit
             {
                 Logger.Debug("NSApplication", "Running Application");
             }
+
+			// Install synchronization context
+			if(SynchronizationContext.Current == null || !typeof(NSThreadSynchronizationContext).IsAssignableFrom(SynchronizationContext.Current.GetType()))
+				SynchronizationContext.SetSynchronizationContext (new NSThreadSynchronizationContext(NSThread.MainThread));
+
             SharedApplication.Run();
         }
     }

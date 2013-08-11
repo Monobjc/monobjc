@@ -22,18 +22,13 @@
 // 
 using System;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Threading;
 
 namespace Monobjc.Foundation
 {
     public partial class NSThread
     {
-        /// <summary>
-        /// Delegate that will be run.
-        /// <para>The associated method MUST create an <see cref="NSAutoreleasePool"/> if needed to avoid leaks.</para>
-        /// </summary>
-        public delegate void NSThreadRunner(Id argument);
-
         /// <summary>
         /// Makes the application multi-threaded.
         /// </summary>
@@ -48,14 +43,14 @@ namespace Monobjc.Foundation
                 ManualResetEvent mre = new ManualResetEvent(false);
 
                 // The code that will be executed in the secondary thread
-                NSThreadRunner runner = delegate
+                Action runner = delegate
                                             {
                                                 // Signal event to unblock caller
                                                 Logger.Debug("NSThread", "Signalling that multithreading is activated");
                                                 mre.Set();
                                             };
                 // Create the secondary thread
-                DetachNewThreadSelectorToTargetWithObject(runner, null);
+                StartNewThread(runner);
 
                 // Block until secondary thread is running
                 mre.WaitOne();
@@ -65,15 +60,111 @@ namespace Monobjc.Foundation
         }
 
         /// <summary>
-        /// Detaches a new thread.
+        /// Asynchronously invokes the action on a new thread and returns immediately.
         /// </summary>
-        /// <param name="aRunner">The delegate that will be executed on the new thread.</param>
-        /// <param name="anArgument">The single argument passed to the target. May be nil.</param>
-        /// <returns>YES if the application is multithreaded, NO otherwise.</returns>
-        public static void DetachNewThreadSelectorToTargetWithObject(NSThreadRunner aRunner, Id anArgument)
+        /// <param name="action">Action to invoke.</param>
+        public static void StartNewThread(Action action)
         {
-            NSThreadLauncher launcher = new NSThreadLauncher(aRunner);
-            ObjectiveCRuntime.SendMessage(NSThreadClass, "detachNewThreadSelector:toTarget:withObject:", ObjectiveCRuntime.Selector("launch:"), launcher, anArgument);
+            NSThreadLauncher launcher = new NSThreadLauncher(action);
+            launcher.PerformSelectorInBackgroundWithObject(
+                ObjectiveCRuntime.Selector(NSThread.NSThreadLauncher.SelectorName), null);
+        }
+
+        /// <summary>
+        /// Asynchronously invokes the action on a new thread and returns immediately.
+        /// </summary>
+        /// <param name="actionWithId">The delegate that will be executed on the new thread.</param>
+        /// <param name="arg">The single argument passed to the target. May be nil.</param>
+        public static void StartNewThread(Action<Id> actionWithId, Id arg)
+        {
+            NSThreadLauncher launcher = new NSThreadLauncher(actionWithId);
+            launcher.PerformSelectorInBackgroundWithObject(
+                ObjectiveCRuntime.Selector(NSThread.NSThreadLauncher.SelectorName), arg);
+        }
+
+        /// <summary>
+        /// Asynchronously invokes the action on a new thread and returns immediately.
+        /// </summary>
+        /// <param name="actionWithState">The delegate that will be executed on a new thread.</param>
+        /// <param name="state">The single argument passed to the target. May be nil.</param>
+        public static void StartNewThread(Action<object> actionWithState, object state)
+        {
+            var launcher = new NSThread.NSThreadLauncher (actionWithState);
+            launcher.PerformSelectorInBackgroundWithObject(
+                ObjectiveCRuntime.Selector(NSThread.NSThreadLauncher.SelectorName), 
+                NSValue.ValueWithPointer(GCHandle.ToIntPtr(GCHandle.Alloc(state))));
+        }
+
+        /// <summary>
+        /// Queues the action to the thread and returns immediately.
+        /// </summary>
+        /// <param name="action">Action to invoke.</param>
+        public void BeginInvoke(Action action)
+        {
+            var launcher = new NSThread.NSThreadLauncher (action);
+            launcher.PerformSelectorOnThreadWithObjectWaitUntilDone(
+                ObjectiveCRuntime.Selector(NSThread.NSThreadLauncher.SelectorName), this, null, false);
+        }
+
+        /// <summary>
+        /// Invokes the action on the thread and blocks until it completes.
+        /// </summary>
+        /// <param name="action">Action to invoke.</param>
+        public void Invoke(Action action)
+        {
+            var launcher = new NSThread.NSThreadLauncher (action);
+            launcher.PerformSelectorOnThreadWithObjectWaitUntilDone(
+                ObjectiveCRuntime.Selector(NSThread.NSThreadLauncher.SelectorName), this, null, true);
+        }
+
+        /// <summary>
+        /// Queues the action to the thread and returns immediately.
+        /// </summary>
+        /// <param name="actionWithId">The delegate that will be executed on the thread.</param>
+        /// <param name="arg">The single argument passed to the target. May be nil.</param>
+        public void BeginInvoke(Action<Id> actionWithId, Id arg)
+        {
+            var launcher = new NSThread.NSThreadLauncher (actionWithId);
+            launcher.PerformSelectorOnThreadWithObjectWaitUntilDone(
+                ObjectiveCRuntime.Selector(NSThread.NSThreadLauncher.SelectorName), this, arg, false);
+        }
+
+        /// <summary>
+        /// Invokes the action on the thread and blocks until it completes.
+        /// </summary>
+        /// <param name="actionWithId">The delegate that will be executed on the thread.</param>
+        /// <param name="arg">The single argument passed to the target. May be nil.</param>
+        public void Invoke(Action<Id> actionWithId, Id arg)
+        {
+            var launcher = new NSThread.NSThreadLauncher (actionWithId);
+            launcher.PerformSelectorOnThreadWithObjectWaitUntilDone(
+                ObjectiveCRuntime.Selector(NSThread.NSThreadLauncher.SelectorName), this, arg, true);
+        }
+
+        /// <summary>
+        /// Queues the action to the thread and returns immediately.
+        /// </summary>
+        /// <param name="actionWithState">The delegate that will be executed on the thread.</param>
+        /// <param name="state">The single argument passed to the target. May be nil.</param>
+        public void BeginInvoke(Action<object> actionWithState, object state)
+        {
+            var launcher = new NSThread.NSThreadLauncher (actionWithState);
+            launcher.PerformSelectorOnThreadWithObjectWaitUntilDone(
+                ObjectiveCRuntime.Selector(NSThread.NSThreadLauncher.SelectorName), this, 
+                NSValue.ValueWithPointer(GCHandle.ToIntPtr(GCHandle.Alloc(state))), false);
+        }
+
+        /// <summary>
+        /// Invokes the action on the thread and blocks until it completes.
+        /// </summary>
+        /// <param name="actionWithState">The delegate that will be executed on the thread.</param>
+        /// <param name="state">The single argument passed to the target. May be nil.</param>
+        public void Invoke(Action<object> actionWithState, object state)
+        {
+            var launcher = new NSThread.NSThreadLauncher (actionWithState);
+            launcher.PerformSelectorOnThreadWithObjectWaitUntilDone(
+                ObjectiveCRuntime.Selector(NSThread.NSThreadLauncher.SelectorName), this, 
+                NSValue.ValueWithPointer(GCHandle.ToIntPtr(GCHandle.Alloc(state))), true);
         }
 
         /// <summary>
@@ -82,7 +173,10 @@ namespace Monobjc.Foundation
         [ObjectiveCClass]
         public class NSThreadLauncher : NSObject
         {
-            private readonly NSThreadRunner runner;
+            public const string SelectorName = "launch:";
+            private readonly Action<object> actionWithState;
+            private readonly Action<Id> actionWithId;
+            private readonly Action action;
 
             /// <summary>
             /// Initializes a new instance of the <see cref="NSThreadLauncher"/> class.
@@ -102,24 +196,114 @@ namespace Monobjc.Foundation
             /// <summary>
             /// Initializes a new instance of the <see cref="NSThreadLauncher"/> class.
             /// </summary>
-            /// <param name="runner">The runner.</param>
-            public NSThreadLauncher(NSThreadRunner runner)
+            /// <param name="actionWithState">The action to execute which accepts an object parameter.</param>
+            public NSThreadLauncher(Action<object> actionWithState)
             {
-                this.runner = runner;
+                this.actionWithState = actionWithState;
+            }
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="NSThreadLauncher"/> class.
+            /// </summary>
+            /// <param name="actionWithId">The action to execute which accepts an object parameter.</param>
+            public NSThreadLauncher(Action<Id> actionWithId)
+            {
+                this.actionWithId = actionWithId;
+            }
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="NSThreadLauncher"/> class.
+            /// </summary>
+            /// <param name="action">The action.</param>
+            public NSThreadLauncher(Action action)
+            {
+                this.action = action;
             }
 
             /// <summary>
             /// Callback method to dispatch message.
             /// </summary>
-            [ObjectiveCMessage("launch:")]
+            [ObjectiveCMessage(NSThreadLauncher.SelectorName)]
             public void Launch(Id anArgument)
             {
-                if (this.runner != null)
+                if (this.actionWithState != null)
                 {
-                    this.runner(anArgument);
+                    var val = anArgument.CastTo<NSValue>();
+                    if (val == null)
+                    {
+                        this.actionWithState(null);
+                    }
+                    else
+                    {
+                        var stateHandle = GCHandle.FromIntPtr(val.PointerValue);
+                        var state = stateHandle.Target;
+
+                        try
+                        {
+                            this.actionWithState(state);
+                        }
+                        finally
+                        {
+                            stateHandle.Free();
+                        }
+                    }
+                }
+                else if (this.actionWithId != null)
+                {
+                    this.actionWithId(anArgument);
+                }
+                else if (this.action != null)
+                {
+                    this.action();
                 }
                 this.Autorelease();
             }
+        }
+    }
+
+    /// <summary>
+    /// SynchronizationContext for posting operations to an NSThread.
+    /// </summary>
+    public class NSThreadSynchronizationContext : SynchronizationContext
+    {
+        NSThread thread;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Monobjc.Foundation.NSThread+NSThreadSynchronizationContext"/> class.
+        /// </summary>
+        /// <param name="thread">Thread.</param>
+        public NSThreadSynchronizationContext(NSThread thread)
+        {
+            this.thread = thread;
+        }
+
+        /// <summary>
+        /// Creates the copy.
+        /// </summary>
+        /// <returns>The copy.</returns>
+        public override SynchronizationContext CreateCopy()
+        {
+            return new NSThreadSynchronizationContext(thread);
+        }
+
+        /// <summary>
+        /// Post an operation to the thread asynchronously.
+        /// </summary>
+        /// <param name="d">Delegate to invoke</param>
+        /// <param name="state">State object</param>
+        public override void Post(SendOrPostCallback d, object state)
+        {
+            thread.BeginInvoke((s) => d(s), state);
+        }
+
+        /// <summary>
+        /// Send an operation to the thread and block until complete.
+        /// </summary>
+        /// <param name="d">Delegate to invoke</param>
+        /// <param name="state">State object</param>
+        public override void Send(SendOrPostCallback d, object state)
+        {
+			thread.Invoke((s) => d(s), state);
         }
     }
 }
