@@ -1137,6 +1137,8 @@
     <Compile Include="AppKit_Extensions\NSCellStateValueExtensions.cs" />
     <Compile Include="AppKit_Extensions\NSImage.Extensions.cs" />
     <Compile Include="AppKit_Extensions\Blocks.cs" />
+    <Compile Include="AppKit_Extensions\NSAttributedString.Extensions.cs" />
+    <Compile Include="AppKit_Extensions\NSMutableAttributedString.Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">
