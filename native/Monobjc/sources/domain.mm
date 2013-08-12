@@ -63,6 +63,10 @@ void monobjc_destroy_domain_data() {
 }
 
 MonobjcDomainData *monobjc_get_domain_data(MonoDomain *domain) {
+    if (domain == NULL) {
+        [NSException raise:NSInvalidArgumentException format:@"The MonoDomain was NULL. Verify Mono is attached to the thread."];
+    }
+
     int32_t identifier = mono_domain_get_id(domain);
     GSList *current = __DOMAINS_DATA;
     while(current) {
