@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 // 
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
@@ -49,6 +50,8 @@ namespace Monobjc
 	{
 		private static readonly IList<string> SCANNED_ASSEMBLIES = InitializeAssembliesToSkip ();
 		private static bool initialized;
+		private static Assembly mscorlibAssembly;
+		private static Assembly systemAssembly;
 
 		private static DynamicAssembly DynamicAssembly { get; set; }
 
@@ -126,6 +129,11 @@ namespace Monobjc
 			CategoryGenerator = new CategoryGenerator (DynamicAssembly, Is64Bits);
 			ClassGenerator = new ClassGenerator (DynamicAssembly, Is64Bits);
 			WrapperGenerator = new WrapperGenerator (DynamicAssembly, Is64Bits);
+
+			// Save key system assemblies so we can ignore them specifically.
+			// Not doing so causes a recursive load loop on some Mono versions.
+			mscorlibAssembly = typeof(object).Assembly;
+			systemAssembly = typeof(Uri).Assembly;
 
 			// Be sure that every loaded assembly gets scanned
 			AppDomain.CurrentDomain.AssemblyLoad += CurrentDomain_AssemblyLoad;
@@ -269,7 +277,13 @@ namespace Monobjc
 		/// </summary>
 		private static void CurrentDomain_AssemblyLoad (Object sender, AssemblyLoadEventArgs args)
 		{
-			Logger.Debug ("ObjectiveCRuntime", "Domain has loaded the '" + args.LoadedAssembly + "' assembly");
+			// Retrieving the assembly name causes a recursive load loop of system
+			// assemblies on some Mono versions, so we specifically abort if these
+			// are detected.
+			if (args.LoadedAssembly == mscorlibAssembly || args.LoadedAssembly == systemAssembly)
+				return;
+
+			Logger.Debug ("ObjectiveCRuntime", "Domain has loaded the '" + args.LoadedAssembly.GetName().FullName + "' assembly");
 			ScanAssembly (args.LoadedAssembly);
 		}
 
