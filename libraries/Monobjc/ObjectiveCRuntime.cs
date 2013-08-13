@@ -174,10 +174,10 @@ namespace Monobjc
 				List<Type> classes = new List<Type> ();
 				List<Type> categories = new List<Type> ();
 
-				// 1. Scan all exported types to extract potential candidates for:
+				// 1. Scan all types to extract potential candidates for:
 				//    - Class definitions
 				//    - Category definitions
-				foreach (Type type in assembly.GetExportedTypes()) {
+				foreach (Type type in assembly.GetTypes()) {
 					// Test for the ObjectiveCClass attribute
 					ObjectiveCClassAttribute classAttribute = Attribute.GetCustomAttribute (type, typeof(ObjectiveCClassAttribute), false) as ObjectiveCClassAttribute;
 					if (classAttribute != null) {
