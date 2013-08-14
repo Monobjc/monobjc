@@ -27,6 +27,7 @@
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
  * @date    2009-2013
  */
+#include <asl.h>
 #include "logging.h"
 
 /** @brief  Holds the current log level. */
@@ -34,6 +35,9 @@ MonobjcLogLevel monobjc_current_log_level = MONOBJC_LOG_ERROR;
 
 /** @brief  Holds the current domains to log. */
 MonobjcLogDomain monobjc_current_log_domain = MONOBJC_DOMAIN_ALL;
+
+/** @brief  Holds the ASL message for logging. */
+aslmsg monobjc_aslmsg;
 
 #pragma mark ----- Implementation -----
 
@@ -72,47 +76,72 @@ void monobjc_setup_logging() {
             monobjc_current_log_domain = MONOBJC_DOMAIN_ALL;
         }
     }
+    
+    // Create a new ASL message to log to both syslog and stderr
+    // See http://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man3/asl.3.html
+    // See http://stackoverflow.com/questions/14201699/how-to-get-asl-log-to-appear-in-the-ios-system-console-output
+    monobjc_aslmsg = asl_new(ASL_TYPE_MSG);
+    asl_set(monobjc_aslmsg, ASL_KEY_READ_UID, "-1");
+    asl_add_log_file(NULL, STDERR_FILENO);
 }
 
 void monobjc_log(MonobjcLogLevel log_level, MonobjcLogDomain domain, const char *format, ...) {
     if (log_level <= monobjc_current_log_level && domain & monobjc_current_log_domain) {
         va_list args;
         va_start(args, format);
+        
+        int level;
         switch (log_level) {
             case MONOBJC_LOG_DEBUG:
-                printf("[DEBUG] "); vprintf(format, args); printf("\n");
+                level = ASL_LEVEL_NOTICE;
                 break;
             case MONOBJC_LOG_INFO:
-                printf("[INFO ] "); vprintf(format, args); printf("\n");
+                level = ASL_LEVEL_NOTICE;
                 break;
             case MONOBJC_LOG_WARN:
-                printf("[WARN ] "); vprintf(format, args); printf("\n");
+                level = ASL_LEVEL_WARNING;
                 break;
             case MONOBJC_LOG_ERROR:
             default:
-                printf("[ERROR] "); vprintf(format, args); printf("\n");
+                level = ASL_LEVEL_ERR;
                 break;
         }
+        
+        char *msg;
+        vasprintf(&msg, format, args);
+        if (msg != NULL) {
+            asl_vlog(NULL, monobjc_aslmsg, level, format, args);
+            free(msg);
+        }
+        
         va_end(args);
     }
 }
 
 void monobjc_logv(MonobjcLogLevel log_level, MonobjcLogDomain domain, const char *format, va_list args) {
     if (log_level <= monobjc_current_log_level && domain & monobjc_current_log_domain) {
+        int level;
         switch (log_level) {
             case MONOBJC_LOG_DEBUG:
-                printf("[DEBUG] "); vprintf(format, args); printf("\n");
+                level = ASL_LEVEL_NOTICE;
                 break;
             case MONOBJC_LOG_INFO:
-                printf("[INFO ] "); vprintf(format, args); printf("\n");
+                level = ASL_LEVEL_NOTICE;
                 break;
             case MONOBJC_LOG_WARN:
-                printf("[WARN ] "); vprintf(format, args); printf("\n");
+                level = ASL_LEVEL_WARNING;
                 break;
             case MONOBJC_LOG_ERROR:
             default:
-                printf("[ERROR] "); vprintf(format, args); printf("\n");
+                level = ASL_LEVEL_ERR;
                 break;
+        }
+        
+        char *msg;
+        vasprintf(&msg, format, args);
+        if (msg != NULL) {
+            asl_vlog(NULL, monobjc_aslmsg, level, format, args);
+            free(msg);
         }
     }
 }
