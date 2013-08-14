@@ -58,10 +58,35 @@ namespace Monobjc
 		}
 
 		/// <summary>
+		/// Initializes a new instance of the <see cref="Monobjc.ObjectiveCFrameworkAttribute"/> class.
+		/// </summary>
+		/// <param name = "system">The value is <code>true</code> if the framework is a system one; <code>false</code> otherwise.</param>
+		/// <param name = "requiredFramework">A framework required by this assembly to be loaded by the runtime.</param>
+		public ObjectiveCFrameworkAttribute (bool system, String requiredFramework) : this(system, new String[] { requiredFramework })
+		{
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Monobjc.ObjectiveCFrameworkAttribute"/> class.
+		/// </summary>
+		/// <param name = "system">The value is <code>true</code> if the framework is a system one; <code>false</code> otherwise.</param>
+		/// <param name = "requiredFrameworks">Required frameworks for this assembly to be loaded by the runtime.</param>
+		public ObjectiveCFrameworkAttribute (bool system, params String[] requiredFrameworks) : this(system)
+		{
+			this.RequiredFrameworks = requiredFrameworks;
+		}
+
+		/// <summary>
 		///   Returns if the framework is a system one.
 		/// </summary>
 		/// <value><code>True</code> if the framework is a system one; <code>false</code> otherwise</value>
 		public bool IsSystem { get; private set; }
+
+		/// <summary>
+		/// Gets the required frameworks to be loaded by the runtime.
+		/// </summary>
+		/// <value>The required frameworks to be loaded by the runtime when this assembly is scanned.</value>
+		public String[] RequiredFrameworks { get; private set; }
 
 		/// <summary>
 		///   Returns a <see cref = "String" /> that represents this instance.

@@ -24,6 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -170,6 +171,8 @@ namespace Monobjc
 				Logger.Info ("ObjectiveCRuntime", "Processing assembly '" + name + "'");
 			}
 
+			LoadFrameworks(assembly);
+
 			try {
 				List<Type> classes = new List<Type> ();
 				List<Type> categories = new List<Type> ();
@@ -254,6 +257,30 @@ namespace Monobjc
 
 			// Store name to avoid future scan
 			SCANNED_ASSEMBLIES.Add (name);
+		}
+
+		/// <summary>
+		/// Loads the frameworks required by the assembly.
+		/// </summary>
+		/// <param name="assembly">Assembly.</param>
+		private static void LoadFrameworks (Assembly assembly)
+		{
+			// Get the framework attribute
+			var attribute = assembly.GetCustomAttributes(typeof(ObjectiveCFrameworkAttribute), false).SingleOrDefault() as ObjectiveCFrameworkAttribute;
+			if (attribute == null) {
+				return;
+			}
+
+			// Get the required frameworks
+			var requiredFrameworks = attribute.RequiredFrameworks;
+			if (requiredFrameworks == null) {
+				return;
+			}
+
+			// Load the required frameworks
+			foreach (var framework in requiredFrameworks) {
+				ObjectiveCRuntime.LoadFramework(framework);
+			}
 		}
 
 		/// <summary>

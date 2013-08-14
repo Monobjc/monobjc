@@ -23,7 +23,7 @@
 using Monobjc;
 using System.Reflection;
 
-[assembly: ObjectiveCFramework(true)]
+[assembly: ObjectiveCFramework(true, "GLKit")]
 [assembly: AssemblyConfigurationAttribute("Release")]
 
 #if MACOSX_10_8
