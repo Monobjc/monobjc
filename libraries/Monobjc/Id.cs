@@ -41,6 +41,8 @@ namespace Monobjc
 		{
 			this.owner = true;
 			Class cls = Class.Get (this.GetType ());
+			if (cls == null)
+				throw new NullReferenceException("Class not registered for type: " + this.GetType().FullName);
 			this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr> (cls, "alloc");
 			this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr> (this, "init");
 		}
@@ -64,6 +66,8 @@ namespace Monobjc
 		{
 			this.owner = true;
 			Class cls = Class.Get (this.GetType ());
+			if (cls == null)
+				throw new NullReferenceException("Class not registered for type: " + this.GetType().FullName);
 			this.NativePointer = ObjectiveCRuntime.SendMessage<IntPtr> (cls, "alloc");
 			this.NativePointer = ObjectiveCRuntime.SendMessageVarArgs<IntPtr> (this, selector, firstParameter, otherParameters);
 		}
