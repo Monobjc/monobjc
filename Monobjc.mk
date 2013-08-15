@@ -21,6 +21,7 @@ export DIST_DIR?=$(CURDIR)/dist
 export KEY_FILE?=$(CURDIR)/Monobjc.snk
 
 # Set the build parameters
+export MONO_SDK?=4
 export DEBUG_MODE?=false
 export TESTING_MODE?=false
 export NATIVE_ARCHS=i386
@@ -32,7 +33,7 @@ endif
 export CHMOD=chmod
 export CPC=rsync -a
 export LNS=ln -sf
-export MCS=dmcs -sdk:4 -nowarn:"219,1574,1584,1591"
+export MCS=dmcs -sdk:$(MONO_SDK) -nowarn:"219,1574,1584,1591"
 ifeq ($(DEBUG_MODE),true)
 	MCS+= -debug+ -optimize-
 else
