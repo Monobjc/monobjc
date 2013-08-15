@@ -21,7 +21,6 @@
 // THE SOFTWARE.
 // 
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
@@ -132,7 +131,7 @@ namespace Monobjc
 
 			// Save key system assemblies so we can ignore them specifically.
 			// Not doing so causes a recursive load loop on some Mono versions.
-			mscorlibAssembly = typeof(object).Assembly;
+			mscorlibAssembly = typeof(Object).Assembly;
 			systemAssembly = typeof(Uri).Assembly;
 
 			// Be sure that every loaded assembly gets scanned
