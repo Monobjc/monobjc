@@ -289,7 +289,7 @@ MonobjcNativeCall *monobjc_call_prepare(MonoType *return_type, Method method, Mo
 }
 
 MonoObject *monobjc_call_invoke(MonobjcNativeCall *call, void *target, SEL selector, MonoArray *parameters, boolean_t is_super) {
-    LOG_DEBUG(MONOBJC_DOMAIN_MESSAGING, "monobjc_call_invoke");
+    LOG_DEBUG(MONOBJC_DOMAIN_MESSAGING, "monobjc_call_invoke: selector = '%s'", sel_getName(selector));
     
     MonoObject *result = NULL;
     uint32_t nargs = call->cif->nargs;

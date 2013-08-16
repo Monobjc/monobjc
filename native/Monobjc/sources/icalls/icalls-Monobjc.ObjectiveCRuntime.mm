@@ -44,16 +44,42 @@
 /**
  * @brief   Internal call to bootstrap the bridge.
  */
-void icall_Monobjc_ObjectiveCRuntime_Bootstrap(void) {
+void icall_Monobjc_ObjectiveCRuntime_Bootstrap(MonoString *domain_token) {
     LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Bootstrapping the bridge...");
     
-    LOCK_DOMAINS();
-    monobjc_create_domain_data();
-    monobjc_create_definitions();
-    monobjc_create_default_descriptors();
-    monobjc_create_cache_for_calls();
-    monobjc_create_caches();
-    UNLOCK_DOMAINS();
+    // Put a pool in place since we're going to use autoreleased Objective-C
+    // objects in some of these methods.
+    @autoreleasepool {
+        MonoException *exc = NULL;
+        
+        char *domain_token_utf8 = domain_token == NULL ? NULL : mono_string_to_utf8(domain_token);
+        
+        LOCK_DOMAINS();
+        @try {
+            monobjc_create_domain_data(domain_token_utf8);
+            monobjc_create_definitions();
+            monobjc_create_default_descriptors();
+            monobjc_create_cache_for_calls();
+            monobjc_create_caches();
+        }
+        @catch (NSException *ex) {
+            LOG_DEBUG(MONOBJC_DOMAIN_GENERAL, "Native exception caught and rethrown as managed: %s", [[ex description] UTF8String]);
+            
+            // Encapsulate the native exception (before the domain data is initialized)
+            MonoAssembly *assembly = monobjc_define_assembly(MONOBJC);
+            MonoImage *image = monobjc_define_image(assembly);
+            exc = mono_exception_from_name_msg(image, MONOBJC, OBJECTIVE_C_EXCEPTION, [[ex description] UTF8String]);
+        }
+        @finally {
+            UNLOCK_DOMAINS();
+            g_free(domain_token_utf8);
+        }
+        
+        // If there is an exception, raise it now
+        if (exc) {
+            mono_raise_exception(exc);
+        }
+    }
 }
 
 /**
@@ -130,7 +156,7 @@ MonoObject *icall_Monobjc_ObjectiveCRuntime_GetInstance(MonoType *type, void *pt
     
     // The wrapper is either not found or needs re-wrapping
     if (!wrapper) {
-        LOG_DEBUG(MONOBJC_DOMAIN_INSTANCES, "icall_Monobjc_ObjectiveCRuntime_GetInstanceInternal - Creating new instance for %p", ptr);
+        LOG_DEBUG(MONOBJC_DOMAIN_INSTANCES, "icall_Monobjc_ObjectiveCRuntime_GetInstanceInternal - Creating new instance for %p of requested type %s", ptr, mono_class_get_name(mono_type_get_class(type)));
         
         MonoType *wrapper_type = type;        
         
@@ -169,4 +195,38 @@ bail:
     UNLOCK_INSTANCES();
     
     return wrapper;
+}
+
+/**
+ * @brief   Internal call to enable automatic generation of domain tokens.
+ */
+void icall_Monobjc_ObjectiveCRuntime_EnableAutoDomainTokens() {
+    // Put a pool in place since we're going to use autoreleased Objective-C
+    // objects in some of these methods.
+    @autoreleasepool {
+        @try {
+            monobjc_enable_auto_domain_tokens();
+        }
+        @catch (NSException *ex) {
+            LOG_DEBUG(MONOBJC_DOMAIN_GENERAL, "Native exception caught and rethrown as managed: %s", [[ex description] UTF8String]);
+            
+            // Encapsulate the native exception (before the domain data is initialized)
+            MonoAssembly *assembly = monobjc_define_assembly(MONOBJC);
+            MonoImage *image = monobjc_define_image(assembly);
+            MonoException *exc = mono_exception_from_name_msg(image, MONOBJC, OBJECTIVE_C_EXCEPTION, [[ex description] UTF8String]);
+            mono_raise_exception(exc);
+        }
+    }
+}
+
+MonoString *icall_Monobjc_ObjectiveCRuntime_GetDomainToken() {
+    MonoDomain *domain = mono_domain_get();
+    MonobjcDomainData *data = monobjc_get_domain_data(domain);
+    if (!data || !data->token) {
+        return NULL;
+    }
+    // Right now this method is only called once per domain
+    // and then cached on the managed side, otherwise we
+    // would want to cache a MonoString in data instead of UTF8.
+    return mono_string_new(domain, data->token);
 }

@@ -47,10 +47,24 @@ namespace Monobjc.Foundation.Common
 				foreach (String framework in this.Env.Frameworks) {
 					ObjectiveCRuntime.LoadFramework (framework);
 				}
-				ObjectiveCRuntime.Initialize ();
 			} catch (Exception ex) {
 				Assert.Ignore ("Cannot initialize runtime:\n{0}", ex);
 			}
+
+            try {
+                // Enable auto domain tokens to support running tests in multiple domains.
+                //
+                // Note: This will append domain tokens to types in secondary domains. If
+                // any tests are added which rely on specific class names being present 
+                // (e.g. NSCoder serializtion) then those tests will need to execute in a single
+                // domain on the command-line using the domain=single option or have their
+                // fixtures setup using a well-known token which can be integrated into the 
+                // test or resource names and also passed to Initialize().
+                ObjectiveCRuntime.EnableAutoDomainTokens();
+                ObjectiveCRuntime.Initialize ();
+            } catch (Exception ex) {
+                Assert.Fail ("Cannot initialize runtime:\n{0}", ex);
+            }
 		}
 	}
 }
