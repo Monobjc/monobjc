@@ -36,6 +36,7 @@ namespace Monobjc.Growl
 			get { return "Monobjc.Growl"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			GrowlApplicationBridge dummy = null;

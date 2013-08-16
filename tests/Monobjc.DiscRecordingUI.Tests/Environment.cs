@@ -38,6 +38,7 @@ namespace Monobjc.DiscRecordingUI
 			get { return "Monobjc.DiscRecordingUI"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced()
 		{
 			DRBurnProgressPanel dummy = null;

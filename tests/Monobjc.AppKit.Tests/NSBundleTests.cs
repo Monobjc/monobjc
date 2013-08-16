@@ -31,6 +31,7 @@ namespace Monobjc.AppKit
     [Description("Test with NSBundle wrapper")]
     public class NSBundleTests : WrapperTests
 	{
+        #pragma warning disable 612
         [Test]
         public void TestResourceCreation()
         {
@@ -39,6 +40,7 @@ namespace Monobjc.AppKit
 			
 			bundle.LoadNibResourceNamedOwner(typeof(NSBundleTests), "Monobjc.AppKit.Tests.MainMenu.nib", null);
         }
+        #pragma warning restore 612
 
         private static void Check(Id @object)
         {

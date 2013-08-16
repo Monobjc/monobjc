@@ -36,6 +36,7 @@ namespace Monobjc.CoreMIDI
 			get { return "Monobjc.CoreMIDI"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			MIDIDriver dummy = null;

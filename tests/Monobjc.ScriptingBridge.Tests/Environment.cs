@@ -36,6 +36,7 @@ namespace Monobjc.ScriptingBridge
 			get { return "Monobjc.ScriptingBridge"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			SBApplication dummy = null;

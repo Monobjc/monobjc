@@ -36,6 +36,7 @@ namespace Monobjc.InputMethodKit
 			get { return "Monobjc.InputMethodKit"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			IIMKServerInput dummy = null;

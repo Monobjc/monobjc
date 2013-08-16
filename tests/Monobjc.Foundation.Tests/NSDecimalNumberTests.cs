@@ -135,27 +135,29 @@ namespace Monobjc.Foundation
         //    Assert.AreEqual(456, ll, "Numbers must be equals");
         //}
 
+        #pragma warning disable 219
         [Test]
         public void TestConversions()
         {
             NSDecimal number;
 
-            char c = 'a';
+            //char c = 'a';
             short s = 1234;
             int i = 123456;
             long l = 1234567890123456789;
-            ushort us = 50000;
-            uint ui = 2000000000;
-            ulong ul = 12345678901234567890;
+            //ushort us = 50000;
+            //uint ui = 2000000000;
+            //ulong ul = 12345678901234567890;
             float f = 1234.5678f;
             double d = 123456789.123456789;
 
             number = NSDecimal.FromShort(s);
-            number = NSDecimal.FromInt(s);
-            number = NSDecimal.FromLongLong(s);
+            number = NSDecimal.FromInt(i);
+            number = NSDecimal.FromLongLong(l);
             number = NSDecimal.FromFloat(f);
             number = NSDecimal.FromDouble(d);
         }
+        #pragma warning restore 219
 
         private static void Check(NSDecimalNumber number)
         {

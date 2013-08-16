@@ -46,6 +46,7 @@ namespace Monobjc.AVFoundation
 			get { return "Monobjc.AVFoundation"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			AVPlayer dummy = null;

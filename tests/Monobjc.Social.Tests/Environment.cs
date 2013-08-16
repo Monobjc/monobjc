@@ -46,6 +46,7 @@ namespace Monobjc.Social
 			get { return "Monobjc.Social"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			SLRequest dummy = null;

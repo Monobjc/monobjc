@@ -46,6 +46,7 @@ namespace Monobjc.StoreKit
 			get { return "Monobjc.StoreKit"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			SKRequest dummy = null;

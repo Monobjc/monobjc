@@ -36,6 +36,7 @@ namespace Monobjc.Quartz
 			get { return "Monobjc.Quartz"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			QCView dummy = null;

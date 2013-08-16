@@ -48,6 +48,7 @@ namespace Monobjc.CoreMedia
 			get { return "Monobjc.CoreMedia"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced()
 		{
 			CMSampleBuffer dummy = null;

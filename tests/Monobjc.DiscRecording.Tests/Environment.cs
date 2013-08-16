@@ -36,6 +36,7 @@ namespace Monobjc.DiscRecording
 			get { return "Monobjc.DiscRecording"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			DRBurn dummy = null;
