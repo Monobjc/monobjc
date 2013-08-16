@@ -46,6 +46,7 @@ namespace Monobjc.EventKit
 			get { return "Monobjc.EventKit"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			EKObject dummy = null;

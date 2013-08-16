@@ -38,6 +38,7 @@ namespace Monobjc.SecurityFoundation
 			get { return "Monobjc.SecurityFoundation"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced()
 		{
 			SFAuthorization dummy = null;

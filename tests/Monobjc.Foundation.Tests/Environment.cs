@@ -36,6 +36,7 @@ namespace Monobjc.Foundation
 			get { return "Monobjc.Foundation"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			NSString dummy = null;

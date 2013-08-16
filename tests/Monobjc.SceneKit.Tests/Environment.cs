@@ -46,6 +46,7 @@ namespace Monobjc.SceneKit
 			get { return "Monobjc.SceneKit"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			SCNCamera dummy = null;

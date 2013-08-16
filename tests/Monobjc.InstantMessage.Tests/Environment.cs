@@ -36,6 +36,7 @@ namespace Monobjc.InstantMessage
 			get { return "Monobjc.InstantMessage"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			IMAVManager dummy = null;

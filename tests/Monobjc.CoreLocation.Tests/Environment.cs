@@ -36,6 +36,7 @@ namespace Monobjc.CoreLocation
 			get { return "Monobjc.CoreLocation"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			CLLocation dummy = null;

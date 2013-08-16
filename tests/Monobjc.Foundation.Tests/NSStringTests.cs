@@ -73,7 +73,7 @@ namespace Monobjc.Foundation
         [Test]
         public void TestExceptions()
         {
-            Assert.Throws<ObjectiveCMessagingException>(() => { NSString str1 = NSString.StringWithUTF8String(null); });
+            Assert.Throws<ObjectiveCMessagingException>(() => { NSString.StringWithUTF8String(null); });
         }
 
         private static void Check(NSString str, int length)

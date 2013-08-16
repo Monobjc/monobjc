@@ -36,6 +36,7 @@ namespace Monobjc.AddressBook
 			get { return "Monobjc.AddressBook"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			ABAddressBook dummy = null;

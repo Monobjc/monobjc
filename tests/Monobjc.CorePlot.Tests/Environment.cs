@@ -36,6 +36,7 @@ namespace Monobjc.CorePlot
 			get { return "Monobjc.CorePlot"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			CPTColor dummy = null;

@@ -36,6 +36,7 @@ namespace Monobjc.Collaboration
 			get { return "Monobjc.Collaboration"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			CBIdentity dummy = null;

@@ -36,6 +36,7 @@ namespace Monobjc.WebKit
 			get { return "Monobjc.WebKit"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			WebView dummy = null;

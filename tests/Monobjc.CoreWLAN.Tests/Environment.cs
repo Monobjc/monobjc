@@ -36,6 +36,7 @@ namespace Monobjc.CoreWLAN
 			get { return "Monobjc.CoreWLAN"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			CWInterface dummy = null;

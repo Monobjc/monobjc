@@ -36,6 +36,7 @@ namespace Monobjc.QTKit
 			get { return "Monobjc.QTKit"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			QTMovieView dummy = null;

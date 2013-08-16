@@ -48,6 +48,7 @@ namespace Monobjc.Accounts
 			get { return "Monobjc.Accounts"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced()
 		{
 			ACAccount dummy = null;

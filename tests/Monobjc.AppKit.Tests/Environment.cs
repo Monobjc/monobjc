@@ -36,6 +36,7 @@ namespace Monobjc.AppKit
 			get { return "Monobjc.AppKit"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			NSView dummy = null;

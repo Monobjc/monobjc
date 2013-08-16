@@ -41,6 +41,7 @@ namespace Monobjc.SecurityInterface
 			get { return "Monobjc.SecurityInterface"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			SFAuthorizationView dummy = null;

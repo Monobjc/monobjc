@@ -46,6 +46,7 @@ namespace Monobjc.GLKit
 			get { return "Monobjc.GLKit"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			GLKTextureLoader dummy = null;

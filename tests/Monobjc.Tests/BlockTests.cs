@@ -89,9 +89,9 @@ namespace Monobjc
                 Assert.AreEqual(values[i], value, "Object at index " + i + " is wrong");
             }
 
-            int lastValue = 0;
-            uint zeroIndex = 0;
-
+//            int lastValue = 0;
+//            uint zeroIndex = 0;
+//
 //            // Enumerate with a block: void (^)(id, NSUInteger, BOOL *)
 //            Action<IntPtr, TSUInteger, IntPtr> dlgt = delegate(IntPtr ptr1, TSUInteger ui1, IntPtr ptr2)
 //            {

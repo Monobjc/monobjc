@@ -36,6 +36,7 @@ namespace Monobjc.Sparkle
 			get { return "Monobjc.Sparkle"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			SUUpdater dummy = null;

@@ -46,6 +46,7 @@ namespace Monobjc.GameKit
 			get { return "Monobjc.GameKit"; }
 		}
 		
+        #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()
 		{
 			GKLeaderboard dummy = null;
