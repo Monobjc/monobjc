@@ -21,10 +21,69 @@
 // THE SOFTWARE.
 // 
 using System;
+using Monobjc.Foundation;
+using Monobjc.AppKit;
 
 namespace Monobjc.GameKit
 {
+#if MACOSX_10_9
+    public partial class GKLocalPlayer
+    {
+        /// <summary>
+        /// <para>A handler called to process an authentication-related event.</para>
+        /// <para>Original signature is '@property(nonatomic, copy) void(^authenticateHandler)(NSViewController *viewController, NSError *error)'</para>
+        /// <para>Available in OS X v10.9 and later.</para>
+        /// </summary>
+        public virtual void SetAuthenticateHandler(Action<NSViewController, NSError> authenticateHandler)
+        {
+            using (var block = Block.Create(authenticateHandler))
+                this.AuthenticateHandler = block;
+        }
+    }
+
+    public partial class GKMatchRequest
+    {
+        /// <summary>
+        /// <para>A block to be called when a response from an invited player is returned to your game.</para>
+        /// <para>Original signature is '@property(nonatomic, copy) void(^inviteeResponseHandler)(NSString *playerID, GKInviteeResponse response)'</para>
+        /// <para>Available in OS X v10.9 and later.</para>
+        /// </summary>
+        public virtual void SetInviteeResponseHandler(Action<NSString, GKInviteeResponse> inviteeResponseHandler)
+        {
+            using (var block = Block.Create(inviteeResponseHandler))
+                this.InviteeResponseHandler = block;
+        }
+    }
+#endif
+
 #if MACOSX_10_8
+    public partial class GKMatchmaker
+    {
+        /// <summary>
+        /// <para>A block to be called when an invitation to join a match is accepted by the local player.</para>
+        /// <para>Original signature is '@property(nonatomic, copy) void(^inviteHandler)(GKInvite *acceptedInvite, NSArray *playersToInvite)'</para>
+        /// <para>Available in OS X v10.8 and later.</para>
+        /// </summary>
+        public virtual void SetInviteHandler(Action<GKInvite, NSArray> inviteHandler)
+        {
+            using (var block = Block.Create(inviteHandler))
+                this.InviteHandler = block;
+        }
+    }
+
+    public partial class GKVoiceChat
+    {
+        /// <summary>
+        /// <para>A block that is called when a participant changes state.</para>
+        /// <para>Original signature is '@property(nonatomic, copy) void(^playerStateUpdateHandler)(NSString *playerID, GKVoiceChatPlayerState state)'</para>
+        /// <para>Available in OS X v10.8 and later.</para>
+        /// </summary>
+        public virtual void SetPlayerStateUpdateHandler(Action<NSString, GKVoiceChatPlayerState> playerStateUpdateHandler)
+        {
+            using (var block = Block.Create(playerStateUpdateHandler))
+                this.PlayerStateUpdateHandler = block;
+        }
+    }
 #endif
 }
 
