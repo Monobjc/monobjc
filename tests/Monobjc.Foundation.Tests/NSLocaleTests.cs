@@ -52,6 +52,7 @@ namespace Monobjc.Foundation
 			CultureInfo info;
 			
 			locale = new NSLocale("en");
+            Assert.IsNotNull(locale.LocaleIdentifier, "LocaleIdentifier should not be null");
 			Assert.AreEqual("en", locale.LocaleIdentifier.ToString(), "Identifier should be equal");
 			Check (locale);
 

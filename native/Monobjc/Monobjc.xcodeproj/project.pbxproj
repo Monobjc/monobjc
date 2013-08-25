@@ -165,6 +165,10 @@
 		4D7C2B2F141D69C1008CF2AD /* support-os.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D7C2B2E141D69C1008CF2AD /* support-os.h */; };
 		4D7C2B31141D69CE008CF2AD /* support-os.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C2B30141D69CE008CF2AD /* support-os.mm */; };
 		4D7C2B32141D69CE008CF2AD /* support-os.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C2B30141D69CE008CF2AD /* support-os.mm */; };
+		4D8371CB17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8371CA17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm */; };
+		4D8371CC17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8371CA17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm */; };
+		4D8371CD17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8371CA17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm */; };
+		4D8371CE17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8371CA17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm */; };
 		4D9CC07D11568E090027FF52 /* icalls-Monobjc.ObjectiveCEncoding.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D9CC07C11568E090027FF52 /* icalls-Monobjc.ObjectiveCEncoding.mm */; };
 		4D9CC07E11568E090027FF52 /* icalls-Monobjc.ObjectiveCEncoding.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D9CC07C11568E090027FF52 /* icalls-Monobjc.ObjectiveCEncoding.mm */; };
 		4D9E554617898AB400D7C497 /* blocks.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E554517898AB400D7C497 /* blocks.mm */; };
@@ -390,6 +394,7 @@
 		4D791AF61158037C0062C7E0 /* logging.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = logging.mm; path = sources/logging.mm; sourceTree = "<group>"; };
 		4D7C2B2E141D69C1008CF2AD /* support-os.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "support-os.h"; path = "sources/support-os.h"; sourceTree = "<group>"; };
 		4D7C2B30141D69CE008CF2AD /* support-os.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "support-os.mm"; path = "sources/support-os.mm"; sourceTree = "<group>"; };
+		4D8371CA17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "icalls-Monobjc.Foundation.NSString.mm"; path = "sources/icalls/icalls-Monobjc.Foundation.NSString.mm"; sourceTree = "<group>"; };
 		4D9CC07C11568E090027FF52 /* icalls-Monobjc.ObjectiveCEncoding.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "icalls-Monobjc.ObjectiveCEncoding.mm"; path = "sources/icalls/icalls-Monobjc.ObjectiveCEncoding.mm"; sourceTree = "<group>"; };
 		4D9E554517898AB400D7C497 /* blocks.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = blocks.mm; path = sources/blocks.mm; sourceTree = "<group>"; };
 		4DA5213F1159690A007C19C3 /* descriptor.def */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = descriptor.def; path = sources/descriptors/descriptor.def; sourceTree = "<group>"; };
@@ -699,6 +704,7 @@
 			children = (
 				4D447491115F7A63002B810F /* icalls-Monobjc.Block.mm */,
 				4DED6A8C1154C8C500AF687B /* icalls-Monobjc.Class.mm */,
+				4D8371CA17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm */,
 				4DED6A8D1154C8C500AF687B /* icalls-Monobjc.Id.mm */,
 				4DFDB18A115BC51B00F345DA /* icalls-Monobjc.Logger.mm */,
 				4D9CC07C11568E090027FF52 /* icalls-Monobjc.ObjectiveCEncoding.mm */,
@@ -1157,6 +1163,7 @@
 				4D6781B31769980E00B8BBE7 /* support-ffi.mm in Sources */,
 				4D6781B41769980E00B8BBE7 /* support-os.mm in Sources */,
 				4D9E554717898AB400D7C497 /* blocks.mm in Sources */,
+				4D8371CC17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1204,6 +1211,7 @@
 				4D6781EB1769981900B8BBE7 /* support-ffi.mm in Sources */,
 				4D6781EC1769981900B8BBE7 /* support-os.mm in Sources */,
 				4D9E554917898AB400D7C497 /* blocks.mm in Sources */,
+				4D8371CE17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1258,6 +1266,7 @@
 				4D5AE8AC118DB2C100226780 /* support-ffi.mm in Sources */,
 				4D7C2B31141D69CE008CF2AD /* support-os.mm in Sources */,
 				4D9E554617898AB400D7C497 /* blocks.mm in Sources */,
+				4D8371CB17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1305,6 +1314,7 @@
 				4D5AE8AB118DB2C100226780 /* support-ffi.mm in Sources */,
 				4D7C2B32141D69CE008CF2AD /* support-os.mm in Sources */,
 				4D9E554817898AB400D7C497 /* blocks.mm in Sources */,
+				4D8371CD17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
