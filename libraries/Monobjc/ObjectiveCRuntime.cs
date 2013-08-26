@@ -24,6 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -62,6 +63,19 @@ namespace Monobjc
 
 		private static WrapperGenerator WrapperGenerator { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the <see cref="Monobjc.ObjectiveCRuntime"/> automatically loads frameworks.
+        /// </summary>
+        /// <value><c>true</c> to auto load frameworks; otherwise, <c>false</c>.</value>
+        /// <remarks>
+        /// Assemblies can be configured with their framework dependencies which the runtime can process
+        /// automatically when the assembly is loaded. This is the default behavior since most applications
+        /// will need to load the frameworks for referenced assemblies and the runtime has the information
+        /// to do it. In some embedded environments assemblies may be loaded into the AppDomain which aren't 
+        /// actually referenced, and in such cases it can be useful to explicitly load required frameworks manually.
+        /// </remarks>
+        public static bool AutoLoadFrameworks { get; set; }
+
 		/// <summary>
 		///   Initializes the <see cref = "ObjectiveCRuntime" /> class.
 		/// </summary>
@@ -71,6 +85,7 @@ namespace Monobjc
 			// Cache the value to avoid superflous calls to runtime
 			NativeMethods.InstallBridge ();
 			Is64Bits = Is64BitsInternal();
+            AutoLoadFrameworks = true;
 		}
 
 		///<summary>
@@ -177,6 +192,10 @@ namespace Monobjc
 				Logger.Info ("ObjectiveCRuntime", "Processing assembly '" + name + "'");
 			}
 
+            if (AutoLoadFrameworks) {
+                LoadFrameworks(assembly);
+            }
+
 			try {
 				List<Type> classes = new List<Type> ();
 				List<Type> categories = new List<Type> ();
@@ -261,6 +280,30 @@ namespace Monobjc
 
 			// Store name to avoid future scan
 			SCANNED_ASSEMBLIES.Add (name);
+		}
+
+		/// <summary>
+		/// Loads the frameworks required by the assembly.
+		/// </summary>
+		/// <param name="assembly">Assembly.</param>
+		private static void LoadFrameworks (Assembly assembly)
+		{
+			// Get the framework attribute
+			var attribute = assembly.GetCustomAttributes(typeof(ObjectiveCFrameworkAttribute), false).SingleOrDefault() as ObjectiveCFrameworkAttribute;
+			if (attribute == null) {
+				return;
+			}
+
+			// Get the required frameworks
+			var requiredFrameworks = attribute.RequiredFrameworks;
+			if (requiredFrameworks == null) {
+				return;
+			}
+
+			// Load the required frameworks
+			foreach (var framework in requiredFrameworks) {
+				ObjectiveCRuntime.LoadFramework(framework);
+			}
 		}
 
 		/// <summary>

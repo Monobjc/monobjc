@@ -23,7 +23,7 @@
 using Monobjc;
 using System.Reflection;
 
-[assembly: ObjectiveCFramework(false)]
+[assembly: ObjectiveCFramework(false, "CorePlot")]
 [assembly: AssemblyConfigurationAttribute("Release")]
 
 #if MACOSX_10_8
