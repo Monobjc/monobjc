@@ -85,7 +85,7 @@ namespace Monobjc.Foundation
     {
         public static Class MyListenerClass = Class.Get(typeof (MyListener));
 		
-		public static readonly String SELECTOR_NOTIFICATION = new NSString("SELECTOR_NOTIFICATION");
+        public const String SELECTOR_NOTIFICATION = "SELECTOR_NOTIFICATION";
 		
         public MyListener()
         {
