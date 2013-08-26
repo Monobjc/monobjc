@@ -71,6 +71,52 @@ namespace Monobjc.Foundation
         }
 
         [Test]
+        public void TestEncoding()
+        {
+            // Check ASCII characters
+            NSString str1 = NSString.StringWithUTF8String("abcdefghijklmnopqrstuvwxyz");
+            Check(str1, 26);
+            String tostr1 = str1.ToString();
+            Assert.AreEqual(26, tostr1.Length, "String has the wrong size");
+            Assert.AreEqual("abcdefghijklmnopqrstuvwxyz", tostr1, "String must match");
+
+            // Check Cyrillic characters
+            NSString str2 = NSString.StringWithUTF8String("АБВГДЕЖЗИЙКЛМНОП");
+            Check(str2, 16);
+            String tostr2 = str2.ToString();
+            Assert.AreEqual(16, tostr2.Length, "String has the wrong size");
+            Assert.AreEqual("АБВГДЕЖЗИЙКЛМНОП", tostr2, "String must match");
+            
+            // Check Devanagari characters
+            NSString str3 = NSString.StringWithUTF8String("ऑऒओऔ");
+            Check(str3, 4);
+            String tostr3 = str3.ToString();
+            Assert.AreEqual(4, tostr3.Length, "String has the wrong size");
+            Assert.AreEqual("ऑऒओऔ", tostr3, "String must match");
+
+            // Check Cherokee characters
+            NSString str4 = NSString.StringWithUTF8String("ᎰᎱᎲᎳᎴ");
+            Check(str4, 5);
+            String tostr4 = str4.ToString();
+            Assert.AreEqual(5, tostr4.Length, "String has the wrong size");
+            Assert.AreEqual("ᎰᎱᎲᎳᎴ", tostr4, "String must match");
+            
+            // Check Mathematical Symbols characters
+            NSString str5 = NSString.StringWithUTF8String("∀∁∂∃∄∅∆∇∈∉∊∋");
+            Check(str5, 12);
+            String tostr5 = str5.ToString();
+            Assert.AreEqual(12, tostr5.Length, "String has the wrong size");
+            Assert.AreEqual("∀∁∂∃∄∅∆∇∈∉∊∋", tostr5, "String must match");
+
+            // Check CJK Unified Ideographs characters
+            NSString str6 = NSString.StringWithUTF8String("瀀瀁瀂瀃瀄瀅瀆瀇瀈瀉瀊瀋瀌瀍");
+            Check(str6, 14);
+            String tostr6 = str6.ToString();
+            Assert.AreEqual(14, tostr6.Length, "String has the wrong size");
+            Assert.AreEqual("瀀瀁瀂瀃瀄瀅瀆瀇瀈瀉瀊瀋瀌瀍", tostr6, "String must match");
+        }
+
+        [Test]
         public void TestExceptions()
         {
             Assert.Throws<ObjectiveCMessagingException>(() => { NSString.StringWithUTF8String(null); });
@@ -80,7 +126,7 @@ namespace Monobjc.Foundation
         {
             Assert.IsNotNull(str, "String cannot be null");
             Assert.AreNotEqual(IntPtr.Zero, str.NativePointer, "Native pointer cannot be null");
-            Assert.AreEqual(length, str.Length, "String has wrong size");
+            Assert.AreEqual(length, str.Length, "String has the wrong size");
         }
     }
 }

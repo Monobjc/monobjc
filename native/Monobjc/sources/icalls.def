@@ -108,3 +108,9 @@ ICALL("GetOSVersion",                   OSVersion,      icall_Monobjc_Runtime_Pl
 ICALL("Is64Bits",                       boolean_t,      icall_Monobjc_Runtime_Platform_Is64Bits,                    (void))
 ICALL("IsBigEndian",                    boolean_t,      icall_Monobjc_Runtime_Platform_IsBigEndian,                 (void))
 #undef ICALLTYPE
+
+#pragma mark ----- Internal Calls for Monobjc.Foundation.NSString -----
+
+#define ICALLTYPE   "Monobjc.Foundation.NSString"
+ICALL("ToStringInternal",               MonoString *,   icall_Monobjc_Foundation_NSString_ToString,                 (void *ptr))
+#undef ICALLTYPE

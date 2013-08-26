@@ -63,7 +63,7 @@ static MonoObject *__marshal_from_native_for_System_String(MonobjcTypeDescriptor
 }
 
 /**
- * @brief   Marshal a System.String object to its native value.
+ * @brief   Marshal a System.String object to its native value. This string is passed using the UTF-8 encoding.
  * @param   descriptor  The descriptor.
  * @param   obj         The managed object.
  * @param   ptr         The pointer to the storage zone that will contain the native object.

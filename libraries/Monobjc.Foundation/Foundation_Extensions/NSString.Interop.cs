@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 // 
 using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace Monobjc.Foundation
@@ -30,21 +31,9 @@ namespace Monobjc.Foundation
         /// <summary>
         /// Empty string
         /// </summary>
-        public static readonly NSString Empty = NSPinnedString(System.String.Empty);
-
-        /// <summary>
-        /// Returns an retained instance of NSString.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        public static NSString NSPinnedString(String value)
+        public static NSString Empty
         {
-            if (value == null)
-            {
-                throw new ArgumentNullException("value");
-            }
-            NSString str = new NSString(value);
-            str.Retain(); // TODO: Seems to be not needed, isn't it ?
-            return str;
+            get { return System.String.Empty; }
         }
 
         /// <summary>
@@ -64,7 +53,7 @@ namespace Monobjc.Foundation
         ///</returns>
         public override String ToString()
         {
-            return Marshal.PtrToStringAuto(this.UTF8String);
+            return ToStringInternal(this.NativePointer);
         }
 
         /// <summary>
@@ -91,7 +80,7 @@ namespace Monobjc.Foundation
         /// <returns>The result of the conversion.</returns>
         public static implicit operator String(NSString value)
         {
-            return value != null ? value.ToString() : null;
+            return value != null ? ToStringInternal(value.NativePointer) : null;
         }
 
         /// <summary>
@@ -116,5 +105,11 @@ namespace Monobjc.Foundation
         {
             return (@string == null || @string.IsEqualToString(NSString.String));
         }
+
+        /// <summary>
+        /// Internal call to convert a <see cref="Monobjc.Foundation.NSString"/> object to a <see cref="System.String"/> object.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public extern static String ToStringInternal (IntPtr ptr);
     }
 }
