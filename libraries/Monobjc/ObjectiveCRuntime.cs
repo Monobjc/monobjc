@@ -24,7 +24,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -289,19 +288,19 @@ namespace Monobjc
 		private static void LoadFrameworks (Assembly assembly)
 		{
 			// Get the framework attribute
-			var attribute = assembly.GetCustomAttributes(typeof(ObjectiveCFrameworkAttribute), false).SingleOrDefault() as ObjectiveCFrameworkAttribute;
+            ObjectiveCFrameworkAttribute attribute = Attribute.GetCustomAttribute(assembly, typeof(ObjectiveCFrameworkAttribute)) as ObjectiveCFrameworkAttribute;
 			if (attribute == null) {
 				return;
 			}
 
 			// Get the required frameworks
-			var requiredFrameworks = attribute.RequiredFrameworks;
+			String[] requiredFrameworks = attribute.RequiredFrameworks;
 			if (requiredFrameworks == null) {
 				return;
 			}
 
 			// Load the required frameworks
-			foreach (var framework in requiredFrameworks) {
+			foreach (String framework in requiredFrameworks) {
 				ObjectiveCRuntime.LoadFramework(framework);
 			}
 		}
@@ -322,8 +321,9 @@ namespace Monobjc
 			// Retrieving the assembly name causes a recursive load loop of system
 			// assemblies on some Mono versions, so we specifically abort if these
 			// are detected.
-			if (args.LoadedAssembly == mscorlibAssembly || args.LoadedAssembly == systemAssembly)
-				return;
+            if (args.LoadedAssembly == mscorlibAssembly || args.LoadedAssembly == systemAssembly) {
+                return;
+            }
 
 			Logger.Debug ("ObjectiveCRuntime", "Domain has loaded the '" + args.LoadedAssembly.GetName().FullName + "' assembly");
 			ScanAssembly (args.LoadedAssembly);

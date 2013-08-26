@@ -43,7 +43,7 @@ namespace Monobjc
 	}
 
 	/// <summary>
-	///   Marks an assembly as a Mac OS X framework.
+	///   Marks an assembly as an OS X framework.
 	/// </summary>
 	[AttributeUsage(AttributeTargets.Assembly)]
 	public sealed class ObjectiveCFrameworkAttribute : Attribute
