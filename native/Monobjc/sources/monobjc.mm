@@ -90,7 +90,7 @@ void *monobjc_load_framework(const char *framework) {
     
     // Iterate over each path
     for(NSUInteger i = 0; i < [paths count]; i++) {
-        NSString *path = [paths objectAtIndex:i];
+        NSString *path = [[paths objectAtIndex:i] stringByExpandingTildeInPath];
         if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
             handle = dlopen([path UTF8String], RTLD_LAZY);
             if (handle) {
