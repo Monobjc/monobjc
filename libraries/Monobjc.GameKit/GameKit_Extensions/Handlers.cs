@@ -36,8 +36,14 @@ namespace Monobjc.GameKit
         /// </summary>
         public virtual void SetAuthenticateHandler(Action<NSViewController, NSError> authenticateHandler)
         {
-            using (var block = Block.Create(authenticateHandler))
+            if (authenticateHandler == null) {
+                this.AuthenticateHandler = null;
+                return;
+            }
+
+            using (var block = Block.Create(authenticateHandler)) {
                 this.AuthenticateHandler = block;
+            }
         }
     }
 
@@ -50,8 +56,14 @@ namespace Monobjc.GameKit
         /// </summary>
         public virtual void SetInviteeResponseHandler(Action<NSString, GKInviteeResponse> inviteeResponseHandler)
         {
-            using (var block = Block.Create(inviteeResponseHandler))
+            if (inviteeResponseHandler == null) {
+                this.InviteeResponseHandler = null;
+                return;
+            }
+
+            using (var block = Block.Create(inviteeResponseHandler)) {
                 this.InviteeResponseHandler = block;
+            }
         }
     }
 #endif
@@ -66,8 +78,14 @@ namespace Monobjc.GameKit
         /// </summary>
         public virtual void SetInviteHandler(Action<GKInvite, NSArray> inviteHandler)
         {
-            using (var block = Block.Create(inviteHandler))
+            if (inviteHandler == null) {
+                this.InviteHandler = null;
+                return;
+            }
+
+            using (var block = Block.Create(inviteHandler)) {
                 this.InviteHandler = block;
+            }
         }
     }
 
@@ -80,8 +98,14 @@ namespace Monobjc.GameKit
         /// </summary>
         public virtual void SetPlayerStateUpdateHandler(Action<NSString, GKVoiceChatPlayerState> playerStateUpdateHandler)
         {
-            using (var block = Block.Create(playerStateUpdateHandler))
+            if (playerStateUpdateHandler == null) {
+                this.PlayerStateUpdateHandler = null;
+                return;
+            }
+
+            using (var block = Block.Create(playerStateUpdateHandler)) {
                 this.PlayerStateUpdateHandler = block;
+            }
         }
     }
 #endif
