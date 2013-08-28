@@ -36,18 +36,24 @@ namespace Monobjc.Generators
 		private readonly String moduleName;
 		private readonly ModuleBuilder module;
 
-		public DynamicAssembly (String assemblyName, String moduleName)
-		{
-			this.assemblyName = assemblyName;
-			this.moduleName = moduleName;
+        public DynamicAssembly (String assemblyName, String moduleName, AssemblyBuilderAccess access = AssemblyBuilderAccess.RunAndSave)
+        {
+            this.assemblyName = assemblyName;
+            this.moduleName = moduleName;
 
-			// Define dynamic assembly
-			AssemblyName name = new AssemblyName {Name = this.assemblyName, Version = Assembly.GetExecutingAssembly().GetName().Version};
-			this.assembly = AppDomain.CurrentDomain.DefineDynamicAssembly (name, AssemblyBuilderAccess.RunAndSave);
+            // Define dynamic assembly
+            AssemblyName name = new AssemblyName {Name = this.assemblyName, Version = Assembly.GetExecutingAssembly().GetName().Version};
+            this.assembly = AppDomain.CurrentDomain.DefineDynamicAssembly (name, access);
 
-			// Define dynamic module
-			this.module = this.assembly.DefineDynamicModule (this.moduleName, this.assemblyName + ".dll");
-		}
+            // Define dynamic module
+            if (access == AssemblyBuilderAccess.RunAndSave || access == AssemblyBuilderAccess.Save) {
+                // Persistent
+                this.module = this.assembly.DefineDynamicModule (this.moduleName, this.assemblyName + ".dll");
+            } else {
+                // Transient
+                this.module = this.assembly.DefineDynamicModule (this.moduleName);
+            }
+        }
 
 		public String Save ()
 		{

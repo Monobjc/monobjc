@@ -25,6 +25,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Reflection;
+using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Monobjc.Generators;
@@ -135,7 +136,8 @@ namespace Monobjc
 			Logger.Info ("ObjectiveCRuntime", "    IsBigEndian : " + IsBigEndian);
 
 			// This dynamic assembly will hold all the emitted IL code
-			DynamicAssembly = new DynamicAssembly ("Monobjc.Dynamic", "GeneratedTypes");
+            AssemblyBuilderAccess access = IsDumpAssemblyEnabled ? AssemblyBuilderAccess.RunAndSave : AssemblyBuilderAccess.Run;
+			DynamicAssembly = new DynamicAssembly ("Monobjc.Dynamic", "GeneratedTypes", access);
 
 			// Create the dynamic code generators
 			BlockGenerator = new BlockGenerator (DynamicAssembly, Is64Bits);
@@ -340,15 +342,25 @@ namespace Monobjc
 			AppDomain.CurrentDomain.DomainUnload -= CurrentDomain_DomainUnload;
 
 			// If requested, dump the dynamic assembly
-			String dump = Environment.GetEnvironmentVariable ("MONOBJC_DUMP_ASSEMBLY");
-			if (String.Equals (dump, "YES", StringComparison.OrdinalIgnoreCase) ||
-				String.Equals (dump, "TRUE", StringComparison.OrdinalIgnoreCase)) {
+            if (IsDumpAssemblyEnabled) {
 				Logger.Debug ("ObjectiveCRuntime", "Dumping dynamic assembly");
 				DynamicAssembly.Save ();
 			}
 
 			CleanUp ();
 		}
+
+        static bool IsDumpAssemblyEnabled {
+            get {
+                String dump = Environment.GetEnvironmentVariable ("MONOBJC_DUMP_ASSEMBLY");
+                if (String.Equals (dump, "YES", StringComparison.OrdinalIgnoreCase) ||
+                    String.Equals (dump, "TRUE", StringComparison.OrdinalIgnoreCase)) {
+                    return true;
+                }
+
+                return false;
+            }
+        }
 
 		/// <summary>
 		///   Gets the Mac OS version.
