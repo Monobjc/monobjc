@@ -33,7 +33,7 @@ namespace Monobjc.Foundation
         /// <typeparam name="T">The parametric type</typeparam>
         /// <param name="list">The list.</param>
         /// <returns>An <see cref="NSArray"/> instance.</returns>
-        public NSArray ArrayWithList<T>(IList<T> list) where T : Id
+        public static NSArray ArrayWithList<T>(IList<T> list) where T : Id
         {
             int count = list.Count;
             switch (count)
