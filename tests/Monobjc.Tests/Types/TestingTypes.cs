@@ -47,7 +47,7 @@ namespace Monobjc.Types
         get; }
     }
 
-    [ObjectiveCClass("NSObject", InterceptDealloc = true)]
+    [ObjectiveCClass("NSObject", IsNative = true, InterceptDealloc = true)]
     public class TSObject : Id
     {
         public TSObject() {}
@@ -60,42 +60,42 @@ namespace Monobjc.Types
         }
     }
 
-    [ObjectiveCClass("NSAutoreleasePool")]
+    [ObjectiveCClass("NSAutoreleasePool", IsNative = true)]
     public class TSAutoreleasePool : TSObject
     {
         public TSAutoreleasePool() {}
         public TSAutoreleasePool(IntPtr value) : base(value) {}
     }
 
-    [ObjectiveCClass("NSString")]
+    [ObjectiveCClass("NSString", IsNative = true)]
     public class TSString : TSObject
     {
         public TSString() {}
         public TSString(IntPtr value) : base(value) {}
     }
 
-    [ObjectiveCClass("NSArray")]
+    [ObjectiveCClass("NSArray", IsNative = true)]
     public class TSArray : TSObject
     {
         public TSArray() {}
         public TSArray(IntPtr value) : base(value) {}
     }
 
-    [ObjectiveCClass("NSNumber")]
+    [ObjectiveCClass("NSNumber", IsNative = true)]
     public class TSNumber : TSObject
     {
         public TSNumber() {}
         public TSNumber(IntPtr value) : base(value) {}
     }
 
-    [ObjectiveCClass("NSControl")]
+    [ObjectiveCClass("NSControl", IsNative = true)]
     public class TSControl : TSObject
     {
         public TSControl() {}
         public TSControl(IntPtr value) : base(value) {}
     }
 
-    [ObjectiveCClass("NSWindow")]
+    [ObjectiveCClass("NSWindow", IsNative = true)]
     public class TSWindow : TSObject
     {
         public TSWindow() {}

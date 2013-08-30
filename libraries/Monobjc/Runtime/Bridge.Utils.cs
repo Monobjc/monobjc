@@ -157,6 +157,22 @@ namespace Monobjc.Runtime
 			return objectiveCClassAttribute.InterceptDealloc;
 		}
 
+        /// <summary>
+        /// Determines if the specified type is native backed.
+        /// </summary>
+        /// <returns><c>true</c> if the specified type is native backed; otherwise, <c>false</c>.</returns>
+        /// <param name="type">Type.</param>
+        private static bool IsNative (Type type)
+        {
+            // Check whether the type is native backed
+            ObjectiveCClassAttribute objectiveCClassAttribute = Attribute.GetCustomAttribute (type, typeof(ObjectiveCClassAttribute), false) as ObjectiveCClassAttribute;
+            if (objectiveCClassAttribute == null) {
+                throw new ObjectiveCException (String.Format (CultureInfo.CurrentCulture, Resources.NoClassAttributeFoundForType, type.FullName));
+            }
+
+            return objectiveCClassAttribute.IsNative;
+        }
+
 		/// <summary>
 		///   Collect every public properties with an attribute.
 		/// </summary>

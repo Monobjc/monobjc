@@ -174,6 +174,9 @@ namespace Monobjc
 		public ObjectiveCCategoryAttribute (String name)
 		{
 			this.Name = name;
+
+            // A category will typically extend a native class so set the default to true.
+            this.IsNative = true;
 		}
 
 		/// <summary>
@@ -181,6 +184,15 @@ namespace Monobjc
 		/// </summary>
 		/// <value>The name to use.</value>
 		public String Name { get; private set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the named category class is backed by a native implementation.
+        /// </summary>
+        /// <value><c>true</c> if this class is native; otherwise, <c>false</c>.</value>
+        /// <remarks>
+        /// This is required so that the bridge knows whether to suffix the domain token in a multi-domain environment.
+        /// </remarks>
+        public bool IsNative { get; set; }
 
 		/// <summary>
 		///   Returns a <see cref = "String" /> that represents this instance.
@@ -234,6 +246,9 @@ namespace Monobjc
 		{
 			this.Name = String.Empty;
 			this.InterceptDealloc = false;
+
+            // A non-generated class is typically a new managed implementation so set the default to false.
+            this.IsNative = false;
 		}
 
 		/// <summary>
@@ -247,6 +262,7 @@ namespace Monobjc
 		{
 			this.Name = name;
 			this.InterceptDealloc = false;
+            this.IsNative = false;
 		}
 
 		/// <summary>
@@ -255,11 +271,28 @@ namespace Monobjc
 		/// <value>The name to use.</value>
 		public String Name { get; private set; }
 
-		/// <summary>
-		///   Gets or sets a value indicating whether this class needs dealloc interception.
-		/// </summary>
-		/// <value><c>true</c> if [intercept dealloc]; otherwise, <c>false</c>.</value>
-		public bool InterceptDealloc { get; set; }
+        /// <summary>
+        /// Gets or sets a value indicating whether this class is backed by a native implementation.
+        /// </summary>
+        /// <value><c>true</c> if this class is native; otherwise, <c>false</c>.</value>
+        /// <remarks>
+        /// This is required so that the bridge knows not to register a managed implementation
+        /// if the native one cannot be resolved. It allows Class.IsMapped() or Class.Get() to
+        /// be used to determine whether a type is available on the platform.
+        /// 
+        /// For example:
+        /// if (Class.IsMapped(typeof(GKGameCenterViewController)) {
+        ///     // Show the view because it is available
+        /// }
+        /// 
+        /// </remarks>
+        public bool IsNative { get; set; }
+
+        /// <summary>
+        ///   Gets or sets a value indicating whether this class needs dealloc interception.
+        /// </summary>
+        /// <value><c>true</c> if [intercept dealloc]; otherwise, <c>false</c>.</value>
+        public bool InterceptDealloc { get; set; }
 
 		/// <summary>
 		///   <para>Gets or sets the name of the class whose methods will be intercetped by this class.</para>

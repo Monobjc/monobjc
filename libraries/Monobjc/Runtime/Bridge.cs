@@ -64,6 +64,12 @@ namespace Monobjc.Runtime
 				}
 				return;
 			}
+            else if(IsNative(type)) {
+                if (Logger.DebugEnabled) {
+                    Logger.Debug("Bridge", "Skipping definition for nonexistent native class " + className);
+                }
+                return;
+            }
 
 			// Extract class name from attributes
 			String superClassName = ExtractSuperClassName (type);

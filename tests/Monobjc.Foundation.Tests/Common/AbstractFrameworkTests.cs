@@ -54,6 +54,7 @@ namespace Monobjc.Foundation.Common
 				return;
 			}
 
+            List<String> missing = new List<String>();
 			foreach (Type type in this.Assembly.GetTypes()) {
 				// Type must be an Id subclass
 				if (!typeof(Id).IsAssignableFrom (type)) {
@@ -72,6 +73,31 @@ namespace Monobjc.Foundation.Common
 				}
 
 				Class cls = Class.Get (type);
+                if (cls == null && objectiveCClassAttribute.IsNative) {
+                    // If the class does not exist it is unmapped which means the native
+                    // implementation was not present. This may be expected or not depending
+                    // on the OS (e.g. running a 10.8 assembly on 10.7) and so the test is 
+                    // marked inconclusive.
+
+                    String name = type.Name;
+                    if (!string.IsNullOrEmpty(objectiveCClassAttribute.Name)) {
+                        name = objectiveCClassAttribute.Name;
+                    }
+                    if (!this.Env.ExpectedMissingTypes.Contains(name)) {
+                        missing.Add(name);
+                    }
+
+                    continue;
+                }
+                Assert.IsNotNull(cls, "Class.Get() failed for type: " + type);
+
+                // If the base type is Id, Class.Get will fail. Classes with a base type of Id
+                // should have no superclass.
+                if (type.BaseType == typeof(Id)) {
+                    Assert.IsNull (cls.SuperClass, "Base type was Id but superclass was not null");
+                    continue;
+                }
+
 				Class superClass = Class.Get (type.BaseType);
 				Class expectedClass = cls.SuperClass;
 
@@ -85,55 +111,13 @@ namespace Monobjc.Foundation.Common
 
 				String superName = superClass.Name;
 
-				Assert.AreEqual (expectedClass.Name, superName, "Superclasses must be equals for " + type.Name);
+				Assert.AreEqual (expectedClass.Name, superName, "Superclasses must be equal for " + type.Name);
 			}
-		}
 
-        [Test]
-        public void TestClassExistence ()
-        {
-            if (!this.Env.IsAvailable) {
-                Assert.Ignore("Framework not available");
-                return;
-            }
-
-            IList<String> missing = new List<String>();
-            foreach (Type type in this.Assembly.GetTypes()) {
-                // Type must be an Id subclass
-                if (!typeof(Id).IsAssignableFrom (type)) {
-                    continue;
-                }
-
-                // Test for the class attribute
-                ObjectiveCClassAttribute objectiveCClassAttribute = Attribute.GetCustomAttribute (type, typeof(ObjectiveCClassAttribute), false) as ObjectiveCClassAttribute;
-                if (objectiveCClassAttribute == null) {
-                    continue;
-                }
-
-                // Skip intercepted type
-                if (objectiveCClassAttribute.InterceptDealloc) {
-                    continue;
-                }
-
-                Class cls = Class.Get (type);
-                String clsName = cls.Name;
-
-                if (!cls.Name.EndsWith("_Definitions")) {
-                    continue;
-                }
-                String name = clsName.Replace("_Definitions", "");
-                Class shortenedCls = Class.Get(name);
-
-                if (shortenedCls == null) {
-                    missing.Add(clsName);
-                }
-            }
             if (missing.Count > 0) {
-                Assert.Inconclusive ("The following definitions have no matching classes: " + String.Join(", ", missing));
-            } else {
-                Assert.IsTrue(true);
+                Assert.Inconclusive ("The following definitions have no matching classes: " + String.Join(", ", missing.ToArray()));
             }
-        }
+		}
 
 		[Test]
 		public void TestEventDispatcherHierarchy ()
