@@ -350,6 +350,10 @@ namespace Monobjc
 			CleanUp ();
 		}
 
+        /// <summary>
+        /// Gets a value indicating the dynamic assemblies should be dumped. It typically occurs when domain is unloaded.
+        /// </summary>
+        /// <value><c>true</c> if the dynamic assemblies should be dumped; otherwise, <c>false</c>.</value>
         static bool IsDumpAssemblyEnabled {
             get {
                 String dump = Environment.GetEnvironmentVariable ("MONOBJC_DUMP_ASSEMBLY");
@@ -357,7 +361,6 @@ namespace Monobjc
                     String.Equals (dump, "TRUE", StringComparison.OrdinalIgnoreCase)) {
                     return true;
                 }
-
                 return false;
             }
         }

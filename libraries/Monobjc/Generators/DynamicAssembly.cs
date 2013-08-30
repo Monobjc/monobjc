@@ -42,7 +42,7 @@ namespace Monobjc.Generators
             this.moduleName = moduleName;
 
             // Define dynamic assembly
-            AssemblyName name = new AssemblyName {Name = this.assemblyName, Version = Assembly.GetExecutingAssembly().GetName().Version};
+            AssemblyName name = new AssemblyName { Name = this.assemblyName, Version = Assembly.GetExecutingAssembly().GetName().Version };
             this.assembly = AppDomain.CurrentDomain.DefineDynamicAssembly (name, access);
 
             // Define dynamic module
