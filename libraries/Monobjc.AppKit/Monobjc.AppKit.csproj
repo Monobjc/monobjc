@@ -1139,6 +1139,7 @@
     <Compile Include="AppKit_Extensions\Blocks.cs" />
     <Compile Include="AppKit_Extensions\NSAttributedString.Extensions.cs" />
     <Compile Include="AppKit_Extensions\NSMutableAttributedString.Extensions.cs" />
+    <Compile Include="AppKit_Extensions\Handlers.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">
