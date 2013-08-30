@@ -91,7 +91,9 @@ void monobjc_remove_instance_in_domains(void *ptr) {
     GSList *current = __DOMAINS_DATA;
     while(current) {
         MonobjcDomainData *data = (MonobjcDomainData *) current->data;
+        monobjc_mutex_lock(&data->INSTANCES_MUTEX);
         monobjc_cache_remove_instance_in_domain(ptr, data);
+        monobjc_mutex_unlock(&data->INSTANCES_MUTEX);
         current = g_slist_next(current);
     }
     UNLOCK_DOMAINS();
