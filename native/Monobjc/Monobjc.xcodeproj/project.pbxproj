@@ -169,6 +169,10 @@
 		4D8371CC17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8371CA17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm */; };
 		4D8371CD17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8371CA17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm */; };
 		4D8371CE17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D8371CA17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm */; };
+		4D854B4017CE76DB00DDB5DB /* threading.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D854B3F17CE76DB00DDB5DB /* threading.mm */; };
+		4D854B4117CE76DB00DDB5DB /* threading.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D854B3F17CE76DB00DDB5DB /* threading.mm */; };
+		4D854B4217CE76DB00DDB5DB /* threading.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D854B3F17CE76DB00DDB5DB /* threading.mm */; };
+		4D854B4317CE76DB00DDB5DB /* threading.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D854B3F17CE76DB00DDB5DB /* threading.mm */; };
 		4D9CC07D11568E090027FF52 /* icalls-Monobjc.ObjectiveCEncoding.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D9CC07C11568E090027FF52 /* icalls-Monobjc.ObjectiveCEncoding.mm */; };
 		4D9CC07E11568E090027FF52 /* icalls-Monobjc.ObjectiveCEncoding.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D9CC07C11568E090027FF52 /* icalls-Monobjc.ObjectiveCEncoding.mm */; };
 		4D9E554617898AB400D7C497 /* blocks.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E554517898AB400D7C497 /* blocks.mm */; };
@@ -395,6 +399,7 @@
 		4D7C2B2E141D69C1008CF2AD /* support-os.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "support-os.h"; path = "sources/support-os.h"; sourceTree = "<group>"; };
 		4D7C2B30141D69CE008CF2AD /* support-os.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "support-os.mm"; path = "sources/support-os.mm"; sourceTree = "<group>"; };
 		4D8371CA17C680990065053F /* icalls-Monobjc.Foundation.NSString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "icalls-Monobjc.Foundation.NSString.mm"; path = "sources/icalls/icalls-Monobjc.Foundation.NSString.mm"; sourceTree = "<group>"; };
+		4D854B3F17CE76DB00DDB5DB /* threading.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = threading.mm; path = sources/threading.mm; sourceTree = "<group>"; };
 		4D9CC07C11568E090027FF52 /* icalls-Monobjc.ObjectiveCEncoding.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "icalls-Monobjc.ObjectiveCEncoding.mm"; path = "sources/icalls/icalls-Monobjc.ObjectiveCEncoding.mm"; sourceTree = "<group>"; };
 		4D9E554517898AB400D7C497 /* blocks.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = blocks.mm; path = sources/blocks.mm; sourceTree = "<group>"; };
 		4DA5213F1159690A007C19C3 /* descriptor.def */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = descriptor.def; path = sources/descriptors/descriptor.def; sourceTree = "<group>"; };
@@ -635,6 +640,7 @@
 				87293E8D1153C0A2007AFD45 /* support-mono.mm */,
 				4D78F3861185B4CC00103C6C /* support-objc.mm */,
 				4D7C2B30141D69CE008CF2AD /* support-os.mm */,
+				4D854B3F17CE76DB00DDB5DB /* threading.mm */,
 			);
 			name = sources;
 			sourceTree = "<group>";
@@ -1140,6 +1146,7 @@
 				4D67819C1769980E00B8BBE7 /* logging.mm in Sources */,
 				4D67819D1769980E00B8BBE7 /* descriptor-System.Boolean.mm in Sources */,
 				4D67819E1769980E00B8BBE7 /* descriptor-System.Byte.mm in Sources */,
+				4D854B4117CE76DB00DDB5DB /* threading.mm in Sources */,
 				4D67819F1769980E00B8BBE7 /* descriptor-System.Char.mm in Sources */,
 				4D6781A01769980E00B8BBE7 /* descriptor-System.Int16.mm in Sources */,
 				4D6781A11769980E00B8BBE7 /* descriptor-System.Int32.mm in Sources */,
@@ -1173,6 +1180,7 @@
 			files = (
 				4D6781C61769981900B8BBE7 /* main.mm in Sources */,
 				4D6781C71769981900B8BBE7 /* support-mono.mm in Sources */,
+				4D854B4317CE76DB00DDB5DB /* threading.mm in Sources */,
 				4D6781C81769981900B8BBE7 /* monobjc.mm in Sources */,
 				4D6781C91769981900B8BBE7 /* icalls-Monobjc.Class.mm in Sources */,
 				4D6781CA1769981900B8BBE7 /* icalls-Monobjc.Id.mm in Sources */,
@@ -1243,6 +1251,7 @@
 				4D791AF81158037C0062C7E0 /* logging.mm in Sources */,
 				4DA521C7115A069F007C19C3 /* descriptor-System.Boolean.mm in Sources */,
 				4DA521C8115A069F007C19C3 /* descriptor-System.Byte.mm in Sources */,
+				4D854B4017CE76DB00DDB5DB /* threading.mm in Sources */,
 				4DA521C9115A069F007C19C3 /* descriptor-System.Char.mm in Sources */,
 				4DA521CA115A069F007C19C3 /* descriptor-System.Int16.mm in Sources */,
 				4DA521CB115A069F007C19C3 /* descriptor-System.Int32.mm in Sources */,
@@ -1276,6 +1285,7 @@
 			files = (
 				87293ED71153C24C007AFD45 /* main.mm in Sources */,
 				87293F691153CBE0007AFD45 /* support-mono.mm in Sources */,
+				4D854B4217CE76DB00DDB5DB /* threading.mm in Sources */,
 				87293F911153D870007AFD45 /* monobjc.mm in Sources */,
 				4DED6A921154C8C500AF687B /* icalls-Monobjc.Class.mm in Sources */,
 				4DED6A931154C8C500AF687B /* icalls-Monobjc.Id.mm in Sources */,

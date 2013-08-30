@@ -35,6 +35,8 @@
 #include "support-objc.h"
 #include "threading.h"
 
+pthread_mutex_t __IMPLEMENTATIONS_MUTEX;
+
 /** @brief  Hashtable that contains original implementations for dealloc messages. */
 static GHashTable *__IMPLEMENTATIONS = NULL; 
 
@@ -50,7 +52,9 @@ static void __dealloc_interceptor(id target, SEL name) {
     LOG_DEBUG(MONOBJC_DOMAIN_INSTANCES, "Target Root Meta Class is %s", class_getName(root_meta_class));
     
     // Get the implementation for the target root class
+    LOCK_IMPLEMENTATIONS();
     IMP implementation = (IMP) g_hash_table_lookup(__IMPLEMENTATIONS, root_meta_class);
+    UNLOCK_IMPLEMENTATIONS();
     
     // Remove the target in every domain
     monobjc_remove_instance_in_domains(target);
@@ -65,6 +69,8 @@ static void __dealloc_interceptor(id target, SEL name) {
 #pragma mark ----- Implementation -----
 
 void monobjc_intercep_dealloc_for(Class cls) {
+    LOCK_IMPLEMENTATIONS();
+
     if (!__IMPLEMENTATIONS) {
         __IMPLEMENTATIONS = g_hash_table_new(g_direct_hash, g_direct_equal);
     }
@@ -74,6 +80,7 @@ void monobjc_intercep_dealloc_for(Class cls) {
     
     // Check if we already deal with the root meta class
     if (g_hash_table_lookup(__IMPLEMENTATIONS, root_meta_class)) {
+        UNLOCK_IMPLEMENTATIONS();
         return;
     }
     
@@ -89,4 +96,6 @@ void monobjc_intercep_dealloc_for(Class cls) {
     
     // Store the implementation in the map
     g_hash_table_insert(__IMPLEMENTATIONS, root_meta_class, (void *) implementation);
+
+    UNLOCK_IMPLEMENTATIONS();
 }

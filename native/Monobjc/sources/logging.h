@@ -32,8 +32,10 @@
 
 #include "enumerations.h"
 
+#define MACH_THREAD_ID      pthread_mach_thread_np(pthread_self())
+
 /** @brief  Default message appended when an error is logged. */
-#define BUGREPORT_MESSAGE    "If this is not really the expected behavior, please report it to http://tracker.monobjc.net/"
+#define BUGREPORT_MESSAGE   "If this is not really the expected behavior, please report it to http://tracker.monobjc.net/"
 
 /** @brief  Holds the current level to log. */
 extern MonobjcLogLevel monobjc_current_log_level;

@@ -30,6 +30,17 @@
 #ifndef __LIFECYCLE_H__
 #define __LIFECYCLE_H__
 
+#include "threading.h"
+
+/** @brief  Mutex around implementation table. */
+extern pthread_mutex_t __IMPLEMENTATIONS_MUTEX;
+
+/** @brief  Shortcut macro for lock acquisition. */
+#define LOCK_IMPLEMENTATIONS()                  monobjc_mutex_lock(&__IMPLEMENTATIONS_MUTEX)
+
+/** @brief  Shortcut macro for lock release. */
+#define UNLOCK_IMPLEMENTATIONS()                monobjc_mutex_unlock(&__IMPLEMENTATIONS_MUTEX)
+
 /**
  * @brief   Setup the interception of the \c dealloc messages for the given class.
  * @param   cls     The native class to intercept.

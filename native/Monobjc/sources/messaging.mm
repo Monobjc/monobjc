@@ -154,13 +154,13 @@ static void __destroy_nativecallslot(void *value) {
 void monobjc_create_cache_for_calls() {
     LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Create cache for calls");
     __CALLS_HASHTABLE = g_hash_table_new_full(g_direct_hash, g_direct_equal, NULL, __destroy_nativecallslot);
-    MONOBJC_MUTEX_INIT(&__CALLS_MUTEX, FALSE);
+    monobjc_mutex_init(&__CALLS_MUTEX, FALSE);
 }
 
 void monobjc_destroy_cache_for_calls() {
     LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Destroy cache for calls");
     g_hash_table_destroy(__CALLS_HASHTABLE);
-    MONOBJC_MUTEX_FREE(&__CALLS_MUTEX);
+    monobjc_mutex_destroy(&__CALLS_MUTEX);
 }
 
 MonobjcNativeCallSlot *monobjc_lookup_call(MonoType *return_type, SEL selector, MonoArray *parameters) {

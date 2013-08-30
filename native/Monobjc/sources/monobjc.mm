@@ -28,11 +28,25 @@
  * @date    2009-2013
  */
 #include <dlfcn.h>
+#include "domain.h"
 #include "icalls.h"
 #include "glib.h"
 #include "logging.h"
+#include "lifecycle.h"
 #include "monobjc.h"
 #include "threading.h"
+
+static void __monobjc_init_mutexes() {
+    // Required to be re-entrant
+    monobjc_mutex_init(&__DOMAINS_MUTEX, TRUE);
+    // Not required to be re-entrant
+    monobjc_mutex_init(&__IMPLEMENTATIONS_MUTEX, FALSE);
+}
+
+static void __monobjc_destroy_mutexes() {
+    monobjc_mutex_destroy(&__DOMAINS_MUTEX);
+    monobjc_mutex_destroy(&__IMPLEMENTATIONS_MUTEX);
+}
 
 #pragma mark ----- Implementation -----
 
@@ -52,6 +66,10 @@ void monobjc_install_bridge() {
     monobjc_setup_logging();
     
     LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Setting up the bridge...");
+    
+    // Create global mutexes and cleanup on exit
+    __monobjc_init_mutexes();
+    atexit(&__monobjc_destroy_mutexes);
     
     LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Installing internal calls...");
     

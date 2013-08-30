@@ -47,12 +47,13 @@
 void icall_Monobjc_ObjectiveCRuntime_Bootstrap(void) {
     LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Bootstrapping the bridge...");
     
+    LOCK_DOMAINS();
     monobjc_create_domain_data();
-    
     monobjc_create_definitions();
     monobjc_create_default_descriptors();
     monobjc_create_cache_for_calls();
     monobjc_create_caches();
+    UNLOCK_DOMAINS();
 }
 
 /**
@@ -61,12 +62,13 @@ void icall_Monobjc_ObjectiveCRuntime_Bootstrap(void) {
 void icall_Monobjc_ObjectiveCRuntime_CleanUp(void) {
     LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Cleaning up the bridge...");
     
+    LOCK_DOMAINS();
     monobjc_destroy_caches();
     monobjc_destroy_cache_for_calls();
     monobjc_destroy_descriptors();
     monobjc_destroy_definitions();
-    
     monobjc_destroy_domain_data();
+    UNLOCK_DOMAINS();
 }
 
 /**
