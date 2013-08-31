@@ -135,5 +135,7 @@ void icall_Monobjc_Id_SetInstanceVariable(MonoType *type, void *ptr, MonoString 
  */
 void icall_Monobjc_Id_MapInstance(void *ptr, MonoObject *wrapper) {
     LOG_INFO(MONOBJC_DOMAIN_INSTANCES, "icall_Monobjc_Id_MapInstance(%p)", ptr);
+    LOCK_INSTANCES();
     monobjc_cache_map_instance(ptr, wrapper);
+    UNLOCK_INSTANCES();
 }

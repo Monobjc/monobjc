@@ -65,6 +65,17 @@ typedef struct MonobjcDomainData {
 } MonobjcDomainData;
 
 
+/** @brief  Mutex to protect domain data. */
+extern pthread_mutex_t __DOMAINS_MUTEX;
+
+
+/** @brief  Shortcut macro for lock acquisition. */
+#define LOCK_DOMAINS()              monobjc_mutex_lock(&__DOMAINS_MUTEX)
+
+/** @brief  Shortcut macro for lock release. */
+#define UNLOCK_DOMAINS()            monobjc_mutex_unlock(&__DOMAINS_MUTEX)
+
+
 /** @brief  Shortcut accessor to the hashtable that serves as a cache for the calls. */
 #define __CALLS_HASHTABLE           monobjc_get_domain_data(mono_domain_get())->CALLS_HASHTABLE
 
@@ -72,10 +83,10 @@ typedef struct MonobjcDomainData {
 #define __CALLS_MUTEX               monobjc_get_domain_data(mono_domain_get())->CALLS_MUTEX
 
 /** @brief  Shortcut macro for lock acquisition. */
-#define LOCK_CALLS()                MONOBJC_MUTEX_LOCK(&__CALLS_MUTEX)
+#define LOCK_CALLS()                monobjc_mutex_lock(&__CALLS_MUTEX)
 
 /** @brief  Shortcut macro for lock release. */
-#define UNLOCK_CALLS()              MONOBJC_MUTEX_UNLOCK(&__CALLS_MUTEX)
+#define UNLOCK_CALLS()              monobjc_mutex_unlock(&__CALLS_MUTEX)
 
 
 /** @brief  Shortcut accessor to the hashtable that serves as a cache for the descriptors. */
@@ -85,10 +96,10 @@ typedef struct MonobjcDomainData {
 #define __DESCRIPTORS_MUTEX         monobjc_get_domain_data(mono_domain_get())->DESCRIPTORS_MUTEX
 
 /** @brief  Shortcut macro for lock acquisition. */
-#define LOCK_DESCRIPTORS()          MONOBJC_MUTEX_LOCK(&__DESCRIPTORS_MUTEX)
+#define LOCK_DESCRIPTORS()          monobjc_mutex_lock(&__DESCRIPTORS_MUTEX)
 
 /** @brief  Shortcut macro for lock release. */
-#define UNLOCK_DESCRIPTORS()        MONOBJC_MUTEX_UNLOCK(&__DESCRIPTORS_MUTEX)
+#define UNLOCK_DESCRIPTORS()        monobjc_mutex_unlock(&__DESCRIPTORS_MUTEX)
 
 
 /** @brief  Shortcut accessor to the hashtable that serves as a cache for the instances. */
@@ -97,11 +108,17 @@ typedef struct MonobjcDomainData {
 /** @brief  Shortcut accessor to the mutex for the instances' hashtable. */
 #define __INSTANCES_MUTEX           monobjc_get_domain_data(mono_domain_get())->INSTANCES_MUTEX
 
-/** @brief  Shortcut macro for lock acquisition. */
-#define LOCK_INSTANCES()            MONOBJC_MUTEX_LOCK(&__INSTANCES_MUTEX)
+/** @brief  Shortcut macro for lock acquisition.
+ *  @remark Note that LOCK_DOMAINS() must always be called prior to LOCK_INSTANCES() to avoid
+ *          deadlock since monobjc_remove_instance_in_domains acquires the __DOMAINS_MUTEX and
+ *          waits on the __INSTANCES_MUTEX. The __INSTANCES_MUTEX can't be released from another
+ *          thread if that thread doesn't hold the __DOMAINS_MUTEX because monobjc_get_domain_data
+ *          has to take the __DOMAINS_MUTEX lock.
+ */
+#define LOCK_INSTANCES()            LOCK_DOMAINS(); monobjc_mutex_lock(&__INSTANCES_MUTEX)
 
 /** @brief  Shortcut macro for lock release. */
-#define UNLOCK_INSTANCES()          MONOBJC_MUTEX_UNLOCK(&__INSTANCES_MUTEX)
+#define UNLOCK_INSTANCES()          monobjc_mutex_unlock(&__INSTANCES_MUTEX); UNLOCK_DOMAINS()
 
 
 /** @brief  Shortcut accessor to the hashtable that serves as a cache for the wrappers. */

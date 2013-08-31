@@ -37,32 +37,24 @@
  * @param   mutex       A pointer to a mutex to initialize.
  * @param   reentrant   Whether the mutex should be re-entrant.
  */
-#define MONOBJC_MUTEX_INIT(mutex, reentrant)                            \
-    pthread_mutexattr_t attrs;                                          \
-    pthread_mutexattr_init(&attrs);                                     \
-    if (reentrant) {                                                    \
-        pthread_mutexattr_settype(&attrs, PTHREAD_MUTEX_RECURSIVE);     \
-    } else {                                                            \
-        pthread_mutexattr_settype(&attrs, PTHREAD_MUTEX_ERRORCHECK);    \
-    }                                                                   \
-    pthread_mutex_init(mutex, &attrs);
+void monobjc_mutex_init(pthread_mutex_t *mutex, boolean_t reentrant);
 
 /**
  * @brief   Lock a mutex.
  * @param   mutex       The mutex to lock.
  */
-#define MONOBJC_MUTEX_LOCK(mutex)   pthread_mutex_lock(mutex);
+void monobjc_mutex_lock(pthread_mutex_t *mutex);
 
 /**
  * @brief   Unlock a mutex.
  * @param   mutex       The mutex to unlock.
  */
-#define MONOBJC_MUTEX_UNLOCK(mutex) pthread_mutex_unlock(mutex);
+void monobjc_mutex_unlock(pthread_mutex_t *mutex);
 
 /**
  * @brief   Destroy a mutex.
  * @param   mutex       The mutex to destroy.
  */
-#define MONOBJC_MUTEX_FREE(mutex)   pthread_mutex_destroy(mutex);
+void monobjc_mutex_destroy(pthread_mutex_t *mutex);
 
 #endif // __THREADING_H__

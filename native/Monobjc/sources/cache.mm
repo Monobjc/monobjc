@@ -46,7 +46,10 @@ static void __destroy_instance(void *value) {
 #pragma mark ----- Implementation -----
 
 void monobjc_create_caches() {
-    MONOBJC_MUTEX_INIT(&__INSTANCES_MUTEX, FALSE);
+    // This mutex is re-entrant and must maintain a lock count.
+    // For example, Class.Get() may invoke a managed constructor
+    // which may invoke Id.MapInstance() on the same thread.
+    monobjc_mutex_init(&__INSTANCES_MUTEX, TRUE);
     
     LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Create cache for instances");
     __INSTANCES_HASHTABLE = g_hash_table_new_full(g_direct_hash, g_direct_equal, NULL, __destroy_instance);
@@ -64,7 +67,7 @@ void monobjc_destroy_caches() {
     LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Destroy cache for constructors");
     g_hash_table_destroy(__CONSTRUCTORS_HASHTABLE);
     
-    MONOBJC_MUTEX_FREE(&__INSTANCES_MUTEX);
+    monobjc_mutex_destroy(&__INSTANCES_MUTEX);
 }
 
 static void __INSTANCES_HASHTABLE__GHFunc(gpointer key, gpointer value, gpointer user_data) {
@@ -120,6 +123,6 @@ void monobjc_cache_remove_instance(void *ptr) {
 }
 
 void monobjc_cache_remove_instance_in_domain(void *ptr, MonobjcDomainData *domain_data) {
-    LOG_DEBUG(MONOBJC_DOMAIN_INSTANCES, "Remove instance for %p in domain #%d", ptr, domain_data->identifier);
+    LOG_DEBUG(MONOBJC_DOMAIN_INSTANCES, "Remove instance for %p", ptr);
     g_hash_table_remove(domain_data->INSTANCES_HASHTABLE, ptr);
 }

@@ -116,7 +116,7 @@ void monobjc_log(MonobjcLogLevel log_level, MonobjcLogDomain domain, const char 
             if (domain != NULL) {
                 domain_id = mono_domain_get_id(domain);
             }
-            asl_log(NULL, monobjc_aslmsg, level, "[Domain #%d - Thread #%u] %s", domain_id, pthread_mach_thread_np(pthread_self()), msg);
+            asl_log(NULL, monobjc_aslmsg, level, "[Domain #%d - Thread #%u] %s", domain_id, MACH_THREAD_ID, msg);
             free(msg);
         }
         
@@ -151,7 +151,7 @@ void monobjc_logv(MonobjcLogLevel log_level, MonobjcLogDomain domain, const char
             if (domain != NULL) {
                 domain_id = mono_domain_get_id(domain);
             }
-            asl_log(NULL, monobjc_aslmsg, level, "[Domain #%d - Thread #%u] %s", domain_id, pthread_mach_thread_np(pthread_self()), msg);
+            asl_log(NULL, monobjc_aslmsg, level, "[Domain #%d - Thread #%u] %s", domain_id, MACH_THREAD_ID, msg);
             free(msg);
         }
     }

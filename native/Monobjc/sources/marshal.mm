@@ -149,7 +149,7 @@ MonobjcTypeDescriptor *__copy_descriptor(MonobjcTypeDescriptor *descriptor) {
 
 void monobjc_create_default_descriptors() {
     LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Create cache for descriptors");
-    MONOBJC_MUTEX_INIT(&__DESCRIPTORS_MUTEX, TRUE);
+    monobjc_mutex_init(&__DESCRIPTORS_MUTEX, TRUE);
     __DESCRIPTORS_HASHTABLE = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, __destroy_descriptor);
 
     // Create marshalers for Monobjc types
@@ -182,7 +182,7 @@ void monobjc_create_default_descriptors() {
 void monobjc_destroy_descriptors() {
     LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Destroy cache for descriptors");
     g_hash_table_destroy(__DESCRIPTORS_HASHTABLE);
-    MONOBJC_MUTEX_FREE(&__DESCRIPTORS_MUTEX);
+    monobjc_mutex_destroy(&__DESCRIPTORS_MUTEX);
 }
 
 MonobjcTypeDescriptor *monobjc_get_descriptor(MonoType *type, char *encoding, bool canFail) {
