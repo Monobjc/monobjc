@@ -87,7 +87,7 @@ namespace Monobjc.Foundation
         /// Asynchronously invokes the action on a new thread and returns immediately.
         /// </summary>
         /// <param name="actionWithState">The delegate that will be executed on a new thread.</param>
-        /// <param name="arg">The single argument passed to the target. May be nil.</param>
+        /// <param name="state">The single argument passed to the target. May be nil.</param>
         public static void StartNewThread(Action<Object> actionWithState, Object state)
         {
             NSValue arg = WrapState(state);
@@ -236,37 +236,46 @@ namespace Monobjc.Foundation
             [ObjectiveCMessage(NSThreadLauncher.SelectorName)]
             public void Launch(Id anArgument)
             {
-                if (this.actionWithState != null)
+                try
                 {
-                    var val = anArgument.SafeCastTo<NSValue>();
-                    if (val != null)
+                    if (this.actionWithState != null)
                     {
-                        GCHandle stateHandle = GCHandle.FromIntPtr(val.PointerValue);
-                        Object state = stateHandle.Target;
-
-                        try
+                        var val = anArgument.SafeCastTo<NSValue>();
+                        if (val != null)
                         {
+                            GCHandle stateHandle = GCHandle.FromIntPtr(val.PointerValue);
+                            Object state = stateHandle.Target;
+                            stateHandle.Free();
+
                             this.actionWithState(state);
                         }
-                        finally
+                        else
                         {
-                            stateHandle.Free();
+                            this.actionWithState(null);
                         }
                     }
-                    else
+                    else if (this.actionWithId != null)
                     {
-                        this.actionWithState(null);
+                        this.actionWithId(anArgument);
+                    }
+                    else if (this.action != null)
+                    {
+                        this.action();
                     }
                 }
-                else if (this.actionWithId != null)
+                catch (Exception ex)
                 {
-                    this.actionWithId(anArgument);
+                    // If this delegate is invoked on a separate thread, the developer should have
+                    // wrapped the body in a try / catch. If they didn't, at least log the
+                    // exception to help them troubleshoot. Otherwise, the thread will just die
+                    // and they may not notice an issue.
+                    Logger.Debug("ObjectiveCRuntime", ex.ToString());
+                    throw;
                 }
-                else if (this.action != null)
+                finally
                 {
-                    this.action();
+                    this.Autorelease();
                 }
-                this.Autorelease();
             }
         }
     }
