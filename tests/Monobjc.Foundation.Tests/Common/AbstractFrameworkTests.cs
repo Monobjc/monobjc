@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 // 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -65,6 +66,7 @@ namespace Monobjc.Foundation.Common
 					continue;
 				}
 
+                // Skip intercepted type
 				if (objectiveCClassAttribute.InterceptDealloc) {
 					continue;
 				}
@@ -86,6 +88,52 @@ namespace Monobjc.Foundation.Common
 				Assert.AreEqual (expectedClass.Name, superName, "Superclasses must be equals for " + type.Name);
 			}
 		}
+
+        [Test]
+        public void TestClassExistence ()
+        {
+            if (!this.Env.IsAvailable) {
+                Assert.Ignore("Framework not available");
+                return;
+            }
+
+            IList<String> missing = new List<String>();
+            foreach (Type type in this.Assembly.GetTypes()) {
+                // Type must be an Id subclass
+                if (!typeof(Id).IsAssignableFrom (type)) {
+                    continue;
+                }
+
+                // Test for the class attribute
+                ObjectiveCClassAttribute objectiveCClassAttribute = Attribute.GetCustomAttribute (type, typeof(ObjectiveCClassAttribute), false) as ObjectiveCClassAttribute;
+                if (objectiveCClassAttribute == null) {
+                    continue;
+                }
+
+                // Skip intercepted type
+                if (objectiveCClassAttribute.InterceptDealloc) {
+                    continue;
+                }
+
+                Class cls = Class.Get (type);
+                String clsName = cls.Name;
+
+                if (!cls.Name.EndsWith("_Definitions")) {
+                    continue;
+                }
+                String name = clsName.Replace("_Definitions", "");
+                Class shortenedCls = Class.Get(name);
+
+                if (shortenedCls == null) {
+                    missing.Add(clsName);
+                }
+            }
+            if (missing.Count > 0) {
+                Assert.Inconclusive ("The following definitions have no matching classes: " + String.Join(", ", missing));
+            } else {
+                Assert.IsTrue(true);
+            }
+        }
 
 		[Test]
 		public void TestEventDispatcherHierarchy ()
