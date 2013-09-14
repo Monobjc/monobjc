@@ -29,6 +29,19 @@ namespace Monobjc.Foundation
     public partial class NSString
     {
         /// <summary>
+        /// Returns an retained instance of NSString.
+        /// </summary>
+        public static NSString NSPinnedString(String value)
+        {
+            if (value == null)
+            {
+                throw new ArgumentNullException("value");
+            }
+            NSString str = new NSString(value);
+            return str;
+        }
+
+        /// <summary>
         /// Empty string
         /// </summary>
         public static NSString Empty
