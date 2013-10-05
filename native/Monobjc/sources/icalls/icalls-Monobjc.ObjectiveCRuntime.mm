@@ -49,36 +49,34 @@ void icall_Monobjc_ObjectiveCRuntime_Bootstrap(MonoString *domain_token) {
     
     // Put a pool in place since we're going to use autoreleased Objective-C
     // objects in some of these methods.
-    @autoreleasepool {
-        MonoException *exc = NULL;
+    MonoException *exc = NULL;
+    
+    char *domain_token_utf8 = domain_token == NULL ? NULL : mono_string_to_utf8(domain_token);
+    
+    LOCK_DOMAINS();
+    @try {
+        monobjc_create_domain_data(domain_token_utf8);
+        monobjc_create_definitions();
+        monobjc_create_default_descriptors();
+        monobjc_create_cache_for_calls();
+        monobjc_create_caches();
+    }
+    @catch (NSException *ex) {
+        LOG_DEBUG(MONOBJC_DOMAIN_GENERAL, "Native exception caught and rethrown as managed: %s", [[ex description] UTF8String]);
         
-        char *domain_token_utf8 = domain_token == NULL ? NULL : mono_string_to_utf8(domain_token);
-        
-        LOCK_DOMAINS();
-        @try {
-            monobjc_create_domain_data(domain_token_utf8);
-            monobjc_create_definitions();
-            monobjc_create_default_descriptors();
-            monobjc_create_cache_for_calls();
-            monobjc_create_caches();
-        }
-        @catch (NSException *ex) {
-            LOG_DEBUG(MONOBJC_DOMAIN_GENERAL, "Native exception caught and rethrown as managed: %s", [[ex description] UTF8String]);
-            
-            // Encapsulate the native exception (before the domain data is initialized)
-            MonoAssembly *assembly = monobjc_define_assembly(MONOBJC);
-            MonoImage *image = monobjc_define_image(assembly);
-            exc = mono_exception_from_name_msg(image, MONOBJC, OBJECTIVE_C_EXCEPTION, [[ex description] UTF8String]);
-        }
-        @finally {
-            UNLOCK_DOMAINS();
-            g_free(domain_token_utf8);
-        }
-        
-        // If there is an exception, raise it now
-        if (exc) {
-            mono_raise_exception(exc);
-        }
+        // Encapsulate the native exception (before the domain data is initialized)
+        MonoAssembly *assembly = monobjc_define_assembly(MONOBJC);
+        MonoImage *image = monobjc_define_image(assembly);
+        exc = mono_exception_from_name_msg(image, MONOBJC, OBJECTIVE_C_EXCEPTION, [[ex description] UTF8String]);
+    }
+    @finally {
+        UNLOCK_DOMAINS();
+        g_free(domain_token_utf8);
+    }
+    
+    // If there is an exception, raise it now
+    if (exc) {
+        mono_raise_exception(exc);
     }
 }
 
@@ -203,19 +201,17 @@ bail:
 void icall_Monobjc_ObjectiveCRuntime_EnableAutoDomainTokens() {
     // Put a pool in place since we're going to use autoreleased Objective-C
     // objects in some of these methods.
-    @autoreleasepool {
-        @try {
-            monobjc_enable_auto_domain_tokens();
-        }
-        @catch (NSException *ex) {
-            LOG_DEBUG(MONOBJC_DOMAIN_GENERAL, "Native exception caught and rethrown as managed: %s", [[ex description] UTF8String]);
-            
-            // Encapsulate the native exception (before the domain data is initialized)
-            MonoAssembly *assembly = monobjc_define_assembly(MONOBJC);
-            MonoImage *image = monobjc_define_image(assembly);
-            MonoException *exc = mono_exception_from_name_msg(image, MONOBJC, OBJECTIVE_C_EXCEPTION, [[ex description] UTF8String]);
-            mono_raise_exception(exc);
-        }
+    @try {
+        monobjc_enable_auto_domain_tokens();
+    }
+    @catch (NSException *ex) {
+        LOG_DEBUG(MONOBJC_DOMAIN_GENERAL, "Native exception caught and rethrown as managed: %s", [[ex description] UTF8String]);
+        
+        // Encapsulate the native exception (before the domain data is initialized)
+        MonoAssembly *assembly = monobjc_define_assembly(MONOBJC);
+        MonoImage *image = monobjc_define_image(assembly);
+        MonoException *exc = mono_exception_from_name_msg(image, MONOBJC, OBJECTIVE_C_EXCEPTION, [[ex description] UTF8String]);
+        mono_raise_exception(exc);
     }
 }
 

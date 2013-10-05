@@ -96,12 +96,14 @@ namespace Monobjc
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         private static extern void EnableAutoDomainTokensInternal ();
 
+        /// <summary>
+        /// Returns a mangled name based on the domain token.
+        /// </summary>
         internal static string GetDomainManagledName (String name)
         {
-            if (string.IsNullOrEmpty(domainToken)) {
+            if (String.IsNullOrEmpty(domainToken)) {
                 return name;
             }
-
             return String.Concat(name, "_", domainToken);
         }
 	}

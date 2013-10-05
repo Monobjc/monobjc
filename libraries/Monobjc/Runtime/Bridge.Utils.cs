@@ -92,12 +92,14 @@ namespace Monobjc.Runtime
 			if (attribute == null) {
 				throw new ObjectiveCException (String.Format (CultureInfo.CurrentCulture, Resources.NoClassAttributeFoundForType, type.FullName));
 			}
-
             String name = String.IsNullOrEmpty (attribute.Name) ? type.Name : attribute.Name;
 
+            // Native types are never mangled
             if (attribute.IsNative) {
                 return name;
             }
+
+            // Managed types other than the primary require the domain token
             return ObjectiveCRuntime.GetDomainManagledName(name);
 		}
 
@@ -116,9 +118,12 @@ namespace Monobjc.Runtime
 				throw new ObjectiveCException (String.Format (CultureInfo.CurrentCulture, Resources.NoNameInCategoryAttributeForType, type.FullName));
 			}
 
+            // Native types are never mangled
             if (attribute.IsNative) {
                 return attribute.Name;
             }
+
+            // Managed types other than the primary require the domain token
             return ObjectiveCRuntime.GetDomainManagledName(attribute.Name);
 		}
 
@@ -184,7 +189,6 @@ namespace Monobjc.Runtime
             if (objectiveCClassAttribute == null) {
                 throw new ObjectiveCException (String.Format (CultureInfo.CurrentCulture, Resources.NoClassAttributeFoundForType, type.FullName));
             }
-
             return objectiveCClassAttribute.IsNative;
         }
 

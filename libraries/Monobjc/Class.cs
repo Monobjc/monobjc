@@ -130,7 +130,7 @@ namespace Monobjc
 			}
 			String name = String.IsNullOrEmpty (attribute.Name) ? type.Name : attribute.Name;
 
-            // Native types are never managled
+            // Native types are never mangled
             if (attribute.IsNative) {
                 return name;
             }
