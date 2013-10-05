@@ -40,6 +40,9 @@ typedef struct MonobjcDomainData {
     /** @brief  The domain identifier. */
     int32_t identifier;
     
+    /** @brief  The domain token to suffix managed types. */
+    char *token;
+    
     #undef DEFINITION
     /** @brief  Print the fields for the definitions */
     #define DEFINITION(TYPE, NAME)    TYPE NAME;
@@ -130,7 +133,7 @@ extern pthread_mutex_t __DOMAINS_MUTEX;
 /**
  * @brief   Create the domain data for the current domain.
  */
-void monobjc_create_domain_data();
+void monobjc_create_domain_data(const char *domain_token);
 
 /**
  * @brief   Destroy the domain data for the current domain.
@@ -149,5 +152,10 @@ MonobjcDomainData *monobjc_get_domain_data(MonoDomain *domain);
  * @param   ptr    The instance.
  */
 void monobjc_remove_instance_in_domains(void *ptr);
+
+/**
+ * @brief   Enable automatic generation of domain tokens.
+ */
+void monobjc_enable_auto_domain_tokens();
 
 #endif // __DOMAIN_H__

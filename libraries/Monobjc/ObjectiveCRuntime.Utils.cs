@@ -20,6 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
+using System;
 using System.Runtime.CompilerServices;
 using Monobjc.Runtime;
 
@@ -27,13 +28,20 @@ namespace Monobjc
 {
 	public partial class ObjectiveCRuntime
 	{
+        private static String domainToken;
+
 		/// <summary>
 		///   Bootstraps the bridge.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.NoInlining)]
-		private static void Bootstrap ()
+		private static void Bootstrap (String domainToken)
 		{
-			BootstrapInternal ();
+			BootstrapInternal (domainToken);
+
+            // The domain token passed in may have been NULL but
+            // the native side may have auto generated a token.
+            // We cache it on the managed side.
+            ObjectiveCRuntime.domainToken = GetDomainToken();
 		}
 
 		/// <summary>
@@ -55,16 +63,46 @@ namespace Monobjc
 			return Platform.Is64Bits ();
 		}
 
+        /// <summary>
+        ///   Enable auto generation of domain tokens.
+        /// </summary>
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static void EnableAutoDomainTokens ()
+        {
+            EnableAutoDomainTokensInternal ();
+        }
+
 		/// <summary>
 		///   Internal call to bootstrap the bridge.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.InternalCall)]
-		private static extern void BootstrapInternal ();
+        private static extern void BootstrapInternal (String domainToken);
 
 		/// <summary>
 		///   Internal call to cleanup the bridge.
 		/// </summary>
 		[MethodImplAttribute(MethodImplOptions.InternalCall)]
 		private static extern void CleanUpInternal ();
+
+        /// <summary>
+        ///   Internal call to get the domain token.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        private static extern String GetDomainToken ();
+
+        /// <summary>
+        ///   Internal call to enable auto domain tokens.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        private static extern void EnableAutoDomainTokensInternal ();
+
+        internal static string GetDomainManagledName (String name)
+        {
+            if (string.IsNullOrEmpty(domainToken)) {
+                return name;
+            }
+
+            return String.Concat(name, "_", domainToken);
+        }
 	}
 }

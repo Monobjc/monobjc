@@ -64,18 +64,28 @@ namespace Monobjc.Runtime
 				}
 				return;
 			}
+            else if(IsNative(type)) {
+                if (Logger.DebugEnabled) {
+                    Logger.Debug("Bridge", "Skipping definition for nonexistent native class " + className);
+                }
+                return;
+            }
 
-			// Extract class name from attributes
-			String superClassName = ExtractSuperClassName (type);
+            // Objects with an Id base type do not have a superclass
+            String superClassName = null;
+            if (typeof(Id) != type.BaseType) {
+    			// Extract class name from attributes
+    			superClassName = ExtractSuperClassName (type);
 
-			// Get the superclass
-			Class superCls = Class.Get (superClassName);
-			if (superCls == null) {
-				throw new ObjectiveCException (String.Format (CultureInfo.CurrentCulture, Resources.CannotDefineClassBecauseSuperclassDoesNotExists, type, superClassName));
-			}
+    			// Get the superclass
+    			Class superCls = Class.Get (superClassName);
+    			if (superCls == null) {
+    				throw new ObjectiveCException (String.Format (CultureInfo.CurrentCulture, Resources.CannotDefineClassBecauseSuperclassDoesNotExists, type, superClassName));
+    			}
+            }
 
 			if (Logger.DebugEnabled) {
-				Logger.Debug ("Bridge", "Defining class " + type + " <-> " + className + " : " + superClassName);
+				Logger.Debug ("Bridge", "Defining class " + type + " <-> " + className + " : " + superClassName ?? "Id");
 			}
 
 			// Collects the informations needed for class generation

@@ -35,6 +35,16 @@ namespace Monobjc.AppKit
 		public override string AssemblyName {
 			get { return "Monobjc.AppKit"; }
 		}
+
+        public override IEnumerable<String> ExpectedMissingTypes {
+            get { 
+                if (ObjectiveCRuntime.Is64Bits) {
+                    return new [] { "NSMenuView" };
+                }
+
+                return new String[] {};
+            }
+        }
 		
         #pragma warning disable 219
 		public override void EnsureAssemblyIsReferenced ()

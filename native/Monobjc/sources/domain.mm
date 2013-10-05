@@ -29,6 +29,7 @@
  */
 #include "cache.h"
 #include "constants.h"
+#include "definitions.h"
 #include "domain.h"
 #include "glib.h"
 #include "logging.h"
@@ -38,37 +39,89 @@ pthread_mutex_t __DOMAINS_MUTEX;
 /** @brief  List of the domain data. */
 static GSList *__DOMAINS_DATA = NULL;
 
+/** @brief  True if domain tokens can be auto-assigned. */
+static boolean_t __enable_auto_domain_tokens = FALSE;
+
+/** @brief  True if the caller can still change the auto domain token option. */
+static boolean_t __enable_auto_domain_tokens_mutable = TRUE;
+
+/** 
+ * @brief  True if at least one domain had an empty domain token and
+ *         was not mangling names. There can be only one. Never turn
+ *         off the flag once activated.
+ */
+static boolean_t __pass_through_domain_actived;
+
 #pragma mark ----- Implementation -----
 
-void monobjc_create_domain_data() {
-    MonoDomain *domain = mono_domain_get();
-    MonobjcDomainData *data = monobjc_get_domain_data(domain);
-    if (data) {
-        // This is fatal and cannot be handled. Raise an exception.
-        [NSException raise:[NSString stringWithUTF8String:OBJECTIVE_C_EXCEPTION] format:@"%@ Domain #%d - Thread #%u", @"Cannot call monobjc_create_domain_data twice.", data->identifier, MACH_THREAD_ID];
+void monobjc_create_domain_data(const char *domain_token) {
+    @autoreleasepool {
+        MonoDomain *domain = mono_domain_get();
+        MonobjcDomainData *data = monobjc_get_domain_data(domain);
+        if (data) {
+            // This is fatal and cannot be handled. Raise an exception.
+            [NSException raise:[NSString stringWithUTF8String:OBJECTIVE_C_EXCEPTION] format:@"%@ Domain #%d - Thread #%u", @"Cannot call monobjc_create_domain_data twice.", data->identifier, MACH_THREAD_ID];
+        }
+
+        // Verify that the domain is eligible
+        if (!domain_token) {
+            if (__pass_through_domain_actived) {
+                if (__enable_auto_domain_tokens) {
+                    // Generate a new UUID
+                    CFUUIDRef uuid_ref = CFUUIDCreate(NULL);
+                    NSString *uuid = [(NSString *) CFUUIDCreateString(NULL, uuid_ref) autorelease];
+                    CFRelease(uuid_ref);
+                    
+                    // Replace "-" with "_"
+                    uuid = [uuid stringByReplacingOccurrencesOfString:@"-" withString:@"_"];
+                    
+                    // Get the final token
+                    domain_token = [uuid UTF8String];
+                } else {
+                    [NSException raise:[NSString stringWithUTF8String:OBJECTIVE_C_EXCEPTION] format:@"%@ Domain #%d - Thread #%u", @"Cannot bootstrap a second domain without a token for name mangling because a pass through domain already exists and auto domain tokens are disabled.", mono_domain_get_id(domain), MACH_THREAD_ID];
+                }
+            } else {
+                __pass_through_domain_actived = TRUE;
+            }
+        }
+        
+        // A domain has been created, don't allow the setting to change
+        __enable_auto_domain_tokens_mutable = FALSE;
+
+        // Create the domain data
+        data = g_new(MonobjcDomainData, 1);
+        data->identifier = mono_domain_get_id(domain);
+        data->token = g_strdup(domain_token);
+
+        LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Creating Monobjc domain data for domain #%d with token '%s' from thread #%u", data->identifier, data->token == NULL ? "none" : data->token, MACH_THREAD_ID);
+        __DOMAINS_DATA = g_slist_append(__DOMAINS_DATA, data);
     }
-    data = g_new(MonobjcDomainData, 1);
-    data->identifier = mono_domain_get_id(domain);
-    LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Creating Monobjc domain data for domain #%d from thread #%u", data->identifier, MACH_THREAD_ID);
-    __DOMAINS_DATA = g_slist_append(__DOMAINS_DATA, data);
 }
 
 void monobjc_destroy_domain_data() {
     MonoDomain *domain = mono_domain_get();
     MonobjcDomainData *data = monobjc_get_domain_data(domain);
     if (!data) {
-        // This is fatal and cannot be handled. Raise an exception.
-        [NSException raise:[NSString stringWithUTF8String:OBJECTIVE_C_EXCEPTION] format:@"%@ Domain #%d - Thread #%u", @"Cannot call monobjc_destroy_domain_data on NULL data.", mono_domain_get_id(domain), MACH_THREAD_ID];
+        @autoreleasepool {
+            // This is fatal and cannot be handled. Raise an exception.
+            [NSException raise:[NSString stringWithUTF8String:OBJECTIVE_C_EXCEPTION] format:@"%@ Domain #%d - Thread #%u", @"Cannot call monobjc_destroy_domain_data on NULL data.", mono_domain_get_id(domain), MACH_THREAD_ID];
+        }
     } else {
         LOG_INFO(MONOBJC_DOMAIN_GENERAL, "Destroying Monobjc domain data for domain #%d from thread #%u", data->identifier, MACH_THREAD_ID);
         __DOMAINS_DATA = g_slist_remove(__DOMAINS_DATA, data);
+        if (!__DOMAINS_DATA) {
+            __enable_auto_domain_tokens_mutable = TRUE;
+        }
+        g_free(data->token);
         g_free(data);
     }
 }
 
 MonobjcDomainData *monobjc_get_domain_data(MonoDomain *domain) {
     if (domain == NULL) {
-        [NSException raise:NSInvalidArgumentException format:@"The domain is NULL. Verify that the thread has been attached."];
+        @autoreleasepool {
+            [NSException raise:NSInvalidArgumentException format:@"The domain is NULL. Verify that the thread has been attached."];
+        }
     }
 
     int32_t identifier = mono_domain_get_id(domain);
@@ -97,4 +150,17 @@ void monobjc_remove_instance_in_domains(void *ptr) {
         current = g_slist_next(current);
     }
     UNLOCK_DOMAINS();
+}
+
+void monobjc_enable_auto_domain_tokens() {
+    if (__enable_auto_domain_tokens) {
+        return;
+    }
+    
+    if (!__enable_auto_domain_tokens_mutable) {
+        @autoreleasepool {
+            [NSException raise:[NSString stringWithUTF8String:OBJECTIVE_C_EXCEPTION] format:@"%@", @"Cannot enable auto domain tokens because a domain has already been initialized."];
+        }
+    }
+    __enable_auto_domain_tokens = TRUE;
 }

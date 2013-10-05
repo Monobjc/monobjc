@@ -122,13 +122,21 @@ namespace Monobjc
 		/// </summary>
 		/// <param name = "type">The type that has a <see cref = "ObjectiveCClassAttribute" />.</param>
 		/// <returns>The class name.</returns>
-		internal static String GetAttributeName (Type type)
+        internal static String GetAttributeName (Type type)
 		{
 			ObjectiveCClassAttribute attribute = Attribute.GetCustomAttribute (type, typeof(ObjectiveCClassAttribute)) as ObjectiveCClassAttribute;
 			if (attribute == null) {
 				throw new ObjectiveCException (String.Format (CultureInfo.CurrentCulture, Resources.NoClassAttributeFoundForType, type));
 			}
-			return String.IsNullOrEmpty (attribute.Name) ? type.Name : attribute.Name;
+			String name = String.IsNullOrEmpty (attribute.Name) ? type.Name : attribute.Name;
+
+            // Native types are never managled
+            if (attribute.IsNative) {
+                return name;
+            }
+
+            // Managed types other than the primary require the domain token
+            return ObjectiveCRuntime.GetDomainManagledName(name);
 		}
 
 		/// <summary>

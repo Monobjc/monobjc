@@ -92,7 +92,13 @@ namespace Monobjc.Runtime
 			if (attribute == null) {
 				throw new ObjectiveCException (String.Format (CultureInfo.CurrentCulture, Resources.NoClassAttributeFoundForType, type.FullName));
 			}
-			return String.IsNullOrEmpty (attribute.Name) ? type.Name : attribute.Name;
+
+            String name = String.IsNullOrEmpty (attribute.Name) ? type.Name : attribute.Name;
+
+            if (attribute.IsNative) {
+                return name;
+            }
+            return ObjectiveCRuntime.GetDomainManagledName(name);
 		}
 
 		/// <summary>
@@ -109,7 +115,11 @@ namespace Monobjc.Runtime
 			if (String.IsNullOrEmpty (attribute.Name)) {
 				throw new ObjectiveCException (String.Format (CultureInfo.CurrentCulture, Resources.NoNameInCategoryAttributeForType, type.FullName));
 			}
-			return attribute.Name;
+
+            if (attribute.IsNative) {
+                return attribute.Name;
+            }
+            return ObjectiveCRuntime.GetDomainManagledName(attribute.Name);
 		}
 
 		/// <summary>
@@ -135,7 +145,12 @@ namespace Monobjc.Runtime
 				throw new ObjectiveCException (String.Format (CultureInfo.CurrentCulture, Resources.NoClassAttributeFoundForBaseType, type.FullName));
 			}
 
-			return String.IsNullOrEmpty (superObjectiveCClassAttribute.Name) ? type.BaseType.Name : superObjectiveCClassAttribute.Name;
+			String name = String.IsNullOrEmpty (superObjectiveCClassAttribute.Name) ? type.BaseType.Name : superObjectiveCClassAttribute.Name;
+
+            if (superObjectiveCClassAttribute.IsNative) {
+                return name;
+            }
+            return ObjectiveCRuntime.GetDomainManagledName(name);
 		}
 
 		/// <summary>
@@ -156,6 +171,22 @@ namespace Monobjc.Runtime
 
 			return objectiveCClassAttribute.InterceptDealloc;
 		}
+
+        /// <summary>
+        /// Determines if the specified type is native backed.
+        /// </summary>
+        /// <returns><c>true</c> if the specified type is native backed; otherwise, <c>false</c>.</returns>
+        /// <param name="type">Type.</param>
+        private static bool IsNative (Type type)
+        {
+            // Check whether the type is native backed
+            ObjectiveCClassAttribute objectiveCClassAttribute = Attribute.GetCustomAttribute (type, typeof(ObjectiveCClassAttribute), false) as ObjectiveCClassAttribute;
+            if (objectiveCClassAttribute == null) {
+                throw new ObjectiveCException (String.Format (CultureInfo.CurrentCulture, Resources.NoClassAttributeFoundForType, type.FullName));
+            }
+
+            return objectiveCClassAttribute.IsNative;
+        }
 
 		/// <summary>
 		///   Collect every public properties with an attribute.

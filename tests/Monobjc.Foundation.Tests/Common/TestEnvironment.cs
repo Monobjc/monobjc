@@ -39,5 +39,10 @@ namespace Monobjc.Foundation
 		
 		public abstract IEnumerable<String> Frameworks { get; }
 		
+        public virtual IEnumerable<String> ExpectedMissingTypes {
+            get {
+                return new String[] {};
+            }
+        }
 	}
 }
