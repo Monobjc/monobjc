@@ -180,7 +180,7 @@ namespace Monobjc.Foundation
         /// Dispatcher to connect .NET delegate to Objective-C event selector.
         /// </summary>
         [ObjectiveCClass]
-        public class NSThreadLauncher : NSObject
+        private class NSThreadLauncher : NSObject
         {
             public const String SelectorName = "launch:";
             public static IntPtr LaunchSelector = ObjectiveCRuntime.Selector(SelectorName);
