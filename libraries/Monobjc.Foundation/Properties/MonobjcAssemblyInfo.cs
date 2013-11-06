@@ -23,7 +23,7 @@
 using Monobjc;
 using System.Reflection;
 
-[assembly: ObjectiveCFramework(true, "Foundation", "CoreData", "CoreText")]
+[assembly: ObjectiveCFramework(true, "Foundation", "CoreData")]
 [assembly: AssemblyConfigurationAttribute("Release")]
 
 #if MACOSX_10_8
