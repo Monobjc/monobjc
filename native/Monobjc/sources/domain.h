@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2013 - Laurent Etiemble
+// Copyright (C) 2007-2014 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,7 +25,7 @@
  * @file    domain.h
  * @brief   Contains the per-domain structure and functions.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2013
+ * @date    2009-2014
  */
 #ifndef __DOMAIN_H__
 #define __DOMAIN_H__

@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2013 - Laurent Etiemble
+// Copyright (C) 2007-2014 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,7 +25,7 @@
  * @file    icalls-Monobjc.ObjectiveCRuntime.mm
  * @brief   Contains the internal calls for the Monobjc.ObjectiveCRuntime type.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2013
+ * @date    2009-2014
  */
 #include <dlfcn.h>
 #include "cache.h"
@@ -199,19 +199,20 @@ bail:
  * @brief   Internal call to enable automatic generation of domain tokens.
  */
 void icall_Monobjc_ObjectiveCRuntime_EnableAutoDomainTokens() {
-    // Put a pool in place since we're going to use autoreleased Objective-C
-    // objects in some of these methods.
-    @try {
-        monobjc_enable_auto_domain_tokens();
-    }
-    @catch (NSException *ex) {
-        LOG_DEBUG(MONOBJC_DOMAIN_GENERAL, "Native exception caught and rethrown as managed: %s", [[ex description] UTF8String]);
-        
-        // Encapsulate the native exception (before the domain data is initialized)
-        MonoAssembly *assembly = monobjc_define_assembly(MONOBJC);
-        MonoImage *image = monobjc_define_image(assembly);
-        MonoException *exc = mono_exception_from_name_msg(image, MONOBJC, OBJECTIVE_C_EXCEPTION, [[ex description] UTF8String]);
-        mono_raise_exception(exc);
+    // Put a pool in place since we're going to use autoreleased Objective-C objects in some of these methods.
+    @autoreleasepool {
+        @try {
+            monobjc_enable_auto_domain_tokens();
+        }
+        @catch (NSException *ex) {
+            LOG_DEBUG(MONOBJC_DOMAIN_GENERAL, "Native exception caught and rethrown as managed: %s", [[ex description] UTF8String]);
+            
+            // Encapsulate the native exception (before the domain data is initialized)
+            MonoAssembly *assembly = monobjc_define_assembly(MONOBJC);
+            MonoImage *image = monobjc_define_image(assembly);
+            MonoException *exc = mono_exception_from_name_msg(image, MONOBJC, OBJECTIVE_C_EXCEPTION, [[ex description] UTF8String]);
+            mono_raise_exception(exc);
+        }
     }
 }
 

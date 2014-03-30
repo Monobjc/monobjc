@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2013 - Laurent Etiemble
+// Copyright (C) 2007-2014 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,7 +25,7 @@
  * @file    monobjc.mm
  * @brief   Contains exposed functions for the bridging library.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2009-2013
+ * @date    2009-2014
  */
 #include <dlfcn.h>
 #include "domain.h"
@@ -90,38 +90,34 @@ void *monobjc_load_framework(const char *framework) {
     LOG_DEBUG(MONOBJC_DOMAIN_GENERAL, "Loading framework '%s'", framework);
     
     // We set an auto-release pool for the scope
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
-    // Convert the name to ease formatting
-    NSString *framework_name = [NSString stringWithUTF8String:framework];
-    
-    NSArray *paths = [NSArray arrayWithObjects:
-                      // Probing in system scope
-                      [NSString stringWithFormat:@"/System/Library/Frameworks/%@.framework/%@", framework_name, framework_name],
-                      // Probing in library scope
-                      [NSString stringWithFormat:@"/Library/Frameworks/%@.framework/%@", framework_name, framework_name],
-                      // Probing in user scope
-                      [NSString stringWithFormat:@"~/Library/Frameworks/%@.framework/%@", framework_name, framework_name],
-                      // Probing in private scope
-                      [NSString stringWithFormat:@"%@/Frameworks/%@.framework/%@", [[NSBundle mainBundle] bundlePath], framework_name, framework_name],
-                      nil];
-    
-    // Iterate over each path
-    for(NSUInteger i = 0; i < [paths count]; i++) {
-        NSString *path = [[paths objectAtIndex:i] stringByExpandingTildeInPath];
-        if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-            handle = dlopen([path UTF8String], RTLD_LAZY);
-            if (handle) {
-                break;
+    @autoreleasepool {
+        // Convert the name to ease formatting
+        NSString *framework_name = [NSString stringWithUTF8String:framework];
+        
+        NSArray *paths = [NSArray arrayWithObjects:
+                          // Probing in system scope
+                          [NSString stringWithFormat:@"/System/Library/Frameworks/%@.framework/%@", framework_name, framework_name],
+                          // Probing in library scope
+                          [NSString stringWithFormat:@"/Library/Frameworks/%@.framework/%@", framework_name, framework_name],
+                          // Probing in user scope
+                          [NSString stringWithFormat:@"~/Library/Frameworks/%@.framework/%@", framework_name, framework_name],
+                          // Probing in private scope
+                          [NSString stringWithFormat:@"%@/Frameworks/%@.framework/%@", [[NSBundle mainBundle] bundlePath], framework_name, framework_name],
+                          nil];
+        
+        // Iterate over each path
+        for(NSUInteger i = 0; i < [paths count]; i++) {
+            NSString *path = [[paths objectAtIndex:i] stringByExpandingTildeInPath];
+            if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+                handle = dlopen([path UTF8String], RTLD_LAZY);
+                if (handle) {
+                    break;
+                }
+                char *error_message = dlerror();
+                LOG_WARNING(MONOBJC_DOMAIN_GENERAL, "Failed to load '%s' framework\n%s", framework, error_message);
             }
-            char *error_message = dlerror();
-            LOG_WARNING(MONOBJC_DOMAIN_GENERAL, "Failed to load '%s' framework\n%s", framework, error_message);
         }
     }
-    
-bail:
-    // Destroy the pool
-    [pool release];
     
     return handle;
 }
