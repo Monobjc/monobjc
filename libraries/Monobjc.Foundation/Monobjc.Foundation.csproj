@@ -17,7 +17,7 @@
     <DebugType>full</DebugType>
     <Optimize>False</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8;MACOSX_10_9</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -25,7 +25,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>True</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8</DefineConstants>
+    <DefineConstants>TRACE;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8;MACOSX_10_9</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -771,7 +771,6 @@
     <Compile Include="Foundation_C\NSUserAutomatorTask.cs" />
     <Compile Include="Foundation_C\NSUserDefaults.Class.cs" />
     <Compile Include="Foundation_C\NSUserDefaults.Constants.cs" />
-    <Compile Include="Foundation_C\NSUserDefaults.Constructors.cs" />
     <Compile Include="Foundation_C\NSUserDefaults.cs" />
     <Compile Include="Foundation_C\NSUserNotification.Class.cs" />
     <Compile Include="Foundation_C\NSUserNotification.Constants.cs" />
@@ -1079,6 +1078,7 @@
     <Compile Include="ApplicationServices_Extensions\CGPDFOperatorCallback.cs" />
     <Compile Include="ApplicationServices_Extensions\CTFontCollectionSortDescriptorsCallback.cs" />
     <Compile Include="ApplicationServices_S\CTParagraphStyleSetting.cs" />
+    <Compile Include="Foundation_C\NSXPCListenerEndpoint.Constructors.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

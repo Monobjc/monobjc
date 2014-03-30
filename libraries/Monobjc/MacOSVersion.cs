@@ -75,9 +75,13 @@ namespace Monobjc
 		///   Value for MacOS 10.7 (Lion)
 		/// </summary>
 		MacOS107 = 0x1070,
-		/// <summary>
-		///   Value for MacOS 10.8 (Mountain Lion)
-		/// </summary>
-		MacOS108 = 0x1080,
+        /// <summary>
+        ///   Value for MacOS 10.8 (Mountain Lion)
+        /// </summary>
+        MacOS108 = 0x1080,
+        /// <summary>
+        ///   Value for MacOS 10.9 (Mavericks)
+        /// </summary>
+        MacOS109 = 0x1090,
 	}
 }

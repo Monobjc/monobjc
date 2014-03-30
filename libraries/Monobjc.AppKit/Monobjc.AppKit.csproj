@@ -17,7 +17,7 @@
     <DebugType>full</DebugType>
     <Optimize>False</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8;MACOSX_10_9</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -25,7 +25,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>True</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8</DefineConstants>
+    <DefineConstants>TRACE;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8;MACOSX_10_9</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -386,7 +386,9 @@
     <Compile Include="AppKit_C\NSActionCell.cs" />
     <Compile Include="AppKit_C\NSActionCell.Protocols.cs" />
     <Compile Include="AppKit_C\NSAffineTransform_AppKitAdditions.cs" />
-    <Compile Include="AppKit_C\NSAlert.Class.cs" />
+    <Compile Include="AppKit_C\NSAlert.Class.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="AppKit_C\NSAlert.Constants.cs" />
     <Compile Include="AppKit_C\NSAlert.cs" />
     <Compile Include="AppKit_C\NSAnimation.Class.cs" />
@@ -696,18 +698,6 @@
     <Compile Include="AppKit_C\NSNib.Constructors.cs" />
     <Compile Include="AppKit_C\NSNib.cs" />
     <Compile Include="AppKit_C\NSNib.Protocols.cs" />
-    <Compile Include="AppKit_C\NSNibConnector.Class.cs" />
-    <Compile Include="AppKit_C\NSNibConnector.Constructors.cs" />
-    <Compile Include="AppKit_C\NSNibConnector.cs" />
-    <Compile Include="AppKit_C\NSNibConnector.Protocols.cs" />
-    <Compile Include="AppKit_C\NSNibControlConnector.Class.cs" />
-    <Compile Include="AppKit_C\NSNibControlConnector.Constructors.cs" />
-    <Compile Include="AppKit_C\NSNibControlConnector.cs" />
-    <Compile Include="AppKit_C\NSNibControlConnector.Protocols.cs" />
-    <Compile Include="AppKit_C\NSNibOutletConnector.Class.cs" />
-    <Compile Include="AppKit_C\NSNibOutletConnector.Constructors.cs" />
-    <Compile Include="AppKit_C\NSNibOutletConnector.cs" />
-    <Compile Include="AppKit_C\NSNibOutletConnector.Protocols.cs" />
     <Compile Include="AppKit_C\NSObjectController.Class.cs" />
     <Compile Include="AppKit_C\NSObjectController.Constructors.cs" />
     <Compile Include="AppKit_C\NSObjectController.cs" />

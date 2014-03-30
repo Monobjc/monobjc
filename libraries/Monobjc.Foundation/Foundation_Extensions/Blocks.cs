@@ -61,6 +61,9 @@ namespace Monobjc.Foundation
     public delegate void Action_Id_NSRange_out_bool(Id obj, NSRange range, out bool stop);
     public delegate void Action_Id_NSUInteger_out_bool(Id obj, NSUInteger idx, out bool stop);
     public delegate void Action_Id_out_bool(Id obj, out bool stop);
+#if MACOSX_10_9
+    public delegate void Action_IntPtr_NSRange_out_bool(IntPtr bytes, NSRange byteRange, out bool stop);
+#endif
     public delegate void Action_NSDictionary_NSRange_out_bool(NSDictionary attr, NSRange range, out bool stop);
     public delegate void Action_NSRange_out_bool(NSRange range, out bool stop);
     public delegate void Action_NSString_NSRange_NSRange_out_bool(NSString tag, NSRange tokenRange, NSRange sentenceRange, out bool stop);
