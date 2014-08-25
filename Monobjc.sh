@@ -12,7 +12,7 @@ echo "======================================="
 echo
 
 COMMAND=$1
-VERSION="5.0.0.0"
+VERSION="6.0.0.0"
 HASH="d5a8d181860c16be"
 
 # Probe to check if Mono runtime is installed
@@ -34,7 +34,7 @@ fi
 #
 function install {
 
-    VERSIONS="10.6 10.7 10.8"
+    VERSIONS="10.6 10.7 10.8 10.9"
 
     # Perform the installation for each version
     for version in $VERSIONS; do
@@ -120,7 +120,7 @@ EOF
 #
 function uninstall {
 
-    VERSIONS="10.6 10.7 10.8"
+    VERSIONS="10.6 10.7 10.8 10.9"
     ASSEMBLIES=`gacutil -l | grep Monobjc | awk -F"," '{ print $1 }' | sort -u`
 
     # Remove assemblies from the GAC

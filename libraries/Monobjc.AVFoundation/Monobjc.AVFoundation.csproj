@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{12672822-5B47-4C34-8D49-C78F5C76635C}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -34,6 +34,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
+    <Compile Include="AVFoundation_Extensions\Handlers.cs" />
     <Compile Include="AVFoundation_C\AVAsset.Class.cs" />
     <Compile Include="AVFoundation_C\AVAsset.cs" />
     <Compile Include="AVFoundation_C\AVAsset.Protocols.cs" />
@@ -61,6 +64,7 @@
     <Compile Include="AVFoundation_C\AVAssetReaderVideoCompositionOutput.Constructors.cs" />
     <Compile Include="AVFoundation_C\AVAssetReaderVideoCompositionOutput.cs" />
     <Compile Include="AVFoundation_C\AVAssetTrack.Class.cs" />
+    <Compile Include="AVFoundation_C\AVAssetTrack.Constants.cs" />
     <Compile Include="AVFoundation_C\AVAssetTrack.cs" />
     <Compile Include="AVFoundation_C\AVAssetTrack.Protocols.cs" />
     <Compile Include="AVFoundation_C\AVAssetTrackSegment.Class.cs" />
@@ -114,6 +118,7 @@
     <Compile Include="AVFoundation_C\AVCaptureInput.Class.cs" />
     <Compile Include="AVFoundation_C\AVCaptureInput.cs" />
     <Compile Include="AVFoundation_C\AVCaptureInputPort.Class.cs" />
+    <Compile Include="AVFoundation_C\AVCaptureInputPort.Constants.cs" />
     <Compile Include="AVFoundation_C\AVCaptureInputPort.cs" />
     <Compile Include="AVFoundation_C\AVCaptureMovieFileOutput.Class.cs" />
     <Compile Include="AVFoundation_C\AVCaptureMovieFileOutput.cs" />
@@ -144,6 +149,12 @@
     <Compile Include="AVFoundation_C\AVCompositionTrackSegment.cs" />
     <Compile Include="AVFoundation_C\AVFrameRateRange.Class.cs" />
     <Compile Include="AVFoundation_C\AVFrameRateRange.cs" />
+    <Compile Include="AVFoundation_C\AVMediaSelectionGroup.Class.cs" />
+    <Compile Include="AVFoundation_C\AVMediaSelectionGroup.cs" />
+    <Compile Include="AVFoundation_C\AVMediaSelectionGroup.Protocols.cs" />
+    <Compile Include="AVFoundation_C\AVMediaSelectionOption.Class.cs" />
+    <Compile Include="AVFoundation_C\AVMediaSelectionOption.cs" />
+    <Compile Include="AVFoundation_C\AVMediaSelectionOption.Protocols.cs" />
     <Compile Include="AVFoundation_C\AVMetadataItem.Class.cs" />
     <Compile Include="AVFoundation_C\AVMetadataItem.cs" />
     <Compile Include="AVFoundation_C\AVMetadataItem.Protocols.cs" />
@@ -198,6 +209,8 @@
     <Compile Include="AVFoundation_C\AVPlayerItemErrorLogEvent.Class.cs" />
     <Compile Include="AVFoundation_C\AVPlayerItemErrorLogEvent.cs" />
     <Compile Include="AVFoundation_C\AVPlayerItemErrorLogEvent.Protocols.cs" />
+    <Compile Include="AVFoundation_C\AVPlayerItemOutput.Class.cs" />
+    <Compile Include="AVFoundation_C\AVPlayerItemOutput.cs" />
     <Compile Include="AVFoundation_C\AVPlayerItemTrack.Class.cs" />
     <Compile Include="AVFoundation_C\AVPlayerItemTrack.cs" />
     <Compile Include="AVFoundation_C\AVPlayerLayer.Class.cs" />
@@ -234,14 +247,19 @@
     <Compile Include="AVFoundation_C\AVVideoCompositionLayerInstruction.cs" />
     <Compile Include="AVFoundation_C\AVVideoCompositionLayerInstruction.Protocols.cs" />
     <Compile Include="AVFoundation_C\NSCoder_AVFoundationAdditions.cs" />
+    <Compile Include="AVFoundation_C\NSValue_AVFoundationAdditions.cs" />
     <Compile Include="AVFoundation_P\AVAsynchronousKeyValueLoading.Constants.cs" />
     <Compile Include="AVFoundation_P\AVAsynchronousKeyValueLoading.Protocol.cs" />
+    <Compile Include="AVFoundation_P\AVAudioPlayer.Delegate.cs" />
     <Compile Include="AVFoundation_P\AVAudioPlayerDelegate.Protocol.cs" />
+    <Compile Include="AVFoundation_P\AVAudioRecorder.Delegate.cs" />
     <Compile Include="AVFoundation_P\AVAudioRecorderDelegate.Protocol.cs" />
     <Compile Include="AVFoundation_P\AVCaptureAudioDataOutputSampleBufferDelegate.Protocol.cs" />
+    <Compile Include="AVFoundation_P\AVCaptureFileOutput.Delegate.cs" />
     <Compile Include="AVFoundation_P\AVCaptureFileOutputDelegate.Protocol.cs" />
     <Compile Include="AVFoundation_P\AVCaptureFileOutputRecordingDelegate.Protocol.cs" />
     <Compile Include="AVFoundation_P\AVCaptureVideoDataOutputSampleBufferDelegate.Protocol.cs" />
+    <Compile Include="AVFoundation_P\AVVideoCompositionValidationHandling.Protocol.cs" />
     <Compile Include="AVFoundation_T\AVFoundationFramework.AudioSettings.Constants.cs" />
     <Compile Include="AVFoundation_T\AVFoundationFramework.Constants.cs" />
     <Compile Include="AVFoundation_T\AVFoundationFramework.Error.Constants.cs" />
@@ -249,22 +267,6 @@
     <Compile Include="AVFoundation_T\AVFoundationFramework.ID3.Constants.cs" />
     <Compile Include="AVFoundation_T\AVFoundationFramework.iTunes.Constants.cs" />
     <Compile Include="AVFoundation_T\AVFoundationFramework.QuickTime.Constants.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
-    <Compile Include="AVFoundation_C\NSValue_AVFoundationAdditions.cs" />
-    <Compile Include="AVFoundation_P\AVAudioPlayer.Delegate.cs" />
-    <Compile Include="AVFoundation_P\AVAudioRecorder.Delegate.cs" />
-    <Compile Include="AVFoundation_P\AVCaptureFileOutput.Delegate.cs" />
-    <Compile Include="AVFoundation_P\AVVideoCompositionValidationHandling.Protocol.cs" />
-    <Compile Include="AVFoundation_C\AVMediaSelectionGroup.Class.cs" />
-    <Compile Include="AVFoundation_C\AVMediaSelectionGroup.cs" />
-    <Compile Include="AVFoundation_C\AVMediaSelectionGroup.Protocols.cs" />
-    <Compile Include="AVFoundation_C\AVMediaSelectionOption.Class.cs" />
-    <Compile Include="AVFoundation_C\AVMediaSelectionOption.cs" />
-    <Compile Include="AVFoundation_C\AVMediaSelectionOption.Protocols.cs" />
-    <Compile Include="AVFoundation_C\AVPlayerItemOutput.Class.cs" />
-    <Compile Include="AVFoundation_C\AVPlayerItemOutput.cs" />
-    <Compile Include="AVFoundation_Extensions\Handlers.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">

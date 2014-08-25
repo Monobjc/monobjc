@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -1121,8 +1121,6 @@
     <Compile Include="AppKit_C\NSWorkspace.cs" />
     <Compile Include="QuartzCore_S\CATransform3D64.cs" />
     <Compile Include="AppKit_P\NSControl.Delegate.cs" />
-    <Compile Include="QuartzCore_C\CIImage_AutoAdjustmentAdditions.Constants.cs" />
-    <Compile Include="QuartzCore_C\CIImage_AutoAdjustmentAdditions.cs" />
     <Compile Include="AppKit_P\NSTextStorage.Delegate.cs" />
     <Compile Include="AppKit_Extensions\NSCellStateValueExtensions.cs" />
     <Compile Include="AppKit_Extensions\NSImage.Extensions.cs" />
