@@ -57,7 +57,7 @@ export MONOBJC_VERSION=6.0
 export MONOBJC_VERSION_MAJOR=$(shell echo $(MONOBJC_VERSION) | cut -d "." -f1)
 export MONOBJC_VERSION_MINOR=$(shell echo $(MONOBJC_VERSION) | cut -d "." -f2)
 
-export MIN_OSX_VERSION?=10.6
+export MIN_OSX_VERSION?=10.7
 export MIN_OSX_VERSION_MAJOR=$(shell echo $(MIN_OSX_VERSION) | cut -d "." -f1)
 export MIN_OSX_VERSION_MINOR=$(shell echo $(MIN_OSX_VERSION) | cut -d "." -f2)
 export MAX_OSX_VERSION?=10.9

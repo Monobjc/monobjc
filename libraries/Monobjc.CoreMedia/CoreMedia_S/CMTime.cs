@@ -34,50 +34,31 @@ namespace Monobjc.CoreMedia
     /// <para>Available in Mac OS X v10.7 and later.</para>
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-
     public partial struct CMTime
     {
-
         /// <summary>
-
         /// <para>The value of the CMTime.</para>
-
         /// <para>Available in Mac OS X v10.7 and later.</para>
-
         /// </summary>
-
         public long value;
 
         /// <summary>
-
         /// <para>The timescale of the CMTime.</para>
-
         /// <para>Available in Mac OS X v10.7 and later.</para>
-
         /// </summary>
-
         public int timescale;
 
         /// <summary>
-
         /// <para>A bitfield representing the flags set for the CMTime.</para>
-
         /// <para>Available in Mac OS X v10.7 and later.</para>
-
         /// </summary>
-
         public CMTimeFlags flags;
 
         /// <summary>
-
         /// <para>The epoch of the CMTime.</para>
-
         /// <para>Available in Mac OS X v10.7 and later.</para>
-
         /// </summary>
-
         public long epoch;
-
     }
 #endif
 }
