@@ -178,6 +178,8 @@
     <Compile Include="AVFoundation_C\AVMetadataItem.Class.cs" />
     <Compile Include="AVFoundation_C\AVMetadataItem.cs" />
     <Compile Include="AVFoundation_C\AVMetadataItem.Protocols.cs" />
+    <Compile Include="AVFoundation_C\AVMetadataItemFilter.Class.cs" />
+    <Compile Include="AVFoundation_C\AVMetadataItemFilter.cs" />
     <Compile Include="AVFoundation_C\AVMutableAudioMix.Class.cs" />
     <Compile Include="AVFoundation_C\AVMutableAudioMix.cs" />
     <Compile Include="AVFoundation_C\AVMutableAudioMix.Protocols.cs" />
@@ -288,6 +290,7 @@
     <Compile Include="AVFoundation_P\AVCaptureVideoDataOutputSampleBufferDelegate.Protocol.cs" />
     <Compile Include="AVFoundation_P\AVPlayerItemOutputPullDelegate.Protocol.cs" />
     <Compile Include="AVFoundation_P\AVVideoCompositing.Protocol.cs" />
+    <Compile Include="AVFoundation_P\AVVideoCompositionInstruction.Protocol.cs" />
     <Compile Include="AVFoundation_P\AVVideoCompositionValidationHandling.Protocol.cs" />
     <Compile Include="AVFoundation_T\AVFoundationFramework.AudioSettings.Constants.cs" />
     <Compile Include="AVFoundation_T\AVFoundationFramework.Constants.cs" />
@@ -296,8 +299,10 @@
     <Compile Include="AVFoundation_T\AVFoundationFramework.ID3.Constants.cs" />
     <Compile Include="AVFoundation_T\AVFoundationFramework.iTunes.Constants.cs" />
     <Compile Include="AVFoundation_T\AVFoundationFramework.QuickTime.Constants.cs" />
-    <Compile Include="AVFoundation_C\AVMetadataItemFilter.Class.cs" />
-    <Compile Include="AVFoundation_C\AVMetadataItemFilter.cs" />
+    <Compile Include="AVFoundation_S\AVEdgeWidths.cs" />
+    <Compile Include="AVFoundation_S\AVEdgeWidths64.cs" />
+    <Compile Include="AVFoundation_S\AVPixelAspectRatio.cs" />
+    <Compile Include="AVFoundation_S\AVPixelAspectRatio64.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
@@ -330,5 +335,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AVFoundation_Extensions\" />
+    <Folder Include="AVFoundation_S\" />
   </ItemGroup>
 </Project>
