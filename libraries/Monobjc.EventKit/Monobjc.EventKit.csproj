@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{7BEB7DF9-14C5-4D69-9B99-E3418F0E9C48}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -50,7 +50,6 @@
     <Compile Include="EventKit_C\EKEvent.cs" />
     <Compile Include="EventKit_C\EKEventStore.Class.cs" />
     <Compile Include="EventKit_C\EKEventStore.Constants.cs" />
-    <Compile Include="EventKit_C\EKEventStore.Constructors.cs" />
     <Compile Include="EventKit_C\EKEventStore.cs" />
     <Compile Include="EventKit_C\EKObject.Class.cs" />
     <Compile Include="EventKit_C\EKObject.cs" />

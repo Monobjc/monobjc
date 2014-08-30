@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{B565FEEF-2EDD-40C5-A817-6254AFCDEE01}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -48,6 +48,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameKit_Extensions\Handlers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
     <Compile Include="GameKit_C\GKAchievement.Class.cs" />
     <Compile Include="GameKit_C\GKAchievement.Constructors.cs" />
     <Compile Include="GameKit_C\GKAchievement.cs" />
@@ -68,7 +71,6 @@
     <Compile Include="GameKit_C\GKChallengeEventHandler.Class.cs" />
     <Compile Include="GameKit_C\GKChallengeEventHandler.cs" />
     <Compile Include="GameKit_C\GKDialogController.Class.cs" />
-    <Compile Include="GameKit_C\GKDialogController.Constants.cs" />
     <Compile Include="GameKit_C\GKDialogController.Constructors.cs" />
     <Compile Include="GameKit_C\GKDialogController.cs" />
     <Compile Include="GameKit_C\GKDialogController.Protocols.cs" />
@@ -125,32 +127,30 @@
     <Compile Include="GameKit_C\GKTurnBasedMatchmakerViewController.cs" />
     <Compile Include="GameKit_C\GKTurnBasedMatchmakerViewController.Protocols.cs" />
     <Compile Include="GameKit_C\GKTurnBasedParticipant.Class.cs" />
-    <Compile Include="GameKit_C\GKTurnBasedParticipant.Constants.cs" />
     <Compile Include="GameKit_C\GKTurnBasedParticipant.cs" />
     <Compile Include="GameKit_C\GKVoiceChat.Class.cs" />
     <Compile Include="GameKit_C\GKVoiceChat.Constants.cs" />
     <Compile Include="GameKit_C\GKVoiceChat.cs" />
-    <Compile Include="GameKit_Extensions\Handlers.cs" />
+    <Compile Include="GameKit_P\GKAchievementViewController.AchievementDelegate.cs" />
     <Compile Include="GameKit_P\GKAchievementViewControllerDelegate.Protocol.cs" />
+    <Compile Include="GameKit_P\GKChallengeEventHandler.Delegate.cs" />
+    <Compile Include="GameKit_P\GKChallengeEventHandlerDelegate.Protocol.cs" />
+    <Compile Include="GameKit_P\GKFriendRequestComposeViewController.ComposeViewDelegate.cs" />
     <Compile Include="GameKit_P\GKFriendRequestComposeViewControllerDelegate.Protocol.cs" />
     <Compile Include="GameKit_P\GKGameCenterControllerDelegate.Protocol.cs" />
     <Compile Include="GameKit_P\GKGameCenterViewController.GameCenterDelegate.cs" />
+    <Compile Include="GameKit_P\GKLeaderboardViewController.LeaderboardDelegate.cs" />
     <Compile Include="GameKit_P\GKLeaderboardViewControllerDelegate.Protocol.cs" />
     <Compile Include="GameKit_P\GKMatch.Delegate.cs" />
     <Compile Include="GameKit_P\GKMatchDelegate.Constants.cs" />
     <Compile Include="GameKit_P\GKMatchDelegate.Protocol.cs" />
+    <Compile Include="GameKit_P\GKMatchmakerViewController.MatchmakerDelegate.cs" />
     <Compile Include="GameKit_P\GKMatchmakerViewControllerDelegate.Protocol.cs" />
     <Compile Include="GameKit_P\GKTurnBasedEventHandler.Delegate.cs" />
     <Compile Include="GameKit_P\GKTurnBasedEventHandlerDelegate.Protocol.cs" />
+    <Compile Include="GameKit_P\GKTurnBasedMatchmakerViewController.TurnBasedMatchmakerDelegate.cs" />
     <Compile Include="GameKit_P\GKTurnBasedMatchmakerViewControllerDelegate.Protocol.cs" />
     <Compile Include="GameKit_T\GameKitFramework.Constants.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
-    <Compile Include="GameKit_P\GKAchievementViewController.AchievementDelegate.cs" />
-    <Compile Include="GameKit_P\GKFriendRequestComposeViewController.ComposeViewDelegate.cs" />
-    <Compile Include="GameKit_P\GKLeaderboardViewController.LeaderboardDelegate.cs" />
-    <Compile Include="GameKit_P\GKMatchmakerViewController.MatchmakerDelegate.cs" />
-    <Compile Include="GameKit_P\GKTurnBasedMatchmakerViewController.TurnBasedMatchmakerDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
