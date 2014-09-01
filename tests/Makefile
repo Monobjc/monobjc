@@ -58,6 +58,7 @@ DIRS_10_9= \
 	Monobjc.AVKit.Tests \
 	Monobjc.GameController.Tests \
 	Monobjc.MapKit.Tests \
+	Monobjc.MediaLibrary.Tests \
 	Monobjc.SpriteKit.Tests \
 
 ifeq ($(BUILD_FOR_OSX_10_6),1)

@@ -57,6 +57,7 @@ DIRS_10_9= \
 	Monobjc.AVKit \
 	Monobjc.GameController \
 	Monobjc.MapKit \
+	Monobjc.MediaLibrary \
 	Monobjc.SpriteKit \
 
 ifeq ($(BUILD_FOR_OSX_10_6),1)
