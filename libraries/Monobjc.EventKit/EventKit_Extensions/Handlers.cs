@@ -21,10 +21,15 @@
 // THE SOFTWARE.
 // 
 using System;
+using Monobjc.Foundation;
 
 namespace Monobjc.EventKit
 {
 #if MACOSX_10_8
-	public delegate void EKEventSearchCallback(EKEvent @event, ref bool stop);
+    public delegate void EKEventSearchCallback(EKEvent @event, ref bool stop);
+#endif
+
+#if MACOSX_10_9
+    public delegate void EKEventStoreRequestAccessCompletionHandler(bool granted, NSError error);
 #endif
 }
