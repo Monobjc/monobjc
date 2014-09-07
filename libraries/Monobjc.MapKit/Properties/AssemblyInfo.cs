@@ -26,8 +26,8 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Monobjc Bridge - AVKit Library")]
-[assembly: AssemblyDescription("Monobjc Bridge AVKit Library")]
+[assembly: AssemblyTitle("Monobjc Bridge - MapKit Library")]
+[assembly: AssemblyDescription("Monobjc Bridge MapKit Library")]
 [assembly: AssemblyCompany("Monobjc Project")]
 [assembly: AssemblyProduct("Monobjc Bridge Project")]
 [assembly: AssemblyCopyright("Copyright (c) Monobjc Project 2007-2014 - Licensed under MIT License")]
@@ -35,10 +35,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en-US")]
 [assembly: ComVisible(false)]
-[assembly: Guid("d9ae0e52-b81f-1021-624a-e66067f28e8f")]
+[assembly: Guid("97717a21-0074-923a-2357-c249566d1057")]
 
 #if TESTING
-[assembly: InternalsVisibleTo("Monobjc.AVKit.Tests")]
+[assembly: InternalsVisibleTo("Monobjc.MapKit.Tests")]
 [assembly: AssemblyConfigurationAttribute("Debug")]
 #else
 [assembly: AssemblyConfigurationAttribute("Release")]

@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{12672822-5B47-4C34-8D49-C78F5C76635C}</ProjectGuid>
+    <ProjectGuid>{8F732430-9228-43BC-9B11-54E54B4C590D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Monobjc.AVFoundation</RootNamespace>
@@ -36,6 +36,17 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
+    <Compile Include="MediaLibrary_C\MLMediaGroup.Class.cs" />
+    <Compile Include="MediaLibrary_C\MLMediaGroup.cs" />
+    <Compile Include="MediaLibrary_C\MLMediaLibrary.Class.cs" />
+    <Compile Include="MediaLibrary_C\MLMediaLibrary.Constants.cs" />
+    <Compile Include="MediaLibrary_C\MLMediaLibrary.Constructors.cs" />
+    <Compile Include="MediaLibrary_C\MLMediaLibrary.cs" />
+    <Compile Include="MediaLibrary_C\MLMediaObject.Class.cs" />
+    <Compile Include="MediaLibrary_C\MLMediaObject.cs" />
+    <Compile Include="MediaLibrary_C\MLMediaSource.Class.cs" />
+    <Compile Include="MediaLibrary_C\MLMediaSource.cs" />
+    <Compile Include="MediaLibrary_T\MediaLibraryFramework.Constants.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">

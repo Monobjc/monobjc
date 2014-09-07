@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{12672822-5B47-4C34-8D49-C78F5C76635C}</ProjectGuid>
+    <ProjectGuid>{E1BE5938-B86C-4526-93C5-D3F755522434}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Monobjc.AVFoundation</RootNamespace>
@@ -36,6 +36,125 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
+    <Compile Include="MapKit_C\MKAnnotationView.Class.cs" />
+    <Compile Include="MapKit_C\MKAnnotationView.Constants.cs" />
+    <Compile Include="MapKit_C\MKAnnotationView.Constructors.cs" />
+    <Compile Include="MapKit_C\MKAnnotationView.cs" />
+    <Compile Include="MapKit_C\MKAnnotationView.Protocols.cs" />
+    <Compile Include="MapKit_C\MKCircle.Class.cs" />
+    <Compile Include="MapKit_C\MKCircle.cs" />
+    <Compile Include="MapKit_C\MKCircle.Protocols.cs" />
+    <Compile Include="MapKit_C\MKCircleRenderer.Class.cs" />
+    <Compile Include="MapKit_C\MKCircleRenderer.Constructors.cs" />
+    <Compile Include="MapKit_C\MKCircleRenderer.cs" />
+    <Compile Include="MapKit_C\MKDirections.Class.cs" />
+    <Compile Include="MapKit_C\MKDirections.Constructors.cs" />
+    <Compile Include="MapKit_C\MKDirections.cs" />
+    <Compile Include="MapKit_C\MKDirectionsRequest.Class.cs" />
+    <Compile Include="MapKit_C\MKDirectionsRequest.Constants.cs" />
+    <Compile Include="MapKit_C\MKDirectionsRequest.Constructors.cs" />
+    <Compile Include="MapKit_C\MKDirectionsRequest.cs" />
+    <Compile Include="MapKit_C\MKDirectionsResponse.Class.cs" />
+    <Compile Include="MapKit_C\MKDirectionsResponse.cs" />
+    <Compile Include="MapKit_C\MKETAResponse.Class.cs" />
+    <Compile Include="MapKit_C\MKETAResponse.cs" />
+    <Compile Include="MapKit_C\MKGeodesicPolyline.Class.cs" />
+    <Compile Include="MapKit_C\MKGeodesicPolyline.cs" />
+    <Compile Include="MapKit_C\MKGeodesicPolyline.Protocols.cs" />
+    <Compile Include="MapKit_C\MKLocalSearch.Class.cs" />
+    <Compile Include="MapKit_C\MKLocalSearch.Constructors.cs" />
+    <Compile Include="MapKit_C\MKLocalSearch.cs" />
+    <Compile Include="MapKit_C\MKLocalSearchRequest.Class.cs" />
+    <Compile Include="MapKit_C\MKLocalSearchRequest.cs" />
+    <Compile Include="MapKit_C\MKLocalSearchRequest.Protocols.cs" />
+    <Compile Include="MapKit_C\MKLocalSearchResponse.Class.cs" />
+    <Compile Include="MapKit_C\MKLocalSearchResponse.cs" />
+    <Compile Include="MapKit_C\MKMapCamera.Class.cs" />
+    <Compile Include="MapKit_C\MKMapCamera.Constructors.cs" />
+    <Compile Include="MapKit_C\MKMapCamera.cs" />
+    <Compile Include="MapKit_C\MKMapCamera.Protocols.cs" />
+    <Compile Include="MapKit_C\MKMapItem.Class.cs" />
+    <Compile Include="MapKit_C\MKMapItem.Constants.cs" />
+    <Compile Include="MapKit_C\MKMapItem.Constructors.cs" />
+    <Compile Include="MapKit_C\MKMapItem.cs" />
+    <Compile Include="MapKit_C\MKMapSnapshot.Class.cs" />
+    <Compile Include="MapKit_C\MKMapSnapshot.cs" />
+    <Compile Include="MapKit_C\MKMapSnapshotOptions.Class.cs" />
+    <Compile Include="MapKit_C\MKMapSnapshotOptions.cs" />
+    <Compile Include="MapKit_C\MKMapSnapshotOptions.Protocols.cs" />
+    <Compile Include="MapKit_C\MKMapSnapshotter.Class.cs" />
+    <Compile Include="MapKit_C\MKMapSnapshotter.Constructors.cs" />
+    <Compile Include="MapKit_C\MKMapSnapshotter.cs" />
+    <Compile Include="MapKit_C\MKMapView.Class.cs" />
+    <Compile Include="MapKit_C\MKMapView.Constructors.cs" />
+    <Compile Include="MapKit_C\MKMapView.cs" />
+    <Compile Include="MapKit_C\MKMapView.Protocols.cs" />
+    <Compile Include="MapKit_C\MKMultiPoint.Class.cs" />
+    <Compile Include="MapKit_C\MKMultiPoint.cs" />
+    <Compile Include="MapKit_C\MKMultiPoint.Protocols.cs" />
+    <Compile Include="MapKit_C\MKOverlayPathRenderer.Class.cs" />
+    <Compile Include="MapKit_C\MKOverlayPathRenderer.Constructors.cs" />
+    <Compile Include="MapKit_C\MKOverlayPathRenderer.cs" />
+    <Compile Include="MapKit_C\MKOverlayRenderer.Class.cs" />
+    <Compile Include="MapKit_C\MKOverlayRenderer.Constructors.cs" />
+    <Compile Include="MapKit_C\MKOverlayRenderer.cs" />
+    <Compile Include="MapKit_C\MKPinAnnotationView.Class.cs" />
+    <Compile Include="MapKit_C\MKPinAnnotationView.Constants.cs" />
+    <Compile Include="MapKit_C\MKPinAnnotationView.Constructors.cs" />
+    <Compile Include="MapKit_C\MKPinAnnotationView.cs" />
+    <Compile Include="MapKit_C\MKPinAnnotationView.Protocols.cs" />
+    <Compile Include="MapKit_C\MKPlacemark.Class.cs" />
+    <Compile Include="MapKit_C\MKPlacemark.Constructors.cs" />
+    <Compile Include="MapKit_C\MKPlacemark.cs" />
+    <Compile Include="MapKit_C\MKPlacemark.Protocols.cs" />
+    <Compile Include="MapKit_C\MKPointAnnotation.Class.cs" />
+    <Compile Include="MapKit_C\MKPointAnnotation.cs" />
+    <Compile Include="MapKit_C\MKPointAnnotation.Protocols.cs" />
+    <Compile Include="MapKit_C\MKPolygon.Class.cs" />
+    <Compile Include="MapKit_C\MKPolygon.cs" />
+    <Compile Include="MapKit_C\MKPolygon.Protocols.cs" />
+    <Compile Include="MapKit_C\MKPolygonRenderer.Class.cs" />
+    <Compile Include="MapKit_C\MKPolygonRenderer.Constructors.cs" />
+    <Compile Include="MapKit_C\MKPolygonRenderer.cs" />
+    <Compile Include="MapKit_C\MKPolyline.Class.cs" />
+    <Compile Include="MapKit_C\MKPolyline.cs" />
+    <Compile Include="MapKit_C\MKPolyline.Protocols.cs" />
+    <Compile Include="MapKit_C\MKPolylineRenderer.Class.cs" />
+    <Compile Include="MapKit_C\MKPolylineRenderer.Constructors.cs" />
+    <Compile Include="MapKit_C\MKPolylineRenderer.cs" />
+    <Compile Include="MapKit_C\MKRoute.Class.cs" />
+    <Compile Include="MapKit_C\MKRoute.cs" />
+    <Compile Include="MapKit_C\MKRouteStep.Class.cs" />
+    <Compile Include="MapKit_C\MKRouteStep.cs" />
+    <Compile Include="MapKit_C\MKShape.Class.cs" />
+    <Compile Include="MapKit_C\MKShape.cs" />
+    <Compile Include="MapKit_C\MKShape.Protocols.cs" />
+    <Compile Include="MapKit_C\MKTileOverlay.Class.cs" />
+    <Compile Include="MapKit_C\MKTileOverlay.Constructors.cs" />
+    <Compile Include="MapKit_C\MKTileOverlay.cs" />
+    <Compile Include="MapKit_C\MKTileOverlay.Protocols.cs" />
+    <Compile Include="MapKit_C\MKTileOverlayRenderer.Class.cs" />
+    <Compile Include="MapKit_C\MKTileOverlayRenderer.Constructors.cs" />
+    <Compile Include="MapKit_C\MKTileOverlayRenderer.cs" />
+    <Compile Include="MapKit_C\MKUserLocation.Class.cs" />
+    <Compile Include="MapKit_C\MKUserLocation.cs" />
+    <Compile Include="MapKit_C\MKUserLocation.Protocols.cs" />
+    <Compile Include="MapKit_P\MKAnnotation.Protocol.cs" />
+    <Compile Include="MapKit_P\MKMapViewDelegate.Protocol.cs" />
+    <Compile Include="MapKit_P\MKOverlay.Protocol.cs" />
+    <Compile Include="MapKit_T\MapKitFramework.Constants.cs" />
+    <Compile Include="MapKit_T\MapKitFramework.DataTypes.cs" />
+    <Compile Include="MapKit_T\MapKitFramework.Functions.cs" />
+    <Compile Include="MapKit_S\MKCoordinateSpan.cs" />
+    <Compile Include="MapKit_S\MKCoordinateRegion.cs" />
+    <Compile Include="MapKit_S\MKMapPoint.cs" />
+    <Compile Include="MapKit_S\MKMapSize.cs" />
+    <Compile Include="MapKit_S\MKMapRect.cs" />
+    <Compile Include="MapKit_C\MKMapView.Constants.cs" />
+    <Compile Include="MapKit_S\MKTileOverlayPath.cs" />
+    <Compile Include="MapKit_S\MKTileOverlayPath64.cs" />
+    <Compile Include="MapKit_Extensions\Handlers.cs" />
+    <Compile Include="MapKit_C\NSValue_MapKitAdditions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
@@ -54,6 +173,10 @@
       <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
       <Name>Monobjc.AppKit</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Monobjc.CoreLocation\Monobjc.CoreLocation.csproj">
+      <Project>{7B60D5F2-5029-4EC5-BD78-4B2E6A60CDF3}</Project>
+      <Name>Monobjc.CoreLocation</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -65,5 +188,8 @@
   -->
   <ItemGroup>
     <None Include="Makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MapKit_Extensions\" />
   </ItemGroup>
 </Project>

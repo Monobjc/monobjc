@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{12672822-5B47-4C34-8D49-C78F5C76635C}</ProjectGuid>
+    <ProjectGuid>{B91D1DAF-3167-44F1-94A4-50267B09D408}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Monobjc.AVFoundation</RootNamespace>

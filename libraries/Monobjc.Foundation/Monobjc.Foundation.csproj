@@ -1079,6 +1079,8 @@
     <Compile Include="ApplicationServices_Extensions\CTFontCollectionSortDescriptorsCallback.cs" />
     <Compile Include="ApplicationServices_S\CTParagraphStyleSetting.cs" />
     <Compile Include="Foundation_C\NSXPCListenerEndpoint.Constructors.cs" />
+    <Compile Include="ApplicationServices_S\CGVector.cs" />
+    <Compile Include="ApplicationServices_S\CGVector64.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
