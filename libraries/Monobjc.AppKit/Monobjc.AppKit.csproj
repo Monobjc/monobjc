@@ -1128,6 +1128,24 @@
     <Compile Include="AppKit_Extensions\NSAttributedString.Extensions.cs" />
     <Compile Include="AppKit_Extensions\NSMutableAttributedString.Extensions.cs" />
     <Compile Include="AppKit_Extensions\Handlers.cs" />
+    <Compile Include="AppKit_C\NSPDFInfo.Class.cs" />
+    <Compile Include="AppKit_C\NSPDFInfo.Constructors.cs" />
+    <Compile Include="AppKit_C\NSPDFInfo.cs" />
+    <Compile Include="AppKit_C\NSPDFInfo.Protocols.cs" />
+    <Compile Include="AppKit_C\NSPDFPanel.Class.cs" />
+    <Compile Include="AppKit_C\NSPDFPanel.Constants.cs" />
+    <Compile Include="AppKit_C\NSPDFPanel.cs" />
+    <Compile Include="AppKit_E\NSPaperOrientation.cs" />
+    <Compile Include="AppKit_C\NSStackView.Class.cs" />
+    <Compile Include="AppKit_C\NSStackView.Constants.cs" />
+    <Compile Include="AppKit_C\NSStackView.Constructors.cs" />
+    <Compile Include="AppKit_C\NSStackView.cs" />
+    <Compile Include="AppKit_C\NSStackView.Protocols.cs" />
+    <Compile Include="AppKit_C\NSAppearance.Class.cs" />
+    <Compile Include="AppKit_C\NSAppearance.Constants.cs" />
+    <Compile Include="AppKit_C\NSAppearance.Constructors.cs" />
+    <Compile Include="AppKit_C\NSAppearance.cs" />
+    <Compile Include="AppKit_C\NSAppearance.Protocols.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">

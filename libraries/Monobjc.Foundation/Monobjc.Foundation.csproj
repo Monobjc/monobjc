@@ -1081,6 +1081,35 @@
     <Compile Include="Foundation_C\NSXPCListenerEndpoint.Constructors.cs" />
     <Compile Include="ApplicationServices_S\CGVector.cs" />
     <Compile Include="ApplicationServices_S\CGVector64.cs" />
+    <Compile Include="Foundation_C\NSProgress.Class.cs" />
+    <Compile Include="Foundation_C\NSProgress.Constants.cs" />
+    <Compile Include="Foundation_C\NSProgress.Constructors.cs" />
+    <Compile Include="Foundation_C\NSProgress.cs" />
+    <Compile Include="Foundation_C\NSURLSession.Class.cs" />
+    <Compile Include="Foundation_C\NSURLSession.Constants.cs" />
+    <Compile Include="Foundation_C\NSURLSession.cs" />
+    <Compile Include="Foundation_C\NSURLSessionDataTask.Class.cs" />
+    <Compile Include="Foundation_C\NSURLSessionDataTask.cs" />
+    <Compile Include="Foundation_C\NSURLSessionDataTask.Protocols.cs" />
+    <Compile Include="Foundation_C\NSURLSessionTask.Class.cs" />
+    <Compile Include="Foundation_C\NSURLSessionTask.cs" />
+    <Compile Include="Foundation_C\NSURLSessionTask.Protocols.cs" />
+    <Compile Include="Foundation_C\NSURLSessionUploadTask.Class.cs" />
+    <Compile Include="Foundation_C\NSURLSessionUploadTask.cs" />
+    <Compile Include="Foundation_C\NSURLSessionUploadTask.Protocols.cs" />
+    <Compile Include="Foundation_C\NSURLSessionConfiguration.Class.cs" />
+    <Compile Include="Foundation_C\NSURLSessionConfiguration.cs" />
+    <Compile Include="Foundation_C\NSURLSessionConfiguration.Protocols.cs" />
+    <Compile Include="Foundation_C\NSURLSessionDownloadTask.Class.cs" />
+    <Compile Include="Foundation_C\NSURLSessionDownloadTask.cs" />
+    <Compile Include="Foundation_C\NSURLSessionDownloadTask.Protocols.cs" />
+    <Compile Include="Foundation_P\NSURLSessionDataDelegate.Protocol.cs" />
+    <Compile Include="Foundation_P\NSURLSessionDelegate.Protocol.cs" />
+    <Compile Include="Foundation_P\NSURLSessionDownloadDelegate.Protocol.cs" />
+    <Compile Include="Foundation_P\NSURLSessionTaskDelegate.Protocol.cs" />
+    <Compile Include="Foundation_P\NSXPCProxyCreating.Protocol.cs" />
+    <Compile Include="Foundation_P\NSURLSessionDataDelegate.Constants.cs" />
+    <Compile Include="Foundation_Extensions\SecurityTransport.Forward.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
