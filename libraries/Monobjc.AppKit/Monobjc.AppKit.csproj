@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -17,7 +17,7 @@
     <DebugType>full</DebugType>
     <Optimize>False</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8;MACOSX_10_9</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -25,7 +25,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>True</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8</DefineConstants>
+    <DefineConstants>TRACE;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8;MACOSX_10_9</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -386,7 +386,9 @@
     <Compile Include="AppKit_C\NSActionCell.cs" />
     <Compile Include="AppKit_C\NSActionCell.Protocols.cs" />
     <Compile Include="AppKit_C\NSAffineTransform_AppKitAdditions.cs" />
-    <Compile Include="AppKit_C\NSAlert.Class.cs" />
+    <Compile Include="AppKit_C\NSAlert.Class.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="AppKit_C\NSAlert.Constants.cs" />
     <Compile Include="AppKit_C\NSAlert.cs" />
     <Compile Include="AppKit_C\NSAnimation.Class.cs" />
@@ -696,18 +698,6 @@
     <Compile Include="AppKit_C\NSNib.Constructors.cs" />
     <Compile Include="AppKit_C\NSNib.cs" />
     <Compile Include="AppKit_C\NSNib.Protocols.cs" />
-    <Compile Include="AppKit_C\NSNibConnector.Class.cs" />
-    <Compile Include="AppKit_C\NSNibConnector.Constructors.cs" />
-    <Compile Include="AppKit_C\NSNibConnector.cs" />
-    <Compile Include="AppKit_C\NSNibConnector.Protocols.cs" />
-    <Compile Include="AppKit_C\NSNibControlConnector.Class.cs" />
-    <Compile Include="AppKit_C\NSNibControlConnector.Constructors.cs" />
-    <Compile Include="AppKit_C\NSNibControlConnector.cs" />
-    <Compile Include="AppKit_C\NSNibControlConnector.Protocols.cs" />
-    <Compile Include="AppKit_C\NSNibOutletConnector.Class.cs" />
-    <Compile Include="AppKit_C\NSNibOutletConnector.Constructors.cs" />
-    <Compile Include="AppKit_C\NSNibOutletConnector.cs" />
-    <Compile Include="AppKit_C\NSNibOutletConnector.Protocols.cs" />
     <Compile Include="AppKit_C\NSObjectController.Class.cs" />
     <Compile Include="AppKit_C\NSObjectController.Constructors.cs" />
     <Compile Include="AppKit_C\NSObjectController.cs" />
@@ -1131,8 +1121,6 @@
     <Compile Include="AppKit_C\NSWorkspace.cs" />
     <Compile Include="QuartzCore_S\CATransform3D64.cs" />
     <Compile Include="AppKit_P\NSControl.Delegate.cs" />
-    <Compile Include="QuartzCore_C\CIImage_AutoAdjustmentAdditions.Constants.cs" />
-    <Compile Include="QuartzCore_C\CIImage_AutoAdjustmentAdditions.cs" />
     <Compile Include="AppKit_P\NSTextStorage.Delegate.cs" />
     <Compile Include="AppKit_Extensions\NSCellStateValueExtensions.cs" />
     <Compile Include="AppKit_Extensions\NSImage.Extensions.cs" />
@@ -1140,6 +1128,24 @@
     <Compile Include="AppKit_Extensions\NSAttributedString.Extensions.cs" />
     <Compile Include="AppKit_Extensions\NSMutableAttributedString.Extensions.cs" />
     <Compile Include="AppKit_Extensions\Handlers.cs" />
+    <Compile Include="AppKit_C\NSPDFInfo.Class.cs" />
+    <Compile Include="AppKit_C\NSPDFInfo.Constructors.cs" />
+    <Compile Include="AppKit_C\NSPDFInfo.cs" />
+    <Compile Include="AppKit_C\NSPDFInfo.Protocols.cs" />
+    <Compile Include="AppKit_C\NSPDFPanel.Class.cs" />
+    <Compile Include="AppKit_C\NSPDFPanel.Constants.cs" />
+    <Compile Include="AppKit_C\NSPDFPanel.cs" />
+    <Compile Include="AppKit_E\NSPaperOrientation.cs" />
+    <Compile Include="AppKit_C\NSStackView.Class.cs" />
+    <Compile Include="AppKit_C\NSStackView.Constants.cs" />
+    <Compile Include="AppKit_C\NSStackView.Constructors.cs" />
+    <Compile Include="AppKit_C\NSStackView.cs" />
+    <Compile Include="AppKit_C\NSStackView.Protocols.cs" />
+    <Compile Include="AppKit_C\NSAppearance.Class.cs" />
+    <Compile Include="AppKit_C\NSAppearance.Constants.cs" />
+    <Compile Include="AppKit_C\NSAppearance.Constructors.cs" />
+    <Compile Include="AppKit_C\NSAppearance.cs" />
+    <Compile Include="AppKit_C\NSAppearance.Protocols.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monobjc\Monobjc.csproj">

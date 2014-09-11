@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2013 - Laurent Etiemble
+// Copyright (C) 2007-2014 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,7 +21,11 @@
 // THE SOFTWARE.
 // 
 using System;
+using Monobjc;
+using Monobjc.ApplicationServices;
+using Monobjc.AppKit;
 using Monobjc.Foundation;
+using Monobjc.QuartzCore;
 
 namespace Monobjc.SceneKit
 {
@@ -29,5 +33,15 @@ namespace Monobjc.SceneKit
 	public delegate void SCNSceneSourceStatusHandler(float totalProgress, SCNSceneSourceStatus status, NSError error, out bool stopLoading);
 
     public delegate bool Func_SCNNode_out_bool_bool(SCNNode child, out bool stop);
+#endif
+
+#if MACOSX_10_8
+    public delegate void SCNAnimationEventBlock(CAAnimation animation, Id animatedObject, bool playingBackward);
+
+    public delegate void SCNBindingBlock(uint programID, uint location, SCNNode renderedNode, SCNRenderer renderer);
+
+    public delegate void SCNSceneExportProgressHandler(float totalProgress, NSError error, out bool stop);
+
+    public delegate bool Func_Id_NSString_out_bool_bool(Id id, NSString str, out bool stop);
 #endif
 }

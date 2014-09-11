@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2013 - Laurent Etiemble
+// Copyright (C) 2007-2014 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,7 +25,7 @@
  * @file    icalls-Monobjc.Foundation.NSString.mm
  * @brief   Contains the internal calls for the Monobjc.Foundation.NSString type.
  * @author  Laurent Etiemble <laurent.etiemble@monobjc.net>
- * @date    2013
+ * @date    2013-2014
  */
 #include "logging.h"
 #include "support-mono.h"

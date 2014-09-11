@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2013 - Laurent Etiemble
+// Copyright (C) 2007-2014 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,10 +21,15 @@
 // THE SOFTWARE.
 // 
 using System;
+using Monobjc.Foundation;
 
 namespace Monobjc.EventKit
 {
 #if MACOSX_10_8
-	public delegate void EKEventSearchCallback(EKEvent @event, ref bool stop);
+    public delegate void EKEventSearchCallback(EKEvent @event, ref bool stop);
+#endif
+
+#if MACOSX_10_9
+    public delegate void EKEventStoreRequestAccessCompletionHandler(bool granted, NSError error);
 #endif
 }

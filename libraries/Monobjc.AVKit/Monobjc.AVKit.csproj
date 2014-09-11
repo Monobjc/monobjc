@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B91D1DAF-3167-44F1-94A4-50267B09D408}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Monobjc.AVFoundation</RootNamespace>
+    <AssemblyName>Monobjc.AVFoundation</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8;MACOSX_10_9</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8;MACOSX_10_9</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\MonobjcAssemblyInfo.cs" />
+    <Compile Include="AVKit_C\AVPlayerView.Class.cs" />
+    <Compile Include="AVKit_C\AVPlayerView.Constants.cs" />
+    <Compile Include="AVKit_C\AVPlayerView.Constructors.cs" />
+    <Compile Include="AVKit_C\AVPlayerView.cs" />
+    <Compile Include="AVKit_C\AVPlayerView.Protocols.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Monobjc.Foundation\Monobjc.Foundation.csproj">
+      <Project>{DAB53EE6-F548-4FAC-892D-D2EB2386C4A4}</Project>
+      <Name>Monobjc.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc\Monobjc.csproj">
+      <Project>{DBFBEE0A-E5CE-40E8-9E34-34F0F54DACC1}</Project>
+      <Name>Monobjc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.CoreMedia\Monobjc.CoreMedia.csproj">
+      <Project>{1AD9281A-0897-4C58-A6B4-98E5FB469FA8}</Project>
+      <Name>Monobjc.CoreMedia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.AppKit\Monobjc.AppKit.csproj">
+      <Project>{66872377-EFC8-4AAC-BC0E-2084E967F8B1}</Project>
+      <Name>Monobjc.AppKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Monobjc.AVFoundation\Monobjc.AVFoundation.csproj">
+      <Project>{12672822-5B47-4C34-8D49-C78F5C76635C}</Project>
+      <Name>Monobjc.AVFoundation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
+</Project>

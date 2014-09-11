@@ -12,6 +12,7 @@ ApplicationServices_T
 AVFoundation_C
 AVFoundation_P
 AVFoundation_T
+AVKit_C
 Collaboration_C
 CoreData_C
 CoreData_T
@@ -36,6 +37,7 @@ EventKit_C
 Foundation_C
 Foundation_P
 Foundation_T
+GameController_C
 GameKit_C
 GameKit_P
 GameKit_T
@@ -52,6 +54,11 @@ InstantMessage_P
 InstantMessage_T
 JavaScriptCore_C
 Kernel_T
+MapKit_C
+MapKit_P
+MapKit_T
+MediaLibrary_C
+MediaLibrary_T
 OpenGL_T
 QTKit_C
 QTKit_E
@@ -80,6 +87,9 @@ SM2DGraphView_P
 Social_C
 Sparkle_C
 Sparkle_P
+SpriteKit_C
+SpriteKit_P
+SpriteKit_T
 StoreKit_C
 StoreKit_P
 StoreKit_T

@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2013 - Laurent Etiemble
+// Copyright (C) 2007-2014 - Laurent Etiemble
 //
 // Monobjc is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by

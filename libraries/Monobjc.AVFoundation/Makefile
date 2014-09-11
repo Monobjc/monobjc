@@ -15,7 +15,8 @@ SOURCES= \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/*.cs) \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/AVFoundation_C/*.cs) \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/AVFoundation_Extensions/*.cs) \
-	$(wildcard $(LIBRARIES_DIR)/$(NAME)/AVFoundation_P/*.cs) \
+    $(wildcard $(LIBRARIES_DIR)/$(NAME)/AVFoundation_P/*.cs) \
+    $(wildcard $(LIBRARIES_DIR)/$(NAME)/AVFoundation_S/*.cs) \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/AVFoundation_T/*.cs) \
 	$(wildcard $(LIBRARIES_DIR)/$(NAME)/Properties/*.cs)
 

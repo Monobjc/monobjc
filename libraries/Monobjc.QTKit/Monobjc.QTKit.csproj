@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{FF524E87-810C-4173-857A-943C0288EC8C}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -17,7 +17,7 @@
     <DebugType>full</DebugType>
     <Optimize>False</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8;MACOSX_10_9</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -25,7 +25,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>True</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8</DefineConstants>
+    <DefineConstants>TRACE;CODE_ANALYSIS;TESTING;MACOSX_10_5;MACOSX_10_6;MACOSX_10_7;MACOSX_10_8;MACOSX_10_9</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -79,7 +79,6 @@
     <Compile Include="QTKit_C\QTCaptureDevice.cs" />
     <Compile Include="QTKit_C\QTCaptureDevice.Protocols.cs" />
     <Compile Include="QTKit_C\QTCaptureDeviceInput.Class.cs" />
-    <Compile Include="QTKit_C\QTCaptureDeviceInput.Constructors.cs" />
     <Compile Include="QTKit_C\QTCaptureDeviceInput.cs" />
     <Compile Include="QTKit_C\QTCaptureFileOutput.Class.cs" />
     <Compile Include="QTKit_C\QTCaptureFileOutput.Constants.cs" />
@@ -115,7 +114,6 @@
     <Compile Include="QTKit_C\QTFormatDescription.cs" />
     <Compile Include="QTKit_C\QTMedia.Class.cs" />
     <Compile Include="QTKit_C\QTMedia.Constants.cs" />
-    <Compile Include="QTKit_C\QTMedia.Constructors.cs" />
     <Compile Include="QTKit_C\QTMedia.cs" />
     <Compile Include="QTKit_C\QTMovie.Class.cs" />
     <Compile Include="QTKit_C\QTMovie.Constants.cs" />
@@ -136,8 +134,11 @@
     <Compile Include="QTKit_C\QTSampleBuffer.cs" />
     <Compile Include="QTKit_C\QTTrack.Class.cs" />
     <Compile Include="QTKit_C\QTTrack.Constants.cs" />
-    <Compile Include="QTKit_C\QTTrack.Constructors.cs" />
     <Compile Include="QTKit_C\QTTrack.cs" />
+    <Compile Include="QTKit_C\QTMovieModernizer.Class.cs" />
+    <Compile Include="QTKit_C\QTMovieModernizer.Constants.cs" />
+    <Compile Include="QTKit_C\QTMovieModernizer.Constructors.cs" />
+    <Compile Include="QTKit_C\QTMovieModernizer.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

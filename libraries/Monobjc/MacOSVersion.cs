@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2013 - Laurent Etiemble
+// Copyright (C) 2007-2014 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -75,9 +75,13 @@ namespace Monobjc
 		///   Value for MacOS 10.7 (Lion)
 		/// </summary>
 		MacOS107 = 0x1070,
-		/// <summary>
-		///   Value for MacOS 10.8 (Mountain Lion)
-		/// </summary>
-		MacOS108 = 0x1080,
+        /// <summary>
+        ///   Value for MacOS 10.8 (Mountain Lion)
+        /// </summary>
+        MacOS108 = 0x1080,
+        /// <summary>
+        ///   Value for MacOS 10.9 (Mavericks)
+        /// </summary>
+        MacOS109 = 0x1090,
 	}
 }

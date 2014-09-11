@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2013 - Laurent Etiemble
+// Copyright (C) 2007-2014 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,15 +24,3 @@ using Monobjc;
 using System.Reflection;
 
 [assembly: ObjectiveCFramework(true, "Security")]
-[assembly: AssemblyConfigurationAttribute("Release")]
-
-#if MACOSX_10_8
-[assembly: AssemblyVersionAttribute("10.8.0.0")]
-[assembly: AssemblyFileVersionAttribute("10.8.0.0")]
-#elif MACOSX_10_7
-[assembly: AssemblyVersionAttribute("10.7.0.0")]
-[assembly: AssemblyFileVersionAttribute("10.7.0.0")]
-#else
-[assembly: AssemblyVersionAttribute("10.6.0.0")]
-[assembly: AssemblyFileVersionAttribute("10.6.0.0")]
-#endif

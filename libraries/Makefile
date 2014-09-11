@@ -52,6 +52,14 @@ DIRS_10_8= \
 	Monobjc.GLKit \
 	Monobjc.SceneKit \
 
+DIRS_10_9= \
+	$(DIRS_10_8) \
+	Monobjc.AVKit \
+	Monobjc.GameController \
+	Monobjc.MapKit \
+	Monobjc.MediaLibrary \
+	Monobjc.SpriteKit \
+
 ifeq ($(BUILD_FOR_OSX_10_6),1)
 	DIRS_10_6_ALL=$(DIRS_10_6:%=%-10_6-all)
 	DIRS_10_6_CLEAN=$(DIRS_10_6:%=%-10_6-clean)
@@ -67,6 +75,11 @@ ifeq ($(BUILD_FOR_OSX_10_8),1)
 	DIRS_10_8_CLEAN=$(DIRS_10_8:%=%-10_8-clean)
 endif
 
+ifeq ($(BUILD_FOR_OSX_10_9),1)
+	DIRS_10_9_ALL=$(DIRS_10_9:%=%-10_9-all)
+	DIRS_10_9_CLEAN=$(DIRS_10_9:%=%-10_9-clean)
+endif
+
 DEFINES_COMMON=DUMMY
 ifeq ($(DEBUG_MODE),true)
 	DEFINES_COMMON+=,DEBUG
@@ -78,8 +91,9 @@ endif
 DEFINES_10_6=$(DEFINES_COMMON),MACOSX_10_4,MACOSX_10_5,MACOSX_10_6
 DEFINES_10_7=$(DEFINES_10_6),MACOSX_10_7
 DEFINES_10_8=$(DEFINES_10_7),MACOSX_10_8
+DEFINES_10_9=$(DEFINES_10_8),MACOSX_10_9
 
-DOC_XML_DIR=$(DIST_DIR)/10.8
+DOC_XML_DIR=$(DIST_DIR)/10.9
 DOC_XML_FILES=$(wildcard $(DOC_XML_DIR)/Monobjc*.xml)
 DOC_XML_NAMES=$(basename $(notdir $(DOC_XML_FILES)))
 DOC_BUILD_DIR=$(BUILD_DIR)/monodoc
@@ -89,12 +103,12 @@ DOC_DIST_DIR=$(DIST_DIR)/monodoc
 # Targets
 # ----------------------------------------
 
-all: generate-wrappers $(DIRS_10_6_ALL) $(DIRS_10_7_ALL) $(DIRS_10_8_ALL)
+all: generate-wrappers $(DIRS_10_6_ALL) $(DIRS_10_7_ALL) $(DIRS_10_8_ALL) $(DIRS_10_9_ALL)
 
 generate-wrappers:
 	$(MAKE) -C $(TOOLS_DIR) generate-wrappers
 
-clean: $(DIRS_10_6_CLEAN) $(DIRS_10_7_CLEAN) $(DIRS_10_8_CLEAN)
+clean: $(DIRS_10_6_CLEAN) $(DIRS_10_7_CLEAN) $(DIRS_10_8_CLEAN) $(DIRS_10_9_CLEAN)
 	$(RMRF) $(DOC_BUILD_DIR)
 	$(RMRF) $(DOC_DIST_DIR)
 
@@ -120,10 +134,10 @@ generate-doc:
 # $(word 2,$(subst -, ,$@)) returns the <VERSION> (i.e. 10_8)
 # $(word 3,$(subst -, ,$@)) returns the <ACTION> (i.e. all)
 #
-$(DIRS_10_6_ALL) $(DIRS_10_7_ALL) $(DIRS_10_8_ALL):
+$(DIRS_10_6_ALL) $(DIRS_10_7_ALL) $(DIRS_10_8_ALL) $(DIRS_10_9_ALL):
 	$(MAKE) -C $(word 1,$(subst -, ,$@)) DEST_DIR="$(DIST_DIR)/$(subst _,.,$(word 2,$(subst -, ,$@)))" DEFINES="$(DEFINES_$(word 2,$(subst -, ,$@)))" all
 
-$(DIRS_10_6_CLEAN) $(DIRS_10_7_CLEAN) $(DIRS_10_8_CLEAN):
+$(DIRS_10_6_CLEAN) $(DIRS_10_7_CLEAN) $(DIRS_10_8_CLEAN) $(DIRS_10_9_CLEAN):
 	$(MAKE) -C $(word 1,$(subst -, ,$@)) clean
 
 # ----------------------------------------
@@ -133,9 +147,11 @@ $(DIRS_10_6_CLEAN) $(DIRS_10_7_CLEAN) $(DIRS_10_8_CLEAN):
 .PHONY: subdirs $(DIRS_10_6_ALL)
 .PHONY: subdirs $(DIRS_10_7_ALL)
 .PHONY: subdirs $(DIRS_10_8_ALL)
+.PHONY: subdirs $(DIRS_10_9_ALL)
 .PHONY: subdirs $(DIRS_10_6_CLEAN)
 .PHONY: subdirs $(DIRS_10_7_CLEAN)
 .PHONY: subdirs $(DIRS_10_8_CLEAN)
+.PHONY: subdirs $(DIRS_10_9_CLEAN)
 
 .PHONY: \
 	all \

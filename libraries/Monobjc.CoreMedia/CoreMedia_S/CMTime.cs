@@ -1,6 +1,6 @@
 //
 // This file is part of Monobjc, a .NET/Objective-C bridge
-// Copyright (C) 2007-2013 - Laurent Etiemble
+// Copyright (C) 2007-2014 - Laurent Etiemble
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -34,50 +34,31 @@ namespace Monobjc.CoreMedia
     /// <para>Available in Mac OS X v10.7 and later.</para>
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-
     public partial struct CMTime
     {
-
         /// <summary>
-
         /// <para>The value of the CMTime.</para>
-
         /// <para>Available in Mac OS X v10.7 and later.</para>
-
         /// </summary>
-
         public long value;
 
         /// <summary>
-
         /// <para>The timescale of the CMTime.</para>
-
         /// <para>Available in Mac OS X v10.7 and later.</para>
-
         /// </summary>
-
         public int timescale;
 
         /// <summary>
-
         /// <para>A bitfield representing the flags set for the CMTime.</para>
-
         /// <para>Available in Mac OS X v10.7 and later.</para>
-
         /// </summary>
-
         public CMTimeFlags flags;
 
         /// <summary>
-
         /// <para>The epoch of the CMTime.</para>
-
         /// <para>Available in Mac OS X v10.7 and later.</para>
-
         /// </summary>
-
         public long epoch;
-
     }
 #endif
 }

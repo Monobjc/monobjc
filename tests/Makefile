@@ -53,6 +53,14 @@ DIRS_10_8= \
 	Monobjc.GLKit.Tests \
 	Monobjc.SceneKit.Tests \
 
+DIRS_10_9= \
+	$(DIRS_10_8) \
+	Monobjc.AVKit.Tests \
+	Monobjc.GameController.Tests \
+	Monobjc.MapKit.Tests \
+	Monobjc.MediaLibrary.Tests \
+	Monobjc.SpriteKit.Tests \
+
 ifeq ($(BUILD_FOR_OSX_10_6),1)
 	DIRS_10_6_ALL=$(DIRS_10_6:%=%-10_6-all)
 	DIRS_10_6_CLEAN=$(DIRS_10_6:%=%-10_6-clean)
@@ -68,6 +76,11 @@ ifeq ($(BUILD_FOR_OSX_10_8),1)
 	DIRS_10_8_CLEAN=$(DIRS_10_8:%=%-10_8-clean)
 endif
 
+ifeq ($(BUILD_FOR_OSX_10_9),1)
+	DIRS_10_9_ALL=$(DIRS_10_9:%=%-10_9-all)
+	DIRS_10_9_CLEAN=$(DIRS_10_9:%=%-10_9-clean)
+endif
+
 DEFINES_COMMON=DUMMY
 ifeq ($(DEBUG_MODE),true)
 	DEFINES_COMMON+=,DEBUG
@@ -79,18 +92,20 @@ endif
 DEFINES_10_6=$(DEFINES_COMMON),MACOSX_10_4,MACOSX_10_5,MACOSX_10_6
 DEFINES_10_7=$(DEFINES_10_6),MACOSX_10_7
 DEFINES_10_8=$(DEFINES_10_7),MACOSX_10_8
+DEFINES_10_9=$(DEFINES_10_8),MACOSX_10_9
 
 # ----------------------------------------
 # Targets
 # ----------------------------------------
 
-all: $(DIRS_10_6_ALL) $(DIRS_10_7_ALL) $(DIRS_10_8_ALL)
+all: $(DIRS_10_6_ALL) $(DIRS_10_7_ALL) $(DIRS_10_8_ALL) $(DIRS_10_9_ALL)
 	$(CPC) $(EXTERNAL_DIR)/nunit.framework.dll $(DIST_DIR)/10.6
 	$(CPC) $(EXTERNAL_DIR)/nunit.framework.dll $(DIST_DIR)/10.7
 	$(CPC) $(EXTERNAL_DIR)/nunit.framework.dll $(DIST_DIR)/10.8
+	$(CPC) $(EXTERNAL_DIR)/nunit.framework.dll $(DIST_DIR)/10.9
 	$(CPC) $(TESTS_DIR)/nunit-* $(DIST_DIR)
 
-clean: $(DIRS_10_6_CLEAN) $(DIRS_10_7_CLEAN) $(DIRS_10_8_CLEAN)
+clean: $(DIRS_10_6_CLEAN) $(DIRS_10_7_CLEAN) $(DIRS_10_8_CLEAN) $(DIRS_10_9_CLEAN)
 
 #
 # Composite target have the following form: <LIBRARY>-<VERSION>-<ACTION>
@@ -98,10 +113,10 @@ clean: $(DIRS_10_6_CLEAN) $(DIRS_10_7_CLEAN) $(DIRS_10_8_CLEAN)
 # $(word 1,$(subst -, ,$@)) returns the <LIBRARY> (i.e. Monobjc)
 # $(word 2,$(subst -, ,$@)) returns the <VERSION> (i.e. 10_8)
 #
-$(DIRS_10_6_ALL) $(DIRS_10_7_ALL) $(DIRS_10_8_ALL):
+$(DIRS_10_6_ALL) $(DIRS_10_7_ALL) $(DIRS_10_8_ALL) $(DIRS_10_9_ALL):
 	$(MAKE) -C $(word 1,$(subst -, ,$@)) DEST_DIR="$(DIST_DIR)/$(subst _,.,$(word 2,$(subst -, ,$@)))" DEFINES="$(DEFINES_$(word 2,$(subst -, ,$@)))" all
 
-$(DIRS_10_6_CLEAN) $(DIRS_10_7_CLEAN) $(DIRS_10_8_CLEAN):
+$(DIRS_10_6_CLEAN) $(DIRS_10_7_CLEAN) $(DIRS_10_8_CLEAN) $(DIRS_10_9_CLEAN):
 	$(MAKE) -C $(word 1,$(subst -, ,$@)) clean
 
 # ----------------------------------------
@@ -111,9 +126,11 @@ $(DIRS_10_6_CLEAN) $(DIRS_10_7_CLEAN) $(DIRS_10_8_CLEAN):
 .PHONY: subdirs $(DIRS_10_6_ALL)
 .PHONY: subdirs $(DIRS_10_7_ALL)
 .PHONY: subdirs $(DIRS_10_8_ALL)
+.PHONY: subdirs $(DIRS_10_9_ALL)
 .PHONY: subdirs $(DIRS_10_6_CLEAN)
 .PHONY: subdirs $(DIRS_10_7_CLEAN)
 .PHONY: subdirs $(DIRS_10_8_CLEAN)
+.PHONY: subdirs $(DIRS_10_9_CLEAN)
 
 .PHONY: \
 	all \
