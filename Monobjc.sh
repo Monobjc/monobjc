@@ -1,13 +1,13 @@
 #!/bin/bash
 
 echo "======================================="
-echo " __  __				   _	 _	  "
+echo " __  __				   _	 _	     "
 echo "|  \/  | ___  _ __   ___ | |__ (_) ___ "
 echo "| |\/| |/ _ \| '_ \ / _ \| '_ \| |/ __|"
 echo "| |  | | (_) | | | | (_) | |_) | | (__ "
 echo "|_|  |_|\___/|_| |_|\___/|_.__// |\___|"
-echo "							 |__/	  "
-echo "Installer							  "
+echo "							 |__/	     "
+echo "Installer							     "
 echo "======================================="
 echo
 
@@ -165,18 +165,29 @@ function uninstall_nant {
 function install_msbuild {
 	gacutil -i "./dist/Monobjc.MSBuild.dll"
 
-	# Copy the MSBuild tasks and targets
-	ln -s "$MONO_DIR/lib/mono/gac/Monobjc.MSBuild/$VERSION""__""$HASH/Monobjc.MSBuild.dll" "$MONO_DIR/lib/mono/4.0"
-	cp ./dist/Monobjc.*.tasks "$MONO_DIR/lib/mono/4.0/"
-	cp ./dist/Monobjc.*.targets "$MONO_DIR/lib/mono/4.0/"
+	# Copy the MSBuild tasks and targets (4.0)
+    ln -s "$MONO_DIR/lib/mono/gac/Monobjc.MSBuild/$VERSION""__""$HASH/Monobjc.MSBuild.dll" "$MONO_DIR/lib/mono/4.0"
+    cp ./dist/Monobjc.*.tasks "$MONO_DIR/lib/mono/4.0/"
+    cp ./dist/Monobjc.*.targets "$MONO_DIR/lib/mono/4.0/"
+
+    # Copy the MSBuild tasks and targets (4.5)
+    ln -s "$MONO_DIR/lib/mono/gac/Monobjc.MSBuild/$VERSION""__""$HASH/Monobjc.MSBuild.dll" "$MONO_DIR/lib/mono/4.5"
+    cp ./dist/Monobjc.*.tasks "$MONO_DIR/lib/mono/4.5/"
+    cp ./dist/Monobjc.*.targets "$MONO_DIR/lib/mono/4.5/"
 }
 
 function uninstall_msbuild {
-	# Remove the MSBuild tasks and targets
-	rm -f "$MONO_DIR/lib/mono/4.0/Monobjc.Build.dll"
-	rm -f "$MONO_DIR/lib/mono/4.0/Monobjc.MSBuild.dll"
-	rm -f "$MONO_DIR/lib/mono/4.0/Monobjc.*.tasks"
-	rm -f "$MONO_DIR/lib/mono/4.0/Monobjc.*.targets"
+	# Remove the MSBuild tasks and targets (4.0)
+    rm -f "$MONO_DIR/lib/mono/4.0/Monobjc.Build.dll"
+    rm -f "$MONO_DIR/lib/mono/4.0/Monobjc.MSBuild.dll"
+    rm -f "$MONO_DIR/lib/mono/4.0/Monobjc.*.tasks"
+    rm -f "$MONO_DIR/lib/mono/4.0/Monobjc.*.targets"
+
+    # Remove the MSBuild tasks and targets (4.5)
+    rm -f "$MONO_DIR/lib/mono/4.5/Monobjc.Build.dll"
+    rm -f "$MONO_DIR/lib/mono/4.5/Monobjc.MSBuild.dll"
+    rm -f "$MONO_DIR/lib/mono/4.5/Monobjc.*.tasks"
+    rm -f "$MONO_DIR/lib/mono/4.5/Monobjc.*.targets"
 }
 
 function install_monodoc {
