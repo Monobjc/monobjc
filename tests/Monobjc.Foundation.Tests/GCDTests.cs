@@ -32,22 +32,22 @@ namespace Monobjc.Foundation
     [Category("GCD")]
     public class GCDTests : WrapperTests
     {
-        [Test]
-        public void TestDispatchSync()
-        {
-            IntPtr queue = Dispatch.dispatch_get_global_queue(Dispatch.DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-
-            int run = 0;
-            dispatch_block_t block = delegate
-            {
-                run++;
-            };
-
-            Dispatch.dispatch_sync(queue, block);
-
-            Assert.AreEqual(1, run, "dispatch_sync should have been executed");
-        }
-
+//        [Test]
+//        public void TestDispatchSync()
+//        {
+//            IntPtr queue = Dispatch.dispatch_get_global_queue(Dispatch.DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//
+//            int run = 0;
+//            dispatch_block_t block = delegate
+//            {
+//                run++;
+//            };
+//
+//            Dispatch.dispatch_sync(queue, block);
+//
+//            Assert.AreEqual(1, run, "dispatch_sync should have been executed");
+//        }
+//
 //        [Test]
 //        public void TestDispatchAsync()
 //        {
