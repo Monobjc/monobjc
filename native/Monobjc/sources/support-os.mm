@@ -44,9 +44,8 @@ static const NXArchInfo *arch_info = NULL;
 
 SInt32 monobjc_get_os_version() {
     if (!os_version) {
-        if (Gestalt(gestaltSystemVersion, &os_version) < 0) {
-            LOG_ERROR(MONOBJC_DOMAIN_GENERAL, "Cannot retrieve the system version.");
-        }
+        NSOperatingSystemVersion version = [[NSProcessInfo processInfo] operatingSystemVersion];
+        os_version = version.majorVersion * 256 + version.minorVersion;
     }
     return os_version;
 }
@@ -63,10 +62,10 @@ const NXArchInfo *monobjc_get_arch_info() {
 
 int monobjc_are_associated_objects_available() {
     SInt32 version = monobjc_get_os_version();
-    return (version >= 0x1060);
+    return (version >= MACOS_10_6);
 }
 
 int monobjc_are_blocks_available() {
     SInt32 version = monobjc_get_os_version();
-    return (version >= 0x1060);
+    return (version >= MACOS_10_6);
 }

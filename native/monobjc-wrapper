@@ -10,7 +10,10 @@ case $(uname -r) in
 	12.*)
 		"/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/monobjc-10.8/runtime" $@
 	;;
+	13.*)
+		"/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/monobjc-10.9/runtime" $@
+	;;
 	*)
-		"/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/monobjc-10.8/runtime" $@
+		"/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/monobjc-10.9/runtime" $@
 	;;
 esac
