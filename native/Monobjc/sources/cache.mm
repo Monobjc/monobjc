@@ -102,7 +102,7 @@ void monobjc_dump_caches() {
 
 void monobjc_cache_map_instance(void *ptr, MonoObject *wrapper) {
     LOG_DEBUG(MONOBJC_DOMAIN_INSTANCES, "Map instance %p", ptr);
-    uint32_t gchandle = mono_gchandle_new(wrapper, FALSE);
+    uint64_t gchandle = mono_gchandle_new(wrapper, FALSE);
     g_hash_table_insert(__INSTANCES_HASHTABLE, ptr, (void *) gchandle);
 }
 

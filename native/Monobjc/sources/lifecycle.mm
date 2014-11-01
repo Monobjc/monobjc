@@ -76,7 +76,7 @@ void monobjc_intercep_dealloc_for(Class cls) {
     }
 
     // Get the root meta class
-    Class root_meta_class = cls->isa->isa;
+    Class root_meta_class = object_getClass(object_getClass(cls));
     
     // Check if we already deal with the root meta class
     if (g_hash_table_lookup(__IMPLEMENTATIONS, root_meta_class)) {
