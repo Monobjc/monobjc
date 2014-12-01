@@ -66,7 +66,7 @@ namespace Monobjc.Foundation
         ///</returns>
         public override String ToString()
         {
-            return ToStringInternal(this.NativePointer);
+            return Marshal.PtrToStringAuto(this.UTF8String);
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace Monobjc.Foundation
         /// <returns>The result of the conversion.</returns>
         public static implicit operator String(NSString value)
         {
-            return value != null ? ToStringInternal(value.NativePointer) : null;
+            return value != null ? value.ToString() : null;
         }
 
         /// <summary>
@@ -119,10 +119,13 @@ namespace Monobjc.Foundation
             return (@string == null || @string.IsEqualToString(NSString.String));
         }
 
-        /// <summary>
-        /// Internal call to convert a <see cref="Monobjc.Foundation.NSString"/> object to a <see cref="System.String"/> object.
-        /// </summary>
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public extern static String ToStringInternal (IntPtr ptr);
+        //
+        // TODO: This method is commented out. There seems to be a bug in the embedded glib.
+        //
+        // /// <summary>
+        // /// Internal call to convert a <see cref="Monobjc.Foundation.NSString"/> object to a <see cref="System.String"/> object.
+        // /// </summary>
+        // [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        // public extern static String ToStringInternal (IntPtr ptr);
     }
 }
