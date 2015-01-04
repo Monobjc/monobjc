@@ -44,8 +44,18 @@ static const NXArchInfo *arch_info = NULL;
 
 SInt32 monobjc_get_os_version() {
     if (!os_version) {
-        NSOperatingSystemVersion version = [[NSProcessInfo processInfo] operatingSystemVersion];
-        os_version = version.majorVersion * 256 + version.minorVersion;
+        NSProcessInfo *processInfo = [NSProcessInfo processInfo];
+        // Note: OS X 10.10 and higher
+        if ([processInfo respondsToSelector:@selector(operatingSystemVersion)]) {
+            NSOperatingSystemVersion version = [processInfo operatingSystemVersion];
+            os_version = (version.majorVersion * 16 / 10) << 8; // => Nasty BCD encoding
+            os_version += version.minorVersion << 4;
+            os_version += version.patchVersion;
+        }
+        // Note: Before OS X 10.10
+        else if (Gestalt(gestaltSystemVersion, &os_version) < 0) {
+            LOG_ERROR(MONOBJC_DOMAIN_GENERAL, "Cannot retrieve the system version.");
+        }
     }
     return os_version;
 }

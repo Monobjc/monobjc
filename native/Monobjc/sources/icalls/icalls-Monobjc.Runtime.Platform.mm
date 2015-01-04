@@ -51,7 +51,41 @@ MonoString *icall_Monobjc_Runtime_Platform_GetProcessor(void) {
  */
 OSVersion icall_Monobjc_Runtime_Platform_GetOSVersion(void) {
     SInt32 version = monobjc_get_os_version();
-    return (OSVersion) version;
+    
+    if (version < MACOS_10_0) {
+        return MACOS_Unrecognized;
+    }
+    if (version < MACOS_10_1) {
+        return MACOS_10_0;
+    }
+    if (version < MACOS_10_2) {
+        return MACOS_10_1;
+    }
+    if (version < MACOS_10_3) {
+        return MACOS_10_2;
+    }
+    if (version < MACOS_10_4) {
+        return MACOS_10_3;
+    }
+    if (version < MACOS_10_5) {
+        return MACOS_10_4;
+    }
+    if (version < MACOS_10_6) {
+        return MACOS_10_5;
+    }
+    if (version < MACOS_10_7) {
+        return MACOS_10_6;
+    }
+    if (version < MACOS_10_8) {
+        return MACOS_10_7;
+    }
+    if (version < MACOS_10_9) {
+        return MACOS_10_8;
+    }
+    if (version < MACOS_10_10) {
+        return MACOS_10_9;
+    }
+    return MACOS_10_10;
 }
 
 /**
@@ -72,6 +106,6 @@ boolean_t icall_Monobjc_Runtime_Platform_IsBigEndian(void) {
 #elif TARGET_RT_LITTLE_ENDIAN
     return false;
 #else
-    #error Unsupported Endianness
+#error Unsupported Endianness
 #endif
 }

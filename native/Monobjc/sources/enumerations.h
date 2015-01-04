@@ -56,62 +56,62 @@ typedef enum MonobjcLogDomain {
 /** @brief  Enumeration that holds values for Mac OS system version. */
 typedef enum OSVersion {
     /** @brief  Default value. */
-    MACOS_Unrecognized = 0,
+    MACOS_Unrecognized = 0x0000,
     /**
      * @brief   Value for MacOS 10.0 (Cheetah).
      * @remark  Here for compatibility reasons.
      */
-    MACOS_10_0 = 10 * 256 + 0,
+    MACOS_10_0 = 0x1000,
     /**
      * @brief   Value for MacOS 10.1 (Puma).
      * @remark  Here for compatibility reasons.
      */
-    MACOS_10_1 = 10 * 256 + 1,
+    MACOS_10_1 = 0x1010,
     /**
      * @brief   Value for MacOS 10.2 (Jaguar).
      * @remark  Here for compatibility reasons.
      */
-    MACOS_10_2 = 10 * 256 + 2,
+    MACOS_10_2 = 0x1020,
     /**
      * @brief   Value for MacOS 10.3 (Panther).
      * @remark  Here for compatibility reasons.
      */
-    MACOS_10_3 = 10 * 256 + 3,
+    MACOS_10_3 = 0x1030,
     /**
      * @brief   Value for MacOS 10.4 (Tiger).
      * @remark  This is no longer a supported platform.
      */
-    MACOS_10_4 = 10 * 256 + 4,
+    MACOS_10_4 = 0x1040,
     /**
      * @brief   Value for MacOS 10.5 (Leopard).
      * @remark  This is a supported platform.
      */
-    MACOS_10_5 = 10 * 256 + 5,
+    MACOS_10_5 = 0x1050,
     /**
      * @brief   Value for MacOS 10.6 (Snow Leopard).
      * @remark  This is a supported platform.
      */
-    MACOS_10_6 = 10 * 256 + 6,
+    MACOS_10_6 = 0x1060,
     /**
      * @brief   Value for MacOS 10.7 (Lion).
      * @remark  This is a supported platform.
      */
-    MACOS_10_7 = 10 * 256 + 7,
+    MACOS_10_7 = 0x1070,
     /**
      * @brief   Value for MacOS 10.8 (Mountain Lion).
      * @remark  This is a supported platform.
      */
-    MACOS_10_8 = 10 * 256 + 8,
+    MACOS_10_8 = 0x1080,
     /**
      * @brief   Value for MacOS 10.9 (Mavericks).
      * @remark  This is a supported platform.
      */
-    MACOS_10_9 = 10 * 256 + 9,
+    MACOS_10_9 = 0x1090,
     /**
      * @brief   Value for MacOS 10.10 (Yosemite).
      * @remark  This is a supported platform.
      */
-    MACOS_10_10 = 10 * 256 + 10,
+    MACOS_10_10 = 0x10A0,
 } OSVersion;
 
 /**

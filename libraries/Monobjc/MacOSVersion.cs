@@ -30,50 +30,50 @@ namespace Monobjc
 		/// <summary>
 		///   Default value
 		/// </summary>
-		MacOSUnrecognized = 0,
+		MacOSUnrecognized = 0x0000,
 		/// <summary>
 		///   Value for MacOS 10.0 (Cheetah)
 		/// </summary>
-		MacOS100 = 10 * 256 + 0,
+		MacOS100 = 0x1000,
 		/// <summary>
 		///   Value for MacOS 10.1 (Puma)
 		/// </summary>
-        MacOS101 = 10 * 256 + 1,
+		MacOS101 = 0x1010,
 		/// <summary>
 		///   Value for MacOS 10.2 (Jaguar)
 		/// </summary>
-        MacOS102 = 10 * 256 + 2,
+		MacOS102 = 0x1020,
 		/// <summary>
 		///   Value for MacOS 10.3 (Panther)
 		/// </summary>
-        MacOS103 = 10 * 256 + 3,
+		MacOS103 = 0x1030,
 		/// <summary>
 		///   Value for MacOS 10.4 (Tiger)
 		/// </summary>
-        MacOS104 = 10 * 256 + 4,
+		MacOS104 = 0x1040,
 		/// <summary>
 		///   Value for MacOS 10.5 (Leopard)
 		/// </summary>
-        MacOS105 = 10 * 256 + 5,
+		MacOS105 = 0x1050,
 		/// <summary>
 		///   Value for MacOS 10.6 (Snow Leopard)
 		/// </summary>
-        MacOS106 = 10 * 256 + 6,
+		MacOS106 = 0x1060,
 		/// <summary>
 		///   Value for MacOS 10.7 (Lion)
 		/// </summary>
-        MacOS107 = 10 * 256 + 7,
+		MacOS107 = 0x1070,
         /// <summary>
         ///   Value for MacOS 10.8 (Mountain Lion)
         /// </summary>
-        MacOS108 = 10 * 256 + 8,
+        MacOS108 = 0x1080,
         /// <summary>
         ///   Value for MacOS 10.9 (Mavericks)
         /// </summary>
-        MacOS109 = 10 * 256 + 9,
+        MacOS109 = 0x1090,
         /// <summary>
-        ///   Value for MacOS 10.9 (Yosemite)
+        ///   Value for MacOS 10.10 (Yosemite)
         /// </summary>
-        MacOS1010 = 10 * 256 + 10,
+        MacOS1010 = 0x10A0,
 	}
 }
